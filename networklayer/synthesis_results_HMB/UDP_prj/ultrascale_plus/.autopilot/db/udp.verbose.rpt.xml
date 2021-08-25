@@ -1,0 +1,346 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'udp'" level="0">
+<item name = "Date">Thu Aug  5 18:58:32 2021
+</item>
+<item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
+<item name = "Project">UDP_prj</item>
+<item name = "Solution">ultrascale_plus</item>
+<item name = "Product family">virtexuplus</item>
+<item name = "Target device">xcu280-fsvh2892-2L-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">2.50 ns, 2.375 ns, 0.20 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">7, 7, 17.500 ns, 17.500 ns, 1, 1, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="udpTxEngine_U0">udpTxEngine, 2, 2, 5.000 ns, 5.000 ns, 1, 1, function</column>
+<column name="rxTableHandler_U0">rxTableHandler, 2, 2, 5.000 ns, 5.000 ns, 1, 1, function</column>
+<column name="udpRxEngine_U0">udpRxEngine, 1, 1, 2.500 ns, 2.500 ns, 1, 1, function</column>
+<column name="rxEngPacketDropper_U0">rxEngPacketDropper, 2, 2, 5.000 ns, 5.000 ns, 1, 1, function</column>
+<column name="appGetMetaData_U0">appGetMetaData, 1, 1, 2.500 ns, 2.500 ns, 1, 1, function</column>
+<column name="txTableHandler_U0">txTableHandler, 1, 1, 2.500 ns, 2.500 ns, 1, 1, function</column>
+<column name="udp_entry266_U0">udp_entry266, 0, 0, 0 ns, 0 ns, 0, 0, none</column>
+<column name="udp_entry3_U0">udp_entry3, 0, 0, 0 ns, 0 ns, 0, 0, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, -, -, -</column>
+<column name="FIFO">85, -, 2826, 6956, -</column>
+<column name="Instance">0, -, 5883, 7556, -</column>
+<column name="Memory">-, -, -, -, -</column>
+<column name="Multiplexer">-, -, -, -, -</column>
+<column name="Register">-, -, -, -, -</column>
+<specialColumn name="Available SLR">1344, 3008, 869120, 434560, 320</specialColumn>
+<specialColumn name="Utilization SLR (%)">6, 0, 1, 3, 0</specialColumn>
+<specialColumn name="Available">4032, 9024, 2607360, 1303680, 960</specialColumn>
+<specialColumn name="Utilization (%)">2, 0, ~0, 1, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="appGetMetaData_U0">appGetMetaData, 0, 0, 623, 451, 0</column>
+<column name="rxEngPacketDropper_U0">rxEngPacketDropper, 0, 0, 701, 64, 0</column>
+<column name="rxTableHandler_U0">rxTableHandler, 0, 0, 164, 1423, 0</column>
+<column name="txTableHandler_U0">txTableHandler, 0, 0, 69, 873, 0</column>
+<column name="udpRxEngine_U0">udpRxEngine, 0, 0, 1259, 142, 0</column>
+<column name="udpTxEngine_U0">udpTxEngine, 0, 0, 1587, 269, 0</column>
+<column name="udp_entry266_U0">udp_entry266, 0, 0, 2, 1595, 0</column>
+<column name="udp_entry3_U0">udp_entry3, 0, 0, 2, 587, 0</column>
+<column name="udp_s_axilite_s_axi_U">udp_s_axilite_s_axi, 0, 0, 1476, 2152, 0</column>
+</table>
+</item>
+<item name = "DSP48E"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+<column name="SocketTable_0_myPor_1_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_0_myPor_2_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_0_myPor_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_0_their_2_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_0_their_3_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_0_their_4_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_0_their_5_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_0_their_6_U">0, 5, 0, -, 2, 32, 64</column>
+<column name="SocketTable_0_their_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_0_valid_1_U">0, 5, 0, -, 2, 1, 2</column>
+<column name="SocketTable_0_valid_U">0, 5, 0, -, 3, 1, 3</column>
+<column name="SocketTable_10_myPo_1_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_10_myPo_2_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_10_myPo_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_10_thei_2_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_10_thei_3_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_10_thei_4_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_10_thei_5_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_10_thei_6_U">0, 5, 0, -, 2, 32, 64</column>
+<column name="SocketTable_10_thei_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_10_vali_1_U">0, 5, 0, -, 2, 1, 2</column>
+<column name="SocketTable_10_vali_U">0, 5, 0, -, 3, 1, 3</column>
+<column name="SocketTable_11_myPo_1_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_11_myPo_2_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_11_myPo_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_11_thei_2_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_11_thei_3_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_11_thei_4_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_11_thei_5_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_11_thei_6_U">0, 5, 0, -, 2, 32, 64</column>
+<column name="SocketTable_11_thei_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_11_vali_1_U">0, 5, 0, -, 2, 1, 2</column>
+<column name="SocketTable_11_vali_U">0, 5, 0, -, 3, 1, 3</column>
+<column name="SocketTable_12_myPo_1_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_12_myPo_2_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_12_myPo_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_12_thei_2_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_12_thei_3_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_12_thei_4_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_12_thei_5_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_12_thei_6_U">0, 5, 0, -, 2, 32, 64</column>
+<column name="SocketTable_12_thei_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_12_vali_1_U">0, 5, 0, -, 2, 1, 2</column>
+<column name="SocketTable_12_vali_U">0, 5, 0, -, 3, 1, 3</column>
+<column name="SocketTable_13_myPo_1_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_13_myPo_2_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_13_myPo_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_13_thei_2_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_13_thei_3_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_13_thei_4_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_13_thei_5_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_13_thei_6_U">0, 5, 0, -, 2, 32, 64</column>
+<column name="SocketTable_13_thei_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_13_vali_1_U">0, 5, 0, -, 2, 1, 2</column>
+<column name="SocketTable_13_vali_U">0, 5, 0, -, 3, 1, 3</column>
+<column name="SocketTable_14_myPo_1_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_14_myPo_2_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_14_myPo_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_14_thei_2_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_14_thei_3_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_14_thei_4_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_14_thei_5_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_14_thei_6_U">0, 5, 0, -, 2, 32, 64</column>
+<column name="SocketTable_14_thei_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_14_vali_1_U">0, 5, 0, -, 2, 1, 2</column>
+<column name="SocketTable_14_vali_U">0, 5, 0, -, 3, 1, 3</column>
+<column name="SocketTable_15_myPo_1_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_15_myPo_2_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_15_myPo_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_15_thei_2_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_15_thei_3_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_15_thei_4_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_15_thei_5_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_15_thei_6_U">0, 5, 0, -, 2, 32, 64</column>
+<column name="SocketTable_15_thei_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_15_vali_1_U">0, 5, 0, -, 2, 1, 2</column>
+<column name="SocketTable_15_vali_U">0, 5, 0, -, 3, 1, 3</column>
+<column name="SocketTable_1_myPor_1_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_1_myPor_2_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_1_myPor_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_1_their_2_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_1_their_3_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_1_their_4_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_1_their_5_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_1_their_6_U">0, 5, 0, -, 2, 32, 64</column>
+<column name="SocketTable_1_their_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_1_valid_1_U">0, 5, 0, -, 2, 1, 2</column>
+<column name="SocketTable_1_valid_U">0, 5, 0, -, 3, 1, 3</column>
+<column name="SocketTable_2_myPor_1_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_2_myPor_2_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_2_myPor_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_2_their_2_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_2_their_3_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_2_their_4_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_2_their_5_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_2_their_6_U">0, 5, 0, -, 2, 32, 64</column>
+<column name="SocketTable_2_their_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_2_valid_1_U">0, 5, 0, -, 2, 1, 2</column>
+<column name="SocketTable_2_valid_U">0, 5, 0, -, 3, 1, 3</column>
+<column name="SocketTable_3_myPor_1_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_3_myPor_2_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_3_myPor_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_3_their_2_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_3_their_3_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_3_their_4_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_3_their_5_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_3_their_6_U">0, 5, 0, -, 2, 32, 64</column>
+<column name="SocketTable_3_their_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_3_valid_1_U">0, 5, 0, -, 2, 1, 2</column>
+<column name="SocketTable_3_valid_U">0, 5, 0, -, 3, 1, 3</column>
+<column name="SocketTable_4_myPor_1_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_4_myPor_2_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_4_myPor_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_4_their_2_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_4_their_3_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_4_their_4_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_4_their_5_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_4_their_6_U">0, 5, 0, -, 2, 32, 64</column>
+<column name="SocketTable_4_their_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_4_valid_1_U">0, 5, 0, -, 2, 1, 2</column>
+<column name="SocketTable_4_valid_U">0, 5, 0, -, 3, 1, 3</column>
+<column name="SocketTable_5_myPor_1_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_5_myPor_2_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_5_myPor_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_5_their_2_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_5_their_3_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_5_their_4_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_5_their_5_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_5_their_6_U">0, 5, 0, -, 2, 32, 64</column>
+<column name="SocketTable_5_their_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_5_valid_1_U">0, 5, 0, -, 2, 1, 2</column>
+<column name="SocketTable_5_valid_U">0, 5, 0, -, 3, 1, 3</column>
+<column name="SocketTable_6_myPor_1_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_6_myPor_2_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_6_myPor_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_6_their_2_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_6_their_3_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_6_their_4_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_6_their_5_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_6_their_6_U">0, 5, 0, -, 2, 32, 64</column>
+<column name="SocketTable_6_their_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_6_valid_1_U">0, 5, 0, -, 2, 1, 2</column>
+<column name="SocketTable_6_valid_U">0, 5, 0, -, 3, 1, 3</column>
+<column name="SocketTable_7_myPor_1_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_7_myPor_2_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_7_myPor_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_7_their_2_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_7_their_3_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_7_their_4_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_7_their_5_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_7_their_6_U">0, 5, 0, -, 2, 32, 64</column>
+<column name="SocketTable_7_their_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_7_valid_1_U">0, 5, 0, -, 2, 1, 2</column>
+<column name="SocketTable_7_valid_U">0, 5, 0, -, 3, 1, 3</column>
+<column name="SocketTable_8_myPor_1_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_8_myPor_2_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_8_myPor_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_8_their_2_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_8_their_3_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_8_their_4_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_8_their_5_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_8_their_6_U">0, 5, 0, -, 2, 32, 64</column>
+<column name="SocketTable_8_their_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_8_valid_1_U">0, 5, 0, -, 2, 1, 2</column>
+<column name="SocketTable_8_valid_U">0, 5, 0, -, 3, 1, 3</column>
+<column name="SocketTable_9_myPor_1_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_9_myPor_2_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_9_myPor_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_9_their_2_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_9_their_3_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_9_their_4_U">0, 5, 0, -, 3, 32, 96</column>
+<column name="SocketTable_9_their_5_U">0, 5, 0, -, 2, 16, 32</column>
+<column name="SocketTable_9_their_6_U">0, 5, 0, -, 2, 32, 64</column>
+<column name="SocketTable_9_their_U">0, 5, 0, -, 3, 16, 48</column>
+<column name="SocketTable_9_valid_1_U">0, 5, 0, -, 2, 1, 2</column>
+<column name="SocketTable_9_valid_U">0, 5, 0, -, 3, 1, 3</column>
+<column name="agmdDataOut_V_U">33, 616, 0, -, 512, 577, 295424</column>
+<column name="agmdIdOut_V_V_U">0, 178, 0, -, 32, 16, 512</column>
+<column name="agmdpayloadLenOut_V_s_U">0, 178, 0, -, 32, 16, 512</column>
+<column name="rthDropFifo_V_U">7, 130, 0, -, 32, 113, 3616</column>
+<column name="txthMetaData_V_U">6, 114, 0, -, 32, 97, 3104</column>
+<column name="ureDataPayload_V_U">33, 616, 0, -, 512, 577, 295424</column>
+<column name="ureMetaData_V_U">6, 114, 0, -, 32, 97, 3104</column>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="s_axi_s_axilite_AWVALID">in, 1, s_axi, s_axilite, pointer</column>
+<column name="s_axi_s_axilite_AWREADY">out, 1, s_axi, s_axilite, pointer</column>
+<column name="s_axi_s_axilite_AWADDR">in, 10, s_axi, s_axilite, pointer</column>
+<column name="s_axi_s_axilite_WVALID">in, 1, s_axi, s_axilite, pointer</column>
+<column name="s_axi_s_axilite_WREADY">out, 1, s_axi, s_axilite, pointer</column>
+<column name="s_axi_s_axilite_WDATA">in, 32, s_axi, s_axilite, pointer</column>
+<column name="s_axi_s_axilite_WSTRB">in, 4, s_axi, s_axilite, pointer</column>
+<column name="s_axi_s_axilite_ARVALID">in, 1, s_axi, s_axilite, pointer</column>
+<column name="s_axi_s_axilite_ARREADY">out, 1, s_axi, s_axilite, pointer</column>
+<column name="s_axi_s_axilite_ARADDR">in, 10, s_axi, s_axilite, pointer</column>
+<column name="s_axi_s_axilite_RVALID">out, 1, s_axi, s_axilite, pointer</column>
+<column name="s_axi_s_axilite_RREADY">in, 1, s_axi, s_axilite, pointer</column>
+<column name="s_axi_s_axilite_RDATA">out, 32, s_axi, s_axilite, pointer</column>
+<column name="s_axi_s_axilite_RRESP">out, 2, s_axi, s_axilite, pointer</column>
+<column name="s_axi_s_axilite_BVALID">out, 1, s_axi, s_axilite, pointer</column>
+<column name="s_axi_s_axilite_BREADY">in, 1, s_axi, s_axilite, pointer</column>
+<column name="s_axi_s_axilite_BRESP">out, 2, s_axi, s_axilite, pointer</column>
+<column name="ap_clk">in, 1, ap_ctrl_none, udp, return value</column>
+<column name="ap_rst_n">in, 1, ap_ctrl_none, udp, return value</column>
+<column name="rxUdpDataIn_TDATA">in, 512, axis, rxUdpDataIn_V_data_V, pointer</column>
+<column name="rxUdpDataIn_TKEEP">in, 64, axis, rxUdpDataIn_V_keep_V, pointer</column>
+<column name="rxUdpDataIn_TLAST">in, 1, axis, rxUdpDataIn_V_last_V, pointer</column>
+<column name="rxUdpDataIn_TVALID">in, 1, axis, rxUdpDataIn_V_last_V, pointer</column>
+<column name="rxUdpDataIn_TREADY">out, 1, axis, rxUdpDataIn_V_last_V, pointer</column>
+<column name="txUdpDataOut_TDATA">out, 512, axis, txUdpDataOut_V_data_V, pointer</column>
+<column name="txUdpDataOut_TKEEP">out, 64, axis, txUdpDataOut_V_keep_V, pointer</column>
+<column name="txUdpDataOut_TLAST">out, 1, axis, txUdpDataOut_V_last_V, pointer</column>
+<column name="txUdpDataOut_TVALID">out, 1, axis, txUdpDataOut_V_last_V, pointer</column>
+<column name="txUdpDataOut_TREADY">in, 1, axis, txUdpDataOut_V_last_V, pointer</column>
+<column name="DataOutApp_TDATA">out, 512, axis, DataOutApp_V_data_V, pointer</column>
+<column name="DataOutApp_TKEEP">out, 64, axis, DataOutApp_V_keep_V, pointer</column>
+<column name="DataOutApp_TDEST">out, 16, axis, DataOutApp_V_dest_V, pointer</column>
+<column name="DataOutApp_TLAST">out, 1, axis, DataOutApp_V_last_V, pointer</column>
+<column name="DataOutApp_TUSER">out, 96, axis, DataOutApp_V_user, pointer</column>
+<column name="DataOutApp_TVALID">out, 1, axis, DataOutApp_V_user, pointer</column>
+<column name="DataOutApp_TREADY">in, 1, axis, DataOutApp_V_user, pointer</column>
+<column name="DataInApp_TDATA">in, 512, axis, DataInApp_V_data_V, pointer</column>
+<column name="DataInApp_TKEEP">in, 64, axis, DataInApp_V_keep_V, pointer</column>
+<column name="DataInApp_TDEST">in, 16, axis, DataInApp_V_dest_V, pointer</column>
+<column name="DataInApp_TLAST">in, 1, axis, DataInApp_V_last_V, pointer</column>
+<column name="DataInApp_TUSER">in, 96, axis, DataInApp_V_user, pointer</column>
+<column name="DataInApp_TVALID">in, 1, axis, DataInApp_V_user, pointer</column>
+<column name="DataInApp_TREADY">out, 1, axis, DataInApp_V_user, pointer</column>
+<column name="myIpAddress_V">in, 32, ap_stable, myIpAddress_V, pointer</column>
+</table>
+</item>
+</section>
+</profile>

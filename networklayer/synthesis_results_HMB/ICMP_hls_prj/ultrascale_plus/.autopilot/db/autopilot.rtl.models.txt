@@ -1,0 +1,2 @@
+regslice_core
+icmp_server

@@ -1,0 +1,180 @@
+
+
+================================================================
+== Vivado HLS Report for 'arp_server'
+================================================================
+* Date:           Thu Aug  5 18:55:57 2021
+
+* Version:        2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)
+* Project:        ARP_hls_prj
+* Solution:       ultrascale_plus
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  | 3.10 ns | 3.337 ns |   0.20 ns  |
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+----------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline |
+    |   min   |   max   |    min    |    max    | min | max |   Type   |
+    +---------+---------+-----------+-----------+-----+-----+----------+
+    |        7|        7| 23.359 ns | 23.359 ns |    1|    1| dataflow |
+    +---------+---------+-----------+-----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        +------------------------+---------------------+---------+---------+----------+----------+-----+-----+----------+
+        |                        |                     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+        |        Instance        |        Module       |   min   |   max   |    min   |    max   | min | max |   Type   |
+        +------------------------+---------------------+---------+---------+----------+----------+-----+-----+----------+
+        |arp_pkg_sender_U0       |arp_pkg_sender       |        2|        2| 6.674 ns | 6.674 ns |    1|    1| function |
+        |arp_table_U0            |arp_table            |        2|        2| 6.674 ns | 6.674 ns |    1|    1| function |
+        |arp_pkg_receiver_U0     |arp_pkg_receiver     |        1|        1| 3.337 ns | 3.337 ns |    1|    1| function |
+        |genARPDiscovery_U0      |genARPDiscovery      |        2|        2| 6.674 ns | 6.674 ns |    1|    1| function |
+        |arp_server_entry174_U0  |arp_server_entry174  |        0|        0|   0 ns   |   0 ns   |    0|    0|   none   |
+        +------------------------+---------------------+---------+---------+----------+----------+-----+-----+----------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+-----+
+|         Name        | BRAM_18K| DSP48E|    FF   |   LUT   | URAM|
++---------------------+---------+-------+---------+---------+-----+
+|DSP                  |        -|      -|        -|        -|    -|
+|Expression           |        -|      -|        -|        -|    -|
+|FIFO                 |       11|      -|      267|      854|    -|
+|Instance             |        7|      -|     1057|     1216|    -|
+|Memory               |        -|      -|        -|        -|    -|
+|Multiplexer          |        -|      -|        -|        -|    -|
+|Register             |        -|      -|        -|        -|    -|
++---------------------+---------+-------+---------+---------+-----+
+|Total                |       18|      0|     1324|     2070|    0|
++---------------------+---------+-------+---------+---------+-----+
+|Available SLR        |     1344|   3008|   869120|   434560|  320|
++---------------------+---------+-------+---------+---------+-----+
+|Utilization SLR (%)  |        1|      0|    ~0   |    ~0   |    0|
++---------------------+---------+-------+---------+---------+-----+
+|Available            |     4032|   9024|  2607360|  1303680|  960|
++---------------------+---------+-------+---------+---------+-----+
+|Utilization (%)      |    ~0   |      0|    ~0   |    ~0   |    0|
++---------------------+---------+-------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    +------------------------------+----------------------------+---------+-------+-----+-----+-----+
+    |           Instance           |           Module           | BRAM_18K| DSP48E|  FF | LUT | URAM|
+    +------------------------------+----------------------------+---------+-------+-----+-----+-----+
+    |arp_pkg_receiver_U0           |arp_pkg_receiver            |        0|      0|  203|  143|    0|
+    |arp_pkg_sender_U0             |arp_pkg_sender              |        0|      0|  268|  269|    0|
+    |arp_server_entry174_U0        |arp_server_entry174         |        0|      0|    2|   56|    0|
+    |arp_server_s_axilite_s_axi_U  |arp_server_s_axilite_s_axi  |        7|      0|  284|  254|    0|
+    |arp_table_U0                  |arp_table                   |        0|      0|  153|  222|    0|
+    |genARPDiscovery_U0            |genARPDiscovery             |        0|      0|  147|  272|    0|
+    +------------------------------+----------------------------+---------+-------+-----+-----+-----+
+    |Total                         |                            |        7|      0| 1057| 1216|    0|
+    +------------------------------+----------------------------+---------+-------+-----+-----+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +------------------------+---------+-----+----+-----+------+-----+---------+
+    |          Name          | BRAM_18K|  FF | LUT| URAM| Depth| Bits| Size:D*B|
+    +------------------------+---------+-----+----+-----+------+-----+---------+
+    |arpReplyFifo_V_U        |       11|  202|   0|    -|     4|  192|      768|
+    |arpRequestFifo_V_V_U    |        0|    5|   0|    -|     4|   32|      128|
+    |arpTableInsertFifo_V_U  |        0|    5|   0|    -|     4|   81|      324|
+    |gatewayIP_V_c43_U       |        0|    5|   0|    -|     2|   32|       64|
+    |gatewayIP_V_c_U         |        0|    5|   0|    -|     3|   32|       96|
+    |macIpEncode_i_V_V_U     |        0|    5|   0|    -|     4|   32|      128|
+    |macIpEncode_rsp_i_V_U   |        0|    5|   0|    -|     4|   49|      196|
+    |myIpAddress_V_c40_U     |        0|    5|   0|    -|     2|   32|       64|
+    |myIpAddress_V_c41_U     |        0|    5|   0|    -|     2|   32|       64|
+    |myIpAddress_V_c42_U     |        0|    5|   0|    -|     2|   32|       64|
+    |myIpAddress_V_c_U       |        0|    5|   0|    -|     2|   32|       64|
+    |myMacAddress_V_c_U      |        0|    5|   0|    -|     3|   48|      144|
+    |networkMask_V_c44_U     |        0|    5|   0|    -|     2|   32|       64|
+    |networkMask_V_c_U       |        0|    5|   0|    -|     3|   32|       96|
+    +------------------------+---------+-----+----+-----+------+-----+---------+
+    |Total                   |       11|  267|   0|    0|    41|  690|     2264|
+    +------------------------+---------+-----+----+-----+------+-----+---------+
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------------+-----+-----+--------------+---------------------+--------------+
+|          RTL Ports         | Dir | Bits|   Protocol   |    Source Object    |    C Type    |
++----------------------------+-----+-----+--------------+---------------------+--------------+
+|s_axi_s_axilite_AWVALID     |  in |    1|     s_axi    |      s_axilite      |    pointer   |
+|s_axi_s_axilite_AWREADY     | out |    1|     s_axi    |      s_axilite      |    pointer   |
+|s_axi_s_axilite_AWADDR      |  in |   13|     s_axi    |      s_axilite      |    pointer   |
+|s_axi_s_axilite_WVALID      |  in |    1|     s_axi    |      s_axilite      |    pointer   |
+|s_axi_s_axilite_WREADY      | out |    1|     s_axi    |      s_axilite      |    pointer   |
+|s_axi_s_axilite_WDATA       |  in |   32|     s_axi    |      s_axilite      |    pointer   |
+|s_axi_s_axilite_WSTRB       |  in |    4|     s_axi    |      s_axilite      |    pointer   |
+|s_axi_s_axilite_ARVALID     |  in |    1|     s_axi    |      s_axilite      |    pointer   |
+|s_axi_s_axilite_ARREADY     | out |    1|     s_axi    |      s_axilite      |    pointer   |
+|s_axi_s_axilite_ARADDR      |  in |   13|     s_axi    |      s_axilite      |    pointer   |
+|s_axi_s_axilite_RVALID      | out |    1|     s_axi    |      s_axilite      |    pointer   |
+|s_axi_s_axilite_RREADY      |  in |    1|     s_axi    |      s_axilite      |    pointer   |
+|s_axi_s_axilite_RDATA       | out |   32|     s_axi    |      s_axilite      |    pointer   |
+|s_axi_s_axilite_RRESP       | out |    2|     s_axi    |      s_axilite      |    pointer   |
+|s_axi_s_axilite_BVALID      | out |    1|     s_axi    |      s_axilite      |    pointer   |
+|s_axi_s_axilite_BREADY      |  in |    1|     s_axi    |      s_axilite      |    pointer   |
+|s_axi_s_axilite_BRESP       | out |    2|     s_axi    |      s_axilite      |    pointer   |
+|ap_clk                      |  in |    1| ap_ctrl_none |      arp_server     | return value |
+|ap_rst_n                    |  in |    1| ap_ctrl_none |      arp_server     | return value |
+|arpDataIn_TDATA             |  in |  512|     axis     |  arpDataIn_V_data_V |    pointer   |
+|arpDataIn_TKEEP             |  in |   64|     axis     |  arpDataIn_V_keep_V |    pointer   |
+|arpDataIn_TLAST             |  in |    1|     axis     |  arpDataIn_V_last_V |    pointer   |
+|arpDataIn_TVALID            |  in |    1|     axis     |  arpDataIn_V_last_V |    pointer   |
+|arpDataIn_TREADY            | out |    1|     axis     |  arpDataIn_V_last_V |    pointer   |
+|macIpEncode_req_V_V_TDATA   |  in |   32|     axis     | macIpEncode_req_V_V |    pointer   |
+|macIpEncode_req_V_V_TVALID  |  in |    1|     axis     | macIpEncode_req_V_V |    pointer   |
+|macIpEncode_req_V_V_TREADY  | out |    1|     axis     | macIpEncode_req_V_V |    pointer   |
+|arpDataOut_TDATA            | out |  512|     axis     | arpDataOut_V_data_V |    pointer   |
+|arpDataOut_TKEEP            | out |   64|     axis     | arpDataOut_V_keep_V |    pointer   |
+|arpDataOut_TLAST            | out |    1|     axis     | arpDataOut_V_last_V |    pointer   |
+|arpDataOut_TVALID           | out |    1|     axis     | arpDataOut_V_last_V |    pointer   |
+|arpDataOut_TREADY           |  in |    1|     axis     | arpDataOut_V_last_V |    pointer   |
+|macIpEncode_rsp_V_TDATA     | out |   56|     axis     |  macIpEncode_rsp_V  |    pointer   |
+|macIpEncode_rsp_V_TVALID    | out |    1|     axis     |  macIpEncode_rsp_V  |    pointer   |
+|macIpEncode_rsp_V_TREADY    |  in |    1|     axis     |  macIpEncode_rsp_V  |    pointer   |
+|myMacAddress_V              |  in |   48|    ap_none   |    myMacAddress_V   |    pointer   |
+|myIpAddress_V               |  in |   32|    ap_none   |    myIpAddress_V    |    pointer   |
+|gatewayIP_V                 |  in |   32|    ap_none   |     gatewayIP_V     |    pointer   |
+|networkMask_V               |  in |   32|    ap_none   |    networkMask_V    |    pointer   |
++----------------------------+-----+-----+--------------+---------------------+--------------+
+

@@ -1,0 +1,515 @@
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Setting target device to 'xcu280-fsvh2892-2L-e'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 2.5ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.2ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file '/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/TOE/common_utilities/common_utilities.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file '/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:01:22 ; elapsed = 00:01:26 . Memory (MB): peak = 1664.500 ; gain = 1231.887 ; free physical = 26364 ; free virtual = 42893
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:01:22 ; elapsed = 00:01:26 . Memory (MB): peak = 1664.500 ; gain = 1231.887 ; free physical = 26364 ; free virtual = 42893
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:01:24 ; elapsed = 00:01:29 . Memory (MB): peak = 1664.500 ; gain = 1231.887 ; free physical = 26328 ; free virtual = 42862
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'byteSwap<32>' into 'udpRxEngine' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:135) automatically.
+INFO: [XFORM 203-602] Inlining function 'byteSwap<32>' into 'rxTableHandler' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:85) automatically.
+INFO: [XFORM 203-602] Inlining function 'byteSwap<32>' into 'txTableHandler' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:53) automatically.
+INFO: [XFORM 203-602] Inlining function 'byteSwap<32>' into 'udpTxEngine' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:328) automatically.
+WARNING: [SYNCHK 200-23] /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.hpp:110: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:01:25 ; elapsed = 00:01:30 . Memory (MB): peak = 1664.500 ; gain = 1231.887 ; free physical = 26307 ; free virtual = 42842
+INFO: [XFORM 203-1101] Packing variable 'DataInApp.V.user' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:413) into a 96-bit variable.
+INFO: [XFORM 203-1101] Packing variable 'DataOutApp.V.user' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:412) into a 96-bit variable.
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'byteSwap<32>' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.hpp:109:5).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'byteSwap<16>' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.hpp:109:5).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'rxTableHandler' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:60).
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.hpp:109) in function 'byteSwap<32>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.hpp:109) in function 'byteSwap<16>' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:75) in function 'rxTableHandler' completely with a factor of 16.
+INFO: [XFORM 203-101] Partitioning array 'SocketTable.theirIP.V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:418) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'SocketTable.theirPort.V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:418) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'SocketTable.myPort.V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:418) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'SocketTable.valid.V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:418) in dimension 1 completely.
+INFO: [XFORM 203-602] Inlining function 'byteSwap<16>' into 'udpRxEngine' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:134) automatically.
+INFO: [XFORM 203-602] Inlining function 'byteSwap<32>' into 'udpRxEngine' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:135) automatically.
+INFO: [XFORM 203-602] Inlining function 'byteSwap<32>' into 'rxTableHandler' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:85) automatically.
+INFO: [XFORM 203-602] Inlining function 'byteSwap<32>' into 'txTableHandler' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:53) automatically.
+INFO: [XFORM 203-602] Inlining function 'byteSwap<16>' into 'udpTxEngine' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:321) automatically.
+INFO: [XFORM 203-602] Inlining function 'byteSwap<32>' into 'udpTxEngine' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:328) automatically.
+INFO: [XFORM 203-712] Applying dataflow to function 'udp', detected/extracted 7 process function(s): 
+	 'udp.entry266'
+	 'udpRxEngine'
+	 'rxTableHandler'
+	 'rxEngPacketDropper'
+	 'appGetMetaData'
+	 'txTableHandler'
+	 'udpTxEngine'.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:317:17) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:359:13) in function 'udpTxEngine'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:73:9) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:89:5) in function 'rxTableHandler'... converting 17 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/TOE/common_utilities/common_utilities.cpp:42:6) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/TOE/common_utilities/common_utilities.cpp:173:1) in function 'keep2len'... converting 65 basic blocks.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:01:31 ; elapsed = 00:01:36 . Memory (MB): peak = 1664.500 ; gain = 1231.887 ; free physical = 26262 ; free virtual = 42800
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:01:38 ; elapsed = 00:01:44 . Memory (MB): peak = 1664.500 ; gain = 1231.887 ; free physical = 26169 ; free virtual = 42708
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'udp' ...
+WARNING: [SYN 201-103] Legalizing function name 'udp.entry3' to 'udp_entry3'.
+WARNING: [SYN 201-103] Legalizing function name 'udp.entry266' to 'udp_entry266'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'udp_entry3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 106.88 seconds; current allocated memory: 318.505 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.26 seconds; current allocated memory: 319.503 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'udp_entry266' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 7.43 seconds; current allocated memory: 320.344 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.58 seconds; current allocated memory: 322.894 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'udpRxEngine' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'udpRxEngine'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.78 seconds; current allocated memory: 323.138 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 323.519 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'rxTableHandler' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'rxTableHandler'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+WARNING: [SCHED 204-21] Estimated clock period (2.375ns) exceeds the target (target clock period: 2.5ns, clock uncertainty: 0.2ns, effective delay budget: 2.3ns).
+WARNING: [SCHED 204-21] The critical path in module 'rxTableHandler' consists of the following:
+	fifo read on port 'SocketTableRx_0_theirIP_V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:60) [105]  (1.15 ns)
+	'icmp' operation ('icmp_ln879', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:77->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:418) [164]  (0.859 ns)
+	'and' operation ('and_ln79', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:79->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:418) [168]  (0.122 ns)
+	blocking operation 0.244 ns on control path)
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 2.41 seconds; current allocated memory: 324.150 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.4 seconds; current allocated memory: 325.261 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'rxEngPacketDropper' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'rxEngPacketDropper'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.71 seconds; current allocated memory: 325.520 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 325.759 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'keep2len' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'keep2len'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 326.411 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 327.366 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'appGetMetaData' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'appGetMetaData'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.42 seconds; current allocated memory: 327.540 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 327.741 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'txTableHandler' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'txTableHandler'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 2.82 seconds; current allocated memory: 328.095 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.23 seconds; current allocated memory: 328.936 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'udpTxEngine' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'udpTxEngine'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.66 seconds; current allocated memory: 329.340 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 329.908 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'udp' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.36 seconds; current allocated memory: 331.053 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.44 seconds; current allocated memory: 334.930 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'udp_entry3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'udp_entry3'.
+INFO: [HLS 200-111]  Elapsed time: 1.24 seconds; current allocated memory: 336.291 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'udp_entry266' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'udp_entry266'.
+INFO: [HLS 200-111]  Elapsed time: 0.9 seconds; current allocated memory: 341.543 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'udpRxEngine' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'ure_state' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'prevWord_data_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'prevWord_keep_V_1' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'udpRxEngine'.
+INFO: [HLS 200-111]  Elapsed time: 1.39 seconds; current allocated memory: 346.182 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'rxTableHandler' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'rxTableHandler'.
+INFO: [HLS 200-111]  Elapsed time: 0.4 seconds; current allocated memory: 349.152 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'rxEngPacketDropper' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'repd_state' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'response_drop_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'response_id_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'response_user_myIP_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'response_user_theirI' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'response_user_myPort' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'response_user_theirP' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'rxEngPacketDropper'.
+INFO: [HLS 200-111]  Elapsed time: 1.27 seconds; current allocated memory: 353.126 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'keep2len' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'keep2len'.
+INFO: [HLS 200-111]  Elapsed time: 0.31 seconds; current allocated memory: 355.008 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'appGetMetaData' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'agmd_state' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'lenCount_V' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'appGetMetaData'.
+INFO: [HLS 200-111]  Elapsed time: 0.36 seconds; current allocated memory: 357.649 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'txTableHandler' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'udp_mux_164_16_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'udp_mux_164_1_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'udp_mux_164_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'txTableHandler'.
+INFO: [HLS 200-111]  Elapsed time: 0.37 seconds; current allocated memory: 359.890 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'udpTxEngine' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'ute_state' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'prevWord_data_V_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'prevWord_keep_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'currMetaData_theirIP' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'currMetaData_myIP_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'currMetaData_theirPo' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'currMetaData_myPort_s' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ip_len_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'udp_len_V' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'udpTxEngine'.
+INFO: [HLS 200-111]  Elapsed time: 0.65 seconds; current allocated memory: 362.703 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'udp' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/rxUdpDataIn_V_data_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/rxUdpDataIn_V_keep_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/rxUdpDataIn_V_last_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/txUdpDataOut_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/txUdpDataOut_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/txUdpDataOut_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataOutApp_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataOutApp_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataOutApp_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataOutApp_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataOutApp_V_user' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataInApp_V_data_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataInApp_V_keep_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataInApp_V_dest_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataInApp_V_last_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataInApp_V_user' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/myIpAddress_V' to 'ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_0_theirIP_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_1_theirIP_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_2_theirIP_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_3_theirIP_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_4_theirIP_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_5_theirIP_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_6_theirIP_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_7_theirIP_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_8_theirIP_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_9_theirIP_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_10_theirIP_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_11_theirIP_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_12_theirIP_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_13_theirIP_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_14_theirIP_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_15_theirIP_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_0_theirPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_1_theirPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_2_theirPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_3_theirPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_4_theirPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_5_theirPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_6_theirPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_7_theirPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_8_theirPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_9_theirPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_10_theirPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_11_theirPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_12_theirPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_13_theirPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_14_theirPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_15_theirPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_0_myPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_1_myPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_2_myPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_3_myPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_4_myPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_5_myPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_6_myPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_7_myPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_8_myPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_9_myPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_10_myPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_11_myPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_12_myPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_13_myPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_14_myPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_15_myPort_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_0_valid_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_1_valid_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_2_valid_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_3_valid_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_4_valid_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_5_valid_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_6_valid_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_7_valid_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_8_valid_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_9_valid_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_10_valid_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_11_valid_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_12_valid_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_13_valid_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_14_valid_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_15_valid_V' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/numberSockets_V' to 's_axilite & ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'udp' to 'ap_ctrl_none'.
+INFO: [RTGEN 206-100] Bundling port 'SocketTable_0_theirIP_V', 'SocketTable_1_theirIP_V', 'SocketTable_2_theirIP_V', 'SocketTable_3_theirIP_V', 'SocketTable_4_theirIP_V', 'SocketTable_5_theirIP_V', 'SocketTable_6_theirIP_V', 'SocketTable_7_theirIP_V', 'SocketTable_8_theirIP_V', 'SocketTable_9_theirIP_V', 'SocketTable_10_theirIP_V', 'SocketTable_11_theirIP_V', 'SocketTable_12_theirIP_V', 'SocketTable_13_theirIP_V', 'SocketTable_14_theirIP_V', 'SocketTable_15_theirIP_V', 'SocketTable_0_theirPort_V', 'SocketTable_1_theirPort_V', 'SocketTable_2_theirPort_V', 'SocketTable_3_theirPort_V', 'SocketTable_4_theirPort_V', 'SocketTable_5_theirPort_V', 'SocketTable_6_theirPort_V', 'SocketTable_7_theirPort_V', 'SocketTable_8_theirPort_V', 'SocketTable_9_theirPort_V', 'SocketTable_10_theirPort_V', 'SocketTable_11_theirPort_V', 'SocketTable_12_theirPort_V', 'SocketTable_13_theirPort_V', 'SocketTable_14_theirPort_V', 'SocketTable_15_theirPort_V', 'SocketTable_0_myPort_V', 'SocketTable_1_myPort_V', 'SocketTable_2_myPort_V', 'SocketTable_3_myPort_V', 'SocketTable_4_myPort_V', 'SocketTable_5_myPort_V', 'SocketTable_6_myPort_V', 'SocketTable_7_myPort_V', 'SocketTable_8_myPort_V', 'SocketTable_9_myPort_V', 'SocketTable_10_myPort_V', 'SocketTable_11_myPort_V', 'SocketTable_12_myPort_V', 'SocketTable_13_myPort_V', 'SocketTable_14_myPort_V', 'SocketTable_15_myPort_V', 'SocketTable_0_valid_V', 'SocketTable_1_valid_V', 'SocketTable_2_valid_V', 'SocketTable_3_valid_V', 'SocketTable_4_valid_V', 'SocketTable_5_valid_V', 'SocketTable_6_valid_V', 'SocketTable_7_valid_V', 'SocketTable_8_valid_V', 'SocketTable_9_valid_V', 'SocketTable_10_valid_V', 'SocketTable_11_valid_V', 'SocketTable_12_valid_V', 'SocketTable_13_valid_V', 'SocketTable_14_valid_V', 'SocketTable_15_valid_V' and 'numberSockets_V' to AXI-Lite port s_axilite.
+WARNING: [HLS 200-656] Deadlocks can occur since process udpRxEngine is a non-flushable pipeline which is instantiated in a dataflow region without ap_ctrl_chain mode.
+WARNING: [HLS 200-656] Deadlocks can occur since process rxTableHandler is a non-flushable pipeline which is instantiated in a dataflow region without ap_ctrl_chain mode.
+WARNING: [HLS 200-656] Deadlocks can occur since process rxEngPacketDropper is a non-flushable pipeline which is instantiated in a dataflow region without ap_ctrl_chain mode.
+WARNING: [HLS 200-656] Deadlocks can occur since process appGetMetaData is a non-flushable pipeline which is instantiated in a dataflow region without ap_ctrl_chain mode.
+WARNING: [HLS 200-656] Deadlocks can occur since process txTableHandler is a non-flushable pipeline which is instantiated in a dataflow region without ap_ctrl_chain mode.
+WARNING: [HLS 200-656] Deadlocks can occur since process udpTxEngine is a non-flushable pipeline which is instantiated in a dataflow region without ap_ctrl_chain mode.
+WARNING: [HLS 200-631] Ignoring ap_ctrl_none interface for udp due to udp.entry3 with non-FIFO I/O
+INFO: [RTGEN 206-100] Finished creating RTL model for 'udp'.
+INFO: [HLS 200-111]  Elapsed time: 1.84 seconds; current allocated memory: 372.104 MB.
+INFO: [HLS 200-789] **** Estimated Fmax: 421.05 MHz
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_0_their_6_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_1_their_6_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_2_their_6_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_3_their_6_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_4_their_6_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_5_their_6_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_6_their_6_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_7_their_6_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_8_their_6_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_9_their_6_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_10_thei_6_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_11_thei_6_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_12_thei_6_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_13_thei_6_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_14_thei_6_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_15_thei_6_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_0_their_5_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_1_their_5_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_2_their_5_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_3_their_5_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_4_their_5_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_5_their_5_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_6_their_5_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_7_their_5_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_8_their_5_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_9_their_5_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_10_thei_5_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_11_thei_5_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_12_thei_5_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_13_thei_5_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_14_thei_5_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_15_thei_5_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_0_myPor_2_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_1_myPor_2_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_2_myPor_2_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_3_myPor_2_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_4_myPor_2_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_5_myPor_2_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_6_myPor_2_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_7_myPor_2_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_8_myPor_2_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_9_myPor_2_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_10_myPo_2_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_11_myPo_2_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_12_myPo_2_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_13_myPo_2_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_14_myPo_2_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_15_myPo_2_U(fifo_w16_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_0_valid_1_U(fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_1_valid_1_U(fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_2_valid_1_U(fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_3_valid_1_U(fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_4_valid_1_U(fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_5_valid_1_U(fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_6_valid_1_U(fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_7_valid_1_U(fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_8_valid_1_U(fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_9_valid_1_U(fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_10_vali_1_U(fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_11_vali_1_U(fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_12_vali_1_U(fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_13_vali_1_U(fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_14_vali_1_U(fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_15_vali_1_U(fifo_w1_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_0_their_4_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_0_their_3_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_1_their_4_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_1_their_3_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_2_their_4_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_2_their_3_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_3_their_4_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_3_their_3_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_4_their_4_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_4_their_3_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_5_their_4_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_5_their_3_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_6_their_4_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_6_their_3_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_7_their_4_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_7_their_3_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_8_their_4_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_8_their_3_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_9_their_4_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_9_their_3_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_10_thei_4_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_10_thei_3_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_11_thei_4_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_11_thei_3_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_12_thei_4_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_12_thei_3_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_13_thei_4_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_13_thei_3_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_14_thei_4_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_14_thei_3_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_15_thei_4_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_15_thei_3_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_0_their_2_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_0_their_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_1_their_2_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_1_their_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_2_their_2_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_2_their_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_3_their_2_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_3_their_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_4_their_2_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_4_their_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_5_their_2_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_5_their_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_6_their_2_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_6_their_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_7_their_2_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_7_their_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_8_their_2_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_8_their_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_9_their_2_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_9_their_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_10_thei_2_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_10_thei_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_11_thei_2_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_11_thei_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_12_thei_2_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_12_thei_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_13_thei_2_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_13_thei_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_14_thei_2_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_14_thei_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_15_thei_2_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_15_thei_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_0_myPor_1_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_0_myPor_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_1_myPor_1_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_1_myPor_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_2_myPor_1_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_2_myPor_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_3_myPor_1_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_3_myPor_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_4_myPor_1_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_4_myPor_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_5_myPor_1_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_5_myPor_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_6_myPor_1_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_6_myPor_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_7_myPor_1_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_7_myPor_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_8_myPor_1_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_8_myPor_U(fifo_w16_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_9_myPor_1_U(fifo_w16_d3_A)' using Shift Registers.
+INFO

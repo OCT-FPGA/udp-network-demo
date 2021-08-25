@@ -1,0 +1,673 @@
+INFO-FLOW: Workspace /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus opened at Thu Aug 05 18:55:15 UTC 2021
+Execute     set_part xcu280-fsvh2892-2L-e -tool vivado 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data single -quiet 
+Command       ap_part_info done; 2.51 sec.
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info 
+Execute       add_library xilinx/virtexuplus/virtexuplus:xcu280:-fsvh2892:-2L-e 
+Execute         get_default_platform 
+Execute         open_platform DefaultPlatform 
+Execute         import_lib /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/virtexuplus/virtexuplus 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/xilinx.lib 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/xilinx_interface.lib 
+Execute               source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/plb46.lib 
+Execute               source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/fsl.lib 
+Execute               source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/axi4.lib 
+Execute               source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/maxi.lib 
+Execute               source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/saxilite.lib 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/dsp48.lib 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/dds_compiler.lib 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/xfft.lib 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/xfir.lib 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/xilinx.hlp 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/target_info.tcl 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute               source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/maxi.hlp 
+Execute               source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/saxilite.hlp 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/dsp48.hlp 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/virtexuplus/dsp48e2.hlp 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/xilinx.hlp 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/target_info.tcl 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute               source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/maxi.hlp 
+Execute               source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/saxilite.hlp 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/dsp48.hlp 
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/virtexuplus/virtexuplus.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/xilinx.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/plb46.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/fsl.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/axi4.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/saxilite.gen 
+Execute               source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/maxi.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/util.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/xfft.gen 
+Command             ap_source done; 0.13 sec.
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/xfir.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/dsp48.gen 
+Command           ap_source done; 0.2 sec.
+Command         ap_source done; 0.2 sec.
+Execute         ap_part_info -data single -name xcu280-fsvh2892-2L-e 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data resources 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info 
+Execute         config_chip_info -quiet -resource {SLICE 162960} {LUT 1303680} {FF 2607360} {DSP48E 9024} {BRAM 4032} {URAM 960} {SLR 3} 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info 
+Execute         config_chip_info -quiet -speed medium 
+Command       add_library done; 0.28 sec.
+Execute       add_library xilinx/virtexuplus/virtexuplus_fpv7 
+Execute         get_default_platform 
+Execute         open_platform DefaultPlatform 
+Execute         import_lib /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/virtexuplus/virtexuplus_fpv7 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/xilinx_fp.lib 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/xilinx_fp.hlp 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/xilinx.hlp 
+Execute               source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/target_info.tcl 
+Execute               source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute                 source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/maxi.hlp 
+Execute                 source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/saxilite.hlp 
+Execute               source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/dsp48.hlp 
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/virtexuplus/virtexuplus_fpv7.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/xilinx_fp.gen 
+INFO: [HLS 200-10] Setting target device to 'xcu280-fsvh2892-2L-e'
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info 
+Execute       get_default_platform 
+Command     set_part done; 3.01 sec.
+Execute     create_clock -period 3.1 -name default 
+Execute       config_clock -quiet -name default -period 3.1 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 3.1ns.
+Execute     set_clock_uncertainty 0.2 
+Execute       config_clock -quiet -name default -uncertainty 0.2 
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.2ns.
+Execute     csynth_design 
+Execute       get_config_compile -dump_cfg 
+Execute       get_config_compile -effort 
+Execute       get_config_compile -enable_clang39 
+Execute       get_config_compile -g 
+Execute       get_config_compile -ng 
+Execute       get_config_compile -opt_fp 
+Execute       get_config_compile -skip_cdt 
+Execute       get_config_compile -skip_syncheck 
+Execute       get_config_compile -skip_transform 
+Execute       get_config_compile -keep_printf 
+Execute       elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 -from_csynth_design=1 
+Execute         get_config_schedule -relax_ii_for_timing 
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+Execute         get_config_schedule -suppress_dependence_error_break 
+INFO: [HLS 200-10] Analyzing design file '/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/icmp_server/icmp_server.cpp' ... 
+INFO-FLOW: Compiling one TU...
+Execute         is_m_axi_addr64 
+INFO-FLOW: Handling /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/icmp_server/icmp_server.cpp as C++
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info 
+Execute         is_encrypted /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/icmp_server/icmp_server.cpp 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info 
+INFO-FLOW: Running: GCC PP
+INFO-FLOW: Source preprocessing
+Execute         clang  -fno-limit-debug-info -gcc-toolchain "/tools/Xilinx/Vivado/2020.1/lnx64/tools/gcc" -hls  -fno-exceptions  -D__llvm__  -E "/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/icmp_server/icmp_server.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/tools/Xilinx/Vivado/2020.1/common/technology/autopilot" -I "/tools/Xilinx/Vivado/2020.1/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__  -o "/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.pp.0.cpp" 
+INFO-FLOW: exec /tools/Xilinx/Vivado/2020.1/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /tools/Xilinx/Vivado/2020.1/lnx64/tools/gcc -hls -fno-exceptions -D__llvm__ -E /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/icmp_server/icmp_server.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /tools/Xilinx/Vivado/2020.1/common/technology/autopilot -I /tools/Xilinx/Vivado/2020.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.pp.0.cpp
+Command         clang done; 2.73 sec.
+Execute         tidy_31 xilinx-xfmat-array-geometry /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.pp.0.cpp std=gnu++98 
+INFO-FLOW: exec /tools/Xilinx/Vivado/2020.1/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-xfmat-array-geometry -quiet -fix /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Command         tidy_31 done; 2.42 sec.
+INFO-FLOW: Syntax Checking before pre-processing...
+Execute         clang -syntaxcheck -src /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.pp.0.cpp  -fno-limit-debug-info -gcc-toolchain "/tools/Xilinx/Vivado/2020.1/lnx64/tools/gcc" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/tools/Xilinx/Vivado/2020.1/common/technology/autopilot" -I "/tools/Xilinx/Vivado/2020.1/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__  "/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.pp.0.cpp"  -o "/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/useless.bc"  
+INFO-FLOW: exec /tools/Xilinx/Vivado/2020.1/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /tools/Xilinx/Vivado/2020.1/lnx64/tools/gcc -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /tools/Xilinx/Vivado/2020.1/common/technology/autopilot -I /tools/Xilinx/Vivado/2020.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.pp.0.cpp -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/useless.bc
+Command         clang done; 3.93 sec.
+INFO-FLOW: Done: GCC PP time: 9.1 seconds per iteration
+Execute         source /tools/Xilinx/Vivado/2020.1/tps/tcl/tcllib1.11.1/yaml/huddle.tcl 
+Execute         source /tools/Xilinx/Vivado/2020.1/tps/tcl/tcllib1.11.1/yaml/json2huddle.tcl 
+Execute           source /tools/Xilinx/Vivado/2020.1/tps/tcl/tcllib1.11.1/try/try.tcl 
+Execute         list_core -type functional_unit 
+Execute         tidy_31 xilinx-systemc-detector /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.pp.0.cpp std=gnu++98 -directive=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec /tools/Xilinx/Vivado/2020.1/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-systemc-detector -import-directive=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/.systemc_flag -quiet -fix-errors /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Command         tidy_31 done; 2.16 sec.
+INFO-FLOW: Running: tidy-3.1 CDT preprocess
+Execute         tidy_31 xilinx-directive2pragma /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.pp.0.cpp std=gnu++98 -directive=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/all.directive.json 
+INFO-FLOW: exec /tools/Xilinx/Vivado/2020.1/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-directive2pragma -import-directive=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/all.directive.json -quiet -fix-errors /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Command         tidy_31 done; 2.22 sec.
+Execute         get_config_dataflow -strict_mode 
+Execute         ap_eval exec -ignorestderr /tools/Xilinx/Vivado/2020.1/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/xilinx-dataflow-lawyer.icmp_server.pp.0.cpp.diag.yml /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 -fstrict-dataflow > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/xilinx-dataflow-lawyer.icmp_server.pp.0.cpp.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/xilinx-dataflow-lawyer.icmp_server.pp.0.cpp.err.log 
+Command         ap_eval done; 2.29 sec.
+Execute         tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.pp.0.cpp std=gnu++98 
+Execute           ap_eval exec -ignorestderr /tools/Xilinx/Vivado/2020.1/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -export-fixes=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/tidy-3.1.icmp_server.pp.0.cpp.diag.yml -header-filter=.* -checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry -quiet -fix-errors /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/tidy-3.1.icmp_server.pp.0.cpp.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/tidy-3.1.icmp_server.pp.0.cpp.err.log 
+Command           ap_eval done; 2.63 sec.
+Execute           ap_eval exec -ignorestderr /tools/Xilinx/Vivado/2020.1/lnx64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/xilinx-legacy-rewriter.icmp_server.pp.0.cpp.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/xilinx-legacy-rewriter.icmp_server.pp.0.cpp.err.log 
+Command           ap_eval done; 1.76 sec.
+Command         tidy_31 done; 4.39 sec.
+INFO-FLOW: Done: tidy-3.1 CDT preprocess time: 8.9 seconds per iteration
+INFO-FLOW: Pragma Handling...
+Execute         tidy_31 xilinx-ssdm-intrinsics-arguments /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.pragma.1.cpp std=gnu++98 
+INFO-FLOW: exec /tools/Xilinx/Vivado/2020.1/lnx64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-ssdm-intrinsics-arguments -quiet -fix-errors /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.pragma.1.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Command         tidy_31 done; 2.58 sec.
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info 
+INFO-FLOW: Processing labels
+Execute         clang -src /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.pragma.2.cpp  -fno-limit-debug-info -gcc-toolchain /tools/Xilinx/Vivado/2020.1/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "/tools/Xilinx/Vivado/2020.1/common/technology/autopilot" -I "/tools/Xilinx/Vivado/2020.1/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o "/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.bc" 
+INFO-FLOW: exec /tools/Xilinx/Vivado/2020.1/lnx64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain /tools/Xilinx/Vivado/2020.1/lnx64/tools/gcc -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.pragma.2.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /tools/Xilinx/Vivado/2020.1/common/technology/autopilot -I /tools/Xilinx/Vivado/2020.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.bc
+Command         clang done; 4.11 sec.
+INFO-FLOW: Linking Debug ...
+Execute         llvm-ld /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.g.bc -hls-opt -except-internalize icmp_server -L/tools/Xilinx/Vivado/2020.1/lnx64/lib -lhlsm -lhlsmc++ -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/a.g 
+Command         llvm-ld done; 1.44 sec.
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25939 ; free virtual = 42393
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:32 ; elapsed = 00:00:32 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25939 ; free virtual = 42393
+Execute         get_config_sdx -target 
+Execute         opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
+Execute           cleanup_all_models 
+INFO: [HLS 200-10] Starting code transformations ...
+Execute           transform -promote-dbg-pointer /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/a.pp.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/a.pp.0.bc -f 
+Execute           llvm-ld /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/a.pp.0.bc -disable-opt -L/tools/Xilinx/Vivado/2020.1/lnx64/lib -lfloatconversion -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/a.g.0 
+Command           llvm-ld done; 1.43 sec.
+INFO-FLOW: Running Standard Transforms...
+Execute           transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -stream-depth-lower -promote-dbg-pointer -interface-preproc -mem2reg -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top icmp_server -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/a.g.0.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/a.g.1.bc -f -phase std-opt 
+INFO: [XFORM 203-603] Inlining function 'computeCheckSum20B' into 'icmp_server' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/icmp_server/icmp_server.cpp:161).
+Command           transform done; 0.23 sec.
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25866 ; free virtual = 42332
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO-FLOW: Checking Synthesizability 1/2..
+Execute           transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -pag -array-normalize -instcombine -dce -warn-fifo-pointer -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -resolve-double-ptr -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce -check-dspbuiltin /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/a.g.1.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/a.g.2.prechk.bc -f 
+Command           transform done; 0.18 sec.
+INFO-FLOW: Checking Synthesizability 2/2..
+Execute           transform -syn-check /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/a.g.2.prechk.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/a.g.2.bc -f -phase syn-check 
+WARNING: [SYNCHK 200-23] /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/icmp_server/icmp_server.cpp:154: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25849 ; free virtual = 42317
+INFO-FLOW: Compiler optimizing ...
+INFO-FLOW: Share syncheck's 1.bc for syn flow: copy /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/a.g.1.bc to /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/a.o.1.bc
+INFO-FLOW: Presyn 1...
+Execute           transform -hls -tmp /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db -interface-port-rename -type-info -function-uniquify -directive-preproc -mem2reg -dse -dce -disaggr -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -simplifycfg -auto-rom-infer -dce -function-uniquify -resource-proc -clib-intrinsic-prepare -dce -func-buffer -dce -pag -array-normalize -func-legal -instcombine -gvn -constprop -dce -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -ptrArgReplace -mem2reg -dce -array-seg-normalize -deadargelim -instcombine -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -auto-par -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -dce -global-constprop -deadargelim -mem2reg -simplifycfg -dce -merge-param -deadargelim -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -mem-intrinsic-preproc -dce -global-internalize -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -dce -norm-name -function-inline -complex-op-raise -inst-simplify -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -duplicate-dataflow-processes -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -deadargelim -annotate-dataflow-channels -scalar-propagation -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -norm-name /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/a.o.1.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/a.o.1.tmp.bc -f 
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'icmp_server' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/icmp_server/icmp_server.cpp:120).
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/icmp_server/icmp_server.cpp:152) in function 'icmp_server' completely with a factor of 20.
+INFO: [HLS 200-489] Unrolling loop 'assign2array' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/icmp_server/icmp_server.cpp:49) in function 'icmp_server' completely with a factor of 10.
+INFO: [HLS 200-489] Unrolling loop 'sumElementsL1' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/icmp_server/icmp_server.cpp:54) in function 'icmp_server' completely with a factor of 5.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/icmp_server/icmp_server.cpp:193) in function 'icmp_server' completely with a factor of 20.
+INFO: [XFORM 203-102] Partitioning array 'checksumL0.V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/icmp_server/icmp_server.cpp:41) automatically.
+INFO: [XFORM 203-102] Partitioning array 'checksumL1.V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/icmp_server/icmp_server.cpp:42) automatically.
+Command           transform done; 0.51 sec.
+INFO-FLOW: Presyn 2...
+Execute           transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/a.o.1.tmp.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/a.o.2.bc -f -phase presyn 
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/icmp_server/icmp_server.cpp:151:17) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/icmp_server/icmp_server.cpp:166:13) in function 'icmp_server'... converting 4 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'icmp_server' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/icmp_server/icmp_server.cpp:120)...3 expression(s) balanced.
+Command           transform done; 0.27 sec.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:35 ; elapsed = 00:00:35 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25789 ; free virtual = 42261
+INFO-FLOW: Building ssdm...
+Execute           transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -ptrLegalization -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable -deadargelim -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -complex-op-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -load-elim -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -dce -loop-bound -loop-dep -read-loop-dep -dce -check-stream -norm-name -legalize -validate-dataflow -inst-clarity -bitwidth -dump-loop-dep-to-ir -check-all-ssdm -cdfg-build /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/a.o.2.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
+Command           transform done; 0.37 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25774 ; free virtual = 42247
+INFO-FLOW: Finish building internal data model.
+Command         opt_and_import_c done; 3.19 sec.
+Command       elaborate done; 32.16 sec.
+Execute       autosyn -from_csynth_design=1 
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO-FLOW: Synthesizing C/C++ design ...
+INFO: [HLS 200-10] Synthesizing 'icmp_server' ...
+Execute         ap_set_top_model icmp_server 
+Execute         get_model_list icmp_server -filter all-wo-channel -topdown 
+Execute         preproc_iomode -model icmp_server 
+Execute         get_model_list icmp_server -filter all-wo-channel 
+INFO-FLOW: Model list for configure: icmp_server
+INFO-FLOW: Configuring Module : icmp_server ...
+Execute         set_default_model icmp_server 
+Execute         apply_spec_resource_limit icmp_server 
+INFO-FLOW: Model list for preprocess: icmp_server
+INFO-FLOW: Preprocessing Module: icmp_server ...
+Execute         set_default_model icmp_server 
+Execute         cdfg_preprocess -model icmp_server 
+Execute         rtl_gen_preprocess icmp_server 
+INFO-FLOW: Model list for synthesis: icmp_server
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'icmp_server' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model icmp_server 
+Execute         schedule -model icmp_server 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'icmp_server'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 35.7 seconds; current allocated memory: 183.096 MB.
+Execute         syn_report -verbosereport -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.verbose.sched.rpt 
+Execute         db_write -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.sched.adb -f 
+INFO-FLOW: Finish scheduling icmp_server.
+Execute         set_default_model icmp_server 
+Execute         bind -model icmp_server 
+BIND OPTION: model=icmp_server
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 183.769 MB.
+Execute         syn_report -verbosereport -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.verbose.bind.rpt 
+Command         syn_report done; 0.11 sec.
+Execute         db_write -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.bind.adb -f 
+INFO-FLOW: Finish binding icmp_server.
+Execute         get_model_list icmp_server -filter all-wo-channel 
+INFO-FLOW: Preprocessing for RTLGen ...
+Execute         rtl_gen_preprocess icmp_server 
+INFO-FLOW: Model list for RTL generation: icmp_server
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'icmp_server' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -module_prefix 
+Execute         get_config_rtl -module_auto_prefix 
+Execute         create_rtl_model icmp_server -vendor xilinx -mg_file /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.compgen.tcl 
+INFO: [RTGEN 206-500] Setting interface mode on port 'icmp_server/s_axis_icmp_V_data_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'icmp_server/s_axis_icmp_V_keep_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'icmp_server/s_axis_icmp_V_last_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'icmp_server/myIpAddress_V' to 'ap_stable'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'icmp_server/m_axis_icmp_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'icmp_server/m_axis_icmp_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'icmp_server/m_axis_icmp_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on function 'icmp_server' to 'ap_ctrl_none'.
+WARNING: [RTGEN 206-101] Register 'aiFSMState' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ipDestination_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'icmpType_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'icmpCode_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'auxInchecksum_r_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'prevWord_last_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'icmpChecksum_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'prevWord_data_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'prevWord_keep_V' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'icmp_server'.
+INFO: [HLS 200-111]  Elapsed time: 0.24 seconds; current allocated memory: 184.975 MB.
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.rtl_wrap.cfg.tcl 
+Execute         gen_rtl icmp_server -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/syn/systemc/icmp_server -synmodules icmp_server 
+Execute         gen_rtl icmp_server -istop -style xilinx -f -lang vhdl -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/syn/vhdl/icmp_server 
+Execute         gen_rtl icmp_server -istop -style xilinx -f -lang vlog -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/syn/verilog/icmp_server 
+Execute         syn_report -csynth -model icmp_server -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/syn/report/icmp_server_csynth.rpt 
+Execute         syn_report -rtlxml -model icmp_server -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/syn/report/icmp_server_csynth.xml 
+Execute         syn_report -verbosereport -model icmp_server -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.verbose.rpt 
+Command         syn_report done; 0.16 sec.
+Execute         db_write -model icmp_server -f -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.adb 
+Command         db_write done; 0.12 sec.
+Execute         gen_tb_info icmp_server -p /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server 
+Execute         export_constraint_db -f -tool general -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.constraint.tcl 
+Execute         syn_report -designview -model icmp_server -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.design.xml 
+Execute         get_config_rtl -disable_wave_debug 
+Execute         syn_report -wcfg -model icmp_server -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server_dataflow_ana.wcfg 
+Execute         syn_report -protoinst -model icmp_server -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.protoinst 
+Execute         get_config_debug -directory 
+Execute         sc_get_clocks icmp_server 
+Execute         get_config_export -vivado_clock 
+Execute         sc_get_portdomain icmp_server 
+INFO-FLOW: Model list for RTL component generation: icmp_server
+INFO-FLOW: Handling components in module [icmp_server] ... 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.compgen.tcl 
+INFO-FLOW: Found component regslice_core.
+INFO-FLOW: Append model regslice_core
+INFO-FLOW: Append model icmp_server
+INFO-FLOW: Generating RTL model list ...
+INFO-FLOW: All models in this session: regslice_core icmp_server
+INFO-FLOW: To file: write model regslice_core
+INFO-FLOW: To file: write model icmp_server
+INFO-FLOW: Finished generating RTL model list.
+
+
+INFO-FLOW: RTL Generation done.
+INFO-FLOW: CAS Generation done.
+INFO-FLOW: CBC Generation done.
+Execute         syn_report -model icmp_server -printsummary 
+INFO: [HLS 200-789] **** Estimated Fmax: 386.28 MHz
+INFO-FLOW: DBG:CMD: auto_generate_csynth_design
+INFO-FLOW: DBG:CMD:     auto_generate --sim-model -phase csynth_design -d /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/common.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/APCoreGen.gen 
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/op.gen 
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/op_simcore.gen 
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/interface.gen 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/virtexuplus/virtexuplus.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/xilinx.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/plb46.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/fsl.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/axi4.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/saxilite.gen 
+Execute               source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/maxi.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/util.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/xfft.gen 
+Command             ap_source done; 0.11 sec.
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/xfir.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/dsp48.gen 
+Command           ap_source done; 0.16 sec.
+Command         ap_source done; 0.16 sec.
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/virtexuplus/virtexuplus_fpv7.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/xilinx_fp.gen 
+INFO-FLOW: DBG:CMD:   using AESL_AUTOCG::g_clock_period=3.100 (was NA)
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=1 export=0 expOnly=0 dstVlogDir=syn/verilog
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.compgen.tcl 
+INFO-FLOW: DBG:CMD:     auto_generate -export -impltomg_flag -rtl both -tool Vivado -pcore_version 1.00.a -phase csynth_design -d /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/common.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/APCoreGen.gen 
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/op.gen 
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/op_simcore.gen 
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/interface.gen 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/virtexuplus/virtexuplus.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/xilinx.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/plb46.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/fsl.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/axi4.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/saxilite.gen 
+Execute               source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/maxi.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/util.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/xfft.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/xfir.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/dsp48.gen 
+Command           ap_source done; 0.15 sec.
+Command         ap_source done; 0.15 sec.
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/virtexuplus/virtexuplus_fpv7.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/xilinx_fp.gen 
+INFO-FLOW: DBG:CMD:       initCTypeInfo top_module=icmp_server xml_exists=0
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.rtl_wrap.cfg.tcl 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.rtl_wrap.cfg.tcl 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.rtl_wrap.cfg.tcl 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.tbgen.tcl 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.tbgen.tcl 
+INFO-FLOW: DBG:CMD:       export_impl_rtl
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.verilog
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.compgen.tcl 
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=1 expOnly=1 dstVlogDir=impl/.pcores/verilog
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.compgen.tcl 
+Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Command         ap_source done; 0.13 sec.
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.pcores/verilog_sim
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.compgen.tcl 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.constraint.tcl 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.tbgen.tcl 
+INFO-FLOW: DBG:CMD:       hasPcoreIpAdapter=false #gSsdmPorts=14
+INFO-FLOW: DBG:CMD: Skipping loadAnalyze_DB, #g_database=7
+INFO-FLOW: DBG:CMD:       generate_json is_phase_csynth=1 g_has_adaptors=false generate_bd_files=1 #modelList=2 #gSsdmPorts=14
+Execute         source /tools/Xilinx/Vivado/2020.1/tps/tcl/tcllib1.11.1/fileutil/fileutil.tcl 
+Execute           source /tools/Xilinx/Vivado/2020.1/tps/tcl/tcllib1.11.1/cmdline/cmdline.tcl 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute         get_config_export -xo 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.tbgen.tcl 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.tbgen.tcl 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.tbgen.tcl 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.tbgen.tcl 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute         get_config_sdx -target 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.rtl_wrap.cfg.tcl 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.compgen.dataonly.tcl 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.constraint.tcl 
+Execute         sc_get_clocks icmp_server 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute         get_config_debug -directory 
+Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.tbgen.tcl 
+Execute         get_config_sdx -target 
+Execute         get_config_sdx -profile 
+Execute         get_config_rtl -kernel_profile 
+Execute         get_config_rtl -stall_sig_gen 
+Execute         get_config_rtl -profile 
+INFO-FLOW: DBG:CMD: add_json_sdx_info kernel file does not exist, skipping opencl info: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/kernel.internal.xml
+INFO-FLOW: DBG:CMD:       delete-temp-dirs (skipped for debug)
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25683 ; free virtual = 42165
+INFO: [VHDL 208-304] Generating VHDL RTL for icmp_server.
+INFO: [VLOG 209-307] Generating Verilog RTL for icmp_server.
+Command       autosyn done; 1.95 sec.
+Command     csynth_design done; 34.12 sec.
+Execute     export_design -rtl verilog -format ip_catalog 
+Execute       get_config_export -acc 
+Execute       get_config_export -clock_margin 
+Execute       get_config_export -custom_script 
+Execute       get_config_export -description 
+Execute       get_config_export -display_name 
+Execute       get_config_export -driver_input_dir 
+Execute       get_config_export -ipname 
+Execute       get_config_export -kernel_drc 
+Execute       get_config_export -library 
+Execute       get_config_export -qor_test 
+Execute       get_config_export -sdaccel 
+Execute       get_config_export -sim 
+Execute       get_config_export -taxonomy 
+Execute       get_config_export -use_ip 
+Execute       get_config_export -use_netlist 
+Execute       get_config_export -vendor 
+Execute       get_config_export -version 
+Execute       get_config_export -xo 
+Execute       config_export -format=ip_catalog -rtl=verilog 
+INFO-FLOW: DBG:CMD: export_design_wrap: -format ip_catalog -rtl verilog
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute       get_config_export -vivado_clock 
+Execute       get_top 
+Execute       get_config_sdx -target 
+Execute       get_config_rtl -module_auto_prefix 
+Execute       get_config_sdx -target 
+Execute       get_config_sdx -target 
+INFO-FLOW: DBG:CMD:   auto_impl: pack: -export -tool vivado -rtl verilog -sdx-target none
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl
+Execute       source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/common.gen 
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/APCoreGen.gen 
+Execute       source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/op.gen 
+Execute       source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/op_simcore.gen 
+Execute       source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/interface.gen 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute       source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/virtexuplus/virtexuplus.gen 
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/xilinx.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/plb46.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/fsl.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/axi4.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/saxilite.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/maxi.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/util.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/xfft.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/xfir.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/dsp48.gen 
+Command         ap_source done; 0.16 sec.
+Command       ap_source done; 0.16 sec.
+Execute       source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/virtexuplus/virtexuplus_fpv7.gen 
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/xilinx_fp.gen 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: automg_wrap -export -pcore_version 1.00.a -rtl vlog -sdx-target none -tool Vivado -impltomg_flag
+INFO-FLOW: DBG:CMD:     auto_generate -export -pcore_version 1.00.a -rtl vlog -sdx-target none -tool Vivado -impltomg_flag
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl
+Execute       source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/common.gen 
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/APCoreGen.gen 
+Execute       source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/op.gen 
+Execute       source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/op_simcore.gen 
+Execute       source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/interface.gen 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute       source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/virtexuplus/virtexuplus.gen 
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/xilinx.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/plb46.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/fsl.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/axi4.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/saxilite.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/maxi.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/util.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/xfft.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/xfir.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/dsp48.gen 
+Command         ap_source done; 0.15 sec.
+Command       ap_source done; 0.15 sec.
+Execute       source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/virtexuplus/virtexuplus_fpv7.gen 
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/xilinx_fp.gen 
+INFO-FLOW: DBG:CMD:       export_impl_rtl
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.verilog
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.compgen.tcl 
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=1 expOnly=1 dstVlogDir=impl/.pcores/verilog
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.compgen.tcl 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Command       ap_source done; 0.12 sec.
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.pcores/verilog_sim
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.compgen.tcl 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.constraint.tcl 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.tbgen.tcl 
+INFO-FLOW: DBG:CMD:       hasPcoreIpAdapter=false #gSsdmPorts=14
+INFO-FLOW: DBG:CMD:       copying IP vlog from /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/impl/verilog
+INFO-FLOW: DBG:CMD:       copying IP vhdl from /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/impl/vhdl
+INFO-FLOW: DBG:CMD:       generate_ip_script #gSsdmPorts=14
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.tbgen.tcl 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.tbgen.tcl 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.tbgen.tcl 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute       get_config_sdx -target 
+Execute       get_config_debug -directory 
+INFO-FLOW: DBG:CMD:       generate_ip_auxiliary
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD:       prepArgInfo -> loadAnalyze_DB top_module=icmp_server
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.rtl_wrap.cfg.tcl 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.rtl_wrap.cfg.tcl 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.rtl_wrap.cfg.tcl 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.tbgen.tcl 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.tbgen.tcl 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.tbgen.tcl 
+INFO-FLOW: DBG:CMD:       generate_top_info
+INFO-FLOW: DBG:CMD:       prepArgInfo -> loadAnalyze_DB top_module=icmp_server
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.rtl_wrap.cfg.tcl 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.rtl_wrap.cfg.tcl 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.rtl_wrap.cfg.tcl 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.tbgen.tcl 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.tbgen.tcl 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+INFO-FLOW: DBG:CMD:       generate_ip_bd_script
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.tbgen.tcl 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.constraint.tcl 
+INFO-FLOW: DBG:CMD:       generate_ipi_example_script
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+INFO-FLOW: DBG:CMD:       generate_syn_sh
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD:       generate_imp_constraints
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.constraint.tcl 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/icmp_server.tbgen.tcl 
+INFO-FLOW: DBG:CMD:       delete-temp-dirs (skipped for debug)
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+INFO-FLOW: DBG:CMD: read_platform_lib /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl
+Execute       source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/common.gen 
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/APCoreGen.gen 
+Execute       source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/op.gen 
+Execute       source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/op_simcore.gen 
+Execute       source /tools/Xilinx/Vivado/2020.1/common/technology/generic/autopilot/interface.gen 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
+Execute       source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/virtexuplus/virtexuplus.gen 
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/xilinx.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/plb46.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/fsl.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/axi4.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/saxilite.gen 
+Execute             source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/maxi.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/util.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/xfft.gen 
+Command           ap_source done; 0.11 sec.
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/ip/xfir.gen 
+Execute           source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/dsp48.gen 
+Command         ap_source done; 0.16 sec.
+Command       ap_source done; 0.16 sec.
+Execute       source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/virtexuplus/virtexuplus_fpv7.gen 
+Execute         source /tools/Xilinx/Vivado/2020.1/common/technology/xilinx/common/xilinx_fp.gen 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+INFO-FLOW: DBG:CMD:     exec /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/ICMP_hls_prj/ultrascale_plus/impl/ip/pack.sh
+Command     export_design done; 20.58 sec.
+Execute     cleanup_all 

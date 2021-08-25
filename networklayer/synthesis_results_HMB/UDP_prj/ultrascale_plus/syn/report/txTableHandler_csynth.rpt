@@ -1,0 +1,412 @@
+
+
+================================================================
+== Vivado HLS Report for 'txTableHandler'
+================================================================
+* Date:           Thu Aug  5 18:58:27 2021
+
+* Version:        2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)
+* Project:        UDP_prj
+* Solution:       ultrascale_plus
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  | 2.50 ns | 1.643 ns |   0.20 ns  |
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |        1|        1| 2.500 ns | 2.500 ns |    1|    1| function |
+    +---------+---------+----------+----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+-----+
+|         Name        | BRAM_18K| DSP48E|    FF   |   LUT   | URAM|
++---------------------+---------+-------+---------+---------+-----+
+|DSP                  |        -|      -|        -|        -|    -|
+|Expression           |        -|      -|        0|       10|    -|
+|FIFO                 |        -|      -|        -|        -|    -|
+|Instance             |        -|      -|        0|      260|    -|
+|Memory               |        -|      -|        -|        -|    -|
+|Multiplexer          |        -|      -|        -|      603|    -|
+|Register             |        -|      -|       69|        -|    -|
++---------------------+---------+-------+---------+---------+-----+
+|Total                |        0|      0|       69|      873|    0|
++---------------------+---------+-------+---------+---------+-----+
+|Available SLR        |     1344|   3008|   869120|   434560|  320|
++---------------------+---------+-------+---------+---------+-----+
+|Utilization SLR (%)  |        0|      0|    ~0   |    ~0   |    0|
++---------------------+---------+-------+---------+---------+-----+
+|Available            |     4032|   9024|  2607360|  1303680|  960|
++---------------------+---------+-------+---------+---------+-----+
+|Utilization (%)      |        0|      0|    ~0   |    ~0   |    0|
++---------------------+---------+-------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    +-------------------------+--------------------+---------+-------+---+----+-----+
+    |         Instance        |       Module       | BRAM_18K| DSP48E| FF| LUT| URAM|
+    +-------------------------+--------------------+---------+-------+---+----+-----+
+    |udp_mux_164_16_1_1_U380  |udp_mux_164_16_1_1  |        0|      0|  0|  65|    0|
+    |udp_mux_164_16_1_1_U381  |udp_mux_164_16_1_1  |        0|      0|  0|  65|    0|
+    |udp_mux_164_1_1_1_U382   |udp_mux_164_1_1_1   |        0|      0|  0|  65|    0|
+    |udp_mux_164_32_1_1_U379  |udp_mux_164_32_1_1  |        0|      0|  0|  65|    0|
+    +-------------------------+--------------------+---------+-------+---+----+-----+
+    |Total                    |                    |        0|      0|  0| 260|    0|
+    +-------------------------+--------------------+---------+-------+---+----+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |           Variable Name          | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |ap_block_state2_pp0_stage0_iter1  |    and   |      0|  0|   2|           1|           1|
+    |tmp_nbreadreq_fu_572_p3           |    and   |      0|  0|   2|           1|           0|
+    |ap_block_pp0_stage0_01001         |    or    |      0|  0|   2|           1|           1|
+    |ap_block_state1_pp0_stage0_iter0  |    or    |      0|  0|   2|           1|           1|
+    |ap_enable_pp0                     |    xor   |      0|  0|   2|           1|           2|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |Total                             |          |      0|  0|  10|           5|           5|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------------------------+----+-----------+-----+-----------+
+    |                Name                | LUT| Input Size| Bits| Total Bits|
+    +------------------------------------+----+-----------+-----+-----------+
+    |SocketTableTx_0_myPort_V_blk_n      |   9|          2|    1|          2|
+    |SocketTableTx_0_theirIP_V_blk_n     |   9|          2|    1|          2|
+    |SocketTableTx_0_theirPort_V_blk_n   |   9|          2|    1|          2|
+    |SocketTableTx_0_valid_V_blk_n       |   9|          2|    1|          2|
+    |SocketTableTx_10_myPort_V_blk_n     |   9|          2|    1|          2|
+    |SocketTableTx_10_theirIP_V_blk_n    |   9|          2|    1|          2|
+    |SocketTableTx_10_theirPort_V_blk_n  |   9|          2|    1|          2|
+    |SocketTableTx_10_valid_V_blk_n      |   9|          2|    1|          2|
+    |SocketTableTx_11_myPort_V_blk_n     |   9|          2|    1|          2|
+    |SocketTableTx_11_theirIP_V_blk_n    |   9|          2|    1|          2|
+    |SocketTableTx_11_theirPort_V_blk_n  |   9|          2|    1|          2|
+    |SocketTableTx_11_valid_V_blk_n      |   9|          2|    1|          2|
+    |SocketTableTx_12_myPort_V_blk_n     |   9|          2|    1|          2|
+    |SocketTableTx_12_theirIP_V_blk_n    |   9|          2|    1|          2|
+    |SocketTableTx_12_theirPort_V_blk_n  |   9|          2|    1|          2|
+    |SocketTableTx_12_valid_V_blk_n      |   9|          2|    1|          2|
+    |SocketTableTx_13_myPort_V_blk_n     |   9|          2|    1|          2|
+    |SocketTableTx_13_theirIP_V_blk_n    |   9|          2|    1|          2|
+    |SocketTableTx_13_theirPort_V_blk_n  |   9|          2|    1|          2|
+    |SocketTableTx_13_valid_V_blk_n      |   9|          2|    1|          2|
+    |SocketTableTx_14_myPort_V_blk_n     |   9|          2|    1|          2|
+    |SocketTableTx_14_theirIP_V_blk_n    |   9|          2|    1|          2|
+    |SocketTableTx_14_theirPort_V_blk_n  |   9|          2|    1|          2|
+    |SocketTableTx_14_valid_V_blk_n      |   9|          2|    1|          2|
+    |SocketTableTx_15_myPort_V_blk_n     |   9|          2|    1|          2|
+    |SocketTableTx_15_theirIP_V_blk_n    |   9|          2|    1|          2|
+    |SocketTableTx_15_theirPort_V_blk_n  |   9|          2|    1|          2|
+    |SocketTableTx_15_valid_V_blk_n      |   9|          2|    1|          2|
+    |SocketTableTx_1_myPort_V_blk_n      |   9|          2|    1|          2|
+    |SocketTableTx_1_theirIP_V_blk_n     |   9|          2|    1|          2|
+    |SocketTableTx_1_theirPort_V_blk_n   |   9|          2|    1|          2|
+    |SocketTableTx_1_valid_V_blk_n       |   9|          2|    1|          2|
+    |SocketTableTx_2_myPort_V_blk_n      |   9|          2|    1|          2|
+    |SocketTableTx_2_theirIP_V_blk_n     |   9|          2|    1|          2|
+    |SocketTableTx_2_theirPort_V_blk_n   |   9|          2|    1|          2|
+    |SocketTableTx_2_valid_V_blk_n       |   9|          2|    1|          2|
+    |SocketTableTx_3_myPort_V_blk_n      |   9|          2|    1|          2|
+    |SocketTableTx_3_theirIP_V_blk_n     |   9|          2|    1|          2|
+    |SocketTableTx_3_theirPort_V_blk_n   |   9|          2|    1|          2|
+    |SocketTableTx_3_valid_V_blk_n       |   9|          2|    1|          2|
+    |SocketTableTx_4_myPort_V_blk_n      |   9|          2|    1|          2|
+    |SocketTableTx_4_theirIP_V_blk_n     |   9|          2|    1|          2|
+    |SocketTableTx_4_theirPort_V_blk_n   |   9|          2|    1|          2|
+    |SocketTableTx_4_valid_V_blk_n       |   9|          2|    1|          2|
+    |SocketTableTx_5_myPort_V_blk_n      |   9|          2|    1|          2|
+    |SocketTableTx_5_theirIP_V_blk_n     |   9|          2|    1|          2|
+    |SocketTableTx_5_theirPort_V_blk_n   |   9|          2|    1|          2|
+    |SocketTableTx_5_valid_V_blk_n       |   9|          2|    1|          2|
+    |SocketTableTx_6_myPort_V_blk_n      |   9|          2|    1|          2|
+    |SocketTableTx_6_theirIP_V_blk_n     |   9|          2|    1|          2|
+    |SocketTableTx_6_theirPort_V_blk_n   |   9|          2|    1|          2|
+    |SocketTableTx_6_valid_V_blk_n       |   9|          2|    1|          2|
+    |SocketTableTx_7_myPort_V_blk_n      |   9|          2|    1|          2|
+    |SocketTableTx_7_theirIP_V_blk_n     |   9|          2|    1|          2|
+    |SocketTableTx_7_theirPort_V_blk_n   |   9|          2|    1|          2|
+    |SocketTableTx_7_valid_V_blk_n       |   9|          2|    1|          2|
+    |SocketTableTx_8_myPort_V_blk_n      |   9|          2|    1|          2|
+    |SocketTableTx_8_theirIP_V_blk_n     |   9|          2|    1|          2|
+    |SocketTableTx_8_theirPort_V_blk_n   |   9|          2|    1|          2|
+    |SocketTableTx_8_valid_V_blk_n       |   9|          2|    1|          2|
+    |SocketTableTx_9_myPort_V_blk_n      |   9|          2|    1|          2|
+    |SocketTableTx_9_theirIP_V_blk_n     |   9|          2|    1|          2|
+    |SocketTableTx_9_theirPort_V_blk_n   |   9|          2|    1|          2|
+    |SocketTableTx_9_valid_V_blk_n       |   9|          2|    1|          2|
+    |agmdIdOut_V_V_blk_n                 |   9|          2|    1|          2|
+    |ap_done                             |   9|          2|    1|          2|
+    |txthMetaData_V_blk_n                |   9|          2|    1|          2|
+    +------------------------------------+----+-----------+-----+-----------+
+    |Total                               | 603|        134|   67|        134|
+    +------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------+----+----+-----+-----------+
+    |           Name          | FF | LUT| Bits| Const Bits|
+    +-------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                |   1|   0|    1|          0|
+    |ap_done_reg              |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1  |   1|   0|    1|          0|
+    |tmp_myPort_V_reg_816     |  16|   0|   16|          0|
+    |tmp_reg_802              |   1|   0|    1|          0|
+    |tmp_theirIP_V_reg_806    |  32|   0|   32|          0|
+    |tmp_theirPort_V_reg_811  |  16|   0|   16|          0|
+    |tmp_valid_V_reg_821      |   1|   0|    1|          0|
+    +-------------------------+----+----+-----+-----------+
+    |Total                    |  69|   0|   69|          0|
+    +-------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------------------------+-----+-----+------------+------------------------------+--------------+
+|               RTL Ports              | Dir | Bits|  Protocol  |         Source Object        |    C Type    |
++--------------------------------------+-----+-----+------------+------------------------------+--------------+
+|ap_clk                                |  in |    1| ap_ctrl_hs |        txTableHandler        | return value |
+|ap_rst                                |  in |    1| ap_ctrl_hs |        txTableHandler        | return value |
+|ap_start                              |  in |    1| ap_ctrl_hs |        txTableHandler        | return value |
+|ap_done                               | out |    1| ap_ctrl_hs |        txTableHandler        | return value |
+|ap_continue                           |  in |    1| ap_ctrl_hs |        txTableHandler        | return value |
+|ap_idle                               | out |    1| ap_ctrl_hs |        txTableHandler        | return value |
+|ap_ready                              | out |    1| ap_ctrl_hs |        txTableHandler        | return value |
+|SocketTableTx_0_theirIP_V_dout        |  in |   32|   ap_fifo  |   SocketTableTx_0_theirIP_V  |    pointer   |
+|SocketTableTx_0_theirIP_V_empty_n     |  in |    1|   ap_fifo  |   SocketTableTx_0_theirIP_V  |    pointer   |
+|SocketTableTx_0_theirIP_V_read        | out |    1|   ap_fifo  |   SocketTableTx_0_theirIP_V  |    pointer   |
+|SocketTableTx_1_theirIP_V_dout        |  in |   32|   ap_fifo  |   SocketTableTx_1_theirIP_V  |    pointer   |
+|SocketTableTx_1_theirIP_V_empty_n     |  in |    1|   ap_fifo  |   SocketTableTx_1_theirIP_V  |    pointer   |
+|SocketTableTx_1_theirIP_V_read        | out |    1|   ap_fifo  |   SocketTableTx_1_theirIP_V  |    pointer   |
+|SocketTableTx_2_theirIP_V_dout        |  in |   32|   ap_fifo  |   SocketTableTx_2_theirIP_V  |    pointer   |
+|SocketTableTx_2_theirIP_V_empty_n     |  in |    1|   ap_fifo  |   SocketTableTx_2_theirIP_V  |    pointer   |
+|SocketTableTx_2_theirIP_V_read        | out |    1|   ap_fifo  |   SocketTableTx_2_theirIP_V  |    pointer   |
+|SocketTableTx_3_theirIP_V_dout        |  in |   32|   ap_fifo  |   SocketTableTx_3_theirIP_V  |    pointer   |
+|SocketTableTx_3_theirIP_V_empty_n     |  in |    1|   ap_fifo  |   SocketTableTx_3_theirIP_V  |    pointer   |
+|SocketTableTx_3_theirIP_V_read        | out |    1|   ap_fifo  |   SocketTableTx_3_theirIP_V  |    pointer   |
+|SocketTableTx_4_theirIP_V_dout        |  in |   32|   ap_fifo  |   SocketTableTx_4_theirIP_V  |    pointer   |
+|SocketTableTx_4_theirIP_V_empty_n     |  in |    1|   ap_fifo  |   SocketTableTx_4_theirIP_V  |    pointer   |
+|SocketTableTx_4_theirIP_V_read        | out |    1|   ap_fifo  |   SocketTableTx_4_theirIP_V  |    pointer   |
+|SocketTableTx_5_theirIP_V_dout        |  in |   32|   ap_fifo  |   SocketTableTx_5_theirIP_V  |    pointer   |
+|SocketTableTx_5_theirIP_V_empty_n     |  in |    1|   ap_fifo  |   SocketTableTx_5_theirIP_V  |    pointer   |
+|SocketTableTx_5_theirIP_V_read        | out |    1|   ap_fifo  |   SocketTableTx_5_theirIP_V  |    pointer   |
+|SocketTableTx_6_theirIP_V_dout        |  in |   32|   ap_fifo  |   SocketTableTx_6_theirIP_V  |    pointer   |
+|SocketTableTx_6_theirIP_V_empty_n     |  in |    1|   ap_fifo  |   SocketTableTx_6_theirIP_V  |    pointer   |
+|SocketTableTx_6_theirIP_V_read        | out |    1|   ap_fifo  |   SocketTableTx_6_theirIP_V  |    pointer   |
+|SocketTableTx_7_theirIP_V_dout        |  in |   32|   ap_fifo  |   SocketTableTx_7_theirIP_V  |    pointer   |
+|SocketTableTx_7_theirIP_V_empty_n     |  in |    1|   ap_fifo  |   SocketTableTx_7_theirIP_V  |    pointer   |
+|SocketTableTx_7_theirIP_V_read        | out |    1|   ap_fifo  |   SocketTableTx_7_theirIP_V  |    pointer   |
+|SocketTableTx_8_theirIP_V_dout        |  in |   32|   ap_fifo  |   SocketTableTx_8_theirIP_V  |    pointer   |
+|SocketTableTx_8_theirIP_V_empty_n     |  in |    1|   ap_fifo  |   SocketTableTx_8_theirIP_V  |    pointer   |
+|SocketTableTx_8_theirIP_V_read        | out |    1|   ap_fifo  |   SocketTableTx_8_theirIP_V  |    pointer   |
+|SocketTableTx_9_theirIP_V_dout        |  in |   32|   ap_fifo  |   SocketTableTx_9_theirIP_V  |    pointer   |
+|SocketTableTx_9_theirIP_V_empty_n     |  in |    1|   ap_fifo  |   SocketTableTx_9_theirIP_V  |    pointer   |
+|SocketTableTx_9_theirIP_V_read        | out |    1|   ap_fifo  |   SocketTableTx_9_theirIP_V  |    pointer   |
+|SocketTableTx_10_theirIP_V_dout       |  in |   32|   ap_fifo  |  SocketTableTx_10_theirIP_V  |    pointer   |
+|SocketTableTx_10_theirIP_V_empty_n    |  in |    1|   ap_fifo  |  SocketTableTx_10_theirIP_V  |    pointer   |
+|SocketTableTx_10_theirIP_V_read       | out |    1|   ap_fifo  |  SocketTableTx_10_theirIP_V  |    pointer   |
+|SocketTableTx_11_theirIP_V_dout       |  in |   32|   ap_fifo  |  SocketTableTx_11_theirIP_V  |    pointer   |
+|SocketTableTx_11_theirIP_V_empty_n    |  in |    1|   ap_fifo  |  SocketTableTx_11_theirIP_V  |    pointer   |
+|SocketTableTx_11_theirIP_V_read       | out |    1|   ap_fifo  |  SocketTableTx_11_theirIP_V  |    pointer   |
+|SocketTableTx_12_theirIP_V_dout       |  in |   32|   ap_fifo  |  SocketTableTx_12_theirIP_V  |    pointer   |
+|SocketTableTx_12_theirIP_V_empty_n    |  in |    1|   ap_fifo  |  SocketTableTx_12_theirIP_V  |    pointer   |
+|SocketTableTx_12_theirIP_V_read       | out |    1|   ap_fifo  |  SocketTableTx_12_theirIP_V  |    pointer   |
+|SocketTableTx_13_theirIP_V_dout       |  in |   32|   ap_fifo  |  SocketTableTx_13_theirIP_V  |    pointer   |
+|SocketTableTx_13_theirIP_V_empty_n    |  in |    1|   ap_fifo  |  SocketTableTx_13_theirIP_V  |    pointer   |
+|SocketTableTx_13_theirIP_V_read       | out |    1|   ap_fifo  |  SocketTableTx_13_theirIP_V  |    pointer   |
+|SocketTableTx_14_theirIP_V_dout       |  in |   32|   ap_fifo  |  SocketTableTx_14_theirIP_V  |    pointer   |
+|SocketTableTx_14_theirIP_V_empty_n    |  in |    1|   ap_fifo  |  SocketTableTx_14_theirIP_V  |    pointer   |
+|SocketTableTx_14_theirIP_V_read       | out |    1|   ap_fifo  |  SocketTableTx_14_theirIP_V  |    pointer   |
+|SocketTableTx_15_theirIP_V_dout       |  in |   32|   ap_fifo  |  SocketTableTx_15_theirIP_V  |    pointer   |
+|SocketTableTx_15_theirIP_V_empty_n    |  in |    1|   ap_fifo  |  SocketTableTx_15_theirIP_V  |    pointer   |
+|SocketTableTx_15_theirIP_V_read       | out |    1|   ap_fifo  |  SocketTableTx_15_theirIP_V  |    pointer   |
+|SocketTableTx_0_theirPort_V_dout      |  in |   16|   ap_fifo  |  SocketTableTx_0_theirPort_V |    pointer   |
+|SocketTableTx_0_theirPort_V_empty_n   |  in |    1|   ap_fifo  |  SocketTableTx_0_theirPort_V |    pointer   |
+|SocketTableTx_0_theirPort_V_read      | out |    1|   ap_fifo  |  SocketTableTx_0_theirPort_V |    pointer   |
+|SocketTableTx_1_theirPort_V_dout      |  in |   16|   ap_fifo  |  SocketTableTx_1_theirPort_V |    pointer   |
+|SocketTableTx_1_theirPort_V_empty_n   |  in |    1|   ap_fifo  |  SocketTableTx_1_theirPort_V |    pointer   |
+|SocketTableTx_1_theirPort_V_read      | out |    1|   ap_fifo  |  SocketTableTx_1_theirPort_V |    pointer   |
+|SocketTableTx_2_theirPort_V_dout      |  in |   16|   ap_fifo  |  SocketTableTx_2_theirPort_V |    pointer   |
+|SocketTableTx_2_theirPort_V_empty_n   |  in |    1|   ap_fifo  |  SocketTableTx_2_theirPort_V |    pointer   |
+|SocketTableTx_2_theirPort_V_read      | out |    1|   ap_fifo  |  SocketTableTx_2_theirPort_V |    pointer   |
+|SocketTableTx_3_theirPort_V_dout      |  in |   16|   ap_fifo  |  SocketTableTx_3_theirPort_V |    pointer   |
+|SocketTableTx_3_theirPort_V_empty_n   |  in |    1|   ap_fifo  |  SocketTableTx_3_theirPort_V |    pointer   |
+|SocketTableTx_3_theirPort_V_read      | out |    1|   ap_fifo  |  SocketTableTx_3_theirPort_V |    pointer   |
+|SocketTableTx_4_theirPort_V_dout      |  in |   16|   ap_fifo  |  SocketTableTx_4_theirPort_V |    pointer   |
+|SocketTableTx_4_theirPort_V_empty_n   |  in |    1|   ap_fifo  |  SocketTableTx_4_theirPort_V |    pointer   |
+|SocketTableTx_4_theirPort_V_read      | out |    1|   ap_fifo  |  SocketTableTx_4_theirPort_V |    pointer   |
+|SocketTableTx_5_theirPort_V_dout      |  in |   16|   ap_fifo  |  SocketTableTx_5_theirPort_V |    pointer   |
+|SocketTableTx_5_theirPort_V_empty_n   |  in |    1|   ap_fifo  |  SocketTableTx_5_theirPort_V |    pointer   |
+|SocketTableTx_5_theirPort_V_read      | out |    1|   ap_fifo  |  SocketTableTx_5_theirPort_V |    pointer   |
+|SocketTableTx_6_theirPort_V_dout      |  in |   16|   ap_fifo  |  SocketTableTx_6_theirPort_V |    pointer   |
+|SocketTableTx_6_theirPort_V_empty_n   |  in |    1|   ap_fifo  |  SocketTableTx_6_theirPort_V |    pointer   |
+|SocketTableTx_6_theirPort_V_read      | out |    1|   ap_fifo  |  SocketTableTx_6_theirPort_V |    pointer   |
+|SocketTableTx_7_theirPort_V_dout      |  in |   16|   ap_fifo  |  SocketTableTx_7_theirPort_V |    pointer   |
+|SocketTableTx_7_theirPort_V_empty_n   |  in |    1|   ap_fifo  |  SocketTableTx_7_theirPort_V |    pointer   |
+|SocketTableTx_7_theirPort_V_read      | out |    1|   ap_fifo  |  SocketTableTx_7_theirPort_V |    pointer   |
+|SocketTableTx_8_theirPort_V_dout      |  in |   16|   ap_fifo  |  SocketTableTx_8_theirPort_V |    pointer   |
+|SocketTableTx_8_theirPort_V_empty_n   |  in |    1|   ap_fifo  |  SocketTableTx_8_theirPort_V |    pointer   |
+|SocketTableTx_8_theirPort_V_read      | out |    1|   ap_fifo  |  SocketTableTx_8_theirPort_V |    pointer   |
+|SocketTableTx_9_theirPort_V_dout      |  in |   16|   ap_fifo  |  SocketTableTx_9_theirPort_V |    pointer   |
+|SocketTableTx_9_theirPort_V_empty_n   |  in |    1|   ap_fifo  |  SocketTableTx_9_theirPort_V |    pointer   |
+|SocketTableTx_9_theirPort_V_read      | out |    1|   ap_fifo  |  SocketTableTx_9_theirPort_V |    pointer   |
+|SocketTableTx_10_theirPort_V_dout     |  in |   16|   ap_fifo  | SocketTableTx_10_theirPort_V |    pointer   |
+|SocketTableTx_10_theirPort_V_empty_n  |  in |    1|   ap_fifo  | SocketTableTx_10_theirPort_V |    pointer   |
+|SocketTableTx_10_theirPort_V_read     | out |    1|   ap_fifo  | SocketTableTx_10_theirPort_V |    pointer   |
+|SocketTableTx_11_theirPort_V_dout     |  in |   16|   ap_fifo  | SocketTableTx_11_theirPort_V |    pointer   |
+|SocketTableTx_11_theirPort_V_empty_n  |  in |    1|   ap_fifo  | SocketTableTx_11_theirPort_V |    pointer   |
+|SocketTableTx_11_theirPort_V_read     | out |    1|   ap_fifo  | SocketTableTx_11_theirPort_V |    pointer   |
+|SocketTableTx_12_theirPort_V_dout     |  in |   16|   ap_fifo  | SocketTableTx_12_theirPort_V |    pointer   |
+|SocketTableTx_12_theirPort_V_empty_n  |  in |    1|   ap_fifo  | SocketTableTx_12_theirPort_V |    pointer   |
+|SocketTableTx_12_theirPort_V_read     | out |    1|   ap_fifo  | SocketTableTx_12_theirPort_V |    pointer   |
+|SocketTableTx_13_theirPort_V_dout     |  in |   16|   ap_fifo  | SocketTableTx_13_theirPort_V |    pointer   |
+|SocketTableTx_13_theirPort_V_empty_n  |  in |    1|   ap_fifo  | SocketTableTx_13_theirPort_V |    pointer   |
+|SocketTableTx_13_theirPort_V_read     | out |    1|   ap_fifo  | SocketTableTx_13_theirPort_V |    pointer   |
+|SocketTableTx_14_theirPort_V_dout     |  in |   16|   ap_fifo  | SocketTableTx_14_theirPort_V |    pointer   |
+|SocketTableTx_14_theirPort_V_empty_n  |  in |    1|   ap_fifo  | SocketTableTx_14_theirPort_V |    pointer   |
+|SocketTableTx_14_theirPort_V_read     | out |    1|   ap_fifo  | SocketTableTx_14_theirPort_V |    pointer   |
+|SocketTableTx_15_theirPort_V_dout     |  in |   16|   ap_fifo  | SocketTableTx_15_theirPort_V |    pointer   |
+|SocketTableTx_15_theirPort_V_empty_n  |  in |    1|   ap_fifo  | SocketTableTx_15_theirPort_V |    pointer   |
+|SocketTableTx_15_theirPort_V_read     | out |    1|   ap_fifo  | SocketTableTx_15_theirPort_V |    pointer   |
+|SocketTableTx_0_myPort_V_dout         |  in |   16|   ap_fifo  |   SocketTableTx_0_myPort_V   |    pointer   |
+|SocketTableTx_0_myPort_V_empty_n      |  in |    1|   ap_fifo  |   SocketTableTx_0_myPort_V   |    pointer   |
+|SocketTableTx_0_myPort_V_read         | out |    1|   ap_fifo  |   SocketTableTx_0_myPort_V   |    pointer   |
+|SocketTableTx_1_myPort_V_dout         |  in |   16|   ap_fifo  |   SocketTableTx_1_myPort_V   |    pointer   |
+|SocketTableTx_1_myPort_V_empty_n      |  in |    1|   ap_fifo  |   SocketTableTx_1_myPort_V   |    pointer   |
+|SocketTableTx_1_myPort_V_read         | out |    1|   ap_fifo  |   SocketTableTx_1_myPort_V   |    pointer   |
+|SocketTableTx_2_myPort_V_dout         |  in |   16|   ap_fifo  |   SocketTableTx_2_myPort_V   |    pointer   |
+|SocketTableTx_2_myPort_V_empty_n      |  in |    1|   ap_fifo  |   SocketTableTx_2_myPort_V   |    pointer   |
+|SocketTableTx_2_myPort_V_read         | out |    1|   ap_fifo  |   SocketTableTx_2_myPort_V   |    pointer   |
+|SocketTableTx_3_myPort_V_dout         |  in |   16|   ap_fifo  |   SocketTableTx_3_myPort_V   |    pointer   |
+|SocketTableTx_3_myPort_V_empty_n      |  in |    1|   ap_fifo  |   SocketTableTx_3_myPort_V   |    pointer   |
+|SocketTableTx_3_myPort_V_read         | out |    1|   ap_fifo  |   SocketTableTx_3_myPort_V   |    pointer   |
+|SocketTableTx_4_myPort_V_dout         |  in |   16|   ap_fifo  |   SocketTableTx_4_myPort_V   |    pointer   |
+|SocketTableTx_4_myPort_V_empty_n      |  in |    1|   ap_fifo  |   SocketTableTx_4_myPort_V   |    pointer   |
+|SocketTableTx_4_myPort_V_read         | out |    1|   ap_fifo  |   SocketTableTx_4_myPort_V   |    pointer   |
+|SocketTableTx_5_myPort_V_dout         |  in |   16|   ap_fifo  |   SocketTableTx_5_myPort_V   |    pointer   |
+|SocketTableTx_5_myPort_V_empty_n      |  in |    1|   ap_fifo  |   SocketTableTx_5_myPort_V   |    pointer   |
+|SocketTableTx_5_myPort_V_read         | out |    1|   ap_fifo  |   SocketTableTx_5_myPort_V   |    pointer   |
+|SocketTableTx_6_myPort_V_dout         |  in |   16|   ap_fifo  |   SocketTableTx_6_myPort_V   |    pointer   |
+|SocketTableTx_6_myPort_V_empty_n      |  in |    1|   ap_fifo  |   SocketTableTx_6_myPort_V   |    pointer   |
+|SocketTableTx_6_myPort_V_read         | out |    1|   ap_fifo  |   SocketTableTx_6_myPort_V   |    pointer   |
+|SocketTableTx_7_myPort_V_dout         |  in |   16|   ap_fifo  |   SocketTableTx_7_myPort_V   |    pointer   |
+|SocketTableTx_7_myPort_V_empty_n      |  in |    1|   ap_fifo  |   SocketTableTx_7_myPort_V   |    pointer   |
+|SocketTableTx_7_myPort_V_read         | out |    1|   ap_fifo  |   SocketTableTx_7_myPort_V   |    pointer   |
+|SocketTableTx_8_myPort_V_dout         |  in |   16|   ap_fifo  |   SocketTableTx_8_myPort_V   |    pointer   |
+|SocketTableTx_8_myPort_V_empty_n      |  in |    1|   ap_fifo  |   SocketTableTx_8_myPort_V   |    pointer   |
+|SocketTableTx_8_myPort_V_read         | out |    1|   ap_fifo  |   SocketTableTx_8_myPort_V   |    pointer   |
+|SocketTableTx_9_myPort_V_dout         |  in |   16|   ap_fifo  |   SocketTableTx_9_myPort_V   |    pointer   |
+|SocketTableTx_9_myPort_V_empty_n      |  in |    1|   ap_fifo  |   SocketTableTx_9_myPort_V   |    pointer   |
+|SocketTableTx_9_myPort_V_read         | out |    1|   ap_fifo  |   SocketTableTx_9_myPort_V   |    pointer   |
+|SocketTableTx_10_myPort_V_dout        |  in |   16|   ap_fifo  |   SocketTableTx_10_myPort_V  |    pointer   |
+|SocketTableTx_10_myPort_V_empty_n     |  in |    1|   ap_fifo  |   SocketTableTx_10_myPort_V  |    pointer   |
+|SocketTableTx_10_myPort_V_read        | out |    1|   ap_fifo  |   SocketTableTx_10_myPort_V  |    pointer   |
+|SocketTableTx_11_myPort_V_dout        |  in |   16|   ap_fifo  |   SocketTableTx_11_myPort_V  |    pointer   |
+|SocketTableTx_11_myPort_V_empty_n     |  in |    1|   ap_fifo  |   SocketTableTx_11_myPort_V  |    pointer   |
+|SocketTableTx_11_myPort_V_read        | out |    1|   ap_fifo  |   SocketTableTx_11_myPort_V  |    pointer   |
+|SocketTableTx_12_myPort_V_dout        |  in |   16|   ap_fifo  |   SocketTableTx_12_myPort_V  |    pointer   |
+|SocketTableTx_12_myPort_V_empty_n     |  in |    1|   ap_fifo  |   SocketTableTx_12_myPort_V  |    pointer   |
+|SocketTableTx_12_myPort_V_read        | out |    1|   ap_fifo  |   SocketTableTx_12_myPort_V  |    pointer   |
+|SocketTableTx_13_myPort_V_dout        |  in |   16|   ap_fifo  |   SocketTableTx_13_myPort_V  |    pointer   |
+|SocketTableTx_13_myPort_V_empty_n     |  in |    1|   ap_fifo  |   SocketTableTx_13_myPort_V  |    pointer   |
+|SocketTableTx_13_myPort_V_read        | out |    1|   ap_fifo  |   SocketTableTx_13_myPort_V  |    pointer   |
+|SocketTableTx_14_myPort_V_dout        |  in |   16|   ap_fifo  |   SocketTableTx_14_myPort_V  |    pointer   |
+|SocketTableTx_14_myPort_V_empty_n     |  in |    1|   ap_fifo  |   SocketTableTx_14_myPort_V  |    pointer   |
+|SocketTableTx_14_myPort_V_read        | out |    1|   ap_fifo  |   SocketTableTx_14_myPort_V  |    pointer   |
+|SocketTableTx_15_myPort_V_dout        |  in |   16|   ap_fifo  |   SocketTableTx_15_myPort_V  |    pointer   |
+|SocketTableTx_15_myPort_V_empty_n     |  in |    1|   ap_fifo  |   SocketTableTx_15_myPort_V  |    pointer   |
+|SocketTableTx_15_myPort_V_read        | out |    1|   ap_fifo  |   SocketTableTx_15_myPort_V  |    pointer   |
+|SocketTableTx_0_valid_V_dout          |  in |    1|   ap_fifo  |    SocketTableTx_0_valid_V   |    pointer   |
+|SocketTableTx_0_valid_V_empty_n       |  in |    1|   ap_fifo  |    SocketTableTx_0_valid_V   |    pointer   |
+|SocketTableTx_0_valid_V_read          | out |    1|   ap_fifo  |    SocketTableTx_0_valid_V   |    pointer   |
+|SocketTableTx_1_valid_V_dout          |  in |    1|   ap_fifo  |    SocketTableTx_1_valid_V   |    pointer   |
+|SocketTableTx_1_valid_V_empty_n       |  in |    1|   ap_fifo  |    SocketTableTx_1_valid_V   |    pointer   |
+|SocketTableTx_1_valid_V_read          | out |    1|   ap_fifo  |    SocketTableTx_1_valid_V   |    pointer   |
+|SocketTableTx_2_valid_V_dout          |  in |    1|   ap_fifo  |    SocketTableTx_2_valid_V   |    pointer   |
+|SocketTableTx_2_valid_V_empty_n       |  in |    1|   ap_fifo  |    SocketTableTx_2_valid_V   |    pointer   |
+|SocketTableTx_2_valid_V_read          | out |    1|   ap_fifo  |    SocketTableTx_2_valid_V   |    pointer   |
+|SocketTableTx_3_valid_V_dout          |  in |    1|   ap_fifo  |    SocketTableTx_3_valid_V   |    pointer   |
+|SocketTableTx_3_valid_V_empty_n       |  in |    1|   ap_fifo  |    SocketTableTx_3_valid_V   |    pointer   |
+|SocketTableTx_3_valid_V_read          | out |    1|   ap_fifo  |    SocketTableTx_3_valid_V   |    pointer   |
+|SocketTableTx_4_valid_V_dout          |  in |    1|   ap_fifo  |    SocketTableTx_4_valid_V   |    pointer   |
+|SocketTableTx_4_valid_V_empty_n       |  in |    1|   ap_fifo  |    SocketTableTx_4_valid_V   |    pointer   |
+|SocketTableTx_4_valid_V_read          | out |    1|   ap_fifo  |    SocketTableTx_4_valid_V   |    pointer   |
+|SocketTableTx_5_valid_V_dout          |  in |    1|   ap_fifo  |    SocketTableTx_5_valid_V   |    pointer   |
+|SocketTableTx_5_valid_V_empty_n       |  in |    1|   ap_fifo  |    SocketTableTx_5_valid_V   |    pointer   |
+|SocketTableTx_5_valid_V_read          | out |    1|   ap_fifo  |    SocketTableTx_5_valid_V   |    pointer   |
+|SocketTableTx_6_valid_V_dout          |  in |    1|   ap_fifo  |    SocketTableTx_6_valid_V   |    pointer   |
+|SocketTableTx_6_valid_V_empty_n       |  in |    1|   ap_fifo  |    SocketTableTx_6_valid_V   |    pointer   |
+|SocketTableTx_6_valid_V_read          | out |    1|   ap_fifo  |    SocketTableTx_6_valid_V   |    pointer   |
+|SocketTableTx_7_valid_V_dout          |  in |    1|   ap_fifo  |    SocketTableTx_7_valid_V   |    pointer   |
+|SocketTableTx_7_valid_V_empty_n       |  in |    1|   ap_fifo  |    SocketTableTx_7_valid_V   |    pointer   |
+|SocketTableTx_7_valid_V_read          | out |    1|   ap_fifo  |    SocketTableTx_7_valid_V   |    pointer   |
+|SocketTableTx_8_valid_V_dout          |  in |    1|   ap_fifo  |    SocketTableTx_8_valid_V   |    pointer   |
+|SocketTableTx_8_valid_V_empty_n       |  in |    1|   ap_fifo  |    SocketTableTx_8_valid_V   |    pointer   |
+|SocketTableTx_8_valid_V_read          | out |    1|   ap_fifo  |    SocketTableTx_8_valid_V   |    pointer   |
+|SocketTableTx_9_valid_V_dout          |  in |    1|   ap_fifo  |    SocketTableTx_9_valid_V   |    pointer   |
+|SocketTableTx_9_valid_V_empty_n       |  in |    1|   ap_fifo  |    SocketTableTx_9_valid_V   |    pointer   |
+|SocketTableTx_9_valid_V_read          | out |    1|   ap_fifo  |    SocketTableTx_9_valid_V   |    pointer   |
+|SocketTableTx_10_valid_V_dout         |  in |    1|   ap_fifo  |   SocketTableTx_10_valid_V   |    pointer   |
+|SocketTableTx_10_valid_V_empty_n      |  in |    1|   ap_fifo  |   SocketTableTx_10_valid_V   |    pointer   |
+|SocketTableTx_10_valid_V_read         | out |    1|   ap_fifo  |   SocketTableTx_10_valid_V   |    pointer   |
+|SocketTableTx_11_valid_V_dout         |  in |    1|   ap_fifo  |   SocketTableTx_11_valid_V   |    pointer   |
+|SocketTableTx_11_valid_V_empty_n      |  in |    1|   ap_fifo  |   SocketTableTx_11_valid_V   |    pointer   |
+|SocketTableTx_11_valid_V_read         | out |    1|   ap_fifo  |   SocketTableTx_11_valid_V   |    pointer   |
+|SocketTableTx_12_valid_V_dout         |  in |    1|   ap_fifo  |   SocketTableTx_12_valid_V   |    pointer   |
+|SocketTableTx_12_valid_V_empty_n      |  in |    1|   ap_fifo  |   SocketTableTx_12_valid_V   |    pointer   |
+|SocketTableTx_12_valid_V_read         | out |    1|   ap_fifo  |   SocketTableTx_12_valid_V   |    pointer   |
+|SocketTableTx_13_valid_V_dout         |  in |    1|   ap_fifo  |   SocketTableTx_13_valid_V   |    pointer   |
+|SocketTableTx_13_valid_V_empty_n      |  in |    1|   ap_fifo  |   SocketTableTx_13_valid_V   |    pointer   |
+|SocketTableTx_13_valid_V_read         | out |    1|   ap_fifo  |   SocketTableTx_13_valid_V   |    pointer   |
+|SocketTableTx_14_valid_V_dout         |  in |    1|   ap_fifo  |   SocketTableTx_14_valid_V   |    pointer   |
+|SocketTableTx_14_valid_V_empty_n      |  in |    1|   ap_fifo  |   SocketTableTx_14_valid_V   |    pointer   |
+|SocketTableTx_14_valid_V_read         | out |    1|   ap_fifo  |   SocketTableTx_14_valid_V   |    pointer   |
+|SocketTableTx_15_valid_V_dout         |  in |    1|   ap_fifo  |   SocketTableTx_15_valid_V   |    pointer   |
+|SocketTableTx_15_valid_V_empty_n      |  in |    1|   ap_fifo  |   SocketTableTx_15_valid_V   |    pointer   |
+|SocketTableTx_15_valid_V_read         | out |    1|   ap_fifo  |   SocketTableTx_15_valid_V   |    pointer   |
+|agmdIdOut_V_V_dout                    |  in |   16|   ap_fifo  |         agmdIdOut_V_V        |    pointer   |
+|agmdIdOut_V_V_empty_n                 |  in |    1|   ap_fifo  |         agmdIdOut_V_V        |    pointer   |
+|agmdIdOut_V_V_read                    | out |    1|   ap_fifo  |         agmdIdOut_V_V        |    pointer   |
+|txthMetaData_V_din                    | out |   97|   ap_fifo  |        txthMetaData_V        |    pointer   |
+|txthMetaData_V_full_n                 |  in |    1|   ap_fifo  |        txthMetaData_V        |    pointer   |
+|txthMetaData_V_write                  | out |    1|   ap_fifo  |        txthMetaData_V        |    pointer   |
+|myIpAddress_V                         |  in |   32|  ap_stable |         myIpAddress_V        |    pointer   |
++--------------------------------------+-----+-----+------------+------------------------------+--------------+
+

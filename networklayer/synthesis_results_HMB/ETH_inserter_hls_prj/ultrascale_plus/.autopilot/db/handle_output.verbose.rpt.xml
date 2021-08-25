@@ -1,0 +1,188 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'handle_output'" level="0">
+<item name = "Date">Thu Aug  5 18:55:55 2021
+</item>
+<item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
+<item name = "Project">ETH_inserter_hls_prj</item>
+<item name = "Solution">ultrascale_plus</item>
+<item name = "Product family">virtexuplus</item>
+<item name = "Target device">xcu280-fsvh2892-2L-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">3.10 ns, 2.374 ns, 0.20 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">2, 2, 6.200 ns, 6.200 ns, 1, 1, function</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 64, -</column>
+<column name="FIFO">-, -, -, -, -</column>
+<column name="Instance">-, -, -, -, -</column>
+<column name="Memory">-, -, -, -, -</column>
+<column name="Multiplexer">-, -, -, 195, -</column>
+<column name="Register">-, -, 1171, -, -</column>
+<specialColumn name="Available SLR">1344, 3008, 869120, 434560, 320</specialColumn>
+<specialColumn name="Utilization SLR (%)">0, 0, ~0, ~0, 0</specialColumn>
+<specialColumn name="Available">4032, 9024, 2607360, 1303680, 960</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+</table>
+</item>
+<item name = "DSP48E"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="ap_condition_156">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_225">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_278">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_291">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_342">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op10_read_state1">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op25_read_state1">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op40_read_state1">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op45_read_state1">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op51_read_state1">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op71_write_state2">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op75_write_state2">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op85_write_state3">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op88_write_state3">and, 0, 0, 2, 1, 1</column>
+<column name="grp_nbreadreq_fu_112_p3">and, 0, 0, 2, 1, 0</column>
+<column name="grp_nbreadreq_fu_126_p3">and, 0, 0, 2, 1, 0</column>
+<column name="tmp_last_V_fu_375_p2">and, 0, 0, 2, 1, 1</column>
+<column name="tmp_nbreadreq_fu_140_p3">and, 0, 0, 2, 1, 0</column>
+<column name="ap_block_pp0_stage0_01001">or, 0, 0, 2, 1, 1</column>
+<column name="ap_block_pp0_stage0_11001">or, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state1_pp0_stage0_iter0">or, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state2_io">or, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state3_io">or, 0, 0, 2, 1, 1</column>
+<column name="select_ln124_fu_395_p3">select, 0, 0, 2, 1, 1</column>
+<column name="select_ln155_fu_367_p3">select, 0, 0, 3, 1, 3</column>
+<column name="select_ln187_fu_293_p3">select, 0, 0, 3, 1, 3</column>
+<column name="select_ln321_fu_381_p3">select, 0, 0, 4, 1, 3</column>
+<column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
+<column name="p_Result_5_fu_361_p2">xor, 0, 0, 2, 1, 2</column>
+<column name="p_Result_8_fu_287_p2">xor, 0, 0, 2, 1, 2</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_done">9, 2, 1, 2</column>
+<column name="ap_phi_mux_storemerge556_i_phi_fu_177_p4">15, 3, 2, 6</column>
+<column name="ap_phi_reg_pp0_iter1_tmp_last_V_1_reg_185">15, 3, 1, 3</column>
+<column name="arpTableReplay_V_TDATA_blk_n">9, 2, 1, 2</column>
+<column name="dataOut_TDATA_blk_n">9, 2, 1, 2</column>
+<column name="dataOut_TDATA_int">21, 4, 512, 2048</column>
+<column name="dataOut_TKEEP_int">21, 4, 64, 256</column>
+<column name="dataOut_TLAST_int">21, 4, 1, 4</column>
+<column name="ip_header_checksum_V_blk_n">9, 2, 1, 2</column>
+<column name="mw_state">27, 5, 3, 15</column>
+<column name="no_ip_header_out_V_blk_n">9, 2, 1, 2</column>
+<column name="previous_word_data_V">15, 3, 112, 336</column>
+<column name="previous_word_keep_V">15, 3, 14, 42</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_CS_fsm">1, 0, 1, 0</column>
+<column name="ap_done_reg">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter2">1, 0, 1, 0</column>
+<column name="ap_phi_reg_pp0_iter1_tmp_last_V_1_reg_185">1, 0, 1, 0</column>
+<column name="mw_state">3, 0, 3, 0</column>
+<column name="mw_state_load_reg_497">3, 0, 3, 0</column>
+<column name="mw_state_load_reg_497_pp0_iter1_reg">3, 0, 3, 0</column>
+<column name="p_Result_2_i_reg_546">50, 0, 50, 0</column>
+<column name="p_Result_8_i_reg_527">50, 0, 50, 0</column>
+<column name="previous_word_data_V">112, 0, 112, 0</column>
+<column name="previous_word_data_V_1_reg_501">112, 0, 112, 0</column>
+<column name="previous_word_keep_V">14, 0, 14, 0</column>
+<column name="previous_word_keep_V_1_reg_508">14, 0, 14, 0</column>
+<column name="tmp_3_reg_537">1, 0, 1, 0</column>
+<column name="tmp_3_reg_537_pp0_iter1_reg">1, 0, 1, 0</column>
+<column name="tmp_4_reg_515">1, 0, 1, 0</column>
+<column name="tmp_4_reg_515_pp0_iter1_reg">1, 0, 1, 0</column>
+<column name="tmp_last_V_reg_551">1, 0, 1, 0</column>
+<column name="trunc_ln647_1_reg_522">400, 0, 400, 0</column>
+<column name="trunc_ln647_reg_541">400, 0, 400, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, handle_output, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, handle_output, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, handle_output, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, handle_output, return value</column>
+<column name="ap_continue">in, 1, ap_ctrl_hs, handle_output, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, handle_output, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, handle_output, return value</column>
+<column name="no_ip_header_out_V_dout">in, 577, ap_fifo, no_ip_header_out_V, pointer</column>
+<column name="no_ip_header_out_V_empty_n">in, 1, ap_fifo, no_ip_header_out_V, pointer</column>
+<column name="no_ip_header_out_V_read">out, 1, ap_fifo, no_ip_header_out_V, pointer</column>
+<column name="ip_header_checksum_V_dout">in, 577, ap_fifo, ip_header_checksum_V, pointer</column>
+<column name="ip_header_checksum_V_empty_n">in, 1, ap_fifo, ip_header_checksum_V, pointer</column>
+<column name="ip_header_checksum_V_read">out, 1, ap_fifo, ip_header_checksum_V, pointer</column>
+<column name="arpTableReplay_V_TVALID">in, 1, axis, arpTableReplay_V, pointer</column>
+<column name="arpTableReplay_V_TDATA">in, 56, axis, arpTableReplay_V, pointer</column>
+<column name="arpTableReplay_V_TREADY">out, 1, axis, arpTableReplay_V, pointer</column>
+<column name="dataOut_TREADY">in, 1, axis, dataOut_V_last_V, pointer</column>
+<column name="dataOut_TVALID">out, 1, axis, dataOut_V_last_V, pointer</column>
+<column name="dataOut_TLAST">out, 1, axis, dataOut_V_last_V, pointer</column>
+<column name="myMacAddress_V">in, 48, ap_stable, myMacAddress_V, pointer</column>
+<column name="dataOut_TDATA">out, 512, axis, dataOut_V_data_V, pointer</column>
+<column name="dataOut_TKEEP">out, 64, axis, dataOut_V_keep_V, pointer</column>
+</table>
+</item>
+</section>
+</profile>

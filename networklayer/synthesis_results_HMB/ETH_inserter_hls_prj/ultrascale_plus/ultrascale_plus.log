@@ -1,0 +1,83 @@
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Setting target device to 'xcu280-fsvh2892-2L-e'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 3.1ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.2ns.
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file '/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25955 ; free virtual = 42404
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25955 ; free virtual = 42404
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25903 ; free virtual = 42362
+INFO: [HLS 200-10] Checking synthesizability ...
+WARNING: [SYNCHK 200-23] /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:251: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25867 ; free virtual = 42328
+INFO: [XFORM 203-1101] Packing variable 'arpTableReplay.V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:306) into a 49-bit variable.
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'compute_and_insert_ip_checksum' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:49:26).
+INFO: [HLS 200-489] Unrolling loop 'data_ops' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:249) in function 'compute_and_insert_ip_checksum' completely with a factor of 30.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:262) in function 'compute_and_insert_ip_checksum' completely with a factor of 15.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:268) in function 'compute_and_insert_ip_checksum' completely with a factor of 7.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:275) in function 'compute_and_insert_ip_checksum' completely with a factor of 4.
+INFO: [XFORM 203-101] Partitioning array 'ip_ops.V'  in dimension 1 completely.
+INFO: [XFORM 203-712] Applying dataflow to function 'ethernet_header_inserter', detected/extracted 3 process function(s): 
+	 'broadcaster_and_mac_request'
+	 'compute_and_insert_ip_checksum'
+	 'handle_output'.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:142:5) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:169:4) in function 'handle_output'... converting 3 basic blocks.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:35 ; elapsed = 00:00:35 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25777 ; free virtual = 42250
+WARNING: [XFORM 203-631] Renaming function 'compute_and_insert_ip_checksum' to 'compute_and_insert_i' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:49:2)
+WARNING: [XFORM 203-631] Renaming function 'broadcaster_and_mac_request' to 'broadcaster_and_mac_' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:42:6)
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25722 ; free virtual = 42201
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'ethernet_header_inserter' ...
+WARNING: [SYN 201-103] Legalizing function name 'broadcaster_and_mac_' to 'broadcaster_and_mac_s'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'broadcaster_and_mac_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'broadcaster_and_mac_'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 36.8 seconds; current allocated memory: 211.417 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 211.626 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'compute_and_insert_i' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'compute_and_insert_i'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 4.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.31 seconds; current allocated memory: 212.582 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.24 seconds; current allocated memory: 213.793 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'handle_output' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'handle_output'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.69 seconds; current allocated memory: 214.235 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 214.678 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ethernet_header_inserter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11]

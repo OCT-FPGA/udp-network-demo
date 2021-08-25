@@ -1,0 +1,86 @@
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Setting target device to 'xcu280-fsvh2892-2L-e'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 3.1ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.2ns.
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file '/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25909 ; free virtual = 42352
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25909 ; free virtual = 42352
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25925 ; free virtual = 42373
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'byteSwap16' into 'packet_identification' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:185) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:31 ; elapsed = 00:00:31 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25931 ; free virtual = 42382
+INFO: [XFORM 203-602] Inlining function 'byteSwap16' into 'packet_identification' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:185) automatically.
+INFO: [XFORM 203-712] Applying dataflow to function 'packet_handler', detected/extracted 2 process function(s): 
+	 'packet_identification'
+	 'ethernet_remover'.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:184:5) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:220:5) in function 'packet_identification'... converting 6 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:67:5) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:83:9) in function 'ethernet_remover'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:105:5) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:129:4) in function 'ethernet_remover'... converting 3 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'packet_identification' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:162)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25936 ; free virtual = 42389
+WARNING: [XFORM 203-631] Renaming function 'packet_identification' to 'packet_identificatio' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:40:4)
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25890 ; free virtual = 42347
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'packet_handler' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'packet_identificatio' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'packet_identificatio'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 32.67 seconds; current allocated memory: 185.098 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 185.429 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ethernet_remover' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'ethernet_remover'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.35 seconds; current allocated memory: 185.744 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 186.178 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'packet_handler' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 186.304 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 186.422 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'packet_identificatio' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'pi_fsm_state' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'tdest_r_V' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'packet_identificatio'.
+INFO: [HLS 200-111]  Elapsed time: 0.13 seconds; current allocated memory: 187.053 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ethernet_remover' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'er_fsm_state' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'prevWord_data_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'prevWord_keep_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'prevWord_dest_V' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ethernet_remover'.
+INFO: [HLS 200-111]  Elapsed time: 0.34 seconds; current allocated memory: 189.102 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------

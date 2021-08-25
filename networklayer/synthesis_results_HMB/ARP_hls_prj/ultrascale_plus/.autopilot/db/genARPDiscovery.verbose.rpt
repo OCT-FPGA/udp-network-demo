@@ -1,0 +1,1634 @@
+
+
+================================================================
+== Vivado HLS Report for 'genARPDiscovery'
+================================================================
+* Date:           Thu Aug  5 18:55:56 2021
+
+* Version:        2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)
+* Project:        ARP_hls_prj
+* Solution:       ultrascale_plus
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  | 3.10 ns | 2.900 ns |   0.20 ns  |
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |        2|        2| 6.200 ns | 6.200 ns |    1|    1| function |
+    +---------+---------+----------+----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+-----+
+|         Name        | BRAM_18K| DSP48E|    FF   |   LUT   | URAM|
++---------------------+---------+-------+---------+---------+-----+
+|DSP                  |        -|      -|        -|        -|    -|
+|Expression           |        -|      -|        0|      125|    -|
+|FIFO                 |        -|      -|        -|        -|    -|
+|Instance             |        -|      -|        -|        -|    -|
+|Memory               |        -|      -|        -|        -|    -|
+|Multiplexer          |        -|      -|        -|      147|    -|
+|Register             |        -|      -|      147|        -|    -|
++---------------------+---------+-------+---------+---------+-----+
+|Total                |        0|      0|      147|      272|    0|
++---------------------+---------+-------+---------+---------+-----+
+|Available SLR        |     1344|   3008|   869120|   434560|  320|
++---------------------+---------+-------+---------+---------+-----+
+|Utilization SLR (%)  |        0|      0|    ~0   |    ~0   |    0|
++---------------------+---------+-------+---------+---------+-----+
+|Available            |     4032|   9024|  2607360|  1303680|  960|
++---------------------+---------+-------+---------+---------+-----+
+|Utilization (%)      |        0|      0|    ~0   |    ~0   |    0|
++---------------------+---------+-------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |           Variable Name          | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |add_ln700_1_fu_270_p2             |     +    |      0|  0|  39|          32|           1|
+    |add_ln700_fu_242_p2               |     +    |      0|  0|  15|           1|           8|
+    |ap_block_state2_io                |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state3_io                |    and   |      0|  0|   2|           1|           1|
+    |ap_condition_132                  |    and   |      0|  0|   2|           1|           1|
+    |ap_condition_291                  |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op13_read_state1     |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op17_read_state1     |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op27_read_state1     |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op44_write_state2    |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op47_write_state2    |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op65_write_state3    |    and   |      0|  0|   2|           1|           1|
+    |grp_nbreadreq_fu_104_p3           |    and   |      0|  0|   2|           1|           0|
+    |tmp_1_nbreadreq_fu_90_p3          |    and   |      0|  0|   2|           1|           0|
+    |icmp_ln879_1_fu_222_p2            |   icmp   |      0|  0|  11|           8|           1|
+    |icmp_ln879_fu_264_p2              |   icmp   |      0|  0|  20|          32|          31|
+    |ap_block_pp0_stage0_01001         |    or    |      0|  0|   2|           1|           1|
+    |ap_block_pp0_stage0_11001         |    or    |      0|  0|   2|           1|           1|
+    |ap_block_state1_pp0_stage0_iter0  |    or    |      0|  0|   2|           1|           1|
+    |ap_block_state2_pp0_stage0_iter1  |    or    |      0|  0|   2|           1|           1|
+    |or_ln323_fu_210_p2                |    or    |      0|  0|   2|           1|           1|
+    |select_ln304_fu_228_p3            |  select  |      0|  0|   2|           1|           2|
+    |ap_enable_pp0                     |    xor   |      0|  0|   2|           1|           2|
+    |xor_ln323_fu_204_p2               |    xor   |      0|  0|   2|           1|           2|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |Total                             |          |      0|  0| 125|          93|          62|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +---------------------------------------------------+----+-----------+-----+-----------+
+    |                        Name                       | LUT| Input Size| Bits| Total Bits|
+    +---------------------------------------------------+----+-----------+-----+-----------+
+    |ap_done                                            |   9|          2|    1|          2|
+    |ap_phi_mux_p_0120_0_i_i_phi_fu_149_p4              |  15|          3|    1|          3|
+    |ap_phi_reg_pp0_iter1_arp_scan_V_loc_1_i_i_reg_157  |  15|          3|    1|          3|
+    |ap_sig_allocacmp_arp_scan_1d_V_load                |   9|          2|    1|          2|
+    |arp_scan_V_o                                       |   9|          2|    1|          2|
+    |gia_fsm_state                                      |  21|          4|    3|         12|
+    |ip_lsb_V                                           |   9|          2|    8|         16|
+    |macIpEncodeIn_V_V_TDATA_blk_n                      |   9|          2|    1|          2|
+    |macIpEncode_i_V_V_blk_n                            |   9|          2|    1|          2|
+    |macIpEncode_i_V_V_din                              |  15|          3|   32|         96|
+    |macIpEncode_rsp_i_V_blk_n                          |   9|          2|    1|          2|
+    |macIpEncode_rsp_o_V_TDATA_blk_n                    |   9|          2|    1|          2|
+    |myIpAddress_V_blk_n                                |   9|          2|    1|          2|
+    +---------------------------------------------------+----+-----------+-----+-----------+
+    |Total                                              | 147|         31|   53|        146|
+    +---------------------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------------------------------------+----+----+-----+-----------+
+    |                        Name                       | FF | LUT| Bits| Const Bits|
+    +---------------------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                                          |   1|   0|    1|          0|
+    |ap_done_reg                                        |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1                            |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2                            |   1|   0|    1|          0|
+    |ap_phi_reg_pp0_iter1_arp_scan_V_loc_1_i_i_reg_157  |   1|   0|    1|          0|
+    |arp_scan_1d_V                                      |   1|   0|    1|          0|
+    |gia_fsm_state                                      |   3|   0|    3|          0|
+    |gia_fsm_state_load_reg_304                         |   3|   0|    3|          0|
+    |gia_fsm_state_load_reg_304_pp0_iter1_reg           |   3|   0|    3|          0|
+    |ip_lsb_V                                           |   8|   0|    8|          0|
+    |time_counter_V                                     |  32|   0|   32|          0|
+    |tmp_18_reg_337                                     |  49|   0|   49|          0|
+    |tmp_1_reg_324                                      |   1|   0|    1|          0|
+    |tmp_2_reg_333                                      |   1|   0|    1|          0|
+    |tmp_2_reg_333_pp0_iter1_reg                        |   1|   0|    1|          0|
+    |tmp_V_1_reg_328                                    |  32|   0|   32|          0|
+    |v1_V_reg_308                                       |   8|   0|    8|          0|
+    +---------------------------------------------------+----+----+-----+-----------+
+    |Total                                              | 147|   0|  147|          0|
+    +---------------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------------+-----+-----+------------+---------------------+--------------+
+|          RTL Ports          | Dir | Bits|  Protocol  |    Source Object    |    C Type    |
++-----------------------------+-----+-----+------------+---------------------+--------------+
+|ap_clk                       |  in |    1| ap_ctrl_hs |   genARPDiscovery   | return value |
+|ap_rst                       |  in |    1| ap_ctrl_hs |   genARPDiscovery   | return value |
+|ap_start                     |  in |    1| ap_ctrl_hs |   genARPDiscovery   | return value |
+|ap_done                      | out |    1| ap_ctrl_hs |   genARPDiscovery   | return value |
+|ap_continue                  |  in |    1| ap_ctrl_hs |   genARPDiscovery   | return value |
+|ap_idle                      | out |    1| ap_ctrl_hs |   genARPDiscovery   | return value |
+|ap_ready                     | out |    1| ap_ctrl_hs |   genARPDiscovery   | return value |
+|macIpEncodeIn_V_V_TVALID     |  in |    1|    axis    |  macIpEncodeIn_V_V  |    pointer   |
+|macIpEncodeIn_V_V_TDATA      |  in |   32|    axis    |  macIpEncodeIn_V_V  |    pointer   |
+|macIpEncodeIn_V_V_TREADY     | out |    1|    axis    |  macIpEncodeIn_V_V  |    pointer   |
+|macIpEncode_rsp_i_V_dout     |  in |   49|   ap_fifo  | macIpEncode_rsp_i_V |    pointer   |
+|macIpEncode_rsp_i_V_empty_n  |  in |    1|   ap_fifo  | macIpEncode_rsp_i_V |    pointer   |
+|macIpEncode_rsp_i_V_read     | out |    1|   ap_fifo  | macIpEncode_rsp_i_V |    pointer   |
+|myIpAddress_V_dout           |  in |   32|   ap_fifo  |    myIpAddress_V    |    pointer   |
+|myIpAddress_V_empty_n        |  in |    1|   ap_fifo  |    myIpAddress_V    |    pointer   |
+|myIpAddress_V_read           | out |    1|   ap_fifo  |    myIpAddress_V    |    pointer   |
+|macIpEncode_i_V_V_din        | out |   32|   ap_fifo  |  macIpEncode_i_V_V  |    pointer   |
+|macIpEncode_i_V_V_full_n     |  in |    1|   ap_fifo  |  macIpEncode_i_V_V  |    pointer   |
+|macIpEncode_i_V_V_write      | out |    1|   ap_fifo  |  macIpEncode_i_V_V  |    pointer   |
+|macIpEncode_rsp_o_V_TREADY   |  in |    1|    axis    | macIpEncode_rsp_o_V |    pointer   |
+|macIpEncode_rsp_o_V_TDATA    | out |   56|    axis    | macIpEncode_rsp_o_V |    pointer   |
+|macIpEncode_rsp_o_V_TVALID   | out |    1|    axis    | macIpEncode_rsp_o_V |    pointer   |
+|arp_scan_V_i                 |  in |    1|   ap_ovld  |      arp_scan_V     |    pointer   |
+|arp_scan_V_o                 | out |    1|   ap_ovld  |      arp_scan_V     |    pointer   |
+|arp_scan_V_o_ap_vld          | out |    1|   ap_ovld  |      arp_scan_V     |    pointer   |
++-----------------------------+-----+-----+------------+---------------------+--------------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 1 2 3 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.49>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%gia_fsm_state_load = load i3* @gia_fsm_state, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:285->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 4 'load' 'gia_fsm_state_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%v1_V = load i8* @ip_lsb_V, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:294->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 5 'load' 'v1_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%arp_scan_V_read = call i1 @_ssdm_op_Read.ap_auto.i1P(i1* %arp_scan_V)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:323->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 6 'read' 'arp_scan_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.65ns)   --->   "switch i3 %gia_fsm_state_load, label %.exit [
+    i3 1, label %0
+    i3 2, label %_ZN7ap_uintILi32EEC1ILi8E11ap_int_baseILi8ELb0EELi32E12ap_range_refILi32ELb0EEEERK13ap_concat_refIXT_ET0_XT1_ET2_E.exit.i.i
+    i3 -4, label %2
+    i3 3, label %4
+    i3 0, label %8
+  ]" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:285->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 7 'switch' <Predicate = true> <Delay = 0.65>
+ST_1 : Operation 8 [1/1] (0.60ns)   --->   "store i8 0, i8* @ip_lsb_V, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:330->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 8 'store' <Predicate = (gia_fsm_state_load == 0)> <Delay = 0.60>
+ST_1 : Operation 9 [1/1] (0.63ns)   --->   "store i3 2, i3* @gia_fsm_state, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:331->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 9 'store' <Predicate = (gia_fsm_state_load == 0)> <Delay = 0.63>
+ST_1 : Operation 10 [1/1] (0.60ns)   --->   "br label %.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:332->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 10 'br' <Predicate = (gia_fsm_state_load == 0)> <Delay = 0.60>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%tmp_1 = call i1 @_ssdm_op_NbReadReq.axis.i32P(i32* %macIpEncodeIn_V_V, i32 1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:313->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 11 'nbreadreq' 'tmp_1' <Predicate = (gia_fsm_state_load == 3)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 12 [1/1] (0.60ns)   --->   "br i1 %tmp_1, label %5, label %._crit_edge6.i.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:313->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 12 'br' <Predicate = (gia_fsm_state_load == 3)> <Delay = 0.60>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%tmp_V_1 = call i32 @_ssdm_op_Read.axis.volatile.i32P(i32* %macIpEncodeIn_V_V)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:314->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 13 'read' 'tmp_V_1' <Predicate = (gia_fsm_state_load == 3 & tmp_1)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 14 [1/1] (0.60ns)   --->   "br label %._crit_edge6.i.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:314->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 14 'br' <Predicate = (gia_fsm_state_load == 3 & tmp_1)> <Delay = 0.60>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%p_0120_0_i_i = phi i1 [ false, %5 ], [ true, %4 ]"   --->   Operation 15 'phi' 'p_0120_0_i_i' <Predicate = (gia_fsm_state_load == 3)> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%tmp_2 = call i1 @_ssdm_op_NbReadReq.ap_fifo.i49P(i49* @macIpEncode_rsp_i_V, i32 1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:318->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 16 'nbreadreq' 'tmp_2' <Predicate = (gia_fsm_state_load == 3)> <Delay = 0.00> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 81> <Depth = 2> <FIFO>
+ST_1 : Operation 17 [1/1] (1.45ns)   --->   "%tmp_18 = call i49 @_ssdm_op_Read.ap_fifo.volatile.i49P(i49* @macIpEncode_rsp_i_V)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:319->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 17 'read' 'tmp_18' <Predicate = (gia_fsm_state_load == 3 & tmp_2)> <Delay = 1.45> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 81> <Depth = 2> <FIFO>
+ST_1 : Operation 18 [1/1] (0.60ns)   --->   "br i1 %p_0120_0_i_i, label %.critedge.i.i, label %.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:323->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 18 'br' <Predicate = (gia_fsm_state_load == 3 & tmp_2)> <Delay = 0.60>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%arp_scan_1d_V_load = load i1* @arp_scan_1d_V, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:323->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 19 'load' 'arp_scan_1d_V_load' <Predicate = (gia_fsm_state_load == 3 & p_0120_0_i_i) | (gia_fsm_state_load == 3 & !tmp_2)> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns) (grouped into LUT with out node or_ln323)   --->   "%xor_ln323 = xor i1 %arp_scan_V_read, true" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:323->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 20 'xor' 'xor_ln323' <Predicate = (gia_fsm_state_load == 3 & p_0120_0_i_i) | (gia_fsm_state_load == 3 & !tmp_2)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 21 [1/1] (0.12ns) (out node of the LUT)   --->   "%or_ln323 = or i1 %arp_scan_1d_V_load, %xor_ln323" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:323->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 21 'or' 'or_ln323' <Predicate = (gia_fsm_state_load == 3 & p_0120_0_i_i) | (gia_fsm_state_load == 3 & !tmp_2)> <Delay = 0.12> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 22 [1/1] (0.60ns)   --->   "br i1 %or_ln323, label %.exit, label %7" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:323->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 22 'br' <Predicate = (gia_fsm_state_load == 3 & p_0120_0_i_i) | (gia_fsm_state_load == 3 & !tmp_2)> <Delay = 0.60>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_auto.i1P(i1* %arp_scan_V, i1 false)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:324->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 23 'write' <Predicate = (gia_fsm_state_load == 3 & p_0120_0_i_i & !or_ln323) | (gia_fsm_state_load == 3 & !tmp_2 & !or_ln323)> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.63ns)   --->   "store i3 0, i3* @gia_fsm_state, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:325->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 24 'store' <Predicate = (gia_fsm_state_load == 3 & p_0120_0_i_i & !or_ln323) | (gia_fsm_state_load == 3 & !tmp_2 & !or_ln323)> <Delay = 0.63>
+ST_1 : Operation 25 [1/1] (0.60ns)   --->   "br label %.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:326->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 25 'br' <Predicate = (gia_fsm_state_load == 3 & p_0120_0_i_i & !or_ln323) | (gia_fsm_state_load == 3 & !tmp_2 & !or_ln323)> <Delay = 0.60>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%tmp = call i1 @_ssdm_op_NbReadReq.ap_fifo.i49P(i49* @macIpEncode_rsp_i_V, i32 1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:301->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 26 'nbreadreq' 'tmp' <Predicate = (gia_fsm_state_load == 4)> <Delay = 0.00> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 81> <Depth = 2> <FIFO>
+ST_1 : Operation 27 [1/1] (1.45ns)   --->   "%tmp1_0 = call i49 @_ssdm_op_Read.ap_fifo.volatile.i49P(i49* @macIpEncode_rsp_i_V)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:302->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 27 'read' 'tmp1_0' <Predicate = (gia_fsm_state_load == 4 & tmp)> <Delay = 1.45> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 81> <Depth = 2> <FIFO>
+ST_1 : Operation 28 [1/1] (0.58ns)   --->   "%icmp_ln879_1 = icmp eq i8 %v1_V, 0" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:304->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 28 'icmp' 'icmp_ln879_1' <Predicate = (gia_fsm_state_load == 4 & tmp)> <Delay = 0.58> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 29 [1/1] (0.27ns)   --->   "%select_ln304 = select i1 %icmp_ln879_1, i3 3, i3 2" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:304->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 29 'select' 'select_ln304' <Predicate = (gia_fsm_state_load == 4 & tmp)> <Delay = 0.27> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.27> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 30 [1/1] (0.63ns)   --->   "store i3 %select_ln304, i3* @gia_fsm_state, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:305->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 30 'store' <Predicate = (gia_fsm_state_load == 4 & tmp)> <Delay = 0.63>
+ST_1 : Operation 31 [1/1] (0.60ns)   --->   "br label %.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:310->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 31 'br' <Predicate = (gia_fsm_state_load == 4)> <Delay = 0.60>
+ST_1 : Operation 32 [1/1] (0.70ns)   --->   "%add_ln700 = add i8 1, %v1_V" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:296->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 32 'add' 'add_ln700' <Predicate = (gia_fsm_state_load == 2)> <Delay = 0.70> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 33 [1/1] (0.60ns)   --->   "store i8 %add_ln700, i8* @ip_lsb_V, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:296->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 33 'store' <Predicate = (gia_fsm_state_load == 2)> <Delay = 0.60>
+ST_1 : Operation 34 [1/1] (0.63ns)   --->   "store i3 -4, i3* @gia_fsm_state, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:297->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 34 'store' <Predicate = (gia_fsm_state_load == 2)> <Delay = 0.63>
+ST_1 : Operation 35 [1/1] (0.60ns)   --->   "br label %.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:298->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 35 'br' <Predicate = (gia_fsm_state_load == 2)> <Delay = 0.60>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%t_V_1 = load i32* @time_counter_V, align 4" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:288->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 36 'load' 't_V_1' <Predicate = (gia_fsm_state_load == 1)> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.85ns)   --->   "%icmp_ln879 = icmp eq i32 %t_V_1, 1500000000" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:288->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 37 'icmp' 'icmp_ln879' <Predicate = (gia_fsm_state_load == 1)> <Delay = 0.85> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "br i1 %icmp_ln879, label %1, label %._crit_edge4.i.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:288->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 38 'br' <Predicate = (gia_fsm_state_load == 1)> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.63ns)   --->   "store i3 2, i3* @gia_fsm_state, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:289->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 39 'store' <Predicate = (gia_fsm_state_load == 1 & icmp_ln879)> <Delay = 0.63>
+ST_1 : Operation 40 [1/1] (0.88ns)   --->   "%add_ln700_1 = add i32 %t_V_1, 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:290->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 40 'add' 'add_ln700_1' <Predicate = (gia_fsm_state_load == 1)> <Delay = 0.88> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "store i32 %add_ln700_1, i32* @time_counter_V, align 4" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:290->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 41 'store' <Predicate = (gia_fsm_state_load == 1)> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.60ns)   --->   "br label %.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:291->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 42 'br' <Predicate = (gia_fsm_state_load == 1)> <Delay = 0.60>
+
+State 2 <SV = 1> <Delay = 2.90>
+ST_2 : Operation 43 [1/1] (1.45ns)   --->   "%p_Val2_s = call i32 @_ssdm_op_Read.ap_fifo.i32P(i32* %myIpAddress_V)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:263]   --->   Operation 43 'read' 'p_Val2_s' <Predicate = true> <Delay = 1.45> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 81> <Depth = 2> <FIFO>
+ST_2 : Operation 44 [1/1] (1.45ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i32P(i32* @macIpEncode_i_V_V, i32 %tmp_V_1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:314->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 44 'write' <Predicate = (gia_fsm_state_load == 3 & tmp_1)> <Delay = 1.45> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 81> <Depth = 2> <FIFO>
+ST_2 : Operation 45 [1/1] (0.00ns)   --->   "br i1 %tmp_2, label %6, label %.critedge.i.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:318->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 45 'br' <Predicate = (gia_fsm_state_load == 3)> <Delay = 0.00>
+ST_2 : Operation 46 [1/1] (0.00ns)   --->   "%sext_ln182 = sext i49 %tmp_18 to i56" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:319->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 46 'sext' 'sext_ln182' <Predicate = (gia_fsm_state_load == 3 & tmp_2)> <Delay = 0.00>
+ST_2 : Operation 47 [2/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i56P(i56* %macIpEncode_rsp_o_V, i56 %sext_ln182)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:319->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 47 'write' <Predicate = (gia_fsm_state_load == 3 & tmp_2)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_2 : Operation 48 [1/1] (0.00ns)   --->   "br i1 %tmp, label %3, label %._crit_edge5.i.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:301->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 48 'br' <Predicate = (gia_fsm_state_load == 4)> <Delay = 0.00>
+ST_2 : Operation 49 [1/1] (0.00ns)   --->   "%trunc_ln647 = trunc i32 %p_Val2_s to i24" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:294->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 49 'trunc' 'trunc_ln647' <Predicate = (gia_fsm_state_load == 2)> <Delay = 0.00>
+ST_2 : Operation 50 [1/1] (0.00ns)   --->   "%ip_aux_V = call i32 @_ssdm_op_BitConcatenate.i32.i8.i24(i8 %v1_V, i24 %trunc_ln647)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:294->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 50 'bitconcatenate' 'ip_aux_V' <Predicate = (gia_fsm_state_load == 2)> <Delay = 0.00>
+ST_2 : Operation 51 [1/1] (1.45ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i32P(i32* @macIpEncode_i_V_V, i32 %ip_aux_V)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:295->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 51 'write' <Predicate = (gia_fsm_state_load == 2)> <Delay = 1.45> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 81> <Depth = 2> <FIFO>
+ST_2 : Operation 52 [1/1] (0.00ns)   --->   "%arp_scan_V_loc_1_i_i = phi i1 [ %arp_scan_V_read, %entry ], [ %arp_scan_V_read, %8 ], [ %arp_scan_V_read, %._crit_edge5.i.i ], [ %arp_scan_V_read, %_ZN7ap_uintILi32EEC1ILi8E11ap_int_baseILi8ELb0EELi32E12ap_range_refILi32ELb0EEEERK13ap_concat_refIXT_ET0_XT1_ET2_E.exit.i.i ], [ %arp_scan_V_read, %._crit_edge4.i.i ], [ %arp_scan_V_read, %.critedge.i.i ], [ false, %7 ], [ %arp_scan_V_read, %6 ]" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:323->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 52 'phi' 'arp_scan_V_loc_1_i_i' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 53 [1/1] (0.00ns)   --->   "store i1 %arp_scan_V_loc_1_i_i, i1* @arp_scan_1d_V, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:334->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 53 'store' <Predicate = true> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 54 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %macIpEncodeIn_V_V, [5 x i8]* @p_str25, i32 1, i32 1, [5 x i8]* @p_str26, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"   --->   Operation 54 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 55 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i56* %macIpEncode_rsp_o_V, [5 x i8]* @p_str25, i32 1, i32 1, [5 x i8]* @p_str26, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 55 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 56 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* @macIpEncode_i_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 56 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 57 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i49* @macIpEncode_rsp_i_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 57 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 58 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %myIpAddress_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [11 x i8]* @ScalarProp_str)"   --->   Operation 58 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 59 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* @macIpEncode_i_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 59 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 60 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i49* @macIpEncode_rsp_i_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 60 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 61 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i56* %macIpEncode_rsp_o_V, [5 x i8]* @p_str25, i32 1, i32 1, [5 x i8]* @p_str26, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 61 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 62 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %macIpEncodeIn_V_V, [5 x i8]* @p_str25, i32 1, i32 1, [5 x i8]* @p_str26, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"   --->   Operation 62 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 63 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:265->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 63 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 64 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecReset(i3* @gia_fsm_state, i32 1, [1 x i8]* @p_str) nounwind" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:275->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 64 'specreset' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 65 [1/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i56P(i56* %macIpEncode_rsp_o_V, i56 %sext_ln182)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:319->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 65 'write' <Predicate = (gia_fsm_state_load == 3 & tmp_2)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_3 : Operation 66 [1/1] (0.00ns)   --->   "br label %._crit_edge5.i.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:309->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 66 'br' <Predicate = (gia_fsm_state_load == 4 & tmp)> <Delay = 0.00>
+ST_3 : Operation 67 [1/1] (0.00ns)   --->   "br label %._crit_edge4.i.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:289->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 67 'br' <Predicate = (gia_fsm_state_load == 1 & icmp_ln879)> <Delay = 0.00>
+ST_3 : Operation 68 [1/1] (0.00ns)   --->   "ret void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 68 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 0
+- Is one-state seq: 0
+- Is datapath-only: 0
+- Is pipelined: 1
+- Is top level: 0
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
+Port [ macIpEncodeIn_V_V]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=axis:ce=0
+Port [ macIpEncode_rsp_o_V]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=axis:ce=0
+Port [ arp_scan_V]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=2; type=0; pingpong=0; private_global=0; IO mode=ap_ovld:ce=0
+Port [ myIpAddress_V]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=3; pingpong=0; private_global=0; IO mode=ap_fifo:ce=0
+Port [ gia_fsm_state]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; linkage=7; visibility=0; IO mode=ap_ovld:ce=0
+Port [ ip_lsb_V]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; linkage=7; visibility=0; IO mode=ap_ovld:ce=0
+Port [ time_counter_V]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; linkage=7; visibility=0; IO mode=ap_ovld:ce=0
+Port [ macIpEncode_i_V_V]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=1; type=3; pingpong=0; private_global=0; linkage=7; visibility=0; IO mode=ap_fifo:ce=0
+Port [ macIpEncode_rsp_i_V]:  wired=1; compound=1; hidden=0; nouse=0; global=1; static=1; extern=0; dir=0; type=3; pingpong=0; private_global=0; linkage=7; visibility=0; IO mode=ap_fifo:ce=0
+Port [ arp_scan_1d_V]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; linkage=7; visibility=0; IO mode=ap_ovld:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+gia_fsm_state_load   (load          ) [ 0111]
+v1_V                 (load          ) [ 0110]
+arp_scan_V_read      (read          ) [ 0110]
+switch_ln285         (switch        ) [ 0110]
+store_ln330          (store         ) [ 0000]
+store_ln331          (store         ) [ 0000]
+br_ln332             (br            ) [ 0110]
+tmp_1                (nbreadreq     ) [ 0110]
+br_ln313             (br            ) [ 0000]
+tmp_V_1              (read          ) [ 0110]
+br_ln314             (br            ) [ 0000]
+p_0120_0_i_i         (phi           ) [ 0100]
+tmp_2                (nbreadreq     ) [ 0111]
+tmp_18               (read          ) [ 0110]
+br_ln323             (br            ) [ 0110]
+arp_scan_1d_V_load   (load          ) [ 0000]
+xor_ln323            (xor           ) [ 0000]
+or_ln323             (or            ) [ 0100]
+br_ln323             (br            ) [ 0110]
+write_ln324          (write         ) [ 0000]
+store_ln325          (store         ) [ 0000]
+br_ln326             (br            ) [ 0110]
+tmp                  (nbreadreq     ) [ 0111]
+tmp1_0               (read          ) [ 0000]
+icmp_ln879_1         (icmp          ) [ 0000]
+select_ln304         (select        ) [ 0000]
+store_ln305          (store         ) [ 0000]
+br_ln310             (br            ) [ 0110]
+add_ln700            (add           ) [ 0000]
+store_ln296          (store         ) [ 0000]
+store_ln297          (store         ) [ 0000]
+br_ln298             (br            ) [ 0110]
+t_V_1                (load          ) [ 0000]
+icmp_ln879           (icmp          ) [ 0111]
+br_ln288             (br            ) [ 0000]
+store_ln289          (store         ) [ 0000]
+add_ln700_1          (add           ) [ 0000]
+store_ln290          (store         ) [ 0000]
+br_ln291             (br            ) [ 0110]
+p_Val2_s             (read          ) [ 0000]
+write_ln314          (write         ) [ 0000]
+br_ln318             (br            ) [ 0000]
+sext_ln182           (sext          ) [ 0101]
+br_ln301             (br            ) [ 0000]
+trunc_ln647          (trunc         ) [ 0000]
+ip_aux_V             (bitconcatenate) [ 0000]
+write_ln295          (write         ) [ 0000]
+arp_scan_V_loc_1_i_i (phi           ) [ 0110]
+store_ln334          (store         ) [ 0000]
+specinterface_ln0    (specinterface ) [ 0000]
+specinterface_ln0    (specinterface ) [ 0000]
+specinterface_ln0    (specinterface ) [ 0000]
+specinterface_ln0    (specinterface ) [ 0000]
+specinterface_ln0    (specinterface ) [ 0000]
+specinterface_ln0    (specinterface ) [ 0000]
+specinterface_ln0    (specinterface ) [ 0000]
+specinterface_ln0    (specinterface ) [ 0000]
+specinterface_ln0    (specinterface ) [ 0000]
+specpipeline_ln265   (specpipeline  ) [ 0000]
+specreset_ln275      (specreset     ) [ 0000]
+write_ln319          (write         ) [ 0000]
+br_ln309             (br            ) [ 0000]
+br_ln289             (br            ) [ 0000]
+ret_ln365            (ret           ) [ 0000]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="macIpEncodeIn_V_V">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="macIpEncodeIn_V_V"/></StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1000" name="macIpEncode_rsp_o_V">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="macIpEncode_rsp_o_V"/></StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1000" name="arp_scan_V">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="arp_scan_V"/></StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1000" name="myIpAddress_V">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="myIpAddress_V"/></StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1000" name="gia_fsm_state">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="gia_fsm_state"/></StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1000" name="ip_lsb_V">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="ip_lsb_V"/></StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1000" name="time_counter_V">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="time_counter_V"/></StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1000" name="macIpEncode_i_V_V">
+<pin_list>
+<pin id="15" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="macIpEncode_i_V_V"/></StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1000" name="macIpEncode_rsp_i_V">
+<pin_list>
+<pin id="17" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="macIpEncode_rsp_i_V"/></StgValue>
+</bind>
+</comp>
+
+<comp id="18" class="1000" name="arp_scan_1d_V">
+<pin_list>
+<pin id="19" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="arp_scan_1d_V"/></StgValue>
+</bind>
+</comp>
+
+<comp id="20" class="1001" name="const_20">
+<pin_list>
+<pin id="21" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i1P"/></StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1001" name="const_22">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="24" class="1001" name="const_24">
+<pin_list>
+<pin id="25" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="26" class="1001" name="const_26">
+<pin_list>
+<pin id="27" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="28" class="1001" name="const_28">
+<pin_list>
+<pin id="29" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="30" class="1001" name="const_30">
+<pin_list>
+<pin id="31" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="32" class="1001" name="const_32">
+<pin_list>
+<pin id="33" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="34" class="1001" name="const_34">
+<pin_list>
+<pin id="35" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_NbReadReq.axis.i32P"/></StgValue>
+</bind>
+</comp>
+
+<comp id="36" class="1001" name="const_36">
+<pin_list>
+<pin id="37" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="38" class="1001" name="const_38">
+<pin_list>
+<pin id="39" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.axis.volatile.i32P"/></StgValue>
+</bind>
+</comp>
+
+<comp id="40" class="1001" name="const_40">
+<pin_list>
+<pin id="41" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="42" class="1001" name="const_42">
+<pin_list>
+<pin id="43" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="44" class="1001" name="const_44">
+<pin_list>
+<pin id="45" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_NbReadReq.ap_fifo.i49P"/></StgValue>
+</bind>
+</comp>
+
+<comp id="46" class="1001" name="const_46">
+<pin_list>
+<pin id="47" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_fifo.volatile.i49P"/></StgValue>
+</bind>
+</comp>
+
+<comp id="48" class="1001" name="const_48">
+<pin_list>
+<pin id="49" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Write.ap_auto.i1P"/></StgValue>
+</bind>
+</comp>
+
+<comp id="50" class="1001" name="const_50">
+<pin_list>
+<pin id="51" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="52" class="1001" name="const_52">
+<pin_list>
+<pin id="53" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="54" class="1001" name="const_54">
+<pin_list>
+<pin id="55" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_fifo.i32P"/></StgValue>
+</bind>
+</comp>
+
+<comp id="56" class="1001" name="const_56">
+<pin_list>
+<pin id="57" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Write.ap_fifo.volatile.i32P"/></StgValue>
+</bind>
+</comp>
+
+<comp id="58" class="1001" name="const_58">
+<pin_list>
+<pin id="59" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Write.axis.volatile.i56P"/></StgValue>
+</bind>
+</comp>
+
+<comp id="60" class="1001" name="const_60">
+<pin_list>
+<pin id="61" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_BitConcatenate.i32.i8.i24"/></StgValue>
+</bind>
+</comp>
+
+<comp id="62" class="1001" name="const_62">
+<pin_list>
+<pin id="63" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
+</bind>
+</comp>
+
+<comp id="64" class="1001" name="const_64">
+<pin_list>
+<pin id="65" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str25"/></StgValue>
+</bind>
+</comp>
+
+<comp id="66" class="1001" name="const_66">
+<pin_list>
+<pin id="67" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str26"/></StgValue>
+</bind>
+</comp>
+
+<comp id="68" class="1001" name="const_68">
+<pin_list>
+<pin id="69" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="70" class="1001" name="const_70">
+<pin_list>
+<pin id="71" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="72" class="1001" name="const_72">
+<pin_list>
+<pin id="73" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="ap_fifo_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="74" class="1001" name="const_74">
+<pin_list>
+<pin id="75" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="76" class="1001" name="const_76">
+<pin_list>
+<pin id="77" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="78" class="1001" name="const_78">
+<pin_list>
+<pin id="79" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="ScalarProp_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="80" class="1001" name="const_80">
+<pin_list>
+<pin id="81" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecPipeline"/></StgValue>
+</bind>
+</comp>
+
+<comp id="82" class="1001" name="const_82">
+<pin_list>
+<pin id="83" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecReset"/></StgValue>
+</bind>
+</comp>
+
+<comp id="84" class="1004" name="arp_scan_V_read_read_fu_84">
+<pin_list>
+<pin id="85" dir="0" index="0" bw="1" slack="0"/>
+<pin id="86" dir="0" index="1" bw="1" slack="0"/>
+<pin id="87" dir="1" index="2" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="arp_scan_V_read/1 "/>
+</bind>
+</comp>
+
+<comp id="90" class="1004" name="tmp_1_nbreadreq_fu_90">
+<pin_list>
+<pin id="91" dir="0" index="0" bw="1" slack="0"/>
+<pin id="92" dir="0" index="1" bw="32" slack="0"/>
+<pin id="93" dir="0" index="2" bw="1" slack="0"/>
+<pin id="94" dir="1" index="3" bw="1" slack="1"/>
+</pin_list>
+<bind>
+<opcode="nbreadreq(1156) " fcode="nbreadreq"/>
+<opset="tmp_1/1 "/>
+</bind>
+</comp>
+
+<comp id="98" class="1004" name="tmp_V_1_read_fu_98">
+<pin_list>
+<pin id="99" dir="0" index="0" bw="32" slack="0"/>
+<pin id="100" dir="0" index="1" bw="32" slack="0"/>
+<pin id="101" dir="1" index="2" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="tmp_V_1/1 "/>
+</bind>
+</comp>
+
+<comp id="104" class="1004" name="grp_nbreadreq_fu_104">
+<pin_list>
+<pin id="105" dir="0" index="0" bw="1" slack="0"/>
+<pin id="106" dir="0" index="1" bw="49" slack="0"/>
+<pin id="107" dir="0" index="2" bw="1" slack="0"/>
+<pin id="108" dir="1" index="3" bw="1" slack="1"/>
+</pin_list>
+<bind>
+<opcode="nbreadreq(1156) " fcode="nbreadreq"/>
+<opset="tmp_2/1 tmp/1 "/>
+</bind>
+</comp>
+
+<comp id="112" class="1004" name="grp_read_fu_112">
+<pin_list>
+<pin id="113" dir="0" index="0" bw="49" slack="0"/>
+<pin id="114" dir="0" index="1" bw="49" slack="0"/>
+<pin id="115" dir="1" index="2" bw="49" slack="1"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="tmp_18/1 tmp1_0/1 "/>
+</bind>
+</comp>
+
+<comp id="118" class="1004" name="write_ln324_write_fu_118">
+<pin_list>
+<pin id="119" dir="0" index="0" bw="0" slack="0"/>
+<pin id="120" dir="0" index="1" bw="1" slack="0"/>
+<pin id="121" dir="0" index="2" bw="1" slack="0"/>
+<pin id="122" dir="1" index="3" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="write(1151) " fcode="write"/>
+<opset="write_ln324/1 "/>
+</bind>
+</comp>
+
+<comp id="126" class="1004" name="p_Val2_s_read_fu_126">
+<pin_list>
+<pin id="127" dir="0" index="0" bw="32" slack="0"/>
+<pin id="128" dir="0" index="1" bw="32" slack="0"/>
+<pin id="129" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="p_Val2_s/2 "/>
+</bind>
+</comp>
+
+<comp id="132" class="1004" name="grp_write_fu_132">
+<pin_list>
+<pin id="133" dir="0" index="0" bw="0" slack="0"/>
+<pin id="134" dir="0" index="1" bw="32" slack="0"/>
+<pin id="135" dir="0" index="2" bw="32" slack="0"/>
+<pin id="136" dir="1" index="3" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="write(1151) " fcode="write"/>
+<opset="write_ln314/2 write_ln295/2 "/>
+</bind>
+</comp>
+
+<comp id="139" class="1004" name="grp_write_fu_139">
+<pin_list>
+<pin id="140" dir="0" index="0" bw="0" slack="0"/>
+<pin id="141" dir="0" index="1" bw="56" slack="0"/>
+<pin id="142" dir="0" index="2" bw="49" slack="0"/>
+<pin id="143" dir="1" index="3" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="write(1151) " fcode="write"/>
+<opset="write_ln319/2 "/>
+</bind>
+</comp>
+
+<comp id="146" class="1005" name="p_0120_0_i_i_reg_146">
+<pin_list>
+<pin id="147" dir="0" index="0" bw="1" slack="2147483647"/>
+<pin id="148" dir="1" index="1" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opset="p_0120_0_i_i (phireg) "/>
+</bind>
+</comp>
+
+<comp id="149" class="1004" name="p_0120_0_i_i_phi_fu_149">
+<pin_list>
+<pin id="150" dir="0" index="0" bw="1" slack="0"/>
+<pin id="151" dir="0" index="1" bw="0" slack="2147483647"/>
+<pin id="152" dir="0" index="2" bw="1" slack="0"/>
+<pin id="153" dir="0" index="3" bw="0" slack="2147483647"/>
+<pin id="154" dir="1" index="4" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="phi(47) " fcode="phi"/>
+<opset="p_0120_0_i_i/1 "/>
+</bind>
+</comp>
+
+<comp id="157" class="1005" name="arp_scan_V_loc_1_i_i_reg_157">
+<pin_list>
+<pin id="158" dir="0" index="0" bw="1" slack="1"/>
+<pin id="159" dir="1" index="1" bw="1" slack="1"/>
+</pin_list>
+<bind>
+<opset="arp_scan_V_loc_1_i_i (phireg) "/>
+</bind>
+</comp>
+
+<comp id="161" class="1004" name="arp_scan_V_loc_1_i_i_phi_fu_161">
+<pin_list>
+<pin id="162" dir="0" index="0" bw="1" slack="1"/>
+<pin id="163" dir="0" index="1" bw="0" slack="2147483647"/>
+<pin id="164" dir="0" index="2" bw="1" slack="1"/>
+<pin id="165" dir="0" index="3" bw="0" slack="2147483647"/>
+<pin id="166" dir="0" index="4" bw="1" slack="1"/>
+<pin id="167" dir="0" index="5" bw="0" slack="2147483647"/>
+<pin id="168" dir="0" index="6" bw="1" slack="1"/>
+<pin id="169" dir="0" index="7" bw="0" slack="2147483647"/>
+<pin id="170" dir="0" index="8" bw="1" slack="1"/>
+<pin id="171" dir="0" index="9" bw="0" slack="2147483647"/>
+<pin id="172" dir="0" index="10" bw="1" slack="1"/>
+<pin id="173" dir="0" index="11" bw="0" slack="2147483647"/>
+<pin id="174" dir="0" index="12" bw="1" slack="1"/>
+<pin id="175" dir="0" index="13" bw="0" slack="2147483647"/>
+<pin id="176" dir="0" index="14" bw="1" slack="1"/>
+<pin id="177" dir="0" index="15" bw="0" slack="2147483647"/>
+<pin id="178" dir="1" index="16" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="phi(47) " fcode="phi"/>
+<opset="arp_scan_V_loc_1_i_i/2 "/>
+</bind>
+</comp>
+
+<comp id="180" class="1004" name="grp_store_fu_180">
+<pin_list>
+<pin id="181" dir="0" index="0" bw="3" slack="0"/>
+<pin id="182" dir="0" index="1" bw="3" slack="0"/>
+<pin id="183" dir="1" index="2" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln331/1 store_ln289/1 "/>
+</bind>
+</comp>
+
+<comp id="186" class="1004" name="gia_fsm_state_load_load_fu_186">
+<pin_list>
+<pin id="187" dir="0" index="0" bw="3" slack="0"/>
+<pin id="188" dir="1" index="1" bw="3" slack="1"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="gia_fsm_state_load/1 "/>
+</bind>
+</comp>
+
+<comp id="190" class="1004" name="v1_V_load_fu_190">
+<pin_list>
+<pin id="191" dir="0" index="0" bw="8" slack="0"/>
+<pin id="192" dir="1" index="1" bw="8" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="v1_V/1 "/>
+</bind>
+</comp>
+
+<comp id="194" class="1004" name="store_ln330_store_fu_194">
+<pin_list>
+<pin id="195" dir="0" index="0" bw="1" slack="0"/>
+<pin id="196" dir="0" index="1" bw="8" slack="0"/>
+<pin id="197" dir="1" index="2" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln330/1 "/>
+</bind>
+</comp>
+
+<comp id="200" class="1004" name="arp_scan_1d_V_load_load_fu_200">
+<pin_list>
+<pin id="201" dir="0" index="0" bw="1" slack="0"/>
+<pin id="202" dir="1" index="1" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="arp_scan_1d_V_load/1 "/>
+</bind>
+</comp>
+
+<comp id="204" class="1004" name="xor_ln323_fu_204">
+<pin_list>
+<pin id="205" dir="0" index="0" bw="1" slack="0"/>
+<pin id="206" dir="0" index="1" bw="1" slack="0"/>
+<pin id="207" dir="1" index="2" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="xor(25) " fcode="xor"/>
+<opset="xor_ln323/1 "/>
+</bind>
+</comp>
+
+<comp id="210" class="1004" name="or_ln323_fu_210">
+<pin_list>
+<pin id="211" dir="0" index="0" bw="1" slack="0"/>
+<pin id="212" dir="0" index="1" bw="1" slack="0"/>
+<pin id="213" dir="1" index="2" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="or(24) " fcode="or"/>
+<opset="or_ln323/1 "/>
+</bind>
+</comp>
+
+<comp id="216" class="1004" name="store_ln325_store_fu_216">
+<pin_list>
+<pin id="217" dir="0" index="0" bw="1" slack="0"/>
+<pin id="218" dir="0" index="1" bw="3" slack="0"/>
+<pin id="219" dir="1" index="2" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln325/1 "/>
+</bind>
+</comp>
+
+<comp id="222" class="1004" name="icmp_ln879_1_fu_222">
+<pin_list>
+<pin id="223" dir="0" index="0" bw="8" slack="0"/>
+<pin id="224" dir="0" index="1" bw="8" slack="0"/>
+<pin id="225" dir="1" index="2" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<opcode="icmp(45) " fcode="icmp"/>
+<opset="icmp_ln879_1/1 "/>
+</bind>
+</comp>
+
+<comp id="228" class="1004" name="select_ln304_fu_228">
+<pin_list>
+<pin id="229" dir="0" index="0" bw="1" slack="0"/>
+<pin id="230" dir="0" index="1" bw="3" slack="0"/>
+<pin id="231" dir="0" index="2" bw="3" slack="0"/>
+<pin id="232" dir="1" index="3" bw="3" slack="0"/>
+</pin_list>
+<bind>
+<opcode="select(49) " fcode="select"/>
+<opset="select_ln304/1 "/>
+</bind>
+</comp>
+
+<comp id="236" class="1004" name="store_ln305_store_fu_236">
+<pin_list>
+<pin id="237" dir="0" index="0" bw="3" slack="0"/>
+<pin id="238" dir="0" index="1" bw="3" slack="0"/>
+<pin id="239" dir="1" index="2" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln305/1 "/>
+</bind>
+</comp>
+
+<comp id="242" class="1004" name="add_ln700_fu_242">
+<pin_list>
+<pin id="243" dir="0" index="0" bw="1" slack="0"/>
+<pin id="244" dir="0" index="1" bw="8" slack="0"/>
+<pin id="245" dir="1" index="2" bw="8" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="add_ln700/1 "/>
+</bind>
+</comp>
+
+<comp id="248" class="1004" name="store_ln296_store_fu_248">
+<pin_list>
+<pin id="249" dir="0" index="0" bw="8" slack="0"/>
+<pin id="250" dir="0" index="1" bw="8" slack="0"/>
+<pin id="251" dir="1" index="2" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln296/1 "/>
+</bind>
+</comp>
+
+<comp id="254" class="1004" name="store_ln297_store_fu_254">
+<pin_list>
+<pin id="255" dir="0" index="0" bw="3" slack="0"/>
+<pin id="256" dir="0" index="1" bw="3" slack="0"/>
+<pin id="257" dir="1" index="2" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln297/1 "/>
+</bind>
+</comp>
+
+<comp id="260" class="1004" name="t_V_1_load_fu_260">
+<pin_list>
+<pin id="261" dir="0" index="0" bw="32" slack="0"/>
+<pin id="262" dir="1" index="1" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="t_V_1/1 "/>
+</bind>
+</comp>
+
+<comp id="264" class="1004" name="icmp_ln879_fu_264">
+<pin_list>
+<pin id="265" dir="0" index="0" bw="32" slack="0"/>
+<pin id="266" dir="0" index="1" bw="32" slack="0"/>
+<pin id="267" dir="1" index="2" bw="1" slack="2"/>
+</pin_list>
+<bind>
+<opcode="icmp(45) " fcode="icmp"/>
+<opset="icmp_ln879/1 "/>
+</bind>
+</comp>
+
+<comp id="270" class="1004" name="add_ln700_1_fu_270">
+<pin_list>
+<pin id="271" dir="0" index="0" bw="32" slack="0"/>
+<pin id="272" dir="0" index="1" bw="1" slack="0"/>
+<pin id="273" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="add_ln700_1/1 "/>
+</bind>
+</comp>
+
+<comp id="276" class="1004" name="store_ln290_store_fu_276">
+<pin_list>
+<pin id="277" dir="0" index="0" bw="32" slack="0"/>
+<pin id="278" dir="0" index="1" bw="32" slack="0"/>
+<pin id="279" dir="1" index="2" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln290/1 "/>
+</bind>
+</comp>
+
+<comp id="282" class="1004" name="sext_ln182_fu_282">
+<pin_list>
+<pin id="283" dir="0" index="0" bw="49" slack="1"/>
+<pin id="284" dir="1" index="1" bw="56" slack="0"/>
+</pin_list>
+<bind>
+<opcode="sext(35) " fcode="sext"/>
+<opset="sext_ln182/2 "/>
+</bind>
+</comp>
+
+<comp id="286" class="1004" name="trunc_ln647_fu_286">
+<pin_list>
+<pin id="287" dir="0" index="0" bw="32" slack="0"/>
+<pin id="288" dir="1" index="1" bw="24" slack="0"/>
+</pin_list>
+<bind>
+<opcode="trunc(33) " fcode="trunc"/>
+<opset="trunc_ln647/2 "/>
+</bind>
+</comp>
+
+<comp id="290" class="1004" name="ip_aux_V_fu_290">
+<pin_list>
+<pin id="291" dir="0" index="0" bw="32" slack="0"/>
+<pin id="292" dir="0" index="1" bw="8" slack="1"/>
+<pin id="293" dir="0" index="2" bw="24" slack="0"/>
+<pin id="294" dir="1" index="3" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="bitconcatenate(1004) " fcode="bitconcatenate"/>
+<opset="ip_aux_V/2 "/>
+</bind>
+</comp>
+
+<comp id="298" class="1004" name="store_ln334_store_fu_298">
+<pin_list>
+<pin id="299" dir="0" index="0" bw="1" slack="0"/>
+<pin id="300" dir="0" index="1" bw="1" slack="0"/>
+<pin id="301" dir="1" index="2" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln334/2 "/>
+</bind>
+</comp>
+
+<comp id="304" class="1005" name="gia_fsm_state_load_reg_304">
+<pin_list>
+<pin id="305" dir="0" index="0" bw="3" slack="1"/>
+<pin id="306" dir="1" index="1" bw="3" slack="2147483647"/>
+</pin_list>
+<bind>
+<opset="gia_fsm_state_load "/>
+</bind>
+</comp>
+
+<comp id="308" class="1005" name="v1_V_reg_308">
+<pin_list>
+<pin id="309" dir="0" index="0" bw="8" slack="1"/>
+<pin id="310" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opset="v1_V "/>
+</bind>
+</comp>
+
+<comp id="313" class="1005" name="arp_scan_V_read_reg_313">
+<pin_list>
+<pin id="314" dir="0" index="0" bw="1" slack="1"/>
+<pin id="315" dir="1" index="1" bw="1" slack="1"/>
+</pin_list>
+<bind>
+<opset="arp_scan_V_read "/>
+</bind>
+</comp>
+
+<comp id="324" class="1005" name="tmp_1_reg_324">
+<pin_list>
+<pin id="325" dir="0" index="0" bw="1" slack="1"/>
+<pin id="326" dir="1" index="1" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opset="tmp_1 "/>
+</bind>
+</comp>
+
+<comp id="328" class="1005" name="tmp_V_1_reg_328">
+<pin_list>
+<pin id="329" dir="0" index="0" bw="32" slack="1"/>
+<pin id="330" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="tmp_V_1 "/>
+</bind>
+</comp>
+
+<comp id="333" class="1005" name="tmp_2_reg_333">
+<pin_list>
+<pin id="334" dir="0" index="0" bw="1" slack="1"/>
+<pin id="335" dir="1" index="1" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opset="tmp_2 "/>
+</bind>
+</comp>
+
+<comp id="337" class="1005" name="tmp_18_reg_337">
+<pin_list>
+<pin id="338" dir="0" index="0" bw="49" slack="1"/>
+<pin id="339" dir="1" index="1" bw="49" slack="1"/>
+</pin_list>
+<bind>
+<opset="tmp_18 "/>
+</bind>
+</comp>
+
+<comp id="345" class="1005" name="tmp_reg_345">
+<pin_list>
+<pin id="346" dir="0" index="0" bw="1" slack="1"/>
+<pin id="347" dir="1" index="1" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opset="tmp "/>
+</bind>
+</comp>
+
+<comp id="349" class="1005" name="icmp_ln879_reg_349">
+<pin_list>
+<pin id="350" dir="0" index="0" bw="1" slack="2"/>
+<pin id="351" dir="1" index="1" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opset="icmp_ln879 "/>
+</bind>
+</comp>
+
+<comp id="353" class="1005" name="sext_ln182_reg_353">
+<pin_list>
+<pin id="354" dir="0" index="0" bw="56" slack="1"/>
+<pin id="355" dir="1" index="1" bw="56" slack="1"/>
+</pin_list>
+<bind>
+<opset="sext_ln182 "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="88"><net_src comp="20" pin="0"/><net_sink comp="84" pin=0"/></net>
+
+<net id="89"><net_src comp="4" pin="0"/><net_sink comp="84" pin=1"/></net>
+
+<net id="95"><net_src comp="34" pin="0"/><net_sink comp="90" pin=0"/></net>
+
+<net id="96"><net_src comp="0" pin="0"/><net_sink comp="90" pin=1"/></net>
+
+<net id="97"><net_src comp="36" pin="0"/><net_sink comp="90" pin=2"/></net>
+
+<net id="102"><net_src comp="38" pin="0"/><net_sink comp="98" pin=0"/></net>
+
+<net id="103"><net_src comp="0" pin="0"/><net_sink comp="98" pin=1"/></net>
+
+<net id="109"><net_src comp="44" pin="0"/><net_sink comp="104" pin=0"/></net>
+
+<net id="110"><net_src comp="16" pin="0"/><net_sink comp="104" pin=1"/></net>
+
+<net id="111"><net_src comp="36" pin="0"/><net_sink comp="104" pin=2"/></net>
+
+<net id="116"><net_src comp="46" pin="0"/><net_sink comp="112" pin=0"/></net>
+
+<net id="117"><net_src comp="16" pin="0"/><net_sink comp="112" pin=1"/></net>
+
+<net id="123"><net_src comp="48" pin="0"/><net_sink comp="118" pin=0"/></net>
+
+<net id="124"><net_src comp="4" pin="0"/><net_sink comp="118" pin=1"/></net>
+
+<net id="125"><net_src comp="40" pin="0"/><net_sink comp="118" pin=2"/></net>
+
+<net id="130"><net_src comp="54" pin="0"/><net_sink comp="126" pin=0"/></net>
+
+<net id="131"><net_src comp="6" pin="0"/><net_sink comp="126" pin=1"/></net>
+
+<net id="137"><net_src comp="56" pin="0"/><net_sink comp="132" pin=0"/></net>
+
+<net id="138"><net_src comp="14" pin="0"/><net_sink comp="132" pin=1"/></net>
+
+<net id="144"><net_src comp="58" pin="0"/><net_sink comp="139" pin=0"/></net>
+
+<net id="145"><net_src comp="2" pin="0"/><net_sink comp="139" pin=1"/></net>
+
+<net id="155"><net_src comp="40" pin="0"/><net_sink comp="149" pin=0"/></net>
+
+<net id="156"><net_src comp="42" pin="0"/><net_sink comp="149" pin=2"/></net>
+
+<net id="160"><net_src comp="40" pin="0"/><net_sink comp="157" pin=0"/></net>
+
+<net id="179"><net_src comp="157" pin="1"/><net_sink comp="161" pin=12"/></net>
+
+<net id="184"><net_src comp="24" pin="0"/><net_sink comp="180" pin=0"/></net>
+
+<net id="185"><net_src comp="8" pin="0"/><net_sink comp="180" pin=1"/></net>
+
+<net id="189"><net_src comp="8" pin="0"/><net_sink comp="186" pin=0"/></net>
+
+<net id="193"><net_src comp="10" pin="0"/><net_sink comp="190" pin=0"/></net>
+
+<net id="198"><net_src comp="32" pin="0"/><net_sink comp="194" pin=0"/></net>
+
+<net id="199"><net_src comp="10" pin="0"/><net_sink comp="194" pin=1"/></net>
+
+<net id="203"><net_src comp="18" pin="0"/><net_sink comp="200" pin=0"/></net>
+
+<net id="208"><net_src comp="84" pin="2"/><net_sink comp="204" pin=0"/></net>
+
+<net id="209"><net_src comp="42" pin="0"/><net_sink comp="204" pin=1"/></net>
+
+<net id="214"><net_src comp="200" pin="1"/><net_sink comp="210" pin=0"/></net>
+
+<net id="215"><net_src comp="204" pin="2"/><net_sink comp="210" pin=1"/></net>
+
+<net id="220"><net_src comp="30" pin="0"/><net_sink comp="216" pin=0"/></net>
+
+<net id="221"><net_src comp="8" pin="0"/><net_sink comp="216" pin=1"/></net>
+
+<net id="226"><net_src comp="190" pin="1"/><net_sink comp="222" pin=0"/></net>
+
+<net id="227"><net_src comp="32" pin="0"/><net_sink comp="222" pin=1"/></net>
+
+<net id="233"><net_src comp="222" pin="2"/><net_sink comp="228" pin=0"/></net>
+
+<net id="234"><net_src comp="28" pin="0"/><net_sink comp="228" pin=1"/></net>
+
+<net id="235"><net_src comp="24" pin="0"/><net_sink comp="228" pin=2"/></net>
+
+<net id="240"><net_src comp="228" pin="3"/><net_sink comp="236" pin=0"/></net>
+
+<net id="241"><net_src comp="8" pin="0"/><net_sink comp="236" pin=1"/></net>
+
+<net id="246"><net_src comp="50" pin="0"/><net_sink comp="242" pin=0"/></net>
+
+<net id="247"><net_src comp="190" pin="1"/><net_sink comp="242" pin=1"/></net>
+
+<net id="252"><net_src comp="242" pin="2"/><net_sink comp="248" pin=0"/></net>
+
+<net id="253"><net_src comp="10" pin="0"/><net_sink comp="248" pin=1"/></net>
+
+<net id="258"><net_src comp="26" pin="0"/><net_sink comp="254" pin=0"/></net>
+
+<net id="259"><net_src comp="8" pin="0"/><net_sink comp="254" pin=1"/></net>
+
+<net id="263"><net_src comp="12" pin="0"/><net_sink comp="260" pin=0"/></net>
+
+<net id="268"><net_src comp="260" pin="1"/><net_sink comp="264" pin=0"/></net>
+
+<net id="269"><net_src comp="52" pin="0"/><net_sink comp="264" pin=1"/></net>
+
+<net id="274"><net_src comp="260" pin="1"/><net_sink comp="270" pin=0"/></net>
+
+<net id="275"><net_src comp="36" pin="0"/><net_sink comp="270" pin=1"/></net>
+
+<net id="280"><net_src comp="270" pin="2"/><net_sink comp="276" pin=0"/></net>
+
+<net id="281"><net_src comp="12" pin="0"/><net_sink comp="276" pin=1"/></net>
+
+<net id="285"><net_src comp="282" pin="1"/><net_sink comp="139" pin=2"/></net>
+
+<net id="289"><net_src comp="126" pin="2"/><net_sink comp="286" pin=0"/></net>
+
+<net id="295"><net_src comp="60" pin="0"/><net_sink comp="290" pin=0"/></net>
+
+<net id="296"><net_src comp="286" pin="1"/><net_sink comp="290" pin=2"/></net>
+
+<net id="297"><net_src comp="290" pin="3"/><net_sink comp="132" pin=2"/></net>
+
+<net id="302"><net_src comp="161" pin="16"/><net_sink comp="298" pin=0"/></net>
+
+<net id="303"><net_src comp="18" pin="0"/><net_sink comp="298" pin=1"/></net>
+
+<net id="307"><net_src comp="186" pin="1"/><net_sink comp="304" pin=0"/></net>
+
+<net id="311"><net_src comp="190" pin="1"/><net_sink comp="308" pin=0"/></net>
+
+<net id="312"><net_src comp="308" pin="1"/><net_sink comp="290" pin=1"/></net>
+
+<net id="316"><net_src comp="84" pin="2"/><net_sink comp="313" pin=0"/></net>
+
+<net id="317"><net_src comp="313" pin="1"/><net_sink comp="161" pin=0"/></net>
+
+<net id="318"><net_src comp="313" pin="1"/><net_sink comp="161" pin=2"/></net>
+
+<net id="319"><net_src comp="313" pin="1"/><net_sink comp="161" pin=4"/></net>
+
+<net id="320"><net_src comp="313" pin="1"/><net_sink comp="161" pin=6"/></net>
+
+<net id="321"><net_src comp="313" pin="1"/><net_sink comp="161" pin=8"/></net>
+
+<net id="322"><net_src comp="313" pin="1"/><net_sink comp="161" pin=10"/></net>
+
+<net id="323"><net_src comp="313" pin="1"/><net_sink comp="161" pin=14"/></net>
+
+<net id="327"><net_src comp="90" pin="3"/><net_sink comp="324" pin=0"/></net>
+
+<net id="331"><net_src comp="98" pin="2"/><net_sink comp="328" pin=0"/></net>
+
+<net id="332"><net_src comp="328" pin="1"/><net_sink comp="132" pin=2"/></net>
+
+<net id="336"><net_src comp="104" pin="3"/><net_sink comp="333" pin=0"/></net>
+
+<net id="340"><net_src comp="112" pin="2"/><net_sink comp="337" pin=0"/></net>
+
+<net id="341"><net_src comp="337" pin="1"/><net_sink comp="282" pin=0"/></net>
+
+<net id="348"><net_src comp="104" pin="3"/><net_sink comp="345" pin=0"/></net>
+
+<net id="352"><net_src comp="264" pin="2"/><net_sink comp="349" pin=0"/></net>
+
+<net id="356"><net_src comp="282" pin="1"/><net_sink comp="353" pin=0"/></net>
+
+<net id="357"><net_src comp="353" pin="1"/><net_sink comp="139" pin=2"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+	Port: macIpEncodeIn_V_V | {}
+	Port: macIpEncode_rsp_o_V | {3 }
+	Port: arp_scan_V | {1 }
+	Port: myIpAddress_V | {}
+	Port: gia_fsm_state | {1 }
+	Port: ip_lsb_V | {1 }
+	Port: time_counter_V | {1 }
+	Port: macIpEncode_i_V_V | {2 }
+	Port: macIpEncode_rsp_i_V | {}
+	Port: arp_scan_1d_V | {2 }
+ - Input state : 
+	Port: genARPDiscovery : macIpEncodeIn_V_V | {1 }
+	Port: genARPDiscovery : macIpEncode_rsp_o_V | {}
+	Port: genARPDiscovery : arp_scan_V | {1 }
+	Port: genARPDiscovery : myIpAddress_V | {2 }
+	Port: genARPDiscovery : gia_fsm_state | {1 }
+	Port: genARPDiscovery : ip_lsb_V | {1 }
+	Port: genARPDiscovery : time_counter_V | {1 }
+	Port: genARPDiscovery : macIpEncode_i_V_V | {}
+	Port: genARPDiscovery : macIpEncode_rsp_i_V | {1 }
+	Port: genARPDiscovery : arp_scan_1d_V | {1 }
+  - Chain level:
+	State 1
+		switch_ln285 : 1
+		p_0120_0_i_i : 1
+		br_ln323 : 2
+		icmp_ln879_1 : 1
+		select_ln304 : 2
+		store_ln305 : 3
+		add_ln700 : 1
+		store_ln296 : 2
+		icmp_ln879 : 1
+		br_ln288 : 2
+		add_ln700_1 : 1
+		store_ln290 : 2
+	State 2
+		write_ln319 : 1
+		ip_aux_V : 1
+		write_ln295 : 2
+		store_ln334 : 1
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|----------------------------|---------|---------|
+| Operation|       Functional Unit      |    FF   |   LUT   |
+|----------|----------------------------|---------|---------|
+|    add   |      add_ln700_fu_242      |    0    |    15   |
+|          |     add_ln700_1_fu_270     |    0    |    39   |
+|----------|----------------------------|---------|---------|
+|   icmp   |     icmp_ln879_1_fu_222    |    0    |    11   |
+|          |      icmp_ln879_fu_264     |    0    |    20   |
+|----------|----------------------------|---------|---------|
+|  select  |     select_ln304_fu_228    |    0    |    3    |
+|----------|----------------------------|---------|---------|
+|    xor   |      xor_ln323_fu_204      |    0    |    2    |
+|----------|----------------------------|---------|---------|
+|    or    |       or_ln323_fu_210      |    0    |    2    |
+|----------|----------------------------|---------|---------|
+|          | arp_scan_V_read_read_fu_84 |    0    |    0    |
+|   read   |     tmp_V_1_read_fu_98     |    0    |    0    |
+|          |       grp_read_fu_112      |    0    |    0    |
+|          |    p_Val2_s_read_fu_126    |    0    |    0    |
+|----------|----------------------------|---------|---------|
+| nbreadreq|    tmp_1_nbreadreq_fu_90   |    0    |    0    |
+|          |    grp_nbreadreq_fu_104    |    0    |    0    |
+|----------|----------------------------|---------|---------|
+|          |  write_ln324_write_fu_118  |    0    |    0    |
+|   write  |      grp_write_fu_132      |    0    |    0    |
+|          |      grp_write_fu_139      |    0    |    0    |
+|----------|----------------------------|---------|---------|
+|   sext   |      sext_ln182_fu_282     |    0    |    0    |
+|----------|----------------------------|---------|---------|
+|   trunc  |     trunc_ln647_fu_286     |    0    |    0    |
+|----------|----------------------------|---------|---------|
+|bitconcatenate|       ip_aux_V_fu_290      |    0    |    0    |
+|----------|----------------------------|---------|---------|
+|   Total  |                            |    0    |    92   |
+|----------|----------------------------|---------|---------|
+
+Memories:
+N/A
+
+* Register list:
++----------------------------+--------+
+|                            |   FF   |
++----------------------------+--------+
+|arp_scan_V_loc_1_i_i_reg_157|    1   |
+|   arp_scan_V_read_reg_313  |    1   |
+| gia_fsm_state_load_reg_304 |    3   |
+|     icmp_ln879_reg_349     |    1   |
+|    p_0120_0_i_i_reg_146    |    1   |
+|     sext_ln182_reg_353     |   56   |
+|       tmp_18_reg_337       |   49   |
+|        tmp_1_reg_324       |    1   |
+|        tmp_2_reg_333       |    1   |
+|       tmp_V_1_reg_328      |   32   |
+|         tmp_reg_345        |    1   |
+|        v1_V_reg_308        |    8   |
++----------------------------+--------+
+|            Total           |   155  |
++----------------------------+--------+
+
+* Multiplexer (MUX) list: 
+|------------------|------|------|------|--------||---------||---------|
+|       Comp       |  Pin | Size |  BW  | S x BW ||  Delay  ||   LUT   |
+|------------------|------|------|------|--------||---------||---------|
+| grp_write_fu_132 |  p2  |   2  |  32  |   64   ||    9    |
+| grp_write_fu_139 |  p2  |   2  |  49  |   98   ||    9    |
+|------------------|------|------|------|--------||---------||---------|
+|       Total      |      |      |      |   162  ||  1.206  ||    18   |
+|------------------|------|------|------|--------||---------||---------|
+
+
+
+* Summary:
++-----------+--------+--------+--------+
+|           |  Delay |   FF   |   LUT  |
++-----------+--------+--------+--------+
+|  Function |    -   |    0   |   92   |
+|   Memory  |    -   |    -   |    -   |
+|Multiplexer|    1   |    -   |   18   |
+|  Register |    -   |   155  |    -   |
++-----------+--------+--------+--------+
+|   Total   |    1   |   155  |   110  |
++-----------+--------+--------+--------+

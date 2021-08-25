@@ -1,0 +1,203 @@
+
+
+================================================================
+== Vivado HLS Report for 'packet_identificatio'
+================================================================
+* Date:           Thu Aug  5 18:55:47 2021
+
+* Version:        2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)
+* Project:        PKT_HANDLER_prj
+* Solution:       ultrascale_plus
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  | 3.10 ns | 2.526 ns |   0.20 ns  |
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |        1|        1| 3.100 ns | 3.100 ns |    1|    1| function |
+    +---------+---------+----------+----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 2, States = { 1 2 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.52>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%pi_fsm_state_load = load i2* @pi_fsm_state, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:181]   --->   Operation 3 'load' 'pi_fsm_state_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.65ns)   --->   "switch i2 %pi_fsm_state_load, label %packet_identification.exit [
+    i2 0, label %0
+    i2 1, label %2
+    i2 -2, label %5
+  ]" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:181]   --->   Operation 4 'switch' <Predicate = true> <Delay = 0.65>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%tmp_2 = call i1 @_ssdm_op_NbReadReq.axis.i512P.i64P.i1P(i512* %dataIn_V_data_V, i64* %dataIn_V_keep_V, i1* %dataIn_V_last_V, i32 1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:249]   --->   Operation 5 'nbreadreq' 'tmp_2' <Predicate = (pi_fsm_state_load == 2)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%empty_11 = call { i512, i64, i1 } @_ssdm_op_Read.axis.volatile.i512P.i64P.i1P(i512* %dataIn_V_data_V, i64* %dataIn_V_keep_V, i1* %dataIn_V_last_V)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:250]   --->   Operation 6 'read' 'empty_11' <Predicate = (pi_fsm_state_load == 2 & tmp_2)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%tmp_last_V_1 = extractvalue { i512, i64, i1 } %empty_11, 2" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:250]   --->   Operation 7 'extractvalue' 'tmp_last_V_1' <Predicate = (pi_fsm_state_load == 2 & tmp_2)> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "br i1 %tmp_last_V_1, label %7, label %._crit_edge52.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:251]   --->   Operation 8 'br' <Predicate = (pi_fsm_state_load == 2 & tmp_2)> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.60ns)   --->   "store i2 0, i2* @pi_fsm_state, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:252]   --->   Operation 9 'store' <Predicate = (pi_fsm_state_load == 2 & tmp_2 & tmp_last_V_1)> <Delay = 0.60>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%tmp_1 = call i1 @_ssdm_op_NbReadReq.axis.i512P.i64P.i1P(i512* %dataIn_V_data_V, i64* %dataIn_V_keep_V, i1* %dataIn_V_last_V, i32 1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:234]   --->   Operation 10 'nbreadreq' 'tmp_1' <Predicate = (pi_fsm_state_load == 1)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%empty_10 = call { i512, i64, i1 } @_ssdm_op_Read.axis.volatile.i512P.i64P.i1P(i512* %dataIn_V_data_V, i64* %dataIn_V_keep_V, i1* %dataIn_V_last_V)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:235]   --->   Operation 11 'read' 'empty_10' <Predicate = (pi_fsm_state_load == 1 & tmp_1)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%tmp_data_V = extractvalue { i512, i64, i1 } %empty_10, 0" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:235]   --->   Operation 12 'extractvalue' 'tmp_data_V' <Predicate = (pi_fsm_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%tmp_keep_V = extractvalue { i512, i64, i1 } %empty_10, 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:235]   --->   Operation 13 'extractvalue' 'tmp_keep_V' <Predicate = (pi_fsm_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%tmp_last_V = extractvalue { i512, i64, i1 } %empty_10, 2" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:235]   --->   Operation 14 'extractvalue' 'tmp_last_V' <Predicate = (pi_fsm_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.60ns)   --->   "store i2 0, i2* @pi_fsm_state, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:244]   --->   Operation 15 'store' <Predicate = (pi_fsm_state_load == 1 & tmp_1 & tmp_last_V)> <Delay = 0.60>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%tmp = call i1 @_ssdm_op_NbReadReq.axis.i512P.i64P.i1P(i512* %dataIn_V_data_V, i64* %dataIn_V_keep_V, i1* %dataIn_V_last_V, i32 1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:183]   --->   Operation 16 'nbreadreq' 'tmp' <Predicate = (pi_fsm_state_load == 0)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%empty = call { i512, i64, i1 } @_ssdm_op_Read.axis.volatile.i512P.i64P.i1P(i512* %dataIn_V_data_V, i64* %dataIn_V_keep_V, i1* %dataIn_V_last_V)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:184]   --->   Operation 17 'read' 'empty' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%tmp_data_V_1 = extractvalue { i512, i64, i1 } %empty, 0" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:184]   --->   Operation 18 'extractvalue' 'tmp_data_V_1' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%tmp_keep_V_1 = extractvalue { i512, i64, i1 } %empty, 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:184]   --->   Operation 19 'extractvalue' 'tmp_keep_V_1' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%tmp_last_V_2 = extractvalue { i512, i64, i1 } %empty, 2" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:184]   --->   Operation 20 'extractvalue' 'tmp_last_V_2' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%p_Result_i_i = call i8 @_ssdm_op_PartSelect.i8.i512.i32.i32(i512 %tmp_data_V_1, i32 104, i32 111)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:40->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:185]   --->   Operation 21 'partselect' 'p_Result_i_i' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%p_Result_i_i_9 = call i8 @_ssdm_op_PartSelect.i8.i512.i32.i32(i512 %tmp_data_V_1, i32 96, i32 103)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:40->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:185]   --->   Operation 22 'partselect' 'p_Result_i_i_9' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%ethernetType_V = call i16 @_ssdm_op_BitConcatenate.i16.i8.i8(i8 %p_Result_i_i_9, i8 %p_Result_i_i)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:40->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:185]   --->   Operation 23 'bitconcatenate' 'ethernetType_V' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%ipVersion_V = call i4 @_ssdm_op_PartSelect.i4.i512.i32.i32(i512 %tmp_data_V_1, i32 116, i32 119)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:186]   --->   Operation 24 'partselect' 'ipVersion_V' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%ipProtocol_V = call i8 @_ssdm_op_PartSelect.i8.i512.i32.i32(i512 %tmp_data_V_1, i32 184, i32 191)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:187]   --->   Operation 25 'partselect' 'ipProtocol_V' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.67ns)   --->   "%icmp_ln879 = icmp eq i16 %ethernetType_V, 2054" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:189]   --->   Operation 26 'icmp' 'icmp_ln879' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.58> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 27 [1/1] (0.67ns)   --->   "%icmp_ln879_1 = icmp eq i16 %ethernetType_V, 2048" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:193]   --->   Operation 27 'icmp' 'icmp_ln879_1' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.58> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 28 [1/1] (0.65ns)   --->   "%icmp_ln879_2 = icmp eq i4 %ipVersion_V, 4" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:194]   --->   Operation 28 'icmp' 'icmp_ln879_2' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.65> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.58> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 29 [1/1] (0.58ns)   --->   "%icmp_ln879_3 = icmp eq i8 %ipProtocol_V, 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:195]   --->   Operation 29 'icmp' 'icmp_ln879_3' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.58> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.58> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 30 [1/1] (0.58ns)   --->   "%icmp_ln879_4 = icmp eq i8 %ipProtocol_V, 6" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:198]   --->   Operation 30 'icmp' 'icmp_ln879_4' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.58> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.58> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 31 [1/1] (0.58ns)   --->   "%icmp_ln879_5 = icmp eq i8 %ipProtocol_V, 17" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:201]   --->   Operation 31 'icmp' 'icmp_ln879_5' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.58> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.58> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 32 [1/1] (0.00ns) (grouped into LUT with out node sendWord_dest_V)   --->   "%select_ln198 = select i1 %icmp_ln879_4, i2 -2, i2 -1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:198]   --->   Operation 32 'select' 'select_ln198' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.27> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 33 [1/1] (0.00ns) (grouped into LUT with out node or_ln879_1)   --->   "%or_ln198 = or i1 %icmp_ln879_4, %icmp_ln879_5" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:198]   --->   Operation 33 'or' 'or_ln198' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 34 [1/1] (0.00ns) (grouped into LUT with out node and_ln879)   --->   "%xor_ln879 = xor i1 %icmp_ln879, true" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:189]   --->   Operation 34 'xor' 'xor_ln879' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 35 [1/1] (0.12ns) (out node of the LUT)   --->   "%and_ln879 = and i1 %icmp_ln879_1, %xor_ln879" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:193]   --->   Operation 35 'and' 'and_ln879' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.12> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 36 [1/1] (0.00ns) (grouped into LUT with out node and_ln879_2)   --->   "%and_ln879_1 = and i1 %icmp_ln879_2, %icmp_ln879_3" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:195]   --->   Operation 36 'and' 'and_ln879_1' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 37 [1/1] (0.12ns) (out node of the LUT)   --->   "%and_ln879_2 = and i1 %and_ln879_1, %and_ln879" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:195]   --->   Operation 37 'and' 'and_ln879_2' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.12> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 38 [1/1] (0.00ns) (grouped into LUT with out node sendWord_dest_V)   --->   "%zext_ln879 = zext i1 %and_ln879_2 to i2" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:195]   --->   Operation 38 'zext' 'zext_ln879' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.00ns) (grouped into LUT with out node sendWord_dest_V)   --->   "%or_ln879 = or i1 %and_ln879_2, %icmp_ln879" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:195]   --->   Operation 39 'or' 'or_ln879' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 40 [1/1] (0.27ns) (out node of the LUT)   --->   "%sendWord_dest_V = select i1 %or_ln879, i2 %zext_ln879, i2 %select_ln198" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:195]   --->   Operation 40 'select' 'sendWord_dest_V' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.27> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.27> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 41 [1/1] (0.00ns) (grouped into LUT with out node or_ln879_1)   --->   "%and_ln879_3 = and i1 %or_ln198, %icmp_ln879_1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:193]   --->   Operation 41 'and' 'and_ln879_3' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 42 [1/1] (0.00ns) (grouped into LUT with out node or_ln879_3)   --->   "%xor_ln879_1 = xor i1 %icmp_ln879_2, true" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:194]   --->   Operation 42 'xor' 'xor_ln879_1' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 43 [1/1] (0.00ns) (grouped into LUT with out node or_ln879_3)   --->   "%and_ln879_4 = and i1 %and_ln879, %xor_ln879_1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:194]   --->   Operation 43 'and' 'and_ln879_4' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 44 [1/1] (0.12ns) (out node of the LUT)   --->   "%or_ln879_1 = or i1 %icmp_ln879, %and_ln879_3" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:195]   --->   Operation 44 'or' 'or_ln879_1' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.12> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 45 [1/1] (0.00ns) (grouped into LUT with out node or_ln879_3)   --->   "%or_ln879_2 = or i1 %and_ln879_4, %and_ln879_2" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:195]   --->   Operation 45 'or' 'or_ln879_2' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 46 [1/1] (0.12ns) (out node of the LUT)   --->   "%or_ln879_3 = or i1 %or_ln879_2, %or_ln879_1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:195]   --->   Operation 46 'or' 'or_ln879_3' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.12> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "store i2 %sendWord_dest_V, i2* @tdest_r_V, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:218]   --->   Operation 47 'store' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00>
+ST_1 : Operation 48 [1/1] (0.60ns)   --->   "br i1 %or_ln879_3, label %1, label %._crit_edge47.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:220]   --->   Operation 48 'br' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.60>
+ST_1 : Operation 49 [1/1] (0.60ns)   --->   "br label %._crit_edge47.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:223]   --->   Operation 49 'br' <Predicate = (pi_fsm_state_load == 0 & tmp & or_ln879_3)> <Delay = 0.60>
+ST_1 : Operation 50 [1/1] (0.00ns) (grouped into LUT with out node select_ln228)   --->   "%storemerge_i = phi i2 [ 1, %1 ], [ -2, %_ifconv ]"   --->   Operation 50 'phi' 'storemerge_i' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00>
+ST_1 : Operation 51 [1/1] (0.27ns) (out node of the LUT)   --->   "%select_ln228 = select i1 %tmp_last_V_2, i2 0, i2 %storemerge_i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:228]   --->   Operation 51 'select' 'select_ln228' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.27> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.27> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 52 [1/1] (0.60ns)   --->   "store i2 %select_ln228, i2* @pi_fsm_state, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:222]   --->   Operation 52 'store' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.60>
+
+State 2 <SV = 1> <Delay = 1.45>
+ST_2 : Operation 53 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i580* @eth_level_pkt_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 53 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 54 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i512* %dataIn_V_data_V, i64* %dataIn_V_keep_V, i1* %dataIn_V_last_V, [5 x i8]* @p_str7, i32 1, i32 1, [5 x i8]* @p_str8, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [7 x i8]* @p_str9, [1 x i8]* @p_str) nounwind"   --->   Operation 54 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 55 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:166]   --->   Operation 55 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 56 [1/1] (0.00ns)   --->   "br i1 %tmp_2, label %6, label %packet_identification.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:249]   --->   Operation 56 'br' <Predicate = (pi_fsm_state_load == 2)> <Delay = 0.00>
+ST_2 : Operation 57 [1/1] (0.00ns)   --->   "br label %._crit_edge52.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:253]   --->   Operation 57 'br' <Predicate = (pi_fsm_state_load == 2 & tmp_2 & tmp_last_V_1)> <Delay = 0.00>
+ST_2 : Operation 58 [1/1] (0.00ns)   --->   "br label %packet_identification.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:254]   --->   Operation 58 'br' <Predicate = (pi_fsm_state_load == 2 & tmp_2)> <Delay = 0.00>
+ST_2 : Operation 59 [1/1] (0.00ns)   --->   "br i1 %tmp_1, label %3, label %._crit_edge49.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:234]   --->   Operation 59 'br' <Predicate = (pi_fsm_state_load == 1)> <Delay = 0.00>
+ST_2 : Operation 60 [1/1] (0.00ns)   --->   "%tdest_r_V_load = load i2* @tdest_r_V, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:240]   --->   Operation 60 'load' 'tdest_r_V_load' <Predicate = (pi_fsm_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_2 : Operation 61 [1/1] (0.00ns)   --->   "%tmp_3 = call i579 @_ssdm_op_BitConcatenate.i579.i2.i1.i64.i512(i2 %tdest_r_V_load, i1 %tmp_last_V, i64 %tmp_keep_V, i512 %tmp_data_V)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:241]   --->   Operation 61 'bitconcatenate' 'tmp_3' <Predicate = (pi_fsm_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_2 : Operation 62 [1/1] (0.00ns)   --->   "%tmp_111 = zext i579 %tmp_3 to i580" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:241]   --->   Operation 62 'zext' 'tmp_111' <Predicate = (pi_fsm_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_2 : Operation 63 [1/1] (1.45ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i580P(i580* @eth_level_pkt_V, i580 %tmp_111)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:241]   --->   Operation 63 'write' <Predicate = (pi_fsm_state_load == 1 & tmp_1)> <Delay = 1.45> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 580> <Depth = 0> <FIFO>
+ST_2 : Operation 64 [1/1] (0.00ns)   --->   "br i1 %tmp_last_V, label %4, label %._crit_edge50.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:243]   --->   Operation 64 'br' <Predicate = (pi_fsm_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_2 : Operation 65 [1/1] (0.00ns)   --->   "br label %._crit_edge50.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:245]   --->   Operation 65 'br' <Predicate = (pi_fsm_state_load == 1 & tmp_1 & tmp_last_V)> <Delay = 0.00>
+ST_2 : Operation 66 [1/1] (0.00ns)   --->   "br label %._crit_edge49.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:246]   --->   Operation 66 'br' <Predicate = (pi_fsm_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_2 : Operation 67 [1/1] (0.00ns)   --->   "br label %packet_identification.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:247]   --->   Operation 67 'br' <Predicate = (pi_fsm_state_load == 1)> <Delay = 0.00>
+ST_2 : Operation 68 [1/1] (0.00ns)   --->   "br i1 %tmp, label %_ifconv, label %._crit_edge41.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:183]   --->   Operation 68 'br' <Predicate = (pi_fsm_state_load == 0)> <Delay = 0.00>
+ST_2 : Operation 69 [1/1] (0.00ns)   --->   "%tmp_4 = call i579 @_ssdm_op_BitConcatenate.i579.i2.i1.i64.i512(i2 %sendWord_dest_V, i1 %tmp_last_V_2, i64 %tmp_keep_V_1, i512 %tmp_data_V_1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:221]   --->   Operation 69 'bitconcatenate' 'tmp_4' <Predicate = (pi_fsm_state_load == 0 & tmp & or_ln879_3)> <Delay = 0.00>
+ST_2 : Operation 70 [1/1] (0.00ns)   --->   "%tmp3 = zext i579 %tmp_4 to i580" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:221]   --->   Operation 70 'zext' 'tmp3' <Predicate = (pi_fsm_state_load == 0 & tmp & or_ln879_3)> <Delay = 0.00>
+ST_2 : Operation 71 [1/1] (1.45ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i580P(i580* @eth_level_pkt_V, i580 %tmp3)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:221]   --->   Operation 71 'write' <Predicate = (pi_fsm_state_load == 0 & tmp & or_ln879_3)> <Delay = 1.45> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 580> <Depth = 0> <FIFO>
+ST_2 : Operation 72 [1/1] (0.00ns)   --->   "br label %._crit_edge41.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:231]   --->   Operation 72 'br' <Predicate = (pi_fsm_state_load == 0 & tmp)> <Delay = 0.00>
+ST_2 : Operation 73 [1/1] (0.00ns)   --->   "br label %packet_identification.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:232]   --->   Operation 73 'br' <Predicate = (pi_fsm_state_load == 0)> <Delay = 0.00>
+ST_2 : Operation 74 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 74 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 3.1ns, clock uncertainty: 0.2ns.
+
+ <State 1>: 2.53ns
+The critical path consists of the following:
+	axis read on port 'dataIn_V_data_V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:184) [50]  (0 ns)
+	'icmp' operation ('icmp_ln879', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:189) [59]  (0.676 ns)
+	'xor' operation ('xor_ln879', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:189) [67]  (0 ns)
+	'and' operation ('and_ln879', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:193) [68]  (0.122 ns)
+	'and' operation ('and_ln879_2', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:195) [70]  (0.122 ns)
+	'or' operation ('or_ln879_2', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:195) [78]  (0 ns)
+	'or' operation ('or_ln879_3', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:195) [79]  (0.122 ns)
+	multiplexor before 'phi' operation ('storemerge_i') [88]  (0.603 ns)
+	'phi' operation ('storemerge_i') [88]  (0 ns)
+	'select' operation ('select_ln228', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:228) [89]  (0.278 ns)
+	'store' operation ('store_ln222', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:222) of variable 'select_ln228', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:228 on static variable 'pi_fsm_state' [90]  (0.603 ns)
+
+ <State 2>: 1.45ns
+The critical path consists of the following:
+	'load' operation ('tdest_r_V_load', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:240) on static variable 'tdest_r_V' [34]  (0 ns)
+	fifo write on port 'eth_level_pkt_V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/packet_handler/packet_handler.cpp:241) [37]  (1.45 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

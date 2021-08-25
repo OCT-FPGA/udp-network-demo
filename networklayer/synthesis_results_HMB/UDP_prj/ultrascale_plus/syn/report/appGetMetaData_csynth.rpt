@@ -1,0 +1,188 @@
+
+
+================================================================
+== Vivado HLS Report for 'appGetMetaData'
+================================================================
+* Date:           Thu Aug  5 18:58:27 2021
+
+* Version:        2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)
+* Project:        UDP_prj
+* Solution:       ultrascale_plus
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  | 2.50 ns | 1.935 ns |   0.20 ns  |
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |        1|        1| 2.500 ns | 2.500 ns |    1|    1| function |
+    +---------+---------+----------+----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        +---------------------+----------+---------+---------+----------+----------+-----+-----+----------+
+        |                     |          |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+        |       Instance      |  Module  |   min   |   max   |    min   |    max   | min | max |   Type   |
+        +---------------------+----------+---------+---------+----------+----------+-----+-----+----------+
+        |grp_keep2len_fu_113  |keep2len  |        0|        0|   0 ns   |   0 ns   |    1|    1| function |
+        +---------------------+----------+---------+---------+----------+----------+-----+-----+----------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+-----+
+|         Name        | BRAM_18K| DSP48E|    FF   |   LUT   | URAM|
++---------------------+---------+-------+---------+---------+-----+
+|DSP                  |        -|      -|        -|        -|    -|
+|Expression           |        -|      -|        0|       74|    -|
+|FIFO                 |        -|      -|        -|        -|    -|
+|Instance             |        -|      -|        -|      293|    -|
+|Memory               |        -|      -|        -|        -|    -|
+|Multiplexer          |        -|      -|        -|       84|    -|
+|Register             |        -|      -|      623|        -|    -|
++---------------------+---------+-------+---------+---------+-----+
+|Total                |        0|      0|      623|      451|    0|
++---------------------+---------+-------+---------+---------+-----+
+|Available SLR        |     1344|   3008|   869120|   434560|  320|
++---------------------+---------+-------+---------+---------+-----+
+|Utilization SLR (%)  |        0|      0|    ~0   |    ~0   |    0|
++---------------------+---------+-------+---------+---------+-----+
+|Available            |     4032|   9024|  2607360|  1303680|  960|
++---------------------+---------+-------+---------+---------+-----+
+|Utilization (%)      |        0|      0|    ~0   |    ~0   |    0|
++---------------------+---------+-------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    +---------------------+----------+---------+-------+---+-----+-----+
+    |       Instance      |  Module  | BRAM_18K| DSP48E| FF| LUT | URAM|
+    +---------------------+----------+---------+-------+---+-----+-----+
+    |grp_keep2len_fu_113  |keep2len  |        0|      0|  0|  293|    0|
+    +---------------------+----------+---------+-------+---+-----+-----+
+    |Total                |          |        0|      0|  0|  293|    0|
+    +---------------------+----------+---------+-------+---+-----+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |           Variable Name          | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |add_ln700_fu_198_p2               |     +    |      0|  0|  23|          16|           7|
+    |tmp_V_1_fu_214_p2                 |     +    |      0|  0|  23|          16|          16|
+    |ap_condition_202                  |    and   |      0|  0|   2|           1|           1|
+    |ap_condition_292                  |    and   |      0|  0|   2|           1|           1|
+    |ap_condition_299                  |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op15_read_state1     |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op27_write_state2    |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op34_write_state2    |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op39_write_state2    |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op46_write_state2    |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op7_read_state1      |    and   |      0|  0|   2|           1|           1|
+    |tmp_nbreadreq_fu_62_p7            |    and   |      0|  0|   2|           1|           0|
+    |ap_block_pp0_stage0_01001         |    or    |      0|  0|   2|           1|           1|
+    |ap_block_state1_pp0_stage0_iter0  |    or    |      0|  0|   2|           1|           1|
+    |ap_block_state2_pp0_stage0_iter1  |    or    |      0|  0|   2|           1|           1|
+    |ap_enable_pp0                     |    xor   |      0|  0|   2|           1|           2|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |Total                             |          |      0|  0|  74|          46|          37|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------------+----+-----------+-----+-----------+
+    |             Name            | LUT| Input Size| Bits| Total Bits|
+    +-----------------------------+----+-----------+-----+-----------+
+    |DataInApp_TDATA_blk_n        |   9|          2|    1|          2|
+    |agmdDataOut_V_blk_n          |   9|          2|    1|          2|
+    |agmdDataOut_V_din            |  15|          3|  577|       1731|
+    |agmdIdOut_V_V_blk_n          |   9|          2|    1|          2|
+    |agmdpayloadLenOut_V_s_blk_n  |   9|          2|    1|          2|
+    |agmdpayloadLenOut_V_s_din    |  15|          3|   16|         48|
+    |ap_done                      |   9|          2|    1|          2|
+    |lenCount_V                   |   9|          2|   16|         32|
+    +-----------------------------+----+-----------+-----+-----------+
+    |Total                        |  84|         18|  614|       1821|
+    +-----------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------+-----+----+-----+-----------+
+    |           Name          |  FF | LUT| Bits| Const Bits|
+    +-------------------------+-----+----+-----+-----------+
+    |agmd_state               |    1|   0|    1|          0|
+    |agmd_state_load_reg_221  |    1|   0|    1|          0|
+    |ap_CS_fsm                |    1|   0|    1|          0|
+    |ap_done_reg              |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1  |    1|   0|    1|          0|
+    |lenCount_V               |   16|   0|   16|          0|
+    |reg_131                  |  512|   0|  512|          0|
+    |reg_135                  |   64|   0|   64|          0|
+    |reg_139                  |    7|   0|    7|          0|
+    |tmp_dest_V_reg_229       |   16|   0|   16|          0|
+    |tmp_last_V_5_reg_234     |    1|   0|    1|          0|
+    |tmp_last_V_reg_239       |    1|   0|    1|          0|
+    |tmp_reg_225              |    1|   0|    1|          0|
+    +-------------------------+-----+----+-----+-----------+
+    |Total                    |  623|   0|  623|          0|
+    +-------------------------+-----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------------+-----+-----+------------+-----------------------+--------------+
+|           RTL Ports          | Dir | Bits|  Protocol  |     Source Object     |    C Type    |
++------------------------------+-----+-----+------------+-----------------------+--------------+
+|ap_clk                        |  in |    1| ap_ctrl_hs |     appGetMetaData    | return value |
+|ap_rst                        |  in |    1| ap_ctrl_hs |     appGetMetaData    | return value |
+|ap_start                      |  in |    1| ap_ctrl_hs |     appGetMetaData    | return value |
+|ap_done                       | out |    1| ap_ctrl_hs |     appGetMetaData    | return value |
+|ap_continue                   |  in |    1| ap_ctrl_hs |     appGetMetaData    | return value |
+|ap_idle                       | out |    1| ap_ctrl_hs |     appGetMetaData    | return value |
+|ap_ready                      | out |    1| ap_ctrl_hs |     appGetMetaData    | return value |
+|DataInApp_TVALID              |  in |    1|    axis    |    DataIn_V_data_V    |    pointer   |
+|DataInApp_TDATA               |  in |  512|    axis    |    DataIn_V_data_V    |    pointer   |
+|agmdIdOut_V_V_din             | out |   16|   ap_fifo  |     agmdIdOut_V_V     |    pointer   |
+|agmdIdOut_V_V_full_n          |  in |    1|   ap_fifo  |     agmdIdOut_V_V     |    pointer   |
+|agmdIdOut_V_V_write           | out |    1|   ap_fifo  |     agmdIdOut_V_V     |    pointer   |
+|agmdDataOut_V_din             | out |  577|   ap_fifo  |     agmdDataOut_V     |    pointer   |
+|agmdDataOut_V_full_n          |  in |    1|   ap_fifo  |     agmdDataOut_V     |    pointer   |
+|agmdDataOut_V_write           | out |    1|   ap_fifo  |     agmdDataOut_V     |    pointer   |
+|agmdpayloadLenOut_V_s_din     | out |   16|   ap_fifo  | agmdpayloadLenOut_V_s |    pointer   |
+|agmdpayloadLenOut_V_s_full_n  |  in |    1|   ap_fifo  | agmdpayloadLenOut_V_s |    pointer   |
+|agmdpayloadLenOut_V_s_write   | out |    1|   ap_fifo  | agmdpayloadLenOut_V_s |    pointer   |
+|DataInApp_TREADY              | out |    1|    axis    |     DataIn_V_user     |    pointer   |
+|DataInApp_TUSER               |  in |   96|    axis    |     DataIn_V_user     |    pointer   |
+|DataInApp_TKEEP               |  in |   64|    axis    |    DataIn_V_keep_V    |    pointer   |
+|DataInApp_TDEST               |  in |   16|    axis    |    DataIn_V_dest_V    |    pointer   |
+|DataInApp_TLAST               |  in |    1|    axis    |    DataIn_V_last_V    |    pointer   |
++------------------------------+-----+-----+------------+-----------------------+--------------+
+

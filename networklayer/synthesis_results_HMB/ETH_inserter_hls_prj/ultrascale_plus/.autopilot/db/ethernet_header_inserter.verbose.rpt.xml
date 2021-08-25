@@ -1,0 +1,132 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'ethernet_header_inserter'" level="0">
+<item name = "Date">Thu Aug  5 18:55:55 2021
+</item>
+<item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
+<item name = "Project">ETH_inserter_hls_prj</item>
+<item name = "Solution">ultrascale_plus</item>
+<item name = "Product family">virtexuplus</item>
+<item name = "Target device">xcu280-fsvh2892-2L-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">3.10 ns, 2.891 ns, 0.20 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">8, 8, 24.800 ns, 24.800 ns, 1, 1, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="compute_and_insert_i_U0">compute_and_insert_i, 3, 3, 9.300 ns, 9.300 ns, 1, 1, function</column>
+<column name="handle_output_U0">handle_output, 2, 2, 6.200 ns, 6.200 ns, 1, 1, function</column>
+<column name="broadcaster_and_mac_U0">broadcaster_and_mac_s, 2, 2, 6.200 ns, 6.200 ns, 1, 1, function</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, -, -, -</column>
+<column name="FIFO">99, -, 1779, 1110, -</column>
+<column name="Instance">2, -, 4321, 2035, -</column>
+<column name="Memory">-, -, -, -, -</column>
+<column name="Multiplexer">-, -, -, -, -</column>
+<column name="Register">-, -, -, -, -</column>
+<specialColumn name="Available SLR">1344, 3008, 869120, 434560, 320</specialColumn>
+<specialColumn name="Utilization SLR (%)">7, 0, ~0, ~0, 0</specialColumn>
+<specialColumn name="Available">4032, 9024, 2607360, 1303680, 960</specialColumn>
+<specialColumn name="Utilization (%)">2, 0, ~0, ~0, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="broadcaster_and_mac_U0">broadcaster_and_mac_s, 0, 0, 622, 189, 0</column>
+<column name="compute_and_insert_i_U0">compute_and_insert_i, 2, 0, 2528, 1587, 0</column>
+<column name="handle_output_U0">handle_output, 0, 0, 1171, 259, 0</column>
+</table>
+</item>
+<item name = "DSP48E"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+<column name="ip_header_checksum_V_U">33, 593, 0, -, 16, 577, 9232</column>
+<column name="ip_header_out_V_U">33, 593, 0, -, 16, 577, 9232</column>
+<column name="no_ip_header_out_V_U">33, 593, 0, -, 16, 577, 9232</column>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="dataIn_TDATA">in, 512, axis, dataIn_V_data_V, pointer</column>
+<column name="dataIn_TKEEP">in, 64, axis, dataIn_V_keep_V, pointer</column>
+<column name="dataIn_TLAST">in, 1, axis, dataIn_V_last_V, pointer</column>
+<column name="dataIn_TVALID">in, 1, axis, dataIn_V_last_V, pointer</column>
+<column name="dataIn_TREADY">out, 1, axis, dataIn_V_last_V, pointer</column>
+<column name="dataOut_TDATA">out, 512, axis, dataOut_V_data_V, pointer</column>
+<column name="dataOut_TKEEP">out, 64, axis, dataOut_V_keep_V, pointer</column>
+<column name="dataOut_TLAST">out, 1, axis, dataOut_V_last_V, pointer</column>
+<column name="dataOut_TVALID">out, 1, axis, dataOut_V_last_V, pointer</column>
+<column name="dataOut_TREADY">in, 1, axis, dataOut_V_last_V, pointer</column>
+<column name="arpTableReplay_V_TDATA">in, 56, axis, arpTableReplay_V, pointer</column>
+<column name="arpTableReplay_V_TVALID">in, 1, axis, arpTableReplay_V, pointer</column>
+<column name="arpTableReplay_V_TREADY">out, 1, axis, arpTableReplay_V, pointer</column>
+<column name="arpTableRequest_V_V_TDATA">out, 32, axis, arpTableRequest_V_V, pointer</column>
+<column name="arpTableRequest_V_V_TVALID">out, 1, axis, arpTableRequest_V_V, pointer</column>
+<column name="arpTableRequest_V_V_TREADY">in, 1, axis, arpTableRequest_V_V, pointer</column>
+<column name="myMacAddress_V">in, 48, ap_stable, myMacAddress_V, pointer</column>
+<column name="regSubNetMask_V">in, 32, ap_stable, regSubNetMask_V, pointer</column>
+<column name="regDefaultGateway_V">in, 32, ap_stable, regDefaultGateway_V, pointer</column>
+<column name="ap_clk">in, 1, ap_ctrl_none, ethernet_header_inserter, return value</column>
+<column name="ap_rst_n">in, 1, ap_ctrl_none, ethernet_header_inserter, return value</column>
+</table>
+</item>
+</section>
+</profile>

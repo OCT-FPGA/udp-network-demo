@@ -1,0 +1,11 @@
+regslice_core
+regslice_core
+fifo_w577_d16_A
+fifo_w577_d16_A
+fifo_w577_d16_A
+start_for_computebkb
+regslice_core
+broadcaster_and_mac_s
+compute_and_insert_i
+handle_output
+ethernet_header_inserter

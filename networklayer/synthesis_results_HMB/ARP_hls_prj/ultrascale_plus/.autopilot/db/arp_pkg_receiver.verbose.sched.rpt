@@ -1,0 +1,163 @@
+
+
+================================================================
+== Vivado HLS Report for 'arp_pkg_receiver'
+================================================================
+* Date:           Thu Aug  5 18:55:54 2021
+
+* Version:        2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)
+* Project:        ARP_hls_prj
+* Solution:       ultrascale_plus
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  | 3.10 ns | 2.900 ns |   0.20 ns  |
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |        1|        1| 3.100 ns | 3.100 ns |    1|    1| function |
+    +---------+---------+----------+----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 2, States = { 1 2 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.90>
+ST_1 : Operation 3 [1/1] (1.45ns)   --->   "%myIpAddress_V_read = call i32 @_ssdm_op_Read.ap_fifo.i32P(i32* %myIpAddress_V)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:48]   --->   Operation 3 'read' 'myIpAddress_V_read' <Predicate = true> <Delay = 1.45> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 192> <Depth = 2> <FIFO>
+ST_1 : Operation 4 [1/1] (1.45ns)   --->   "call void @_ssdm_op_Write.ap_fifo.i32P(i32* %myIpAddress_V_out, i32 %myIpAddress_V_read)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 4 'write' <Predicate = true> <Delay = 1.45> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 192> <Depth = 2> <FIFO>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%tmp = call i1 @_ssdm_op_NbReadReq.axis.i512P.i64P.i1P(i512* %arpDataIn_V_data_V, i64* %arpDataIn_V_keep_V, i1* %arpDataIn_V_last_V, i32 1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:59->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 5 'nbreadreq' 'tmp' <Predicate = true> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "br i1 %tmp, label %0, label %.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:59->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 6 'br' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%empty = call { i512, i64, i1 } @_ssdm_op_Read.axis.volatile.i512P.i64P.i1P(i512* %arpDataIn_V_data_V, i64* %arpDataIn_V_keep_V, i1* %arpDataIn_V_last_V)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:60->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 7 'read' 'empty' <Predicate = (tmp)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%tmp_data_V = extractvalue { i512, i64, i1 } %empty, 0" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:60->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 8 'extractvalue' 'tmp_data_V' <Predicate = (tmp)> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%tmp_last_V = extractvalue { i512, i64, i1 } %empty, 2" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:60->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 9 'extractvalue' 'tmp_last_V' <Predicate = (tmp)> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%t_V = load i4* @wordCount_V, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:62->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 10 'load' 't_V' <Predicate = (tmp)> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.65ns)   --->   "%icmp_ln879 = icmp eq i4 %t_V, 0" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:62->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 11 'icmp' 'icmp_ln879' <Predicate = (tmp)> <Delay = 0.65> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "br i1 %icmp_ln879, label %1, label %._crit_edge48.i.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:62->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 12 'br' <Predicate = (tmp)> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%opCode_V = call i16 @_ssdm_op_PartSelect.i16.i512.i32.i32(i512 %tmp_data_V, i32 160, i32 175)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:69->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 13 'partselect' 'opCode_V' <Predicate = (tmp & icmp_ln879)> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%protoAddrDst_V = call i32 @_ssdm_op_PartSelect.i32.i512.i32.i32(i512 %tmp_data_V, i32 304, i32 335)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:72->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 14 'partselect' 'protoAddrDst_V' <Predicate = (tmp & icmp_ln879)> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.67ns)   --->   "%icmp_ln879_2 = icmp eq i16 %opCode_V, 256" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:74->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 15 'icmp' 'icmp_ln879_2' <Predicate = (tmp & icmp_ln879)> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 16 [1/1] (0.85ns)   --->   "%icmp_ln879_3 = icmp eq i32 %protoAddrDst_V, %myIpAddress_V_read" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:74->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 16 'icmp' 'icmp_ln879_3' <Predicate = (tmp & icmp_ln879)> <Delay = 0.85> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 17 [1/1] (0.12ns)   --->   "%and_ln74 = and i1 %icmp_ln879_2, %icmp_ln879_3" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:74->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 17 'and' 'and_ln74' <Predicate = (tmp & icmp_ln879)> <Delay = 0.12> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "br i1 %and_ln74, label %2, label %._crit_edge49.i.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:74->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 18 'br' <Predicate = (tmp & icmp_ln879)> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.67ns)   --->   "%icmp_ln879_4 = icmp eq i16 %opCode_V, 512" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:76->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 19 'icmp' 'icmp_ln879_4' <Predicate = (tmp & icmp_ln879 & !and_ln74)> <Delay = 0.67> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.67> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 20 [1/1] (0.12ns)   --->   "%and_ln76 = and i1 %icmp_ln879_4, %icmp_ln879_3" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:76->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 20 'and' 'and_ln76' <Predicate = (tmp & icmp_ln879 & !and_ln74)> <Delay = 0.12> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "br i1 %and_ln76, label %3, label %._crit_edge51.i.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:76->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 21 'br' <Predicate = (tmp & icmp_ln879 & !and_ln74)> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%tmp_7_i_i = call i80 @_ssdm_op_PartSelect.i80.i512.i32.i32(i512 %tmp_data_V, i32 176, i32 255)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:77->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 22 'partselect' 'tmp_7_i_i' <Predicate = (tmp & icmp_ln879 & !and_ln74 & and_ln76)> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%tmp_5_i_i = call i80 @_ssdm_op_PartSelect.i80.i512.i32.i32(i512 %tmp_data_V, i32 176, i32 255)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:75->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 23 'partselect' 'tmp_5_i_i' <Predicate = (tmp & icmp_ln879 & and_ln74)> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%tmp_6_i_i = call i112 @_ssdm_op_PartSelect.i112.i512.i32.i32(i512 %tmp_data_V, i32 48, i32 159)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:75->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 24 'partselect' 'tmp_6_i_i' <Predicate = (tmp & icmp_ln879 & and_ln74)> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.70ns)   --->   "%add_ln700 = add i4 %t_V, 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:83->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 25 'add' 'add_ln700' <Predicate = (tmp)> <Delay = 0.70> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 26 [1/1] (0.35ns)   --->   "%select_ln80 = select i1 %tmp_last_V, i4 0, i4 %add_ln700" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:80->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 26 'select' 'select_ln80' <Predicate = (tmp)> <Delay = 0.35> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.35> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "store i4 %select_ln80, i4* @wordCount_V, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:83->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 27 'store' <Predicate = (tmp)> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 1.45>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i512* %arpDataIn_V_data_V, i64* %arpDataIn_V_keep_V, i1* %arpDataIn_V_last_V, [5 x i8]* @p_str25, i32 1, i32 1, [5 x i8]* @p_str26, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"   --->   Operation 28 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i512* %arpDataIn_V_data_V, i64* %arpDataIn_V_keep_V, i1* %arpDataIn_V_last_V, [5 x i8]* @p_str25, i32 1, i32 1, [5 x i8]* @p_str26, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"   --->   Operation 29 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i512* %arpDataIn_V_data_V, i64* %arpDataIn_V_keep_V, i1* %arpDataIn_V_last_V, [5 x i8]* @p_str25, i32 1, i32 1, [5 x i8]* @p_str26, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"   --->   Operation 30 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i192* @arpReplyFifo_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 31 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i81* @arpTableInsertFifo_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 32 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %myIpAddress_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [11 x i8]* @ScalarProp_str)"   --->   Operation 33 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 34 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %myIpAddress_V_out, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [11 x i8]* @ScalarProp_str)"   --->   Operation 34 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 35 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i192* @arpReplyFifo_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 35 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i81* @arpTableInsertFifo_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 36 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i512* %arpDataIn_V_data_V, i64* %arpDataIn_V_keep_V, i1* %arpDataIn_V_last_V, [5 x i8]* @p_str25, i32 1, i32 1, [5 x i8]* @p_str26, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"   --->   Operation 37 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:50->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 38 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 39 [1/1] (0.00ns)   --->   "%tmp_1 = call i81 @_ssdm_op_BitConcatenate.i81.i1.i80(i1 true, i80 %tmp_7_i_i)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:77->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 39 'bitconcatenate' 'tmp_1' <Predicate = (tmp & icmp_ln879 & !and_ln74 & and_ln76)> <Delay = 0.00>
+ST_2 : Operation 40 [1/1] (1.45ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i81P(i81* @arpTableInsertFifo_V, i81 %tmp_1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:77->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 40 'write' <Predicate = (tmp & icmp_ln879 & !and_ln74 & and_ln76)> <Delay = 1.45> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 192> <Depth = 2> <FIFO>
+ST_2 : Operation 41 [1/1] (0.00ns)   --->   "br label %._crit_edge51.i.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:77->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 41 'br' <Predicate = (tmp & icmp_ln879 & !and_ln74 & and_ln76)> <Delay = 0.00>
+ST_2 : Operation 42 [1/1] (0.00ns)   --->   "br label %4"   --->   Operation 42 'br' <Predicate = (tmp & icmp_ln879 & !and_ln74)> <Delay = 0.00>
+ST_2 : Operation 43 [1/1] (0.00ns)   --->   "%tmp1 = call i192 @_ssdm_op_BitConcatenate.i192.i80.i112(i80 %tmp_5_i_i, i112 %tmp_6_i_i)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:75->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 43 'bitconcatenate' 'tmp1' <Predicate = (tmp & icmp_ln879 & and_ln74)> <Delay = 0.00>
+ST_2 : Operation 44 [1/1] (1.45ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i192P(i192* @arpReplyFifo_V, i192 %tmp1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:75->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 44 'write' <Predicate = (tmp & icmp_ln879 & and_ln74)> <Delay = 1.45> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 192> <Depth = 2> <FIFO>
+ST_2 : Operation 45 [1/1] (0.00ns)   --->   "br label %4" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:75->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 45 'br' <Predicate = (tmp & icmp_ln879 & and_ln74)> <Delay = 0.00>
+ST_2 : Operation 46 [1/1] (0.00ns)   --->   "br label %._crit_edge48.i.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:78->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 46 'br' <Predicate = (tmp & icmp_ln879)> <Delay = 0.00>
+ST_2 : Operation 47 [1/1] (0.00ns)   --->   "br label %.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:84->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 47 'br' <Predicate = (tmp)> <Delay = 0.00>
+ST_2 : Operation 48 [1/1] (0.00ns)   --->   "ret void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365]   --->   Operation 48 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 3.1ns, clock uncertainty: 0.2ns.
+
+ <State 1>: 2.9ns
+The critical path consists of the following:
+	fifo read on port 'myIpAddress_V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:48) [18]  (1.45 ns)
+	fifo write on port 'myIpAddress_V_out' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365) [20]  (1.45 ns)
+
+ <State 2>: 1.45ns
+The critical path consists of the following:
+	fifo write on port 'arpTableInsertFifo_V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:77->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365) [48]  (1.45 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

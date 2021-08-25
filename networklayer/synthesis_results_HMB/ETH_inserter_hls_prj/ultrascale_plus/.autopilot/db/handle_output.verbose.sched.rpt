@@ -1,0 +1,227 @@
+
+
+================================================================
+== Vivado HLS Report for 'handle_output'
+================================================================
+* Date:           Thu Aug  5 18:55:53 2021
+
+* Version:        2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)
+* Project:        ETH_inserter_hls_prj
+* Solution:       ultrascale_plus
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  | 3.10 ns | 2.374 ns |   0.20 ns  |
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |        2|        2| 6.200 ns | 6.200 ns |    1|    1| function |
+    +---------+---------+----------+----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 1 2 3 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.37>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%mw_state_load = load i3* @mw_state, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:102]   --->   Operation 4 'load' 'mw_state_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%previous_word_data_V_1 = load i112* @previous_word_data_V, align 8" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:144]   --->   Operation 5 'load' 'previous_word_data_V_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%previous_word_keep_V_1 = load i14* @previous_word_keep_V, align 2" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:145]   --->   Operation 6 'load' 'previous_word_keep_V_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.65ns)   --->   "switch i3 %mw_state_load, label %13 [
+    i3 0, label %0
+    i3 1, label %3
+    i3 2, label %5
+    i3 3, label %8
+    i3 -4, label %9
+    i3 -3, label %12
+  ]" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:102]   --->   Operation 7 'switch' <Predicate = true> <Delay = 0.65>
+ST_1 : Operation 8 [1/1] (0.64ns)   --->   "store i3 0, i3* @mw_state, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:208]   --->   Operation 8 'store' <Predicate = (mw_state_load == 5)> <Delay = 0.64>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%tmp_4 = call i1 @_ssdm_op_NbReadReq.ap_fifo.i577P(i577* @no_ip_header_out_V, i32 1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:173]   --->   Operation 9 'nbreadreq' 'tmp_4' <Predicate = (mw_state_load == 4)> <Delay = 0.00> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 577> <Depth = 0> <FIFO>
+ST_1 : Operation 10 [1/1] (1.45ns)   --->   "%tmp_427 = call i577 @_ssdm_op_Read.ap_fifo.volatile.i577P(i577* @no_ip_header_out_V)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:174]   --->   Operation 10 'read' 'tmp_427' <Predicate = (mw_state_load == 4 & tmp_4)> <Delay = 1.45> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 577> <Depth = 0> <FIFO>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%tmp_10 = call i1 @_ssdm_op_BitSelect.i1.i577.i32(i577 %tmp_427, i32 576)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.hpp:49->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:174]   --->   Operation 11 'bitselect' 'tmp_10' <Predicate = (mw_state_load == 4 & tmp_4)> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%trunc_ln647_1 = trunc i577 %tmp_427 to i400" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:179]   --->   Operation 12 'trunc' 'trunc_ln647_1' <Predicate = (mw_state_load == 4 & tmp_4)> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%p_Result_8_i = call i50 @_ssdm_op_PartSelect.i50.i577.i32.i32(i577 %tmp_427, i32 512, i32 561)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:180]   --->   Operation 13 'partselect' 'p_Result_8_i' <Predicate = (mw_state_load == 4 & tmp_4)> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%p_Result_10_i = call i112 @_ssdm_op_PartSelect.i112.i577.i32.i32(i577 %tmp_427, i32 400, i32 511)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:182]   --->   Operation 14 'partselect' 'p_Result_10_i' <Predicate = (mw_state_load == 4 & tmp_4)> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.61ns)   --->   "store i112 %p_Result_10_i, i112* @previous_word_data_V, align 8" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:182]   --->   Operation 15 'store' <Predicate = (mw_state_load == 4 & tmp_4)> <Delay = 0.61>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%p_Result_11_i = call i14 @_ssdm_op_PartSelect.i14.i577.i32.i32(i577 %tmp_427, i32 562, i32 575)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:183]   --->   Operation 16 'partselect' 'p_Result_11_i' <Predicate = (mw_state_load == 4 & tmp_4)> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.61ns)   --->   "store i14 %p_Result_11_i, i14* @previous_word_keep_V, align 8" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:183]   --->   Operation 17 'store' <Predicate = (mw_state_load == 4 & tmp_4)> <Delay = 0.61>
+ST_1 : Operation 18 [1/1] (0.60ns)   --->   "br i1 %tmp_10, label %11, label %._crit_edge105.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:186]   --->   Operation 18 'br' <Predicate = (mw_state_load == 4 & tmp_4)> <Delay = 0.60>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%tmp_11 = call i1 @_ssdm_op_BitSelect.i1.i577.i32(i577 %tmp_427, i32 562)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:187]   --->   Operation 19 'bitselect' 'tmp_11' <Predicate = (mw_state_load == 4 & tmp_4 & tmp_10)> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.12ns)   --->   "%p_Result_8 = xor i1 %tmp_11, true" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:187]   --->   Operation 20 'xor' 'p_Result_8' <Predicate = (mw_state_load == 4 & tmp_4 & tmp_10)> <Delay = 0.12> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 21 [1/1] (0.27ns)   --->   "%select_ln187 = select i1 %tmp_11, i3 -3, i3 0" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:187]   --->   Operation 21 'select' 'select_ln187' <Predicate = (mw_state_load == 4 & tmp_4 & tmp_10)> <Delay = 0.27> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.27> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 22 [1/1] (0.64ns)   --->   "store i3 %select_ln187, i3* @mw_state, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:189]   --->   Operation 22 'store' <Predicate = (mw_state_load == 4 & tmp_4 & tmp_10)> <Delay = 0.64>
+ST_1 : Operation 23 [1/1] (0.60ns)   --->   "br label %._crit_edge105.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:195]   --->   Operation 23 'br' <Predicate = (mw_state_load == 4 & tmp_4 & tmp_10)> <Delay = 0.60>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%tmp_3 = call i1 @_ssdm_op_NbReadReq.ap_fifo.i577P(i577* @ip_header_checksum_V, i32 1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:141]   --->   Operation 24 'nbreadreq' 'tmp_3' <Predicate = (mw_state_load == 3)> <Delay = 0.00> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 577> <Depth = 0> <FIFO>
+ST_1 : Operation 25 [1/1] (1.45ns)   --->   "%tmp_31 = call i577 @_ssdm_op_Read.ap_fifo.volatile.i577P(i577* @ip_header_checksum_V)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:142]   --->   Operation 25 'read' 'tmp_31' <Predicate = (mw_state_load == 3 & tmp_3)> <Delay = 1.45> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 577> <Depth = 0> <FIFO>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%tmp_8 = call i1 @_ssdm_op_BitSelect.i1.i577.i32(i577 %tmp_31, i32 576)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.hpp:49->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:142]   --->   Operation 26 'bitselect' 'tmp_8' <Predicate = (mw_state_load == 3 & tmp_3)> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%trunc_ln647 = trunc i577 %tmp_31 to i400" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:147]   --->   Operation 27 'trunc' 'trunc_ln647' <Predicate = (mw_state_load == 3 & tmp_3)> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%p_Result_2_i = call i50 @_ssdm_op_PartSelect.i50.i577.i32.i32(i577 %tmp_31, i32 512, i32 561)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:148]   --->   Operation 28 'partselect' 'p_Result_2_i' <Predicate = (mw_state_load == 3 & tmp_3)> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%p_Result_4_i = call i112 @_ssdm_op_PartSelect.i112.i577.i32.i32(i577 %tmp_31, i32 400, i32 511)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:150]   --->   Operation 29 'partselect' 'p_Result_4_i' <Predicate = (mw_state_load == 3 & tmp_3)> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.61ns)   --->   "store i112 %p_Result_4_i, i112* @previous_word_data_V, align 8" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:150]   --->   Operation 30 'store' <Predicate = (mw_state_load == 3 & tmp_3)> <Delay = 0.61>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%p_Result_5_i = call i14 @_ssdm_op_PartSelect.i14.i577.i32.i32(i577 %tmp_31, i32 562, i32 575)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:151]   --->   Operation 31 'partselect' 'p_Result_5_i' <Predicate = (mw_state_load == 3 & tmp_3)> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.61ns)   --->   "store i14 %p_Result_5_i, i14* @previous_word_keep_V, align 8" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:151]   --->   Operation 32 'store' <Predicate = (mw_state_load == 3 & tmp_3)> <Delay = 0.61>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%tmp_9 = call i1 @_ssdm_op_BitSelect.i1.i577.i32(i577 %tmp_31, i32 562)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:155]   --->   Operation 33 'bitselect' 'tmp_9' <Predicate = (mw_state_load == 3 & tmp_3)> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns) (grouped into LUT with out node tmp_last_V)   --->   "%p_Result_5 = xor i1 %tmp_9, true" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:155]   --->   Operation 34 'xor' 'p_Result_5' <Predicate = (mw_state_load == 3 & tmp_3)> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 35 [1/1] (0.00ns) (grouped into LUT with out node select_ln321)   --->   "%select_ln155 = select i1 %tmp_9, i3 -3, i3 0" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:155]   --->   Operation 35 'select' 'select_ln155' <Predicate = (mw_state_load == 3 & tmp_3)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.27> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 36 [1/1] (0.12ns) (out node of the LUT)   --->   "%tmp_last_V = and i1 %tmp_8, %p_Result_5" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.hpp:49->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:142]   --->   Operation 36 'and' 'tmp_last_V' <Predicate = (mw_state_load == 3 & tmp_3)> <Delay = 0.12> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.12> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 37 [1/1] (0.27ns) (out node of the LUT)   --->   "%select_ln321 = select i1 %tmp_8, i3 %select_ln155, i3 -4" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.hpp:49->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:142]   --->   Operation 37 'select' 'select_ln321' <Predicate = (mw_state_load == 3 & tmp_3)> <Delay = 0.27> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.27> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 38 [1/1] (0.64ns)   --->   "store i3 %select_ln321, i3* @mw_state, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:165]   --->   Operation 38 'store' <Predicate = (mw_state_load == 3 & tmp_3)> <Delay = 0.64>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%tmp_2 = call i1 @_ssdm_op_NbReadReq.ap_fifo.i577P(i577* @no_ip_header_out_V, i32 1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:132]   --->   Operation 39 'nbreadreq' 'tmp_2' <Predicate = (mw_state_load == 2)> <Delay = 0.00> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 577> <Depth = 0> <FIFO>
+ST_1 : Operation 40 [1/1] (1.45ns)   --->   "%tmp_213 = call i577 @_ssdm_op_Read.ap_fifo.volatile.i577P(i577* @no_ip_header_out_V)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:133]   --->   Operation 40 'read' 'tmp_213' <Predicate = (mw_state_load == 2 & tmp_2)> <Delay = 1.45> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 577> <Depth = 0> <FIFO>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%tmp_7 = call i1 @_ssdm_op_BitSelect.i1.i577.i32(i577 %tmp_213, i32 576)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.hpp:49->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:133]   --->   Operation 41 'bitselect' 'tmp_7' <Predicate = (mw_state_load == 2 & tmp_2)> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "br i1 %tmp_7, label %7, label %._crit_edge101.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:135]   --->   Operation 42 'br' <Predicate = (mw_state_load == 2 & tmp_2)> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.64ns)   --->   "store i3 0, i3* @mw_state, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:136]   --->   Operation 43 'store' <Predicate = (mw_state_load == 2 & tmp_2 & tmp_7)> <Delay = 0.64>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%tmp_1 = call i1 @_ssdm_op_NbReadReq.ap_fifo.i577P(i577* @ip_header_checksum_V, i32 1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:121]   --->   Operation 44 'nbreadreq' 'tmp_1' <Predicate = (mw_state_load == 1)> <Delay = 0.00> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 577> <Depth = 0> <FIFO>
+ST_1 : Operation 45 [1/1] (1.45ns)   --->   "%tmp_120 = call i577 @_ssdm_op_Read.ap_fifo.volatile.i577P(i577* @ip_header_checksum_V)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:122]   --->   Operation 45 'read' 'tmp_120' <Predicate = (mw_state_load == 1 & tmp_1)> <Delay = 1.45> <Core = "FIFO_SRL">   --->   Core 36 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.45> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 577> <Depth = 0> <FIFO>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%tmp_6 = call i1 @_ssdm_op_BitSelect.i1.i577.i32(i577 %tmp_120, i32 576)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.hpp:49->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:122]   --->   Operation 46 'bitselect' 'tmp_6' <Predicate = (mw_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_1 : Operation 47 [1/1] (0.27ns)   --->   "%select_ln124 = select i1 %tmp_6, i3 0, i3 2" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:124]   --->   Operation 47 'select' 'select_ln124' <Predicate = (mw_state_load == 1 & tmp_1)> <Delay = 0.27> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.27> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 48 [1/1] (0.64ns)   --->   "store i3 %select_ln124, i3* @mw_state, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:125]   --->   Operation 48 'store' <Predicate = (mw_state_load == 1 & tmp_1)> <Delay = 0.64>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%tmp = call i1 @_ssdm_op_NbReadReq.axis.i56P(i56* %arpTableReplay_V, i32 1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:104]   --->   Operation 49 'nbreadreq' 'tmp' <Predicate = (mw_state_load == 0)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 50 [1/1] (0.00ns)   --->   "br i1 %tmp, label %1, label %._crit_edge97.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:104]   --->   Operation 50 'br' <Predicate = (mw_state_load == 0)> <Delay = 0.00>
+ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%arpTableReplay_V_rea = call i56 @_ssdm_op_Read.axis.volatile.i56P(i56* %arpTableReplay_V)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:105]   --->   Operation 51 'read' 'arpTableReplay_V_rea' <Predicate = (mw_state_load == 0 & tmp)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 52 [1/1] (0.00ns)   --->   "%trunc_ln321 = trunc i56 %arpTableReplay_V_rea to i48" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.hpp:58->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:105]   --->   Operation 52 'trunc' 'trunc_ln321' <Predicate = (mw_state_load == 0 & tmp)> <Delay = 0.00>
+ST_1 : Operation 53 [1/1] (0.00ns)   --->   "%tmp_5 = call i1 @_ssdm_op_BitSelect.i1.i56.i32(i56 %arpTableReplay_V_rea, i32 48)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.hpp:58->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:105]   --->   Operation 53 'bitselect' 'tmp_5' <Predicate = (mw_state_load == 0 & tmp)> <Delay = 0.00>
+ST_1 : Operation 54 [1/1] (0.60ns)   --->   "br i1 %tmp_5, label %2, label %._crit_edge98.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:107]   --->   Operation 54 'br' <Predicate = (mw_state_load == 0 & tmp)> <Delay = 0.60>
+ST_1 : Operation 55 [1/1] (0.00ns)   --->   "%myMacAddress_V_read = call i48 @_ssdm_op_Read.ap_auto.i48P(i48* %myMacAddress_V)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:109]   --->   Operation 55 'read' 'myMacAddress_V_read' <Predicate = (mw_state_load == 0 & tmp & tmp_5)> <Delay = 0.00>
+ST_1 : Operation 56 [1/1] (0.00ns)   --->   "%p_Result_s = call i112 @_ssdm_op_BitConcatenate.i112.i16.i48.i48(i16 8, i48 %myMacAddress_V_read, i48 %trunc_ln321)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:110]   --->   Operation 56 'bitconcatenate' 'p_Result_s' <Predicate = (mw_state_load == 0 & tmp & tmp_5)> <Delay = 0.00>
+ST_1 : Operation 57 [1/1] (0.61ns)   --->   "store i112 %p_Result_s, i112* @previous_word_data_V, align 8" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:110]   --->   Operation 57 'store' <Predicate = (mw_state_load == 0 & tmp & tmp_5)> <Delay = 0.61>
+ST_1 : Operation 58 [1/1] (0.61ns)   --->   "store i14 -1, i14* @previous_word_keep_V, align 8" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:112]   --->   Operation 58 'store' <Predicate = (mw_state_load == 0 & tmp & tmp_5)> <Delay = 0.61>
+ST_1 : Operation 59 [1/1] (0.60ns)   --->   "br label %._crit_edge98.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:115]   --->   Operation 59 'br' <Predicate = (mw_state_load == 0 & tmp & tmp_5)> <Delay = 0.60>
+ST_1 : Operation 60 [1/1] (0.00ns)   --->   "%storemerge556_i = phi i2 [ -1, %2 ], [ 1, %1 ]"   --->   Operation 60 'phi' 'storemerge556_i' <Predicate = (mw_state_load == 0 & tmp)> <Delay = 0.00>
+ST_1 : Operation 61 [1/1] (0.00ns)   --->   "%zext_ln114 = zext i2 %storemerge556_i to i3" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:114]   --->   Operation 61 'zext' 'zext_ln114' <Predicate = (mw_state_load == 0 & tmp)> <Delay = 0.00>
+ST_1 : Operation 62 [1/1] (0.64ns)   --->   "store i3 %zext_ln114, i3* @mw_state, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:114]   --->   Operation 62 'store' <Predicate = (mw_state_load == 0 & tmp)> <Delay = 0.64>
+ST_1 : Operation 63 [1/1] (0.64ns)   --->   "store i3 0, i3* @mw_state, align 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:213]   --->   Operation 63 'store' <Predicate = (mw_state_load == 7) | (mw_state_load == 6)> <Delay = 0.64>
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 64 [1/1] (0.00ns)   --->   "%p_Result_13 = call i512 @_ssdm_op_BitConcatenate.i512.i400.i112(i400 0, i112 %previous_word_data_V_1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:204]   --->   Operation 64 'bitconcatenate' 'p_Result_13' <Predicate = (mw_state_load == 5)> <Delay = 0.00>
+ST_2 : Operation 65 [1/1] (0.00ns)   --->   "%p_Result_14 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 0, i14 %previous_word_keep_V_1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:205]   --->   Operation 65 'bitconcatenate' 'p_Result_14' <Predicate = (mw_state_load == 5)> <Delay = 0.00>
+ST_2 : Operation 66 [2/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i512P.i64P.i1P(i512* %dataOut_V_data_V, i64* %dataOut_V_keep_V, i1* %dataOut_V_last_V, i512 %p_Result_13, i64 %p_Result_14, i1 true)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:207]   --->   Operation 66 'write' <Predicate = (mw_state_load == 5)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_2 : Operation 67 [1/1] (0.00ns)   --->   "br i1 %tmp_4, label %10, label %._crit_edge104.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:173]   --->   Operation 67 'br' <Predicate = (mw_state_load == 4)> <Delay = 0.00>
+ST_2 : Operation 68 [1/1] (0.00ns)   --->   "%p_Result_11 = call i512 @_ssdm_op_BitConcatenate.i512.i400.i112(i400 %trunc_ln647_1, i112 %previous_word_data_V_1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:179]   --->   Operation 68 'bitconcatenate' 'p_Result_11' <Predicate = (mw_state_load == 4 & tmp_4)> <Delay = 0.00>
+ST_2 : Operation 69 [1/1] (0.00ns)   --->   "%p_Result_12 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 %p_Result_8_i, i14 %previous_word_keep_V_1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:180]   --->   Operation 69 'bitconcatenate' 'p_Result_12' <Predicate = (mw_state_load == 4 & tmp_4)> <Delay = 0.00>
+ST_2 : Operation 70 [1/1] (0.00ns)   --->   "%tmp_last_V_1 = phi i1 [ %p_Result_8, %11 ], [ false, %10 ]"   --->   Operation 70 'phi' 'tmp_last_V_1' <Predicate = (mw_state_load == 4 & tmp_4)> <Delay = 0.00>
+ST_2 : Operation 71 [2/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i512P.i64P.i1P(i512* %dataOut_V_data_V, i64* %dataOut_V_keep_V, i1* %dataOut_V_last_V, i512 %p_Result_11, i64 %p_Result_12, i1 %tmp_last_V_1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:197]   --->   Operation 71 'write' <Predicate = (mw_state_load == 4 & tmp_4)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_2 : Operation 72 [1/1] (0.00ns)   --->   "br i1 %tmp_3, label %_ifconv, label %._crit_edge102.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:141]   --->   Operation 72 'br' <Predicate = (mw_state_load == 3)> <Delay = 0.00>
+ST_2 : Operation 73 [1/1] (0.00ns)   --->   "%p_Result_9 = call i512 @_ssdm_op_BitConcatenate.i512.i400.i112(i400 %trunc_ln647, i112 %previous_word_data_V_1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:147]   --->   Operation 73 'bitconcatenate' 'p_Result_9' <Predicate = (mw_state_load == 3 & tmp_3)> <Delay = 0.00>
+ST_2 : Operation 74 [1/1] (0.00ns)   --->   "%p_Result_10 = call i64 @_ssdm_op_BitConcatenate.i64.i50.i14(i50 %p_Result_2_i, i14 %previous_word_keep_V_1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:148]   --->   Operation 74 'bitconcatenate' 'p_Result_10' <Predicate = (mw_state_load == 3 & tmp_3)> <Delay = 0.00>
+ST_2 : Operation 75 [2/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i512P.i64P.i1P(i512* %dataOut_V_data_V, i64* %dataOut_V_keep_V, i1* %dataOut_V_last_V, i512 %p_Result_9, i64 %p_Result_10, i1 %tmp_last_V)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:168]   --->   Operation 75 'write' <Predicate = (mw_state_load == 3 & tmp_3)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_2 : Operation 76 [1/1] (0.00ns)   --->   "br i1 %tmp_2, label %6, label %._crit_edge100.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:132]   --->   Operation 76 'br' <Predicate = (mw_state_load == 2)> <Delay = 0.00>
+ST_2 : Operation 77 [1/1] (0.00ns)   --->   "br i1 %tmp_1, label %4, label %._crit_edge99.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:121]   --->   Operation 77 'br' <Predicate = (mw_state_load == 1)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 78 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i577* @ip_header_checksum_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 78 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 79 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i577* @no_ip_header_out_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 79 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 80 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i56* %arpTableReplay_V, [5 x i8]* @p_str7, i32 1, i32 1, [5 x i8]* @p_str8, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 80 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 81 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i512* %dataOut_V_data_V, i64* %dataOut_V_keep_V, i1* %dataOut_V_last_V, [5 x i8]* @p_str7, i32 1, i32 1, [5 x i8]* @p_str8, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"   --->   Operation 81 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 82 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:89]   --->   Operation 82 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 83 [1/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i512P.i64P.i1P(i512* %dataOut_V_data_V, i64* %dataOut_V_keep_V, i1* %dataOut_V_last_V, i512 %p_Result_13, i64 %p_Result_14, i1 true)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:207]   --->   Operation 83 'write' <Predicate = (mw_state_load == 5)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_3 : Operation 84 [1/1] (0.00ns)   --->   "br label %handle_output.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:210]   --->   Operation 84 'br' <Predicate = (mw_state_load == 5)> <Delay = 0.00>
+ST_3 : Operation 85 [1/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i512P.i64P.i1P(i512* %dataOut_V_data_V, i64* %dataOut_V_keep_V, i1* %dataOut_V_last_V, i512 %p_Result_11, i64 %p_Result_12, i1 %tmp_last_V_1)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:197]   --->   Operation 85 'write' <Predicate = (mw_state_load == 4 & tmp_4)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_3 : Operation 86 [1/1] (0.00ns)   --->   "br label %._crit_edge104.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:198]   --->   Operation 86 'br' <Predicate = (mw_state_load == 4 & tmp_4)> <Delay = 0.00>
+ST_3 : Operation 87 [1/1] (0.00ns)   --->   "br label %handle_output.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:199]   --->   Operation 87 'br' <Predicate = (mw_state_load == 4)> <Delay = 0.00>
+ST_3 : Operation 88 [1/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i512P.i64P.i1P(i512* %dataOut_V_data_V, i64* %dataOut_V_keep_V, i1* %dataOut_V_last_V, i512 %p_Result_9, i64 %p_Result_10, i1 %tmp_last_V)" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:168]   --->   Operation 88 'write' <Predicate = (mw_state_load == 3 & tmp_3)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_3 : Operation 89 [1/1] (0.00ns)   --->   "br label %._crit_edge102.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:169]   --->   Operation 89 'br' <Predicate = (mw_state_load == 3 & tmp_3)> <Delay = 0.00>
+ST_3 : Operation 90 [1/1] (0.00ns)   --->   "br label %handle_output.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:170]   --->   Operation 90 'br' <Predicate = (mw_state_load == 3)> <Delay = 0.00>
+ST_3 : Operation 91 [1/1] (0.00ns)   --->   "br label %._crit_edge101.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:136]   --->   Operation 91 'br' <Predicate = (mw_state_load == 2 & tmp_2 & tmp_7)> <Delay = 0.00>
+ST_3 : Operation 92 [1/1] (0.00ns)   --->   "br label %._crit_edge100.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:137]   --->   Operation 92 'br' <Predicate = (mw_state_load == 2 & tmp_2)> <Delay = 0.00>
+ST_3 : Operation 93 [1/1] (0.00ns)   --->   "br label %handle_output.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:138]   --->   Operation 93 'br' <Predicate = (mw_state_load == 2)> <Delay = 0.00>
+ST_3 : Operation 94 [1/1] (0.00ns)   --->   "br label %._crit_edge99.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:128]   --->   Operation 94 'br' <Predicate = (mw_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_3 : Operation 95 [1/1] (0.00ns)   --->   "br label %handle_output.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:129]   --->   Operation 95 'br' <Predicate = (mw_state_load == 1)> <Delay = 0.00>
+ST_3 : Operation 96 [1/1] (0.00ns)   --->   "br label %._crit_edge97.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:118]   --->   Operation 96 'br' <Predicate = (mw_state_load == 0 & tmp)> <Delay = 0.00>
+ST_3 : Operation 97 [1/1] (0.00ns)   --->   "br label %handle_output.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:119]   --->   Operation 97 'br' <Predicate = (mw_state_load == 0)> <Delay = 0.00>
+ST_3 : Operation 98 [1/1] (0.00ns)   --->   "br label %handle_output.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:214]   --->   Operation 98 'br' <Predicate = (mw_state_load == 7) | (mw_state_load == 6)> <Delay = 0.00>
+ST_3 : Operation 99 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 99 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 3.1ns, clock uncertainty: 0.2ns.
+
+ <State 1>: 2.37ns
+The critical path consists of the following:
+	fifo read on port 'no_ip_header_out_V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:174) [34]  (1.45 ns)
+	'select' operation ('select_ln187', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:187) [48]  (0.278 ns)
+	'store' operation ('store_ln189', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:189) of variable 'select_ln187', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:187 on static variable 'mw_state' [49]  (0.646 ns)
+
+ <State 2>: 0ns
+The critical path consists of the following:
+
+ <State 3>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -1,0 +1,196 @@
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Setting target device to 'xcu280-fsvh2892-2L-e'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 3.1ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.2ns.
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file '/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25890 ; free virtual = 42352
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25890 ; free virtual = 42351
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25785 ; free virtual = 42258
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25765 ; free virtual = 42239
+INFO: [XFORM 203-1101] Packing variable 'macIpEncode_rsp.V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:359) into a 49-bit variable.
+INFO: [XFORM 203-712] Applying dataflow to function 'arp_server', detected/extracted 5 process function(s): 
+	 'arp_server.entry174'
+	 'genARPDiscovery'
+	 'arp_pkg_receiver'
+	 'arp_pkg_sender'
+	 'arp_table'.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25689 ; free virtual = 42170
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'arpTable.ipAddress.V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:209).
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'arpTable.valid.V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:209).
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'arpTable.macAddress.V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:209).
+WARNING: [HLS 200-657] Generating channel macIpEncode_rsp_i_V that flows backwards in the dataflow region.
+WARNING: [HLS 200-657] Generating channel arpRequestFifo_V_V that flows backwards in the dataflow region.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25601 ; free virtual = 42085
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'arp_server' ...
+WARNING: [SYN 201-103] Legalizing function name 'arp_server.entry174' to 'arp_server_entry174'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'arp_server_entry174' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 38.62 seconds; current allocated memory: 226.646 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.01 seconds; current allocated memory: 226.756 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'genARPDiscovery' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'genARPDiscovery'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.37 seconds; current allocated memory: 227.004 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 227.335 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'arp_pkg_receiver' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'arp_pkg_receiver'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.26 seconds; current allocated memory: 227.509 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 227.756 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'arp_pkg_sender' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'arp_pkg_sender'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.56 seconds; current allocated memory: 228.021 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 228.419 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'arp_table' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'arp_table'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+WARNING: [SCHED 204-21] Estimated clock period (3.337ns) exceeds the target (target clock period: 3.1ns, clock uncertainty: 0.2ns, effective delay budget: 2.9ns).
+WARNING: [SCHED 204-21] The critical path in module 'arp_table' consists of the following:
+	fifo read on port 'myIpAddress_V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:210) [24]  (1.45 ns)
+	'xor' operation ('xor_ln879', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:232->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365) [39]  (0 ns)
+	'and' operation ('and_ln879', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:232->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365) [40]  (0 ns)
+	'icmp' operation ('icmp_ln879', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:232->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365) [41]  (0.859 ns)
+	'select' operation ('select_ln232', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:232->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365) [44]  (0.303 ns)
+	'getelementptr' operation ('arpTable_macAddress_1', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.hpp:72->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:237->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365) [46]  (0 ns)
+	'load' operation ('tmp.macAddress.V', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.hpp:72->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:237->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365) on array 'arpTable_macAddress_V' [47]  (0.725 ns)
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.47 seconds; current allocated memory: 228.712 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 228.998 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'arp_server' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 229.191 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 229.654 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'arp_server_entry174' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'arp_server_entry174'.
+INFO: [HLS 200-111]  Elapsed time: 0.13 seconds; current allocated memory: 229.853 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'genARPDiscovery' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'gia_fsm_state' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ip_lsb_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'time_counter_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'arp_scan_1d_V' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'genARPDiscovery'.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 230.793 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'arp_pkg_receiver' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'wordCount_V' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'arp_pkg_receiver'.
+INFO: [HLS 200-111]  Elapsed time: 0.26 seconds; current allocated memory: 232.164 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'arp_pkg_sender' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'aps_fsmState' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'inputIP_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'replyMeta_srcMac_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'replyMeta_ethType_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'replyMeta_hwType_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'replyMeta_protoType_s' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'replyMeta_hwLen_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'replyMeta_protoLen_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'replyMeta_hwAddrSrc_s' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'replyMeta_protoAddrS' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'arp_pkg_sender'.
+INFO: [HLS 200-111]  Elapsed time: 0.21 seconds; current allocated memory: 233.560 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'arp_table' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'arp_table'.
+INFO: [HLS 200-111]  Elapsed time: 0.24 seconds; current allocated memory: 235.136 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'arp_server' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpDataIn_V_data_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpDataIn_V_keep_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpDataIn_V_last_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/macIpEncode_req_V_V' to 'axis'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpDataOut_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpDataOut_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpDataOut_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/macIpEncode_rsp_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpTable_macAddress_V' to 's_axilite & ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpTable_ipAddress_V' to 's_axilite & ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpTable_valid_V' to 's_axilite & ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arp_scan_V' to 's_axilite & ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/myMacAddress_V' to 'ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/myIpAddress_V' to 'ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/gatewayIP_V' to 'ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/networkMask_V' to 'ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on function 'arp_server' to 'ap_ctrl_none'.
+INFO: [RTGEN 206-100] Bundling port 'arpTable_macAddress_V', 'arpTable_ipAddress_V', 'arpTable_valid_V' and 'arp_scan_V' to AXI-Lite port s_axilite.
+WARNING: [HLS 200-656] Deadlocks can occur since process genARPDiscovery is a non-flushable pipeline which is instantiated in a dataflow region without ap_ctrl_chain mode.
+WARNING: [HLS 200-656] Deadlocks can occur since process arp_pkg_receiver is a non-flushable pipeline which is instantiated in a dataflow region without ap_ctrl_chain mode.
+WARNING: [HLS 200-656] Deadlocks can occur since process arp_pkg_sender is a non-flushable pipeline which is instantiated in a dataflow region without ap_ctrl_chain mode.
+WARNING: [HLS 200-656] Deadlocks can occur since process arp_table is a non-flushable pipeline which is instantiated in a dataflow region without ap_ctrl_chain mode.
+WARNING: [HLS 200-631] Ignoring ap_ctrl_none interface for arp_server due to arp_server.entry174 with non-FIFO I/O
+INFO: [RTGEN 206-100] Finished creating RTL model for 'arp_server'.
+INFO: [HLS 200-111]  Elapsed time: 0.26 seconds; current allocated memory: 236.996 MB.
+INFO: [HLS 200-789] **** Estimated Fmax: 299.67 MHz
+INFO: [RTMG 210-285] Implementing FIFO 'myMacAddress_V_c_U(fifo_w48_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'myIpAddress_V_c_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'myIpAddress_V_c40_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'gatewayIP_V_c_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'networkMask_V_c_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'macIpEncode_i_V_V_U(fifo_w32_d4_A)' using Shift Registers.

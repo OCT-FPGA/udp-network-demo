@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="arp_server" xd:componentRef="arp_server" xd:initiationInterval="8" xd:clockPeriod="3.100" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:arg xd:name="arpDataIn.data" xd:originalName="arpDataIn" xd:direction="in" xd:interfaceRef="arpDataIn" xd:busTypeRef="axis" xd:dataWidth="512"/>
+  <xd:arg xd:name="arpDataIn.keep" xd:originalName="arpDataIn" xd:direction="in" xd:interfaceRef="arpDataIn" xd:busTypeRef="axis" xd:dataWidth="64"/>
+  <xd:arg xd:name="arpDataIn.last" xd:originalName="arpDataIn" xd:direction="in" xd:interfaceRef="arpDataIn" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="macIpEncode_req" xd:originalName="macIpEncode_req" xd:direction="in" xd:interfaceRef="macIpEncode_req_V_V" xd:busTypeRef="axis" xd:dataWidth="32"/>
+  <xd:arg xd:name="arpDataOut.data" xd:originalName="arpDataOut" xd:direction="out" xd:interfaceRef="arpDataOut" xd:busTypeRef="axis" xd:dataWidth="512"/>
+  <xd:arg xd:name="arpDataOut.keep" xd:originalName="arpDataOut" xd:direction="out" xd:interfaceRef="arpDataOut" xd:busTypeRef="axis" xd:dataWidth="64"/>
+  <xd:arg xd:name="arpDataOut.last" xd:originalName="arpDataOut" xd:direction="out" xd:interfaceRef="arpDataOut" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="macIpEncode_rsp.macAddress" xd:originalName="macIpEncode_rsp" xd:direction="out" xd:interfaceRef="macIpEncode_rsp_V" xd:busTypeRef="axis" xd:dataPack="true" xd:bitMapping="47:0" xd:dataWidth="48"/>
+  <xd:arg xd:name="macIpEncode_rsp.hit" xd:originalName="macIpEncode_rsp" xd:direction="out" xd:interfaceRef="macIpEncode_rsp_V" xd:busTypeRef="axis" xd:dataPack="true" xd:bitMapping="48:48" xd:dataWidth="1"/>
+  <xd:arg xd:name="arpTable[].macAddress" xd:originalName="arpTable" xd:direction="inout" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:offset="0x800" xd:arraySize="256" xd:dataWidth="48"/>
+  <xd:arg xd:name="arpTable[].ipAddress" xd:originalName="arpTable" xd:direction="out" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:offset="0x1000" xd:arraySize="256" xd:dataWidth="32"/>
+  <xd:arg xd:name="arpTable[].valid" xd:originalName="arpTable" xd:direction="inout" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:offset="0x1400" xd:arraySize="256" xd:dataWidth="1"/>
+  <xd:arg xd:name="arp_scan" xd:originalName="arp_scan" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:offset="0x1500" xd:handshakeRef="ap_none" xd:dataWidth="1"/>
+  <xd:arg xd:name="arp_scan" xd:originalName="arp_scan" xd:direction="out" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:offset="0x1508" xd:handshakeRef="ap_vld" xd:statusOffset="0x150C" xd:dataWidth="1"/>
+  <xd:arg xd:name="myMacAddress" xd:originalName="myMacAddress" xd:direction="in" xd:interfaceRef="myMacAddress_V" xd:busTypeRef="register" xd:handshakeRef="ap_none" xd:dataWidth="48"/>
+  <xd:arg xd:name="myIpAddress" xd:originalName="myIpAddress" xd:direction="in" xd:interfaceRef="myIpAddress_V" xd:busTypeRef="register" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="gatewayIP" xd:originalName="gatewayIP" xd:direction="in" xd:interfaceRef="gatewayIP_V" xd:busTypeRef="register" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="networkMask" xd:originalName="networkMask" xd:direction="in" xd:interfaceRef="networkMask_V" xd:busTypeRef="register" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:latencyEstimates xd:best-case="7" xd:worst-case="7" xd:average-case="7"/>
+  <xd:resourceEstimates xd:LUT="2070" xd:FF="1324" xd:BRAM="18" xd:DSP="0"/>
+</xd:acceleratorMap>
