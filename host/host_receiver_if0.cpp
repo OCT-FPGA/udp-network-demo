@@ -115,7 +115,7 @@ int main(int argc, char **argv) {
                         printf("decryption enabled...\n");
                         dec = 1;
                 }
-		else if (strcmp(argv[3], "no_decrypt")==0)
+		else if (strcmp(argv[3], "no-decrypt")==0)
 		{
 			printf("decryption not enabled...\n");
 			dec = 0;
