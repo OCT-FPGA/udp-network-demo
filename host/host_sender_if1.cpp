@@ -114,7 +114,7 @@ int main(int argc, char **argv) {
 			printf("encryption enabled...\n");
 			enc = 1;
 		}
-		else if (strcmp(argv[3],"no_encrypt")==0)
+		else if (strcmp(argv[3],"no-encrypt")==0)
 		{
 			printf("encryption not enabled...\n");
 			enc = 0;
