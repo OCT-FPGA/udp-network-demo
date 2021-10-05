@@ -4,7 +4,7 @@ UDP encrypt and decrypt example with pre-built network layer and cmac kernels
 
 ## Introduction
 
-In this example, we use Xilinx XUP UDP stack [1] and CMAC kernels as pre-built binary object files (.xo files), and link custom user logic to demonstrate sending and receiving UDP packets between two U280 FPGA accelerator cards. The user logic part has both encryption and decryption kernels implemented using AES-128 block cipher. The AES code used in this example was taken from [4]. OpenCL host applications have also been provided for both sender and receiver. The host code is based on the InAccel runtime [3]. The sender side host executable is used to read a specific number of packets from a text file. The user can use an AXI-Lite control signal connected to the user logic to either encrypt or directly pass these packets over the network layer and cmac to the receiving host. On the receiver side, the user can read the incoming UDP packets as raw data, or decrypt them.   
+In this example, we use Xilinx XUP UDP stack [1] and CMAC kernels as pre-built binary object files (.xo files), and link custom user logic to demonstrate sending and receiving UDP packets between two U280 FPGA accelerator cards. The user logic part has both encryption and decryption kernels implemented using AES-128 block cipher. The AES code used in this example was taken from [2]. OpenCL host applications have also been provided for both sender and receiver. The host code is based on the InAccel runtime [3] and the TCP example in [4]. The sender side host executable is used to read a specific number of packets from a text file. The user can use an AXI-Lite control signal connected to the user logic to either encrypt or directly pass these packets over the network layer and cmac to the receiving host. On the receiver side, the user can read the incoming UDP packets as raw data, or decrypt them.   
 
 ## Pre-requisites
 
@@ -83,6 +83,22 @@ You can now use pc154 as the sender and pc157 as the receiver or vice versa. Be 
 source /opt/xilinx/xrt/setup.sh
 ```
 
+Run the receiver first.
+
+Receiver side syntax:
+
+```bash
+./host_receiver_<interface ID> <xclbin> <number of packets> <decrypt or no_decrypt> <receiver IP (optional)> <sender IP (optional)> <IP gateway (optional)>
+```
+
+For example, if you want to receive 1 UDP packet on interface 1 without decrypting, you should run
+
+```
+./host_receiver_if1 1 no_decrypt
+```
+
+at the receiver node.
+
 Sender side syntax:
 
 ```bash
@@ -97,18 +113,6 @@ For example, if you want to send 1 encrypted UDP packet on interface 0, you shou
 
 at the sender node.
 
-Receiver side syntax:
-
-```bash
-./host_receiver_<interface ID> <xclbin> <number of packets> <decrypt or no_decrypt> <receiver IP (optional)> <sender IP (optional)> <IP gateway (optional)>
-```
-
-If you want to receive 1 UDP packet on interface 1 without decrypting, you should run
-
-```
-./host_receiver_if1 1 no_decrypt
-```
-
 ![plot](images/sender.png)
 
 ![plot](images/receiver.png)
@@ -116,8 +120,8 @@ If you want to receive 1 UDP packet on interface 1 without decrypting, you shoul
 ## References
 [1] XUP Vitis Network Example (VNx) https://github.com/Xilinx/xup_vitis_network_example
 
-[2] Vitis with 100 Gbps TCP/IP Network Stack https://github.com/fpgasystems/Vitis_with_100Gbps_TCP-IP
+[2] An HLS Implementation of the Advanced Encryption Standard (AES) http://venividiwiki.ee.virginia.edu/mediawiki/index.php/ToolsXilinxLabsRTLHLSAES
 
 [3] InAccel runtime https://github.com/inaccel/runtime/tree/Xilinx-MP/src/inaccel
 
-[4] An HLS Implementation of the Advanced Encryption Standard (AES) http://venividiwiki.ee.virginia.edu/mediawiki/index.php/ToolsXilinxLabsRTLHLSAES
+[4] Vitis with 100 Gbps TCP/IP Network Stack https://github.com/fpgasystems/Vitis_with_100Gbps_TCP-IP
