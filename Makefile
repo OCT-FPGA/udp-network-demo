@@ -103,7 +103,6 @@ cleanall: clean
 $(BUILD_DIR)/${XCLBIN_NAME}.xclbin:
 	mkdir -p $(BUILD_DIR)
 	make -C $(USERKRNLDIR) all DEVICE=$(DEVICE)
-	export XILINXD_LICENSE_FILE=2100@xilinxlicense.massopen.cloud
 	$(VPP) $(CLFLAGS) $(CONFIGFLAGS) --temp_dir $(BUILD_DIR) -l -o'$@' $(LIST_XO) $(LIST_REPOS) -j $(JOBS) 
 
 .PHONY: exe
