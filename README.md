@@ -86,10 +86,10 @@ source /opt/xilinx/xrt/setup.sh
 Sender side syntax:
 
 ```bash
-./host_sender_<interface ID> <number of packets> <encrypt (optional)>
+./host_sender_<interface ID> <xclbin> <number of packets> <encrypt or no_encrypt> <sender IP (optional)> <receiver IP (optional)> <IP gateway (optional)> 
 ```
 
-For example, if you want to send 1 encrypted UDP packet, you should run
+For example, if you want to send 1 encrypted UDP packet on interface 0, you should run
 
 ```
 ./host_sender_if0 1 encrypt
@@ -100,13 +100,13 @@ at the sender node.
 Receiver side syntax:
 
 ```bash
-./host_receiver_<interface ID> <number of packets> <decrypt (optional)>
+./host_receiver_<interface ID> <xclbin> <number of packets> <decrypt or no_decrypt> <receiver IP (optional)> <sender IP (optional)> <IP gateway (optional)>
 ```
 
-If you want to receive 1 UDP packet without decrypting, you should run
+If you want to receive 1 UDP packet on interface 1 without decrypting, you should run
 
 ```
-./host_receiver_if0 1
+./host_receiver_if1 1 no_decrypt
 ```
 
 ![plot](images/sender.png)
