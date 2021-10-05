@@ -94,7 +94,7 @@ Receiver side syntax:
 For example, if you want to receive 1 UDP packet on interface 1 without decrypting, you should run
 
 ```
-./host_receiver_if1 1 no_decrypt
+./host_receiver_if1 1 no-decrypt
 ```
 
 at the receiver node.
