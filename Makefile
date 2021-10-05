@@ -19,9 +19,6 @@ INTERFACE ?= 0
 JOBS ?= 8
 XCLBIN_NAME ?= demo_if$(INTERFACE)
 
-include ./utils.mk
-
-
 XSA := $(strip $(patsubst %.xpfm, % , $(shell basename $(DEVICE))))
 TEMP_DIR := _x.$(XSA)
 VPP := $(XILINX_VITIS)/bin/v++
