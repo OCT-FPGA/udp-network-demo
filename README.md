@@ -39,7 +39,11 @@ Also install the package ```libc6-dev-i386```.
 sudo apt install libc6-dev-i386
 ```
 
-Alveo U280 has two 100 Gbps QSFP-28 ports (port 0 and port 1). It is possible to build a bitstream that uses either of these two to send/receive packets. 
+Alveo U280 has two 100 Gbps QSFP-28 ports (port 0 and port 1). It is possible to build a bitstream that uses either of these two to send/receive packets. First, you need to specify the license file location of the CMAC kernel. 
+
+```bash
+export XILINXD_LICENSE_FILE=2100@xilinxlicense.massopen.cloud
+```
 
 To use port 0:
 
@@ -51,9 +55,9 @@ To use port 1:
 
 You may also pass ```JOBS=<number of jobs>``` as an argument to speed up the build process. The default is 8. This will create sender and receiver-side host executables and an FPGA bitstream with the logic shown in the figure. The bitstream build process can take up to 4~5 hours depending on the flavor of your MOC instance and the number of jobs that you specified.  
 
-## Copy the bitstream and host executables to CloudLab
+## Copy files to CloudLab
 
-After completing the bitstream generation, You need to copy the bitstream and two host executables to the two CloudLab nodes.
+After completing the bitstream generation, You need to copy the bitstream, two host executables, and a text file containing the data to be sent to the two CloudLab nodes.
 
 ```bash
 scp -i <CloudLab private key> <bitstream> <receiver host executable> <sender host executable> <text file> <user name>@<CloudLab node IP>:<destination directory>
@@ -73,7 +77,11 @@ scp -i ~/.ssh/cloudlab_openssh ./build_hw_if0/demo_if0.xclbin ./host/build_sw_if
 
 ## Run the program
 
-You can now use pc154 as the sender and pc157 as the receiver or vice versa. 
+You can now use pc154 as the sender and pc157 as the receiver or vice versa. Be sure to set up the ```XILINX_XRT``` environment variable on both nodes before you run the application.
+
+```bash
+source /opt/xilinx/xrt/setup.sh
+```
 
 Sender side syntax:
 
