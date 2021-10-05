@@ -72,7 +72,7 @@ int main(int argc, char **argv) {
     	const char* xclbinFilename;
     	cl_int err;
     	if (argc < 3){
-		std::cout << "Usage: " << argv[0] << " <XCLBIN File> [<#Rx Pkt>] [Interface (0 or 1)]" << std::endl;
+		std::cout << "Usage: " << argv[0] << " <XCLBIN File> [<#Rx Pkt>] [<decrypt>] [<My Ip>] [<Their IP>] [<IP Gateway>]" << std::endl;
         	return EXIT_FAILURE;
 	}
 	else{
@@ -115,6 +115,11 @@ int main(int argc, char **argv) {
                         printf("decryption enabled...\n");
                         dec = 1;
                 }
+		else if (strcmp(argv[3], "no_decrypt")==0)
+		{
+			printf("decryption not enabled...\n");
+			dec = 0;
+		}
         }
 
 
@@ -156,24 +161,27 @@ int main(int argc, char **argv) {
     	bin_file.read(buf, nb);
     
     	xclbin_uuid(buf, xclbinId);
-    	unsigned num_sockets_hw = 0, num_sockets_sw = sizeof(sockets) / sizeof(sockets[0]);
-    	sockets[0].theirIP = THEIR_IP_ADDR;
+    
+    	xclOpenContext(handle, xclbinId, nlidx, false);
+	
+	unsigned int my_ip_address = argc>=5 ? (unsigned int)strtol(argv[4], NULL, 16) : (unsigned int)MY_IP_ADDR;
+        unsigned int their_ip_address = argc>=6 ? (unsigned int)strtol(argv[5], NULL, 16) : (unsigned int)THEIR_IP_ADDR;
+        unsigned int ip_gateway = argc>=7 ? (unsigned int)strtol(argv[6], NULL, 16) : (unsigned int)IP_GATEWAY;
+        long mac_address = (0xf0f1f2f3f4f5 & 0xFFFFFFFFFF0) + (my_ip_address & 0xF);
+    	xclRegWrite(handle, nlidx, MAC_ADDR_OFFSET, mac_address); 
+    	xclRegWrite(handle, nlidx, MAC_ADDR_OFFSET + 4, mac_address >> 32);
+    	xclRegWrite(handle, nlidx, IP_ADDR_OFFSET, my_ip_address); 
+    	xclRegWrite(handle, nlidx, IP_GATEWAY_OFFSET, ip_gateway); 
+
+	unsigned num_sockets_hw = 0, num_sockets_sw = sizeof(sockets) / sizeof(sockets[0]);
+    	sockets[0].theirIP = their_ip_address;
     	sockets[0].theirPort = 50000;
     	sockets[0].myPort = 60000;
     	sockets[0].valid = true;
     	printf("My port %d\n", sockets[0].myPort);
-    	printf("Their port %d\n", sockets[0].theirPort);
-    
-    	xclOpenContext(handle, xclbinId, nlidx, false);
-    	//int ip_address = 0x0A01D499;
-    	long mac_address = (0xf0f1f2f3f4f5 & 0xFFFFFFFFFF0) + (MY_IP_ADDR & 0xF);
-    	xclRegWrite(handle, nlidx, MAC_ADDR_OFFSET, mac_address); 
-    	xclRegWrite(handle, nlidx, MAC_ADDR_OFFSET + 4, mac_address >> 32);
-    	xclRegWrite(handle, nlidx, IP_ADDR_OFFSET, MY_IP_ADDR); 
-    	xclRegWrite(handle, nlidx, IP_GATEWAY_OFFSET, (unsigned int)IP_GATEWAY); 
-    
-    	printf("My IP address: %x\n", MY_IP_ADDR);
-    	printf("Their IP address: %x\n", THEIR_IP_ADDR); 
+    	printf("Their port %d\n", sockets[0].theirPort); 
+    	printf("My IP address: %x\n", my_ip_address);
+    	printf("Their IP address: %x\n", their_ip_address); 
     	printf("My MAC address: %lx\n", mac_address); 
     	xclRegRead(handle, nlidx, NUM_SOCKETS_HW, &num_sockets_hw);
     	printf("Number of sockets HW: %d\n", num_sockets_hw);
