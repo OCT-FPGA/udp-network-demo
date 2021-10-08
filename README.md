@@ -18,7 +18,7 @@ In this example, we use Xilinx XUP UDP stack [1] and CMAC kernels as pre-built b
 
 The FPGA bitstream consists of (i) user logic, (ii) UDP stack, and (iii) cmac kernels. The user logic consists of sender and receiver logic which can either encrypt/decrypt or pass-through the incoming data using an AXI-Lite control signal. Network layer (UDP) and cmac are provided as binary files. Therefore, the user will only need to build the user logic, link it with the network layer binary file, and generate a bitstream. Note that sender and receiver bitstreams are identical, and either of the two hosts/FPGAs can be used as the sender/receiver.   
 
-In dual-channel send/receive architecture we implement two CMAC, network layer, and user logic units on the FPGA. 
+In dual-port send/receive architecture we implement two CMAC, network layer, and user logic units on the FPGA. 
 ![plot](images/demo_dual.jpg)
 
 ## Clone the repository
@@ -56,6 +56,10 @@ To use port 1:
 
 ```make all INTERFACE=1```
 
+To use both port 0 and port 1:
+
+```make all INTERFACE=3```
+
 You may also pass ```JOBS=<number of jobs>``` as an argument to speed up the build process. The default is 8. This will create sender and receiver-side host executables and an FPGA bitstream with the logic shown in the figure. The bitstream build process can take up to 4~5 hours depending on the flavor of your MOC instance and the number of jobs that you specified.  
 
 ## Copy files to CloudLab
@@ -63,12 +67,12 @@ You may also pass ```JOBS=<number of jobs>``` as an argument to speed up the bui
 After completing the bitstream generation, You need to copy the bitstream, two host executables, and a text file containing the data to be sent to the two CloudLab nodes.
 
 ```bash
-scp -i <CloudLab private key> <bitstream> <receiver host executable> <sender host executable> <text file> <user name>@<CloudLab node IP>:<destination directory>
+scp -i <CloudLab private key> <bitstream> <receiver host executable> <sender host executable> <text file(s)> <user name>@<CloudLab node IP>:<destination directory>
 ```
 
-Example:
-
 Imagine you have created an experiment with CloudLab nodes pc154 and pc157. Copy these files to both nodes.
+
+Example - Single-port:
 
 ```bash
 scp -i ~/.ssh/cloudlab_openssh ./build_hw_if0/demo_if0.xclbin ./host/build_sw_if0/host_receiver_if0 ./host/build_sw_if0/host_sender_if0 ./host/alice29.txt suranga@pc154.cloudlab.umass.edu:~
@@ -78,9 +82,19 @@ scp -i ~/.ssh/cloudlab_openssh ./build_hw_if0/demo_if0.xclbin ./host/build_sw_if
 scp -i ~/.ssh/cloudlab_openssh ./build_hw_if0/demo_if0.xclbin ./host/build_sw_if0/host_receiver_if0 ./host/build_sw_if0/host_sender_if0 ./host/alice29.txt suranga@pc157.cloudlab.umass.edu:~
 ```
 
+Example - Dual-port:
+
+```bash
+scp -i ~/.ssh/cloudlab_openssh ./build_hw_if3/demo_if3.xclbin ./host/build_sw_if3/host_receiver_if3 ./host/build_sw_if3/host_sender_if3 ./host/alice29.txt ./host/pg66489.txt suranga@pc154.cloudlab.umass.edu:~
+```
+
+```bash
+scp -i ~/.ssh/cloudlab_openssh ./build_hw_if3/demo_if3.xclbin ./host/build_sw_if3/host_receiver_if3 ./host/build_sw_if3/host_sender_if3 ./host/alice29.txt ./host/pg66489.txt suranga@pc157.cloudlab.umass.edu:~
+```
+
 ## Run the program
 
-You can now use pc154 as the sender and pc157 as the receiver or vice versa. Be sure to set up the ```XILINX_XRT``` environment variable on both nodes before you run the application.
+You can now use pc154 as the sender and pc157 as the receiver or vice versa. Be sure to set ```XILINX_XRT``` environment variable on both nodes before you run the application.
 
 ```bash
 source /opt/xilinx/xrt/setup.sh
@@ -88,33 +102,55 @@ source /opt/xilinx/xrt/setup.sh
 
 Run the receiver first.
 
+### Single-port examples
+
 Receiver side syntax:
 
 ```bash
-./host_receiver_<interface ID> <xclbin> <number of packets> <decrypt or no_decrypt> <receiver IP (optional)> <sender IP (optional)> <IP gateway (optional)>
+./host_receiver_<interface ID> <xclbin> <number of packets> <decrypt or no-decrypt (optional)> <receiver IP (optional)> <sender IP (optional)> <IP gateway (optional)>
 ```
 
-For example, if you want to receive 1 UDP packet on interface 1 without decrypting, you should run
+Example - Receive 1 UDP packet on interface 1 without decrypting
 
 ```
 ./host_receiver_if1 1 no-decrypt
 ```
 
-at the receiver node.
-
 Sender side syntax:
 
 ```bash
-./host_sender_<interface ID> <xclbin> <number of packets> <encrypt or no_encrypt> <sender IP (optional)> <receiver IP (optional)> <IP gateway (optional)> 
+./host_sender_<interface ID> <xclbin> <number of packets> <encrypt or no-encrypt (optional)> <sender IP (optional)> <receiver IP (optional)> <IP gateway (optional)> 
 ```
 
-For example, if you want to send 1 encrypted UDP packet on interface 0, you should run
+Example - Send 1 encrypted UDP packet on interface 0
 
 ```
 ./host_sender_if0 1 encrypt
 ```
+### Dual-port examples
 
-at the sender node.
+Receiver side syntax:
+
+```bash
+./host_receiver_if3 <xclbin> <number of packets> <decrypt or no-decrypt (interface 0)(optional)> <decrypt or no-decrypt (interface 1)(optional)> <receiver IP (interface 0)(optional)> <receiver IP (interface 1)(optional)> <sender IP (interface 0)(optional)> <sender IP (interface 1)(optional)> <IP gateway (optional)>
+```
+
+Example - Receive 1 UDP packet without decrypting
+
+```
+./host_receiver_if3 1
+```
+
+Sender side syntax:
+
+```bash
+./host_sender_if3 <xclbin> <number of packets> <encrypt or no-encrypt (interface 0)(optional)> <encrypt or no-encrypt (interface 1)(optional)> <receiver IP (interface 0)(optional)> <receiver IP (interface 1)(optional)> <sender IP (interface 0)(optional)> <sender IP (interface 1)(optional)> <IP gateway (optional)>
+```
+
+Example - Send 1 encrypted UDP packet with encryption enabled
+```
+./host_sender_if3 1 encrypt
+```
 
 ![plot](images/sender.png)
 
