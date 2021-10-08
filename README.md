@@ -147,9 +147,14 @@ Sender side syntax:
 ./host_sender_if3 <xclbin> <number of packets> <encrypt or no-encrypt (interface 0)(optional)> <encrypt or no-encrypt (interface 1)(optional)> <receiver IP (interface 0)(optional)> <receiver IP (interface 1)(optional)> <sender IP (interface 0)(optional)> <sender IP (interface 1)(optional)> <IP gateway (optional)>
 ```
 
-Example - Send 1 encrypted UDP packet with encryption enabled
+Example - Send 1 encrypted UDP packet 
 ```
 ./host_sender_if3 1 encrypt
+```
+
+Example - Send 1 UDP packet with encryption enabled on interface 1 only.
+```
+./host_sender_if3 1 no-encrypt encrypt
 ```
 
 ![plot](images/sender.png)
