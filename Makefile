@@ -71,9 +71,12 @@ LIST_XO = $(NETLAYERDIR)networklayer.xo
 CONFIGFLAGS := --config connectivity_if$(INTERFACE).tmp.ini
 
 # Include cmac kernel depending on the interface
-
-LIST_XO += $(CMACDIR)cmac_$(INTERFACE).xo
-
+ifeq (3, $(INTERFACE))
+	LIST_XO += $(CMACDIR)cmac_0.xo
+	LIST_XO += $(CMACDIR)cmac_1.xo
+else
+	LIST_XO += $(CMACDIR)cmac_$(INTERFACE).xo
+endif
 
 # Include application kernels depending on the design
 LIST_XO += $(USERKRNLDIR)xofiles/txkrnl.xo
