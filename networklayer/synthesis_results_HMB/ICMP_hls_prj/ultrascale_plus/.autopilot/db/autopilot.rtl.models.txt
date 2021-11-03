@@ -1,2 +1,9 @@
-regslice_core
+icmp_server_regslice_both
+icmp_server_regslice_both
+icmp_server_regslice_both
+icmp_server_regslice_both
+icmp_server_regslice_both
+icmp_server_regslice_both
+icmp_server_regslice_both
+icmp_server_regslice_both
 icmp_server

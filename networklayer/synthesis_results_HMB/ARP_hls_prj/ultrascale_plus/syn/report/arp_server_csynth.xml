@@ -1,7 +1,7 @@
 <profile>
 
 <ReportVersion>
-<Version>2020.1</Version>
+<Version>2021.1</Version>
 </ReportVersion>
 
 <UserAssignments>
@@ -11,22 +11,23 @@
 <TopModelName>arp_server</TopModelName>
 <TargetClockPeriod>3.10</TargetClockPeriod>
 <ClockUncertainty>0.20</ClockUncertainty>
+<FlowTarget>vivado</FlowTarget>
 </UserAssignments>
 
 <PerformanceEstimates>
 <PipelineType>dataflow</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>3.337</EstimatedClockPeriod>
+<EstimatedClockPeriod>3.812</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>7</Best-caseLatency>
-<Average-caseLatency>7</Average-caseLatency>
-<Worst-caseLatency>7</Worst-caseLatency>
-<Best-caseRealTimeLatency>23.359 ns</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>23.359 ns</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>23.359 ns</Worst-caseRealTimeLatency>
+<Best-caseLatency>4</Best-caseLatency>
+<Average-caseLatency>4</Average-caseLatency>
+<Worst-caseLatency>4</Worst-caseLatency>
+<Best-caseRealTimeLatency>15.248 ns</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>15.248 ns</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>15.248 ns</Worst-caseRealTimeLatency>
 <DataflowPipelineThroughput>1</DataflowPipelineThroughput>
 <Interval-min>1</Interval-min>
 <Interval-max>1</Interval-max>
@@ -35,15 +36,15 @@
 
 <AreaEstimates>
 <Resources>
-<BRAM_18K>18</BRAM_18K>
-<FF>1324</FF>
-<LUT>2070</LUT>
-<DSP48E>0</DSP48E>
+<BRAM_18K>3</BRAM_18K>
+<FF>1580</FF>
+<LUT>1539</LUT>
 <URAM>0</URAM>
+<DSP>0</DSP>
 </Resources>
 <AvailableResources>
 <BRAM_18K>4032</BRAM_18K>
-<DSP48E>9024</DSP48E>
+<DSP>9024</DSP>
 <FF>2607360</FF>
 <LUT>1303680</LUT>
 <URAM>960</URAM>
@@ -54,10 +55,8 @@
 <RtlPorts>
 <name>s_axi_s_axilite_AWVALID</name>
 <Object>s_axilite</Object>
-<Type>pointer</Type>
-<Scope></Scope>
+<Type>array</Type>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
@@ -67,10 +66,8 @@
 <RtlPorts>
 <name>s_axi_s_axilite_AWREADY</name>
 <Object>s_axilite</Object>
-<Type>pointer</Type>
-<Scope></Scope>
+<Type>array</Type>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
@@ -80,12 +77,10 @@
 <RtlPorts>
 <name>s_axi_s_axilite_AWADDR</name>
 <Object>s_axilite</Object>
-<Type>pointer</Type>
-<Scope></Scope>
+<Type>array</Type>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>13</Bits>
+<Bits>12</Bits>
 <Attribute>unknown</Attribute>
 <CType>int</CType>
 <HasCtrl>0</HasCtrl>
@@ -93,10 +88,8 @@
 <RtlPorts>
 <name>s_axi_s_axilite_WVALID</name>
 <Object>s_axilite</Object>
-<Type>pointer</Type>
-<Scope></Scope>
+<Type>array</Type>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
@@ -106,10 +99,8 @@
 <RtlPorts>
 <name>s_axi_s_axilite_WREADY</name>
 <Object>s_axilite</Object>
-<Type>pointer</Type>
-<Scope></Scope>
+<Type>array</Type>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
@@ -119,10 +110,8 @@
 <RtlPorts>
 <name>s_axi_s_axilite_WDATA</name>
 <Object>s_axilite</Object>
-<Type>pointer</Type>
-<Scope></Scope>
+<Type>array</Type>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>32</Bits>
 <Attribute>unknown</Attribute>
@@ -132,10 +121,8 @@
 <RtlPorts>
 <name>s_axi_s_axilite_WSTRB</name>
 <Object>s_axilite</Object>
-<Type>pointer</Type>
-<Scope></Scope>
+<Type>array</Type>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>4</Bits>
 <Attribute>unknown</Attribute>
@@ -145,10 +132,8 @@
 <RtlPorts>
 <name>s_axi_s_axilite_ARVALID</name>
 <Object>s_axilite</Object>
-<Type>pointer</Type>
-<Scope></Scope>
+<Type>array</Type>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
@@ -158,10 +143,8 @@
 <RtlPorts>
 <name>s_axi_s_axilite_ARREADY</name>
 <Object>s_axilite</Object>
-<Type>pointer</Type>
-<Scope></Scope>
+<Type>array</Type>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
@@ -171,12 +154,10 @@
 <RtlPorts>
 <name>s_axi_s_axilite_ARADDR</name>
 <Object>s_axilite</Object>
-<Type>pointer</Type>
-<Scope></Scope>
+<Type>array</Type>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>13</Bits>
+<Bits>12</Bits>
 <Attribute>unknown</Attribute>
 <CType>int</CType>
 <HasCtrl>0</HasCtrl>
@@ -184,10 +165,8 @@
 <RtlPorts>
 <name>s_axi_s_axilite_RVALID</name>
 <Object>s_axilite</Object>
-<Type>pointer</Type>
-<Scope></Scope>
+<Type>array</Type>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
@@ -197,10 +176,8 @@
 <RtlPorts>
 <name>s_axi_s_axilite_RREADY</name>
 <Object>s_axilite</Object>
-<Type>pointer</Type>
-<Scope></Scope>
+<Type>array</Type>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
@@ -210,10 +187,8 @@
 <RtlPorts>
 <name>s_axi_s_axilite_RDATA</name>
 <Object>s_axilite</Object>
-<Type>pointer</Type>
-<Scope></Scope>
+<Type>array</Type>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
 <Dir>out</Dir>
 <Bits>32</Bits>
 <Attribute>unknown</Attribute>
@@ -223,10 +198,8 @@
 <RtlPorts>
 <name>s_axi_s_axilite_RRESP</name>
 <Object>s_axilite</Object>
-<Type>pointer</Type>
-<Scope></Scope>
+<Type>array</Type>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
 <Dir>out</Dir>
 <Bits>2</Bits>
 <Attribute>unknown</Attribute>
@@ -236,10 +209,8 @@
 <RtlPorts>
 <name>s_axi_s_axilite_BVALID</name>
 <Object>s_axilite</Object>
-<Type>pointer</Type>
-<Scope></Scope>
+<Type>array</Type>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
@@ -249,10 +220,8 @@
 <RtlPorts>
 <name>s_axi_s_axilite_BREADY</name>
 <Object>s_axilite</Object>
-<Type>pointer</Type>
-<Scope></Scope>
+<Type>array</Type>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>unknown</Attribute>
@@ -262,10 +231,8 @@
 <RtlPorts>
 <name>s_axi_s_axilite_BRESP</name>
 <Object>s_axilite</Object>
-<Type>pointer</Type>
-<Scope></Scope>
+<Type>array</Type>
 <IOProtocol>s_axi</IOProtocol>
-<IOConfig></IOConfig>
 <Dir>out</Dir>
 <Bits>2</Bits>
 <Attribute>unknown</Attribute>
@@ -300,7 +267,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>512</Bits>
 <Attribute>data</Attribute>
@@ -312,7 +279,19 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
+<Dir>in</Dir>
+<Bits>64</Bits>
+<Attribute>data</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>arpDataIn_TSTRB</name>
+<Object>arpDataIn_V_strb_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>64</Bits>
 <Attribute>data</Attribute>
@@ -324,7 +303,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>data</Attribute>
@@ -336,7 +315,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
@@ -348,43 +327,43 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>macIpEncode_req_V_V_TDATA</name>
-<Object>macIpEncode_req_V_V</Object>
+<name>macIpEncode_req_V_TDATA</name>
+<Object>macIpEncode_req_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>32</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>macIpEncode_req_V_V_TVALID</name>
-<Object>macIpEncode_req_V_V</Object>
+<name>macIpEncode_req_V_TVALID</name>
+<Object>macIpEncode_req_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>macIpEncode_req_V_V_TREADY</name>
-<Object>macIpEncode_req_V_V</Object>
+<name>macIpEncode_req_V_TREADY</name>
+<Object>macIpEncode_req_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
@@ -405,6 +384,18 @@
 <RtlPorts>
 <name>arpDataOut_TKEEP</name>
 <Object>arpDataOut_V_keep_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>out</Dir>
+<Bits>64</Bits>
+<Attribute>data</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>arpDataOut_TSTRB</name>
+<Object>arpDataOut_V_strb_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -458,7 +449,7 @@
 <IOProtocol>axis</IOProtocol>
 <IOConfig>register, both mode</IOConfig>
 <Dir>out</Dir>
-<Bits>56</Bits>
+<Bits>128</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
@@ -487,48 +478,48 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>myMacAddress_V</name>
-<Object>myMacAddress_V</Object>
+<name>myMacAddress</name>
+<Object>myMacAddress</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>
-<IOConfig>register</IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>48</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>myIpAddress_V</name>
-<Object>myIpAddress_V</Object>
+<name>myIpAddress</name>
+<Object>myIpAddress</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>
-<IOConfig>register</IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>32</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>gatewayIP_V</name>
-<Object>gatewayIP_V</Object>
+<name>gatewayIP</name>
+<Object>gatewayIP</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>
-<IOConfig>register</IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>32</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>networkMask_V</name>
-<Object>networkMask_V</Object>
+<name>networkMask</name>
+<Object>networkMask</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>
-<IOConfig>register</IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>32</Bits>
 <Attribute>data</Attribute>

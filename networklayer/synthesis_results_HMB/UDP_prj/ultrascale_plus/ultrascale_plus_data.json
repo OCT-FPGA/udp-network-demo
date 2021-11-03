@@ -2,236 +2,586 @@
   "Top": "udp",
   "RtlTop": "udp",
   "RtlPrefix": "",
+  "RtlSubPrefix": "udp_",
   "SourceLanguage": "cpp",
-  "ResetStyle": "control",
-  "GenerateBdFiles": "1",
   "HostMachineBits": "64",
+  "FunctionProtocol": "ap_ctrl_none",
+  "ResetStyle": "control",
   "Target": {
     "Family": "virtexuplushbm",
     "Device": "xcu280",
     "Package": "-fsvh2892",
-    "Speed": "-2L-e"
+    "Speed": "-2L-e",
+    "Triple": "fpga64-xilinx-none"
   },
-  "HlsSolution": {"Config": ["config_rtl -disable_start_propagation=1"]},
   "Args": {
     "rxUdpDataIn": {
       "index": "0",
-      "type": {
-        "kinds": ["struct"],
-        "dataType": "my_axis<512>",
-        "structImpl": "flat-field",
-        "dataPack": true,
-        "fields": {
-          "data": {
-            "order": "0",
-            "dataType": "ap_uint"
-          },
-          "keep": {
-            "order": "1",
-            "dataType": "ap_uint"
-          },
-          "last": {
-            "order": "2",
-            "dataType": "ap_uint"
-          }
-        }
-      }
+      "direction": "in",
+      "srcType": "stream<hls::axis<ap_uint<512>, 0, 0, 0>, 0>&",
+      "srcSize": "1024",
+      "hwRefs": [{
+          "type": "interface",
+          "interface": "rxUdpDataIn",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        }]
     },
     "txUdpDataOut": {
       "index": "1",
-      "type": {
-        "kinds": ["struct"],
-        "dataType": "my_axis<512>",
-        "structImpl": "flat-field",
-        "dataPack": true,
-        "fields": {
-          "data": {
-            "order": "0",
-            "dataType": "ap_uint"
-          },
-          "keep": {
-            "order": "1",
-            "dataType": "ap_uint"
-          },
-          "last": {
-            "order": "2",
-            "dataType": "ap_uint"
-          }
-        }
-      }
+      "direction": "out",
+      "srcType": "stream<hls::axis<ap_uint<512>, 0, 0, 0>, 0>&",
+      "srcSize": "1024",
+      "hwRefs": [{
+          "type": "interface",
+          "interface": "txUdpDataOut",
+          "name": "",
+          "usage": "data",
+          "direction": "out"
+        }]
     },
     "DataOutApp": {
       "index": "2",
-      "type": {
-        "kinds": ["struct"],
-        "dataType": "my_axis_udp<512>",
-        "structImpl": "flat-field",
-        "dataPack": true,
-        "fields": {
-          "data": {
-            "order": "0",
-            "dataType": "ap_uint"
-          },
-          "keep": {
-            "order": "1",
-            "dataType": "ap_uint"
-          },
-          "dest": {
-            "order": "2",
-            "dataType": "ap_uint"
-          },
-          "last": {
-            "order": "3",
-            "dataType": "ap_uint"
-          },
-          "user": {
-            "order": "4",
-            "kinds": ["struct"],
-            "dataType": "userMetadata",
-            "fields": {
-              "myIP": {
-                "order": "0",
-                "dataType": "ap_uint"
-              },
-              "theirIP": {
-                "order": "1",
-                "dataType": "ap_uint"
-              },
-              "myPort": {
-                "order": "2",
-                "dataType": "ap_uint"
-              },
-              "theirPort": {
-                "order": "3",
-                "dataType": "ap_uint"
-              }
-            }
-          }
-        }
-      }
+      "direction": "out",
+      "srcType": "stream<hls::axis<ap_uint<512>, 96, 0, 16>, 0>&",
+      "srcSize": "1024",
+      "hwRefs": [{
+          "type": "interface",
+          "interface": "DataOutApp",
+          "name": "",
+          "usage": "data",
+          "direction": "out"
+        }]
     },
     "DataInApp": {
       "index": "3",
-      "type": {
-        "kinds": ["struct"],
-        "dataType": "my_axis_udp<512>",
-        "structImpl": "flat-field",
-        "dataPack": true,
-        "fields": {
-          "data": {
-            "order": "0",
-            "dataType": "ap_uint"
-          },
-          "keep": {
-            "order": "1",
-            "dataType": "ap_uint"
-          },
-          "dest": {
-            "order": "2",
-            "dataType": "ap_uint"
-          },
-          "last": {
-            "order": "3",
-            "dataType": "ap_uint"
-          },
-          "user": {
-            "order": "4",
-            "kinds": ["struct"],
-            "dataType": "userMetadata",
-            "fields": {
-              "myIP": {
-                "order": "0",
-                "dataType": "ap_uint"
-              },
-              "theirIP": {
-                "order": "1",
-                "dataType": "ap_uint"
-              },
-              "myPort": {
-                "order": "2",
-                "dataType": "ap_uint"
-              },
-              "theirPort": {
-                "order": "3",
-                "dataType": "ap_uint"
-              }
-            }
-          }
-        }
-      }
+      "direction": "in",
+      "srcType": "stream<hls::axis<ap_uint<512>, 96, 0, 16>, 0>&",
+      "srcSize": "1024",
+      "hwRefs": [{
+          "type": "interface",
+          "interface": "DataInApp",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        }]
     },
     "myIpAddress": {
       "index": "4",
-      "type": {
-        "dataType": "ap_uint",
-        "dataWidth": "32",
-        "interfaceRef": "myIpAddress_V"
-      }
+      "direction": "in",
+      "srcType": "ap_uint<32>&",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "port",
+          "interface": "myIpAddress",
+          "name": "myIpAddress",
+          "usage": "data",
+          "direction": "in"
+        }]
     },
     "SocketTable": {
       "index": "5",
-      "type": {
-        "kinds": [
-          "struct",
-          "array"
-        ],
-        "dataType": "socket_table",
-        "arraySizes": ["16"],
-        "structImpl": "flat-field",
-        "dataPack": true,
-        "fields": {
-          "theirIP": {
-            "order": "0",
-            "dataType": "ap_uint",
-            "structImpl": "flat-field",
-            "dataPack": true
-          },
-          "theirPort": {
-            "order": "1",
-            "dataType": "ap_uint",
-            "structImpl": "flat-field",
-            "dataPack": true
-          },
-          "myPort": {
-            "order": "2",
-            "dataType": "ap_uint",
-            "structImpl": "flat-field",
-            "dataPack": true
-          },
-          "valid": {
-            "order": "3",
-            "dataType": "ap_uint",
-            "structImpl": "flat-field",
-            "dataPack": true
-          }
+      "direction": "in",
+      "srcType": "socket_table*",
+      "srcSize": "96",
+      "hwRefs": [
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "s_axi_s_axilite",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
         }
-      }
+      ]
     },
     "numberSockets": {
       "index": "6",
-      "type": {
-        "dataType": "ap_uint",
-        "dataWidth": "16",
-        "interfaceRef": "s_axi_s_axilite",
-        "registerRefs": ["numberSockets_V"]
-      }
+      "direction": "out",
+      "srcType": "ap_uint<16>&",
+      "srcSize": "16",
+      "hwRefs": [
+        {
+          "type": "register",
+          "interface": "s_axi_s_axilite",
+          "name": "numberSockets",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_s_axilite",
+          "name": "numberSockets_ctrl",
+          "usage": "control",
+          "direction": "out"
+        }
+      ]
     }
   },
-  "Return": {
-    
+  "HlsSolution": {
+    "FlowTarget": "vivado",
+    "ConfigTcl": [
+      "config_export -format=ip_catalog",
+      "config_export -rtl=verilog"
+    ],
+    "DirectiveTcl": [
+      "set_directive_top udp -name udp",
+      "set_directive_top udp -name udp"
+    ],
+    "ProfileOption": "0",
+    "ProfileType": "none",
+    "KernelName": "udp"
   },
   "ClockInfo": {
     "ClockName": "ap_clk",
     "ClockPeriod": "2.5",
-    "IsCombLogic": "0",
-    "II": "x",
-    "Latency": "7",
-    "Uncertainty": "0.2"
+    "Uncertainty": "0.2",
+    "IsCombinational": "0",
+    "II": "1",
+    "Latency": "7"
   },
-  "Xdc": {
-    "OocClocks": ["create_clock -name ap_clk -period 2.500 [get_ports ap_clk]"],
-    "FalsePaths": ["set_false_path -through [get_ports myIpAddress_V[*]]"]
-  },
+  "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 2.500 [get_ports ap_clk]"]},
   "Ipx": {
     "Vendor": "xilinx.com",
     "Library": "hls",
@@ -239,9 +589,10 @@
     "Version": "1.0",
     "DisplayName": "Udp",
     "Revision": "",
-    "Description": "An IP generated by Vivado HLS",
-    "Taxonomy": "\/VIVADO_HLS_IP",
-    "AutoFamilySupport": ""
+    "Description": "An IP generated by Vitis HLS",
+    "Taxonomy": "\/VITIS_HLS_IP",
+    "AutoFamilySupport": "",
+    "ZipFile": "xilinx_com_hls_udp_1_0.zip"
   },
   "Files": {
     "CSource": [
@@ -249,57 +600,50 @@
       "\/home\/ubuntu\/xup_vitis_network_example\/NetLayers\/100G-fpga-network-stack-core\/synthesis_results_HMB\/..\/\/hls\/UDP\/udp.cpp"
     ],
     "Vhdl": [
-      "impl\/vhdl\/appGetMetaData.vhd",
-      "impl\/vhdl\/fifo_w1_d2_A.vhd",
-      "impl\/vhdl\/fifo_w1_d3_A.vhd",
-      "impl\/vhdl\/fifo_w16_d2_A.vhd",
-      "impl\/vhdl\/fifo_w16_d3_A.vhd",
-      "impl\/vhdl\/fifo_w16_d32_A.vhd",
-      "impl\/vhdl\/fifo_w32_d2_A.vhd",
-      "impl\/vhdl\/fifo_w32_d3_A.vhd",
-      "impl\/vhdl\/fifo_w97_d32_A.vhd",
-      "impl\/vhdl\/fifo_w113_d32_A.vhd",
-      "impl\/vhdl\/fifo_w577_d512_A.vhd",
-      "impl\/vhdl\/keep2len.vhd",
-      "impl\/vhdl\/regslice_core.vhd",
-      "impl\/vhdl\/rxEngPacketDropper.vhd",
-      "impl\/vhdl\/rxTableHandler.vhd",
-      "impl\/vhdl\/txTableHandler.vhd",
-      "impl\/vhdl\/udp_entry3.vhd",
-      "impl\/vhdl\/udp_entry266.vhd",
-      "impl\/vhdl\/udp_mux_164_1_1_1.vhd",
-      "impl\/vhdl\/udp_mux_164_16_1_1.vhd",
-      "impl\/vhdl\/udp_mux_164_32_1_1.vhd",
+      "impl\/vhdl\/udp_appGetMetaData.vhd",
+      "impl\/vhdl\/udp_entry_proc.vhd",
+      "impl\/vhdl\/udp_fifo_w1_d2_S.vhd",
+      "impl\/vhdl\/udp_fifo_w16_d2_S.vhd",
+      "impl\/vhdl\/udp_fifo_w16_d256_A.vhd",
+      "impl\/vhdl\/udp_fifo_w32_d2_S.vhd",
+      "impl\/vhdl\/udp_fifo_w128_d32_A.vhd",
+      "impl\/vhdl\/udp_fifo_w160_d32_A.vhd",
+      "impl\/vhdl\/udp_fifo_w1024_d256_A.vhd",
+      "impl\/vhdl\/udp_keep2len.vhd",
+      "impl\/vhdl\/udp_regslice_both.vhd",
+      "impl\/vhdl\/udp_rxEngPacketDropper.vhd",
       "impl\/vhdl\/udp_s_axilite_s_axi.vhd",
-      "impl\/vhdl\/udpRxEngine.vhd",
-      "impl\/vhdl\/udpTxEngine.vhd",
+      "impl\/vhdl\/udp_start_for_rxEngPacketDropper_U0.vhd",
+      "impl\/vhdl\/udp_start_for_udpTxEngine_U0.vhd",
+      "impl\/vhdl\/udp_TableHandler.vhd",
+      "impl\/vhdl\/udp_udpRxEngine.vhd",
+      "impl\/vhdl\/udp_udpTxEngine.vhd",
       "impl\/vhdl\/udp.vhd"
     ],
     "Verilog": [
-      "impl\/verilog\/appGetMetaData.v",
-      "impl\/verilog\/fifo_w1_d2_A.v",
-      "impl\/verilog\/fifo_w1_d3_A.v",
-      "impl\/verilog\/fifo_w16_d2_A.v",
-      "impl\/verilog\/fifo_w16_d3_A.v",
-      "impl\/verilog\/fifo_w16_d32_A.v",
-      "impl\/verilog\/fifo_w32_d2_A.v",
-      "impl\/verilog\/fifo_w32_d3_A.v",
-      "impl\/verilog\/fifo_w97_d32_A.v",
-      "impl\/verilog\/fifo_w113_d32_A.v",
-      "impl\/verilog\/fifo_w577_d512_A.v",
-      "impl\/verilog\/keep2len.v",
-      "impl\/verilog\/regslice_core.v",
-      "impl\/verilog\/rxEngPacketDropper.v",
-      "impl\/verilog\/rxTableHandler.v",
-      "impl\/verilog\/txTableHandler.v",
-      "impl\/verilog\/udp_entry3.v",
-      "impl\/verilog\/udp_entry266.v",
-      "impl\/verilog\/udp_mux_164_1_1_1.v",
-      "impl\/verilog\/udp_mux_164_16_1_1.v",
-      "impl\/verilog\/udp_mux_164_32_1_1.v",
+      "impl\/verilog\/udp_appGetMetaData.v",
+      "impl\/verilog\/udp_entry_proc.v",
+      "impl\/verilog\/udp_fifo_w1_d2_S.v",
+      "impl\/verilog\/udp_fifo_w16_d2_S.v",
+      "impl\/verilog\/udp_fifo_w16_d256_A.v",
+      "impl\/verilog\/udp_fifo_w32_d2_S.v",
+      "impl\/verilog\/udp_fifo_w128_d32_A.v",
+      "impl\/verilog\/udp_fifo_w160_d32_A.v",
+      "impl\/verilog\/udp_fifo_w1024_d256_A.v",
+      "impl\/verilog\/udp_hls_deadlock_detection_unit.v",
+      "impl\/verilog\/udp_hls_deadlock_detector.vh",
+      "impl\/verilog\/udp_hls_deadlock_idx0_monitor.v",
+      "impl\/verilog\/udp_hls_deadlock_kernel_monitor_top.vh",
+      "impl\/verilog\/udp_hls_deadlock_report_unit.vh",
+      "impl\/verilog\/udp_keep2len.v",
+      "impl\/verilog\/udp_regslice_both.v",
+      "impl\/verilog\/udp_rxEngPacketDropper.v",
       "impl\/verilog\/udp_s_axilite_s_axi.v",
-      "impl\/verilog\/udpRxEngine.v",
-      "impl\/verilog\/udpTxEngine.v",
+      "impl\/verilog\/udp_start_for_rxEngPacketDropper_U0.v",
+      "impl\/verilog\/udp_start_for_udpTxEngine_U0.v",
+      "impl\/verilog\/udp_TableHandler.v",
+      "impl\/verilog\/udp_udpRxEngine.v",
+      "impl\/verilog\/udp_udpTxEngine.v",
       "impl\/verilog\/udp.v"
     ],
     "SwDriver": [
@@ -312,1754 +656,2006 @@
       "impl\/misc\/drivers\/udp_v1_0\/src\/xudp_linux.c",
       "impl\/misc\/drivers\/udp_v1_0\/src\/xudp_sinit.c"
     ],
-    "Misc": ["impl\/misc\/logo.png"],
-    "DesignXml": "\/home\/ubuntu\/xup_vitis_network_example\/NetLayers\/100G-fpga-network-stack-core\/synthesis_results_HMB\/UDP_prj\/ultrascale_plus\/.autopilot\/db\/udp.design.xml",
-    "DebugDir": "\/home\/ubuntu\/xup_vitis_network_example\/NetLayers\/100G-fpga-network-stack-core\/synthesis_results_HMB\/UDP_prj\/ultrascale_plus\/.debug",
-    "ProtoInst": ["\/home\/ubuntu\/xup_vitis_network_example\/NetLayers\/100G-fpga-network-stack-core\/synthesis_results_HMB\/UDP_prj\/ultrascale_plus\/.debug\/udp.protoinst"]
+    "IpMisc": ["impl\/misc\/logo.png"],
+    "CsynthXml": "syn\/report\/csynth.xml",
+    "DebugDir": ".debug",
+    "KernelXml": ".autopilot\/db\/kernel.internal.xml",
+    "Xo": "",
+    "XoHlsDir": "",
+    "ProtoInst": [".debug\/udp.protoinst"]
   },
   "SubcoreInfo": {
     "HasXpmMemory": false,
     "HasClockedDsp": false,
-    "IP": []
+    "Ip": []
   },
   "Interfaces": {
-    "ap_clk": {
-      "type": "clock",
-      "ctype": {"CLK": {"Type": "bool"}},
-      "bundle_name": "ap_clk",
-      "bundle_role": "default",
-      "buses": "s_axi_s_axilite rxUdpDataIn txUdpDataOut DataOutApp DataInApp",
-      "reset": "ap_rst_n"
-    },
-    "ap_rst_n": {
-      "type": "reset",
-      "polarity": "ACTIVE_LOW",
-      "ctype": {"RST": {"Type": "bool"}},
-      "bundle_name": "ap_rst_n",
-      "bundle_role": "default"
-    },
-    "DataInApp": {
-      "type": "axi4stream",
-      "mode": "slave",
-      "port_prefix": "DataInApp",
-      "has_tready": "1",
-      "ctype": {
-        "TDATA": {
-          "Type": "integer unsigned",
-          "Width": "512"
-        },
-        "TKEEP": {
-          "Type": "integer unsigned",
-          "Width": "64"
-        },
-        "TDEST": {
-          "Type": "integer unsigned",
-          "Width": "16"
-        },
-        "TLAST": {
-          "Type": "integer unsigned",
-          "Width": "1"
-        },
-        "TUSER": {
-          "Type": "struct",
-          "Width": "96",
-          "Fields": {
-            "myIP": {
-              "Type": "integer unsigned",
-              "Width": "32"
-            },
-            "theirIP": {
-              "Type": "integer unsigned",
-              "Width": "32"
-            },
-            "myPort": {
-              "Type": "integer unsigned",
-              "Width": "16"
-            },
-            "theirPort": {
-              "Type": "integer unsigned",
-              "Width": "16"
-            }
-          }
-        },
-        "TVALID": {"Type": "bool"},
-        "TREADY": {"Type": "bool"}
-      },
-      "port_width": {
-        "TDATA": "512",
-        "TDEST": "16",
-        "TKEEP": "64",
-        "TLAST": "1",
-        "TUSER": "96"
-      }
-    },
-    "DataOutApp": {
-      "type": "axi4stream",
-      "mode": "master",
-      "port_prefix": "DataOutApp",
-      "has_tready": "1",
-      "ctype": {
-        "TDATA": {
-          "Type": "integer unsigned",
-          "Width": "512"
-        },
-        "TKEEP": {
-          "Type": "integer unsigned",
-          "Width": "64"
-        },
-        "TDEST": {
-          "Type": "integer unsigned",
-          "Width": "16"
-        },
-        "TLAST": {
-          "Type": "integer unsigned",
-          "Width": "1"
-        },
-        "TUSER": {
-          "Type": "struct",
-          "Width": "96",
-          "Fields": {
-            "myIP": {
-              "Type": "integer unsigned",
-              "Width": "32"
-            },
-            "theirIP": {
-              "Type": "integer unsigned",
-              "Width": "32"
-            },
-            "myPort": {
-              "Type": "integer unsigned",
-              "Width": "16"
-            },
-            "theirPort": {
-              "Type": "integer unsigned",
-              "Width": "16"
-            }
-          }
-        },
-        "TVALID": {"Type": "bool"},
-        "TREADY": {"Type": "bool"}
-      },
-      "port_width": {
-        "TDATA": "512",
-        "TDEST": "16",
-        "TKEEP": "64",
-        "TLAST": "1",
-        "TUSER": "96"
-      }
-    },
-    "myIpAddress_V": {
-      "type": "data",
-      "dir": "in",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "myIpAddress_V",
-      "bundle_role": "default"
-    },
-    "rxUdpDataIn": {
-      "type": "axi4stream",
-      "mode": "slave",
-      "port_prefix": "rxUdpDataIn",
-      "has_tready": "1",
-      "ctype": {
-        "TDATA": {
-          "Type": "integer unsigned",
-          "Width": "512"
-        },
-        "TKEEP": {
-          "Type": "integer unsigned",
-          "Width": "64"
-        },
-        "TLAST": {
-          "Type": "integer unsigned",
-          "Width": "1"
-        },
-        "TVALID": {"Type": "bool"},
-        "TREADY": {"Type": "bool"}
-      },
-      "port_width": {
-        "TDATA": "512",
-        "TKEEP": "64",
-        "TLAST": "1"
-      }
-    },
     "s_axi_s_axilite": {
       "type": "axi4lite",
-      "is_adaptor": "true",
+      "busTypeName": "aximm",
       "mode": "slave",
-      "port_prefix": "s_axi_s_axilite",
-      "param_prefix": "C_S_AXI_S_AXILITE",
-      "addr_bits": "10",
+      "dataWidth": "32",
+      "addrWidth": "10",
+      "portPrefix": "s_axi_s_axilite_",
+      "paramPrefix": "C_S_AXI_S_AXILITE_",
+      "ports": [
+        "s_axi_s_axilite_ARADDR",
+        "s_axi_s_axilite_ARREADY",
+        "s_axi_s_axilite_ARVALID",
+        "s_axi_s_axilite_AWADDR",
+        "s_axi_s_axilite_AWREADY",
+        "s_axi_s_axilite_AWVALID",
+        "s_axi_s_axilite_BREADY",
+        "s_axi_s_axilite_BRESP",
+        "s_axi_s_axilite_BVALID",
+        "s_axi_s_axilite_RDATA",
+        "s_axi_s_axilite_RREADY",
+        "s_axi_s_axilite_RRESP",
+        "s_axi_s_axilite_RVALID",
+        "s_axi_s_axilite_WDATA",
+        "s_axi_s_axilite_WREADY",
+        "s_axi_s_axilite_WSTRB",
+        "s_axi_s_axilite_WVALID"
+      ],
       "registers": [
         {
           "offset": "0x10",
-          "name": "SocketTable_0_theirIP_V",
+          "name": "SocketTable_theirIP_0",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_0_theirIP_V",
+          "description": "Data signal of SocketTable_theirIP_0",
+          "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "SocketTable_0_theirIP_V",
+              "name": "SocketTable_theirIP_0",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 31 to 0 Data signal of SocketTable_0_theirIP_V"
+              "description": "Bit 31 to 0 of SocketTable_theirIP_0"
             }]
         },
         {
           "offset": "0x18",
-          "name": "SocketTable_1_theirIP_V",
+          "name": "SocketTable_theirIP_1",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_1_theirIP_V",
+          "description": "Data signal of SocketTable_theirIP_1",
+          "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "SocketTable_1_theirIP_V",
+              "name": "SocketTable_theirIP_1",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 31 to 0 Data signal of SocketTable_1_theirIP_V"
+              "description": "Bit 31 to 0 of SocketTable_theirIP_1"
             }]
         },
         {
           "offset": "0x20",
-          "name": "SocketTable_2_theirIP_V",
+          "name": "SocketTable_theirIP_2",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_2_theirIP_V",
+          "description": "Data signal of SocketTable_theirIP_2",
+          "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "SocketTable_2_theirIP_V",
+              "name": "SocketTable_theirIP_2",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 31 to 0 Data signal of SocketTable_2_theirIP_V"
+              "description": "Bit 31 to 0 of SocketTable_theirIP_2"
             }]
         },
         {
           "offset": "0x28",
-          "name": "SocketTable_3_theirIP_V",
+          "name": "SocketTable_theirIP_3",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_3_theirIP_V",
+          "description": "Data signal of SocketTable_theirIP_3",
+          "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "SocketTable_3_theirIP_V",
+              "name": "SocketTable_theirIP_3",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 31 to 0 Data signal of SocketTable_3_theirIP_V"
+              "description": "Bit 31 to 0 of SocketTable_theirIP_3"
             }]
         },
         {
           "offset": "0x30",
-          "name": "SocketTable_4_theirIP_V",
+          "name": "SocketTable_theirIP_4",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_4_theirIP_V",
+          "description": "Data signal of SocketTable_theirIP_4",
+          "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "SocketTable_4_theirIP_V",
+              "name": "SocketTable_theirIP_4",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 31 to 0 Data signal of SocketTable_4_theirIP_V"
+              "description": "Bit 31 to 0 of SocketTable_theirIP_4"
             }]
         },
         {
           "offset": "0x38",
-          "name": "SocketTable_5_theirIP_V",
+          "name": "SocketTable_theirIP_5",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_5_theirIP_V",
+          "description": "Data signal of SocketTable_theirIP_5",
+          "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "SocketTable_5_theirIP_V",
+              "name": "SocketTable_theirIP_5",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 31 to 0 Data signal of SocketTable_5_theirIP_V"
+              "description": "Bit 31 to 0 of SocketTable_theirIP_5"
             }]
         },
         {
           "offset": "0x40",
-          "name": "SocketTable_6_theirIP_V",
+          "name": "SocketTable_theirIP_6",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_6_theirIP_V",
+          "description": "Data signal of SocketTable_theirIP_6",
+          "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "SocketTable_6_theirIP_V",
+              "name": "SocketTable_theirIP_6",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 31 to 0 Data signal of SocketTable_6_theirIP_V"
+              "description": "Bit 31 to 0 of SocketTable_theirIP_6"
             }]
         },
         {
           "offset": "0x48",
-          "name": "SocketTable_7_theirIP_V",
+          "name": "SocketTable_theirIP_7",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_7_theirIP_V",
+          "description": "Data signal of SocketTable_theirIP_7",
+          "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "SocketTable_7_theirIP_V",
+              "name": "SocketTable_theirIP_7",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 31 to 0 Data signal of SocketTable_7_theirIP_V"
+              "description": "Bit 31 to 0 of SocketTable_theirIP_7"
             }]
         },
         {
           "offset": "0x50",
-          "name": "SocketTable_8_theirIP_V",
+          "name": "SocketTable_theirIP_8",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_8_theirIP_V",
+          "description": "Data signal of SocketTable_theirIP_8",
+          "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "SocketTable_8_theirIP_V",
+              "name": "SocketTable_theirIP_8",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 31 to 0 Data signal of SocketTable_8_theirIP_V"
+              "description": "Bit 31 to 0 of SocketTable_theirIP_8"
             }]
         },
         {
           "offset": "0x58",
-          "name": "SocketTable_9_theirIP_V",
+          "name": "SocketTable_theirIP_9",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_9_theirIP_V",
+          "description": "Data signal of SocketTable_theirIP_9",
+          "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "SocketTable_9_theirIP_V",
+              "name": "SocketTable_theirIP_9",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 31 to 0 Data signal of SocketTable_9_theirIP_V"
+              "description": "Bit 31 to 0 of SocketTable_theirIP_9"
             }]
         },
         {
           "offset": "0x60",
-          "name": "SocketTable_10_theirIP_V",
+          "name": "SocketTable_theirIP_10",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_10_theirIP_V",
+          "description": "Data signal of SocketTable_theirIP_10",
+          "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "SocketTable_10_theirIP_V",
+              "name": "SocketTable_theirIP_10",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 31 to 0 Data signal of SocketTable_10_theirIP_V"
+              "description": "Bit 31 to 0 of SocketTable_theirIP_10"
             }]
         },
         {
           "offset": "0x68",
-          "name": "SocketTable_11_theirIP_V",
+          "name": "SocketTable_theirIP_11",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_11_theirIP_V",
+          "description": "Data signal of SocketTable_theirIP_11",
+          "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "SocketTable_11_theirIP_V",
+              "name": "SocketTable_theirIP_11",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 31 to 0 Data signal of SocketTable_11_theirIP_V"
+              "description": "Bit 31 to 0 of SocketTable_theirIP_11"
             }]
         },
         {
           "offset": "0x70",
-          "name": "SocketTable_12_theirIP_V",
+          "name": "SocketTable_theirIP_12",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_12_theirIP_V",
+          "description": "Data signal of SocketTable_theirIP_12",
+          "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "SocketTable_12_theirIP_V",
+              "name": "SocketTable_theirIP_12",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 31 to 0 Data signal of SocketTable_12_theirIP_V"
+              "description": "Bit 31 to 0 of SocketTable_theirIP_12"
             }]
         },
         {
           "offset": "0x78",
-          "name": "SocketTable_13_theirIP_V",
+          "name": "SocketTable_theirIP_13",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_13_theirIP_V",
+          "description": "Data signal of SocketTable_theirIP_13",
+          "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "SocketTable_13_theirIP_V",
+              "name": "SocketTable_theirIP_13",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 31 to 0 Data signal of SocketTable_13_theirIP_V"
+              "description": "Bit 31 to 0 of SocketTable_theirIP_13"
             }]
         },
         {
           "offset": "0x80",
-          "name": "SocketTable_14_theirIP_V",
+          "name": "SocketTable_theirIP_14",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_14_theirIP_V",
+          "description": "Data signal of SocketTable_theirIP_14",
+          "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "SocketTable_14_theirIP_V",
+              "name": "SocketTable_theirIP_14",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 31 to 0 Data signal of SocketTable_14_theirIP_V"
+              "description": "Bit 31 to 0 of SocketTable_theirIP_14"
             }]
         },
         {
           "offset": "0x88",
-          "name": "SocketTable_15_theirIP_V",
+          "name": "SocketTable_theirIP_15",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_15_theirIP_V",
+          "description": "Data signal of SocketTable_theirIP_15",
+          "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "SocketTable_15_theirIP_V",
+              "name": "SocketTable_theirIP_15",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 31 to 0 Data signal of SocketTable_15_theirIP_V"
+              "description": "Bit 31 to 0 of SocketTable_theirIP_15"
             }]
         },
         {
           "offset": "0x90",
-          "name": "SocketTable_0_theirPort_V",
+          "name": "SocketTable_theirPort_0",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_0_theirPort_V",
+          "description": "Data signal of SocketTable_theirPort_0",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_0_theirPort_V",
+              "name": "SocketTable_theirPort_0",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_0_theirPort_V"
+              "description": "Bit 15 to 0 of SocketTable_theirPort_0"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x98",
-          "name": "SocketTable_1_theirPort_V",
+          "name": "SocketTable_theirPort_1",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_1_theirPort_V",
+          "description": "Data signal of SocketTable_theirPort_1",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_1_theirPort_V",
+              "name": "SocketTable_theirPort_1",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_1_theirPort_V"
+              "description": "Bit 15 to 0 of SocketTable_theirPort_1"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0xa0",
-          "name": "SocketTable_2_theirPort_V",
+          "name": "SocketTable_theirPort_2",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_2_theirPort_V",
+          "description": "Data signal of SocketTable_theirPort_2",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_2_theirPort_V",
+              "name": "SocketTable_theirPort_2",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_2_theirPort_V"
+              "description": "Bit 15 to 0 of SocketTable_theirPort_2"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0xa8",
-          "name": "SocketTable_3_theirPort_V",
+          "name": "SocketTable_theirPort_3",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_3_theirPort_V",
+          "description": "Data signal of SocketTable_theirPort_3",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_3_theirPort_V",
+              "name": "SocketTable_theirPort_3",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_3_theirPort_V"
+              "description": "Bit 15 to 0 of SocketTable_theirPort_3"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0xb0",
-          "name": "SocketTable_4_theirPort_V",
+          "name": "SocketTable_theirPort_4",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_4_theirPort_V",
+          "description": "Data signal of SocketTable_theirPort_4",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_4_theirPort_V",
+              "name": "SocketTable_theirPort_4",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_4_theirPort_V"
+              "description": "Bit 15 to 0 of SocketTable_theirPort_4"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0xb8",
-          "name": "SocketTable_5_theirPort_V",
+          "name": "SocketTable_theirPort_5",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_5_theirPort_V",
+          "description": "Data signal of SocketTable_theirPort_5",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_5_theirPort_V",
+              "name": "SocketTable_theirPort_5",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_5_theirPort_V"
+              "description": "Bit 15 to 0 of SocketTable_theirPort_5"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0xc0",
-          "name": "SocketTable_6_theirPort_V",
+          "name": "SocketTable_theirPort_6",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_6_theirPort_V",
+          "description": "Data signal of SocketTable_theirPort_6",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_6_theirPort_V",
+              "name": "SocketTable_theirPort_6",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_6_theirPort_V"
+              "description": "Bit 15 to 0 of SocketTable_theirPort_6"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0xc8",
-          "name": "SocketTable_7_theirPort_V",
+          "name": "SocketTable_theirPort_7",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_7_theirPort_V",
+          "description": "Data signal of SocketTable_theirPort_7",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_7_theirPort_V",
+              "name": "SocketTable_theirPort_7",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_7_theirPort_V"
+              "description": "Bit 15 to 0 of SocketTable_theirPort_7"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0xd0",
-          "name": "SocketTable_8_theirPort_V",
+          "name": "SocketTable_theirPort_8",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_8_theirPort_V",
+          "description": "Data signal of SocketTable_theirPort_8",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_8_theirPort_V",
+              "name": "SocketTable_theirPort_8",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_8_theirPort_V"
+              "description": "Bit 15 to 0 of SocketTable_theirPort_8"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0xd8",
-          "name": "SocketTable_9_theirPort_V",
+          "name": "SocketTable_theirPort_9",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_9_theirPort_V",
+          "description": "Data signal of SocketTable_theirPort_9",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_9_theirPort_V",
+              "name": "SocketTable_theirPort_9",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_9_theirPort_V"
+              "description": "Bit 15 to 0 of SocketTable_theirPort_9"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0xe0",
-          "name": "SocketTable_10_theirPort_V",
+          "name": "SocketTable_theirPort_10",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_10_theirPort_V",
+          "description": "Data signal of SocketTable_theirPort_10",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_10_theirPort_V",
+              "name": "SocketTable_theirPort_10",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_10_theirPort_V"
+              "description": "Bit 15 to 0 of SocketTable_theirPort_10"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0xe8",
-          "name": "SocketTable_11_theirPort_V",
+          "name": "SocketTable_theirPort_11",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_11_theirPort_V",
+          "description": "Data signal of SocketTable_theirPort_11",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_11_theirPort_V",
+              "name": "SocketTable_theirPort_11",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_11_theirPort_V"
+              "description": "Bit 15 to 0 of SocketTable_theirPort_11"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0xf0",
-          "name": "SocketTable_12_theirPort_V",
+          "name": "SocketTable_theirPort_12",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_12_theirPort_V",
+          "description": "Data signal of SocketTable_theirPort_12",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_12_theirPort_V",
+              "name": "SocketTable_theirPort_12",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_12_theirPort_V"
+              "description": "Bit 15 to 0 of SocketTable_theirPort_12"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0xf8",
-          "name": "SocketTable_13_theirPort_V",
+          "name": "SocketTable_theirPort_13",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_13_theirPort_V",
+          "description": "Data signal of SocketTable_theirPort_13",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_13_theirPort_V",
+              "name": "SocketTable_theirPort_13",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_13_theirPort_V"
+              "description": "Bit 15 to 0 of SocketTable_theirPort_13"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x100",
-          "name": "SocketTable_14_theirPort_V",
+          "name": "SocketTable_theirPort_14",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_14_theirPort_V",
+          "description": "Data signal of SocketTable_theirPort_14",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_14_theirPort_V",
+              "name": "SocketTable_theirPort_14",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_14_theirPort_V"
+              "description": "Bit 15 to 0 of SocketTable_theirPort_14"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x108",
-          "name": "SocketTable_15_theirPort_V",
+          "name": "SocketTable_theirPort_15",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_15_theirPort_V",
+          "description": "Data signal of SocketTable_theirPort_15",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_15_theirPort_V",
+              "name": "SocketTable_theirPort_15",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_15_theirPort_V"
+              "description": "Bit 15 to 0 of SocketTable_theirPort_15"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x110",
-          "name": "SocketTable_0_myPort_V",
+          "name": "SocketTable_myPort_0",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_0_myPort_V",
+          "description": "Data signal of SocketTable_myPort_0",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_0_myPort_V",
+              "name": "SocketTable_myPort_0",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_0_myPort_V"
+              "description": "Bit 15 to 0 of SocketTable_myPort_0"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x118",
-          "name": "SocketTable_1_myPort_V",
+          "name": "SocketTable_myPort_1",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_1_myPort_V",
+          "description": "Data signal of SocketTable_myPort_1",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_1_myPort_V",
+              "name": "SocketTable_myPort_1",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_1_myPort_V"
+              "description": "Bit 15 to 0 of SocketTable_myPort_1"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x120",
-          "name": "SocketTable_2_myPort_V",
+          "name": "SocketTable_myPort_2",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_2_myPort_V",
+          "description": "Data signal of SocketTable_myPort_2",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_2_myPort_V",
+              "name": "SocketTable_myPort_2",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_2_myPort_V"
+              "description": "Bit 15 to 0 of SocketTable_myPort_2"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x128",
-          "name": "SocketTable_3_myPort_V",
+          "name": "SocketTable_myPort_3",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_3_myPort_V",
+          "description": "Data signal of SocketTable_myPort_3",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_3_myPort_V",
+              "name": "SocketTable_myPort_3",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_3_myPort_V"
+              "description": "Bit 15 to 0 of SocketTable_myPort_3"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x130",
-          "name": "SocketTable_4_myPort_V",
+          "name": "SocketTable_myPort_4",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_4_myPort_V",
+          "description": "Data signal of SocketTable_myPort_4",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_4_myPort_V",
+              "name": "SocketTable_myPort_4",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_4_myPort_V"
+              "description": "Bit 15 to 0 of SocketTable_myPort_4"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x138",
-          "name": "SocketTable_5_myPort_V",
+          "name": "SocketTable_myPort_5",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_5_myPort_V",
+          "description": "Data signal of SocketTable_myPort_5",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_5_myPort_V",
+              "name": "SocketTable_myPort_5",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_5_myPort_V"
+              "description": "Bit 15 to 0 of SocketTable_myPort_5"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x140",
-          "name": "SocketTable_6_myPort_V",
+          "name": "SocketTable_myPort_6",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_6_myPort_V",
+          "description": "Data signal of SocketTable_myPort_6",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_6_myPort_V",
+              "name": "SocketTable_myPort_6",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_6_myPort_V"
+              "description": "Bit 15 to 0 of SocketTable_myPort_6"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x148",
-          "name": "SocketTable_7_myPort_V",
+          "name": "SocketTable_myPort_7",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_7_myPort_V",
+          "description": "Data signal of SocketTable_myPort_7",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_7_myPort_V",
+              "name": "SocketTable_myPort_7",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_7_myPort_V"
+              "description": "Bit 15 to 0 of SocketTable_myPort_7"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x150",
-          "name": "SocketTable_8_myPort_V",
+          "name": "SocketTable_myPort_8",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_8_myPort_V",
+          "description": "Data signal of SocketTable_myPort_8",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_8_myPort_V",
+              "name": "SocketTable_myPort_8",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_8_myPort_V"
+              "description": "Bit 15 to 0 of SocketTable_myPort_8"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x158",
-          "name": "SocketTable_9_myPort_V",
+          "name": "SocketTable_myPort_9",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_9_myPort_V",
+          "description": "Data signal of SocketTable_myPort_9",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_9_myPort_V",
+              "name": "SocketTable_myPort_9",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_9_myPort_V"
+              "description": "Bit 15 to 0 of SocketTable_myPort_9"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x160",
-          "name": "SocketTable_10_myPort_V",
+          "name": "SocketTable_myPort_10",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_10_myPort_V",
+          "description": "Data signal of SocketTable_myPort_10",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_10_myPort_V",
+              "name": "SocketTable_myPort_10",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_10_myPort_V"
+              "description": "Bit 15 to 0 of SocketTable_myPort_10"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x168",
-          "name": "SocketTable_11_myPort_V",
+          "name": "SocketTable_myPort_11",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_11_myPort_V",
+          "description": "Data signal of SocketTable_myPort_11",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_11_myPort_V",
+              "name": "SocketTable_myPort_11",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_11_myPort_V"
+              "description": "Bit 15 to 0 of SocketTable_myPort_11"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x170",
-          "name": "SocketTable_12_myPort_V",
+          "name": "SocketTable_myPort_12",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_12_myPort_V",
+          "description": "Data signal of SocketTable_myPort_12",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_12_myPort_V",
+              "name": "SocketTable_myPort_12",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_12_myPort_V"
+              "description": "Bit 15 to 0 of SocketTable_myPort_12"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x178",
-          "name": "SocketTable_13_myPort_V",
+          "name": "SocketTable_myPort_13",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_13_myPort_V",
+          "description": "Data signal of SocketTable_myPort_13",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_13_myPort_V",
+              "name": "SocketTable_myPort_13",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_13_myPort_V"
+              "description": "Bit 15 to 0 of SocketTable_myPort_13"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x180",
-          "name": "SocketTable_14_myPort_V",
+          "name": "SocketTable_myPort_14",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_14_myPort_V",
+          "description": "Data signal of SocketTable_myPort_14",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_14_myPort_V",
+              "name": "SocketTable_myPort_14",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_14_myPort_V"
+              "description": "Bit 15 to 0 of SocketTable_myPort_14"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x188",
-          "name": "SocketTable_15_myPort_V",
+          "name": "SocketTable_myPort_15",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_15_myPort_V",
+          "description": "Data signal of SocketTable_myPort_15",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "SocketTable_15_myPort_V",
+              "name": "SocketTable_myPort_15",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of SocketTable_15_myPort_V"
+              "description": "Bit 15 to 0 of SocketTable_myPort_15"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x190",
-          "name": "SocketTable_0_valid_V",
+          "name": "SocketTable_valid_0",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_0_valid_V",
+          "description": "Data signal of SocketTable_valid_0",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "1",
-              "name": "SocketTable_0_valid_V",
+              "name": "SocketTable_valid_0",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 0 to 0 Data signal of SocketTable_0_valid_V"
+              "description": "Bit 0 to 0 of SocketTable_valid_0"
             },
             {
               "offset": "1",
               "width": "31",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x198",
-          "name": "SocketTable_1_valid_V",
+          "name": "SocketTable_valid_1",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_1_valid_V",
+          "description": "Data signal of SocketTable_valid_1",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "1",
-              "name": "SocketTable_1_valid_V",
+              "name": "SocketTable_valid_1",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 0 to 0 Data signal of SocketTable_1_valid_V"
+              "description": "Bit 0 to 0 of SocketTable_valid_1"
             },
             {
               "offset": "1",
               "width": "31",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x1a0",
-          "name": "SocketTable_2_valid_V",
+          "name": "SocketTable_valid_2",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_2_valid_V",
+          "description": "Data signal of SocketTable_valid_2",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "1",
-              "name": "SocketTable_2_valid_V",
+              "name": "SocketTable_valid_2",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 0 to 0 Data signal of SocketTable_2_valid_V"
+              "description": "Bit 0 to 0 of SocketTable_valid_2"
             },
             {
               "offset": "1",
               "width": "31",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x1a8",
-          "name": "SocketTable_3_valid_V",
+          "name": "SocketTable_valid_3",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_3_valid_V",
+          "description": "Data signal of SocketTable_valid_3",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "1",
-              "name": "SocketTable_3_valid_V",
+              "name": "SocketTable_valid_3",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 0 to 0 Data signal of SocketTable_3_valid_V"
+              "description": "Bit 0 to 0 of SocketTable_valid_3"
             },
             {
               "offset": "1",
               "width": "31",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x1b0",
-          "name": "SocketTable_4_valid_V",
+          "name": "SocketTable_valid_4",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_4_valid_V",
+          "description": "Data signal of SocketTable_valid_4",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "1",
-              "name": "SocketTable_4_valid_V",
+              "name": "SocketTable_valid_4",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 0 to 0 Data signal of SocketTable_4_valid_V"
+              "description": "Bit 0 to 0 of SocketTable_valid_4"
             },
             {
               "offset": "1",
               "width": "31",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x1b8",
-          "name": "SocketTable_5_valid_V",
+          "name": "SocketTable_valid_5",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_5_valid_V",
+          "description": "Data signal of SocketTable_valid_5",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "1",
-              "name": "SocketTable_5_valid_V",
+              "name": "SocketTable_valid_5",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 0 to 0 Data signal of SocketTable_5_valid_V"
+              "description": "Bit 0 to 0 of SocketTable_valid_5"
             },
             {
               "offset": "1",
               "width": "31",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x1c0",
-          "name": "SocketTable_6_valid_V",
+          "name": "SocketTable_valid_6",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_6_valid_V",
+          "description": "Data signal of SocketTable_valid_6",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "1",
-              "name": "SocketTable_6_valid_V",
+              "name": "SocketTable_valid_6",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 0 to 0 Data signal of SocketTable_6_valid_V"
+              "description": "Bit 0 to 0 of SocketTable_valid_6"
             },
             {
               "offset": "1",
               "width": "31",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x1c8",
-          "name": "SocketTable_7_valid_V",
+          "name": "SocketTable_valid_7",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_7_valid_V",
+          "description": "Data signal of SocketTable_valid_7",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "1",
-              "name": "SocketTable_7_valid_V",
+              "name": "SocketTable_valid_7",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 0 to 0 Data signal of SocketTable_7_valid_V"
+              "description": "Bit 0 to 0 of SocketTable_valid_7"
             },
             {
               "offset": "1",
               "width": "31",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x1d0",
-          "name": "SocketTable_8_valid_V",
+          "name": "SocketTable_valid_8",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_8_valid_V",
+          "description": "Data signal of SocketTable_valid_8",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "1",
-              "name": "SocketTable_8_valid_V",
+              "name": "SocketTable_valid_8",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 0 to 0 Data signal of SocketTable_8_valid_V"
+              "description": "Bit 0 to 0 of SocketTable_valid_8"
             },
             {
               "offset": "1",
               "width": "31",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x1d8",
-          "name": "SocketTable_9_valid_V",
+          "name": "SocketTable_valid_9",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_9_valid_V",
+          "description": "Data signal of SocketTable_valid_9",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "1",
-              "name": "SocketTable_9_valid_V",
+              "name": "SocketTable_valid_9",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 0 to 0 Data signal of SocketTable_9_valid_V"
+              "description": "Bit 0 to 0 of SocketTable_valid_9"
             },
             {
               "offset": "1",
               "width": "31",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x1e0",
-          "name": "SocketTable_10_valid_V",
+          "name": "SocketTable_valid_10",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_10_valid_V",
+          "description": "Data signal of SocketTable_valid_10",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "1",
-              "name": "SocketTable_10_valid_V",
+              "name": "SocketTable_valid_10",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 0 to 0 Data signal of SocketTable_10_valid_V"
+              "description": "Bit 0 to 0 of SocketTable_valid_10"
             },
             {
               "offset": "1",
               "width": "31",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x1e8",
-          "name": "SocketTable_11_valid_V",
+          "name": "SocketTable_valid_11",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_11_valid_V",
+          "description": "Data signal of SocketTable_valid_11",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "1",
-              "name": "SocketTable_11_valid_V",
+              "name": "SocketTable_valid_11",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 0 to 0 Data signal of SocketTable_11_valid_V"
+              "description": "Bit 0 to 0 of SocketTable_valid_11"
             },
             {
               "offset": "1",
               "width": "31",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x1f0",
-          "name": "SocketTable_12_valid_V",
+          "name": "SocketTable_valid_12",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_12_valid_V",
+          "description": "Data signal of SocketTable_valid_12",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "1",
-              "name": "SocketTable_12_valid_V",
+              "name": "SocketTable_valid_12",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 0 to 0 Data signal of SocketTable_12_valid_V"
+              "description": "Bit 0 to 0 of SocketTable_valid_12"
             },
             {
               "offset": "1",
               "width": "31",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x1f8",
-          "name": "SocketTable_13_valid_V",
+          "name": "SocketTable_valid_13",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_13_valid_V",
+          "description": "Data signal of SocketTable_valid_13",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "1",
-              "name": "SocketTable_13_valid_V",
+              "name": "SocketTable_valid_13",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 0 to 0 Data signal of SocketTable_13_valid_V"
+              "description": "Bit 0 to 0 of SocketTable_valid_13"
             },
             {
               "offset": "1",
               "width": "31",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x200",
-          "name": "SocketTable_14_valid_V",
+          "name": "SocketTable_valid_14",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_14_valid_V",
+          "description": "Data signal of SocketTable_valid_14",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "1",
-              "name": "SocketTable_14_valid_V",
+              "name": "SocketTable_valid_14",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 0 to 0 Data signal of SocketTable_14_valid_V"
+              "description": "Bit 0 to 0 of SocketTable_valid_14"
             },
             {
               "offset": "1",
               "width": "31",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x208",
-          "name": "SocketTable_15_valid_V",
+          "name": "SocketTable_valid_15",
           "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of SocketTable_15_valid_V",
+          "description": "Data signal of SocketTable_valid_15",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "1",
-              "name": "SocketTable_15_valid_V",
+              "name": "SocketTable_valid_15",
               "access": "W",
-              "reset_value": "0",
-              "description": "Bit 0 to 0 Data signal of SocketTable_15_valid_V"
+              "description": "Bit 0 to 0 of SocketTable_valid_15"
             },
             {
               "offset": "1",
               "width": "31",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x210",
-          "name": "numberSockets_V",
+          "name": "numberSockets",
           "access": "R",
-          "reset_value": "0x0",
-          "description": "Data signal of numberSockets_V",
+          "description": "Data signal of numberSockets",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "16",
-              "name": "numberSockets_V",
+              "name": "numberSockets",
               "access": "R",
-              "reset_value": "0",
-              "description": "Bit 15 to 0 Data signal of numberSockets_V"
+              "description": "Bit 15 to 0 of numberSockets"
             },
             {
               "offset": "16",
               "width": "16",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         },
         {
           "offset": "0x214",
-          "name": "numberSockets_V_ctrl",
+          "name": "numberSockets_ctrl",
           "access": "R",
-          "reset_value": "0x0",
-          "description": "Control signal of numberSockets_V",
+          "description": "Control signal of numberSockets",
+          "range": "32",
           "fields": [
             {
               "offset": "0",
               "width": "1",
-              "name": "numberSockets_V_ap_vld",
+              "name": "numberSockets_ap_vld",
               "access": "R",
-              "reset_value": "0",
-              "description": "Control signal numberSockets_V_ap_vld"
+              "description": "Control signal numberSockets_ap_vld"
             },
             {
               "offset": "1",
               "width": "31",
               "name": "RESERVED",
               "access": "R",
-              "reset_value": "0",
               "description": "Reserved.  0s on read."
             }
           ]
         }
       ],
-      "ctype": {
-        "AWVALID": {"Type": "bool"},
-        "AWREADY": {"Type": "bool"},
-        "WVALID": {"Type": "bool"},
-        "WREADY": {"Type": "bool"},
-        "BVALID": {"Type": "bool"},
-        "BREADY": {"Type": "bool"},
-        "BRESP": {
-          "Type": "integer unsigned",
-          "Width": "2"
+      "constraints": [
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "16",
+          "argName": "SocketTable"
         },
-        "ARVALID": {"Type": "bool"},
-        "ARREADY": {"Type": "bool"},
-        "RVALID": {"Type": "bool"},
-        "RREADY": {"Type": "bool"},
-        "RRESP": {
-          "Type": "integer unsigned",
-          "Width": "2"
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "24",
+          "argName": "SocketTable"
         },
-        "AWADDR": {
-          "Type": "integer unsigned",
-          "Width": "10"
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "32",
+          "argName": "SocketTable"
         },
-        "WDATA": {
-          "Type": "integer unsigned",
-          "Width": "16"
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "40",
+          "argName": "SocketTable"
         },
-        "WSTRB": {
-          "Type": "integer unsigned",
-          "Width": "4"
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "48",
+          "argName": "SocketTable"
         },
-        "ARADDR": {
-          "Type": "integer unsigned",
-          "Width": "10"
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "56",
+          "argName": "SocketTable"
         },
-        "RDATA": {
-          "Type": "integer unsigned",
-          "Width": "16"
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "64",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "72",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "80",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "88",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "96",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "104",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "112",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "120",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "128",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "136",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "144",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "152",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "160",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "168",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "176",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "184",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "192",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "200",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "208",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "216",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "224",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "232",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "240",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "248",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "256",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "264",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "272",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "280",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "288",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "296",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "304",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "312",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "320",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "328",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "336",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "344",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "352",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "360",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "368",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "376",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "384",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "392",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "400",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "408",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "416",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "424",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "432",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "440",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "448",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "456",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "464",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "472",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "480",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "488",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "496",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "504",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "512",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "520",
+          "argName": "SocketTable"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "0",
+          "offset": "528",
+          "argName": "numberSockets"
         }
+      ]
+    },
+    "ap_clk": {
+      "type": "clock",
+      "busTypeName": "clock",
+      "mode": "slave",
+      "busParams": {
+        "ASSOCIATED_BUSIF": "s_axi_s_axilite:rxUdpDataIn:txUdpDataOut:DataOutApp:DataInApp",
+        "ASSOCIATED_RESET": "ap_rst_n"
       },
-      "data_width": "32",
-      "port_width": {
-        "ARADDR": "10",
-        "AWADDR": "10",
-        "RDATA": "32",
-        "WDATA": "32",
-        "WSTRB": "4"
-      }
+      "portMap": {"ap_clk": "CLK"},
+      "ports": ["ap_clk"]
+    },
+    "ap_rst_n": {
+      "type": "reset",
+      "busTypeName": "reset",
+      "mode": "slave",
+      "busParams": {"POLARITY": "ACTIVE_LOW"},
+      "portMap": {"ap_rst_n": "RST"},
+      "ports": ["ap_rst_n"]
+    },
+    "rxUdpDataIn": {
+      "type": "axi4stream",
+      "busTypeName": "axis",
+      "mode": "slave",
+      "dataWidth": "512",
+      "portPrefix": "rxUdpDataIn_",
+      "ports": [
+        "rxUdpDataIn_TDATA",
+        "rxUdpDataIn_TKEEP",
+        "rxUdpDataIn_TLAST",
+        "rxUdpDataIn_TREADY",
+        "rxUdpDataIn_TSTRB",
+        "rxUdpDataIn_TVALID"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "axis",
+          "register_option": "1",
+          "register_mode": "both",
+          "argName": "rxUdpDataIn"
+        }]
     },
     "txUdpDataOut": {
       "type": "axi4stream",
+      "busTypeName": "axis",
       "mode": "master",
-      "port_prefix": "txUdpDataOut",
-      "has_tready": "1",
-      "ctype": {
-        "TDATA": {
-          "Type": "integer unsigned",
-          "Width": "512"
-        },
-        "TKEEP": {
-          "Type": "integer unsigned",
-          "Width": "64"
-        },
-        "TLAST": {
-          "Type": "integer unsigned",
-          "Width": "1"
-        },
-        "TVALID": {"Type": "bool"},
-        "TREADY": {"Type": "bool"}
-      },
-      "port_width": {
-        "TDATA": "512",
-        "TKEEP": "64",
-        "TLAST": "1"
-      }
+      "dataWidth": "512",
+      "portPrefix": "txUdpDataOut_",
+      "ports": [
+        "txUdpDataOut_TDATA",
+        "txUdpDataOut_TKEEP",
+        "txUdpDataOut_TLAST",
+        "txUdpDataOut_TREADY",
+        "txUdpDataOut_TSTRB",
+        "txUdpDataOut_TVALID"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "axis",
+          "register_option": "1",
+          "register_mode": "both",
+          "argName": "txUdpDataOut"
+        }]
+    },
+    "DataOutApp": {
+      "type": "axi4stream",
+      "busTypeName": "axis",
+      "mode": "master",
+      "dataWidth": "512",
+      "portPrefix": "DataOutApp_",
+      "ports": [
+        "DataOutApp_TDATA",
+        "DataOutApp_TDEST",
+        "DataOutApp_TKEEP",
+        "DataOutApp_TLAST",
+        "DataOutApp_TREADY",
+        "DataOutApp_TSTRB",
+        "DataOutApp_TUSER",
+        "DataOutApp_TVALID"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "axis",
+          "register_option": "1",
+          "register_mode": "both",
+          "argName": "DataOutApp"
+        }]
+    },
+    "DataInApp": {
+      "type": "axi4stream",
+      "busTypeName": "axis",
+      "mode": "slave",
+      "dataWidth": "512",
+      "portPrefix": "DataInApp_",
+      "ports": [
+        "DataInApp_TDATA",
+        "DataInApp_TDEST",
+        "DataInApp_TKEEP",
+        "DataInApp_TLAST",
+        "DataInApp_TREADY",
+        "DataInApp_TSTRB",
+        "DataInApp_TUSER",
+        "DataInApp_TVALID"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "axis",
+          "register_option": "1",
+          "register_mode": "both",
+          "argName": "DataInApp"
+        }]
+    },
+    "myIpAddress": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_none",
+      "mode": "slave",
+      "dataWidth": "32",
+      "portMap": {"myIpAddress": "DATA"},
+      "ports": ["myIpAddress"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "1",
+          "argName": "myIpAddress"
+        }]
     }
   },
   "RtlPorts": {
@@ -2147,6 +2743,10 @@
       "dir": "in",
       "width": "64"
     },
+    "rxUdpDataIn_TSTRB": {
+      "dir": "in",
+      "width": "64"
+    },
     "rxUdpDataIn_TLAST": {
       "dir": "in",
       "width": "1",
@@ -2165,6 +2765,10 @@
       "width": "512"
     },
     "txUdpDataOut_TKEEP": {
+      "dir": "out",
+      "width": "64"
+    },
+    "txUdpDataOut_TSTRB": {
       "dir": "out",
       "width": "64"
     },
@@ -2189,18 +2793,22 @@
       "dir": "out",
       "width": "64"
     },
-    "DataOutApp_TDEST": {
+    "DataOutApp_TSTRB": {
       "dir": "out",
-      "width": "16"
+      "width": "64"
+    },
+    "DataOutApp_TUSER": {
+      "dir": "out",
+      "width": "96"
     },
     "DataOutApp_TLAST": {
       "dir": "out",
       "width": "1",
       "isVector": "true"
     },
-    "DataOutApp_TUSER": {
+    "DataOutApp_TDEST": {
       "dir": "out",
-      "width": "96"
+      "width": "16"
     },
     "DataOutApp_TVALID": {
       "dir": "out",
@@ -2218,18 +2826,22 @@
       "dir": "in",
       "width": "64"
     },
-    "DataInApp_TDEST": {
+    "DataInApp_TSTRB": {
       "dir": "in",
-      "width": "16"
+      "width": "64"
+    },
+    "DataInApp_TUSER": {
+      "dir": "in",
+      "width": "96"
     },
     "DataInApp_TLAST": {
       "dir": "in",
       "width": "1",
       "isVector": "true"
     },
-    "DataInApp_TUSER": {
+    "DataInApp_TDEST": {
       "dir": "in",
-      "width": "96"
+      "width": "16"
     },
     "DataInApp_TVALID": {
       "dir": "in",
@@ -2239,7 +2851,7 @@
       "dir": "out",
       "width": "1"
     },
-    "myIpAddress_V": {
+    "myIpAddress": {
       "dir": "in",
       "width": "32"
     }
@@ -2249,158 +2861,124 @@
       "ModuleName": "udp",
       "Instances": [
         {
-          "ModuleName": "udpTxEngine",
-          "InstanceName": "udpTxEngine_U0"
-        },
-        {
-          "ModuleName": "rxTableHandler",
-          "InstanceName": "rxTableHandler_U0"
-        },
-        {
           "ModuleName": "udpRxEngine",
           "InstanceName": "udpRxEngine_U0"
         },
         {
-          "ModuleName": "rxEngPacketDropper",
-          "InstanceName": "rxEngPacketDropper_U0"
+          "ModuleName": "entry_proc",
+          "InstanceName": "entry_proc_U0"
+        },
+        {
+          "ModuleName": "TableHandler",
+          "InstanceName": "TableHandler_U0"
         },
         {
           "ModuleName": "appGetMetaData",
           "InstanceName": "appGetMetaData_U0",
           "Instances": [{
               "ModuleName": "keep2len",
-              "InstanceName": "grp_keep2len_fu_113"
+              "InstanceName": "grp_keep2len_fu_121"
             }]
         },
         {
-          "ModuleName": "txTableHandler",
-          "InstanceName": "txTableHandler_U0"
+          "ModuleName": "rxEngPacketDropper",
+          "InstanceName": "rxEngPacketDropper_U0"
         },
         {
-          "ModuleName": "udp_entry266",
-          "InstanceName": "udp_entry266_U0"
-        },
-        {
-          "ModuleName": "udp_entry3",
-          "InstanceName": "udp_entry3_U0"
+          "ModuleName": "udpTxEngine",
+          "InstanceName": "udpTxEngine_U0"
         }
       ]
     },
     "Info": {
-      "udp_entry3": {
+      "entry_proc": {
         "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "1",
-        "isPipelined": "0",
-        "isCombinational": "0",
-        "isOneStateSeq": "1"
-      },
-      "udp_entry266": {
-        "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "1",
+        "isTaskLevelControl": "0",
         "isPipelined": "0",
         "isCombinational": "0",
         "isOneStateSeq": "1"
       },
       "udpRxEngine": {
         "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "1",
+        "isTaskLevelControl": "0",
         "isPipelined": "1",
         "isCombinational": "0",
         "isOneStateSeq": "0"
       },
-      "rxTableHandler": {
+      "TableHandler": {
         "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "1",
+        "isTaskLevelControl": "0",
         "isPipelined": "1",
         "isCombinational": "0",
         "isOneStateSeq": "0"
       },
       "rxEngPacketDropper": {
         "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "1",
+        "isTaskLevelControl": "0",
         "isPipelined": "1",
         "isCombinational": "0",
         "isOneStateSeq": "0"
       },
       "keep2len": {
         "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "1",
+        "isTaskLevelControl": "0",
         "isPipelined": "0",
         "isCombinational": "1",
         "isOneStateSeq": "0"
       },
       "appGetMetaData": {
         "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "1",
-        "isPipelined": "1",
-        "isCombinational": "0",
-        "isOneStateSeq": "0"
-      },
-      "txTableHandler": {
-        "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "1",
+        "isTaskLevelControl": "0",
         "isPipelined": "1",
         "isCombinational": "0",
         "isOneStateSeq": "0"
       },
       "udpTxEngine": {
         "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "1",
+        "isTaskLevelControl": "0",
         "isPipelined": "1",
         "isCombinational": "0",
         "isOneStateSeq": "0"
       },
       "udp": {
         "FunctionProtocol": "ap_ctrl_none",
-        "isTaskLevelControl": "1",
+        "isTaskLevelControl": "0",
         "isPipelined": "1",
         "isCombinational": "0",
         "isOneStateSeq": "0"
       }
     },
     "Metrics": {
-      "udp_entry3": {
+      "entry_proc": {
         "Latency": {
           "LatencyBest": "0",
           "LatencyAvg": "0",
           "LatencyWorst": "0",
           "PipelineII": "0",
           "PipelineDepth": "",
-          "PipelineType": "none"
+          "PipelineType": "no"
         },
         "Timing": {
           "Target": "2.50",
           "Uncertainty": "0.20",
-          "Estimate": "1.150"
+          "Estimate": "0.000"
         },
         "Area": {
-          "FF": "2",
-          "LUT": "587",
+          "FF": "1074",
+          "AVAIL_FF": "2607360",
+          "UTIL_FF": "~0",
+          "LUT": "596",
+          "AVAIL_LUT": "1303680",
+          "UTIL_LUT": "~0",
           "BRAM_18K": "0",
-          "DSP48E": "0",
-          "URAM": "0"
-        }
-      },
-      "udp_entry266": {
-        "Latency": {
-          "LatencyBest": "0",
-          "LatencyAvg": "0",
-          "LatencyWorst": "0",
-          "PipelineII": "0",
-          "PipelineDepth": "",
-          "PipelineType": "none"
-        },
-        "Timing": {
-          "Target": "2.50",
-          "Uncertainty": "0.20",
-          "Estimate": "2.300"
-        },
-        "Area": {
-          "FF": "2",
-          "LUT": "1595",
-          "BRAM_18K": "0",
-          "DSP48E": "0",
-          "URAM": "0"
+          "AVAIL_BRAM": "4032",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "9024",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "960",
+          "UTIL_URAM": "0"
         }
       },
       "udpRxEngine": {
@@ -2410,7 +2988,7 @@
           "LatencyWorst": "1",
           "PipelineII": "1",
           "PipelineDepth": "2",
-          "PipelineType": "function"
+          "PipelineType": "yes"
         },
         "Timing": {
           "Target": "2.50",
@@ -2418,33 +2996,53 @@
           "Estimate": "1.150"
         },
         "Area": {
-          "FF": "1259",
-          "LUT": "142",
+          "FF": "1260",
+          "AVAIL_FF": "2607360",
+          "UTIL_FF": "~0",
+          "LUT": "135",
+          "AVAIL_LUT": "1303680",
+          "UTIL_LUT": "~0",
           "BRAM_18K": "0",
-          "DSP48E": "0",
-          "URAM": "0"
+          "AVAIL_BRAM": "4032",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "9024",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "960",
+          "UTIL_URAM": "0"
         }
       },
-      "rxTableHandler": {
+      "TableHandler": {
         "Latency": {
           "LatencyBest": "2",
           "LatencyAvg": "2",
           "LatencyWorst": "2",
           "PipelineII": "1",
           "PipelineDepth": "3",
-          "PipelineType": "function"
+          "PipelineType": "yes"
         },
         "Timing": {
           "Target": "2.50",
           "Uncertainty": "0.20",
-          "Estimate": "2.375"
+          "Estimate": "2.131"
         },
         "Area": {
-          "FF": "164",
-          "LUT": "1423",
+          "FF": "1363",
+          "AVAIL_FF": "2607360",
+          "UTIL_FF": "~0",
+          "LUT": "1344",
+          "AVAIL_LUT": "1303680",
+          "UTIL_LUT": "~0",
           "BRAM_18K": "0",
-          "DSP48E": "0",
-          "URAM": "0"
+          "AVAIL_BRAM": "4032",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "9024",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "960",
+          "UTIL_URAM": "0"
         }
       },
       "rxEngPacketDropper": {
@@ -2454,19 +3052,29 @@
           "LatencyWorst": "2",
           "PipelineII": "1",
           "PipelineDepth": "3",
-          "PipelineType": "function"
+          "PipelineType": "yes"
         },
         "Timing": {
           "Target": "2.50",
           "Uncertainty": "0.20",
-          "Estimate": "1.150"
+          "Estimate": "1.659"
         },
         "Area": {
           "FF": "701",
-          "LUT": "64",
+          "AVAIL_FF": "2607360",
+          "UTIL_FF": "~0",
+          "LUT": "66",
+          "AVAIL_LUT": "1303680",
+          "UTIL_LUT": "~0",
           "BRAM_18K": "0",
-          "DSP48E": "0",
-          "URAM": "0"
+          "AVAIL_BRAM": "4032",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "9024",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "960",
+          "UTIL_URAM": "0"
         }
       },
       "keep2len": {
@@ -2476,19 +3084,29 @@
           "LatencyWorst": "0",
           "PipelineII": "1",
           "PipelineDepth": "1",
-          "PipelineType": "function"
+          "PipelineType": "yes"
         },
         "Timing": {
           "Target": "2.50",
           "Uncertainty": "0.20",
-          "Estimate": "1.679"
+          "Estimate": "1.029"
         },
         "Area": {
-          "LUT": "293",
-          "BRAM_18K": "0",
-          "DSP48E": "0",
           "FF": "0",
-          "URAM": "0"
+          "AVAIL_FF": "2607360",
+          "UTIL_FF": "0",
+          "LUT": "276",
+          "AVAIL_LUT": "1303680",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "4032",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "9024",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "960",
+          "UTIL_URAM": "0"
         }
       },
       "appGetMetaData": {
@@ -2498,7 +3116,7 @@
           "LatencyWorst": "1",
           "PipelineII": "1",
           "PipelineDepth": "2",
-          "PipelineType": "function"
+          "PipelineType": "yes"
         },
         "Timing": {
           "Target": "2.50",
@@ -2506,33 +3124,21 @@
           "Estimate": "1.935"
         },
         "Area": {
-          "FF": "623",
-          "LUT": "451",
+          "FF": "50",
+          "AVAIL_FF": "2607360",
+          "UTIL_FF": "~0",
+          "LUT": "443",
+          "AVAIL_LUT": "1303680",
+          "UTIL_LUT": "~0",
           "BRAM_18K": "0",
-          "DSP48E": "0",
-          "URAM": "0"
-        }
-      },
-      "txTableHandler": {
-        "Latency": {
-          "LatencyBest": "1",
-          "LatencyAvg": "1",
-          "LatencyWorst": "1",
-          "PipelineII": "1",
-          "PipelineDepth": "2",
-          "PipelineType": "function"
-        },
-        "Timing": {
-          "Target": "2.50",
-          "Uncertainty": "0.20",
-          "Estimate": "1.643"
-        },
-        "Area": {
-          "FF": "69",
-          "LUT": "873",
-          "BRAM_18K": "0",
-          "DSP48E": "0",
-          "URAM": "0"
+          "AVAIL_BRAM": "4032",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "9024",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "960",
+          "UTIL_URAM": "0"
         }
       },
       "udpTxEngine": {
@@ -2542,19 +3148,29 @@
           "LatencyWorst": "2",
           "PipelineII": "1",
           "PipelineDepth": "3",
-          "PipelineType": "function"
+          "PipelineType": "yes"
         },
         "Timing": {
           "Target": "2.50",
           "Uncertainty": "0.20",
-          "Estimate": "2.059"
+          "Estimate": "1.935"
         },
         "Area": {
-          "FF": "1587",
-          "LUT": "269",
+          "FF": "1839",
+          "AVAIL_FF": "2607360",
+          "UTIL_FF": "~0",
+          "LUT": "261",
+          "AVAIL_LUT": "1303680",
+          "UTIL_LUT": "~0",
           "BRAM_18K": "0",
-          "DSP48E": "0",
-          "URAM": "0"
+          "AVAIL_BRAM": "4032",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "9024",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "960",
+          "UTIL_URAM": "0"
         }
       },
       "udp": {
@@ -2569,30 +3185,33 @@
         "Timing": {
           "Target": "2.50",
           "Uncertainty": "0.20",
-          "Estimate": "2.375"
+          "Estimate": "2.131"
         },
         "Area": {
-          "BRAM_18K": "85",
-          "FF": "8709",
-          "LUT": "14512",
-          "DSP48E": "0",
-          "URAM": "0"
+          "BRAM_18K": "60",
+          "AVAIL_BRAM": "4032",
+          "UTIL_BRAM": "1",
+          "FF": "16147",
+          "AVAIL_FF": "2607360",
+          "UTIL_FF": "~0",
+          "LUT": "10556",
+          "AVAIL_LUT": "1303680",
+          "UTIL_LUT": "~0",
+          "URAM": "0",
+          "AVAIL_URAM": "960",
+          "UTIL_URAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "9024",
+          "UTIL_DSP": "0"
         }
       }
     }
   },
-  "Sdx": {
-    "Target": "none",
-    "ProfileOption": "0",
-    "ProfileType": "none",
-    "XO": "",
-    "KernelName": "udp",
-    "EnableXoSwEmu": "1"
-  },
+  "GenerateBdFiles": "0",
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2021-08-05 18:58:46 UTC",
-    "ToolName": "vivado_hls",
-    "ToolVersion": "2020.1"
+    "Time": "2021-11-03 14:24:36 UTC",
+    "ToolName": "vitis_hls",
+    "ToolVersion": "2021.1"
   }
 }

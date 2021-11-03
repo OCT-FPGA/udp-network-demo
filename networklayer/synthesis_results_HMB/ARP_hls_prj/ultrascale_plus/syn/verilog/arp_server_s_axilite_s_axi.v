@@ -1,11 +1,11 @@
 // ==============================================================
-// Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
-// Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+// Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2021.1 (64-bit)
+// Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // ==============================================================
 `timescale 1ns/1ps
 module arp_server_s_axilite_s_axi
 #(parameter
-    C_S_AXI_ADDR_WIDTH = 13,
+    C_S_AXI_ADDR_WIDTH = 12,
     C_S_AXI_DATA_WIDTH = 32
 )(
     input  wire                          ACLK,
@@ -28,204 +28,196 @@ module arp_server_s_axilite_s_axi
     output wire [1:0]                    RRESP,
     output wire                          RVALID,
     input  wire                          RREADY,
-    input  wire [7:0]                    arpTable_macAddress_V_address0,
-    input  wire                          arpTable_macAddress_V_ce0,
-    input  wire                          arpTable_macAddress_V_we0,
-    input  wire [47:0]                   arpTable_macAddress_V_d0,
-    output wire [47:0]                   arpTable_macAddress_V_q0,
-    input  wire [7:0]                    arpTable_ipAddress_V_address0,
-    input  wire                          arpTable_ipAddress_V_ce0,
-    input  wire                          arpTable_ipAddress_V_we0,
-    input  wire [31:0]                   arpTable_ipAddress_V_d0,
-    input  wire [7:0]                    arpTable_valid_V_address0,
-    input  wire                          arpTable_valid_V_ce0,
-    input  wire                          arpTable_valid_V_we0,
-    input  wire [0:0]                    arpTable_valid_V_d0,
-    output wire [0:0]                    arpTable_valid_V_q0,
-    output wire [0:0]                    arp_scan_V_i,
-    input  wire [0:0]                    arp_scan_V_o,
-    input  wire                          arp_scan_V_o_ap_vld
+    output wire [0:0]                    arp_scan_i,
+    input  wire [0:0]                    arp_scan_o,
+    input  wire                          arp_scan_o_ap_vld,
+    input  wire [7:0]                    arpTable_valid_address0,
+    input  wire                          arpTable_valid_ce0,
+    input  wire                          arpTable_valid_we0,
+    input  wire [7:0]                    arpTable_valid_d0,
+    output wire [7:0]                    arpTable_valid_q0,
+    input  wire [7:0]                    arpTable_ipAddress_address0,
+    input  wire                          arpTable_ipAddress_ce0,
+    input  wire                          arpTable_ipAddress_we0,
+    input  wire [31:0]                   arpTable_ipAddress_d0,
+    input  wire [7:0]                    arpTable_macAddress_address0,
+    input  wire                          arpTable_macAddress_ce0,
+    input  wire [7:0]                    arpTable_macAddress_we0,
+    input  wire [63:0]                   arpTable_macAddress_d0,
+    output wire [63:0]                   arpTable_macAddress_q0
 );
 //------------------------Address Info-------------------
-// 0x0000 : reserved
-// 0x0004 : reserved
-// 0x0008 : reserved
-// 0x000c : reserved
-// 0x1500 : Data signal of arp_scan_V_i
-//          bit 0  - arp_scan_V_i[0] (Read/Write)
-//          others - reserved
-// 0x1504 : reserved
-// 0x1508 : Data signal of arp_scan_V_o
-//          bit 0  - arp_scan_V_o[0] (Read)
-//          others - reserved
-// 0x150c : Control signal of arp_scan_V_o
-//          bit 0  - arp_scan_V_o_ap_vld (Read/COR)
-//          others - reserved
-// 0x0800 ~
-// 0x0fff : Memory 'arpTable_macAddress_V' (256 * 48b)
-//          Word 2n   : bit [31:0] - arpTable_macAddress_V[n][31: 0]
-//          Word 2n+1 : bit [15:0] - arpTable_macAddress_V[n][47:32]
-//                      others     - reserved
-// 0x1000 ~
-// 0x13ff : Memory 'arpTable_ipAddress_V' (256 * 32b)
-//          Word n : bit [31:0] - arpTable_ipAddress_V[n]
-// 0x1400 ~
-// 0x14ff : Memory 'arpTable_valid_V' (256 * 1b)
-//          Word n : bit [ 0: 0] - arpTable_valid_V[4n]
-//                   bit [ 8: 8] - arpTable_valid_V[4n+1]
-//                   bit [16:16] - arpTable_valid_V[4n+2]
-//                   bit [24:24] - arpTable_valid_V[4n+3]
-//                   others      - reserved
+// 0x000 : reserved
+// 0x004 : reserved
+// 0x008 : reserved
+// 0x00c : reserved
+// 0x010 : Data signal of arp_scan_i
+//         bit 0  - arp_scan_i[0] (Read/Write)
+//         others - reserved
+// 0x014 : reserved
+// 0x018 : Data signal of arp_scan_o
+//         bit 0  - arp_scan_o[0] (Read)
+//         others - reserved
+// 0x01c : Control signal of arp_scan_o
+//         bit 0  - arp_scan_o_ap_vld (Read/COR)
+//         others - reserved
+// 0x100 ~
+// 0x1ff : Memory 'arpTable_valid' (256 * 8b)
+//         Word n : bit [ 7: 0] - arpTable_valid[4n]
+//                  bit [15: 8] - arpTable_valid[4n+1]
+//                  bit [23:16] - arpTable_valid[4n+2]
+//                  bit [31:24] - arpTable_valid[4n+3]
+// 0x400 ~
+// 0x7ff : Memory 'arpTable_ipAddress' (256 * 32b)
+//         Word n : bit [31:0] - arpTable_ipAddress[n]
+// 0x800 ~
+// 0xfff : Memory 'arpTable_macAddress' (256 * 64b)
+//         Word 2n   : bit [31:0] - arpTable_macAddress[n][31: 0]
+//         Word 2n+1 : bit [31:0] - arpTable_macAddress[n][63:32]
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
 localparam
-    ADDR_ARP_SCAN_V_I_DATA_0        = 13'h1500,
-    ADDR_ARP_SCAN_V_I_CTRL          = 13'h1504,
-    ADDR_ARP_SCAN_V_O_DATA_0        = 13'h1508,
-    ADDR_ARP_SCAN_V_O_CTRL          = 13'h150c,
-    ADDR_ARPTABLE_MACADDRESS_V_BASE = 13'h0800,
-    ADDR_ARPTABLE_MACADDRESS_V_HIGH = 13'h0fff,
-    ADDR_ARPTABLE_IPADDRESS_V_BASE  = 13'h1000,
-    ADDR_ARPTABLE_IPADDRESS_V_HIGH  = 13'h13ff,
-    ADDR_ARPTABLE_VALID_V_BASE      = 13'h1400,
-    ADDR_ARPTABLE_VALID_V_HIGH      = 13'h14ff,
-    WRIDLE                          = 2'd0,
-    WRDATA                          = 2'd1,
-    WRRESP                          = 2'd2,
-    WRRESET                         = 2'd3,
-    RDIDLE                          = 2'd0,
-    RDDATA                          = 2'd1,
-    RDRESET                         = 2'd2,
-    ADDR_BITS         = 13;
+    ADDR_ARP_SCAN_I_DATA_0        = 12'h010,
+    ADDR_ARP_SCAN_I_CTRL          = 12'h014,
+    ADDR_ARP_SCAN_O_DATA_0        = 12'h018,
+    ADDR_ARP_SCAN_O_CTRL          = 12'h01c,
+    ADDR_ARPTABLE_VALID_BASE      = 12'h100,
+    ADDR_ARPTABLE_VALID_HIGH      = 12'h1ff,
+    ADDR_ARPTABLE_IPADDRESS_BASE  = 12'h400,
+    ADDR_ARPTABLE_IPADDRESS_HIGH  = 12'h7ff,
+    ADDR_ARPTABLE_MACADDRESS_BASE = 12'h800,
+    ADDR_ARPTABLE_MACADDRESS_HIGH = 12'hfff,
+    WRIDLE                        = 2'd0,
+    WRDATA                        = 2'd1,
+    WRRESP                        = 2'd2,
+    WRRESET                       = 2'd3,
+    RDIDLE                        = 2'd0,
+    RDDATA                        = 2'd1,
+    RDRESET                       = 2'd2,
+    ADDR_BITS                = 12;
 
 //------------------------Local signal-------------------
     reg  [1:0]                    wstate = WRRESET;
     reg  [1:0]                    wnext;
     reg  [ADDR_BITS-1:0]          waddr;
-    wire [31:0]                   wmask;
+    wire [C_S_AXI_DATA_WIDTH-1:0] wmask;
     wire                          aw_hs;
     wire                          w_hs;
     reg  [1:0]                    rstate = RDRESET;
     reg  [1:0]                    rnext;
-    reg  [31:0]                   rdata;
+    reg  [C_S_AXI_DATA_WIDTH-1:0] rdata;
     wire                          ar_hs;
     wire [ADDR_BITS-1:0]          raddr;
     // internal registers
-    reg  [0:0]                    int_arp_scan_V_i = 'b0;
-    reg  [0:0]                    int_arp_scan_V_o = 'b0;
-    reg                           int_arp_scan_V_o_ap_vld;
+    reg  [0:0]                    int_arp_scan_i = 'b0;
+    reg                           int_arp_scan_o_ap_vld;
+    reg  [0:0]                    int_arp_scan_o = 'b0;
     // memory signals
-    wire [7:0]                    int_arpTable_macAddress_V_address0;
-    wire                          int_arpTable_macAddress_V_ce0;
-    wire                          int_arpTable_macAddress_V_we0;
-    wire [5:0]                    int_arpTable_macAddress_V_be0;
-    wire [47:0]                   int_arpTable_macAddress_V_d0;
-    wire [47:0]                   int_arpTable_macAddress_V_q0;
-    wire [7:0]                    int_arpTable_macAddress_V_address1;
-    wire                          int_arpTable_macAddress_V_ce1;
-    wire                          int_arpTable_macAddress_V_we1;
-    wire [5:0]                    int_arpTable_macAddress_V_be1;
-    wire [47:0]                   int_arpTable_macAddress_V_d1;
-    wire [47:0]                   int_arpTable_macAddress_V_q1;
-    reg                           int_arpTable_macAddress_V_read;
-    reg                           int_arpTable_macAddress_V_write;
-    reg  [0:0]                    int_arpTable_macAddress_V_shift;
-    wire [7:0]                    int_arpTable_ipAddress_V_address0;
-    wire                          int_arpTable_ipAddress_V_ce0;
-    wire                          int_arpTable_ipAddress_V_we0;
-    wire [3:0]                    int_arpTable_ipAddress_V_be0;
-    wire [31:0]                   int_arpTable_ipAddress_V_d0;
-    wire [31:0]                   int_arpTable_ipAddress_V_q0;
-    wire [7:0]                    int_arpTable_ipAddress_V_address1;
-    wire                          int_arpTable_ipAddress_V_ce1;
-    wire                          int_arpTable_ipAddress_V_we1;
-    wire [3:0]                    int_arpTable_ipAddress_V_be1;
-    wire [31:0]                   int_arpTable_ipAddress_V_d1;
-    wire [31:0]                   int_arpTable_ipAddress_V_q1;
-    reg                           int_arpTable_ipAddress_V_read;
-    reg                           int_arpTable_ipAddress_V_write;
-    wire [5:0]                    int_arpTable_valid_V_address0;
-    wire                          int_arpTable_valid_V_ce0;
-    wire                          int_arpTable_valid_V_we0;
-    wire [3:0]                    int_arpTable_valid_V_be0;
-    wire [31:0]                   int_arpTable_valid_V_d0;
-    wire [31:0]                   int_arpTable_valid_V_q0;
-    wire [5:0]                    int_arpTable_valid_V_address1;
-    wire                          int_arpTable_valid_V_ce1;
-    wire                          int_arpTable_valid_V_we1;
-    wire [3:0]                    int_arpTable_valid_V_be1;
-    wire [31:0]                   int_arpTable_valid_V_d1;
-    wire [31:0]                   int_arpTable_valid_V_q1;
-    reg                           int_arpTable_valid_V_read;
-    reg                           int_arpTable_valid_V_write;
-    reg  [1:0]                    int_arpTable_valid_V_shift;
+    wire [5:0]                    int_arpTable_valid_address0;
+    wire                          int_arpTable_valid_ce0;
+    wire [3:0]                    int_arpTable_valid_be0;
+    wire [31:0]                   int_arpTable_valid_d0;
+    wire [31:0]                   int_arpTable_valid_q0;
+    wire [5:0]                    int_arpTable_valid_address1;
+    wire                          int_arpTable_valid_ce1;
+    wire                          int_arpTable_valid_we1;
+    wire [3:0]                    int_arpTable_valid_be1;
+    wire [31:0]                   int_arpTable_valid_d1;
+    wire [31:0]                   int_arpTable_valid_q1;
+    reg                           int_arpTable_valid_read;
+    reg                           int_arpTable_valid_write;
+    reg  [1:0]                    int_arpTable_valid_shift0;
+    wire [7:0]                    int_arpTable_ipAddress_address0;
+    wire                          int_arpTable_ipAddress_ce0;
+    wire [3:0]                    int_arpTable_ipAddress_be0;
+    wire [31:0]                   int_arpTable_ipAddress_d0;
+    wire [7:0]                    int_arpTable_ipAddress_address1;
+    wire                          int_arpTable_ipAddress_ce1;
+    wire [31:0]                   int_arpTable_ipAddress_q1;
+    reg                           int_arpTable_ipAddress_read;
+    reg                           int_arpTable_ipAddress_write;
+    wire [7:0]                    int_arpTable_macAddress_address0;
+    wire                          int_arpTable_macAddress_ce0;
+    wire [7:0]                    int_arpTable_macAddress_be0;
+    wire [63:0]                   int_arpTable_macAddress_d0;
+    wire [63:0]                   int_arpTable_macAddress_q0;
+    wire [7:0]                    int_arpTable_macAddress_address1;
+    wire                          int_arpTable_macAddress_ce1;
+    wire                          int_arpTable_macAddress_we1;
+    wire [7:0]                    int_arpTable_macAddress_be1;
+    wire [63:0]                   int_arpTable_macAddress_d1;
+    wire [63:0]                   int_arpTable_macAddress_q1;
+    reg                           int_arpTable_macAddress_read;
+    reg                           int_arpTable_macAddress_write;
+    reg  [0:0]                    int_arpTable_macAddress_shift1;
 
 //------------------------Instantiation------------------
-// int_arpTable_macAddress_V
+// int_arpTable_valid
 arp_server_s_axilite_s_axi_ram #(
-    .BYTES    ( 6 ),
-    .DEPTH    ( 256 )
-) int_arpTable_macAddress_V (
-    .clk0     ( ACLK ),
-    .address0 ( int_arpTable_macAddress_V_address0 ),
-    .ce0      ( int_arpTable_macAddress_V_ce0 ),
-    .we0      ( int_arpTable_macAddress_V_we0 ),
-    .be0      ( int_arpTable_macAddress_V_be0 ),
-    .d0       ( int_arpTable_macAddress_V_d0 ),
-    .q0       ( int_arpTable_macAddress_V_q0 ),
-    .clk1     ( ACLK ),
-    .address1 ( int_arpTable_macAddress_V_address1 ),
-    .ce1      ( int_arpTable_macAddress_V_ce1 ),
-    .we1      ( int_arpTable_macAddress_V_we1 ),
-    .be1      ( int_arpTable_macAddress_V_be1 ),
-    .d1       ( int_arpTable_macAddress_V_d1 ),
-    .q1       ( int_arpTable_macAddress_V_q1 )
+    .MEM_STYLE ( "auto" ),
+    .MEM_TYPE  ( "T2P" ),
+    .BYTES     ( 4 ),
+    .DEPTH     ( 64 )
+) int_arpTable_valid (
+    .clk0      ( ACLK ),
+    .address0  ( int_arpTable_valid_address0 ),
+    .ce0       ( int_arpTable_valid_ce0 ),
+    .we0       ( int_arpTable_valid_be0 ),
+    .d0        ( int_arpTable_valid_d0 ),
+    .q0        ( int_arpTable_valid_q0 ),
+    .clk1      ( ACLK ),
+    .address1  ( int_arpTable_valid_address1 ),
+    .ce1       ( int_arpTable_valid_ce1 ),
+    .we1       ( int_arpTable_valid_be1 ),
+    .d1        ( int_arpTable_valid_d1 ),
+    .q1        ( int_arpTable_valid_q1 )
 );
-// int_arpTable_ipAddress_V
+// int_arpTable_ipAddress
 arp_server_s_axilite_s_axi_ram #(
-    .BYTES    ( 4 ),
-    .DEPTH    ( 256 )
-) int_arpTable_ipAddress_V (
-    .clk0     ( ACLK ),
-    .address0 ( int_arpTable_ipAddress_V_address0 ),
-    .ce0      ( int_arpTable_ipAddress_V_ce0 ),
-    .we0      ( int_arpTable_ipAddress_V_we0 ),
-    .be0      ( int_arpTable_ipAddress_V_be0 ),
-    .d0       ( int_arpTable_ipAddress_V_d0 ),
-    .q0       ( int_arpTable_ipAddress_V_q0 ),
-    .clk1     ( ACLK ),
-    .address1 ( int_arpTable_ipAddress_V_address1 ),
-    .ce1      ( int_arpTable_ipAddress_V_ce1 ),
-    .we1      ( int_arpTable_ipAddress_V_we1 ),
-    .be1      ( int_arpTable_ipAddress_V_be1 ),
-    .d1       ( int_arpTable_ipAddress_V_d1 ),
-    .q1       ( int_arpTable_ipAddress_V_q1 )
+    .MEM_STYLE ( "auto" ),
+    .MEM_TYPE  ( "S2P" ),
+    .BYTES     ( 4 ),
+    .DEPTH     ( 256 )
+) int_arpTable_ipAddress (
+    .clk0      ( ACLK ),
+    .address0  ( int_arpTable_ipAddress_address0 ),
+    .ce0       ( int_arpTable_ipAddress_ce0 ),
+    .we0       ( int_arpTable_ipAddress_be0 ),
+    .d0        ( int_arpTable_ipAddress_d0 ),
+    .q0        (  ),
+    .clk1      ( ACLK ),
+    .address1  ( int_arpTable_ipAddress_address1 ),
+    .ce1       ( int_arpTable_ipAddress_ce1 ),
+    .we1       ( 'b0 ),
+    .d1        ( 'b0 ),
+    .q1        ( int_arpTable_ipAddress_q1 )
 );
-// int_arpTable_valid_V
+// int_arpTable_macAddress
 arp_server_s_axilite_s_axi_ram #(
-    .BYTES    ( 4 ),
-    .DEPTH    ( 64 )
-) int_arpTable_valid_V (
-    .clk0     ( ACLK ),
-    .address0 ( int_arpTable_valid_V_address0 ),
-    .ce0      ( int_arpTable_valid_V_ce0 ),
-    .we0      ( int_arpTable_valid_V_we0 ),
-    .be0      ( int_arpTable_valid_V_be0 ),
-    .d0       ( int_arpTable_valid_V_d0 ),
-    .q0       ( int_arpTable_valid_V_q0 ),
-    .clk1     ( ACLK ),
-    .address1 ( int_arpTable_valid_V_address1 ),
-    .ce1      ( int_arpTable_valid_V_ce1 ),
-    .we1      ( int_arpTable_valid_V_we1 ),
-    .be1      ( int_arpTable_valid_V_be1 ),
-    .d1       ( int_arpTable_valid_V_d1 ),
-    .q1       ( int_arpTable_valid_V_q1 )
+    .MEM_STYLE ( "auto" ),
+    .MEM_TYPE  ( "T2P" ),
+    .BYTES     ( 8 ),
+    .DEPTH     ( 256 )
+) int_arpTable_macAddress (
+    .clk0      ( ACLK ),
+    .address0  ( int_arpTable_macAddress_address0 ),
+    .ce0       ( int_arpTable_macAddress_ce0 ),
+    .we0       ( int_arpTable_macAddress_be0 ),
+    .d0        ( int_arpTable_macAddress_d0 ),
+    .q0        ( int_arpTable_macAddress_q0 ),
+    .clk1      ( ACLK ),
+    .address1  ( int_arpTable_macAddress_address1 ),
+    .ce1       ( int_arpTable_macAddress_ce1 ),
+    .we1       ( int_arpTable_macAddress_be1 ),
+    .d1        ( int_arpTable_macAddress_d1 ),
+    .q1        ( int_arpTable_macAddress_q1 )
 );
+
 
 //------------------------AXI write fsm------------------
 assign AWREADY = (wstate == WRIDLE);
-assign WREADY  = (wstate == WRDATA);
+assign WREADY  = (wstate == WRDATA) && (!ar_hs);
 assign BRESP   = 2'b00;  // OKAY
 assign BVALID  = (wstate == WRRESP);
 assign wmask   = { {8{WSTRB[3]}}, {8{WSTRB[2]}}, {8{WSTRB[1]}}, {8{WSTRB[0]}} };
@@ -249,7 +241,7 @@ always @(*) begin
             else
                 wnext = WRIDLE;
         WRDATA:
-            if (WVALID)
+            if (w_hs)
                 wnext = WRRESP;
             else
                 wnext = WRDATA;
@@ -275,7 +267,7 @@ end
 assign ARREADY = (rstate == RDIDLE);
 assign RDATA   = rdata;
 assign RRESP   = 2'b00;  // OKAY
-assign RVALID  = (rstate == RDDATA) & !int_arpTable_macAddress_V_read & !int_arpTable_ipAddress_V_read & !int_arpTable_valid_V_read;
+assign RVALID  = (rstate == RDDATA) & !int_arpTable_valid_read & !int_arpTable_ipAddress_read & !int_arpTable_macAddress_read;
 assign ar_hs   = ARVALID & ARREADY;
 assign raddr   = ARADDR[ADDR_BITS-1:0];
 
@@ -309,188 +301,174 @@ end
 always @(posedge ACLK) begin
     if (ACLK_EN) begin
         if (ar_hs) begin
-            rdata <= 1'b0;
+            rdata <= 'b0;
             case (raddr)
-                ADDR_ARP_SCAN_V_I_DATA_0: begin
-                    rdata <= int_arp_scan_V_i[0:0];
+                ADDR_ARP_SCAN_I_DATA_0: begin
+                    rdata <= int_arp_scan_i[0:0];
                 end
-                ADDR_ARP_SCAN_V_O_DATA_0: begin
-                    rdata <= int_arp_scan_V_o[0:0];
+                ADDR_ARP_SCAN_O_DATA_0: begin
+                    rdata <= int_arp_scan_o[0:0];
                 end
-                ADDR_ARP_SCAN_V_O_CTRL: begin
-                    rdata[0] <= int_arp_scan_V_o_ap_vld;
+                ADDR_ARP_SCAN_O_CTRL: begin
+                    rdata[0] <= int_arp_scan_o_ap_vld;
                 end
             endcase
         end
-        else if (int_arpTable_macAddress_V_read) begin
-            rdata <= int_arpTable_macAddress_V_q1 >> (int_arpTable_macAddress_V_shift * 32);
+        else if (int_arpTable_valid_read) begin
+            rdata <= int_arpTable_valid_q1;
         end
-        else if (int_arpTable_ipAddress_V_read) begin
-            rdata <= int_arpTable_ipAddress_V_q1;
+        else if (int_arpTable_ipAddress_read) begin
+            rdata <= int_arpTable_ipAddress_q1;
         end
-        else if (int_arpTable_valid_V_read) begin
-            rdata <= int_arpTable_valid_V_q1;
+        else if (int_arpTable_macAddress_read) begin
+            rdata <= int_arpTable_macAddress_q1 >> (int_arpTable_macAddress_shift1 * 32);
         end
     end
 end
 
 
 //------------------------Register logic-----------------
-assign arp_scan_V_i = int_arp_scan_V_i;
-// int_arp_scan_V_i[0:0]
+assign arp_scan_i = int_arp_scan_i;
+// int_arp_scan_i[0:0]
 always @(posedge ACLK) begin
     if (ARESET)
-        int_arp_scan_V_i[0:0] <= 0;
+        int_arp_scan_i[0:0] <= 0;
     else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_ARP_SCAN_V_I_DATA_0)
-            int_arp_scan_V_i[0:0] <= (WDATA[31:0] & wmask) | (int_arp_scan_V_i[0:0] & ~wmask);
+        if (w_hs && waddr == ADDR_ARP_SCAN_I_DATA_0)
+            int_arp_scan_i[0:0] <= (WDATA[31:0] & wmask) | (int_arp_scan_i[0:0] & ~wmask);
     end
 end
 
-// int_arp_scan_V_o
+// int_arp_scan_o
 always @(posedge ACLK) begin
     if (ARESET)
-        int_arp_scan_V_o <= 0;
+        int_arp_scan_o <= 0;
     else if (ACLK_EN) begin
-        if (arp_scan_V_o_ap_vld)
-            int_arp_scan_V_o <= arp_scan_V_o;
+        if (arp_scan_o_ap_vld)
+            int_arp_scan_o <= arp_scan_o;
     end
 end
 
-// int_arp_scan_V_o_ap_vld
+// int_arp_scan_o_ap_vld
 always @(posedge ACLK) begin
     if (ARESET)
-        int_arp_scan_V_o_ap_vld <= 1'b0;
+        int_arp_scan_o_ap_vld <= 1'b0;
     else if (ACLK_EN) begin
-        if (arp_scan_V_o_ap_vld)
-            int_arp_scan_V_o_ap_vld <= 1'b1;
-        else if (ar_hs && raddr == ADDR_ARP_SCAN_V_O_CTRL)
-            int_arp_scan_V_o_ap_vld <= 1'b0; // clear on read
+        if (arp_scan_o_ap_vld)
+            int_arp_scan_o_ap_vld <= 1'b1;
+        else if (ar_hs && raddr == ADDR_ARP_SCAN_O_CTRL)
+            int_arp_scan_o_ap_vld <= 1'b0; // clear on read
     end
 end
 
 
 //------------------------Memory logic-------------------
-// arpTable_macAddress_V
-assign int_arpTable_macAddress_V_address0 = arpTable_macAddress_V_address0;
-assign int_arpTable_macAddress_V_ce0      = arpTable_macAddress_V_ce0;
-assign int_arpTable_macAddress_V_we0      = arpTable_macAddress_V_we0;
-assign int_arpTable_macAddress_V_be0      = {6{arpTable_macAddress_V_we0}};
-assign int_arpTable_macAddress_V_d0       = arpTable_macAddress_V_d0;
-assign arpTable_macAddress_V_q0           = int_arpTable_macAddress_V_q0;
-assign int_arpTable_macAddress_V_address1 = ar_hs? raddr[10:3] : waddr[10:3];
-assign int_arpTable_macAddress_V_ce1      = ar_hs | (int_arpTable_macAddress_V_write & WVALID);
-assign int_arpTable_macAddress_V_we1      = int_arpTable_macAddress_V_write & WVALID;
-assign int_arpTable_macAddress_V_be1      = WSTRB << (waddr[2:2] * 4);
-assign int_arpTable_macAddress_V_d1       = {2{WDATA}};
-// arpTable_ipAddress_V
-assign int_arpTable_ipAddress_V_address0  = arpTable_ipAddress_V_address0;
-assign int_arpTable_ipAddress_V_ce0       = arpTable_ipAddress_V_ce0;
-assign int_arpTable_ipAddress_V_we0       = arpTable_ipAddress_V_we0;
-assign int_arpTable_ipAddress_V_be0       = {4{arpTable_ipAddress_V_we0}};
-assign int_arpTable_ipAddress_V_d0        = arpTable_ipAddress_V_d0;
-assign int_arpTable_ipAddress_V_address1  = ar_hs? raddr[9:2] : waddr[9:2];
-assign int_arpTable_ipAddress_V_ce1       = ar_hs | (int_arpTable_ipAddress_V_write & WVALID);
-assign int_arpTable_ipAddress_V_we1       = int_arpTable_ipAddress_V_write & WVALID;
-assign int_arpTable_ipAddress_V_be1       = WSTRB;
-assign int_arpTable_ipAddress_V_d1        = WDATA;
-// arpTable_valid_V
-assign int_arpTable_valid_V_address0      = arpTable_valid_V_address0 >> 2;
-assign int_arpTable_valid_V_ce0           = arpTable_valid_V_ce0;
-assign int_arpTable_valid_V_we0           = arpTable_valid_V_we0;
-assign int_arpTable_valid_V_be0           = 1 << arpTable_valid_V_address0[1:0];
-assign int_arpTable_valid_V_d0            = {4{7'd0, arpTable_valid_V_d0}};
-assign arpTable_valid_V_q0                = int_arpTable_valid_V_q0 >> (int_arpTable_valid_V_shift * 8);
-assign int_arpTable_valid_V_address1      = ar_hs? raddr[7:2] : waddr[7:2];
-assign int_arpTable_valid_V_ce1           = ar_hs | (int_arpTable_valid_V_write & WVALID);
-assign int_arpTable_valid_V_we1           = int_arpTable_valid_V_write & WVALID;
-assign int_arpTable_valid_V_be1           = WSTRB;
-assign int_arpTable_valid_V_d1            = WDATA;
-// int_arpTable_macAddress_V_read
+// arpTable_valid
+assign int_arpTable_valid_address0      = arpTable_valid_address0 >> 2;
+assign int_arpTable_valid_ce0           = arpTable_valid_ce0;
+assign int_arpTable_valid_be0           = arpTable_valid_we0 << arpTable_valid_address0[1:0];
+assign int_arpTable_valid_d0            = {4{arpTable_valid_d0}};
+assign arpTable_valid_q0                = int_arpTable_valid_q0 >> (int_arpTable_valid_shift0 * 8);
+assign int_arpTable_valid_address1      = ar_hs? raddr[7:2] : waddr[7:2];
+assign int_arpTable_valid_ce1           = ar_hs | (int_arpTable_valid_write & WVALID);
+assign int_arpTable_valid_we1           = int_arpTable_valid_write & w_hs;
+assign int_arpTable_valid_be1           = int_arpTable_valid_we1 ? WSTRB : 'b0;
+assign int_arpTable_valid_d1            = WDATA;
+// arpTable_ipAddress
+assign int_arpTable_ipAddress_address0  = arpTable_ipAddress_address0;
+assign int_arpTable_ipAddress_ce0       = arpTable_ipAddress_ce0;
+assign int_arpTable_ipAddress_be0       = {4{arpTable_ipAddress_we0}};
+assign int_arpTable_ipAddress_d0        = arpTable_ipAddress_d0;
+assign int_arpTable_ipAddress_address1  = ar_hs? raddr[9:2] : waddr[9:2];
+assign int_arpTable_ipAddress_ce1       = ar_hs | (int_arpTable_ipAddress_write & WVALID);
+// arpTable_macAddress
+assign int_arpTable_macAddress_address0 = arpTable_macAddress_address0;
+assign int_arpTable_macAddress_ce0      = arpTable_macAddress_ce0;
+assign int_arpTable_macAddress_be0      = arpTable_macAddress_we0;
+assign int_arpTable_macAddress_d0       = arpTable_macAddress_d0;
+assign arpTable_macAddress_q0           = int_arpTable_macAddress_q0;
+assign int_arpTable_macAddress_address1 = ar_hs? raddr[10:3] : waddr[10:3];
+assign int_arpTable_macAddress_ce1      = ar_hs | (int_arpTable_macAddress_write & WVALID);
+assign int_arpTable_macAddress_we1      = int_arpTable_macAddress_write & w_hs;
+assign int_arpTable_macAddress_be1      = int_arpTable_macAddress_we1 ? WSTRB << (waddr[2:2] * 4) : 'b0;
+assign int_arpTable_macAddress_d1       = {2{WDATA}};
+// int_arpTable_valid_read
 always @(posedge ACLK) begin
     if (ARESET)
-        int_arpTable_macAddress_V_read <= 1'b0;
+        int_arpTable_valid_read <= 1'b0;
     else if (ACLK_EN) begin
-        if (ar_hs && raddr >= ADDR_ARPTABLE_MACADDRESS_V_BASE && raddr <= ADDR_ARPTABLE_MACADDRESS_V_HIGH)
-            int_arpTable_macAddress_V_read <= 1'b1;
+        if (ar_hs && raddr >= ADDR_ARPTABLE_VALID_BASE && raddr <= ADDR_ARPTABLE_VALID_HIGH)
+            int_arpTable_valid_read <= 1'b1;
         else
-            int_arpTable_macAddress_V_read <= 1'b0;
+            int_arpTable_valid_read <= 1'b0;
     end
 end
 
-// int_arpTable_macAddress_V_write
+// int_arpTable_valid_write
 always @(posedge ACLK) begin
     if (ARESET)
-        int_arpTable_macAddress_V_write <= 1'b0;
+        int_arpTable_valid_write <= 1'b0;
     else if (ACLK_EN) begin
-        if (aw_hs && AWADDR[ADDR_BITS-1:0] >= ADDR_ARPTABLE_MACADDRESS_V_BASE && AWADDR[ADDR_BITS-1:0] <= ADDR_ARPTABLE_MACADDRESS_V_HIGH)
-            int_arpTable_macAddress_V_write <= 1'b1;
-        else if (WVALID)
-            int_arpTable_macAddress_V_write <= 1'b0;
+        if (aw_hs && AWADDR[ADDR_BITS-1:0] >= ADDR_ARPTABLE_VALID_BASE && AWADDR[ADDR_BITS-1:0] <= ADDR_ARPTABLE_VALID_HIGH)
+            int_arpTable_valid_write <= 1'b1;
+        else if (w_hs)
+            int_arpTable_valid_write <= 1'b0;
     end
 end
 
-// int_arpTable_macAddress_V_shift
+// int_arpTable_valid_shift0
 always @(posedge ACLK) begin
-    if (ACLK_EN) begin
+    if (ARESET)
+        int_arpTable_valid_shift0 <= 1'b0;
+    else if (ACLK_EN) begin
+        if (arpTable_valid_ce0)
+            int_arpTable_valid_shift0 <= arpTable_valid_address0[1:0];
+    end
+end
+
+// int_arpTable_ipAddress_read
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_arpTable_ipAddress_read <= 1'b0;
+    else if (ACLK_EN) begin
+        if (ar_hs && raddr >= ADDR_ARPTABLE_IPADDRESS_BASE && raddr <= ADDR_ARPTABLE_IPADDRESS_HIGH)
+            int_arpTable_ipAddress_read <= 1'b1;
+        else
+            int_arpTable_ipAddress_read <= 1'b0;
+    end
+end
+
+// int_arpTable_macAddress_read
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_arpTable_macAddress_read <= 1'b0;
+    else if (ACLK_EN) begin
+        if (ar_hs && raddr >= ADDR_ARPTABLE_MACADDRESS_BASE && raddr <= ADDR_ARPTABLE_MACADDRESS_HIGH)
+            int_arpTable_macAddress_read <= 1'b1;
+        else
+            int_arpTable_macAddress_read <= 1'b0;
+    end
+end
+
+// int_arpTable_macAddress_write
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_arpTable_macAddress_write <= 1'b0;
+    else if (ACLK_EN) begin
+        if (aw_hs && AWADDR[ADDR_BITS-1:0] >= ADDR_ARPTABLE_MACADDRESS_BASE && AWADDR[ADDR_BITS-1:0] <= ADDR_ARPTABLE_MACADDRESS_HIGH)
+            int_arpTable_macAddress_write <= 1'b1;
+        else if (w_hs)
+            int_arpTable_macAddress_write <= 1'b0;
+    end
+end
+
+// int_arpTable_macAddress_shift1
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_arpTable_macAddress_shift1 <= 1'b0;
+    else if (ACLK_EN) begin
         if (ar_hs)
-            int_arpTable_macAddress_V_shift <= raddr[2:2];
-    end
-end
-
-// int_arpTable_ipAddress_V_read
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_arpTable_ipAddress_V_read <= 1'b0;
-    else if (ACLK_EN) begin
-        if (ar_hs && raddr >= ADDR_ARPTABLE_IPADDRESS_V_BASE && raddr <= ADDR_ARPTABLE_IPADDRESS_V_HIGH)
-            int_arpTable_ipAddress_V_read <= 1'b1;
-        else
-            int_arpTable_ipAddress_V_read <= 1'b0;
-    end
-end
-
-// int_arpTable_ipAddress_V_write
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_arpTable_ipAddress_V_write <= 1'b0;
-    else if (ACLK_EN) begin
-        if (aw_hs && AWADDR[ADDR_BITS-1:0] >= ADDR_ARPTABLE_IPADDRESS_V_BASE && AWADDR[ADDR_BITS-1:0] <= ADDR_ARPTABLE_IPADDRESS_V_HIGH)
-            int_arpTable_ipAddress_V_write <= 1'b1;
-        else if (WVALID)
-            int_arpTable_ipAddress_V_write <= 1'b0;
-    end
-end
-
-// int_arpTable_valid_V_read
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_arpTable_valid_V_read <= 1'b0;
-    else if (ACLK_EN) begin
-        if (ar_hs && raddr >= ADDR_ARPTABLE_VALID_V_BASE && raddr <= ADDR_ARPTABLE_VALID_V_HIGH)
-            int_arpTable_valid_V_read <= 1'b1;
-        else
-            int_arpTable_valid_V_read <= 1'b0;
-    end
-end
-
-// int_arpTable_valid_V_write
-always @(posedge ACLK) begin
-    if (ARESET)
-        int_arpTable_valid_V_write <= 1'b0;
-    else if (ACLK_EN) begin
-        if (aw_hs && AWADDR[ADDR_BITS-1:0] >= ADDR_ARPTABLE_VALID_V_BASE && AWADDR[ADDR_BITS-1:0] <= ADDR_ARPTABLE_VALID_V_HIGH)
-            int_arpTable_valid_V_write <= 1'b1;
-        else if (WVALID)
-            int_arpTable_valid_V_write <= 1'b0;
-    end
-end
-
-// int_arpTable_valid_V_shift
-always @(posedge ACLK) begin
-    if (ACLK_EN) begin
-        if (arpTable_valid_V_ce0)
-            int_arpTable_valid_V_shift <= arpTable_valid_V_address0[1:0];
+            int_arpTable_macAddress_shift1 <= raddr[2:2];
     end
 end
 
@@ -502,6 +480,8 @@ endmodule
 
 module arp_server_s_axilite_s_axi_ram
 #(parameter
+    MEM_STYLE = "auto",
+    MEM_TYPE  = "S2P",
     BYTES  = 4,
     DEPTH  = 256,
     AWIDTH = log2(DEPTH)
@@ -509,20 +489,25 @@ module arp_server_s_axilite_s_axi_ram
     input  wire               clk0,
     input  wire [AWIDTH-1:0]  address0,
     input  wire               ce0,
-    input  wire               we0,
-    input  wire [BYTES-1:0]   be0,
+    input  wire [BYTES-1:0]   we0,
     input  wire [BYTES*8-1:0] d0,
     output reg  [BYTES*8-1:0] q0,
     input  wire               clk1,
     input  wire [AWIDTH-1:0]  address1,
     input  wire               ce1,
-    input  wire               we1,
-    input  wire [BYTES-1:0]   be1,
+    input  wire [BYTES-1:0]   we1,
     input  wire [BYTES*8-1:0] d1,
     output reg  [BYTES*8-1:0] q1
 );
+//------------------------ Parameters -------------------
+localparam
+    BYTE_WIDTH = 8,
+    PORT0 = (MEM_TYPE == "S2P") ? "WO" : ((MEM_TYPE == "2P") ? "RO" : "RW"),
+    PORT1 = (MEM_TYPE == "S2P") ? "RO" : "RW";
 //------------------------Local signal-------------------
+(* ram_style = MEM_STYLE*)
 reg  [BYTES*8-1:0] mem[0:DEPTH-1];
+wire re0, re1;
 //------------------------Task and function--------------
 function integer log2;
     input integer x;
@@ -538,32 +523,59 @@ begin
 end
 endfunction
 //------------------------Body---------------------------
+generate
+    if (MEM_STYLE == "hls_ultra" && PORT0 == "RW") begin
+        assign re0 = ce0 & ~|we0;
+    end else begin
+        assign re0 = ce0;
+    end
+endgenerate
+
+generate
+    if (MEM_STYLE == "hls_ultra" && PORT1 == "RW") begin
+        assign re1 = ce1 & ~|we1;
+    end else begin
+        assign re1 = ce1;
+    end
+endgenerate
+
 // read port 0
-always @(posedge clk0) begin
-    if (ce0) q0 <= mem[address0];
+generate if (PORT0 != "WO") begin
+    always @(posedge clk0) begin
+        if (re0) q0 <= mem[address0];
+    end
 end
+endgenerate
 
 // read port 1
-always @(posedge clk1) begin
-    if (ce1) q1 <= mem[address1];
-end
-
-genvar i;
-generate
-    for (i = 0; i < BYTES; i = i + 1) begin : gen_write
-        // write port 0
-        always @(posedge clk0) begin
-            if (ce0 & we0 & be0[i]) begin
-                mem[address0][8*i+7:8*i] <= d0[8*i+7:8*i];
-            end
-        end
-        // write port 1
-        always @(posedge clk1) begin
-            if (ce1 & we1 & be1[i]) begin
-                mem[address1][8*i+7:8*i] <= d1[8*i+7:8*i];
-            end
-        end
+generate if (PORT1 != "WO") begin
+    always @(posedge clk1) begin
+        if (re1) q1 <= mem[address1];
     end
+end
+endgenerate
+
+integer i;
+// write port 0
+generate if (PORT0 != "RO") begin
+    always @(posedge clk0) begin
+        if (ce0)
+        for (i = 0; i < BYTES; i = i + 1)
+            if (we0[i])
+                mem[address0][i*BYTE_WIDTH +: BYTE_WIDTH] <= d0[i*BYTE_WIDTH +: BYTE_WIDTH];
+    end
+end
+endgenerate
+
+// write port 1
+generate if (PORT1 != "RO") begin
+    always @(posedge clk1) begin
+        if (ce1)
+        for (i = 0; i < BYTES; i = i + 1)
+            if (we1[i])
+                mem[address1][i*BYTE_WIDTH +: BYTE_WIDTH] <= d1[i*BYTE_WIDTH +: BYTE_WIDTH];
+    end
+end
 endgenerate
 
 endmodule

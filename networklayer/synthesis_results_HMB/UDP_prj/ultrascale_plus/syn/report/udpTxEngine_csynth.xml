@@ -1,7 +1,7 @@
 <profile>
 
 <ReportVersion>
-<Version>2020.1</Version>
+<Version>2021.1</Version>
 </ReportVersion>
 
 <UserAssignments>
@@ -12,13 +12,14 @@
 <TargetClockPeriod>2.50</TargetClockPeriod>
 <ClockUncertainty>0.20</ClockUncertainty>
 <TargetInitiationInterval>1</TargetInitiationInterval>
+<FlowTarget>vivado</FlowTarget>
 </UserAssignments>
 
 <PerformanceEstimates>
-<PipelineType>function</PipelineType>
+<PipelineType>yes</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>2.059</EstimatedClockPeriod>
+<EstimatedClockPeriod>1.935</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
@@ -37,15 +38,15 @@
 
 <AreaEstimates>
 <Resources>
-<FF>1587</FF>
-<LUT>269</LUT>
+<FF>1839</FF>
+<LUT>261</LUT>
 <BRAM_18K>0</BRAM_18K>
-<DSP48E>0</DSP48E>
+<DSP>0</DSP>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>
 <BRAM_18K>4032</BRAM_18K>
-<DSP48E>9024</DSP48E>
+<DSP>9024</DSP>
 <FF>2607360</FF>
 <LUT>1303680</LUT>
 <URAM>960</URAM>
@@ -131,19 +132,19 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>agmdDataOut_V_dout</name>
-<Object>agmdDataOut_V</Object>
+<name>agmdDataOut_dout</name>
+<Object>agmdDataOut</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>577</Bits>
+<Bits>1024</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>agmdDataOut_V_empty_n</name>
-<Object>agmdDataOut_V</Object>
+<name>agmdDataOut_empty_n</name>
+<Object>agmdDataOut</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -153,8 +154,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>agmdDataOut_V_read</name>
-<Object>agmdDataOut_V</Object>
+<name>agmdDataOut_read</name>
+<Object>agmdDataOut</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -164,19 +165,19 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>txthMetaData_V_dout</name>
-<Object>txthMetaData_V</Object>
+<name>txthMetaData_dout</name>
+<Object>txthMetaData</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>97</Bits>
+<Bits>128</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>txthMetaData_V_empty_n</name>
-<Object>txthMetaData_V</Object>
+<name>txthMetaData_empty_n</name>
+<Object>txthMetaData</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -186,8 +187,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>txthMetaData_V_read</name>
-<Object>txthMetaData_V</Object>
+<name>txthMetaData_read</name>
+<Object>txthMetaData</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -197,8 +198,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>agmdpayloadLenOut_V_s_dout</name>
-<Object>agmdpayloadLenOut_V_s</Object>
+<name>agmdpayloadLenOut_dout</name>
+<Object>agmdpayloadLenOut</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -208,8 +209,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>agmdpayloadLenOut_V_s_empty_n</name>
-<Object>agmdpayloadLenOut_V_s</Object>
+<name>agmdpayloadLenOut_empty_n</name>
+<Object>agmdpayloadLenOut</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -219,8 +220,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>agmdpayloadLenOut_V_s_read</name>
-<Object>agmdpayloadLenOut_V_s</Object>
+<name>agmdpayloadLenOut_read</name>
+<Object>agmdpayloadLenOut</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -231,7 +232,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>txUdpDataOut_TREADY</name>
-<Object>DataOut_V_last_V</Object>
+<Object>txUdpDataOut_V_last_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -242,7 +243,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>txUdpDataOut_TVALID</name>
-<Object>DataOut_V_last_V</Object>
+<Object>txUdpDataOut_V_last_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -253,7 +254,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>txUdpDataOut_TLAST</name>
-<Object>DataOut_V_last_V</Object>
+<Object>txUdpDataOut_V_last_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -264,7 +265,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>txUdpDataOut_TDATA</name>
-<Object>DataOut_V_data_V</Object>
+<Object>txUdpDataOut_V_data_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -275,7 +276,18 @@
 </RtlPorts>
 <RtlPorts>
 <name>txUdpDataOut_TKEEP</name>
-<Object>DataOut_V_keep_V</Object>
+<Object>txUdpDataOut_V_keep_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>out</Dir>
+<Bits>64</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>txUdpDataOut_TSTRB</name>
+<Object>txUdpDataOut_V_strb_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>

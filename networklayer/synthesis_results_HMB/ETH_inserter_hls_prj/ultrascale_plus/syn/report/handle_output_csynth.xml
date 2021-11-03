@@ -1,7 +1,7 @@
 <profile>
 
 <ReportVersion>
-<Version>2020.1</Version>
+<Version>2021.1</Version>
 </ReportVersion>
 
 <UserAssignments>
@@ -12,13 +12,14 @@
 <TargetClockPeriod>3.10</TargetClockPeriod>
 <ClockUncertainty>0.20</ClockUncertainty>
 <TargetInitiationInterval>1</TargetInitiationInterval>
+<FlowTarget>vivado</FlowTarget>
 </UserAssignments>
 
 <PerformanceEstimates>
-<PipelineType>function</PipelineType>
+<PipelineType>yes</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>2.374</EstimatedClockPeriod>
+<EstimatedClockPeriod>2.229</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
@@ -38,14 +39,14 @@
 <AreaEstimates>
 <Resources>
 <FF>1171</FF>
-<LUT>259</LUT>
+<LUT>247</LUT>
 <BRAM_18K>0</BRAM_18K>
-<DSP48E>0</DSP48E>
+<DSP>0</DSP>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>
 <BRAM_18K>4032</BRAM_18K>
-<DSP48E>9024</DSP48E>
+<DSP>9024</DSP>
 <FF>2607360</FF>
 <LUT>1303680</LUT>
 <URAM>960</URAM>
@@ -131,19 +132,19 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>no_ip_header_out_V_dout</name>
-<Object>no_ip_header_out_V</Object>
+<name>no_ip_header_out_dout</name>
+<Object>no_ip_header_out</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>577</Bits>
+<Bits>1024</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>no_ip_header_out_V_empty_n</name>
-<Object>no_ip_header_out_V</Object>
+<name>no_ip_header_out_empty_n</name>
+<Object>no_ip_header_out</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -153,8 +154,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>no_ip_header_out_V_read</name>
-<Object>no_ip_header_out_V</Object>
+<name>no_ip_header_out_read</name>
+<Object>no_ip_header_out</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -164,19 +165,19 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>ip_header_checksum_V_dout</name>
-<Object>ip_header_checksum_V</Object>
+<name>ip_header_checksum_dout</name>
+<Object>ip_header_checksum</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>577</Bits>
+<Bits>1024</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>ip_header_checksum_V_empty_n</name>
-<Object>ip_header_checksum_V</Object>
+<name>ip_header_checksum_empty_n</name>
+<Object>ip_header_checksum</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -186,8 +187,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>ip_header_checksum_V_read</name>
-<Object>ip_header_checksum_V</Object>
+<name>ip_header_checksum_read</name>
+<Object>ip_header_checksum</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -202,7 +203,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
@@ -213,9 +214,9 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
-<Bits>56</Bits>
+<Bits>128</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -224,7 +225,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
@@ -263,11 +264,11 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>myMacAddress_V</name>
-<Object>myMacAddress_V</Object>
+<name>myMacAddress</name>
+<Object>myMacAddress</Object>
 <Type>pointer</Type>
 <Scope></Scope>
-<IOProtocol>ap_stable</IOProtocol>
+<IOProtocol>ap_none</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>48</Bits>
@@ -287,6 +288,17 @@
 <RtlPorts>
 <name>dataOut_TKEEP</name>
 <Object>dataOut_V_keep_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>out</Dir>
+<Bits>64</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>dataOut_TSTRB</name>
+<Object>dataOut_V_strb_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>

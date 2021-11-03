@@ -1,0 +1,114 @@
+
+
+================================================================
+== Synthesis Summary Report of 'arp_server'
+================================================================
++ General Information: 
+    * Date:           Wed Nov  3 14:22:48 2021
+    * Version:        2021.1 (Build 3247384 on Thu Jun 10 19:36:07 MDT 2021)
+    * Project:        ARP_hls_prj
+    * Solution:       ultrascale_plus (Vivado IP Flow Target)
+    * Product family: virtexuplus
+    * Target device:  xcu280-fsvh2892-2L-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +--------------------------------+--------+-------+---------+--------+----------+---------+------+----------+---------+----+------------+------------+-----+
+    |             Modules            |  Issue |       | Latency | Latency| Iteration|         | Trip |          |         |    |            |            |     |
+    |             & Loops            |  Type  | Slack | (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined|  BRAM   | DSP|     FF     |     LUT    | URAM|
+    +--------------------------------+--------+-------+---------+--------+----------+---------+------+----------+---------+----+------------+------------+-----+
+    |+ arp_server*                   |  Timing|  -0.91|        4|  15.248|         -|        1|     -|  dataflow|  3 (~0%)|   -|  1580 (~0%)|  1539 (~0%)|    -|
+    | + grp_arp_pkg_receiver_fu_164  |       -|   1.49|        1|   3.812|         -|        1|     -|       yes|        -|   -|   219 (~0%)|   104 (~0%)|    -|
+    | + grp_genARPDiscovery_fu_185   |       -|   1.37|        2|   7.624|         -|        1|     -|       yes|        -|   -|   249 (~0%)|   243 (~0%)|    -|
+    | + grp_arp_pkg_sender_fu_209    |       -|   1.24|        2|   7.624|         -|        1|     -|       yes|        -|   -|   378 (~0%)|   204 (~0%)|    -|
+    | + call_ret_entry_proc_fu_253   |       -|   2.90|        0|   0.000|         -|        0|     -|        no|        -|   -|    66 (~0%)|    29 (~0%)|    -|
+    | + grp_arp_table_fu_261         |  Timing|  -0.91|        2|   7.624|         -|        1|     -|       yes|        -|   -|   153 (~0%)|   211 (~0%)|    -|
+    +--------------------------------+--------+-------+---------+--------+----------+---------+------+----------+---------+----+------------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* S_AXILITE
++-----------------+------------+---------------+--------+----------+
+| Interface       | Data Width | Address Width | Offset | Register |
++-----------------+------------+---------------+--------+----------+
+| s_axi_s_axilite | 32         | 12            | 2048   | 0        |
++-----------------+------------+---------------+--------+----------+
+
+* AXIS
++-------------------+---------------+-------+-------+-------+--------+-------+--------+
+| Interface         | Register Mode | TDATA | TKEEP | TLAST | TREADY | TSTRB | TVALID |
++-------------------+---------------+-------+-------+-------+--------+-------+--------+
+| arpDataIn         | both          | 512   | 64    | 1     | 1      | 64    | 1      |
+| arpDataOut        | both          | 512   | 64    | 1     | 1      | 64    | 1      |
+| macIpEncode_req_V | both          | 32    |       |       | 1      |       | 1      |
+| macIpEncode_rsp_V | both          | 128   |       |       | 1      |       | 1      |
++-------------------+---------------+-------+-------+-------+--------+-------+--------+
+
+* REGISTER
++--------------+---------+----------+
+| Interface    | Mode    | Bitwidth |
++--------------+---------+----------+
+| gatewayIP    | ap_none | 32       |
+| myIpAddress  | ap_none | 32       |
+| myMacAddress | ap_none | 48       |
+| networkMask  | ap_none | 32       |
++--------------+---------+----------+
+
+* TOP LEVEL CONTROL
++-----------+--------------+----------+
+| Interface | Type         | Ports    |
++-----------+--------------+----------+
+| ap_clk    | clock        | ap_clk   |
+| ap_rst_n  | reset        | ap_rst_n |
+| ap_ctrl   | ap_ctrl_none |          |
++-----------+--------------+----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++-----------------+-----------+----------------------------------------------+
+| Argument        | Direction | Datatype                                     |
++-----------------+-----------+----------------------------------------------+
+| arpDataIn       | in        | stream<hls::axis<ap_uint<512>, 0, 0, 0>, 0>& |
+| macIpEncode_req | in        | stream<ap_uint<32>, 0>&                      |
+| arpDataOut      | out       | stream<hls::axis<ap_uint<512>, 0, 0, 0>, 0>& |
+| macIpEncode_rsp | out       | stream<arpTableReply, 0>&                    |
+| arpTable        | inout     | arpTableEntry*                               |
+| arp_scan        | inout     | ap_uint<1>&                                  |
+| myMacAddress    | in        | ap_uint<48>&                                 |
+| myIpAddress     | in        | ap_uint<32>&                                 |
+| gatewayIP       | in        | ap_uint<32>&                                 |
+| networkMask     | in        | ap_uint<32>&                                 |
++-----------------+-----------+----------------------------------------------+
+
+* SW-to-HW Mapping
++-----------------+---------------------------------+-----------+-----------------------+
+| Argument        | HW Name                         | HW Type   | HW Info               |
++-----------------+---------------------------------+-----------+-----------------------+
+| arpDataIn       | arpDataIn                       | interface |                       |
+| macIpEncode_req | macIpEncode_req_V               | interface |                       |
+| arpDataOut      | arpDataOut                      | interface |                       |
+| macIpEncode_rsp | macIpEncode_rsp_V               | interface |                       |
+| arpTable        | s_axi_s_axilite                 | interface |                       |
+| arpTable        | s_axi_s_axilite                 | interface |                       |
+| arpTable        | s_axi_s_axilite                 | interface |                       |
+| arp_scan        | s_axi_s_axilite arp_scan_i      | register  | offset=0x10, range=32 |
+| arp_scan        | s_axi_s_axilite arp_scan_o      | register  | offset=0x18, range=32 |
+| arp_scan        | s_axi_s_axilite arp_scan_o_ctrl | register  | offset=0x1c, range=32 |
+| myMacAddress    | myMacAddress                    | port      |                       |
+| myIpAddress     | myIpAddress                     | port      |                       |
+| gatewayIP       | gatewayIP                       | port      |                       |
+| networkMask     | networkMask                     | port      |                       |
++-----------------+---------------------------------+-----------+-----------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+

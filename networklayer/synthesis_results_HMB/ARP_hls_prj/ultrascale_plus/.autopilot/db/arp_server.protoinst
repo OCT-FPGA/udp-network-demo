@@ -25,7 +25,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"arp_server_entry174_U0/arp_server_entry174_U0_activity": {
+				"arp_table_U0/arp_table_U0_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -36,7 +36,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"arp_table_U0/arp_table_U0_activity": {
+				"entry_proc_U0/entry_proc_U0_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},

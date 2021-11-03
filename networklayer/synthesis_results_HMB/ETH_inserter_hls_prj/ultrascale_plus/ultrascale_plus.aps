@@ -5,25 +5,21 @@
     <project>
         <value string="ETH_inserter_hls_prj"/>
     </project>
+    <flowTarget value="vivado"/>
     <targetInfo>
         <TargetInfo value="xcu280:-fsvh2892:-2L-e"/>
     </targetInfo>
     <libraryList>
         <library value="xilinx/virtexuplus/virtexuplus" name="DefaultPlatform"/>
-        <library value="xilinx/virtexuplus/virtexuplus_fpv7" name="DefaultPlatform"/>
     </libraryList>
-    <downStreamTool>
-        <DownStreamTool name="vivado"/>
-    </downStreamTool>
     <clockList>
         <clock default="false" name="default" uncertainty="0.2" period="3.1"/>
     </clockList>
     <config>
-        <schedule model="ethernet_header_inserter"/>
         <config_export format="ip_catalog" rtl="verilog"/>
     </config>
     <ExportDesign askAgain="true" evaluate="false" rtl="verilog" formatName="ip_catalog">
-        <Format formatName="ip_catalog" description="" vendor="" library="" ipname="" version="" driver_input_dir="" display_name="" taxonomy=""/>
+        <Format formatName="ip_catalog" description="" vendor="" library="" ipname="ethernet_header_inserter" version="" display_name="" taxonomy=""/>
     </ExportDesign>
 </AutoPilot:solution>
 

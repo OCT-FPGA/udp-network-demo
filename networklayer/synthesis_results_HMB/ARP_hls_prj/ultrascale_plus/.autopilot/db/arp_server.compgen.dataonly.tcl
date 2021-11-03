@@ -2,45 +2,57 @@
 
 set axilite_register_dict [dict create]
 set port_s_axilite {
-arpTable_macAddress_V { 
-	dir IO
-	width 48
-	depth 256
-	mode ap_memory
-	offset 2048
-	offset_end 4095
-}
-arpTable_ipAddress_V { 
-	dir O
-	width 32
-	depth 256
-	mode ap_memory
-	offset 4096
-	offset_end 5119
-}
-arpTable_valid_V { 
-	dir IO
-	width 1
-	depth 256
-	mode ap_memory
-	offset 5120
-	offset_end 5375
-}
-arp_scan_V_i { 
+arp_scan_i { 
 	dir I
 	width 1
 	depth 1
 	mode ap_none
-	offset 5376
-	offset_end 5383
+	offset 16
+	offset_end 23
 }
-arp_scan_V_o { 
+arp_scan_o { 
 	dir O
 	width 1
 	depth 1
 	mode ap_vld
-	offset 5384
-	offset_end 5391
+	offset 24
+	offset_end 31
+}
+arpTable_valid { 
+	dir IO
+	width 8
+	depth 256
+	mode ap_memory
+	offset 256
+	offset_end 511
+	core_op ram_1p
+	core_impl auto
+	core_latency 1
+	byte_write 0
+}
+arpTable_ipAddress { 
+	dir O
+	width 32
+	depth 256
+	mode ap_memory
+	offset 1024
+	offset_end 2047
+	core_op ram_1p
+	core_impl auto
+	core_latency 1
+	byte_write 0
+}
+arpTable_macAddress { 
+	dir IO
+	width 64
+	depth 256
+	mode ap_memory
+	offset 2048
+	offset_end 4095
+	core_op ram_1p
+	core_impl auto
+	core_latency 1
+	byte_write 1
 }
 }
 dict set axilite_register_dict s_axilite $port_s_axilite

@@ -1,0 +1,233 @@
+<root versionMajor = "1" versionMinor = "5">
+  <kernel src_name="udp" language="c" hwCtrl="ap_ctrl_none" mem_layout="fpga64-xilinx-none">
+    <args>
+      <arg id="0" access_type="r" src_name="rxUdpDataIn" src_type="stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0, 0, 0&gt;, 0&gt;&amp;" src_isptr="1" src_bitwidth="1024" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="AXI-Stream" hw_name="rxUdpDataIn" hw_bitwidth="512" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="axis" register_option="1" register_mode="both"/>
+        </hw>
+      </arg>
+      <arg id="1" access_type="w" src_name="txUdpDataOut" src_type="stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0, 0, 0&gt;, 0&gt;&amp;" src_isptr="1" src_bitwidth="1024" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="AXI-Stream" hw_name="txUdpDataOut" hw_bitwidth="512" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="axis" register_option="1" register_mode="both"/>
+        </hw>
+      </arg>
+      <arg id="2" access_type="w" src_name="DataOutApp" src_type="stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96, 0, 16&gt;, 0&gt;&amp;" src_isptr="1" src_bitwidth="1024" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="AXI-Stream" hw_name="DataOutApp" hw_bitwidth="512" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="axis" register_option="1" register_mode="both"/>
+        </hw>
+      </arg>
+      <arg id="3" access_type="r" src_name="DataInApp" src_type="stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96, 0, 16&gt;, 0&gt;&amp;" src_isptr="1" src_bitwidth="1024" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="AXI-Stream" hw_name="DataInApp" hw_bitwidth="512" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="axis" register_option="1" register_mode="both"/>
+        </hw>
+      </arg>
+      <arg id="4" access_type="r" src_name="myIpAddress" src_type="ap_uint&lt;32&gt;&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="myIpAddress" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="1"/>
+        </hw>
+      </arg>
+      <arg id="5" access_type="r" src_name="SocketTable" src_type="socket_table*" src_isptr="1" src_bitwidth="96" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="16"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="24"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="32"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="40"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="48"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="56"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="64"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="72"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="80"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="88"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="96"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="104"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="112"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="120"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="128"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="136"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="144"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="152"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="160"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="168"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="176"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="184"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="192"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="200"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="208"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="216"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="224"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="232"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="240"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="248"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="256"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="264"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="272"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="280"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="288"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="296"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="304"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="312"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="320"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="328"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="336"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="344"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="352"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="360"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="368"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="376"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="384"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="392"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="1" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="400"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="1" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="408"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="1" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="416"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="1" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="424"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="1" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="432"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="1" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="440"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="1" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="448"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="1" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="456"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="1" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="464"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="1" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="472"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="1" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="480"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="1" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="488"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="1" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="496"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="1" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="504"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="1" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="512"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="1" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="520"/>
+        </hw>
+      </arg>
+      <arg id="6" access_type="w" src_name="numberSockets" src_type="ap_uint&lt;16&gt;&amp;" src_isptr="1" src_bitwidth="16" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="s_axilite" hw_bitwidth="16" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="528"/>
+        </hw>
+      </arg>
+    </args>
+    <return src_type="void" src_bitwidth="0" offset="0x0">
+      <hw hw_usage="data" hw_interface="" hw_name="" hw_bitwidth="0"/>
+    </return>
+  </kernel>
+</root>

@@ -11,17 +11,17 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 371 \
-    name DataIn_V_data_V \
+    id 161 \
+    name DataInApp_V_data_V \
     reset_level 1 \
     sync_rst true \
     corename {DataInApp} \
     metadata {  } \
     op interface \
-    ports { DataInApp_TVALID { I 1 bit } DataInApp_TDATA { I 512 vector } } \
+    ports { DataInApp_TDATA { I 512 vector } } \
 } "
 } else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'DataIn_V_data_V'"
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'DataInApp_V_data_V'"
 }
 }
 
@@ -30,8 +30,8 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 372 \
-    name DataIn_V_keep_V \
+    id 162 \
+    name DataInApp_V_keep_V \
     reset_level 1 \
     sync_rst true \
     corename {DataInApp} \
@@ -40,7 +40,7 @@ eval "::AESL_LIB_XILADAPTER::native_axis_add { \
     ports { DataInApp_TKEEP { I 64 vector } } \
 } "
 } else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'DataIn_V_keep_V'"
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'DataInApp_V_keep_V'"
 }
 }
 
@@ -49,17 +49,17 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 373 \
-    name DataIn_V_dest_V \
+    id 163 \
+    name DataInApp_V_strb_V \
     reset_level 1 \
     sync_rst true \
     corename {DataInApp} \
     metadata {  } \
     op interface \
-    ports { DataInApp_TDEST { I 16 vector } } \
+    ports { DataInApp_TSTRB { I 64 vector } } \
 } "
 } else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'DataIn_V_dest_V'"
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'DataInApp_V_strb_V'"
 }
 }
 
@@ -68,8 +68,27 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 374 \
-    name DataIn_V_last_V \
+    id 164 \
+    name DataInApp_V_user_V \
+    reset_level 1 \
+    sync_rst true \
+    corename {DataInApp} \
+    metadata {  } \
+    op interface \
+    ports { DataInApp_TUSER { I 96 vector } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'DataInApp_V_user_V'"
+}
+}
+
+
+# Native AXIS:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
+eval "::AESL_LIB_XILADAPTER::native_axis_add { \
+    id 165 \
+    name DataInApp_V_last_V \
     reset_level 1 \
     sync_rst true \
     corename {DataInApp} \
@@ -78,7 +97,7 @@ eval "::AESL_LIB_XILADAPTER::native_axis_add { \
     ports { DataInApp_TLAST { I 1 vector } } \
 } "
 } else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'DataIn_V_last_V'"
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'DataInApp_V_last_V'"
 }
 }
 
@@ -87,17 +106,17 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 375 \
-    name DataIn_V_user \
+    id 166 \
+    name DataInApp_V_dest_V \
     reset_level 1 \
     sync_rst true \
     corename {DataInApp} \
     metadata {  } \
     op interface \
-    ports { DataInApp_TREADY { O 1 bit } DataInApp_TUSER { I 96 vector } } \
+    ports { DataInApp_TVALID { I 1 bit } DataInApp_TREADY { O 1 bit } DataInApp_TDEST { I 16 vector } } \
 } "
 } else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'DataIn_V_user'"
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'DataInApp_V_dest_V'"
 }
 }
 
@@ -105,45 +124,45 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 376 \
-    name agmdIdOut_V_V \
+    id 167 \
+    name agmdDataOut \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_agmdIdOut_V_V \
+    corename dc_agmdDataOut \
     op interface \
-    ports { agmdIdOut_V_V_din { O 16 vector } agmdIdOut_V_V_full_n { I 1 bit } agmdIdOut_V_V_write { O 1 bit } } \
+    ports { agmdDataOut_din { O 1024 vector } agmdDataOut_full_n { I 1 bit } agmdDataOut_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 377 \
-    name agmdDataOut_V \
+    id 168 \
+    name agmdIdOut \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_agmdDataOut_V \
+    corename dc_agmdIdOut \
     op interface \
-    ports { agmdDataOut_V_din { O 577 vector } agmdDataOut_V_full_n { I 1 bit } agmdDataOut_V_write { O 1 bit } } \
+    ports { agmdIdOut_din { O 16 vector } agmdIdOut_full_n { I 1 bit } agmdIdOut_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 378 \
-    name agmdpayloadLenOut_V_s \
+    id 169 \
+    name agmdpayloadLenOut \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_agmdpayloadLenOut_V_s \
+    corename dc_agmdpayloadLenOut \
     op interface \
-    ports { agmdpayloadLenOut_V_s_din { O 16 vector } agmdpayloadLenOut_V_s_full_n { I 1 bit } agmdpayloadLenOut_V_s_write { O 1 bit } } \
+    ports { agmdpayloadLenOut_din { O 16 vector } agmdpayloadLenOut_full_n { I 1 bit } agmdpayloadLenOut_write { O 1 bit } } \
 } "
 }
 
@@ -208,6 +227,144 @@ if {${::AESL::PGuard_autoexp_gen}} {
     cg_default_interface_gen_dc_end
     cg_default_interface_gen_bundle_end
     AESL_LIB_XILADAPTER::native_axis_end
+}
+
+
+# RegSlice definition:
+set ID 170
+set RegSliceName udp_regslice_both
+set RegSliceInstName udp_regslice_both_U
+set CoreName ap_simcore_udp_regslice_both
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $RegSliceName BINDTYPE interface TYPE interface_regslice INSTNAME $RegSliceInstName
+}
+
+
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_regSlice] == "::AESL_LIB_VIRTEX::xil_gen_regSlice"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_regSlice { \
+    name ${RegSliceName} \
+    prefix udp_ \
+    sliceTypeList 0\
+}"
+} else {
+puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_regSlice, check your platform lib"
+}
+}
+
+
+# RegSlice definition:
+set ID 171
+set RegSliceName udp_regslice_both
+set RegSliceInstName udp_regslice_both_U
+set CoreName ap_simcore_udp_regslice_both
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $RegSliceName BINDTYPE interface TYPE interface_regslice INSTNAME $RegSliceInstName
+}
+
+
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_regSlice] == "::AESL_LIB_VIRTEX::xil_gen_regSlice"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_regSlice { \
+    name ${RegSliceName} \
+    prefix udp_ \
+    sliceTypeList 0\
+}"
+} else {
+puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_regSlice, check your platform lib"
+}
+}
+
+
+# RegSlice definition:
+set ID 172
+set RegSliceName udp_regslice_both
+set RegSliceInstName udp_regslice_both_U
+set CoreName ap_simcore_udp_regslice_both
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $RegSliceName BINDTYPE interface TYPE interface_regslice INSTNAME $RegSliceInstName
+}
+
+
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_regSlice] == "::AESL_LIB_VIRTEX::xil_gen_regSlice"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_regSlice { \
+    name ${RegSliceName} \
+    prefix udp_ \
+    sliceTypeList 0\
+}"
+} else {
+puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_regSlice, check your platform lib"
+}
+}
+
+
+# RegSlice definition:
+set ID 173
+set RegSliceName udp_regslice_both
+set RegSliceInstName udp_regslice_both_U
+set CoreName ap_simcore_udp_regslice_both
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $RegSliceName BINDTYPE interface TYPE interface_regslice INSTNAME $RegSliceInstName
+}
+
+
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_regSlice] == "::AESL_LIB_VIRTEX::xil_gen_regSlice"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_regSlice { \
+    name ${RegSliceName} \
+    prefix udp_ \
+    sliceTypeList 0\
+}"
+} else {
+puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_regSlice, check your platform lib"
+}
+}
+
+
+# RegSlice definition:
+set ID 174
+set RegSliceName udp_regslice_both
+set RegSliceInstName udp_regslice_both_U
+set CoreName ap_simcore_udp_regslice_both
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $RegSliceName BINDTYPE interface TYPE interface_regslice INSTNAME $RegSliceInstName
+}
+
+
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_regSlice] == "::AESL_LIB_VIRTEX::xil_gen_regSlice"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_regSlice { \
+    name ${RegSliceName} \
+    prefix udp_ \
+    sliceTypeList 0\
+}"
+} else {
+puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_regSlice, check your platform lib"
+}
+}
+
+
+# RegSlice definition:
+set ID 175
+set RegSliceName udp_regslice_both
+set RegSliceInstName udp_regslice_both_U
+set CoreName ap_simcore_udp_regslice_both
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $RegSliceName BINDTYPE interface TYPE interface_regslice INSTNAME $RegSliceInstName
+}
+
+
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_regSlice] == "::AESL_LIB_VIRTEX::xil_gen_regSlice"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_regSlice { \
+    name ${RegSliceName} \
+    prefix udp_ \
+    sliceTypeList 0\
+}"
+} else {
+puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_regSlice, check your platform lib"
+}
 }
 
 

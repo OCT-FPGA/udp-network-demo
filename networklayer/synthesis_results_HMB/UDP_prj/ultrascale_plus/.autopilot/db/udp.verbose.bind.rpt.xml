@@ -1,11 +1,11 @@
 <profile>
 
-<section name = "Vivado HLS Report for 'udp'" level="0">
-<item name = "Date">Thu Aug  5 18:58:21 2021
+<section name = "Vitis HLS Report for 'udp'" level="0">
+<item name = "Date">Wed Nov  3 14:24:01 2021
 </item>
-<item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
+<item name = "Version">2021.1 (Build 3247384 on Thu Jun 10 19:36:07 MDT 2021)</item>
 <item name = "Project">UDP_prj</item>
-<item name = "Solution">ultrascale_plus</item>
+<item name = "Solution">ultrascale_plus (Vivado IP Flow Target)</item>
 <item name = "Product family">virtexuplus</item>
 <item name = "Target device">xcu280-fsvh2892-2L-e</item>
 </section>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">2.50 ns, 2.375 ns, 0.20 ns</column>
+<column name="ap_clk">2.50 ns, 2.131 ns, 0.20 ns</column>
 </table>
 </item>
 </section>
@@ -31,14 +31,12 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_udpTxEngine_fu_1362">udpTxEngine, 2, 2, 5.000 ns, 5.000 ns, 1, 1, function</column>
-<column name="grp_rxTableHandler_fu_1396">rxTableHandler, 2, 2, 5.000 ns, 5.000 ns, 1, 1, function</column>
-<column name="grp_udpRxEngine_fu_1456">udpRxEngine, 1, 1, 2.500 ns, 2.500 ns, 1, 1, function</column>
-<column name="grp_rxEngPacketDropper_fu_1476">rxEngPacketDropper, 2, 2, 5.000 ns, 5.000 ns, 1, 1, function</column>
-<column name="grp_appGetMetaData_fu_1508">appGetMetaData, 1, 1, 2.500 ns, 2.500 ns, 1, 1, function</column>
-<column name="grp_txTableHandler_fu_1532">txTableHandler, 1, 1, 2.500 ns, 2.500 ns, 1, 1, function</column>
-<column name="call_ln421_udp_entry266_fu_1606">udp_entry266, 0, 0, 0 ns, 0 ns, 0, 0, none</column>
-<column name="call_ln418_udp_entry3_fu_1786">udp_entry3, 0, 0, 0 ns, 0 ns, 0, 0, none</column>
+<column name="grp_udpRxEngine_fu_422">udpRxEngine, 1, 1, 2.500 ns, 2.500 ns, 1, 1, yes</column>
+<column name="call_ret_entry_proc_fu_444">entry_proc, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
+<column name="grp_TableHandler_fu_578">TableHandler, 2, 2, 5.000 ns, 5.000 ns, 1, 1, yes</column>
+<column name="grp_appGetMetaData_fu_657">appGetMetaData, 1, 1, 2.500 ns, 2.500 ns, 1, 1, yes</column>
+<column name="grp_rxEngPacketDropper_fu_683">rxEngPacketDropper, 2, 2, 5.000 ns, 5.000 ns, 1, 1, yes</column>
+<column name="grp_udpTxEngine_fu_717">udpTxEngine, 2, 2, 5.000 ns, 5.000 ns, 1, 1, yes</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

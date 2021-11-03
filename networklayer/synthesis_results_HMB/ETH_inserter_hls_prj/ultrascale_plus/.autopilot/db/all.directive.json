@@ -1,3 +1,15 @@
-{
-  
-}
+{"sourceFile": [{
+      "name": "",
+      "directive": [{
+          "functionName": "ethernet_header_inserter",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "ethernet_header_inserter"
+              }]
+          }
+        }]
+    }]}

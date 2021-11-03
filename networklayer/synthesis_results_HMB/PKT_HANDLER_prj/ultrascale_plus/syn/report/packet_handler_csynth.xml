@@ -1,7 +1,7 @@
 <profile>
 
 <ReportVersion>
-<Version>2020.1</Version>
+<Version>2021.1</Version>
 </ReportVersion>
 
 <UserAssignments>
@@ -11,13 +11,14 @@
 <TopModelName>packet_handler</TopModelName>
 <TargetClockPeriod>3.10</TargetClockPeriod>
 <ClockUncertainty>0.20</ClockUncertainty>
+<FlowTarget>vivado</FlowTarget>
 </UserAssignments>
 
 <PerformanceEstimates>
 <PipelineType>dataflow</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>2.527</EstimatedClockPeriod>
+<EstimatedClockPeriod>3.067</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
@@ -35,15 +36,15 @@
 
 <AreaEstimates>
 <Resources>
-<BRAM_18K>33</BRAM_18K>
-<FF>3654</FF>
-<LUT>1340</LUT>
-<DSP48E>0</DSP48E>
+<BRAM_18K>0</BRAM_18K>
+<FF>6174</FF>
+<LUT>2575</LUT>
+<DSP>0</DSP>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>
 <BRAM_18K>4032</BRAM_18K>
-<DSP48E>9024</DSP48E>
+<DSP>9024</DSP>
 <FF>2607360</FF>
 <LUT>1303680</LUT>
 <URAM>960</URAM>
@@ -57,7 +58,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>512</Bits>
 <Attribute>data</Attribute>
@@ -69,7 +70,19 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
+<Dir>in</Dir>
+<Bits>64</Bits>
+<Attribute>data</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>s_axis_TSTRB</name>
+<Object>s_axis_V_strb_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>64</Bits>
 <Attribute>data</Attribute>
@@ -81,19 +94,31 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>s_axis_TVALID</name>
-<Object>s_axis_V_last_V</Object>
+<name>s_axis_TDEST</name>
+<Object>s_axis_V_dest_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
+<Dir>in</Dir>
+<Bits>3</Bits>
+<Attribute>data</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>s_axis_TVALID</name>
+<Object>s_axis_V_dest_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
@@ -101,11 +126,11 @@
 </RtlPorts>
 <RtlPorts>
 <name>s_axis_TREADY</name>
-<Object>s_axis_V_last_V</Object>
+<Object>s_axis_V_dest_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
@@ -126,6 +151,18 @@
 <RtlPorts>
 <name>m_axis_TKEEP</name>
 <Object>m_axis_V_keep_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>out</Dir>
+<Bits>64</Bits>
+<Attribute>data</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>m_axis_TSTRB</name>
+<Object>m_axis_V_strb_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>

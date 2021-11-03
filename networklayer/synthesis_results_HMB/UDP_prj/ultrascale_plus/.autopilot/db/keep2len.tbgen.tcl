@@ -1,9 +1,7 @@
 set moduleName keep2len
 set isTopModule 0
-set isTaskLevelControl 1
 set isCombinational 1
 set isDatapathOnly 0
-set isFreeRunPipelineModule 0
 set isPipelined 0
 set pipeline_type function
 set FunctionProtocol ap_ctrl_hs
@@ -14,28 +12,28 @@ set isEnableWaveformDebug 1
 set C_modelName {keep2len}
 set C_modelType { int 7 }
 set C_modelArgList {
-	{ keepValue_V int 64 regular  }
+	{ keepValue int 64 regular  }
 }
 set C_modelArgMapList {[ 
-	{ "Name" : "keepValue_V", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+	{ "Name" : "keepValue", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
  	{ "Name" : "ap_return", "interface" : "wire", "bitwidth" : 7} ]}
 # RTL Port declarations: 
 set portNum 3
 set portList { 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
-	{ keepValue_V sc_in sc_lv 64 signal 0 } 
+	{ keepValue sc_in sc_lv 64 signal 0 } 
 	{ ap_return sc_out sc_lv 7 signal -1 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
- 	{ "name": "keepValue_V", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "keepValue_V", "role": "default" }} , 
+ 	{ "name": "keepValue", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "keepValue", "role": "default" }} , 
  	{ "name": "ap_return", "direction": "out", "datatype": "sc_lv", "bitwidth":7, "type": "signal", "bundle":{"name": "ap_return", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "",
 		"CDFG" : "keep2len",
 		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "1", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
+		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "1", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "1",
 		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
@@ -46,12 +44,12 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"Port" : [
-			{"Name" : "keepValue_V", "Type" : "None", "Direction" : "I"}]}]}
+			{"Name" : "keepValue", "Type" : "None", "Direction" : "I"}]}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	keep2len {
-		keepValue_V {Type I LastRead 0 FirstWrite -1}}}
+		keepValue {Type I LastRead 0 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
@@ -64,5 +62,5 @@ set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	keepValue_V { ap_none {  { keepValue_V in_data 0 64 } } }
+	keepValue { ap_none {  { keepValue in_data 0 64 } } }
 }

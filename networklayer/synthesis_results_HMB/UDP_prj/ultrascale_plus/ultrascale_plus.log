@@ -1,227 +1,358 @@
 ==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
-Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2021.1 (64-bit)
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ==============================================================
-INFO: [HLS 200-10] Setting target device to 'xcu280-fsvh2892-2L-e'
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xcu280-fsvh2892-2L-e 
+INFO: [HLS 200-1611] Setting target device to 'xcu280-fsvh2892-2L-e'
+INFO: [HLS 200-1510] Running: create_clock -period 2.5 -name default 
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 2.5ns.
+INFO: [HLS 200-1510] Running: set_clock_uncertainty 0.2 
 INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.2ns.
-INFO: [SIM 211-2] *************** CSIM start ***************
-INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
-INFO: [SIM 211-1] CSim done with 0 errors.
-INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.01 seconds; current allocated memory: 195.384 MB.
 INFO: [HLS 200-10] Analyzing design file '/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/TOE/common_utilities/common_utilities.cpp' ... 
+WARNING: [HLS 207-5301] unused parameter 'print': /tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_int_base.h:792:16
 INFO: [HLS 200-10] Analyzing design file '/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp' ... 
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:01:22 ; elapsed = 00:01:26 . Memory (MB): peak = 1664.500 ; gain = 1231.887 ; free physical = 26364 ; free virtual = 42893
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:01:22 ; elapsed = 00:01:26 . Memory (MB): peak = 1664.500 ; gain = 1231.887 ; free physical = 26364 ; free virtual = 42893
+WARNING: [HLS 207-5528] Ignore interface attribute or pragma which is not used in top function: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:430:9
+WARNING: [HLS 207-5301] unused parameter 'print': /tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_int_base.h:792:16
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 30.85 seconds. CPU system time: 2.8 seconds. Elapsed time: 31.73 seconds; current allocated memory: 197.213 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-279] Initial Interval estimation mode is set into default.
+INFO: [HLS 214-284] Auto array partition mode is set into default.
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_user_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::empty()' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:267:60)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_dest_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::empty()' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:268:61)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_id_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::empty()' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:268:45)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_user_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::read(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:283:50)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_dest_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::read(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:286:25)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_id_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::read(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:285:67)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_user_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::read(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:285:36)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_dest_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::read(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:284:39)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_id_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::read(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:284:23)
+INFO: [HLS 214-131] Inlining function 'hls::stream<axis_udp<512>, 0>::write(axis_udp<512> const&)' into 'udpRxEngine(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<axis_udp<512>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:176:21)
+INFO: [HLS 214-131] Inlining function 'hls::stream<axis_udp<512>, 0>::write(axis_udp<512> const&)' into 'udpRxEngine(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<axis_udp<512>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:169:25)
+INFO: [HLS 214-131] Inlining function 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::read(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>&)' into 'udpRxEngine(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<axis_udp<512>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:148:24)
+INFO: [HLS 214-131] Inlining function 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::empty()' into 'udpRxEngine(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<axis_udp<512>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:147:25)
+INFO: [HLS 214-131] Inlining function 'hls::stream<axis_udp<512>, 0>::write(axis_udp<512> const&)' into 'udpRxEngine(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<axis_udp<512>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:139:29)
+INFO: [HLS 214-131] Inlining function 'hls::stream<udpMetadata, 0>::write(udpMetadata const&)' into 'udpRxEngine(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<axis_udp<512>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:137:25)
+INFO: [HLS 214-131] Inlining function 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::empty()' into 'udpRxEngine(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<axis_udp<512>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:119:25)
+INFO: [HLS 214-131] Inlining function 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::read(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>&)' into 'udpRxEngine(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<axis_udp<512>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:120:24)
+INFO: [HLS 214-131] Inlining function 'hls::stream<udpMetadata, 0>::empty() const' into 'TableHandler(hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<tableResponse, 0>&, hls::stream<udpMetadata, 0>&, socket_table*, ap_uint<16>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:56:17)
+INFO: [HLS 214-131] Inlining function 'hls::stream<udpMetadata, 0>::write(udpMetadata const&)' into 'TableHandler(hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<tableResponse, 0>&, hls::stream<udpMetadata, 0>&, socket_table*, ap_uint<16>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:77:17)
+INFO: [HLS 214-131] Inlining function 'hls::stream<udpMetadata, 0>::read(udpMetadata&)' into 'TableHandler(hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<tableResponse, 0>&, hls::stream<udpMetadata, 0>&, socket_table*, ap_uint<16>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:57:16)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<16>, 0>::read(ap_uint<16>&)' into 'TableHandler(hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<tableResponse, 0>&, hls::stream<udpMetadata, 0>&, socket_table*, ap_uint<16>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:75:14)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<16>, 0>::empty() const' into 'TableHandler(hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<tableResponse, 0>&, hls::stream<udpMetadata, 0>&, socket_table*, ap_uint<16>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:74:14)
+INFO: [HLS 214-131] Inlining function 'hls::stream<tableResponse, 0>::write(tableResponse const&)' into 'TableHandler(hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<tableResponse, 0>&, hls::stream<udpMetadata, 0>&, socket_table*, ap_uint<16>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:71:18)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>::get_user_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>::write(hls::axis<ap_uint<512>, 96ul, 0ul, 16ul> const&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:304:51)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>::get_dest_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>::write(hls::axis<ap_uint<512>, 96ul, 0ul, 16ul> const&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:307:26)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>::get_id_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>::write(hls::axis<ap_uint<512>, 96ul, 0ul, 16ul> const&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:306:68)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>::get_user_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>::write(hls::axis<ap_uint<512>, 96ul, 0ul, 16ul> const&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:306:37)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>::get_dest_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>::write(hls::axis<ap_uint<512>, 96ul, 0ul, 16ul> const&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:305:40)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>::get_id_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>::write(hls::axis<ap_uint<512>, 96ul, 0ul, 16ul> const&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:305:24)
+INFO: [HLS 214-131] Inlining function 'hls::stream<tableResponse, 0>::empty() const' into 'rxEngPacketDropper(hls::stream<axis_udp<512>, 0>&, hls::stream<tableResponse, 0>&, hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:208:29)
+INFO: [HLS 214-131] Inlining function 'hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>::write(hls::axis<ap_uint<512>, 96ul, 0ul, 16ul> const&)' into 'rxEngPacketDropper(hls::stream<axis_udp<512>, 0>&, hls::stream<tableResponse, 0>&, hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:222:33)
+INFO: [HLS 214-131] Inlining function 'hls::stream<axis_udp<512>, 0>::read(axis_udp<512>&)' into 'rxEngPacketDropper(hls::stream<axis_udp<512>, 0>&, hls::stream<tableResponse, 0>&, hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:215:28)
+INFO: [HLS 214-131] Inlining function 'hls::stream<axis_udp<512>, 0>::empty() const' into 'rxEngPacketDropper(hls::stream<axis_udp<512>, 0>&, hls::stream<tableResponse, 0>&, hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:214:29)
+INFO: [HLS 214-131] Inlining function 'hls::stream<tableResponse, 0>::read(tableResponse&)' into 'rxEngPacketDropper(hls::stream<axis_udp<512>, 0>&, hls::stream<tableResponse, 0>&, hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:209:28)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>::get_user_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>::empty()' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:267:60)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>::get_dest_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>::empty()' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:268:61)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>::get_id_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>::empty()' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:268:45)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>::get_user_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>::read(hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:283:50)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>::get_dest_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>::read(hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:286:25)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>::get_id_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>::read(hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:285:67)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>::get_user_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>::read(hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:285:36)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>::get_dest_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>::read(hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:284:39)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>::get_id_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>::read(hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:284:23)
+INFO: [HLS 214-131] Inlining function 'hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>::empty()' into 'appGetMetaData(hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<axis_udp<512>, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<ap_uint<16>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:248:25)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<16>, 0>::write(ap_uint<16> const&)' into 'appGetMetaData(hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<axis_udp<512>, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<ap_uint<16>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:269:33)
+INFO: [HLS 214-131] Inlining function 'hls::stream<axis_udp<512>, 0>::full() const' into 'appGetMetaData(hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<axis_udp<512>, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<ap_uint<16>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:248:45)
+INFO: [HLS 214-131] Inlining function 'hls::stream<axis_udp<512>, 0>::write(axis_udp<512> const&)' into 'appGetMetaData(hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<axis_udp<512>, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<ap_uint<16>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:267:25)
+INFO: [HLS 214-131] Inlining function 'hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>::read(hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>&)' into 'appGetMetaData(hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<axis_udp<512>, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<ap_uint<16>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:249:24)
+INFO: [HLS 214-131] Inlining function 'hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>::read(hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>&)' into 'appGetMetaData(hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<axis_udp<512>, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<ap_uint<16>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:265:24)
+INFO: [HLS 214-131] Inlining function 'hls::stream<axis_udp<512>, 0>::full() const' into 'appGetMetaData(hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<axis_udp<512>, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<ap_uint<16>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:264:45)
+INFO: [HLS 214-131] Inlining function 'hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>::empty()' into 'appGetMetaData(hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<axis_udp<512>, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<ap_uint<16>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:264:25)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<16>, 0>::write(ap_uint<16> const&)' into 'appGetMetaData(hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<axis_udp<512>, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<ap_uint<16>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:257:33)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<16>, 0>::write(ap_uint<16> const&)' into 'appGetMetaData(hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<axis_udp<512>, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<ap_uint<16>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:250:23)
+INFO: [HLS 214-131] Inlining function 'hls::stream<axis_udp<512>, 0>::write(axis_udp<512> const&)' into 'appGetMetaData(hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<axis_udp<512>, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<ap_uint<16>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:252:25)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_user_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::write(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul> const&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:304:51)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_dest_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::write(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul> const&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:307:26)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_id_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::write(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul> const&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:306:68)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_user_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::write(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul> const&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:306:37)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_dest_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::write(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul> const&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:305:40)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_id_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::write(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul> const&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:305:24)
+INFO: [HLS 214-131] Inlining function 'hls::stream<axis_udp<512>, 0>::read(axis_udp<512>&)' into 'udpTxEngine(hls::stream<axis_udp<512>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:397:24)
+INFO: [HLS 214-131] Inlining function 'hls::stream<axis_udp<512>, 0>::empty() const' into 'udpTxEngine(hls::stream<axis_udp<512>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:396:25)
+INFO: [HLS 214-131] Inlining function 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::write(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul> const&)' into 'udpTxEngine(hls::stream<axis_udp<512>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:392:21)
+INFO: [HLS 214-131] Inlining function 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::write(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul> const&)' into 'udpTxEngine(hls::stream<axis_udp<512>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:384:25)
+INFO: [HLS 214-131] Inlining function 'hls::stream<axis_udp<512>, 0>::read(axis_udp<512>&)' into 'udpTxEngine(hls::stream<axis_udp<512>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:363:24)
+INFO: [HLS 214-131] Inlining function 'hls::stream<axis_udp<512>, 0>::empty() const' into 'udpTxEngine(hls::stream<axis_udp<512>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:362:25)
+INFO: [HLS 214-131] Inlining function 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::write(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul> const&)' into 'udpTxEngine(hls::stream<axis_udp<512>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:358:25)
+INFO: [HLS 214-131] Inlining function 'hls::stream<udpMetadata, 0>::empty() const' into 'udpTxEngine(hls::stream<axis_udp<512>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:306:25)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<16>, 0>::empty() const' into 'udpTxEngine(hls::stream<axis_udp<512>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:306:48)
+INFO: [HLS 214-131] Inlining function 'hls::stream<udpMetadata, 0>::read(udpMetadata&)' into 'udpTxEngine(hls::stream<axis_udp<512>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:307:24)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<16>, 0>::read(ap_uint<16>&)' into 'udpTxEngine(hls::stream<axis_udp<512>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:308:28)
+INFO: [HLS 214-131] Inlining function 'hls::stream<axis_udp<512>, 0>::read(axis_udp<512>&)' into 'udpTxEngine(hls::stream<axis_udp<512>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:317:24)
+INFO: [HLS 214-131] Inlining function 'hls::stream<axis_udp<512>, 0>::empty() const' into 'udpTxEngine(hls::stream<axis_udp<512>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:316:25)
+INFO: [HLS 214-131] Inlining function 'hls::stream<axis_udp<512>, 0>::stream(char const*)' into 'udp(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, ap_uint<32>&, socket_table*, ap_uint<16>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:436:26)
+INFO: [HLS 214-131] Inlining function 'hls::stream<axis_udp<512>, 0>::stream(char const*)' into 'udp(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, ap_uint<32>&, socket_table*, ap_uint<16>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:439:26)
+INFO: [HLS 214-131] Inlining function 'hls::stream<udpMetadata, 0>::stream(char const*)' into 'udp(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, ap_uint<32>&, socket_table*, ap_uint<16>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:442:29)
+INFO: [HLS 214-131] Inlining function 'hls::stream<tableResponse, 0>::stream(char const*)' into 'udp(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, ap_uint<32>&, socket_table*, ap_uint<16>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:445:31)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<16>, 0>::stream(char const*)' into 'udp(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, ap_uint<32>&, socket_table*, ap_uint<16>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:448:30)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<16>, 0>::stream(char const*)' into 'udp(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, ap_uint<32>&, socket_table*, ap_uint<16>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:451:30)
+INFO: [HLS 214-131] Inlining function 'hls::stream<udpMetadata, 0>::stream(char const*)' into 'udp(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, ap_uint<32>&, socket_table*, ap_uint<16>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:455:29)
+INFO: [HLS 214-210] Disaggregating variable 'SocketTable' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:419:0)
+INFO: [HLS 214-178] Inlining function 'axis_udp<512>::axis_udp(ap_uint<512>, ap_uint<64>, ap_uint<1>)' into 'udpRxEngine(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<axis_udp<512>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:97:0)
+INFO: [HLS 214-178] Inlining function 'ap_uint<16> byteSwap<16>(ap_uint<16>)' into 'udpRxEngine(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<axis_udp<512>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:97:0)
+INFO: [HLS 214-178] Inlining function 'ap_uint<32> byteSwap<32>(ap_uint<32>)' into 'udpRxEngine(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<axis_udp<512>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:97:0)
+INFO: [HLS 214-178] Inlining function 'udpMetadata::udpMetadata(ap_uint<32>, ap_uint<32>, ap_uint<16>, ap_uint<16>, ap_uint<1>)' into 'udpRxEngine(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<axis_udp<512>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:97:0)
+INFO: [HLS 214-178] Inlining function 'ap_uint<32> byteSwap<32>(ap_uint<32>)' into 'TableHandler(hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<tableResponse, 0>&, hls::stream<udpMetadata, 0>&, socket_table*, ap_uint<16>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:46:0)
+INFO: [HLS 214-178] Inlining function 'userMetadata::userMetadata(ap_uint<32>, ap_uint<32>, ap_uint<16>, ap_uint<16>)' into 'TableHandler(hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<tableResponse, 0>&, hls::stream<udpMetadata, 0>&, socket_table*, ap_uint<16>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:46:0)
+INFO: [HLS 214-178] Inlining function 'udpMetadata::udpMetadata(ap_uint<32>, ap_uint<32>, ap_uint<16>, ap_uint<16>, ap_uint<1>)' into 'TableHandler(hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<tableResponse, 0>&, hls::stream<udpMetadata, 0>&, socket_table*, ap_uint<16>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:46:0)
+INFO: [HLS 214-178] Inlining function 'axis_udp<512>::axis_udp(ap_uint<512>, ap_uint<64>, ap_uint<1>)' into 'appGetMetaData(hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<axis_udp<512>, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<ap_uint<16>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:235:0)
+INFO: [HLS 214-178] Inlining function 'ap_uint<16> byteSwap<16>(ap_uint<16>)' into 'udpTxEngine(hls::stream<axis_udp<512>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:284:0)
+INFO: [HLS 214-178] Inlining function 'ap_uint<32> byteSwap<32>(ap_uint<32>)' into 'udpTxEngine(hls::stream<axis_udp<512>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:284:0)
+INFO: [HLS 214-248] Applying array_partition to 'SocketTable.0': Complete partitioning on dimension 1. (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:419:0)
+INFO: [HLS 214-248] Applying array_partition to 'SocketTable.1': Complete partitioning on dimension 1. (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:419:0)
+INFO: [HLS 214-248] Applying array_partition to 'SocketTable.2': Complete partitioning on dimension 1. (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:419:0)
+INFO: [HLS 214-248] Applying array_partition to 'SocketTable.3': Complete partitioning on dimension 1. (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:419:0)
+INFO: [HLS 214-241] Aggregating scalar variable 'myIpAddress' with field bit alignment mode in 32-bits (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:419:0)
+INFO: [HLS 214-270] Starting automatic array partition analysis...
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i128.s_struct.udpMetadatas' into 'udpRxEngine(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<axis_udp<512>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i1024.s_struct.axis_udps' into 'udpRxEngine(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<axis_udp<512>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i1024.s_struct.axis_udps' into 'udpRxEngine(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<axis_udp<512>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i1024.s_struct.axis_udps' into 'udpRxEngine(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<udpMetadata, 0>&, hls::stream<axis_udp<512>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i96.s_struct.userMetadatas' into 'TableHandler(hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<tableResponse, 0>&, hls::stream<udpMetadata, 0>&, socket_table*, ap_uint<16>&, ap_uint<32>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i128.s_struct.udpMetadatas' into 'TableHandler(hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<tableResponse, 0>&, hls::stream<udpMetadata, 0>&, socket_table*, ap_uint<16>&, ap_uint<32>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i1.s_struct.ap_uint.18s' into 'TableHandler(hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<tableResponse, 0>&, hls::stream<udpMetadata, 0>&, socket_table*, ap_uint<16>&, ap_uint<32>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i160.s_struct.tableResponses' into 'TableHandler(hls::stream<udpMetadata, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<tableResponse, 0>&, hls::stream<udpMetadata, 0>&, socket_table*, ap_uint<16>&, ap_uint<32>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i16.s_struct.ap_uints' into 'appGetMetaData(hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<axis_udp<512>, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<ap_uint<16>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i16.s_struct.ap_uints' into 'appGetMetaData(hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<axis_udp<512>, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<ap_uint<16>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i1024.s_struct.axis_udps' into 'appGetMetaData(hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<axis_udp<512>, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<ap_uint<16>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i1024.s_struct.axis_udps' into 'appGetMetaData(hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<axis_udp<512>, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<ap_uint<16>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i16.s_struct.ap_uints' into 'appGetMetaData(hls::stream<hls::axis<ap_uint<512>, 96ul, 0ul, 16ul>, 0>&, hls::stream<axis_udp<512>, 0>&, hls::stream<ap_uint<16>, 0>&, hls::stream<ap_uint<16>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 11.85 seconds. CPU system time: 0.78 seconds. Elapsed time: 12.64 seconds; current allocated memory: 203.076 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 203.083 MB.
 INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:01:24 ; elapsed = 00:01:29 . Memory (MB): peak = 1664.500 ; gain = 1231.887 ; free physical = 26328 ; free virtual = 42862
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.29 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.31 seconds; current allocated memory: 216.427 MB.
 INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [XFORM 203-602] Inlining function 'byteSwap<32>' into 'udpRxEngine' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:135) automatically.
-INFO: [XFORM 203-602] Inlining function 'byteSwap<32>' into 'rxTableHandler' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:85) automatically.
-INFO: [XFORM 203-602] Inlining function 'byteSwap<32>' into 'txTableHandler' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:53) automatically.
-INFO: [XFORM 203-602] Inlining function 'byteSwap<32>' into 'udpTxEngine' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:328) automatically.
-WARNING: [SYNCHK 200-23] /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.hpp:110: variable-indexed range selection may cause suboptimal QoR.
+WARNING: [SYNCHK 200-23] /tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_int_ref.h:674: variable-indexed range selection may cause suboptimal QoR.
 INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:01:25 ; elapsed = 00:01:30 . Memory (MB): peak = 1664.500 ; gain = 1231.887 ; free physical = 26307 ; free virtual = 42842
-INFO: [XFORM 203-1101] Packing variable 'DataInApp.V.user' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:413) into a 96-bit variable.
-INFO: [XFORM 203-1101] Packing variable 'DataOutApp.V.user' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:412) into a 96-bit variable.
-INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'byteSwap<32>' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.hpp:109:5).
-INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'byteSwap<16>' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.hpp:109:5).
-INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'rxTableHandler' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:60).
-INFO: [HLS 200-489] Unrolling loop 'Loop-1' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.hpp:109) in function 'byteSwap<32>' completely with a factor of 4.
-INFO: [HLS 200-489] Unrolling loop 'Loop-1' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.hpp:109) in function 'byteSwap<16>' completely with a factor of 2.
-INFO: [HLS 200-489] Unrolling loop 'Loop-1' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:75) in function 'rxTableHandler' completely with a factor of 16.
-INFO: [XFORM 203-101] Partitioning array 'SocketTable.theirIP.V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:418) in dimension 1 completely.
-INFO: [XFORM 203-101] Partitioning array 'SocketTable.theirPort.V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:418) in dimension 1 completely.
-INFO: [XFORM 203-101] Partitioning array 'SocketTable.myPort.V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:418) in dimension 1 completely.
-INFO: [XFORM 203-101] Partitioning array 'SocketTable.valid.V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:418) in dimension 1 completely.
-INFO: [XFORM 203-602] Inlining function 'byteSwap<16>' into 'udpRxEngine' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:134) automatically.
-INFO: [XFORM 203-602] Inlining function 'byteSwap<32>' into 'udpRxEngine' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:135) automatically.
-INFO: [XFORM 203-602] Inlining function 'byteSwap<32>' into 'rxTableHandler' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:85) automatically.
-INFO: [XFORM 203-602] Inlining function 'byteSwap<32>' into 'txTableHandler' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:53) automatically.
-INFO: [XFORM 203-602] Inlining function 'byteSwap<16>' into 'udpTxEngine' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:321) automatically.
-INFO: [XFORM 203-602] Inlining function 'byteSwap<32>' into 'udpTxEngine' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:328) automatically.
-INFO: [XFORM 203-712] Applying dataflow to function 'udp', detected/extracted 7 process function(s): 
-	 'udp.entry266'
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.53 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.54 seconds; current allocated memory: 234.065 MB.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirIP_0' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirIP_1' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirIP_2' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirIP_3' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirIP_4' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirIP_5' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirIP_6' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirIP_7' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirIP_8' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirIP_9' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirIP_10' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirIP_11' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirIP_12' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirIP_13' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirIP_14' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirIP_15' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirPort_0' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirPort_1' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirPort_2' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirPort_3' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirPort_4' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirPort_5' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirPort_6' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirPort_7' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirPort_8' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirPort_9' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirPort_10' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirPort_11' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirPort_12' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirPort_13' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirPort_14' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_theirPort_15' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_myPort_0' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_myPort_1' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_myPort_2' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_myPort_3' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_myPort_4' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_myPort_5' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_myPort_6' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_myPort_7' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_myPort_8' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_myPort_9' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_myPort_10' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_myPort_11' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_myPort_12' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_myPort_13' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_myPort_14' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_myPort_15' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_valid_0' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_valid_1' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_valid_2' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_valid_3' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_valid_4' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_valid_5' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_valid_6' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_valid_7' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_valid_8' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_valid_9' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_valid_10' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_valid_11' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_valid_12' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_valid_13' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_valid_14' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'SocketTable_valid_15' as it is incompatible with its interface mode 's_axilite'.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'numberSockets' as it is incompatible with its interface mode 's_axilite'.
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'udpTxEngine' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:105:13).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'udpRxEngine' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:105:13).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'TableHandler' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:40:17).
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_105_1' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.hpp:105) in function 'udpTxEngine' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_105_1' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.hpp:105) in function 'udpRxEngine' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_59_1' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:59) in function 'TableHandler' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_105_1' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.hpp:105) in function 'TableHandler' completely with a factor of 4.
+INFO: [XFORM 203-712] Applying dataflow to function 'udp' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:436:1), detected/extracted 6 process function(s): 
+	 'entry_proc'
 	 'udpRxEngine'
-	 'rxTableHandler'
+	 'TableHandler'
 	 'rxEngPacketDropper'
 	 'appGetMetaData'
-	 'txTableHandler'
 	 'udpTxEngine'.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:317:17) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:359:13) in function 'udpTxEngine'... converting 3 basic blocks.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:73:9) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:89:5) in function 'rxTableHandler'... converting 17 basic blocks.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/TOE/common_utilities/common_utilities.cpp:42:6) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/TOE/common_utilities/common_utilities.cpp:173:1) in function 'keep2len'... converting 65 basic blocks.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:01:31 ; elapsed = 00:01:36 . Memory (MB): peak = 1664.500 ; gain = 1231.887 ; free physical = 26262 ; free virtual = 42800
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:01:38 ; elapsed = 00:01:44 . Memory (MB): peak = 1664.500 ; gain = 1231.887 ; free physical = 26169 ; free virtual = 42708
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/TOE/common_utilities/common_utilities.cpp:173:1) in function 'keep2len'... converting 64 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:72:5) in function 'TableHandler'... converting 17 basic blocks.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 1.64 seconds. CPU system time: 0.05 seconds. Elapsed time: 1.71 seconds; current allocated memory: 274.961 MB.
+WARNING: [HLS 200-657] Generating channel agmdIdOut that flows backwards in the dataflow region.
+WARNING: [HLS 200-631] Ignoring ap_ctrl_none interface for udp due to entry_proc with non-FIFO I/O
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 1.01 seconds. CPU system time: 0.05 seconds. Elapsed time: 1.06 seconds; current allocated memory: 353.658 MB.
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO: [HLS 200-10] Synthesizing 'udp' ...
-WARNING: [SYN 201-103] Legalizing function name 'udp.entry3' to 'udp_entry3'.
-WARNING: [SYN 201-103] Legalizing function name 'udp.entry266' to 'udp_entry266'.
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'udp_entry3' 
+INFO: [HLS 200-42] -- Implementing module 'entry_proc' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 106.88 seconds; current allocated memory: 318.505 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.18 seconds. CPU system time: 0.04 seconds. Elapsed time: 0.22 seconds; current allocated memory: 354.606 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.26 seconds; current allocated memory: 319.503 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'udp_entry266' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 7.43 seconds; current allocated memory: 320.344 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.58 seconds; current allocated memory: 322.894 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 355.095 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'udpRxEngine' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'udpRxEngine'.
-INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, function 'udpRxEngine'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.78 seconds; current allocated memory: 323.138 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.1 seconds; current allocated memory: 355.397 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 323.519 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.06 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 355.842 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'rxTableHandler' 
+INFO: [HLS 200-42] -- Implementing module 'TableHandler' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining function 'rxTableHandler'.
-INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
-WARNING: [SCHED 204-21] Estimated clock period (2.375ns) exceeds the target (target clock period: 2.5ns, clock uncertainty: 0.2ns, effective delay budget: 2.3ns).
-WARNING: [SCHED 204-21] The critical path in module 'rxTableHandler' consists of the following:
-	fifo read on port 'SocketTableRx_0_theirIP_V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:60) [105]  (1.15 ns)
-	'icmp' operation ('icmp_ln879', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:77->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:418) [164]  (0.859 ns)
-	'and' operation ('and_ln79', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:79->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/UDP/udp.cpp:418) [168]  (0.122 ns)
-	blocking operation 0.244 ns on control path)
+INFO: [SCHED 204-61] Pipelining function 'TableHandler'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, function 'TableHandler'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 2.41 seconds; current allocated memory: 324.150 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.23 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.25 seconds; current allocated memory: 356.665 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.4 seconds; current allocated memory: 325.261 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.27 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.28 seconds; current allocated memory: 357.939 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'rxEngPacketDropper' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'rxEngPacketDropper'.
-INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, function 'rxEngPacketDropper'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.71 seconds; current allocated memory: 325.520 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.5 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.51 seconds; current allocated memory: 358.119 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 325.759 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 358.405 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'keep2len' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'keep2len'.
-INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [HLS 200-1470] Pipelining result : Target II = 0, Final II = 1, Depth = 1, function 'keep2len'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 326.411 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.15 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 359.046 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 327.366 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.09 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 359.980 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'appGetMetaData' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'appGetMetaData'.
-INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, function 'appGetMetaData'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.42 seconds; current allocated memory: 327.540 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.12 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.13 seconds; current allocated memory: 360.265 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 327.741 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'txTableHandler' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining function 'txTableHandler'.
-INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 2.82 seconds; current allocated memory: 328.095 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.23 seconds; current allocated memory: 328.936 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 360.552 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'udpTxEngine' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'udpTxEngine'.
-INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, function 'udpTxEngine'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.66 seconds; current allocated memory: 329.340 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.15 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.16 seconds; current allocated memory: 360.984 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 329.908 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.08 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.1 seconds; current allocated memory: 361.639 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'udp' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.36 seconds; current allocated memory: 331.053 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.16 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 362.132 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 1.44 seconds; current allocated memory: 334.930 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.3 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.3 seconds; current allocated memory: 363.385 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'udp_entry3' 
+INFO: [HLS 200-10] -- Generating RTL for module 'entry_proc' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Finished creating RTL model for 'udp_entry3'.
-INFO: [HLS 200-111]  Elapsed time: 1.24 seconds; current allocated memory: 336.291 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'udp_entry266' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Finished creating RTL model for 'udp_entry266'.
-INFO: [HLS 200-111]  Elapsed time: 0.9 seconds; current allocated memory: 341.543 MB.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'entry_proc'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.71 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.72 seconds; current allocated memory: 374.683 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'udpRxEngine' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 WARNING: [RTGEN 206-101] Register 'ure_state' is power-on initialization.
-WARNING: [RTGEN 206-101] Register 'prevWord_data_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'prevWord_data_V_1' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'prevWord_keep_V_1' is power-on initialization.
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'udpRxEngine' pipeline 'udpRxEngine' pipeline type 'function pipeline'
 INFO: [RTGEN 206-100] Finished creating RTL model for 'udpRxEngine'.
-INFO: [HLS 200-111]  Elapsed time: 1.39 seconds; current allocated memory: 346.182 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.26 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.28 seconds; current allocated memory: 377.430 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'rxTableHandler' 
+INFO: [HLS 200-10] -- Generating RTL for module 'TableHandler' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Finished creating RTL model for 'rxTableHandler'.
-INFO: [HLS 200-111]  Elapsed time: 0.4 seconds; current allocated memory: 349.152 MB.
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'TableHandler' pipeline 'TableHandler' pipeline type 'function pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'TableHandler'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.32 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.32 seconds; current allocated memory: 380.633 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'rxEngPacketDropper' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -229,287 +360,200 @@ WARNING: [RTGEN 206-101] Register 'repd_state' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'response_drop_V' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'response_id_V' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'response_user_myIP_V' is power-on initialization.
-WARNING: [RTGEN 206-101] Register 'response_user_theirI' is power-on initialization.
-WARNING: [RTGEN 206-101] Register 'response_user_myPort' is power-on initialization.
-WARNING: [RTGEN 206-101] Register 'response_user_theirP' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'response_user_theirIP_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'response_user_myPort_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'response_user_theirPort_V' is power-on initialization.
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'rxEngPacketDropper' pipeline 'rxEngPacketDropper' pipeline type 'function pipeline'
 INFO: [RTGEN 206-100] Finished creating RTL model for 'rxEngPacketDropper'.
-INFO: [HLS 200-111]  Elapsed time: 1.27 seconds; current allocated memory: 353.126 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1.46 seconds. CPU system time: 0.03 seconds. Elapsed time: 1.49 seconds; current allocated memory: 385.506 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'keep2len' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'keep2len'.
-INFO: [HLS 200-111]  Elapsed time: 0.31 seconds; current allocated memory: 355.008 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.28 seconds. CPU system time: 0 seconds. Elapsed time: 0.28 seconds; current allocated memory: 387.389 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'appGetMetaData' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 WARNING: [RTGEN 206-101] Register 'agmd_state' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'lenCount_V' is power-on initialization.
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'appGetMetaData' pipeline 'appGetMetaData' pipeline type 'function pipeline'
 INFO: [RTGEN 206-100] Finished creating RTL model for 'appGetMetaData'.
-INFO: [HLS 200-111]  Elapsed time: 0.36 seconds; current allocated memory: 357.649 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'txTableHandler' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Generating core module 'udp_mux_164_16_1_1': 2 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'udp_mux_164_1_1_1': 1 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'udp_mux_164_32_1_1': 1 instance(s).
-INFO: [RTGEN 206-100] Finished creating RTL model for 'txTableHandler'.
-INFO: [HLS 200-111]  Elapsed time: 0.37 seconds; current allocated memory: 359.890 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.16 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.19 seconds; current allocated memory: 390.400 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'udpTxEngine' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 WARNING: [RTGEN 206-101] Register 'ute_state' is power-on initialization.
-WARNING: [RTGEN 206-101] Register 'prevWord_data_V_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'prevWord_data_V' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'prevWord_keep_V' is power-on initialization.
-WARNING: [RTGEN 206-101] Register 'currMetaData_theirIP' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'currMetaData_theirIP_V' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'currMetaData_myIP_V' is power-on initialization.
-WARNING: [RTGEN 206-101] Register 'currMetaData_theirPo' is power-on initialization.
-WARNING: [RTGEN 206-101] Register 'currMetaData_myPort_s' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'currMetaData_theirPort_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'currMetaData_myPort_V' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'ip_len_V' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'udp_len_V' is power-on initialization.
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'udpTxEngine' pipeline 'udpTxEngine' pipeline type 'function pipeline'
 INFO: [RTGEN 206-100] Finished creating RTL model for 'udpTxEngine'.
-INFO: [HLS 200-111]  Elapsed time: 0.65 seconds; current allocated memory: 362.703 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.33 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.35 seconds; current allocated memory: 392.341 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'udp' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/rxUdpDataIn_V_data_V' to 'axis'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/rxUdpDataIn_V_keep_V' to 'axis'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/rxUdpDataIn_V_last_V' to 'axis'.
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/rxUdpDataIn_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/rxUdpDataIn_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/rxUdpDataIn_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/rxUdpDataIn_V_last_V' to 'axis' (register, both mode).
 INFO: [RTGEN 206-500] Setting interface mode on port 'udp/txUdpDataOut_V_data_V' to 'axis' (register, both mode).
 INFO: [RTGEN 206-500] Setting interface mode on port 'udp/txUdpDataOut_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/txUdpDataOut_V_strb_V' to 'axis' (register, both mode).
 INFO: [RTGEN 206-500] Setting interface mode on port 'udp/txUdpDataOut_V_last_V' to 'axis' (register, both mode).
 INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataOutApp_V_data_V' to 'axis' (register, both mode).
 INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataOutApp_V_keep_V' to 'axis' (register, both mode).
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataOutApp_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataOutApp_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataOutApp_V_user_V' to 'axis' (register, both mode).
 INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataOutApp_V_last_V' to 'axis' (register, both mode).
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataOutApp_V_user' to 'axis' (register, both mode).
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataInApp_V_data_V' to 'axis'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataInApp_V_keep_V' to 'axis'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataInApp_V_dest_V' to 'axis'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataInApp_V_last_V' to 'axis'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataInApp_V_user' to 'axis'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/myIpAddress_V' to 'ap_stable'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_0_theirIP_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_1_theirIP_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_2_theirIP_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_3_theirIP_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_4_theirIP_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_5_theirIP_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_6_theirIP_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_7_theirIP_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_8_theirIP_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_9_theirIP_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_10_theirIP_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_11_theirIP_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_12_theirIP_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_13_theirIP_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_14_theirIP_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_15_theirIP_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_0_theirPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_1_theirPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_2_theirPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_3_theirPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_4_theirPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_5_theirPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_6_theirPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_7_theirPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_8_theirPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_9_theirPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_10_theirPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_11_theirPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_12_theirPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_13_theirPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_14_theirPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_15_theirPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_0_myPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_1_myPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_2_myPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_3_myPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_4_myPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_5_myPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_6_myPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_7_myPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_8_myPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_9_myPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_10_myPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_11_myPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_12_myPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_13_myPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_14_myPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_15_myPort_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_0_valid_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_1_valid_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_2_valid_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_3_valid_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_4_valid_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_5_valid_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_6_valid_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_7_valid_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_8_valid_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_9_valid_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_10_valid_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_11_valid_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_12_valid_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_13_valid_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_14_valid_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_15_valid_V' to 's_axilite & ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'udp/numberSockets_V' to 's_axilite & ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataOutApp_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataInApp_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataInApp_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataInApp_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataInApp_V_user_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataInApp_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/DataInApp_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/myIpAddress' to 'ap_none' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirIP_0' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirIP_1' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirIP_2' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirIP_3' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirIP_4' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirIP_5' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirIP_6' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirIP_7' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirIP_8' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirIP_9' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirIP_10' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirIP_11' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirIP_12' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirIP_13' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirIP_14' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirIP_15' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirPort_0' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirPort_1' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirPort_2' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirPort_3' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirPort_4' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirPort_5' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirPort_6' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirPort_7' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirPort_8' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirPort_9' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirPort_10' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirPort_11' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirPort_12' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirPort_13' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirPort_14' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_theirPort_15' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_myPort_0' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_myPort_1' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_myPort_2' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_myPort_3' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_myPort_4' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_myPort_5' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_myPort_6' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_myPort_7' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_myPort_8' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_myPort_9' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_myPort_10' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_myPort_11' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_myPort_12' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_myPort_13' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_myPort_14' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_myPort_15' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_valid_0' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_valid_1' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_valid_2' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_valid_3' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_valid_4' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_valid_5' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_valid_6' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_valid_7' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_valid_8' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_valid_9' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_valid_10' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_valid_11' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_valid_12' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_valid_13' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_valid_14' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/SocketTable_valid_15' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'udp/numberSockets' to 's_axilite & ap_vld'.
 INFO: [RTGEN 206-500] Setting interface mode on function 'udp' to 'ap_ctrl_none'.
-INFO: [RTGEN 206-100] Bundling port 'SocketTable_0_theirIP_V', 'SocketTable_1_theirIP_V', 'SocketTable_2_theirIP_V', 'SocketTable_3_theirIP_V', 'SocketTable_4_theirIP_V', 'SocketTable_5_theirIP_V', 'SocketTable_6_theirIP_V', 'SocketTable_7_theirIP_V', 'SocketTable_8_theirIP_V', 'SocketTable_9_theirIP_V', 'SocketTable_10_theirIP_V', 'SocketTable_11_theirIP_V', 'SocketTable_12_theirIP_V', 'SocketTable_13_theirIP_V', 'SocketTable_14_theirIP_V', 'SocketTable_15_theirIP_V', 'SocketTable_0_theirPort_V', 'SocketTable_1_theirPort_V', 'SocketTable_2_theirPort_V', 'SocketTable_3_theirPort_V', 'SocketTable_4_theirPort_V', 'SocketTable_5_theirPort_V', 'SocketTable_6_theirPort_V', 'SocketTable_7_theirPort_V', 'SocketTable_8_theirPort_V', 'SocketTable_9_theirPort_V', 'SocketTable_10_theirPort_V', 'SocketTable_11_theirPort_V', 'SocketTable_12_theirPort_V', 'SocketTable_13_theirPort_V', 'SocketTable_14_theirPort_V', 'SocketTable_15_theirPort_V', 'SocketTable_0_myPort_V', 'SocketTable_1_myPort_V', 'SocketTable_2_myPort_V', 'SocketTable_3_myPort_V', 'SocketTable_4_myPort_V', 'SocketTable_5_myPort_V', 'SocketTable_6_myPort_V', 'SocketTable_7_myPort_V', 'SocketTable_8_myPort_V', 'SocketTable_9_myPort_V', 'SocketTable_10_myPort_V', 'SocketTable_11_myPort_V', 'SocketTable_12_myPort_V', 'SocketTable_13_myPort_V', 'SocketTable_14_myPort_V', 'SocketTable_15_myPort_V', 'SocketTable_0_valid_V', 'SocketTable_1_valid_V', 'SocketTable_2_valid_V', 'SocketTable_3_valid_V', 'SocketTable_4_valid_V', 'SocketTable_5_valid_V', 'SocketTable_6_valid_V', 'SocketTable_7_valid_V', 'SocketTable_8_valid_V', 'SocketTable_9_valid_V', 'SocketTable_10_valid_V', 'SocketTable_11_valid_V', 'SocketTable_12_valid_V', 'SocketTable_13_valid_V', 'SocketTable_14_valid_V', 'SocketTable_15_valid_V' and 'numberSockets_V' to AXI-Lite port s_axilite.
-WARNING: [HLS 200-656] Deadlocks can occur since process udpRxEngine is a non-flushable pipeline which is instantiated in a dataflow region without ap_ctrl_chain mode.
-WARNING: [HLS 200-656] Deadlocks can occur since process rxTableHandler is a non-flushable pipeline which is instantiated in a dataflow region without ap_ctrl_chain mode.
-WARNING: [HLS 200-656] Deadlocks can occur since process rxEngPacketDropper is a non-flushable pipeline which is instantiated in a dataflow region without ap_ctrl_chain mode.
-WARNING: [HLS 200-656] Deadlocks can occur since process appGetMetaData is a non-flushable pipeline which is instantiated in a dataflow region without ap_ctrl_chain mode.
-WARNING: [HLS 200-656] Deadlocks can occur since process txTableHandler is a non-flushable pipeline which is instantiated in a dataflow region without ap_ctrl_chain mode.
-WARNING: [HLS 200-656] Deadlocks can occur since process udpTxEngine is a non-flushable pipeline which is instantiated in a dataflow region without ap_ctrl_chain mode.
-WARNING: [HLS 200-631] Ignoring ap_ctrl_none interface for udp due to udp.entry3 with non-FIFO I/O
+INFO: [RTGEN 206-100] Bundling port 'SocketTable_theirIP_0', 'SocketTable_theirIP_1', 'SocketTable_theirIP_2', 'SocketTable_theirIP_3', 'SocketTable_theirIP_4', 'SocketTable_theirIP_5', 'SocketTable_theirIP_6', 'SocketTable_theirIP_7', 'SocketTable_theirIP_8', 'SocketTable_theirIP_9', 'SocketTable_theirIP_10', 'SocketTable_theirIP_11', 'SocketTable_theirIP_12', 'SocketTable_theirIP_13', 'SocketTable_theirIP_14', 'SocketTable_theirIP_15', 'SocketTable_theirPort_0', 'SocketTable_theirPort_1', 'SocketTable_theirPort_2', 'SocketTable_theirPort_3', 'SocketTable_theirPort_4', 'SocketTable_theirPort_5', 'SocketTable_theirPort_6', 'SocketTable_theirPort_7', 'SocketTable_theirPort_8', 'SocketTable_theirPort_9', 'SocketTable_theirPort_10', 'SocketTable_theirPort_11', 'SocketTable_theirPort_12', 'SocketTable_theirPort_13', 'SocketTable_theirPort_14', 'SocketTable_theirPort_15', 'SocketTable_myPort_0', 'SocketTable_myPort_1', 'SocketTable_myPort_2', 'SocketTable_myPort_3', 'SocketTable_myPort_4', 'SocketTable_myPort_5', 'SocketTable_myPort_6', 'SocketTable_myPort_7', 'SocketTable_myPort_8', 'SocketTable_myPort_9', 'SocketTable_myPort_10', 'SocketTable_myPort_11', 'SocketTable_myPort_12', 'SocketTable_myPort_13', 'SocketTable_myPort_14', 'SocketTable_myPort_15', 'SocketTable_valid_0', 'SocketTable_valid_1', 'SocketTable_valid_2', 'SocketTable_valid_3', 'SocketTable_valid_4', 'SocketTable_valid_5', 'SocketTable_valid_6', 'SocketTable_valid_7', 'SocketTable_valid_8', 'SocketTable_valid_9', 'SocketTable_valid_10', 'SocketTable_valid_11', 'SocketTable_valid_12', 'SocketTable_valid_13', 'SocketTable_valid_14', 'SocketTable_valid_15' and 'numberSockets' to AXI-Lite port s_axilite.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'udp'.
-INFO: [HLS 200-111]  Elapsed time: 1.84 seconds; current allocated memory: 372.104 MB.
-INFO: [HLS 200-789] **** Estimated Fmax: 421.05 MHz
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_0_their_6_U(fifo_w32_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_1_their_6_U(fifo_w32_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_2_their_6_U(fifo_w32_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_3_their_6_U(fifo_w32_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_4_their_6_U(fifo_w32_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_5_their_6_U(fifo_w32_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_6_their_6_U(fifo_w32_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_7_their_6_U(fifo_w32_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_8_their_6_U(fifo_w32_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_9_their_6_U(fifo_w32_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_10_thei_6_U(fifo_w32_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_11_thei_6_U(fifo_w32_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_12_thei_6_U(fifo_w32_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_13_thei_6_U(fifo_w32_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_14_thei_6_U(fifo_w32_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_15_thei_6_U(fifo_w32_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_0_their_5_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_1_their_5_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_2_their_5_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_3_their_5_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_4_their_5_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_5_their_5_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_6_their_5_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_7_their_5_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_8_their_5_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_9_their_5_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_10_thei_5_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_11_thei_5_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_12_thei_5_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_13_thei_5_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_14_thei_5_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_15_thei_5_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_0_myPor_2_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_1_myPor_2_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_2_myPor_2_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_3_myPor_2_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_4_myPor_2_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_5_myPor_2_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_6_myPor_2_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_7_myPor_2_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_8_myPor_2_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_9_myPor_2_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_10_myPo_2_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_11_myPo_2_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_12_myPo_2_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_13_myPo_2_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_14_myPo_2_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_15_myPo_2_U(fifo_w16_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_0_valid_1_U(fifo_w1_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_1_valid_1_U(fifo_w1_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_2_valid_1_U(fifo_w1_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_3_valid_1_U(fifo_w1_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_4_valid_1_U(fifo_w1_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_5_valid_1_U(fifo_w1_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_6_valid_1_U(fifo_w1_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_7_valid_1_U(fifo_w1_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_8_valid_1_U(fifo_w1_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_9_valid_1_U(fifo_w1_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_10_vali_1_U(fifo_w1_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_11_vali_1_U(fifo_w1_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_12_vali_1_U(fifo_w1_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_13_vali_1_U(fifo_w1_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_14_vali_1_U(fifo_w1_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_15_vali_1_U(fifo_w1_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_0_their_4_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_0_their_3_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_1_their_4_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_1_their_3_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_2_their_4_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_2_their_3_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_3_their_4_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_3_their_3_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_4_their_4_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_4_their_3_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_5_their_4_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_5_their_3_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_6_their_4_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_6_their_3_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_7_their_4_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_7_their_3_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_8_their_4_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_8_their_3_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_9_their_4_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_9_their_3_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_10_thei_4_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_10_thei_3_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_11_thei_4_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_11_thei_3_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_12_thei_4_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_12_thei_3_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_13_thei_4_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_13_thei_3_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_14_thei_4_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_14_thei_3_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_15_thei_4_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_15_thei_3_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_0_their_2_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_0_their_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_1_their_2_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_1_their_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_2_their_2_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_2_their_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_3_their_2_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_3_their_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_4_their_2_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_4_their_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_5_their_2_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_5_their_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_6_their_2_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_6_their_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_7_their_2_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_7_their_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_8_their_2_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_8_their_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_9_their_2_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_9_their_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_10_thei_2_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_10_thei_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_11_thei_2_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_11_thei_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_12_thei_2_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_12_thei_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_13_thei_2_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_13_thei_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_14_thei_2_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_14_thei_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_15_thei_2_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_15_thei_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_0_myPor_1_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_0_myPor_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_1_myPor_1_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_1_myPor_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_2_myPor_1_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_2_myPor_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_3_myPor_1_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_3_myPor_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_4_myPor_1_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_4_myPor_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_5_myPor_1_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_5_myPor_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_6_myPor_1_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_6_myPor_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_7_myPor_1_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_7_myPor_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_8_myPor_1_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_8_myPor_U(fifo_w16_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_9_myPor_1_U(fifo_w16_d3_A)' using Shift Registers.
-INFO
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.86 seconds. CPU system time: 0.07 seconds. Elapsed time: 1.03 seconds; current allocated memory: 398.141 MB.
+INFO: [RTMG 210-285] Implementing FIFO 'myIpAddress_c_channel_U(udp_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirIP_0_c_channel_U(udp_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirIP_1_c_channel_U(udp_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirIP_2_c_channel_U(udp_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirIP_3_c_channel_U(udp_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirIP_4_c_channel_U(udp_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirIP_5_c_channel_U(udp_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirIP_6_c_channel_U(udp_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirIP_7_c_channel_U(udp_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirIP_8_c_channel_U(udp_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirIP_9_c_channel_U(udp_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirIP_10_c_channel_U(udp_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirIP_11_c_channel_U(udp_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirIP_12_c_channel_U(udp_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirIP_13_c_channel_U(udp_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirIP_14_c_channel_U(udp_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirIP_15_c_channel_U(udp_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirPort_0_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirPort_1_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirPort_2_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirPort_3_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirPort_4_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirPort_5_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirPort_6_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirPort_7_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirPort_8_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirPort_9_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirPort_10_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirPort_11_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirPort_12_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirPort_13_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirPort_14_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_theirPort_15_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_myPort_0_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_myPort_1_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_myPort_2_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_myPort_3_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_myPort_4_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_myPort_5_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_myPort_6_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_myPort_7_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_myPort_8_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_myPort_9_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_myPort_10_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_myPort_11_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_myPort_12_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_myPort_13_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_myPort_14_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_myPort_15_c_channel_U(udp_fifo_w16_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_valid_0_c_channel_U(udp_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_valid_1_c_channel_U(udp_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_valid_2_c_channel_U(udp_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_valid_3_c_channel_U(udp_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_valid_4_c_channel_U(udp_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_valid_5_c_channel_U(udp_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_valid_6_c_channel_U(udp_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_valid_7_c_channel_U(udp_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_valid_8_c_channel_U(udp_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_valid_9_c_channel_U(udp_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_valid_10_c_channel_U(udp_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_valid_11_c_channel_U(udp_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_valid_12_c_channel_U(udp_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_valid_13_c_channel_U(udp_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_valid_14_c_channel_U(udp_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'SocketTable_valid_15_c_channel_U(udp_fifo_w1_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'ureMetaData_U(udp_fifo_w128_d32_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'ureDataPayload_U(udp_fifo_w1024_d256_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'rthDropFifo_U(udp_fifo_w160_d32_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'agmdIdOut_U(udp_fifo_w16_d256_A)' using Vivado Default RAMs.

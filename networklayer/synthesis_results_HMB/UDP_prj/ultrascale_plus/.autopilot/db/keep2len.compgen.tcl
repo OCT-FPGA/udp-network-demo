@@ -10,15 +10,15 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 370 \
-    name keepValue_V \
+    id 160 \
+    name keepValue \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_keepValue_V \
+    corename dc_keepValue \
     op interface \
-    ports { keepValue_V { I 64 vector } } \
+    ports { keepValue { I 64 vector } } \
 } "
 }
 

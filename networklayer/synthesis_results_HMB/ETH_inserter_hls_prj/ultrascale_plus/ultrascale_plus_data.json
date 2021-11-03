@@ -2,134 +2,131 @@
   "Top": "ethernet_header_inserter",
   "RtlTop": "ethernet_header_inserter",
   "RtlPrefix": "",
+  "RtlSubPrefix": "ethernet_header_inserter_",
   "SourceLanguage": "cpp",
-  "ResetStyle": "control",
-  "GenerateBdFiles": "1",
   "HostMachineBits": "64",
+  "FunctionProtocol": "ap_ctrl_none",
+  "ResetStyle": "control",
   "Target": {
     "Family": "virtexuplushbm",
     "Device": "xcu280",
     "Package": "-fsvh2892",
-    "Speed": "-2L-e"
-  },
-  "HlsSolution": {
-    
+    "Speed": "-2L-e",
+    "Triple": "fpga64-xilinx-none"
   },
   "Args": {
     "dataIn": {
       "index": "0",
-      "type": {
-        "kinds": ["struct"],
-        "dataType": "my_axis<512>",
-        "structImpl": "flat-field",
-        "dataPack": true,
-        "fields": {
-          "data": {
-            "order": "0",
-            "dataType": "ap_uint"
-          },
-          "keep": {
-            "order": "1",
-            "dataType": "ap_uint"
-          },
-          "last": {
-            "order": "2",
-            "dataType": "ap_uint"
-          }
-        }
-      }
+      "direction": "in",
+      "srcType": "stream<hls::axis<ap_uint<512>, 0, 0, 0>, 0>&",
+      "srcSize": "1024",
+      "hwRefs": [{
+          "type": "interface",
+          "interface": "dataIn",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        }]
     },
     "dataOut": {
       "index": "1",
-      "type": {
-        "kinds": ["struct"],
-        "dataType": "my_axis<512>",
-        "structImpl": "flat-field",
-        "dataPack": true,
-        "fields": {
-          "data": {
-            "order": "0",
-            "dataType": "ap_uint"
-          },
-          "keep": {
-            "order": "1",
-            "dataType": "ap_uint"
-          },
-          "last": {
-            "order": "2",
-            "dataType": "ap_uint"
-          }
-        }
-      }
+      "direction": "out",
+      "srcType": "stream<hls::axis<ap_uint<512>, 0, 0, 0>, 0>&",
+      "srcSize": "1024",
+      "hwRefs": [{
+          "type": "interface",
+          "interface": "dataOut",
+          "name": "",
+          "usage": "data",
+          "direction": "out"
+        }]
     },
     "arpTableReplay": {
       "index": "2",
-      "type": {
-        "kinds": ["struct"],
-        "dataType": "arpTableReply",
-        "portRef": "TDATA",
-        "structImpl": "interface",
-        "dataPack": true,
-        "fields": {
-          "macAddress": {
-            "order": "0",
-            "dataType": "ap_uint"
-          },
-          "hit": {
-            "order": "1",
-            "dataType": "bool"
-          }
-        }
-      }
+      "direction": "in",
+      "srcType": "stream<arpTableReply, 0>&",
+      "srcSize": "128",
+      "hwRefs": [{
+          "type": "interface",
+          "interface": "arpTableReplay_V",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        }]
     },
     "arpTableRequest": {
       "index": "3",
-      "type": {"dataType": "ap_uint"}
+      "direction": "out",
+      "srcType": "stream<ap_uint<32>, 0>&",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "interface",
+          "interface": "arpTableRequest_V",
+          "name": "",
+          "usage": "data",
+          "direction": "out"
+        }]
     },
     "myMacAddress": {
       "index": "4",
-      "type": {
-        "dataType": "ap_uint",
-        "dataWidth": "48",
-        "interfaceRef": "myMacAddress_V"
-      }
+      "direction": "in",
+      "srcType": "ap_uint<48>&",
+      "srcSize": "64",
+      "hwRefs": [{
+          "type": "port",
+          "interface": "myMacAddress",
+          "name": "myMacAddress",
+          "usage": "data",
+          "direction": "in"
+        }]
     },
     "regSubNetMask": {
       "index": "5",
-      "type": {
-        "dataType": "ap_uint",
-        "dataWidth": "32",
-        "interfaceRef": "regSubNetMask_V"
-      }
+      "direction": "in",
+      "srcType": "ap_uint<32>&",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "port",
+          "interface": "regSubNetMask",
+          "name": "regSubNetMask",
+          "usage": "data",
+          "direction": "in"
+        }]
     },
     "regDefaultGateway": {
       "index": "6",
-      "type": {
-        "dataType": "ap_uint",
-        "dataWidth": "32",
-        "interfaceRef": "regDefaultGateway_V"
-      }
+      "direction": "in",
+      "srcType": "ap_uint<32>&",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "port",
+          "interface": "regDefaultGateway",
+          "name": "regDefaultGateway",
+          "usage": "data",
+          "direction": "in"
+        }]
     }
   },
-  "Return": {
-    
+  "HlsSolution": {
+    "FlowTarget": "vivado",
+    "ConfigTcl": [
+      "config_export -format=ip_catalog",
+      "config_export -rtl=verilog"
+    ],
+    "DirectiveTcl": ["set_directive_top ethernet_header_inserter -name ethernet_header_inserter"],
+    "ProfileOption": "0",
+    "ProfileType": "none",
+    "KernelName": "ethernet_header_inserter"
   },
   "ClockInfo": {
     "ClockName": "ap_clk",
     "ClockPeriod": "3.1",
-    "IsCombLogic": "0",
-    "II": "x",
-    "Latency": "8",
-    "Uncertainty": "0.2"
+    "Uncertainty": "0.2",
+    "IsCombinational": "0",
+    "II": "1",
+    "Latency": "9"
   },
-  "Xdc": {
-    "OocClocks": ["create_clock -name ap_clk -period 3.100 [get_ports ap_clk]"],
-    "FalsePaths": [
-      "set_false_path -through [get_ports myMacAddress_V[*]]",
-      "set_false_path -through [get_ports regSubNetMask_V[*]]",
-      "set_false_path -through [get_ports regDefaultGateway_V[*]]"
-    ]
-  },
+  "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 3.100 [get_ports ap_clk]"]},
   "Ipx": {
     "Vendor": "xilinx.com",
     "Library": "hls",
@@ -137,183 +134,197 @@
     "Version": "1.0",
     "DisplayName": "Ethernet_header_inserter",
     "Revision": "",
-    "Description": "An IP generated by Vivado HLS",
-    "Taxonomy": "\/VIVADO_HLS_IP",
-    "AutoFamilySupport": ""
+    "Description": "An IP generated by Vitis HLS",
+    "Taxonomy": "\/VITIS_HLS_IP",
+    "AutoFamilySupport": "",
+    "ZipFile": "xilinx_com_hls_ethernet_header_inserter_1_0.zip"
   },
   "Files": {
     "CSource": ["\/home\/ubuntu\/xup_vitis_network_example\/NetLayers\/100G-fpga-network-stack-core\/synthesis_results_HMB\/..\/\/hls\/ethernet_inserter\/ethernet_header_inserter.cpp"],
     "Vhdl": [
-      "impl\/vhdl\/broadcaster_and_mac_s.vhd",
-      "impl\/vhdl\/compute_and_insert_i.vhd",
-      "impl\/vhdl\/fifo_w577_d16_A.vhd",
-      "impl\/vhdl\/handle_output.vhd",
-      "impl\/vhdl\/regslice_core.vhd",
-      "impl\/vhdl\/start_for_computebkb.vhd",
+      "impl\/vhdl\/ethernet_header_inserter_broadcaster_and_mac_request.vhd",
+      "impl\/vhdl\/ethernet_header_inserter_compute_and_insert_ip_checksum.vhd",
+      "impl\/vhdl\/ethernet_header_inserter_fifo_w1024_d16_A.vhd",
+      "impl\/vhdl\/ethernet_header_inserter_handle_output.vhd",
+      "impl\/vhdl\/ethernet_header_inserter_regslice_both.vhd",
+      "impl\/vhdl\/ethernet_header_inserter_start_for_compute_and_insert_ip_checksum_U0.vhd",
       "impl\/vhdl\/ethernet_header_inserter.vhd"
     ],
     "Verilog": [
-      "impl\/verilog\/broadcaster_and_mac_s.v",
-      "impl\/verilog\/compute_and_insert_i.v",
-      "impl\/verilog\/fifo_w577_d16_A.v",
-      "impl\/verilog\/handle_output.v",
-      "impl\/verilog\/regslice_core.v",
-      "impl\/verilog\/start_for_computebkb.v",
+      "impl\/verilog\/ethernet_header_inserter_broadcaster_and_mac_request.v",
+      "impl\/verilog\/ethernet_header_inserter_compute_and_insert_ip_checksum.v",
+      "impl\/verilog\/ethernet_header_inserter_fifo_w1024_d16_A.v",
+      "impl\/verilog\/ethernet_header_inserter_handle_output.v",
+      "impl\/verilog\/ethernet_header_inserter_hls_deadlock_detection_unit.v",
+      "impl\/verilog\/ethernet_header_inserter_hls_deadlock_detector.vh",
+      "impl\/verilog\/ethernet_header_inserter_hls_deadlock_idx0_monitor.v",
+      "impl\/verilog\/ethernet_header_inserter_hls_deadlock_idx1_monitor.v",
+      "impl\/verilog\/ethernet_header_inserter_hls_deadlock_idx2_monitor.v",
+      "impl\/verilog\/ethernet_header_inserter_hls_deadlock_kernel_monitor_top.vh",
+      "impl\/verilog\/ethernet_header_inserter_hls_deadlock_report_unit.vh",
+      "impl\/verilog\/ethernet_header_inserter_regslice_both.v",
+      "impl\/verilog\/ethernet_header_inserter_start_for_compute_and_insert_ip_checksum_U0.v",
       "impl\/verilog\/ethernet_header_inserter.v"
     ],
-    "Misc": ["impl\/misc\/logo.png"],
-    "DesignXml": "\/home\/ubuntu\/xup_vitis_network_example\/NetLayers\/100G-fpga-network-stack-core\/synthesis_results_HMB\/ETH_inserter_hls_prj\/ultrascale_plus\/.autopilot\/db\/ethernet_header_inserter.design.xml",
-    "DebugDir": "\/home\/ubuntu\/xup_vitis_network_example\/NetLayers\/100G-fpga-network-stack-core\/synthesis_results_HMB\/ETH_inserter_hls_prj\/ultrascale_plus\/.debug",
-    "ProtoInst": ["\/home\/ubuntu\/xup_vitis_network_example\/NetLayers\/100G-fpga-network-stack-core\/synthesis_results_HMB\/ETH_inserter_hls_prj\/ultrascale_plus\/.debug\/ethernet_header_inserter.protoinst"]
+    "IpMisc": ["impl\/misc\/logo.png"],
+    "CsynthXml": "syn\/report\/csynth.xml",
+    "DebugDir": ".debug",
+    "KernelXml": ".autopilot\/db\/kernel.internal.xml",
+    "Xo": "",
+    "XoHlsDir": "",
+    "ProtoInst": [".debug\/ethernet_header_inserter.protoinst"]
   },
   "SubcoreInfo": {
     "HasXpmMemory": false,
     "HasClockedDsp": false,
-    "IP": []
+    "Ip": []
   },
   "Interfaces": {
-    "ap_clk": {
-      "type": "clock",
-      "ctype": {"CLK": {"Type": "bool"}},
-      "bundle_name": "ap_clk",
-      "bundle_role": "default",
-      "buses": "dataIn dataOut arpTableReplay_V arpTableRequest_V_V",
-      "reset": "ap_rst_n"
-    },
-    "ap_rst_n": {
-      "type": "reset",
-      "polarity": "ACTIVE_LOW",
-      "ctype": {"RST": {"Type": "bool"}},
-      "bundle_name": "ap_rst_n",
-      "bundle_role": "default"
-    },
-    "arpTableReplay_V": {
-      "type": "axi4stream",
-      "mode": "slave",
-      "port_prefix": "arpTableReplay_V",
-      "has_tready": "1",
-      "ctype": {
-        "TDATA": {
-          "Type": "struct",
-          "Width": "56",
-          "Fields": {
-            "macAddress": {
-              "Type": "integer unsigned",
-              "Width": "48"
-            },
-            "hit": {
-              "Type": "null",
-              "Width": "1",
-              "Bits": "8"
-            }
-          }
-        },
-        "TVALID": {"Type": "bool"},
-        "TREADY": {"Type": "bool"}
-      },
-      "port_width": {"TDATA": "56"}
-    },
-    "arpTableRequest_V_V": {
-      "type": "axi4stream",
-      "mode": "master",
-      "port_prefix": "arpTableRequest_V_V",
-      "has_tready": "1",
-      "ctype": {
-        "TDATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        },
-        "TVALID": {"Type": "bool"},
-        "TREADY": {"Type": "bool"}
-      },
-      "port_width": {"TDATA": "32"}
-    },
     "dataIn": {
       "type": "axi4stream",
+      "busTypeName": "axis",
       "mode": "slave",
-      "port_prefix": "dataIn",
-      "has_tready": "1",
-      "ctype": {
-        "TDATA": {
-          "Type": "integer unsigned",
-          "Width": "512"
-        },
-        "TKEEP": {
-          "Type": "integer unsigned",
-          "Width": "64"
-        },
-        "TLAST": {
-          "Type": "integer unsigned",
-          "Width": "1"
-        },
-        "TVALID": {"Type": "bool"},
-        "TREADY": {"Type": "bool"}
-      },
-      "port_width": {
-        "TDATA": "512",
-        "TKEEP": "64",
-        "TLAST": "1"
-      }
+      "dataWidth": "512",
+      "portPrefix": "dataIn_",
+      "ports": [
+        "dataIn_TDATA",
+        "dataIn_TKEEP",
+        "dataIn_TLAST",
+        "dataIn_TREADY",
+        "dataIn_TSTRB",
+        "dataIn_TVALID"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "axis",
+          "register_option": "1",
+          "register_mode": "both",
+          "argName": "dataIn"
+        }]
     },
     "dataOut": {
       "type": "axi4stream",
+      "busTypeName": "axis",
       "mode": "master",
-      "port_prefix": "dataOut",
-      "has_tready": "1",
-      "ctype": {
-        "TDATA": {
-          "Type": "integer unsigned",
-          "Width": "512"
-        },
-        "TKEEP": {
-          "Type": "integer unsigned",
-          "Width": "64"
-        },
-        "TLAST": {
-          "Type": "integer unsigned",
-          "Width": "1"
-        },
-        "TVALID": {"Type": "bool"},
-        "TREADY": {"Type": "bool"}
+      "dataWidth": "512",
+      "portPrefix": "dataOut_",
+      "ports": [
+        "dataOut_TDATA",
+        "dataOut_TKEEP",
+        "dataOut_TLAST",
+        "dataOut_TREADY",
+        "dataOut_TSTRB",
+        "dataOut_TVALID"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "axis",
+          "register_option": "1",
+          "register_mode": "both",
+          "argName": "dataOut"
+        }]
+    },
+    "arpTableReplay_V": {
+      "type": "axi4stream",
+      "busTypeName": "axis",
+      "mode": "slave",
+      "dataWidth": "128",
+      "portPrefix": "arpTableReplay_V_",
+      "ports": [
+        "arpTableReplay_V_TDATA",
+        "arpTableReplay_V_TREADY",
+        "arpTableReplay_V_TVALID"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "axis",
+          "register_option": "1",
+          "register_mode": "both",
+          "argName": "arpTableReplay"
+        }]
+    },
+    "arpTableRequest_V": {
+      "type": "axi4stream",
+      "busTypeName": "axis",
+      "mode": "master",
+      "dataWidth": "32",
+      "portPrefix": "arpTableRequest_V_",
+      "ports": [
+        "arpTableRequest_V_TDATA",
+        "arpTableRequest_V_TREADY",
+        "arpTableRequest_V_TVALID"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "axis",
+          "register_option": "1",
+          "register_mode": "both",
+          "argName": "arpTableRequest"
+        }]
+    },
+    "myMacAddress": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_none",
+      "mode": "slave",
+      "dataWidth": "48",
+      "portMap": {"myMacAddress": "DATA"},
+      "ports": ["myMacAddress"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "1",
+          "argName": "myMacAddress"
+        }]
+    },
+    "regSubNetMask": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_none",
+      "mode": "slave",
+      "dataWidth": "32",
+      "portMap": {"regSubNetMask": "DATA"},
+      "ports": ["regSubNetMask"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "1",
+          "argName": "regSubNetMask"
+        }]
+    },
+    "regDefaultGateway": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_none",
+      "mode": "slave",
+      "dataWidth": "32",
+      "portMap": {"regDefaultGateway": "DATA"},
+      "ports": ["regDefaultGateway"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "1",
+          "argName": "regDefaultGateway"
+        }]
+    },
+    "ap_clk": {
+      "type": "clock",
+      "busTypeName": "clock",
+      "mode": "slave",
+      "busParams": {
+        "ASSOCIATED_BUSIF": "dataIn:dataOut:arpTableReplay_V:arpTableRequest_V",
+        "ASSOCIATED_RESET": "ap_rst_n"
       },
-      "port_width": {
-        "TDATA": "512",
-        "TKEEP": "64",
-        "TLAST": "1"
-      }
+      "portMap": {"ap_clk": "CLK"},
+      "ports": ["ap_clk"]
     },
-    "myMacAddress_V": {
-      "type": "data",
-      "dir": "in",
-      "width": "48",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "48"
-        }},
-      "bundle_name": "myMacAddress_V",
-      "bundle_role": "default"
-    },
-    "regDefaultGateway_V": {
-      "type": "data",
-      "dir": "in",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "regDefaultGateway_V",
-      "bundle_role": "default"
-    },
-    "regSubNetMask_V": {
-      "type": "data",
-      "dir": "in",
-      "width": "32",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "32"
-        }},
-      "bundle_name": "regSubNetMask_V",
-      "bundle_role": "default"
+    "ap_rst_n": {
+      "type": "reset",
+      "busTypeName": "reset",
+      "mode": "slave",
+      "busParams": {"POLARITY": "ACTIVE_LOW"},
+      "portMap": {"ap_rst_n": "RST"},
+      "ports": ["ap_rst_n"]
     }
   },
   "RtlPorts": {
@@ -322,6 +333,10 @@
       "width": "512"
     },
     "dataIn_TKEEP": {
+      "dir": "in",
+      "width": "64"
+    },
+    "dataIn_TSTRB": {
       "dir": "in",
       "width": "64"
     },
@@ -346,6 +361,10 @@
       "dir": "out",
       "width": "64"
     },
+    "dataOut_TSTRB": {
+      "dir": "out",
+      "width": "64"
+    },
     "dataOut_TLAST": {
       "dir": "out",
       "width": "1",
@@ -361,7 +380,7 @@
     },
     "arpTableReplay_V_TDATA": {
       "dir": "in",
-      "width": "56"
+      "width": "128"
     },
     "arpTableReplay_V_TVALID": {
       "dir": "in",
@@ -371,27 +390,27 @@
       "dir": "out",
       "width": "1"
     },
-    "arpTableRequest_V_V_TDATA": {
+    "arpTableRequest_V_TDATA": {
       "dir": "out",
       "width": "32"
     },
-    "arpTableRequest_V_V_TVALID": {
+    "arpTableRequest_V_TVALID": {
       "dir": "out",
       "width": "1"
     },
-    "arpTableRequest_V_V_TREADY": {
+    "arpTableRequest_V_TREADY": {
       "dir": "in",
       "width": "1"
     },
-    "myMacAddress_V": {
+    "myMacAddress": {
       "dir": "in",
       "width": "48"
     },
-    "regSubNetMask_V": {
+    "regSubNetMask": {
       "dir": "in",
       "width": "32"
     },
-    "regDefaultGateway_V": {
+    "regDefaultGateway": {
       "dir": "in",
       "width": "32"
     },
@@ -409,58 +428,58 @@
       "ModuleName": "ethernet_header_inserter",
       "Instances": [
         {
-          "ModuleName": "compute_and_insert_i",
-          "InstanceName": "compute_and_insert_i_U0"
+          "ModuleName": "broadcaster_and_mac_request",
+          "InstanceName": "broadcaster_and_mac_request_U0"
+        },
+        {
+          "ModuleName": "compute_and_insert_ip_checksum",
+          "InstanceName": "compute_and_insert_ip_checksum_U0"
         },
         {
           "ModuleName": "handle_output",
           "InstanceName": "handle_output_U0"
-        },
-        {
-          "ModuleName": "broadcaster_and_mac_s",
-          "InstanceName": "broadcaster_and_mac_U0"
         }
       ]
     },
     "Info": {
-      "broadcaster_and_mac_s": {
+      "broadcaster_and_mac_request": {
         "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "1",
+        "isTaskLevelControl": "0",
         "isPipelined": "1",
         "isCombinational": "0",
         "isOneStateSeq": "0"
       },
-      "compute_and_insert_i": {
+      "compute_and_insert_ip_checksum": {
         "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "1",
+        "isTaskLevelControl": "0",
         "isPipelined": "1",
         "isCombinational": "0",
         "isOneStateSeq": "0"
       },
       "handle_output": {
         "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "1",
+        "isTaskLevelControl": "0",
         "isPipelined": "1",
         "isCombinational": "0",
         "isOneStateSeq": "0"
       },
       "ethernet_header_inserter": {
         "FunctionProtocol": "ap_ctrl_none",
-        "isTaskLevelControl": "1",
+        "isTaskLevelControl": "0",
         "isPipelined": "1",
         "isCombinational": "0",
         "isOneStateSeq": "0"
       }
     },
     "Metrics": {
-      "broadcaster_and_mac_s": {
+      "broadcaster_and_mac_request": {
         "Latency": {
           "LatencyBest": "2",
           "LatencyAvg": "2",
           "LatencyWorst": "2",
           "PipelineII": "1",
           "PipelineDepth": "3",
-          "PipelineType": "function"
+          "PipelineType": "yes"
         },
         "Timing": {
           "Target": "3.10",
@@ -468,33 +487,53 @@
           "Estimate": "1.450"
         },
         "Area": {
-          "FF": "622",
-          "LUT": "189",
+          "FF": "654",
+          "AVAIL_FF": "2607360",
+          "UTIL_FF": "~0",
+          "LUT": "190",
+          "AVAIL_LUT": "1303680",
+          "UTIL_LUT": "~0",
           "BRAM_18K": "0",
-          "DSP48E": "0",
-          "URAM": "0"
+          "AVAIL_BRAM": "4032",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "9024",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "960",
+          "UTIL_URAM": "0"
         }
       },
-      "compute_and_insert_i": {
+      "compute_and_insert_ip_checksum": {
         "Latency": {
-          "LatencyBest": "3",
-          "LatencyAvg": "3",
-          "LatencyWorst": "3",
+          "LatencyBest": "4",
+          "LatencyAvg": "4",
+          "LatencyWorst": "4",
           "PipelineII": "1",
-          "PipelineDepth": "4",
-          "PipelineType": "function"
+          "PipelineDepth": "5",
+          "PipelineType": "yes"
         },
         "Timing": {
           "Target": "3.10",
           "Uncertainty": "0.20",
-          "Estimate": "2.891"
+          "Estimate": "2.816"
         },
         "Area": {
-          "BRAM_18K": "2",
-          "FF": "2528",
-          "LUT": "1587",
-          "DSP48E": "0",
-          "URAM": "0"
+          "FF": "2859",
+          "AVAIL_FF": "2607360",
+          "UTIL_FF": "~0",
+          "LUT": "2072",
+          "AVAIL_LUT": "1303680",
+          "UTIL_LUT": "~0",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "4032",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "9024",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "960",
+          "UTIL_URAM": "0"
         }
       },
       "handle_output": {
@@ -504,26 +543,36 @@
           "LatencyWorst": "2",
           "PipelineII": "1",
           "PipelineDepth": "3",
-          "PipelineType": "function"
+          "PipelineType": "yes"
         },
         "Timing": {
           "Target": "3.10",
           "Uncertainty": "0.20",
-          "Estimate": "2.374"
+          "Estimate": "2.229"
         },
         "Area": {
           "FF": "1171",
-          "LUT": "259",
+          "AVAIL_FF": "2607360",
+          "UTIL_FF": "~0",
+          "LUT": "247",
+          "AVAIL_LUT": "1303680",
+          "UTIL_LUT": "~0",
           "BRAM_18K": "0",
-          "DSP48E": "0",
-          "URAM": "0"
+          "AVAIL_BRAM": "4032",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "9024",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "960",
+          "UTIL_URAM": "0"
         }
       },
       "ethernet_header_inserter": {
         "Latency": {
-          "LatencyBest": "8",
-          "LatencyAvg": "8",
-          "LatencyWorst": "8",
+          "LatencyBest": "9",
+          "LatencyAvg": "9",
+          "LatencyWorst": "9",
           "PipelineII": "1",
           "PipelineDepth": "",
           "PipelineType": "dataflow"
@@ -531,30 +580,33 @@
         "Timing": {
           "Target": "3.10",
           "Uncertainty": "0.20",
-          "Estimate": "2.891"
+          "Estimate": "2.816"
         },
         "Area": {
-          "BRAM_18K": "101",
-          "FF": "6100",
-          "LUT": "3145",
-          "DSP48E": "0",
-          "URAM": "0"
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "4032",
+          "UTIL_BRAM": "0",
+          "FF": "13960",
+          "AVAIL_FF": "2607360",
+          "UTIL_FF": "~0",
+          "LUT": "7480",
+          "AVAIL_LUT": "1303680",
+          "UTIL_LUT": "~0",
+          "DSP": "0",
+          "AVAIL_DSP": "9024",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "960",
+          "UTIL_URAM": "0"
         }
       }
     }
   },
-  "Sdx": {
-    "Target": "none",
-    "ProfileOption": "0",
-    "ProfileType": "none",
-    "XO": "",
-    "KernelName": "ethernet_header_inserter",
-    "EnableXoSwEmu": "1"
-  },
+  "GenerateBdFiles": "0",
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2021-08-05 18:55:57 UTC",
-    "ToolName": "vivado_hls",
-    "ToolVersion": "2020.1"
+    "Time": "2021-11-03 14:22:50 UTC",
+    "ToolName": "vitis_hls",
+    "ToolVersion": "2021.1"
   }
 }

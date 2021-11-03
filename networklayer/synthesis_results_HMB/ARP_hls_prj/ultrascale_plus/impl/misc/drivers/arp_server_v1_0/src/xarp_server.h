@@ -1,6 +1,6 @@
 // ==============================================================
-// Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
-// Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+// Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2021.1 (64-bit)
+// Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // ==============================================================
 #ifndef XARP_SERVER_H
 #define XARP_SERVER_H
@@ -34,6 +34,7 @@ extern "C" {
 typedef uint8_t u8;
 typedef uint16_t u16;
 typedef uint32_t u32;
+typedef uint64_t u64;
 #else
 typedef struct {
     u16 DeviceId;
@@ -42,9 +43,11 @@ typedef struct {
 #endif
 
 typedef struct {
-    u32 S_axilite_BaseAddress;
+    u64 S_axilite_BaseAddress;
     u32 IsReady;
 } XArp_server;
+
+typedef u32 word_type;
 
 /***************** Macros (Inline Functions) Definitions *********************/
 #ifndef __linux__
@@ -78,37 +81,37 @@ int XArp_server_Release(XArp_server *InstancePtr);
 #endif
 
 
-void XArp_server_Set_arp_scan_V_i(XArp_server *InstancePtr, u32 Data);
-u32 XArp_server_Get_arp_scan_V_i(XArp_server *InstancePtr);
-u32 XArp_server_Get_arp_scan_V_o(XArp_server *InstancePtr);
-u32 XArp_server_Get_arp_scan_V_o_vld(XArp_server *InstancePtr);
-u32 XArp_server_Get_arpTable_macAddress_V_BaseAddress(XArp_server *InstancePtr);
-u32 XArp_server_Get_arpTable_macAddress_V_HighAddress(XArp_server *InstancePtr);
-u32 XArp_server_Get_arpTable_macAddress_V_TotalBytes(XArp_server *InstancePtr);
-u32 XArp_server_Get_arpTable_macAddress_V_BitWidth(XArp_server *InstancePtr);
-u32 XArp_server_Get_arpTable_macAddress_V_Depth(XArp_server *InstancePtr);
-u32 XArp_server_Write_arpTable_macAddress_V_Words(XArp_server *InstancePtr, int offset, int *data, int length);
-u32 XArp_server_Read_arpTable_macAddress_V_Words(XArp_server *InstancePtr, int offset, int *data, int length);
-u32 XArp_server_Write_arpTable_macAddress_V_Bytes(XArp_server *InstancePtr, int offset, char *data, int length);
-u32 XArp_server_Read_arpTable_macAddress_V_Bytes(XArp_server *InstancePtr, int offset, char *data, int length);
-u32 XArp_server_Get_arpTable_ipAddress_V_BaseAddress(XArp_server *InstancePtr);
-u32 XArp_server_Get_arpTable_ipAddress_V_HighAddress(XArp_server *InstancePtr);
-u32 XArp_server_Get_arpTable_ipAddress_V_TotalBytes(XArp_server *InstancePtr);
-u32 XArp_server_Get_arpTable_ipAddress_V_BitWidth(XArp_server *InstancePtr);
-u32 XArp_server_Get_arpTable_ipAddress_V_Depth(XArp_server *InstancePtr);
-u32 XArp_server_Write_arpTable_ipAddress_V_Words(XArp_server *InstancePtr, int offset, int *data, int length);
-u32 XArp_server_Read_arpTable_ipAddress_V_Words(XArp_server *InstancePtr, int offset, int *data, int length);
-u32 XArp_server_Write_arpTable_ipAddress_V_Bytes(XArp_server *InstancePtr, int offset, char *data, int length);
-u32 XArp_server_Read_arpTable_ipAddress_V_Bytes(XArp_server *InstancePtr, int offset, char *data, int length);
-u32 XArp_server_Get_arpTable_valid_V_BaseAddress(XArp_server *InstancePtr);
-u32 XArp_server_Get_arpTable_valid_V_HighAddress(XArp_server *InstancePtr);
-u32 XArp_server_Get_arpTable_valid_V_TotalBytes(XArp_server *InstancePtr);
-u32 XArp_server_Get_arpTable_valid_V_BitWidth(XArp_server *InstancePtr);
-u32 XArp_server_Get_arpTable_valid_V_Depth(XArp_server *InstancePtr);
-u32 XArp_server_Write_arpTable_valid_V_Words(XArp_server *InstancePtr, int offset, int *data, int length);
-u32 XArp_server_Read_arpTable_valid_V_Words(XArp_server *InstancePtr, int offset, int *data, int length);
-u32 XArp_server_Write_arpTable_valid_V_Bytes(XArp_server *InstancePtr, int offset, char *data, int length);
-u32 XArp_server_Read_arpTable_valid_V_Bytes(XArp_server *InstancePtr, int offset, char *data, int length);
+void XArp_server_Set_arp_scan_i(XArp_server *InstancePtr, u32 Data);
+u32 XArp_server_Get_arp_scan_i(XArp_server *InstancePtr);
+u32 XArp_server_Get_arp_scan_o(XArp_server *InstancePtr);
+u32 XArp_server_Get_arp_scan_o_vld(XArp_server *InstancePtr);
+u32 XArp_server_Get_arpTable_valid_BaseAddress(XArp_server *InstancePtr);
+u32 XArp_server_Get_arpTable_valid_HighAddress(XArp_server *InstancePtr);
+u32 XArp_server_Get_arpTable_valid_TotalBytes(XArp_server *InstancePtr);
+u32 XArp_server_Get_arpTable_valid_BitWidth(XArp_server *InstancePtr);
+u32 XArp_server_Get_arpTable_valid_Depth(XArp_server *InstancePtr);
+u32 XArp_server_Write_arpTable_valid_Words(XArp_server *InstancePtr, int offset, word_type *data, int length);
+u32 XArp_server_Read_arpTable_valid_Words(XArp_server *InstancePtr, int offset, word_type *data, int length);
+u32 XArp_server_Write_arpTable_valid_Bytes(XArp_server *InstancePtr, int offset, char *data, int length);
+u32 XArp_server_Read_arpTable_valid_Bytes(XArp_server *InstancePtr, int offset, char *data, int length);
+u32 XArp_server_Get_arpTable_ipAddress_BaseAddress(XArp_server *InstancePtr);
+u32 XArp_server_Get_arpTable_ipAddress_HighAddress(XArp_server *InstancePtr);
+u32 XArp_server_Get_arpTable_ipAddress_TotalBytes(XArp_server *InstancePtr);
+u32 XArp_server_Get_arpTable_ipAddress_BitWidth(XArp_server *InstancePtr);
+u32 XArp_server_Get_arpTable_ipAddress_Depth(XArp_server *InstancePtr);
+u32 XArp_server_Write_arpTable_ipAddress_Words(XArp_server *InstancePtr, int offset, word_type *data, int length);
+u32 XArp_server_Read_arpTable_ipAddress_Words(XArp_server *InstancePtr, int offset, word_type *data, int length);
+u32 XArp_server_Write_arpTable_ipAddress_Bytes(XArp_server *InstancePtr, int offset, char *data, int length);
+u32 XArp_server_Read_arpTable_ipAddress_Bytes(XArp_server *InstancePtr, int offset, char *data, int length);
+u32 XArp_server_Get_arpTable_macAddress_BaseAddress(XArp_server *InstancePtr);
+u32 XArp_server_Get_arpTable_macAddress_HighAddress(XArp_server *InstancePtr);
+u32 XArp_server_Get_arpTable_macAddress_TotalBytes(XArp_server *InstancePtr);
+u32 XArp_server_Get_arpTable_macAddress_BitWidth(XArp_server *InstancePtr);
+u32 XArp_server_Get_arpTable_macAddress_Depth(XArp_server *InstancePtr);
+u32 XArp_server_Write_arpTable_macAddress_Words(XArp_server *InstancePtr, int offset, word_type *data, int length);
+u32 XArp_server_Read_arpTable_macAddress_Words(XArp_server *InstancePtr, int offset, word_type *data, int length);
+u32 XArp_server_Write_arpTable_macAddress_Bytes(XArp_server *InstancePtr, int offset, char *data, int length);
+u32 XArp_server_Read_arpTable_macAddress_Bytes(XArp_server *InstancePtr, int offset, char *data, int length);
 
 #ifdef __cplusplus
 }

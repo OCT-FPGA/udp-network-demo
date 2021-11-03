@@ -1,11 +1,11 @@
 <profile>
 
-<section name = "Vivado HLS Report for 'handle_output'" level="0">
-<item name = "Date">Thu Aug  5 18:55:53 2021
+<section name = "Vitis HLS Report for 'handle_output'" level="0">
+<item name = "Date">Wed Nov  3 14:22:45 2021
 </item>
-<item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
+<item name = "Version">2021.1 (Build 3247384 on Thu Jun 10 19:36:07 MDT 2021)</item>
 <item name = "Project">ETH_inserter_hls_prj</item>
-<item name = "Solution">ultrascale_plus</item>
+<item name = "Solution">ultrascale_plus (Vivado IP Flow Target)</item>
 <item name = "Product family">virtexuplus</item>
 <item name = "Target device">xcu280-fsvh2892-2L-e</item>
 </section>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">3.10 ns, 2.374 ns, 0.20 ns</column>
+<column name="ap_clk">3.10 ns, 2.229 ns, 0.20 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">2, 2, 6.200 ns, 6.200 ns, 1, 1, function</column>
+<column name="">2, 2, 6.200 ns, 6.200 ns, 1, 1, yes</column>
 </table>
 </item>
 <item name = "Detail">

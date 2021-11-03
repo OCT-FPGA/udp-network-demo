@@ -1,7 +1,7 @@
 <profile>
 
 <ReportVersion>
-<Version>2020.1</Version>
+<Version>2021.1</Version>
 </ReportVersion>
 
 <UserAssignments>
@@ -11,22 +11,23 @@
 <TopModelName>ethernet_header_inserter</TopModelName>
 <TargetClockPeriod>3.10</TargetClockPeriod>
 <ClockUncertainty>0.20</ClockUncertainty>
+<FlowTarget>vivado</FlowTarget>
 </UserAssignments>
 
 <PerformanceEstimates>
 <PipelineType>dataflow</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>2.891</EstimatedClockPeriod>
+<EstimatedClockPeriod>2.816</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>8</Best-caseLatency>
-<Average-caseLatency>8</Average-caseLatency>
-<Worst-caseLatency>8</Worst-caseLatency>
-<Best-caseRealTimeLatency>24.800 ns</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>24.800 ns</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>24.800 ns</Worst-caseRealTimeLatency>
+<Best-caseLatency>9</Best-caseLatency>
+<Average-caseLatency>9</Average-caseLatency>
+<Worst-caseLatency>9</Worst-caseLatency>
+<Best-caseRealTimeLatency>27.900 ns</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>27.900 ns</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>27.900 ns</Worst-caseRealTimeLatency>
 <DataflowPipelineThroughput>1</DataflowPipelineThroughput>
 <Interval-min>1</Interval-min>
 <Interval-max>1</Interval-max>
@@ -35,15 +36,15 @@
 
 <AreaEstimates>
 <Resources>
-<BRAM_18K>101</BRAM_18K>
-<FF>6100</FF>
-<LUT>3145</LUT>
-<DSP48E>0</DSP48E>
+<BRAM_18K>0</BRAM_18K>
+<FF>13960</FF>
+<LUT>7480</LUT>
+<DSP>0</DSP>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>
 <BRAM_18K>4032</BRAM_18K>
-<DSP48E>9024</DSP48E>
+<DSP>9024</DSP>
 <FF>2607360</FF>
 <LUT>1303680</LUT>
 <URAM>960</URAM>
@@ -57,7 +58,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>512</Bits>
 <Attribute>data</Attribute>
@@ -69,7 +70,19 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
+<Dir>in</Dir>
+<Bits>64</Bits>
+<Attribute>data</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>dataIn_TSTRB</name>
+<Object>dataIn_V_strb_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>64</Bits>
 <Attribute>data</Attribute>
@@ -81,7 +94,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>data</Attribute>
@@ -93,7 +106,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
@@ -105,7 +118,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
@@ -126,6 +139,18 @@
 <RtlPorts>
 <name>dataOut_TKEEP</name>
 <Object>dataOut_V_keep_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>out</Dir>
+<Bits>64</Bits>
+<Attribute>data</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>dataOut_TSTRB</name>
+<Object>dataOut_V_strb_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -177,9 +202,9 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
-<Bits>56</Bits>
+<Bits>128</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
@@ -189,7 +214,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
@@ -201,15 +226,15 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>arpTableRequest_V_V_TDATA</name>
-<Object>arpTableRequest_V_V</Object>
+<name>arpTableRequest_V_TDATA</name>
+<Object>arpTableRequest_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -220,8 +245,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>arpTableRequest_V_V_TVALID</name>
-<Object>arpTableRequest_V_V</Object>
+<name>arpTableRequest_V_TVALID</name>
+<Object>arpTableRequest_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -232,8 +257,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>arpTableRequest_V_V_TREADY</name>
-<Object>arpTableRequest_V_V</Object>
+<name>arpTableRequest_V_TREADY</name>
+<Object>arpTableRequest_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -244,36 +269,36 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>myMacAddress_V</name>
-<Object>myMacAddress_V</Object>
+<name>myMacAddress</name>
+<Object>myMacAddress</Object>
 <Type>pointer</Type>
 <Scope></Scope>
-<IOProtocol>ap_stable</IOProtocol>
-<IOConfig></IOConfig>
+<IOProtocol>ap_none</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>48</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>regSubNetMask_V</name>
-<Object>regSubNetMask_V</Object>
+<name>regSubNetMask</name>
+<Object>regSubNetMask</Object>
 <Type>pointer</Type>
 <Scope></Scope>
-<IOProtocol>ap_stable</IOProtocol>
-<IOConfig></IOConfig>
+<IOProtocol>ap_none</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>32</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>regDefaultGateway_V</name>
-<Object>regDefaultGateway_V</Object>
+<name>regDefaultGateway</name>
+<Object>regDefaultGateway</Object>
 <Type>pointer</Type>
 <Scope></Scope>
-<IOProtocol>ap_stable</IOProtocol>
-<IOConfig></IOConfig>
+<IOProtocol>ap_none</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>32</Bits>
 <Attribute>data</Attribute>

@@ -5,14 +5,14 @@
 <ModuleName>packet_handler</ModuleName>
 <InstancesList>
 <Instance>
-<InstName>ethernet_remover_U0</InstName>
-<ModuleName>ethernet_remover</ModuleName>
+<InstName>packet_identification_U0</InstName>
+<ModuleName>packet_identification</ModuleName>
 <IsCompInst>true</IsCompInst>
-<ID>70</ID>
+<ID>72</ID>
 </Instance>
 <Instance>
-<InstName>packet_identificatio_U0</InstName>
-<ModuleName>packet_identificatio</ModuleName>
+<InstName>ethernet_remover_U0</InstName>
+<ModuleName>ethernet_remover</ModuleName>
 <IsCompInst>true</IsCompInst>
 <ID>92</ID>
 </Instance>
@@ -22,13 +22,13 @@
 
 <ModuleInformation>
 <Module>
-<Name>packet_identificatio</Name>
+<Name>packet_identification</Name>
 <PerformanceEstimates>
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>3.10</TargetClockPeriod>
 <ClockUncertainty>0.20</ClockUncertainty>
 <TargetInitiationInterval>1</TargetInitiationInterval>
-<EstimatedClockPeriod>2.526</EstimatedClockPeriod>
+<EstimatedClockPeriod>1.837</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <Best-caseLatency>1</Best-caseLatency>
@@ -39,22 +39,32 @@
 <Worst-caseRealTimeLatency>3.100 ns</Worst-caseRealTimeLatency>
 <PipelineInitiationInterval>1</PipelineInitiationInterval>
 <PipelineDepth>2</PipelineDepth>
-<PipelineType>function</PipelineType>
+<PipelineType>yes</PipelineType>
 </SummaryOfOverallLatency>
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<FF>593</FF>
-<LUT>196</LUT>
+<FF>620</FF>
+<AVAIL_FF>2607360</AVAIL_FF>
+<UTIL_FF>~0</UTIL_FF>
+<LUT>178</LUT>
+<AVAIL_LUT>1303680</AVAIL_LUT>
+<UTIL_LUT>~0</UTIL_LUT>
 <BRAM_18K>0</BRAM_18K>
-<DSP48E>0</DSP48E>
+<AVAIL_BRAM>4032</AVAIL_BRAM>
+<UTIL_BRAM>0</UTIL_BRAM>
+<DSP>0</DSP>
+<AVAIL_DSP>9024</AVAIL_DSP>
+<UTIL_DSP>0</UTIL_DSP>
 <URAM>0</URAM>
+<AVAIL_URAM>960</AVAIL_URAM>
+<UTIL_URAM>0</UTIL_URAM>
 </Resources>
 </AreaEstimates>
 <InterfaceSummary>
 <RtlPorts>
 <name>ap_clk</name>
-<Object>packet_identificatio</Object>
+<Object>packet_identification</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -65,7 +75,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_rst</name>
-<Object>packet_identificatio</Object>
+<Object>packet_identification</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -76,7 +86,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_start</name>
-<Object>packet_identificatio</Object>
+<Object>packet_identification</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -87,7 +97,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>start_full_n</name>
-<Object>packet_identificatio</Object>
+<Object>packet_identification</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -98,7 +108,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_done</name>
-<Object>packet_identificatio</Object>
+<Object>packet_identification</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -109,7 +119,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_continue</name>
-<Object>packet_identificatio</Object>
+<Object>packet_identification</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -120,7 +130,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_idle</name>
-<Object>packet_identificatio</Object>
+<Object>packet_identification</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -131,7 +141,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_ready</name>
-<Object>packet_identificatio</Object>
+<Object>packet_identification</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -142,7 +152,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>start_out</name>
-<Object>packet_identificatio</Object>
+<Object>packet_identification</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -153,7 +163,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>start_write</name>
-<Object>packet_identificatio</Object>
+<Object>packet_identification</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -164,51 +174,51 @@
 </RtlPorts>
 <RtlPorts>
 <name>s_axis_TVALID</name>
-<Object>dataIn_V_last_V</Object>
+<Object>s_axis_V_dest_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
 <name>s_axis_TREADY</name>
-<Object>dataIn_V_last_V</Object>
+<Object>s_axis_V_dest_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>s_axis_TLAST</name>
-<Object>dataIn_V_last_V</Object>
+<name>s_axis_TDEST</name>
+<Object>s_axis_V_dest_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
-<Bits>1</Bits>
+<Bits>3</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>eth_level_pkt_V_din</name>
-<Object>eth_level_pkt_V</Object>
+<name>eth_level_pkt_din</name>
+<Object>eth_level_pkt</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>580</Bits>
+<Bits>1024</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>eth_level_pkt_V_full_n</name>
-<Object>eth_level_pkt_V</Object>
+<name>eth_level_pkt_full_n</name>
+<Object>eth_level_pkt</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -218,8 +228,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>eth_level_pkt_V_write</name>
-<Object>eth_level_pkt_V</Object>
+<name>eth_level_pkt_write</name>
+<Object>eth_level_pkt</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -230,24 +240,46 @@
 </RtlPorts>
 <RtlPorts>
 <name>s_axis_TDATA</name>
-<Object>dataIn_V_data_V</Object>
+<Object>s_axis_V_data_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>512</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
 <name>s_axis_TKEEP</name>
-<Object>dataIn_V_keep_V</Object>
+<Object>s_axis_V_keep_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>64</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>s_axis_TSTRB</name>
+<Object>s_axis_V_strb_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>in</Dir>
+<Bits>64</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>s_axis_TLAST</name>
+<Object>s_axis_V_last_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 </InterfaceSummary>
@@ -259,7 +291,7 @@
 <TargetClockPeriod>3.10</TargetClockPeriod>
 <ClockUncertainty>0.20</ClockUncertainty>
 <TargetInitiationInterval>1</TargetInitiationInterval>
-<EstimatedClockPeriod>2.527</EstimatedClockPeriod>
+<EstimatedClockPeriod>3.067</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <Best-caseLatency>2</Best-caseLatency>
@@ -270,16 +302,26 @@
 <Worst-caseRealTimeLatency>6.200 ns</Worst-caseRealTimeLatency>
 <PipelineInitiationInterval>1</PipelineInitiationInterval>
 <PipelineDepth>3</PipelineDepth>
-<PipelineType>function</PipelineType>
+<PipelineType>yes</PipelineType>
 </SummaryOfOverallLatency>
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<FF>2465</FF>
-<LUT>773</LUT>
+<FF>2462</FF>
+<AVAIL_FF>2607360</AVAIL_FF>
+<UTIL_FF>~0</UTIL_FF>
+<LUT>740</LUT>
+<AVAIL_LUT>1303680</AVAIL_LUT>
+<UTIL_LUT>~0</UTIL_LUT>
 <BRAM_18K>0</BRAM_18K>
-<DSP48E>0</DSP48E>
+<AVAIL_BRAM>4032</AVAIL_BRAM>
+<UTIL_BRAM>0</UTIL_BRAM>
+<DSP>0</DSP>
+<AVAIL_DSP>9024</AVAIL_DSP>
+<UTIL_DSP>0</UTIL_DSP>
 <URAM>0</URAM>
+<AVAIL_URAM>960</AVAIL_URAM>
+<UTIL_URAM>0</UTIL_URAM>
 </Resources>
 </AreaEstimates>
 <InterfaceSummary>
@@ -361,19 +403,19 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>eth_level_pkt_V_dout</name>
-<Object>eth_level_pkt_V</Object>
+<name>eth_level_pkt_dout</name>
+<Object>eth_level_pkt</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>580</Bits>
+<Bits>1024</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>eth_level_pkt_V_empty_n</name>
-<Object>eth_level_pkt_V</Object>
+<name>eth_level_pkt_empty_n</name>
+<Object>eth_level_pkt</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -383,8 +425,8 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>eth_level_pkt_V_read</name>
-<Object>eth_level_pkt_V</Object>
+<name>eth_level_pkt_read</name>
+<Object>eth_level_pkt</Object>
 <Type>pointer</Type>
 <Scope>global</Scope>
 <IOProtocol>ap_fifo</IOProtocol>
@@ -395,7 +437,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>m_axis_TREADY</name>
-<Object>dataOut_V_dest_V</Object>
+<Object>m_axis_V_dest_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -406,7 +448,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>m_axis_TVALID</name>
-<Object>dataOut_V_dest_V</Object>
+<Object>m_axis_V_dest_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -417,7 +459,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>m_axis_TDEST</name>
-<Object>dataOut_V_dest_V</Object>
+<Object>m_axis_V_dest_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -428,7 +470,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>m_axis_TDATA</name>
-<Object>dataOut_V_data_V</Object>
+<Object>m_axis_V_data_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -439,7 +481,18 @@
 </RtlPorts>
 <RtlPorts>
 <name>m_axis_TKEEP</name>
-<Object>dataOut_V_keep_V</Object>
+<Object>m_axis_V_keep_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>out</Dir>
+<Bits>64</Bits>
+<Attribute>data</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>m_axis_TSTRB</name>
+<Object>m_axis_V_strb_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -450,7 +503,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>m_axis_TLAST</name>
-<Object>dataOut_V_last_V</Object>
+<Object>m_axis_V_last_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -467,7 +520,7 @@
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>3.10</TargetClockPeriod>
 <ClockUncertainty>0.20</ClockUncertainty>
-<EstimatedClockPeriod>2.527</EstimatedClockPeriod>
+<EstimatedClockPeriod>3.067</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <Best-caseLatency>4</Best-caseLatency>
@@ -483,11 +536,21 @@
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<BRAM_18K>33</BRAM_18K>
-<FF>3654</FF>
-<LUT>1340</LUT>
-<DSP48E>0</DSP48E>
+<BRAM_18K>0</BRAM_18K>
+<AVAIL_BRAM>4032</AVAIL_BRAM>
+<UTIL_BRAM>0</UTIL_BRAM>
+<FF>6174</FF>
+<AVAIL_FF>2607360</AVAIL_FF>
+<UTIL_FF>~0</UTIL_FF>
+<LUT>2575</LUT>
+<AVAIL_LUT>1303680</AVAIL_LUT>
+<UTIL_LUT>~0</UTIL_LUT>
+<DSP>0</DSP>
+<AVAIL_DSP>9024</AVAIL_DSP>
+<UTIL_DSP>0</UTIL_DSP>
 <URAM>0</URAM>
+<AVAIL_URAM>960</AVAIL_URAM>
+<UTIL_URAM>0</UTIL_URAM>
 </Resources>
 </AreaEstimates>
 <InterfaceSummary>
@@ -497,7 +560,7 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>512</Bits>
 <Attribute>data</Attribute>
@@ -509,7 +572,19 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
+<Dir>in</Dir>
+<Bits>64</Bits>
+<Attribute>data</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>s_axis_TSTRB</name>
+<Object>s_axis_V_strb_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>64</Bits>
 <Attribute>data</Attribute>
@@ -521,19 +596,31 @@
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>s_axis_TVALID</name>
-<Object>s_axis_V_last_V</Object>
+<name>s_axis_TDEST</name>
+<Object>s_axis_V_dest_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
+<Dir>in</Dir>
+<Bits>3</Bits>
+<Attribute>data</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>s_axis_TVALID</name>
+<Object>s_axis_V_dest_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
@@ -541,11 +628,11 @@
 </RtlPorts>
 <RtlPorts>
 <name>s_axis_TREADY</name>
-<Object>s_axis_V_last_V</Object>
+<Object>s_axis_V_dest_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
+<IOConfig>register, both mode</IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
@@ -566,6 +653,18 @@
 <RtlPorts>
 <name>m_axis_TKEEP</name>
 <Object>m_axis_V_keep_V</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>out</Dir>
+<Bits>64</Bits>
+<Attribute>data</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>m_axis_TSTRB</name>
+<Object>m_axis_V_strb_V</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -648,5 +747,23 @@
 </InterfaceSummary>
 </Module>
 </ModuleInformation>
+
+<FIFOInformation>
+<FIFOInst>
+<Name>eth_level_pkt_U</Name>
+<ParentInst></ParentInst>
+<StaticDepth>16</StaticDepth>
+<RuntimeDepth>mOutPtr</RuntimeDepth>
+<InterfaceList>
+<Interface>clk</Interface>
+<Interface>reset</Interface>
+<Interface>if_write</Interface>
+<Interface>if_din</Interface>
+<Interface>if_full_n</Interface>
+<Interface>if_read</Interface>
+<Interface>if_empty_n</Interface>
+</InterfaceList>
+</FIFOInst>
+</FIFOInformation>
 
 </profile>

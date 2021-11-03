@@ -2,7 +2,7 @@
 
 set axilite_register_dict [dict create]
 set port_s_axilite {
-SocketTable_0_theirIP_V { 
+SocketTable_theirIP_0 { 
 	dir I
 	width 32
 	depth 1
@@ -10,7 +10,7 @@ SocketTable_0_theirIP_V {
 	offset 16
 	offset_end 23
 }
-SocketTable_1_theirIP_V { 
+SocketTable_theirIP_1 { 
 	dir I
 	width 32
 	depth 1
@@ -18,7 +18,7 @@ SocketTable_1_theirIP_V {
 	offset 24
 	offset_end 31
 }
-SocketTable_2_theirIP_V { 
+SocketTable_theirIP_2 { 
 	dir I
 	width 32
 	depth 1
@@ -26,7 +26,7 @@ SocketTable_2_theirIP_V {
 	offset 32
 	offset_end 39
 }
-SocketTable_3_theirIP_V { 
+SocketTable_theirIP_3 { 
 	dir I
 	width 32
 	depth 1
@@ -34,7 +34,7 @@ SocketTable_3_theirIP_V {
 	offset 40
 	offset_end 47
 }
-SocketTable_4_theirIP_V { 
+SocketTable_theirIP_4 { 
 	dir I
 	width 32
 	depth 1
@@ -42,7 +42,7 @@ SocketTable_4_theirIP_V {
 	offset 48
 	offset_end 55
 }
-SocketTable_5_theirIP_V { 
+SocketTable_theirIP_5 { 
 	dir I
 	width 32
 	depth 1
@@ -50,7 +50,7 @@ SocketTable_5_theirIP_V {
 	offset 56
 	offset_end 63
 }
-SocketTable_6_theirIP_V { 
+SocketTable_theirIP_6 { 
 	dir I
 	width 32
 	depth 1
@@ -58,7 +58,7 @@ SocketTable_6_theirIP_V {
 	offset 64
 	offset_end 71
 }
-SocketTable_7_theirIP_V { 
+SocketTable_theirIP_7 { 
 	dir I
 	width 32
 	depth 1
@@ -66,7 +66,7 @@ SocketTable_7_theirIP_V {
 	offset 72
 	offset_end 79
 }
-SocketTable_8_theirIP_V { 
+SocketTable_theirIP_8 { 
 	dir I
 	width 32
 	depth 1
@@ -74,7 +74,7 @@ SocketTable_8_theirIP_V {
 	offset 80
 	offset_end 87
 }
-SocketTable_9_theirIP_V { 
+SocketTable_theirIP_9 { 
 	dir I
 	width 32
 	depth 1
@@ -82,7 +82,7 @@ SocketTable_9_theirIP_V {
 	offset 88
 	offset_end 95
 }
-SocketTable_10_theirIP_V { 
+SocketTable_theirIP_10 { 
 	dir I
 	width 32
 	depth 1
@@ -90,7 +90,7 @@ SocketTable_10_theirIP_V {
 	offset 96
 	offset_end 103
 }
-SocketTable_11_theirIP_V { 
+SocketTable_theirIP_11 { 
 	dir I
 	width 32
 	depth 1
@@ -98,7 +98,7 @@ SocketTable_11_theirIP_V {
 	offset 104
 	offset_end 111
 }
-SocketTable_12_theirIP_V { 
+SocketTable_theirIP_12 { 
 	dir I
 	width 32
 	depth 1
@@ -106,7 +106,7 @@ SocketTable_12_theirIP_V {
 	offset 112
 	offset_end 119
 }
-SocketTable_13_theirIP_V { 
+SocketTable_theirIP_13 { 
 	dir I
 	width 32
 	depth 1
@@ -114,7 +114,7 @@ SocketTable_13_theirIP_V {
 	offset 120
 	offset_end 127
 }
-SocketTable_14_theirIP_V { 
+SocketTable_theirIP_14 { 
 	dir I
 	width 32
 	depth 1
@@ -122,7 +122,7 @@ SocketTable_14_theirIP_V {
 	offset 128
 	offset_end 135
 }
-SocketTable_15_theirIP_V { 
+SocketTable_theirIP_15 { 
 	dir I
 	width 32
 	depth 1
@@ -130,7 +130,7 @@ SocketTable_15_theirIP_V {
 	offset 136
 	offset_end 143
 }
-SocketTable_0_theirPort_V { 
+SocketTable_theirPort_0 { 
 	dir I
 	width 16
 	depth 1
@@ -138,7 +138,7 @@ SocketTable_0_theirPort_V {
 	offset 144
 	offset_end 151
 }
-SocketTable_1_theirPort_V { 
+SocketTable_theirPort_1 { 
 	dir I
 	width 16
 	depth 1
@@ -146,7 +146,7 @@ SocketTable_1_theirPort_V {
 	offset 152
 	offset_end 159
 }
-SocketTable_2_theirPort_V { 
+SocketTable_theirPort_2 { 
 	dir I
 	width 16
 	depth 1
@@ -154,7 +154,7 @@ SocketTable_2_theirPort_V {
 	offset 160
 	offset_end 167
 }
-SocketTable_3_theirPort_V { 
+SocketTable_theirPort_3 { 
 	dir I
 	width 16
 	depth 1
@@ -162,7 +162,7 @@ SocketTable_3_theirPort_V {
 	offset 168
 	offset_end 175
 }
-SocketTable_4_theirPort_V { 
+SocketTable_theirPort_4 { 
 	dir I
 	width 16
 	depth 1
@@ -170,7 +170,7 @@ SocketTable_4_theirPort_V {
 	offset 176
 	offset_end 183
 }
-SocketTable_5_theirPort_V { 
+SocketTable_theirPort_5 { 
 	dir I
 	width 16
 	depth 1
@@ -178,7 +178,7 @@ SocketTable_5_theirPort_V {
 	offset 184
 	offset_end 191
 }
-SocketTable_6_theirPort_V { 
+SocketTable_theirPort_6 { 
 	dir I
 	width 16
 	depth 1
@@ -186,7 +186,7 @@ SocketTable_6_theirPort_V {
 	offset 192
 	offset_end 199
 }
-SocketTable_7_theirPort_V { 
+SocketTable_theirPort_7 { 
 	dir I
 	width 16
 	depth 1
@@ -194,7 +194,7 @@ SocketTable_7_theirPort_V {
 	offset 200
 	offset_end 207
 }
-SocketTable_8_theirPort_V { 
+SocketTable_theirPort_8 { 
 	dir I
 	width 16
 	depth 1
@@ -202,7 +202,7 @@ SocketTable_8_theirPort_V {
 	offset 208
 	offset_end 215
 }
-SocketTable_9_theirPort_V { 
+SocketTable_theirPort_9 { 
 	dir I
 	width 16
 	depth 1
@@ -210,7 +210,7 @@ SocketTable_9_theirPort_V {
 	offset 216
 	offset_end 223
 }
-SocketTable_10_theirPort_V { 
+SocketTable_theirPort_10 { 
 	dir I
 	width 16
 	depth 1
@@ -218,7 +218,7 @@ SocketTable_10_theirPort_V {
 	offset 224
 	offset_end 231
 }
-SocketTable_11_theirPort_V { 
+SocketTable_theirPort_11 { 
 	dir I
 	width 16
 	depth 1
@@ -226,7 +226,7 @@ SocketTable_11_theirPort_V {
 	offset 232
 	offset_end 239
 }
-SocketTable_12_theirPort_V { 
+SocketTable_theirPort_12 { 
 	dir I
 	width 16
 	depth 1
@@ -234,7 +234,7 @@ SocketTable_12_theirPort_V {
 	offset 240
 	offset_end 247
 }
-SocketTable_13_theirPort_V { 
+SocketTable_theirPort_13 { 
 	dir I
 	width 16
 	depth 1
@@ -242,7 +242,7 @@ SocketTable_13_theirPort_V {
 	offset 248
 	offset_end 255
 }
-SocketTable_14_theirPort_V { 
+SocketTable_theirPort_14 { 
 	dir I
 	width 16
 	depth 1
@@ -250,7 +250,7 @@ SocketTable_14_theirPort_V {
 	offset 256
 	offset_end 263
 }
-SocketTable_15_theirPort_V { 
+SocketTable_theirPort_15 { 
 	dir I
 	width 16
 	depth 1
@@ -258,7 +258,7 @@ SocketTable_15_theirPort_V {
 	offset 264
 	offset_end 271
 }
-SocketTable_0_myPort_V { 
+SocketTable_myPort_0 { 
 	dir I
 	width 16
 	depth 1
@@ -266,7 +266,7 @@ SocketTable_0_myPort_V {
 	offset 272
 	offset_end 279
 }
-SocketTable_1_myPort_V { 
+SocketTable_myPort_1 { 
 	dir I
 	width 16
 	depth 1
@@ -274,7 +274,7 @@ SocketTable_1_myPort_V {
 	offset 280
 	offset_end 287
 }
-SocketTable_2_myPort_V { 
+SocketTable_myPort_2 { 
 	dir I
 	width 16
 	depth 1
@@ -282,7 +282,7 @@ SocketTable_2_myPort_V {
 	offset 288
 	offset_end 295
 }
-SocketTable_3_myPort_V { 
+SocketTable_myPort_3 { 
 	dir I
 	width 16
 	depth 1
@@ -290,7 +290,7 @@ SocketTable_3_myPort_V {
 	offset 296
 	offset_end 303
 }
-SocketTable_4_myPort_V { 
+SocketTable_myPort_4 { 
 	dir I
 	width 16
 	depth 1
@@ -298,7 +298,7 @@ SocketTable_4_myPort_V {
 	offset 304
 	offset_end 311
 }
-SocketTable_5_myPort_V { 
+SocketTable_myPort_5 { 
 	dir I
 	width 16
 	depth 1
@@ -306,7 +306,7 @@ SocketTable_5_myPort_V {
 	offset 312
 	offset_end 319
 }
-SocketTable_6_myPort_V { 
+SocketTable_myPort_6 { 
 	dir I
 	width 16
 	depth 1
@@ -314,7 +314,7 @@ SocketTable_6_myPort_V {
 	offset 320
 	offset_end 327
 }
-SocketTable_7_myPort_V { 
+SocketTable_myPort_7 { 
 	dir I
 	width 16
 	depth 1
@@ -322,7 +322,7 @@ SocketTable_7_myPort_V {
 	offset 328
 	offset_end 335
 }
-SocketTable_8_myPort_V { 
+SocketTable_myPort_8 { 
 	dir I
 	width 16
 	depth 1
@@ -330,7 +330,7 @@ SocketTable_8_myPort_V {
 	offset 336
 	offset_end 343
 }
-SocketTable_9_myPort_V { 
+SocketTable_myPort_9 { 
 	dir I
 	width 16
 	depth 1
@@ -338,7 +338,7 @@ SocketTable_9_myPort_V {
 	offset 344
 	offset_end 351
 }
-SocketTable_10_myPort_V { 
+SocketTable_myPort_10 { 
 	dir I
 	width 16
 	depth 1
@@ -346,7 +346,7 @@ SocketTable_10_myPort_V {
 	offset 352
 	offset_end 359
 }
-SocketTable_11_myPort_V { 
+SocketTable_myPort_11 { 
 	dir I
 	width 16
 	depth 1
@@ -354,7 +354,7 @@ SocketTable_11_myPort_V {
 	offset 360
 	offset_end 367
 }
-SocketTable_12_myPort_V { 
+SocketTable_myPort_12 { 
 	dir I
 	width 16
 	depth 1
@@ -362,7 +362,7 @@ SocketTable_12_myPort_V {
 	offset 368
 	offset_end 375
 }
-SocketTable_13_myPort_V { 
+SocketTable_myPort_13 { 
 	dir I
 	width 16
 	depth 1
@@ -370,7 +370,7 @@ SocketTable_13_myPort_V {
 	offset 376
 	offset_end 383
 }
-SocketTable_14_myPort_V { 
+SocketTable_myPort_14 { 
 	dir I
 	width 16
 	depth 1
@@ -378,7 +378,7 @@ SocketTable_14_myPort_V {
 	offset 384
 	offset_end 391
 }
-SocketTable_15_myPort_V { 
+SocketTable_myPort_15 { 
 	dir I
 	width 16
 	depth 1
@@ -386,7 +386,7 @@ SocketTable_15_myPort_V {
 	offset 392
 	offset_end 399
 }
-SocketTable_0_valid_V { 
+SocketTable_valid_0 { 
 	dir I
 	width 1
 	depth 1
@@ -394,7 +394,7 @@ SocketTable_0_valid_V {
 	offset 400
 	offset_end 407
 }
-SocketTable_1_valid_V { 
+SocketTable_valid_1 { 
 	dir I
 	width 1
 	depth 1
@@ -402,7 +402,7 @@ SocketTable_1_valid_V {
 	offset 408
 	offset_end 415
 }
-SocketTable_2_valid_V { 
+SocketTable_valid_2 { 
 	dir I
 	width 1
 	depth 1
@@ -410,7 +410,7 @@ SocketTable_2_valid_V {
 	offset 416
 	offset_end 423
 }
-SocketTable_3_valid_V { 
+SocketTable_valid_3 { 
 	dir I
 	width 1
 	depth 1
@@ -418,7 +418,7 @@ SocketTable_3_valid_V {
 	offset 424
 	offset_end 431
 }
-SocketTable_4_valid_V { 
+SocketTable_valid_4 { 
 	dir I
 	width 1
 	depth 1
@@ -426,7 +426,7 @@ SocketTable_4_valid_V {
 	offset 432
 	offset_end 439
 }
-SocketTable_5_valid_V { 
+SocketTable_valid_5 { 
 	dir I
 	width 1
 	depth 1
@@ -434,7 +434,7 @@ SocketTable_5_valid_V {
 	offset 440
 	offset_end 447
 }
-SocketTable_6_valid_V { 
+SocketTable_valid_6 { 
 	dir I
 	width 1
 	depth 1
@@ -442,7 +442,7 @@ SocketTable_6_valid_V {
 	offset 448
 	offset_end 455
 }
-SocketTable_7_valid_V { 
+SocketTable_valid_7 { 
 	dir I
 	width 1
 	depth 1
@@ -450,7 +450,7 @@ SocketTable_7_valid_V {
 	offset 456
 	offset_end 463
 }
-SocketTable_8_valid_V { 
+SocketTable_valid_8 { 
 	dir I
 	width 1
 	depth 1
@@ -458,7 +458,7 @@ SocketTable_8_valid_V {
 	offset 464
 	offset_end 471
 }
-SocketTable_9_valid_V { 
+SocketTable_valid_9 { 
 	dir I
 	width 1
 	depth 1
@@ -466,7 +466,7 @@ SocketTable_9_valid_V {
 	offset 472
 	offset_end 479
 }
-SocketTable_10_valid_V { 
+SocketTable_valid_10 { 
 	dir I
 	width 1
 	depth 1
@@ -474,7 +474,7 @@ SocketTable_10_valid_V {
 	offset 480
 	offset_end 487
 }
-SocketTable_11_valid_V { 
+SocketTable_valid_11 { 
 	dir I
 	width 1
 	depth 1
@@ -482,7 +482,7 @@ SocketTable_11_valid_V {
 	offset 488
 	offset_end 495
 }
-SocketTable_12_valid_V { 
+SocketTable_valid_12 { 
 	dir I
 	width 1
 	depth 1
@@ -490,7 +490,7 @@ SocketTable_12_valid_V {
 	offset 496
 	offset_end 503
 }
-SocketTable_13_valid_V { 
+SocketTable_valid_13 { 
 	dir I
 	width 1
 	depth 1
@@ -498,7 +498,7 @@ SocketTable_13_valid_V {
 	offset 504
 	offset_end 511
 }
-SocketTable_14_valid_V { 
+SocketTable_valid_14 { 
 	dir I
 	width 1
 	depth 1
@@ -506,7 +506,7 @@ SocketTable_14_valid_V {
 	offset 512
 	offset_end 519
 }
-SocketTable_15_valid_V { 
+SocketTable_valid_15 { 
 	dir I
 	width 1
 	depth 1
@@ -514,7 +514,7 @@ SocketTable_15_valid_V {
 	offset 520
 	offset_end 527
 }
-numberSockets_V { 
+numberSockets { 
 	dir O
 	width 16
 	depth 1

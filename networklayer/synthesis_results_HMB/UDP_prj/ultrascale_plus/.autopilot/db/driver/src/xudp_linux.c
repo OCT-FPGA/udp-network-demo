@@ -1,6 +1,6 @@
 // ==============================================================
-// Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
-// Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+// Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2021.1 (64-bit)
+// Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // ==============================================================
 #ifdef __linux__
 
@@ -15,7 +15,7 @@
 
 /**************************** Type Definitions ******************************/
 typedef struct {
-    u32 addr;
+    u64 addr;
     u32 size;
 } XUdp_uio_map;
 
@@ -123,7 +123,7 @@ int XUdp_Initialize(XUdp *InstancePtr, const char* InstanceName) {
     }
 
     // NOTE: slave interface 'S_axilite' should be mapped to uioX/map0
-    InstancePtr->S_axilite_BaseAddress = (u32)mmap(NULL, InfoPtr->maps[0].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 0 * getpagesize());
+    InstancePtr->S_axilite_BaseAddress = (u64)mmap(NULL, InfoPtr->maps[0].size, PROT_READ|PROT_WRITE, MAP_SHARED, InfoPtr->uio_fd, 0 * getpagesize());
     assert(InstancePtr->S_axilite_BaseAddress);
 
     InstancePtr->IsReady = XIL_COMPONENT_IS_READY;

@@ -1,11 +1,11 @@
 <profile>
 
-<section name = "Vivado HLS Report for 'packet_handler'" level="0">
-<item name = "Date">Thu Aug  5 18:55:49 2021
+<section name = "Vitis HLS Report for 'packet_handler'" level="0">
+<item name = "Date">Wed Nov  3 14:22:43 2021
 </item>
-<item name = "Version">2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)</item>
+<item name = "Version">2021.1 (Build 3247384 on Thu Jun 10 19:36:07 MDT 2021)</item>
 <item name = "Project">PKT_HANDLER_prj</item>
-<item name = "Solution">ultrascale_plus</item>
+<item name = "Solution">ultrascale_plus (Vivado IP Flow Target)</item>
 <item name = "Product family">virtexuplus</item>
 <item name = "Target device">xcu280-fsvh2892-2L-e</item>
 </section>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">3.10 ns, 2.527 ns, 0.20 ns</column>
+<column name="ap_clk">3.10 ns, 3.067 ns, 0.20 ns</column>
 </table>
 </item>
 </section>
@@ -31,8 +31,8 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="ethernet_remover_U0">ethernet_remover, 2, 2, 6.200 ns, 6.200 ns, 1, 1, function</column>
-<column name="packet_identificatio_U0">packet_identificatio, 1, 1, 3.100 ns, 3.100 ns, 1, 1, function</column>
+<column name="packet_identification_U0">packet_identification, 1, 1, 3.100 ns, 3.100 ns, 1, 1, yes</column>
+<column name="ethernet_remover_U0">ethernet_remover, 2, 2, 6.200 ns, 6.200 ns, 1, 1, yes</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -47,29 +47,29 @@
 
 <section name = "Utilization Estimates" level="0">
 <item name = "Summary"><table name="" hasTotal="1">
-<keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, -, -, -</column>
-<column name="FIFO">33, -, 596, 371, -</column>
-<column name="Instance">-, -, 3058, 969, -</column>
+<column name="FIFO">0, -, 3092, 1657, -</column>
+<column name="Instance">-, -, 3082, 918, -</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, -, -</column>
 <column name="Register">-, -, -, -, -</column>
 <specialColumn name="Available SLR">1344, 3008, 869120, 434560, 320</specialColumn>
-<specialColumn name="Utilization SLR (%)">2, 0, ~0, ~0, 0</specialColumn>
+<specialColumn name="Utilization SLR (%)">0, 0, ~0, ~0, 0</specialColumn>
 <specialColumn name="Available">4032, 9024, 2607360, 1303680, 960</specialColumn>
-<specialColumn name="Utilization (%)">~0, 0, ~0, ~0, 0</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
-<keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
-<column name="ethernet_remover_U0">ethernet_remover, 0, 0, 2465, 773, 0</column>
-<column name="packet_identificatio_U0">packet_identificatio, 0, 0, 593, 196, 0</column>
+<keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
+<column name="ethernet_remover_U0">ethernet_remover, 0, 0, 2462, 740, 0</column>
+<column name="packet_identification_U0">packet_identification, 0, 0, 620, 178, 0</column>
 </table>
 </item>
-<item name = "DSP48E"><table name="" hasTotal="0">
+<item name = "DSP"><table name="" hasTotal="0">
 <keys size="3">Instance, Module, Expression</keys>
 </table>
 </item>
@@ -79,11 +79,11 @@
 </item>
 <item name = "FIFO"><table name="" hasTotal="1">
 <keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
-<column name="eth_level_pkt_V_U">33, 596, 0, -, 16, 580, 9280</column>
+<column name="eth_level_pkt_U">0, 3092, 0, -, 16, 1024, 16384</column>
 </table>
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
-<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
@@ -103,11 +103,14 @@
 <keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
 <column name="s_axis_TDATA">in, 512, axis, s_axis_V_data_V, pointer</column>
 <column name="s_axis_TKEEP">in, 64, axis, s_axis_V_keep_V, pointer</column>
+<column name="s_axis_TSTRB">in, 64, axis, s_axis_V_strb_V, pointer</column>
 <column name="s_axis_TLAST">in, 1, axis, s_axis_V_last_V, pointer</column>
-<column name="s_axis_TVALID">in, 1, axis, s_axis_V_last_V, pointer</column>
-<column name="s_axis_TREADY">out, 1, axis, s_axis_V_last_V, pointer</column>
+<column name="s_axis_TDEST">in, 3, axis, s_axis_V_dest_V, pointer</column>
+<column name="s_axis_TVALID">in, 1, axis, s_axis_V_dest_V, pointer</column>
+<column name="s_axis_TREADY">out, 1, axis, s_axis_V_dest_V, pointer</column>
 <column name="m_axis_TDATA">out, 512, axis, m_axis_V_data_V, pointer</column>
 <column name="m_axis_TKEEP">out, 64, axis, m_axis_V_keep_V, pointer</column>
+<column name="m_axis_TSTRB">out, 64, axis, m_axis_V_strb_V, pointer</column>
 <column name="m_axis_TLAST">out, 1, axis, m_axis_V_last_V, pointer</column>
 <column name="m_axis_TDEST">out, 3, axis, m_axis_V_dest_V, pointer</column>
 <column name="m_axis_TVALID">out, 1, axis, m_axis_V_dest_V, pointer</column>

@@ -1,6 +1,6 @@
 // ==============================================================
-// Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
-// Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+// Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2021.1 (64-bit)
+// Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // ==============================================================
 /***************************** Include Files *********************************/
 #include "xudp.h"
@@ -18,1111 +18,1111 @@ int XUdp_CfgInitialize(XUdp *InstancePtr, XUdp_Config *ConfigPtr) {
 }
 #endif
 
-void XUdp_Set_SocketTable_0_theirIP_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirIP_0(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_0_THEIRIP_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_0_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_0_theirIP_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirIP_0(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_0_THEIRIP_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_0_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_1_theirIP_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirIP_1(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_1_THEIRIP_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_1_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_1_theirIP_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirIP_1(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_1_THEIRIP_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_1_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_2_theirIP_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirIP_2(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_2_THEIRIP_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_2_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_2_theirIP_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirIP_2(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_2_THEIRIP_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_2_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_3_theirIP_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirIP_3(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_3_THEIRIP_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_3_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_3_theirIP_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirIP_3(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_3_THEIRIP_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_3_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_4_theirIP_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirIP_4(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_4_THEIRIP_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_4_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_4_theirIP_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirIP_4(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_4_THEIRIP_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_4_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_5_theirIP_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirIP_5(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_5_THEIRIP_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_5_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_5_theirIP_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirIP_5(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_5_THEIRIP_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_5_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_6_theirIP_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirIP_6(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_6_THEIRIP_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_6_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_6_theirIP_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirIP_6(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_6_THEIRIP_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_6_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_7_theirIP_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirIP_7(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_7_THEIRIP_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_7_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_7_theirIP_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirIP_7(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_7_THEIRIP_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_7_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_8_theirIP_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirIP_8(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_8_THEIRIP_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_8_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_8_theirIP_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirIP_8(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_8_THEIRIP_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_8_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_9_theirIP_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirIP_9(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_9_THEIRIP_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_9_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_9_theirIP_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirIP_9(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_9_THEIRIP_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_9_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_10_theirIP_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirIP_10(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_10_THEIRIP_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_10_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_10_theirIP_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirIP_10(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_10_THEIRIP_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_10_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_11_theirIP_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirIP_11(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_11_THEIRIP_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_11_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_11_theirIP_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirIP_11(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_11_THEIRIP_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_11_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_12_theirIP_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirIP_12(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_12_THEIRIP_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_12_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_12_theirIP_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirIP_12(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_12_THEIRIP_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_12_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_13_theirIP_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirIP_13(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_13_THEIRIP_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_13_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_13_theirIP_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirIP_13(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_13_THEIRIP_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_13_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_14_theirIP_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirIP_14(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_14_THEIRIP_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_14_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_14_theirIP_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirIP_14(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_14_THEIRIP_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_14_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_15_theirIP_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirIP_15(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_15_THEIRIP_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_15_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_15_theirIP_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirIP_15(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_15_THEIRIP_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRIP_15_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_0_theirPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirPort_0(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_0_THEIRPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_0_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_0_theirPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirPort_0(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_0_THEIRPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_0_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_1_theirPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirPort_1(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_1_THEIRPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_1_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_1_theirPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirPort_1(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_1_THEIRPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_1_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_2_theirPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirPort_2(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_2_THEIRPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_2_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_2_theirPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirPort_2(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_2_THEIRPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_2_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_3_theirPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirPort_3(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_3_THEIRPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_3_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_3_theirPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirPort_3(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_3_THEIRPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_3_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_4_theirPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirPort_4(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_4_THEIRPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_4_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_4_theirPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirPort_4(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_4_THEIRPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_4_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_5_theirPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirPort_5(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_5_THEIRPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_5_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_5_theirPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirPort_5(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_5_THEIRPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_5_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_6_theirPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirPort_6(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_6_THEIRPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_6_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_6_theirPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirPort_6(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_6_THEIRPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_6_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_7_theirPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirPort_7(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_7_THEIRPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_7_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_7_theirPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirPort_7(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_7_THEIRPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_7_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_8_theirPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirPort_8(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_8_THEIRPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_8_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_8_theirPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirPort_8(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_8_THEIRPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_8_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_9_theirPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirPort_9(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_9_THEIRPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_9_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_9_theirPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirPort_9(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_9_THEIRPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_9_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_10_theirPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirPort_10(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_10_THEIRPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_10_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_10_theirPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirPort_10(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_10_THEIRPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_10_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_11_theirPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirPort_11(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_11_THEIRPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_11_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_11_theirPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirPort_11(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_11_THEIRPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_11_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_12_theirPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirPort_12(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_12_THEIRPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_12_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_12_theirPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirPort_12(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_12_THEIRPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_12_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_13_theirPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirPort_13(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_13_THEIRPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_13_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_13_theirPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirPort_13(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_13_THEIRPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_13_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_14_theirPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirPort_14(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_14_THEIRPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_14_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_14_theirPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirPort_14(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_14_THEIRPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_14_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_15_theirPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_theirPort_15(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_15_THEIRPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_15_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_15_theirPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_theirPort_15(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_15_THEIRPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_THEIRPORT_15_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_0_myPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_myPort_0(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_0_MYPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_0_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_0_myPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_myPort_0(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_0_MYPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_0_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_1_myPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_myPort_1(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_1_MYPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_1_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_1_myPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_myPort_1(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_1_MYPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_1_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_2_myPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_myPort_2(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_2_MYPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_2_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_2_myPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_myPort_2(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_2_MYPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_2_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_3_myPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_myPort_3(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_3_MYPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_3_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_3_myPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_myPort_3(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_3_MYPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_3_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_4_myPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_myPort_4(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_4_MYPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_4_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_4_myPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_myPort_4(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_4_MYPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_4_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_5_myPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_myPort_5(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_5_MYPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_5_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_5_myPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_myPort_5(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_5_MYPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_5_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_6_myPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_myPort_6(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_6_MYPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_6_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_6_myPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_myPort_6(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_6_MYPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_6_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_7_myPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_myPort_7(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_7_MYPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_7_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_7_myPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_myPort_7(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_7_MYPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_7_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_8_myPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_myPort_8(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_8_MYPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_8_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_8_myPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_myPort_8(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_8_MYPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_8_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_9_myPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_myPort_9(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_9_MYPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_9_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_9_myPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_myPort_9(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_9_MYPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_9_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_10_myPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_myPort_10(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_10_MYPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_10_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_10_myPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_myPort_10(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_10_MYPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_10_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_11_myPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_myPort_11(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_11_MYPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_11_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_11_myPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_myPort_11(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_11_MYPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_11_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_12_myPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_myPort_12(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_12_MYPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_12_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_12_myPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_myPort_12(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_12_MYPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_12_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_13_myPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_myPort_13(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_13_MYPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_13_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_13_myPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_myPort_13(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_13_MYPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_13_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_14_myPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_myPort_14(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_14_MYPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_14_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_14_myPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_myPort_14(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_14_MYPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_14_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_15_myPort_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_myPort_15(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_15_MYPORT_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_15_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_15_myPort_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_myPort_15(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_15_MYPORT_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_MYPORT_15_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_0_valid_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_valid_0(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_0_VALID_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_0_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_0_valid_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_valid_0(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_0_VALID_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_0_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_1_valid_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_valid_1(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_1_VALID_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_1_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_1_valid_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_valid_1(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_1_VALID_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_1_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_2_valid_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_valid_2(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_2_VALID_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_2_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_2_valid_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_valid_2(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_2_VALID_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_2_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_3_valid_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_valid_3(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_3_VALID_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_3_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_3_valid_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_valid_3(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_3_VALID_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_3_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_4_valid_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_valid_4(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_4_VALID_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_4_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_4_valid_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_valid_4(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_4_VALID_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_4_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_5_valid_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_valid_5(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_5_VALID_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_5_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_5_valid_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_valid_5(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_5_VALID_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_5_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_6_valid_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_valid_6(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_6_VALID_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_6_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_6_valid_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_valid_6(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_6_VALID_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_6_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_7_valid_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_valid_7(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_7_VALID_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_7_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_7_valid_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_valid_7(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_7_VALID_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_7_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_8_valid_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_valid_8(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_8_VALID_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_8_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_8_valid_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_valid_8(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_8_VALID_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_8_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_9_valid_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_valid_9(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_9_VALID_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_9_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_9_valid_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_valid_9(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_9_VALID_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_9_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_10_valid_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_valid_10(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_10_VALID_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_10_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_10_valid_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_valid_10(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_10_VALID_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_10_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_11_valid_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_valid_11(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_11_VALID_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_11_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_11_valid_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_valid_11(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_11_VALID_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_11_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_12_valid_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_valid_12(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_12_VALID_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_12_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_12_valid_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_valid_12(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_12_VALID_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_12_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_13_valid_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_valid_13(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_13_VALID_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_13_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_13_valid_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_valid_13(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_13_VALID_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_13_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_14_valid_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_valid_14(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_14_VALID_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_14_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_14_valid_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_valid_14(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_14_VALID_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_14_DATA);
     return Data;
 }
 
-void XUdp_Set_SocketTable_15_valid_V(XUdp *InstancePtr, u32 Data) {
+void XUdp_Set_SocketTable_valid_15(XUdp *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_15_VALID_V_DATA, Data);
+    XUdp_WriteReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_15_DATA, Data);
 }
 
-u32 XUdp_Get_SocketTable_15_valid_V(XUdp *InstancePtr) {
+u32 XUdp_Get_SocketTable_valid_15(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_15_VALID_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_SOCKETTABLE_VALID_15_DATA);
     return Data;
 }
 
-u32 XUdp_Get_numberSockets_V(XUdp *InstancePtr) {
+u32 XUdp_Get_numberSockets(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_NUMBERSOCKETS_V_DATA);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_NUMBERSOCKETS_DATA);
     return Data;
 }
 
-u32 XUdp_Get_numberSockets_V_vld(XUdp *InstancePtr) {
+u32 XUdp_Get_numberSockets_vld(XUdp *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_NUMBERSOCKETS_V_CTRL);
+    Data = XUdp_ReadReg(InstancePtr->S_axilite_BaseAddress, XUDP_S_AXILITE_ADDR_NUMBERSOCKETS_CTRL);
     return Data & 0x1;
 }
 

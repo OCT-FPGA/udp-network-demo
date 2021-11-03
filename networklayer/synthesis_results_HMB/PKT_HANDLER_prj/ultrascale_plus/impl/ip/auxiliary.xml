@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="packet_handler" xd:componentRef="packet_handler" xd:initiationInterval="5" xd:clockPeriod="3.100" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
-  <xd:arg xd:name="s_axis.data" xd:originalName="s_axis" xd:direction="in" xd:interfaceRef="s_axis" xd:busTypeRef="axis" xd:dataWidth="512"/>
-  <xd:arg xd:name="s_axis.keep" xd:originalName="s_axis" xd:direction="in" xd:interfaceRef="s_axis" xd:busTypeRef="axis" xd:dataWidth="64"/>
-  <xd:arg xd:name="s_axis.last" xd:originalName="s_axis" xd:direction="in" xd:interfaceRef="s_axis" xd:busTypeRef="axis" xd:dataWidth="1"/>
-  <xd:arg xd:name="m_axis.data" xd:originalName="m_axis" xd:direction="out" xd:interfaceRef="m_axis" xd:busTypeRef="axis" xd:dataWidth="512"/>
-  <xd:arg xd:name="m_axis.keep" xd:originalName="m_axis" xd:direction="out" xd:interfaceRef="m_axis" xd:busTypeRef="axis" xd:dataWidth="64"/>
-  <xd:arg xd:name="m_axis.last" xd:originalName="m_axis" xd:direction="out" xd:interfaceRef="m_axis" xd:busTypeRef="axis" xd:dataWidth="1"/>
-  <xd:arg xd:name="m_axis.dest" xd:originalName="m_axis" xd:direction="out" xd:interfaceRef="m_axis" xd:busTypeRef="axis" xd:dataWidth="3"/>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="packet_handler" xd:componentRef="packet_handler" xd:initiationInterval="1" xd:clockPeriod="3.1" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:arg xd:name="dataIn" xd:originalName="dataIn" xd:direction="in" xd:interfaceRef="s_axis" xd:busTypeRef="axis" xd:dataWidth="512"/>
+  <xd:arg xd:name="dataOut" xd:originalName="dataOut" xd:direction="out" xd:interfaceRef="m_axis" xd:busTypeRef="axis" xd:dataWidth="512"/>
   <xd:latencyEstimates xd:best-case="4" xd:worst-case="4" xd:average-case="4"/>
-  <xd:resourceEstimates xd:LUT="1340" xd:FF="3654" xd:BRAM="33" xd:DSP="0"/>
+  <xd:resourceEstimates xd:LUT="2575" xd:FF="6174" xd:BRAM="0" xd:DSP="0"/>
 </xd:acceleratorMap>

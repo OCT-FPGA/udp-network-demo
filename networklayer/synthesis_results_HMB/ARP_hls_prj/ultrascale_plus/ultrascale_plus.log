@@ -1,196 +1,268 @@
 ==============================================================
-Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
-Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2021.1 (64-bit)
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ==============================================================
-INFO: [HLS 200-10] Setting target device to 'xcu280-fsvh2892-2L-e'
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xcu280-fsvh2892-2L-e 
+INFO: [HLS 200-1611] Setting target device to 'xcu280-fsvh2892-2L-e'
+INFO: [HLS 200-1510] Running: create_clock -period 3.1 -name default 
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 3.1ns.
+INFO: [HLS 200-1510] Running: set_clock_uncertainty 0.2 
 INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.2ns.
-INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.01 seconds; current allocated memory: 195.372 MB.
 INFO: [HLS 200-10] Analyzing design file '/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp' ... 
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25890 ; free virtual = 42352
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25890 ; free virtual = 42351
+WARNING: [HLS 207-5528] Ignore interface attribute or pragma which is not used in top function: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:382:9
+WARNING: [HLS 207-5301] unused parameter 'print': /tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_int_base.h:792:16
+WARNING: [HLS 207-1017] unknown pragma ignored: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:266:9
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 15.77 seconds. CPU system time: 1.49 seconds. Elapsed time: 15.39 seconds; current allocated memory: 197.039 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-279] Initial Interval estimation mode is set into default.
+INFO: [HLS 214-284] Auto array partition mode is set into default.
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<32>, 0>::read(ap_uint<32>&)' into 'hls::stream<ap_uint<32>, 0>::read()' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:156:9)
+INFO: [HLS 214-131] Inlining function 'hls::stream<arpTableReply, 0>::read(arpTableReply&)' into 'hls::stream<arpTableReply, 0>::read()' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:156:9)
+INFO: [HLS 214-131] Inlining function 'hls::stream<arpTableReply, 0>::write(arpTableReply const&)' into 'genARPDiscovery(hls::stream<ap_uint<32>, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<ap_uint<32>, 0>&, ap_uint<1>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:319:23)
+INFO: [HLS 214-131] Inlining function 'hls::stream<arpTableReply, 0>::read()' into 'genARPDiscovery(hls::stream<ap_uint<32>, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<ap_uint<32>, 0>&, ap_uint<1>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:319:47)
+INFO: [HLS 214-131] Inlining function 'hls::stream<arpTableReply, 0>::empty() const' into 'genARPDiscovery(hls::stream<ap_uint<32>, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<ap_uint<32>, 0>&, ap_uint<1>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:318:27)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<32>, 0>::write(ap_uint<32> const&)' into 'genARPDiscovery(hls::stream<ap_uint<32>, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<ap_uint<32>, 0>&, ap_uint<1>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:314:20)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<32>, 0>::read()' into 'genARPDiscovery(hls::stream<ap_uint<32>, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<ap_uint<32>, 0>&, ap_uint<1>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:314:40)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<32>, 0>::empty() const' into 'genARPDiscovery(hls::stream<ap_uint<32>, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<ap_uint<32>, 0>&, ap_uint<1>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:313:23)
+INFO: [HLS 214-131] Inlining function 'hls::stream<arpTableReply, 0>::read(arpTableReply&)' into 'genARPDiscovery(hls::stream<ap_uint<32>, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<ap_uint<32>, 0>&, ap_uint<1>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:302:35)
+INFO: [HLS 214-131] Inlining function 'hls::stream<arpTableReply, 0>::empty() const' into 'genARPDiscovery(hls::stream<ap_uint<32>, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<ap_uint<32>, 0>&, ap_uint<1>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:301:36)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<32>, 0>::write(ap_uint<32> const&)' into 'genARPDiscovery(hls::stream<ap_uint<32>, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<ap_uint<32>, 0>&, ap_uint<1>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:295:19)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_user_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::empty()' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:267:60)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_dest_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::empty()' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:268:61)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_id_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::empty()' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:268:45)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_user_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::read(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:283:50)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_dest_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::read(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:286:25)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_id_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::read(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:285:67)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_user_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::read(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:285:36)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_dest_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::read(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:284:39)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_id_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::read(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:284:23)
+INFO: [HLS 214-131] Inlining function 'hls::stream<arpTableEntry, 0>::write(arpTableEntry const&)' into 'arp_pkg_receiver(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<arpReplyMeta, 0>&, hls::stream<arpTableEntry, 0>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:77:23)
+INFO: [HLS 214-131] Inlining function 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::empty()' into 'arp_pkg_receiver(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<arpReplyMeta, 0>&, hls::stream<arpTableEntry, 0>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:59:18)
+INFO: [HLS 214-131] Inlining function 'hls::stream<arpReplyMeta, 0>::write(arpReplyMeta const&)' into 'arp_pkg_receiver(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<arpReplyMeta, 0>&, hls::stream<arpTableEntry, 0>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:75:19)
+INFO: [HLS 214-131] Inlining function 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::read(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>&)' into 'arp_pkg_receiver(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<arpReplyMeta, 0>&, hls::stream<arpTableEntry, 0>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:60:13)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_user_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::write(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul> const&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:304:51)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_dest_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::write(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul> const&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:307:26)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_id_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::write(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul> const&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:306:68)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_user_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::write(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul> const&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:306:37)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_dest_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::write(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul> const&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:305:40)
+INFO: [HLS 214-131] Inlining function 'hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>::get_id_ptr()' into 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::write(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul> const&)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_axi_sdata.h:305:24)
+INFO: [HLS 214-131] Inlining function 'hls::stream<arpReplyMeta, 0>::empty() const' into 'arp_pkg_sender(hls::stream<arpReplyMeta, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, ap_uint<48>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:121:23)
+INFO: [HLS 214-131] Inlining function 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::write(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul> const&)' into 'arp_pkg_sender(hls::stream<arpReplyMeta, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, ap_uint<48>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:186:15)
+INFO: [HLS 214-131] Inlining function 'hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>::write(hls::axis<ap_uint<512>, 0ul, 0ul, 0ul> const&)' into 'arp_pkg_sender(hls::stream<arpReplyMeta, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, ap_uint<48>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:161:15)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<32>, 0>::read(ap_uint<32>&)' into 'arp_pkg_sender(hls::stream<arpReplyMeta, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, ap_uint<48>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:126:22)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<32>, 0>::empty() const' into 'arp_pkg_sender(hls::stream<arpReplyMeta, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, ap_uint<48>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:125:30)
+INFO: [HLS 214-131] Inlining function 'hls::stream<arpReplyMeta, 0>::read(arpReplyMeta&)' into 'arp_pkg_sender(hls::stream<arpReplyMeta, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, ap_uint<48>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:122:20)
+INFO: [HLS 214-131] Inlining function 'hls::stream<arpTableEntry, 0>::empty() const' into 'arp_table(hls::stream<arpTableEntry, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<ap_uint<32>, 0>&, arpTableEntry*, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:224:24)
+INFO: [HLS 214-131] Inlining function 'hls::stream<arpTableReply, 0>::write(arpTableReply const&)' into 'arp_table(hls::stream<arpTableEntry, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<ap_uint<32>, 0>&, arpTableEntry*, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:243:19)
+INFO: [HLS 214-131] Inlining function 'hls::stream<arpTableEntry, 0>::read(arpTableEntry&)' into 'arp_table(hls::stream<arpTableEntry, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<ap_uint<32>, 0>&, arpTableEntry*, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:225:20)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<32>, 0>::write(ap_uint<32> const&)' into 'arp_table(hls::stream<arpTableEntry, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<ap_uint<32>, 0>&, arpTableEntry*, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:240:18)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<32>, 0>::read(ap_uint<32>&)' into 'arp_table(hls::stream<arpTableEntry, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<ap_uint<32>, 0>&, arpTableEntry*, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:229:19)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<32>, 0>::empty() const' into 'arp_table(hls::stream<arpTableEntry, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<ap_uint<32>, 0>&, arpTableEntry*, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:228:28)
+INFO: [HLS 214-131] Inlining function 'hls::stream<arpReplyMeta, 0>::stream(char const*)' into 'arp_server(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<arpTableReply, 0>&, arpTableEntry*, ap_uint<1>&, ap_uint<48>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:386:30)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<32>, 0>::stream(char const*)' into 'arp_server(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<arpTableReply, 0>&, arpTableEntry*, ap_uint<1>&, ap_uint<48>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:389:30)
+INFO: [HLS 214-131] Inlining function 'hls::stream<arpTableEntry, 0>::stream(char const*)' into 'arp_server(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<arpTableReply, 0>&, arpTableEntry*, ap_uint<1>&, ap_uint<48>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:392:31)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<32>, 0>::stream(char const*)' into 'arp_server(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<arpTableReply, 0>&, arpTableEntry*, ap_uint<1>&, ap_uint<48>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:395:30)
+INFO: [HLS 214-131] Inlining function 'hls::stream<arpTableReply, 0>::stream(char const*)' into 'arp_server(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<arpTableReply, 0>&, arpTableEntry*, ap_uint<1>&, ap_uint<48>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:398:31)
+WARNING: [HLS 214-185] The resource pragma (storage) on function argument, in 'call' is unsupported (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:382:9)
+INFO: [HLS 214-210] Disaggregating variable 'arpTable'
+INFO: [HLS 214-178] Inlining function 'arpTableEntry::arpTableEntry(ap_uint<48>, ap_uint<32>, ap_uint<1>)' into 'arp_pkg_receiver(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<arpReplyMeta, 0>&, hls::stream<arpTableEntry, 0>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:48:0)
+INFO: [HLS 214-178] Inlining function 'arpTableReply::arpTableReply(ap_uint<48>, bool)' into 'arp_table(hls::stream<arpTableEntry, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<ap_uint<32>, 0>&, arpTableEntry*, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:212:0)
+INFO: [HLS 214-241] Aggregating scalar variable 'networkMask' with field bit alignment mode in 32-bits (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365:0)
+INFO: [HLS 214-241] Aggregating scalar variable 'gatewayIP' with field bit alignment mode in 32-bits (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365:0)
+INFO: [HLS 214-241] Aggregating scalar variable 'myIpAddress' with field bit alignment mode in 32-bits (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365:0)
+INFO: [HLS 214-241] Aggregating scalar variable 'myMacAddress' with field bit alignment mode in 48-bits (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365:0)
+WARNING: [HLS 214-281] Estimating pipelined function 'genARPDiscovery' with estimated II increased from II=1 to II=2 because of limited port on variable 'arp_scan' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:263:0)
+INFO: [HLS 214-270] Starting automatic array partition analysis...
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i32.s_struct.ap_uint.3s' into 'genARPDiscovery(hls::stream<ap_uint<32>, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<ap_uint<32>, 0>&, ap_uint<1>&, ap_uint<32>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i256.s_struct.arpReplyMetas' into 'arp_pkg_receiver(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<arpReplyMeta, 0>&, hls::stream<arpTableEntry, 0>&, ap_uint<32>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i128.s_struct.arpTableEntrys' into 'arp_pkg_receiver(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, hls::stream<arpReplyMeta, 0>&, hls::stream<arpTableEntry, 0>&, ap_uint<32>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i128.s_struct.arpTableReplys' into 'arp_table(hls::stream<arpTableEntry, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<arpTableReply, 0>&, hls::stream<ap_uint<32>, 0>&, arpTableEntry*, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 7.65 seconds. CPU system time: 0.64 seconds. Elapsed time: 8.29 seconds; current allocated memory: 200.497 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 200.503 MB.
 INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25785 ; free virtual = 42258
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.11 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.13 seconds; current allocated memory: 211.091 MB.
 INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25765 ; free virtual = 42239
-INFO: [XFORM 203-1101] Packing variable 'macIpEncode_rsp.V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:359) into a 49-bit variable.
-INFO: [XFORM 203-712] Applying dataflow to function 'arp_server', detected/extracted 5 process function(s): 
-	 'arp_server.entry174'
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.25 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.27 seconds; current allocated memory: 226.732 MB.
+WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'arp_scan' as it is incompatible with its interface mode 's_axilite'.
+INFO: [XFORM 203-712] Applying dataflow to function 'arp_server' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:386:1), detected/extracted 5 process function(s): 
+	 'entry_proc'
 	 'genARPDiscovery'
 	 'arp_pkg_receiver'
 	 'arp_pkg_sender'
 	 'arp_table'.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25689 ; free virtual = 42170
-WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'arpTable.ipAddress.V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:209).
-WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'arpTable.valid.V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:209).
-WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'arpTable.macAddress.V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:209).
-WARNING: [HLS 200-657] Generating channel macIpEncode_rsp_i_V that flows backwards in the dataflow region.
-WARNING: [HLS 200-657] Generating channel arpRequestFifo_V_V that flows backwards in the dataflow region.
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1600.500 ; gain = 1167.887 ; free physical = 25601 ; free virtual = 42085
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.48 seconds. CPU system time: 0.08 seconds. Elapsed time: 0.56 seconds; current allocated memory: 262.653 MB.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'arpTable_macAddress'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'arpTable_ipAddress'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'arpTable_valid'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'arpTable_macAddress'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'arpTable_ipAddress'.
+WARNING: [ANALYSIS 214-52] Found false inter dependency for variable 'arpTable_valid'.
+WARNING: [HLS 200-657] Generating channel macIpEncode_rsp_i that flows backwards in the dataflow region.
+WARNING: [HLS 200-657] Generating channel arpRequestFifo that flows backwards in the dataflow region.
+WARNING: [HLS 200-631] Ignoring ap_ctrl_none interface for arp_server due to entry_proc with non-FIFO I/O
+WARNING: [HLS 200-631] Ignoring ap_ctrl_none interface for arp_server due to genARPDiscovery with non-FIFO I/O
+WARNING: [HLS 200-631] Ignoring ap_ctrl_none interface for arp_server due to arp_pkg_receiver with non-FIFO I/O
+WARNING: [HLS 200-631] Ignoring ap_ctrl_none interface for arp_server due to arp_table with non-FIFO I/O
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.37 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.39 seconds; current allocated memory: 314.133 MB.
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO: [HLS 200-10] Synthesizing 'arp_server' ...
-WARNING: [SYN 201-103] Legalizing function name 'arp_server.entry174' to 'arp_server_entry174'.
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'arp_server_entry174' 
+INFO: [HLS 200-42] -- Implementing module 'entry_proc' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 38.62 seconds; current allocated memory: 226.646 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.06 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.09 seconds; current allocated memory: 314.374 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.01 seconds; current allocated memory: 226.756 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 314.420 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'genARPDiscovery' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'genARPDiscovery'.
-INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, function 'genARPDiscovery'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.37 seconds; current allocated memory: 227.004 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.08 seconds; current allocated memory: 314.677 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 227.335 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 315.018 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'arp_pkg_receiver' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'arp_pkg_receiver'.
-INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, function 'arp_pkg_receiver'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.26 seconds; current allocated memory: 227.509 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.12 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 315.202 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 227.756 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 315.501 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'arp_pkg_sender' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'arp_pkg_sender'.
-INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, function 'arp_pkg_sender'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.56 seconds; current allocated memory: 228.021 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.11 seconds; current allocated memory: 315.752 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 228.419 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 316.125 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'arp_table' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'arp_table'.
-INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
-WARNING: [SCHED 204-21] Estimated clock period (3.337ns) exceeds the target (target clock period: 3.1ns, clock uncertainty: 0.2ns, effective delay budget: 2.9ns).
-WARNING: [SCHED 204-21] The critical path in module 'arp_table' consists of the following:
-	fifo read on port 'myIpAddress_V' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:210) [24]  (1.45 ns)
-	'xor' operation ('xor_ln879', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:232->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365) [39]  (0 ns)
-	'and' operation ('and_ln879', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:232->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365) [40]  (0 ns)
-	'icmp' operation ('icmp_ln879', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:232->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365) [41]  (0.859 ns)
-	'select' operation ('select_ln232', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:232->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365) [44]  (0.303 ns)
-	'getelementptr' operation ('arpTable_macAddress_1', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.hpp:72->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:237->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365) [46]  (0 ns)
-	'load' operation ('tmp.macAddress.V', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.hpp:72->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:237->/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:365) on array 'arpTable_macAddress_V' [47]  (0.725 ns)
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, function 'arp_table'
+WARNING: [HLS 200-871] Estimated clock period (3.812ns) exceeds the target (target clock period: 3.1ns, clock uncertainty: 0.2ns, effective delay budget: 2.9ns).
+WARNING: [HLS 200-1016] The critical path in module 'arp_table' consists of the following:	fifo read operation ('query_ip.V', /tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145) on port 'macIpEncode_i' (/tools/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145) [45]  (1.45 ns)
+	'xor' operation ('xor_ln1049') [46]  (0 ns)
+	'and' operation ('and_ln1049') [47]  (0 ns)
+	'icmp' operation ('icmp_ln1049') [48]  (0.859 ns)
+	'select' operation ('select_ln232', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:232) [51]  (0.303 ns)
+	'getelementptr' operation ('arpTable_macAddress_addr_1', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:237) [53]  (0 ns)
+	'load' operation ('arpTable_macAddress_load', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HMB/..//hls/arp_server/arp_server.cpp:237) on array 'arpTable_macAddress' [54]  (1.2 ns)
+
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.47 seconds; current allocated memory: 228.712 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.15 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 316.375 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 228.998 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 316.740 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'arp_server' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 229.191 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.13 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.14 seconds; current allocated memory: 316.889 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 229.654 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 317.270 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'arp_server_entry174' 
+INFO: [HLS 200-10] -- Generating RTL for module 'entry_proc' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-100] Finished creating RTL model for 'arp_server_entry174'.
-INFO: [HLS 200-111]  Elapsed time: 0.13 seconds; current allocated memory: 229.853 MB.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'entry_proc'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 317.386 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'genARPDiscovery' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 WARNING: [RTGEN 206-101] Register 'gia_fsm_state' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'ip_lsb_V' is power-on initialization.
-WARNING: [RTGEN 206-101] Register 'time_counter_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'time_counter' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'arp_scan_1d_V' is power-on initialization.
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'genARPDiscovery' pipeline 'genARPDiscovery' pipeline type 'function pipeline'
 INFO: [RTGEN 206-100] Finished creating RTL model for 'genARPDiscovery'.
-INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 230.793 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.08 seconds; current allocated memory: 318.079 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'arp_pkg_receiver' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 WARNING: [RTGEN 206-101] Register 'wordCount_V' is power-on initialization.
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'arp_pkg_receiver' pipeline 'arp_pkg_receiver' pipeline type 'function pipeline'
 INFO: [RTGEN 206-100] Finished creating RTL model for 'arp_pkg_receiver'.
-INFO: [HLS 200-111]  Elapsed time: 0.26 seconds; current allocated memory: 232.164 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.33 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.34 seconds; current allocated memory: 319.603 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'arp_pkg_sender' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 WARNING: [RTGEN 206-101] Register 'aps_fsmState' is power-on initialization.
-WARNING: [RTGEN 206-101] Register 'inputIP_V' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'replyMeta_srcMac_V' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'replyMeta_ethType_V' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'replyMeta_hwType_V' is power-on initialization.
-WARNING: [RTGEN 206-101] Register 'replyMeta_protoType_s' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'replyMeta_protoType_V' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'replyMeta_hwLen_V' is power-on initialization.
 WARNING: [RTGEN 206-101] Register 'replyMeta_protoLen_V' is power-on initialization.
-WARNING: [RTGEN 206-101] Register 'replyMeta_hwAddrSrc_s' is power-on initialization.
-WARNING: [RTGEN 206-101] Register 'replyMeta_protoAddrS' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'replyMeta_hwAddrSrc_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'replyMeta_protoAddrSrc_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'inputIP_V' is power-on initialization.
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'arp_pkg_sender' pipeline 'arp_pkg_sender' pipeline type 'function pipeline'
 INFO: [RTGEN 206-100] Finished creating RTL model for 'arp_pkg_sender'.
-INFO: [HLS 200-111]  Elapsed time: 0.21 seconds; current allocated memory: 233.560 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.22 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.24 seconds; current allocated memory: 321.055 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'arp_table' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'arp_table' pipeline 'arp_table' pipeline type 'function pipeline'
 INFO: [RTGEN 206-100] Finished creating RTL model for 'arp_table'.
-INFO: [HLS 200-111]  Elapsed time: 0.24 seconds; current allocated memory: 235.136 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.24 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.26 seconds; current allocated memory: 322.662 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'arp_server' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpDataIn_V_data_V' to 'axis'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpDataIn_V_keep_V' to 'axis'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpDataIn_V_last_V' to 'axis'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/macIpEncode_req_V_V' to 'axis'.
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpDataIn_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpDataIn_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpDataIn_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpDataIn_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/macIpEncode_req_V' to 'axis' (register, both mode).
 INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpDataOut_V_data_V' to 'axis' (register, both mode).
 INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpDataOut_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpDataOut_V_strb_V' to 'axis' (register, both mode).
 INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpDataOut_V_last_V' to 'axis' (register, both mode).
 INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/macIpEncode_rsp_V' to 'axis' (register, both mode).
-INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpTable_macAddress_V' to 's_axilite & ap_memory'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpTable_ipAddress_V' to 's_axilite & ap_memory'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpTable_valid_V' to 's_axilite & ap_memory'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arp_scan_V' to 's_axilite & ap_ovld'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/myMacAddress_V' to 'ap_none' (register).
-INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/myIpAddress_V' to 'ap_none' (register).
-INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/gatewayIP_V' to 'ap_none' (register).
-INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/networkMask_V' to 'ap_none' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpTable_macAddress' to 's_axilite & ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpTable_ipAddress' to 's_axilite & ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arpTable_valid' to 's_axilite & ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/arp_scan' to 's_axilite & ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/myMacAddress' to 'ap_none' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/myIpAddress' to 'ap_none' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/gatewayIP' to 'ap_none' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'arp_server/networkMask' to 'ap_none' (register, both mode).
 INFO: [RTGEN 206-500] Setting interface mode on function 'arp_server' to 'ap_ctrl_none'.
-INFO: [RTGEN 206-100] Bundling port 'arpTable_macAddress_V', 'arpTable_ipAddress_V', 'arpTable_valid_V' and 'arp_scan_V' to AXI-Lite port s_axilite.
-WARNING: [HLS 200-656] Deadlocks can occur since process genARPDiscovery is a non-flushable pipeline which is instantiated in a dataflow region without ap_ctrl_chain mode.
-WARNING: [HLS 200-656] Deadlocks can occur since process arp_pkg_receiver is a non-flushable pipeline which is instantiated in a dataflow region without ap_ctrl_chain mode.
-WARNING: [HLS 200-656] Deadlocks can occur since process arp_pkg_sender is a non-flushable pipeline which is instantiated in a dataflow region without ap_ctrl_chain mode.
-WARNING: [HLS 200-656] Deadlocks can occur since process arp_table is a non-flushable pipeline which is instantiated in a dataflow region without ap_ctrl_chain mode.
-WARNING: [HLS 200-631] Ignoring ap_ctrl_none interface for arp_server due to arp_server.entry174 with non-FIFO I/O
-INFO: [RTGEN 206-100] Finished creating RTL model for 'arp_server'.
-INFO: [HLS 200-111]  Elapsed time: 0.26 seconds; current allocated memory: 236.996 MB.
-INFO: [HLS 200-789] **** Estimated Fmax: 299.67 MHz
-INFO: [RTMG 210-285] Implementing FIFO 'myMacAddress_V_c_U(fifo_w48_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'myIpAddress_V_c_U(fifo_w32_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'myIpAddress_V_c40_U(fifo_w32_d2_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'gatewayIP_V_c_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'networkMask_V_c_U(fifo_w32_d3_A)' using Shift Registers.
-INFO: [RTMG 210-285] Implementing FIFO 'macIpEncode_i_V_V_U(fifo_w32_d4_A)' using Shift Registers.
+INFO: [RTGEN 206-100]
