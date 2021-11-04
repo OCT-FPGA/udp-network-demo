@@ -143,5 +143,5 @@ create-conf-file:
 	echo "" >> connectivity_if$(INTERFACE).tmp.ini
 	echo "[advanced]" >> connectivity_if$(INTERFACE).tmp.ini
 	echo "param=compiler.userPostSysLinkOverlayTcl=$(POSTSYSLINKTCL)" >> connectivity_if$(INTERFACE).tmp.ini
-	echo "#param=compiler.worstNegativeSlack=-2" >> connectivity_if$(INTERFACE).tmp.ini
+	echo "param=compiler.worstNegativeSlack=-2" >> connectivity_if$(INTERFACE).tmp.ini
 
