@@ -135,10 +135,10 @@ Receiver side syntax:
 ./host_receiver_if3 <xclbin> <number of packets> <decrypt or no-decrypt (interface 0)(optional)> <decrypt or no-decrypt (interface 1)(optional)> <receiver IP (interface 0)(optional)> <receiver IP (interface 1)(optional)> <sender IP (interface 0)(optional)> <sender IP (interface 1)(optional)> <IP gateway (optional)>
 ```
 
-Example - Receive 1 UDP packet without decrypting
+Example - Receive 1 UDP packet on each interface without decrypting 
 
 ```
-./host_receiver_if3 1
+./host_receiver_if3 1 1
 ```
 
 Sender side syntax:
@@ -147,14 +147,14 @@ Sender side syntax:
 ./host_sender_if3 <xclbin> <number of packets> <encrypt or no-encrypt (interface 0)(optional)> <encrypt or no-encrypt (interface 1)(optional)> <receiver IP (interface 0)(optional)> <receiver IP (interface 1)(optional)> <sender IP (interface 0)(optional)> <sender IP (interface 1)(optional)> <IP gateway (optional)>
 ```
 
-Example - Send 1 encrypted UDP packet 
+Example - Send 1 encrypted UDP packet on each interface 
 ```
-./host_sender_if3 1 encrypt
+./host_sender_if3 1 1 encrypt encrypt
 ```
 
-Example - Send 1 UDP packet with encryption enabled on interface 1 only.
+Example - Send 1 UDP packet with encryption enabled on interface 1 only
 ```
-./host_sender_if3 1 no-encrypt encrypt
+./host_sender_if3 1 1 no-encrypt encrypt
 ```
 
 ![plot](images/sender.png)
