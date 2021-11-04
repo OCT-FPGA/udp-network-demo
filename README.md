@@ -132,7 +132,7 @@ Receiver side syntax:
 Example - Receive 1 UDP packet without decrypting
 
 ```
-./host_receiver_if3 1
+./host_receiver_if3 1 1
 ```
 
 Sender side syntax:
@@ -143,12 +143,12 @@ Sender side syntax:
 
 Example - Send 1 encrypted UDP packet 
 ```
-./host_sender_if3 1 encrypt
+./host_sender_if3 1 1 encrypt encrypt
 ```
 
 Example - Send 1 UDP packet with encryption enabled on interface 1 only.
 ```
-./host_sender_if3 1 no-encrypt encrypt
+./host_sender_if3 1 1 no-encrypt encrypt
 ```
 
 ![plot](images/sender.png)
