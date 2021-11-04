@@ -36,12 +36,6 @@ source /tools/Xilinx/Vitis/2021.1/settings64.sh
 source /opt/xilinx/xrt/setup.sh
 ```
 
-Also install the package ```libc6-dev-i386```.
-
-```bash
-sudo apt install libc6-dev-i386
-```
-
 Alveo U280 has two 100 Gbps QSFP-28 ports (port 0 and port 1). It is possible to build a bitstream that uses either of these two to send/receive packets. First, you need to specify the license file location of the CMAC kernel. 
 
 ```bash
