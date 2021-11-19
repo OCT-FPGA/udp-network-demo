@@ -25,7 +25,7 @@ In dual-port send/receive architecture we implement two CMAC, network layer, and
 
 First, you should clone the repository using
 
-```git clone https://github.com/OCT-FPGA/network-demo```
+```git clone https://github.com/OCT-FPGA/udp-network-demo```
 
 ## Build the bitstream and host executable
 
