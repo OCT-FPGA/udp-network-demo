@@ -103,7 +103,7 @@ cleanall: clean
 $(BUILD_DIR)/${XCLBIN_NAME}.xclbin:
 	mkdir -p $(BUILD_DIR)
 	make -C $(USERKRNLDIR) all DEVICE=$(DEVICE)
-	$(VPP) $(CLFLAGS) $(CONFIGFLAGS) --temp_dir $(BUILD_DIR) -l -o'$@' $(LIST_XO) $(LIST_REPOS) -j $(JOBS) 
+	$(VPP) $(CLFLAGS) $(CONFIGFLAGS) --temp_dir $(BUILD_DIR) -l -o'$@' $(LIST_XO) $(LIST_REPOS) --hls.jobs $(JOBS) 
 
 .PHONY: exe
 exe: $(SENDER_EXECUTABLE) $(RECEIVER_EXECUTABLE)
