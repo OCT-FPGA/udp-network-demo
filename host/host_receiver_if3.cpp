@@ -73,7 +73,7 @@ int main(int argc, char **argv) {
 	unsigned char *kernelBinary;
     	const char* xclbinFilename;
     	cl_int err;
-    	if (argc < 3){
+    	if (argc < 2){
 		std::cout << "Usage: " << argv[0] << " <XCLBIN File> [<#Rx Pkt 0> <#Rx Pkt 1>] [<decrypt 0> <decrypt 1>] [<My IP 0> <My IP 1>] [<Their IP 0> <Their IP 1>] [<IP Gateway>]" << std::endl;
         	return EXIT_FAILURE;
 	}
