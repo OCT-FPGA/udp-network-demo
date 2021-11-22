@@ -115,7 +115,7 @@ Receiver side syntax:
 Example - Receive 1 UDP packet on interface 1 without decrypting
 
 ```
-./host_receiver_if1 1
+./host_receiver_if1 demo_if1.xclbin 1
 ```
 
 Sender side syntax:
@@ -127,7 +127,7 @@ Sender side syntax:
 Example - Send 1 encrypted UDP packet on interface 0
 
 ```
-./host_sender_if0 1 encrypt
+./host_sender_if0 demo_if1.xclbin 1 encrypt
 ```
 ### Dual-port examples
 
@@ -140,7 +140,7 @@ Receiver side syntax:
 Example - Receive 1 UDP packet on each interface without decrypting 
 
 ```
-./host_receiver_if3 1 1
+./host_receiver_if3 demo_if3.xclbin 1 1
 ```
 
 Sender side syntax:
@@ -151,12 +151,12 @@ Sender side syntax:
 
 Example - Send 1 encrypted UDP packet on each interface 
 ```
-./host_sender_if3 1 1 encrypt encrypt
+./host_sender_if3 demo_if3.xclbin 1 1 encrypt encrypt
 ```
 
 Example - Send 1 UDP packet with encryption enabled on interface 1 only
 ```
-./host_sender_if3 1 1 no-encrypt encrypt
+./host_sender_if3 demo_if3.xclbin 1 1 no-encrypt encrypt
 ```
 
 ![plot](images/sender.png)
