@@ -36,7 +36,7 @@ source /tools/Xilinx/Vitis/2021.1/settings64.sh
 source /opt/xilinx/xrt/setup.sh
 ```
 
-Alveo U280 has two 100 Gbps QSFP-28 ports (port 0 and port 1). It is possible to build a bitstream that uses either of these two to send/receive packets. First, you need to specify the [license path of the CMAC kernel](https://github.com/OCT-FPGA/OCT-Tutorials/blob/master/network-attached-fpga/license_checkout.md). 
+Alveo U280 has two 100 Gbps QSFP-28 ports (port 0 and port 1). It is possible to build a bitstream that uses either of these two to send/receive packets. First, you need to specify the [license path of the CMAC IP](https://github.com/OCT-FPGA/OCT-Tutorials/blob/master/network-attached-fpga/license_checkout.md). 
 
 
 Now you are ready to start building the bitstream. Use the ```make``` command as shown below. You may also pass ```JOBS=<number of jobs>``` as an argument to speed up the build process. The default is 8.
