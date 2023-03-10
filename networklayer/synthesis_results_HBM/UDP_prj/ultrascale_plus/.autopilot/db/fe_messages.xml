@@ -1,0 +1,453 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_ref.h:718:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="and_reduce" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_ref.h:732:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="or_reduce" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_ref.h:746:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="xor_reduce" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:122:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_user_ptr" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:126:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_id_ptr" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:130:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_dest_ptr" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:160:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_strb_ptr" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:164:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_user_ptr" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:168:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_id_ptr" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:172:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_dest_ptr" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:178:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_data" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:182:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_keep" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:186:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_last" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:191:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="set_data" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:195:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="set_keep" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:199:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="set_last" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:203:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="keep_all" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:209:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="qdma_axis&lt;WData, 0, 0, 0&gt;" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:213:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="qdma_axis&lt;WData, 0, 0, 0&gt;" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:217:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="qdma_axis&lt;WData, 0, 0, 0&gt;" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:222:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="qdma_axis&lt;WData, 0, 0, 0&gt;" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:227:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="qdma_axis&lt;WData, 0, 0, 0&gt;" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:231:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator=" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:266:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="empty" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:273:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="full" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:281:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:291:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:302:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="write" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:312:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read_nb" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:327:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="write_nb" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:363:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="empty" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:370:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="full" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:378:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:388:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:399:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="write" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:409:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read_nb" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:425:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="write_nb" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/TOE/common_utilities/common_utilities.cpp:178:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="len2Keep" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/TOE/common_utilities/common_utilities.cpp:911:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="DataBroadcast" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/TOE/common_utilities/common_utilities.cpp:912:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="DataBroadcast" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/TOE/common_utilities/common_utilities.cpp:960:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="combine_words" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_ref.h:718:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="and_reduce" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_ref.h:732:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="or_reduce" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_ref.h:746:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="xor_reduce" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:122:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_user_ptr" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:126:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_id_ptr" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:130:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_dest_ptr" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:160:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_strb_ptr" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:164:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_user_ptr" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:168:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_id_ptr" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:172:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_dest_ptr" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:178:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_data" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:182:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_keep" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:186:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_last" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:191:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="set_data" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:195:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="set_keep" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:199:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="set_last" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:203:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="keep_all" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:209:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="qdma_axis&lt;WData, 0, 0, 0&gt;" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:213:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="qdma_axis&lt;WData, 0, 0, 0&gt;" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:217:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="qdma_axis&lt;WData, 0, 0, 0&gt;" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:222:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="qdma_axis&lt;WData, 0, 0, 0&gt;" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:227:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="qdma_axis&lt;WData, 0, 0, 0&gt;" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:231:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator=" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:266:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="empty" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:273:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="full" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:281:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:291:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:302:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="write" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:312:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read_nb" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:327:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="write_nb" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:363:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="empty" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:370:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="full" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:378:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:388:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:399:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="write" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:409:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read_nb" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:425:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="write_nb" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:47:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="TableHandler" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:48:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="TableHandler" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:49:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="TableHandler" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=SocketTable complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:50:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="TableHandler" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=SocketTable" ARG_PragmaType="disaggregate" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:98:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="udpRxEngine" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:99:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="udpRxEngine" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:196:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="rxEngPacketDropper" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:197:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="rxEngPacketDropper" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:236:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="appGetMetaData" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:237:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="appGetMetaData" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:285:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="udpTxEngine" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:286:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="udpTxEngine" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:420:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="udp" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=udp" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:420:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="udp" ARG_PragmaIsValid="1" ARG_PragmaType="dataflow" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:423:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="udp" ARG_PragmaIsValid="1" ARG_PragmaOptions="axis register both port=rxUdpDataIn" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:424:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="udp" ARG_PragmaIsValid="1" ARG_PragmaOptions="axis register both port=txUdpDataOut" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:425:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="udp" ARG_PragmaIsValid="1" ARG_PragmaOptions="axis register both port=DataOutApp" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:426:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="udp" ARG_PragmaIsValid="1" ARG_PragmaOptions="axis register both port=DataInApp" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:428:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="udp" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none register port=myIpAddress" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:429:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="udp" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=SocketTable bundle=s_axilite" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:430:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="udp" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=numberSockets bundle=s_axilite" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:431:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="udp" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_ctrl_none port=return" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:437:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="udp" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=ureDataPayload depth=256" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:440:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="udp" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=agmdDataOut depth=256" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:443:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="udp" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=ureMetaData depth=32" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:446:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="udp" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=rthDropFifo depth=32" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:449:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="udp" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=agmdIdOut depth=256" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:452:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="udp" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=agmdpayloadLenOut depth=256" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:456:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="udp" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=txthMetaData depth=32" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:419:0" msg_body="Disaggregating variable 'SocketTable'">
+        <args Name="SocketTable"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:59:26" msg_body="Loop 'VITIS_LOOP_59_1' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_59_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.hpp:105:23" msg_body="Loop 'VITIS_LOOP_105_1' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_105_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:46:0" msg_body="Unrolling loop 'VITIS_LOOP_59_1' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:59:26) in function 'TableHandler' completely with a factor of 16">
+        <args Factor="16" LoopLoc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:59:26" LoopName="VITIS_LOOP_59_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.hpp:101:0" msg_body="Unrolling loop 'VITIS_LOOP_105_1' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.hpp:105:23) in function 'byteSwap&lt;32&gt;' completely with a factor of 4">
+        <args Factor="4" LoopLoc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.hpp:105:23" LoopName="VITIS_LOOP_105_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.hpp:101:0" msg_body="Unrolling loop 'VITIS_LOOP_105_1' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.hpp:105:23) in function 'byteSwap&lt;16&gt;' completely with a factor of 2">
+        <args Factor="2" LoopLoc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.hpp:105:23" LoopName="VITIS_LOOP_105_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:97:0" msg_body="Inlining function 'axis_udp&lt;512&gt;::axis_udp(ap_uint&lt;512&gt;, ap_uint&lt;64&gt;, ap_uint&lt;1&gt;)' into 'udpRxEngine(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;)'">
+        <args Callee="axis_udp&lt;512&gt;::axis_udp(ap_uint&lt;512&gt;, ap_uint&lt;64&gt;, ap_uint&lt;1&gt;)" Caller="udpRxEngine(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;)"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:97:0" msg_body="Inlining function 'ap_uint&lt;16&gt; byteSwap&lt;16&gt;(ap_uint&lt;16&gt;)' into 'udpRxEngine(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;)'">
+        <args Callee="ap_uint&lt;16&gt; byteSwap&lt;16&gt;(ap_uint&lt;16&gt;)" Caller="udpRxEngine(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;)"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:97:0" msg_body="Inlining function 'ap_uint&lt;32&gt; byteSwap&lt;32&gt;(ap_uint&lt;32&gt;)' into 'udpRxEngine(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;)'">
+        <args Callee="ap_uint&lt;32&gt; byteSwap&lt;32&gt;(ap_uint&lt;32&gt;)" Caller="udpRxEngine(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;)"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:97:0" msg_body="Inlining function 'udpMetadata::udpMetadata(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;1&gt;)' into 'udpRxEngine(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;)'">
+        <args Callee="udpMetadata::udpMetadata(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;1&gt;)" Caller="udpRxEngine(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;)"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:46:0" msg_body="Inlining function 'ap_uint&lt;32&gt; byteSwap&lt;32&gt;(ap_uint&lt;32&gt;)' into 'TableHandler(hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;tableResponse, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, socket_table*, ap_uint&lt;16&gt;&amp;, ap_uint&lt;32&gt;&amp;)'">
+        <args Callee="ap_uint&lt;32&gt; byteSwap&lt;32&gt;(ap_uint&lt;32&gt;)" Caller="TableHandler(hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;tableResponse, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, socket_table*, ap_uint&lt;16&gt;&amp;, ap_uint&lt;32&gt;&amp;)"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:46:0" msg_body="Inlining function 'userMetadata::userMetadata(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;)' into 'TableHandler(hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;tableResponse, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, socket_table*, ap_uint&lt;16&gt;&amp;, ap_uint&lt;32&gt;&amp;)'">
+        <args Callee="userMetadata::userMetadata(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;)" Caller="TableHandler(hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;tableResponse, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, socket_table*, ap_uint&lt;16&gt;&amp;, ap_uint&lt;32&gt;&amp;)"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:46:0" msg_body="Inlining function 'udpMetadata::udpMetadata(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;1&gt;)' into 'TableHandler(hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;tableResponse, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, socket_table*, ap_uint&lt;16&gt;&amp;, ap_uint&lt;32&gt;&amp;)'">
+        <args Callee="udpMetadata::udpMetadata(ap_uint&lt;32&gt;, ap_uint&lt;32&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;1&gt;)" Caller="TableHandler(hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;tableResponse, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, socket_table*, ap_uint&lt;16&gt;&amp;, ap_uint&lt;32&gt;&amp;)"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:235:0" msg_body="Inlining function 'axis_udp&lt;512&gt;::axis_udp(ap_uint&lt;512&gt;, ap_uint&lt;64&gt;, ap_uint&lt;1&gt;)' into 'appGetMetaData(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;)'">
+        <args Callee="axis_udp&lt;512&gt;::axis_udp(ap_uint&lt;512&gt;, ap_uint&lt;64&gt;, ap_uint&lt;1&gt;)" Caller="appGetMetaData(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;)"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:284:0" msg_body="Inlining function 'ap_uint&lt;16&gt; byteSwap&lt;16&gt;(ap_uint&lt;16&gt;)' into 'udpTxEngine(hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;)'">
+        <args Callee="ap_uint&lt;16&gt; byteSwap&lt;16&gt;(ap_uint&lt;16&gt;)" Caller="udpTxEngine(hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;)"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:284:0" msg_body="Inlining function 'ap_uint&lt;32&gt; byteSwap&lt;32&gt;(ap_uint&lt;32&gt;)' into 'udpTxEngine(hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;)'">
+        <args Callee="ap_uint&lt;32&gt; byteSwap&lt;32&gt;(ap_uint&lt;32&gt;)" Caller="udpTxEngine(hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;)"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:419:0" msg_body="Applying array_partition to 'SocketTable.0': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="SocketTable.0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:419:0" msg_body="Applying array_partition to 'SocketTable.1': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="SocketTable.1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:419:0" msg_body="Applying array_partition to 'SocketTable.2': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="SocketTable.2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:419:0" msg_body="Applying array_partition to 'SocketTable.3': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="SocketTable.3"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:419:0" msg_body="Aggregating scalar variable 'myIpAddress' with compact=bit mode in 32-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="32" HwTyName="scalar" Name="myIpAddress"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5" msg_body="Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint&lt;512&gt;s.i512' into 'udpRxEngine(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.unpack.none.s_struct.ap_uint&lt;512&gt;s.i512" Caller="udpRxEngine(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173:9" msg_body="Inlining function '_llvm.fpga.pack.none.i1024.s_struct.axis_udp&lt;512&gt;s' into 'udpRxEngine(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.pack.none.i1024.s_struct.axis_udp&lt;512&gt;s" Caller="udpRxEngine(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5" msg_body="Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint&lt;1&gt;s.i1' into 'udpRxEngine(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.unpack.none.s_struct.ap_uint&lt;1&gt;s.i1" Caller="udpRxEngine(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5" msg_body="Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint&lt;64&gt;s.i64' into 'udpRxEngine(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.unpack.none.s_struct.ap_uint&lt;64&gt;s.i64" Caller="udpRxEngine(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173:9" msg_body="Inlining function '_llvm.fpga.pack.none.i128.s_struct.udpMetadatas' into 'udpRxEngine(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.pack.none.i128.s_struct.udpMetadatas" Caller="udpRxEngine(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173:9" msg_body="Inlining function '_llvm.fpga.pack.none.i160.s_struct.tableResponses' into 'TableHandler(hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;tableResponse, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, socket_table*, ap_uint&lt;16&gt;&amp;, ap_uint&lt;32&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.pack.none.i160.s_struct.tableResponses" Caller="TableHandler(hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;tableResponse, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, socket_table*, ap_uint&lt;16&gt;&amp;, ap_uint&lt;32&gt;&amp;) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173:9" msg_body="Inlining function '_llvm.fpga.pack.none.i128.s_struct.udpMetadatas' into 'TableHandler(hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;tableResponse, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, socket_table*, ap_uint&lt;16&gt;&amp;, ap_uint&lt;32&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.pack.none.i128.s_struct.udpMetadatas" Caller="TableHandler(hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;tableResponse, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, socket_table*, ap_uint&lt;16&gt;&amp;, ap_uint&lt;32&gt;&amp;) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5" msg_body="Inlining function '_llvm.fpga.pack.none.i512.s_struct.ap_uint&lt;512&gt;s' into 'rxEngPacketDropper(hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;tableResponse, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.pack.none.i512.s_struct.ap_uint&lt;512&gt;s" Caller="rxEngPacketDropper(hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;tableResponse, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5" msg_body="Inlining function '_llvm.fpga.pack.none.i16.s_struct.ap_uint&lt;16&gt;s' into 'rxEngPacketDropper(hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;tableResponse, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.pack.none.i16.s_struct.ap_uint&lt;16&gt;s" Caller="rxEngPacketDropper(hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;tableResponse, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5" msg_body="Inlining function '_llvm.fpga.pack.none.i1.s_struct.ap_uint&lt;1&gt;s' into 'rxEngPacketDropper(hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;tableResponse, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.pack.none.i1.s_struct.ap_uint&lt;1&gt;s" Caller="rxEngPacketDropper(hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;tableResponse, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5" msg_body="Inlining function '_llvm.fpga.pack.none.i96.s_struct.ap_uint&lt;96&gt;s' into 'rxEngPacketDropper(hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;tableResponse, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.pack.none.i96.s_struct.ap_uint&lt;96&gt;s" Caller="rxEngPacketDropper(hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;tableResponse, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5" msg_body="Inlining function '_llvm.fpga.pack.none.i64.s_struct.ap_uint&lt;64&gt;s' into 'rxEngPacketDropper(hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;tableResponse, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.pack.none.i64.s_struct.ap_uint&lt;64&gt;s" Caller="rxEngPacketDropper(hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;tableResponse, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5" msg_body="Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint&lt;512&gt;s.i512' into 'appGetMetaData(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.unpack.none.s_struct.ap_uint&lt;512&gt;s.i512" Caller="appGetMetaData(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173:9" msg_body="Inlining function '_llvm.fpga.pack.none.i16.s_struct.ap_uint&lt;16&gt;s' into 'appGetMetaData(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.pack.none.i16.s_struct.ap_uint&lt;16&gt;s" Caller="appGetMetaData(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5" msg_body="Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint&lt;64&gt;s.i64' into 'appGetMetaData(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.unpack.none.s_struct.ap_uint&lt;64&gt;s.i64" Caller="appGetMetaData(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173:9" msg_body="Inlining function '_llvm.fpga.pack.none.i1024.s_struct.axis_udp&lt;512&gt;s' into 'appGetMetaData(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.pack.none.i1024.s_struct.axis_udp&lt;512&gt;s" Caller="appGetMetaData(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5" msg_body="Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint&lt;16&gt;s.i16' into 'appGetMetaData(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.unpack.none.s_struct.ap_uint&lt;16&gt;s.i16" Caller="appGetMetaData(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5" msg_body="Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint&lt;1&gt;s.i1' into 'appGetMetaData(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.unpack.none.s_struct.ap_uint&lt;1&gt;s.i1" Caller="appGetMetaData(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5" msg_body="Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint&lt;96&gt;s.i96' into 'appGetMetaData(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.unpack.none.s_struct.ap_uint&lt;96&gt;s.i96" Caller="appGetMetaData(hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 96ul, 0ul, 16ul&gt;, 0&gt;&amp;, hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5" msg_body="Inlining function '_llvm.fpga.pack.none.i512.s_struct.ap_uint&lt;512&gt;s' into 'udpTxEngine(hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.pack.none.i512.s_struct.ap_uint&lt;512&gt;s" Caller="udpTxEngine(hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5" msg_body="Inlining function '_llvm.fpga.pack.none.i1.s_struct.ap_uint&lt;1&gt;s' into 'udpTxEngine(hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.pack.none.i1.s_struct.ap_uint&lt;1&gt;s" Caller="udpTxEngine(hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;) (.1)"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5" msg_body="Inlining function '_llvm.fpga.pack.none.i64.s_struct.ap_uint&lt;64&gt;s' into 'udpTxEngine(hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;) (.1)'">
+        <args Callee="_llvm.fpga.pack.none.i64.s_struct.ap_uint&lt;64&gt;s" Caller="udpTxEngine(hls::stream&lt;axis_udp&lt;512&gt;, 0&gt;&amp;, hls::stream&lt;udpMetadata, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;16&gt;, 0&gt;&amp;, hls::stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0ul, 0ul, 0ul&gt;, 0&gt;&amp;) (.1)"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

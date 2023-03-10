@@ -1,0 +1,180 @@
+
+
+================================================================
+== Vitis HLS Report for 'broadcaster_and_mac_request'
+================================================================
+* Date:           Wed Mar  8 19:14:17 2023
+
+* Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+* Project:        ETH_inserter_hls_prj
+* Solution:       ultrascale_plus (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  3.10 ns|  1.450 ns|     0.20 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        2|        2|  6.200 ns|  6.200 ns|    1|    1|      yes|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 1 2 3 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.85>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %ip_header_out, void @empty_3, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 4 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %ip_header_out, void @empty_3, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 5 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %ip_header_out, void @empty_3, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 6 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %no_ip_header_out, void @empty_3, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 7 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %no_ip_header_out, void @empty_3, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 8 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %no_ip_header_out, void @empty_3, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 9 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %no_ip_header_out, void @empty_3, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 10 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %ip_header_out, void @empty_3, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 11 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %arpTableRequest, void @empty_2, i32 1, i32 1, void @empty_1, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 12 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %dataIn_V_last_V, i64 %dataIn_V_strb_V, i64 %dataIn_V_keep_V, i512 %dataIn_V_data_V, void @empty_2, i32 1, i32 1, void @empty_1, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 13 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_0"   --->   Operation 14 'specpipeline' 'specpipeline_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%bmr_fsm_state_load = load i1 %bmr_fsm_state"   --->   Operation 15 'load' 'bmr_fsm_state_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%tmp = nbreadreq i1 @_ssdm_op_NbReadReq.axis.i512P0A.i64P0A.i64P0A.i1P0A, i512 %dataIn_V_data_V, i64 %dataIn_V_keep_V, i64 %dataIn_V_strb_V, i1 %dataIn_V_last_V, i32 1"   --->   Operation 16 'nbreadreq' 'tmp' <Predicate = true> <Delay = 0.00> <CoreInst = "axis">   --->   Core 123 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%br_ln52 = br i1 %bmr_fsm_state_load, void, void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:52]   --->   Operation 17 'br' 'br_ln52' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%br_ln54 = br i1 %tmp, void %._crit_edge.i, void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:54]   --->   Operation 18 'br' 'br_ln54' <Predicate = (!bmr_fsm_state_load)> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%empty = read i641 @_ssdm_op_Read.axis.volatile.i512P0A.i64P0A.i64P0A.i1P0A, i512 %dataIn_V_data_V, i64 %dataIn_V_keep_V, i64 %dataIn_V_strb_V, i1 %dataIn_V_last_V"   --->   Operation 19 'read' 'empty' <Predicate = (!bmr_fsm_state_load & tmp)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 123 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%tmp_data_V = extractvalue i641 %empty"   --->   Operation 20 'extractvalue' 'tmp_data_V' <Predicate = (!bmr_fsm_state_load & tmp)> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%tmp_keep_V = extractvalue i641 %empty"   --->   Operation 21 'extractvalue' 'tmp_keep_V' <Predicate = (!bmr_fsm_state_load & tmp)> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%tmp_last_V = extractvalue i641 %empty"   --->   Operation 22 'extractvalue' 'tmp_last_V' <Predicate = (!bmr_fsm_state_load & tmp)> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%dst_ip_addr_V = partselect i32 @_ssdm_op_PartSelect.i32.i512.i32.i32, i512 %tmp_data_V, i32 128, i32 159"   --->   Operation 23 'partselect' 'dst_ip_addr_V' <Predicate = (!bmr_fsm_state_load & tmp)> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%rhs_V = read i32 @_ssdm_op_Read.ap_auto.i32P0A, i32 %regSubNetMask"   --->   Operation 24 'read' 'rhs_V' <Predicate = (!bmr_fsm_state_load & tmp)> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%lhs_V_1 = read i32 @_ssdm_op_Read.ap_auto.i32P0A, i32 %regDefaultGateway"   --->   Operation 25 'read' 'lhs_V_1' <Predicate = (!bmr_fsm_state_load & tmp)> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns) (grouped into LUT with out node icmp_ln1064)   --->   "%xor_ln1064 = xor i32 %lhs_V_1, i32 %dst_ip_addr_V"   --->   Operation 26 'xor' 'xor_ln1064' <Predicate = (!bmr_fsm_state_load & tmp)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.21> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 27 [1/1] (0.00ns) (grouped into LUT with out node icmp_ln1064)   --->   "%and_ln1064 = and i32 %rhs_V, i32 %xor_ln1064"   --->   Operation 27 'and' 'and_ln1064' <Predicate = (!bmr_fsm_state_load & tmp)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.21> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 28 [1/1] (0.85ns) (out node of the LUT)   --->   "%icmp_ln1064 = icmp_eq  i32 %and_ln1064, i32 0"   --->   Operation 28 'icmp' 'icmp_ln1064' <Predicate = (!bmr_fsm_state_load & tmp)> <Delay = 0.85> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%br_ln58 = br i1 %icmp_ln1064, void, void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:58]   --->   Operation 29 'br' 'br_ln58' <Predicate = (!bmr_fsm_state_load & tmp)> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%br_ln67 = br i1 %tmp_last_V, void, void %._crit_edge1.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:67]   --->   Operation 30 'br' 'br_ln67' <Predicate = (!bmr_fsm_state_load & tmp)> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.38ns)   --->   "%store_ln0 = store i1 1, i1 %bmr_fsm_state"   --->   Operation 31 'store' 'store_ln0' <Predicate = (!bmr_fsm_state_load & tmp & !tmp_last_V)> <Delay = 0.38>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%br_ln68 = br void %._crit_edge1.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:68]   --->   Operation 32 'br' 'br_ln68' <Predicate = (!bmr_fsm_state_load & tmp & !tmp_last_V)> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%br_ln69 = br void %._crit_edge.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:69]   --->   Operation 33 'br' 'br_ln69' <Predicate = (!bmr_fsm_state_load & tmp)> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%br_ln70 = br void %broadcaster_and_mac_request.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:70]   --->   Operation 34 'br' 'br_ln70' <Predicate = (!bmr_fsm_state_load)> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%br_ln72 = br i1 %tmp, void %._crit_edge2.i, void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:72]   --->   Operation 35 'br' 'br_ln72' <Predicate = (bmr_fsm_state_load)> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%empty_28 = read i641 @_ssdm_op_Read.axis.volatile.i512P0A.i64P0A.i64P0A.i1P0A, i512 %dataIn_V_data_V, i64 %dataIn_V_keep_V, i64 %dataIn_V_strb_V, i1 %dataIn_V_last_V"   --->   Operation 36 'read' 'empty_28' <Predicate = (bmr_fsm_state_load & tmp)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 123 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%tmp_data_V_3 = extractvalue i641 %empty_28"   --->   Operation 37 'extractvalue' 'tmp_data_V_3' <Predicate = (bmr_fsm_state_load & tmp)> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%tmp_keep_V_3 = extractvalue i641 %empty_28"   --->   Operation 38 'extractvalue' 'tmp_keep_V_3' <Predicate = (bmr_fsm_state_load & tmp)> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%tmp_last_V_2 = extractvalue i641 %empty_28"   --->   Operation 39 'extractvalue' 'tmp_last_V_2' <Predicate = (bmr_fsm_state_load & tmp)> <Delay = 0.00>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%br_ln78 = br i1 %tmp_last_V_2, void %._crit_edge3.i, void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:78]   --->   Operation 40 'br' 'br_ln78' <Predicate = (bmr_fsm_state_load & tmp)> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.38ns)   --->   "%store_ln0 = store i1 0, i1 %bmr_fsm_state"   --->   Operation 41 'store' 'store_ln0' <Predicate = (bmr_fsm_state_load & tmp & tmp_last_V_2)> <Delay = 0.38>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%br_ln79 = br void %._crit_edge3.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:79]   --->   Operation 42 'br' 'br_ln79' <Predicate = (bmr_fsm_state_load & tmp & tmp_last_V_2)> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%br_ln80 = br void %._crit_edge2.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:80]   --->   Operation 43 'br' 'br_ln80' <Predicate = (bmr_fsm_state_load & tmp)> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%br_ln81 = br void %broadcaster_and_mac_request.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:81]   --->   Operation 44 'br' 'br_ln81' <Predicate = (bmr_fsm_state_load)> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 1.45>
+ST_2 : Operation 45 [2/2] (0.00ns)   --->   "%write_ln173 = write void @_ssdm_op_Write.axis.volatile.i32P128A, i32 %arpTableRequest, i32 %lhs_V_1" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 45 'write' 'write_ln173' <Predicate = (!bmr_fsm_state_load & tmp & !icmp_ln1064)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 123 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_2 : Operation 46 [2/2] (0.00ns)   --->   "%write_ln173 = write void @_ssdm_op_Write.axis.volatile.i32P128A, i32 %arpTableRequest, i32 %dst_ip_addr_V" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 46 'write' 'write_ln173' <Predicate = (!bmr_fsm_state_load & tmp & icmp_ln1064)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 123 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_2 : Operation 47 [1/1] (0.00ns)   --->   "%tmp_32_i = bitconcatenate i577 @_ssdm_op_BitConcatenate.i577.i1.i64.i512, i1 %tmp_last_V, i64 %tmp_keep_V, i512 %tmp_data_V" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 47 'bitconcatenate' 'tmp_32_i' <Predicate = (!bmr_fsm_state_load & tmp)> <Delay = 0.00>
+ST_2 : Operation 48 [1/1] (0.00ns)   --->   "%zext_ln173_1 = zext i577 %tmp_32_i" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 48 'zext' 'zext_ln173_1' <Predicate = (!bmr_fsm_state_load & tmp)> <Delay = 0.00>
+ST_2 : Operation 49 [1/1] (1.45ns)   --->   "%write_ln173 = write void @_ssdm_op_Write.ap_fifo.volatile.i1024P0A, i1024 %ip_header_out, i1024 %zext_ln173_1" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 49 'write' 'write_ln173' <Predicate = (!bmr_fsm_state_load & tmp)> <Delay = 1.45> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.54> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1024> <Depth = 16> <FIFO>
+ST_2 : Operation 50 [1/1] (0.00ns)   --->   "%tmp_31_i = bitconcatenate i577 @_ssdm_op_BitConcatenate.i577.i1.i64.i512, i1 %tmp_last_V_2, i64 %tmp_keep_V_3, i512 %tmp_data_V_3" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 50 'bitconcatenate' 'tmp_31_i' <Predicate = (bmr_fsm_state_load & tmp)> <Delay = 0.00>
+ST_2 : Operation 51 [1/1] (0.00ns)   --->   "%zext_ln173 = zext i577 %tmp_31_i" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 51 'zext' 'zext_ln173' <Predicate = (bmr_fsm_state_load & tmp)> <Delay = 0.00>
+ST_2 : Operation 52 [1/1] (1.45ns)   --->   "%write_ln173 = write void @_ssdm_op_Write.ap_fifo.volatile.i1024P0A, i1024 %no_ip_header_out, i1024 %zext_ln173" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 52 'write' 'write_ln173' <Predicate = (bmr_fsm_state_load & tmp)> <Delay = 1.45> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.54> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1024> <Depth = 16> <FIFO>
+
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 53 [1/2] (0.00ns)   --->   "%write_ln173 = write void @_ssdm_op_Write.axis.volatile.i32P128A, i32 %arpTableRequest, i32 %lhs_V_1" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 53 'write' 'write_ln173' <Predicate = (!bmr_fsm_state_load & tmp & !icmp_ln1064)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 123 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_3 : Operation 54 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 54 'br' 'br_ln0' <Predicate = (!bmr_fsm_state_load & tmp & !icmp_ln1064)> <Delay = 0.00>
+ST_3 : Operation 55 [1/2] (0.00ns)   --->   "%write_ln173 = write void @_ssdm_op_Write.axis.volatile.i32P128A, i32 %arpTableRequest, i32 %dst_ip_addr_V" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 55 'write' 'write_ln173' <Predicate = (!bmr_fsm_state_load & tmp & icmp_ln1064)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 123 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_3 : Operation 56 [1/1] (0.00ns)   --->   "%br_ln59 = br void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:59]   --->   Operation 56 'br' 'br_ln59' <Predicate = (!bmr_fsm_state_load & tmp & icmp_ln1064)> <Delay = 0.00>
+ST_3 : Operation 57 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 57 'ret' 'ret_ln0' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 3.1ns, clock uncertainty: 0.2ns.
+
+ <State 1>: 0.859ns
+The critical path consists of the following:
+	axis read operation ('empty') on port 'dataIn_V_data_V' [28]  (0 ns)
+	'xor' operation ('xor_ln1064') [35]  (0 ns)
+	'and' operation ('and_ln1064') [36]  (0 ns)
+	'icmp' operation ('icmp_ln1064') [37]  (0.859 ns)
+
+ <State 2>: 1.45ns
+The critical path consists of the following:
+	fifo write operation ('write_ln173', /tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173) on port 'ip_header_out' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173) [48]  (1.45 ns)
+
+ <State 3>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

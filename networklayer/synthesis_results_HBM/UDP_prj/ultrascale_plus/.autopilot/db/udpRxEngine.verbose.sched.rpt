@@ -1,0 +1,204 @@
+
+
+================================================================
+== Vitis HLS Report for 'udpRxEngine'
+================================================================
+* Date:           Wed Mar  8 19:15:03 2023
+
+* Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+* Project:        UDP_prj
+* Solution:       ultrascale_plus (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  2.50 ns|  1.150 ns|     0.20 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        1|        1|  2.500 ns|  2.500 ns|    1|    1|      yes|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 2, States = { 1 2 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.54>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%ure_state_load = load i2 %ure_state" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:117]   --->   Operation 3 'load' 'ure_state_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.49ns)   --->   "%switch_ln117 = switch i2 %ure_state_load, void, i2 2, void, i2 1, void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:117]   --->   Operation 4 'switch' 'switch_ln117' <Predicate = true> <Delay = 0.49>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%tmp_1 = nbreadreq i1 @_ssdm_op_NbReadReq.axis.i512P0A.i64P0A.i64P0A.i1P0A, i512 %rxUdpDataIn_V_data_V, i64 %rxUdpDataIn_V_keep_V, i64 %rxUdpDataIn_V_strb_V, i1 %rxUdpDataIn_V_last_V, i32 1"   --->   Operation 5 'nbreadreq' 'tmp_1' <Predicate = (ure_state_load == 1)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 123 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%br_ln147 = br i1 %tmp_1, void %._crit_edge2.i, void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:147]   --->   Operation 6 'br' 'br_ln147' <Predicate = (ure_state_load == 1)> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%empty_107 = read i641 @_ssdm_op_Read.axis.volatile.i512P0A.i64P0A.i64P0A.i1P0A, i512 %rxUdpDataIn_V_data_V, i64 %rxUdpDataIn_V_keep_V, i64 %rxUdpDataIn_V_strb_V, i1 %rxUdpDataIn_V_last_V"   --->   Operation 7 'read' 'empty_107' <Predicate = (ure_state_load == 1 & tmp_1)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 123 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%tmp_data_V_3 = extractvalue i641 %empty_107"   --->   Operation 8 'extractvalue' 'tmp_data_V_3' <Predicate = (ure_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%tmp_keep_V_3 = extractvalue i641 %empty_107"   --->   Operation 9 'extractvalue' 'tmp_keep_V_3' <Predicate = (ure_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%tmp_last_V_2 = extractvalue i641 %empty_107"   --->   Operation 10 'extractvalue' 'tmp_last_V_2' <Predicate = (ure_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%trunc_ln674_11 = trunc i512 %tmp_data_V_3"   --->   Operation 11 'trunc' 'trunc_ln674_11' <Predicate = (ure_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%trunc_ln674_12 = trunc i64 %tmp_keep_V_3"   --->   Operation 12 'trunc' 'trunc_ln674_12' <Predicate = (ure_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%p_Result_43_i = partselect i288 @_ssdm_op_PartSelect.i288.i512.i32.i32, i512 %tmp_data_V_3, i32 224, i32 511"   --->   Operation 13 'partselect' 'p_Result_43_i' <Predicate = (ure_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%p_Result_44_i = partselect i36 @_ssdm_op_PartSelect.i36.i64.i32.i32, i64 %tmp_keep_V_3, i32 28, i32 63"   --->   Operation 14 'partselect' 'p_Result_44_i' <Predicate = (ure_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.38ns)   --->   "%br_ln161 = br i1 %tmp_last_V_2, void %._crit_edge3.i, void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:161]   --->   Operation 15 'br' 'br_ln161' <Predicate = (ure_state_load == 1 & tmp_1)> <Delay = 0.38>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%tmp_3 = bitselect i1 @_ssdm_op_BitSelect.i1.i64.i32, i64 %tmp_keep_V_3, i32 28"   --->   Operation 16 'bitselect' 'tmp_3' <Predicate = (ure_state_load == 1 & tmp_1 & tmp_last_V_2)> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%br_ln162 = br i1 %tmp_3, void, void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:162]   --->   Operation 17 'br' 'br_ln162' <Predicate = (ure_state_load == 1 & tmp_1 & tmp_last_V_2)> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.41ns)   --->   "%store_ln166 = store i2 0, i2 %ure_state" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:166]   --->   Operation 18 'store' 'store_ln166' <Predicate = (ure_state_load == 1 & tmp_1 & tmp_last_V_2 & !tmp_3)> <Delay = 0.41>
+ST_1 : Operation 19 [1/1] (0.38ns)   --->   "%br_ln0 = br void %._crit_edge3.i"   --->   Operation 19 'br' 'br_ln0' <Predicate = (ure_state_load == 1 & tmp_1 & tmp_last_V_2 & !tmp_3)> <Delay = 0.38>
+ST_1 : Operation 20 [1/1] (0.41ns)   --->   "%store_ln163 = store i2 2, i2 %ure_state" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:163]   --->   Operation 20 'store' 'store_ln163' <Predicate = (ure_state_load == 1 & tmp_1 & tmp_last_V_2 & tmp_3)> <Delay = 0.41>
+ST_1 : Operation 21 [1/1] (0.38ns)   --->   "%br_ln163 = br void %._crit_edge3.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:163]   --->   Operation 21 'br' 'br_ln163' <Predicate = (ure_state_load == 1 & tmp_1 & tmp_last_V_2 & tmp_3)> <Delay = 0.38>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%br_ln171 = br void %udpRxEngine.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:171]   --->   Operation 22 'br' 'br_ln171' <Predicate = (ure_state_load == 1)> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.41ns)   --->   "%store_ln177 = store i2 0, i2 %ure_state" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:177]   --->   Operation 23 'store' 'store_ln177' <Predicate = (ure_state_load == 2)> <Delay = 0.41>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%tmp = nbreadreq i1 @_ssdm_op_NbReadReq.axis.i512P0A.i64P0A.i64P0A.i1P0A, i512 %rxUdpDataIn_V_data_V, i64 %rxUdpDataIn_V_keep_V, i64 %rxUdpDataIn_V_strb_V, i1 %rxUdpDataIn_V_last_V, i32 1"   --->   Operation 24 'nbreadreq' 'tmp' <Predicate = (ure_state_load != 2 & ure_state_load != 1)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 123 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%br_ln119 = br i1 %tmp, void %._crit_edge1.i, void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:119]   --->   Operation 25 'br' 'br_ln119' <Predicate = (ure_state_load != 2 & ure_state_load != 1)> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%empty = read i641 @_ssdm_op_Read.axis.volatile.i512P0A.i64P0A.i64P0A.i1P0A, i512 %rxUdpDataIn_V_data_V, i64 %rxUdpDataIn_V_keep_V, i64 %rxUdpDataIn_V_strb_V, i1 %rxUdpDataIn_V_last_V"   --->   Operation 26 'read' 'empty' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 123 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%tmp_data_V = extractvalue i641 %empty"   --->   Operation 27 'extractvalue' 'tmp_data_V' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%tmp_keep_V = extractvalue i641 %empty"   --->   Operation 28 'extractvalue' 'tmp_keep_V' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%tmp_last_V = extractvalue i641 %empty"   --->   Operation 29 'extractvalue' 'tmp_last_V' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%p_Result_i = partselect i8 @_ssdm_op_PartSelect.i8.i512.i32.i32, i512 %tmp_data_V, i32 120, i32 127"   --->   Operation 30 'partselect' 'p_Result_i' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%p_Result_28_i = partselect i8 @_ssdm_op_PartSelect.i8.i512.i32.i32, i512 %tmp_data_V, i32 112, i32 119"   --->   Operation 31 'partselect' 'p_Result_28_i' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%p_Result_29_i = partselect i8 @_ssdm_op_PartSelect.i8.i512.i32.i32, i512 %tmp_data_V, i32 104, i32 111"   --->   Operation 32 'partselect' 'p_Result_29_i' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%p_Result_30_i = partselect i8 @_ssdm_op_PartSelect.i8.i512.i32.i32, i512 %tmp_data_V, i32 96, i32 103"   --->   Operation 33 'partselect' 'p_Result_30_i' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%p_Result_31_i = partselect i8 @_ssdm_op_PartSelect.i8.i512.i32.i32, i512 %tmp_data_V, i32 152, i32 159"   --->   Operation 34 'partselect' 'p_Result_31_i' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%p_Result_32_i = partselect i8 @_ssdm_op_PartSelect.i8.i512.i32.i32, i512 %tmp_data_V, i32 144, i32 151"   --->   Operation 35 'partselect' 'p_Result_32_i' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%p_Result_33_i = partselect i8 @_ssdm_op_PartSelect.i8.i512.i32.i32, i512 %tmp_data_V, i32 136, i32 143"   --->   Operation 36 'partselect' 'p_Result_33_i' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%p_Result_34_i = partselect i8 @_ssdm_op_PartSelect.i8.i512.i32.i32, i512 %tmp_data_V, i32 128, i32 135"   --->   Operation 37 'partselect' 'p_Result_34_i' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%p_Result_35_i = partselect i8 @_ssdm_op_PartSelect.i8.i512.i32.i32, i512 %tmp_data_V, i32 168, i32 175"   --->   Operation 38 'partselect' 'p_Result_35_i' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%p_Result_36_i = partselect i8 @_ssdm_op_PartSelect.i8.i512.i32.i32, i512 %tmp_data_V, i32 160, i32 167"   --->   Operation 39 'partselect' 'p_Result_36_i' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%p_Result_37_i = partselect i8 @_ssdm_op_PartSelect.i8.i512.i32.i32, i512 %tmp_data_V, i32 184, i32 191"   --->   Operation 40 'partselect' 'p_Result_37_i' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%p_Result_38_i = partselect i8 @_ssdm_op_PartSelect.i8.i512.i32.i32, i512 %tmp_data_V, i32 176, i32 183"   --->   Operation 41 'partselect' 'p_Result_38_i' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%p_Result_19 = partselect i288 @_ssdm_op_PartSelect.i288.i512.i32.i32, i512 %tmp_data_V, i32 224, i32 511"   --->   Operation 42 'partselect' 'p_Result_19' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%p_Result_20 = partselect i36 @_ssdm_op_PartSelect.i36.i64.i32.i32, i64 %tmp_keep_V, i32 28, i32 63"   --->   Operation 43 'partselect' 'p_Result_20' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%br_ln138 = br i1 %tmp_last_V, void, void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:138]   --->   Operation 44 'br' 'br_ln138' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_1 : Operation 45 [1/1] (0.41ns)   --->   "%store_ln141 = store i2 1, i2 %ure_state" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:141]   --->   Operation 45 'store' 'store_ln141' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp & !tmp_last_V)> <Delay = 0.41>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 46 'br' 'br_ln0' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp & !tmp_last_V)> <Delay = 0.00>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%br_ln145 = br void %udpRxEngine.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:145]   --->   Operation 47 'br' 'br_ln145' <Predicate = (ure_state_load != 2 & ure_state_load != 1)> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 1.15>
+ST_2 : Operation 48 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %ureDataPayload, void @empty_11, i32 0, i32 0, void @empty_65, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 48 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 49 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %ureDataPayload, void @empty_11, i32 0, i32 0, void @empty_65, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 49 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 50 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %ureDataPayload, void @empty_11, i32 0, i32 0, void @empty_65, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 50 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 51 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %ureMetaData, void @empty_11, i32 0, i32 0, void @empty_65, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 51 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 52 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %ureMetaData, void @empty_11, i32 0, i32 0, void @empty_65, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 52 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 53 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %ureMetaData, void @empty_11, i32 0, i32 0, void @empty_65, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 53 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 54 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %ureDataPayload, void @empty_11, i32 0, i32 0, void @empty_65, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 54 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 55 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %ureMetaData, void @empty_11, i32 0, i32 0, void @empty_65, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 55 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 56 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %rxUdpDataIn_V_last_V, i64 %rxUdpDataIn_V_strb_V, i64 %rxUdpDataIn_V_keep_V, i512 %rxUdpDataIn_V_data_V, void @empty_68, i32 1, i32 1, void @empty_66, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 56 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 57 [1/1] (0.00ns)   --->   "%specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_65"   --->   Operation 57 'specpipeline' 'specpipeline_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 58 [1/1] (0.00ns)   --->   "%p_Val2_s = load i512 %prevWord_data_V_1"   --->   Operation 58 'load' 'p_Val2_s' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 59 [1/1] (0.00ns)   --->   "%p_Val2_8 = load i64 %prevWord_keep_V_1"   --->   Operation 59 'load' 'p_Val2_8' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 60 [1/1] (0.00ns)   --->   "%trunc_ln674 = trunc i512 %p_Val2_s"   --->   Operation 60 'trunc' 'trunc_ln674' <Predicate = (ure_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_2 : Operation 61 [1/1] (0.00ns)   --->   "%trunc_ln674_10 = trunc i64 %p_Val2_8"   --->   Operation 61 'trunc' 'trunc_ln674_10' <Predicate = (ure_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_2 : Operation 62 [1/1] (0.00ns)   --->   "%p_Result_s = partset i512 @llvm.part.set.i512.i288, i512 %p_Val2_s, i288 %p_Result_43_i, i32 0, i32 287"   --->   Operation 62 'partset' 'p_Result_s' <Predicate = (ure_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_2 : Operation 63 [1/1] (0.38ns)   --->   "%store_ln414 = store i512 %p_Result_s, i512 %prevWord_data_V_1"   --->   Operation 63 'store' 'store_ln414' <Predicate = (ure_state_load == 1 & tmp_1)> <Delay = 0.38>
+ST_2 : Operation 64 [1/1] (0.00ns)   --->   "%p_Result_18 = partset i64 @llvm.part.set.i64.i36, i64 %p_Val2_8, i36 %p_Result_44_i, i32 0, i32 35"   --->   Operation 64 'partset' 'p_Result_18' <Predicate = (ure_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_2 : Operation 65 [1/1] (0.38ns)   --->   "%store_ln414 = store i64 %p_Result_18, i64 %prevWord_keep_V_1"   --->   Operation 65 'store' 'store_ln414' <Predicate = (ure_state_load == 1 & tmp_1)> <Delay = 0.38>
+ST_2 : Operation 66 [1/1] (0.00ns)   --->   "%sendWord_last_V = phi i1 0, void, i1 1, void, i1 0, void"   --->   Operation 66 'phi' 'sendWord_last_V' <Predicate = (ure_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_2 : Operation 67 [1/1] (0.00ns)   --->   "%tmp_20_i = bitconcatenate i577 @_ssdm_op_BitConcatenate.i577.i1.i28.i36.i224.i288, i1 %sendWord_last_V, i28 %trunc_ln674_12, i36 %trunc_ln674_10, i224 %trunc_ln674_11, i288 %trunc_ln674" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 67 'bitconcatenate' 'tmp_20_i' <Predicate = (ure_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_2 : Operation 68 [1/1] (0.00ns)   --->   "%zext_ln173_3 = zext i577 %tmp_20_i" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 68 'zext' 'zext_ln173_3' <Predicate = (ure_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_2 : Operation 69 [1/1] (1.15ns)   --->   "%write_ln173 = write void @_ssdm_op_Write.ap_fifo.volatile.i1024P0A, i1024 %ureDataPayload, i1024 %zext_ln173_3" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 69 'write' 'write_ln173' <Predicate = (ure_state_load == 1 & tmp_1)> <Delay = 1.15> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.38> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1024> <Depth = 256> <FIFO>
+ST_2 : Operation 70 [1/1] (0.00ns)   --->   "%br_ln170 = br void %._crit_edge2.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:170]   --->   Operation 70 'br' 'br_ln170' <Predicate = (ure_state_load == 1 & tmp_1)> <Delay = 0.00>
+ST_2 : Operation 71 [1/1] (0.00ns)   --->   "%trunc_ln414 = trunc i512 %p_Val2_s"   --->   Operation 71 'trunc' 'trunc_ln414' <Predicate = (ure_state_load == 2)> <Delay = 0.00>
+ST_2 : Operation 72 [1/1] (0.00ns)   --->   "%trunc_ln414_1 = trunc i64 %p_Val2_8"   --->   Operation 72 'trunc' 'trunc_ln414_1' <Predicate = (ure_state_load == 2)> <Delay = 0.00>
+ST_2 : Operation 73 [1/1] (0.00ns)   --->   "%or_ln = bitconcatenate i577 @_ssdm_op_BitConcatenate.i577.i29.i36.i224.i288, i29 268435456, i36 %trunc_ln414_1, i224 0, i288 %trunc_ln414" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 73 'bitconcatenate' 'or_ln' <Predicate = (ure_state_load == 2)> <Delay = 0.00>
+ST_2 : Operation 74 [1/1] (0.00ns)   --->   "%zext_ln173 = zext i577 %or_ln" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 74 'zext' 'zext_ln173' <Predicate = (ure_state_load == 2)> <Delay = 0.00>
+ST_2 : Operation 75 [1/1] (1.15ns)   --->   "%write_ln173 = write void @_ssdm_op_Write.ap_fifo.volatile.i1024P0A, i1024 %ureDataPayload, i1024 %zext_ln173" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 75 'write' 'write_ln173' <Predicate = (ure_state_load == 2)> <Delay = 1.15> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.38> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1024> <Depth = 256> <FIFO>
+ST_2 : Operation 76 [1/1] (0.00ns)   --->   "%br_ln178 = br void %udpRxEngine.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:178]   --->   Operation 76 'br' 'br_ln178' <Predicate = (ure_state_load == 2)> <Delay = 0.00>
+ST_2 : Operation 77 [1/1] (0.00ns)   --->   "%zext_ln414 = zext i288 %p_Result_19"   --->   Operation 77 'zext' 'zext_ln414' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_2 : Operation 78 [1/1] (0.00ns)   --->   "%zext_ln414_2 = zext i36 %p_Result_20"   --->   Operation 78 'zext' 'zext_ln414_2' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_2 : Operation 79 [1/1] (0.00ns)   --->   "%or_ln173_1 = bitconcatenate i97 @_ssdm_op_BitConcatenate.i97.i1.i8.i8.i8.i8.i8.i8.i8.i8.i8.i8.i8.i8, i1 1, i8 %p_Result_38_i, i8 %p_Result_37_i, i8 %p_Result_36_i, i8 %p_Result_35_i, i8 %p_Result_34_i, i8 %p_Result_33_i, i8 %p_Result_32_i, i8 %p_Result_31_i, i8 %p_Result_30_i, i8 %p_Result_29_i, i8 %p_Result_28_i, i8 %p_Result_i" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 79 'bitconcatenate' 'or_ln173_1' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_2 : Operation 80 [1/1] (0.00ns)   --->   "%zext_ln173_1 = zext i97 %or_ln173_1" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 80 'zext' 'zext_ln173_1' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_2 : Operation 81 [1/1] (1.15ns)   --->   "%write_ln173 = write void @_ssdm_op_Write.ap_fifo.volatile.i128P0A, i128 %ureMetaData, i128 %zext_ln173_1" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 81 'write' 'write_ln173' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 1.15> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 128> <Depth = 32> <FIFO>
+ST_2 : Operation 82 [1/1] (0.00ns)   --->   "%or_ln173_2 = bitconcatenate i577 @_ssdm_op_BitConcatenate.i577.i29.i36.i224.i288, i29 268435456, i36 %p_Result_20, i224 0, i288 %p_Result_19" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 82 'bitconcatenate' 'or_ln173_2' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp & tmp_last_V)> <Delay = 0.00>
+ST_2 : Operation 83 [1/1] (0.00ns)   --->   "%zext_ln173_2 = zext i577 %or_ln173_2" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 83 'zext' 'zext_ln173_2' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp & tmp_last_V)> <Delay = 0.00>
+ST_2 : Operation 84 [1/1] (1.15ns)   --->   "%write_ln173 = write void @_ssdm_op_Write.ap_fifo.volatile.i1024P0A, i1024 %ureDataPayload, i1024 %zext_ln173_2" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 84 'write' 'write_ln173' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp & tmp_last_V)> <Delay = 1.15> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.38> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1024> <Depth = 256> <FIFO>
+ST_2 : Operation 85 [1/1] (0.00ns)   --->   "%br_ln139 = br void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:139]   --->   Operation 85 'br' 'br_ln139' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp & tmp_last_V)> <Delay = 0.00>
+ST_2 : Operation 86 [1/1] (0.38ns)   --->   "%store_ln143 = store i512 %zext_ln414, i512 %prevWord_data_V_1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:143]   --->   Operation 86 'store' 'store_ln143' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.38>
+ST_2 : Operation 87 [1/1] (0.38ns)   --->   "%store_ln143 = store i64 %zext_ln414_2, i64 %prevWord_keep_V_1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:143]   --->   Operation 87 'store' 'store_ln143' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.38>
+ST_2 : Operation 88 [1/1] (0.00ns)   --->   "%br_ln144 = br void %._crit_edge1.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:144]   --->   Operation 88 'br' 'br_ln144' <Predicate = (ure_state_load != 2 & ure_state_load != 1 & tmp)> <Delay = 0.00>
+ST_2 : Operation 89 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 89 'ret' 'ret_ln0' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 2.5ns, clock uncertainty: 0.2ns.
+
+ <State 1>: 0.542ns
+The critical path consists of the following:
+	'load' operation ('ure_state_load', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:117) on static variable 'ure_state' [20]  (0 ns)
+	blocking operation 0.542 ns on control path)
+
+ <State 2>: 1.15ns
+The critical path consists of the following:
+	fifo write operation ('write_ln173', /tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173) on port 'ureDataPayload' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173) [102]  (1.15 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

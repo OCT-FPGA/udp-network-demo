@@ -1,0 +1,250 @@
+
+
+================================================================
+== Vitis HLS Report for 'udp'
+================================================================
+* Date:           Wed Mar  8 19:15:07 2023
+
+* Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+* Project:        UDP_prj
+* Solution:       ultrascale_plus (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  2.50 ns|  2.253 ns|     0.20 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+----------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline |
+    |   min   |   max   |    min    |    max    | min | max |   Type   |
+    +---------+---------+-----------+-----------+-----+-----+----------+
+    |        7|        7|  17.500 ns|  17.500 ns|    1|    1|  dataflow|
+    +---------+---------+-----------+-----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        +-----------------------+--------------------+---------+---------+----------+----------+-----+-----+---------+
+        |                       |                    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+        |        Instance       |       Module       |   min   |   max   |    min   |    max   | min | max |   Type  |
+        +-----------------------+--------------------+---------+---------+----------+----------+-----+-----+---------+
+        |udpRxEngine_U0         |udpRxEngine         |        1|        1|  2.500 ns|  2.500 ns|    1|    1|      yes|
+        |entry_proc_U0          |entry_proc          |        0|        0|      0 ns|      0 ns|    0|    0|       no|
+        |TableHandler_U0        |TableHandler        |        2|        2|  5.000 ns|  5.000 ns|    1|    1|      yes|
+        |appGetMetaData_U0      |appGetMetaData      |        1|        1|  2.500 ns|  2.500 ns|    1|    1|      yes|
+        |rxEngPacketDropper_U0  |rxEngPacketDropper  |        2|        2|  5.000 ns|  5.000 ns|    1|    1|      yes|
+        |udpTxEngine_U0         |udpTxEngine         |        2|        2|  5.000 ns|  5.000 ns|    1|    1|      yes|
+        +-----------------------+--------------------+---------+---------+----------+----------+-----+-----+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+------+---------+---------+-----+
+|         Name        | BRAM_18K|  DSP |    FF   |   LUT   | URAM|
++---------------------+---------+------+---------+---------+-----+
+|DSP                  |        -|     -|        -|        -|    -|
+|Expression           |        -|     -|        -|        -|    -|
+|FIFO                 |       60|     -|     6208|     4392|    -|
+|Instance             |        0|     -|     5693|     5576|    0|
+|Memory               |        -|     -|        -|        -|    -|
+|Multiplexer          |        -|     -|        -|        -|    -|
+|Register             |        -|     -|        -|        -|    -|
++---------------------+---------+------+---------+---------+-----+
+|Total                |       60|     0|    11901|     9968|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available SLR        |     1344|  3008|   869120|   434560|  320|
++---------------------+---------+------+---------+---------+-----+
+|Utilization SLR (%)  |        4|     0|        1|        2|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available            |     4032|  9024|  2607360|  1303680|  960|
++---------------------+---------+------+---------+---------+-----+
+|Utilization (%)      |        1|     0|       ~0|       ~0|    0|
++---------------------+---------+------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    +-----------------------+--------------------+---------+----+------+------+-----+
+    |        Instance       |       Module       | BRAM_18K| DSP|  FF  |  LUT | URAM|
+    +-----------------------+--------------------+---------+----+------+------+-----+
+    |TableHandler_U0        |TableHandler        |        0|   0|   357|  1861|    0|
+    |appGetMetaData_U0      |appGetMetaData      |        0|   0|    50|   443|    0|
+    |entry_proc_U0          |entry_proc          |        0|   0|     3|   605|    0|
+    |rxEngPacketDropper_U0  |rxEngPacketDropper  |        0|   0|   701|    66|    0|
+    |s_axilite_s_axi_U      |s_axilite_s_axi     |        0|   0|  1483|  2154|    0|
+    |udpRxEngine_U0         |udpRxEngine         |        0|   0|  1260|   149|    0|
+    |udpTxEngine_U0         |udpTxEngine         |        0|   0|  1839|   298|    0|
+    +-----------------------+--------------------+---------+----+------+------+-----+
+    |Total                  |                    |        0|   0|  5693|  5576|    0|
+    +-----------------------+--------------------+---------+----+------+------+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +------------------------------+---------+------+----+-----+------+------+---------+
+    |             Name             | BRAM_18K|  FF  | LUT| URAM| Depth| Bits | Size:D*B|
+    +------------------------------+---------+------+----+-----+------+------+---------+
+    |SocketTable_myPort_0_c_U      |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_myPort_10_c_U     |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_myPort_11_c_U     |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_myPort_12_c_U     |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_myPort_13_c_U     |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_myPort_14_c_U     |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_myPort_15_c_U     |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_myPort_1_c_U      |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_myPort_2_c_U      |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_myPort_3_c_U      |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_myPort_4_c_U      |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_myPort_5_c_U      |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_myPort_6_c_U      |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_myPort_7_c_U      |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_myPort_8_c_U      |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_myPort_9_c_U      |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_theirIP_0_c_U     |        0|     5|   0|    -|     3|    32|       96|
+    |SocketTable_theirIP_10_c_U    |        0|     5|   0|    -|     3|    32|       96|
+    |SocketTable_theirIP_11_c_U    |        0|     5|   0|    -|     3|    32|       96|
+    |SocketTable_theirIP_12_c_U    |        0|     5|   0|    -|     3|    32|       96|
+    |SocketTable_theirIP_13_c_U    |        0|     5|   0|    -|     3|    32|       96|
+    |SocketTable_theirIP_14_c_U    |        0|     5|   0|    -|     3|    32|       96|
+    |SocketTable_theirIP_15_c_U    |        0|     5|   0|    -|     3|    32|       96|
+    |SocketTable_theirIP_1_c_U     |        0|     5|   0|    -|     3|    32|       96|
+    |SocketTable_theirIP_2_c_U     |        0|     5|   0|    -|     3|    32|       96|
+    |SocketTable_theirIP_3_c_U     |        0|     5|   0|    -|     3|    32|       96|
+    |SocketTable_theirIP_4_c_U     |        0|     5|   0|    -|     3|    32|       96|
+    |SocketTable_theirIP_5_c_U     |        0|     5|   0|    -|     3|    32|       96|
+    |SocketTable_theirIP_6_c_U     |        0|     5|   0|    -|     3|    32|       96|
+    |SocketTable_theirIP_7_c_U     |        0|     5|   0|    -|     3|    32|       96|
+    |SocketTable_theirIP_8_c_U     |        0|     5|   0|    -|     3|    32|       96|
+    |SocketTable_theirIP_9_c_U     |        0|     5|   0|    -|     3|    32|       96|
+    |SocketTable_theirPort_0_c_U   |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_theirPort_10_c_U  |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_theirPort_11_c_U  |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_theirPort_12_c_U  |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_theirPort_13_c_U  |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_theirPort_14_c_U  |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_theirPort_15_c_U  |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_theirPort_1_c_U   |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_theirPort_2_c_U   |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_theirPort_3_c_U   |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_theirPort_4_c_U   |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_theirPort_5_c_U   |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_theirPort_6_c_U   |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_theirPort_7_c_U   |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_theirPort_8_c_U   |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_theirPort_9_c_U   |        0|     5|   0|    -|     3|    16|       48|
+    |SocketTable_valid_0_c_U       |        0|     5|   0|    -|     3|     1|        3|
+    |SocketTable_valid_10_c_U      |        0|     5|   0|    -|     3|     1|        3|
+    |SocketTable_valid_11_c_U      |        0|     5|   0|    -|     3|     1|        3|
+    |SocketTable_valid_12_c_U      |        0|     5|   0|    -|     3|     1|        3|
+    |SocketTable_valid_13_c_U      |        0|     5|   0|    -|     3|     1|        3|
+    |SocketTable_valid_14_c_U      |        0|     5|   0|    -|     3|     1|        3|
+    |SocketTable_valid_15_c_U      |        0|     5|   0|    -|     3|     1|        3|
+    |SocketTable_valid_1_c_U       |        0|     5|   0|    -|     3|     1|        3|
+    |SocketTable_valid_2_c_U       |        0|     5|   0|    -|     3|     1|        3|
+    |SocketTable_valid_3_c_U       |        0|     5|   0|    -|     3|     1|        3|
+    |SocketTable_valid_4_c_U       |        0|     5|   0|    -|     3|     1|        3|
+    |SocketTable_valid_5_c_U       |        0|     5|   0|    -|     3|     1|        3|
+    |SocketTable_valid_6_c_U       |        0|     5|   0|    -|     3|     1|        3|
+    |SocketTable_valid_7_c_U       |        0|     5|   0|    -|     3|     1|        3|
+    |SocketTable_valid_8_c_U       |        0|     5|   0|    -|     3|     1|        3|
+    |SocketTable_valid_9_c_U       |        0|     5|   0|    -|     3|     1|        3|
+    |agmdDataOut_U                 |       29|  2084|   0|    -|   256|  1024|   262144|
+    |agmdIdOut_U                   |        1|    60|   0|    -|   256|    16|     4096|
+    |agmdpayloadLenOut_U           |        1|    60|   0|    -|   256|    16|     4096|
+    |myIpAddress_c_U               |        0|     5|   0|    -|     3|    32|       96|
+    |rthDropFifo_U                 |        0|   787|   0|    -|    32|   160|     5120|
+    |txthMetaData_U                |        0|   404|   0|    -|    32|   128|     4096|
+    |ureDataPayload_U              |       29|  2084|   0|    -|   256|  1024|   262144|
+    |ureMetaData_U                 |        0|   404|   0|    -|    32|   128|     4096|
+    +------------------------------+---------+------+----+-----+------+------+---------+
+    |Total                         |       60|  6208|   0|    0|  1315|  3568|   549008|
+    +------------------------------+---------+------+----+-----+------+------+---------+
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------------+-----+-----+--------------+-----------------------+--------------+
+|        RTL Ports        | Dir | Bits|   Protocol   |     Source Object     |    C Type    |
++-------------------------+-----+-----+--------------+-----------------------+--------------+
+|s_axi_s_axilite_AWVALID  |   in|    1|         s_axi|              s_axilite|        scalar|
+|s_axi_s_axilite_AWREADY  |  out|    1|         s_axi|              s_axilite|        scalar|
+|s_axi_s_axilite_AWADDR   |   in|   10|         s_axi|              s_axilite|        scalar|
+|s_axi_s_axilite_WVALID   |   in|    1|         s_axi|              s_axilite|        scalar|
+|s_axi_s_axilite_WREADY   |  out|    1|         s_axi|              s_axilite|        scalar|
+|s_axi_s_axilite_WDATA    |   in|   32|         s_axi|              s_axilite|        scalar|
+|s_axi_s_axilite_WSTRB    |   in|    4|         s_axi|              s_axilite|        scalar|
+|s_axi_s_axilite_ARVALID  |   in|    1|         s_axi|              s_axilite|        scalar|
+|s_axi_s_axilite_ARREADY  |  out|    1|         s_axi|              s_axilite|        scalar|
+|s_axi_s_axilite_ARADDR   |   in|   10|         s_axi|              s_axilite|        scalar|
+|s_axi_s_axilite_RVALID   |  out|    1|         s_axi|              s_axilite|        scalar|
+|s_axi_s_axilite_RREADY   |   in|    1|         s_axi|              s_axilite|        scalar|
+|s_axi_s_axilite_RDATA    |  out|   32|         s_axi|              s_axilite|        scalar|
+|s_axi_s_axilite_RRESP    |  out|    2|         s_axi|              s_axilite|        scalar|
+|s_axi_s_axilite_BVALID   |  out|    1|         s_axi|              s_axilite|        scalar|
+|s_axi_s_axilite_BREADY   |   in|    1|         s_axi|              s_axilite|        scalar|
+|s_axi_s_axilite_BRESP    |  out|    2|         s_axi|              s_axilite|        scalar|
+|ap_local_block           |  out|    1|  ap_ctrl_none|                    udp|  return value|
+|ap_clk                   |   in|    1|  ap_ctrl_none|                    udp|  return value|
+|ap_rst_n                 |   in|    1|  ap_ctrl_none|                    udp|  return value|
+|rxUdpDataIn_TDATA        |   in|  512|          axis|   rxUdpDataIn_V_data_V|       pointer|
+|rxUdpDataIn_TKEEP        |   in|   64|          axis|   rxUdpDataIn_V_keep_V|       pointer|
+|rxUdpDataIn_TSTRB        |   in|   64|          axis|   rxUdpDataIn_V_strb_V|       pointer|
+|rxUdpDataIn_TLAST        |   in|    1|          axis|   rxUdpDataIn_V_last_V|       pointer|
+|rxUdpDataIn_TVALID       |   in|    1|          axis|   rxUdpDataIn_V_last_V|       pointer|
+|rxUdpDataIn_TREADY       |  out|    1|          axis|   rxUdpDataIn_V_last_V|       pointer|
+|txUdpDataOut_TDATA       |  out|  512|          axis|  txUdpDataOut_V_data_V|       pointer|
+|txUdpDataOut_TKEEP       |  out|   64|          axis|  txUdpDataOut_V_keep_V|       pointer|
+|txUdpDataOut_TSTRB       |  out|   64|          axis|  txUdpDataOut_V_strb_V|       pointer|
+|txUdpDataOut_TLAST       |  out|    1|          axis|  txUdpDataOut_V_last_V|       pointer|
+|txUdpDataOut_TVALID      |  out|    1|          axis|  txUdpDataOut_V_last_V|       pointer|
+|txUdpDataOut_TREADY      |   in|    1|          axis|  txUdpDataOut_V_last_V|       pointer|
+|DataOutApp_TDATA         |  out|  512|          axis|    DataOutApp_V_data_V|       pointer|
+|DataOutApp_TKEEP         |  out|   64|          axis|    DataOutApp_V_keep_V|       pointer|
+|DataOutApp_TSTRB         |  out|   64|          axis|    DataOutApp_V_strb_V|       pointer|
+|DataOutApp_TUSER         |  out|   96|          axis|    DataOutApp_V_user_V|       pointer|
+|DataOutApp_TLAST         |  out|    1|          axis|    DataOutApp_V_last_V|       pointer|
+|DataOutApp_TDEST         |  out|   16|          axis|    DataOutApp_V_dest_V|       pointer|
+|DataOutApp_TVALID        |  out|    1|          axis|    DataOutApp_V_dest_V|       pointer|
+|DataOutApp_TREADY        |   in|    1|          axis|    DataOutApp_V_dest_V|       pointer|
+|DataInApp_TDATA          |   in|  512|          axis|     DataInApp_V_data_V|       pointer|
+|DataInApp_TKEEP          |   in|   64|          axis|     DataInApp_V_keep_V|       pointer|
+|DataInApp_TSTRB          |   in|   64|          axis|     DataInApp_V_strb_V|       pointer|
+|DataInApp_TUSER          |   in|   96|          axis|     DataInApp_V_user_V|       pointer|
+|DataInApp_TLAST          |   in|    1|          axis|     DataInApp_V_last_V|       pointer|
+|DataInApp_TDEST          |   in|   16|          axis|     DataInApp_V_dest_V|       pointer|
+|DataInApp_TVALID         |   in|    1|          axis|     DataInApp_V_dest_V|       pointer|
+|DataInApp_TREADY         |  out|    1|          axis|     DataInApp_V_dest_V|       pointer|
+|myIpAddress              |   in|   32|       ap_none|            myIpAddress|       pointer|
++-------------------------+-----+-----+--------------+-----------------------+--------------+
+

@@ -1,0 +1,375 @@
+
+
+================================================================
+== Synthesis Summary Report of 'udp'
+================================================================
++ General Information: 
+    * Date:           Wed Mar  8 19:15:08 2023
+    * Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+    * Project:        UDP_prj
+    * Solution:       ultrascale_plus (Vivado IP Flow Target)
+    * Product family: virtexuplus
+    * Target device:  xcu280-fsvh2892-2L-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +-----------------------+------+------+---------+--------+----------+---------+------+----------+---------+----+-------------+------------+-----+
+    |        Modules        | Issue|      | Latency | Latency| Iteration|         | Trip |          |         |    |             |            |     |
+    |        & Loops        | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined|  BRAM   | DSP|      FF     |     LUT    | URAM|
+    +-----------------------+------+------+---------+--------+----------+---------+------+----------+---------+----+-------------+------------+-----+
+    |+ udp*                 |     -|  0.05|        7|  17.500|         -|        1|     -|  dataflow|  60 (1%)|   -|  11901 (~0%)|  9968 (~0%)|    -|
+    | + udpRxEngine         |     -|  1.15|        1|   2.500|         -|        1|     -|       yes|        -|   -|   1260 (~0%)|   149 (~0%)|    -|
+    | + entry_proc          |     -|  1.15|        0|   0.000|         -|        0|     -|        no|        -|   -|      3 (~0%)|   605 (~0%)|    -|
+    | + TableHandler        |     -|  0.05|        2|   5.000|         -|        1|     -|       yes|        -|   -|    357 (~0%)|  1861 (~0%)|    -|
+    | + appGetMetaData      |     -|  0.37|        1|   2.500|         -|        1|     -|       yes|        -|   -|     50 (~0%)|   443 (~0%)|    -|
+    |  + keep2len           |     -|  1.27|        0|   0.000|         -|        1|     -|       yes|        -|   -|            -|   276 (~0%)|    -|
+    | + rxEngPacketDropper  |     -|  0.64|        2|   5.000|         -|        1|     -|       yes|        -|   -|    701 (~0%)|    66 (~0%)|    -|
+    | + udpTxEngine         |     -|  0.37|        2|   5.000|         -|        1|     -|       yes|        -|   -|   1839 (~0%)|   298 (~0%)|    -|
+    +-----------------------+------+------+---------+--------+----------+---------+------+----------+---------+----+-------------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* S_AXILITE Interfaces
++-----------------+------------+---------------+--------+----------+
+| Interface       | Data Width | Address Width | Offset | Register |
++-----------------+------------+---------------+--------+----------+
+| s_axi_s_axilite | 32         | 10            | 16     | 0        |
++-----------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++-----------------+--------------------------+--------+-------+--------+-----------------------------------------+------------------------+
+| Interface       | Register                 | Offset | Width | Access | Description                             | Bit Fields             |
++-----------------+--------------------------+--------+-------+--------+-----------------------------------------+------------------------+
+| s_axi_s_axilite | SocketTable_theirIP_0    | 0x10   | 32    | W      | Data signal of SocketTable_theirIP_0    |                        |
+| s_axi_s_axilite | SocketTable_theirIP_1    | 0x18   | 32    | W      | Data signal of SocketTable_theirIP_1    |                        |
+| s_axi_s_axilite | SocketTable_theirIP_2    | 0x20   | 32    | W      | Data signal of SocketTable_theirIP_2    |                        |
+| s_axi_s_axilite | SocketTable_theirIP_3    | 0x28   | 32    | W      | Data signal of SocketTable_theirIP_3    |                        |
+| s_axi_s_axilite | SocketTable_theirIP_4    | 0x30   | 32    | W      | Data signal of SocketTable_theirIP_4    |                        |
+| s_axi_s_axilite | SocketTable_theirIP_5    | 0x38   | 32    | W      | Data signal of SocketTable_theirIP_5    |                        |
+| s_axi_s_axilite | SocketTable_theirIP_6    | 0x40   | 32    | W      | Data signal of SocketTable_theirIP_6    |                        |
+| s_axi_s_axilite | SocketTable_theirIP_7    | 0x48   | 32    | W      | Data signal of SocketTable_theirIP_7    |                        |
+| s_axi_s_axilite | SocketTable_theirIP_8    | 0x50   | 32    | W      | Data signal of SocketTable_theirIP_8    |                        |
+| s_axi_s_axilite | SocketTable_theirIP_9    | 0x58   | 32    | W      | Data signal of SocketTable_theirIP_9    |                        |
+| s_axi_s_axilite | SocketTable_theirIP_10   | 0x60   | 32    | W      | Data signal of SocketTable_theirIP_10   |                        |
+| s_axi_s_axilite | SocketTable_theirIP_11   | 0x68   | 32    | W      | Data signal of SocketTable_theirIP_11   |                        |
+| s_axi_s_axilite | SocketTable_theirIP_12   | 0x70   | 32    | W      | Data signal of SocketTable_theirIP_12   |                        |
+| s_axi_s_axilite | SocketTable_theirIP_13   | 0x78   | 32    | W      | Data signal of SocketTable_theirIP_13   |                        |
+| s_axi_s_axilite | SocketTable_theirIP_14   | 0x80   | 32    | W      | Data signal of SocketTable_theirIP_14   |                        |
+| s_axi_s_axilite | SocketTable_theirIP_15   | 0x88   | 32    | W      | Data signal of SocketTable_theirIP_15   |                        |
+| s_axi_s_axilite | SocketTable_theirPort_0  | 0x90   | 32    | W      | Data signal of SocketTable_theirPort_0  |                        |
+| s_axi_s_axilite | SocketTable_theirPort_1  | 0x98   | 32    | W      | Data signal of SocketTable_theirPort_1  |                        |
+| s_axi_s_axilite | SocketTable_theirPort_2  | 0xa0   | 32    | W      | Data signal of SocketTable_theirPort_2  |                        |
+| s_axi_s_axilite | SocketTable_theirPort_3  | 0xa8   | 32    | W      | Data signal of SocketTable_theirPort_3  |                        |
+| s_axi_s_axilite | SocketTable_theirPort_4  | 0xb0   | 32    | W      | Data signal of SocketTable_theirPort_4  |                        |
+| s_axi_s_axilite | SocketTable_theirPort_5  | 0xb8   | 32    | W      | Data signal of SocketTable_theirPort_5  |                        |
+| s_axi_s_axilite | SocketTable_theirPort_6  | 0xc0   | 32    | W      | Data signal of SocketTable_theirPort_6  |                        |
+| s_axi_s_axilite | SocketTable_theirPort_7  | 0xc8   | 32    | W      | Data signal of SocketTable_theirPort_7  |                        |
+| s_axi_s_axilite | SocketTable_theirPort_8  | 0xd0   | 32    | W      | Data signal of SocketTable_theirPort_8  |                        |
+| s_axi_s_axilite | SocketTable_theirPort_9  | 0xd8   | 32    | W      | Data signal of SocketTable_theirPort_9  |                        |
+| s_axi_s_axilite | SocketTable_theirPort_10 | 0xe0   | 32    | W      | Data signal of SocketTable_theirPort_10 |                        |
+| s_axi_s_axilite | SocketTable_theirPort_11 | 0xe8   | 32    | W      | Data signal of SocketTable_theirPort_11 |                        |
+| s_axi_s_axilite | SocketTable_theirPort_12 | 0xf0   | 32    | W      | Data signal of SocketTable_theirPort_12 |                        |
+| s_axi_s_axilite | SocketTable_theirPort_13 | 0xf8   | 32    | W      | Data signal of SocketTable_theirPort_13 |                        |
+| s_axi_s_axilite | SocketTable_theirPort_14 | 0x100  | 32    | W      | Data signal of SocketTable_theirPort_14 |                        |
+| s_axi_s_axilite | SocketTable_theirPort_15 | 0x108  | 32    | W      | Data signal of SocketTable_theirPort_15 |                        |
+| s_axi_s_axilite | SocketTable_myPort_0     | 0x110  | 32    | W      | Data signal of SocketTable_myPort_0     |                        |
+| s_axi_s_axilite | SocketTable_myPort_1     | 0x118  | 32    | W      | Data signal of SocketTable_myPort_1     |                        |
+| s_axi_s_axilite | SocketTable_myPort_2     | 0x120  | 32    | W      | Data signal of SocketTable_myPort_2     |                        |
+| s_axi_s_axilite | SocketTable_myPort_3     | 0x128  | 32    | W      | Data signal of SocketTable_myPort_3     |                        |
+| s_axi_s_axilite | SocketTable_myPort_4     | 0x130  | 32    | W      | Data signal of SocketTable_myPort_4     |                        |
+| s_axi_s_axilite | SocketTable_myPort_5     | 0x138  | 32    | W      | Data signal of SocketTable_myPort_5     |                        |
+| s_axi_s_axilite | SocketTable_myPort_6     | 0x140  | 32    | W      | Data signal of SocketTable_myPort_6     |                        |
+| s_axi_s_axilite | SocketTable_myPort_7     | 0x148  | 32    | W      | Data signal of SocketTable_myPort_7     |                        |
+| s_axi_s_axilite | SocketTable_myPort_8     | 0x150  | 32    | W      | Data signal of SocketTable_myPort_8     |                        |
+| s_axi_s_axilite | SocketTable_myPort_9     | 0x158  | 32    | W      | Data signal of SocketTable_myPort_9     |                        |
+| s_axi_s_axilite | SocketTable_myPort_10    | 0x160  | 32    | W      | Data signal of SocketTable_myPort_10    |                        |
+| s_axi_s_axilite | SocketTable_myPort_11    | 0x168  | 32    | W      | Data signal of SocketTable_myPort_11    |                        |
+| s_axi_s_axilite | SocketTable_myPort_12    | 0x170  | 32    | W      | Data signal of SocketTable_myPort_12    |                        |
+| s_axi_s_axilite | SocketTable_myPort_13    | 0x178  | 32    | W      | Data signal of SocketTable_myPort_13    |                        |
+| s_axi_s_axilite | SocketTable_myPort_14    | 0x180  | 32    | W      | Data signal of SocketTable_myPort_14    |                        |
+| s_axi_s_axilite | SocketTable_myPort_15    | 0x188  | 32    | W      | Data signal of SocketTable_myPort_15    |                        |
+| s_axi_s_axilite | SocketTable_valid_0      | 0x190  | 32    | W      | Data signal of SocketTable_valid_0      |                        |
+| s_axi_s_axilite | SocketTable_valid_1      | 0x198  | 32    | W      | Data signal of SocketTable_valid_1      |                        |
+| s_axi_s_axilite | SocketTable_valid_2      | 0x1a0  | 32    | W      | Data signal of SocketTable_valid_2      |                        |
+| s_axi_s_axilite | SocketTable_valid_3      | 0x1a8  | 32    | W      | Data signal of SocketTable_valid_3      |                        |
+| s_axi_s_axilite | SocketTable_valid_4      | 0x1b0  | 32    | W      | Data signal of SocketTable_valid_4      |                        |
+| s_axi_s_axilite | SocketTable_valid_5      | 0x1b8  | 32    | W      | Data signal of SocketTable_valid_5      |                        |
+| s_axi_s_axilite | SocketTable_valid_6      | 0x1c0  | 32    | W      | Data signal of SocketTable_valid_6      |                        |
+| s_axi_s_axilite | SocketTable_valid_7      | 0x1c8  | 32    | W      | Data signal of SocketTable_valid_7      |                        |
+| s_axi_s_axilite | SocketTable_valid_8      | 0x1d0  | 32    | W      | Data signal of SocketTable_valid_8      |                        |
+| s_axi_s_axilite | SocketTable_valid_9      | 0x1d8  | 32    | W      | Data signal of SocketTable_valid_9      |                        |
+| s_axi_s_axilite | SocketTable_valid_10     | 0x1e0  | 32    | W      | Data signal of SocketTable_valid_10     |                        |
+| s_axi_s_axilite | SocketTable_valid_11     | 0x1e8  | 32    | W      | Data signal of SocketTable_valid_11     |                        |
+| s_axi_s_axilite | SocketTable_valid_12     | 0x1f0  | 32    | W      | Data signal of SocketTable_valid_12     |                        |
+| s_axi_s_axilite | SocketTable_valid_13     | 0x1f8  | 32    | W      | Data signal of SocketTable_valid_13     |                        |
+| s_axi_s_axilite | SocketTable_valid_14     | 0x200  | 32    | W      | Data signal of SocketTable_valid_14     |                        |
+| s_axi_s_axilite | SocketTable_valid_15     | 0x208  | 32    | W      | Data signal of SocketTable_valid_15     |                        |
+| s_axi_s_axilite | numberSockets            | 0x210  | 32    | R      | Data signal of numberSockets            |                        |
+| s_axi_s_axilite | numberSockets_ctrl       | 0x214  | 32    | R      | Control signal of numberSockets         | 0=numberSockets_ap_vld |
++-----------------+--------------------------+--------+-------+--------+-----------------------------------------+------------------------+
+
+* AXIS
++--------------+---------------+-------+-------+-------+-------+--------+-------+-------+--------+
+| Interface    | Register Mode | TDATA | TDEST | TKEEP | TLAST | TREADY | TSTRB | TUSER | TVALID |
++--------------+---------------+-------+-------+-------+-------+--------+-------+-------+--------+
+| DataInApp    | both          | 512   | 16    | 64    | 1     | 1      | 64    | 96    | 1      |
+| DataOutApp   | both          | 512   | 16    | 64    | 1     | 1      | 64    | 96    | 1      |
+| rxUdpDataIn  | both          | 512   |       | 64    | 1     | 1      | 64    |       | 1      |
+| txUdpDataOut | both          | 512   |       | 64    | 1     | 1      | 64    |       | 1      |
++--------------+---------------+-------+-------+-------+-------+--------+-------+-------+--------+
+
+* REGISTER
++-------------+---------+----------+
+| Interface   | Mode    | Bitwidth |
++-------------+---------+----------+
+| myIpAddress | ap_none | 32       |
++-------------+---------+----------+
+
+* TOP LEVEL CONTROL
++-----------+--------------+----------+
+| Interface | Type         | Ports    |
++-----------+--------------+----------+
+| ap_clk    | clock        | ap_clk   |
+| ap_rst_n  | reset        | ap_rst_n |
+| ap_ctrl   | ap_ctrl_none |          |
++-----------+--------------+----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++---------------+-----------+------------------------------------------------+
+| Argument      | Direction | Datatype                                       |
++---------------+-----------+------------------------------------------------+
+| rxUdpDataIn   | in        | stream<hls::axis<ap_uint<512>, 0, 0, 0>, 0>&   |
+| txUdpDataOut  | out       | stream<hls::axis<ap_uint<512>, 0, 0, 0>, 0>&   |
+| DataOutApp    | out       | stream<hls::axis<ap_uint<512>, 96, 0, 16>, 0>& |
+| DataInApp     | in        | stream<hls::axis<ap_uint<512>, 96, 0, 16>, 0>& |
+| myIpAddress   | in        | ap_uint<32>&                                   |
+| SocketTable   | in        | socket_table*                                  |
+| numberSockets | out       | ap_uint<16>&                                   |
++---------------+-----------+------------------------------------------------+
+
+* SW-to-HW Mapping
++---------------+-----------------+-----------+-----------------------------------------------+
+| Argument      | HW Interface    | HW Type   | HW Info                                       |
++---------------+-----------------+-----------+-----------------------------------------------+
+| rxUdpDataIn   | rxUdpDataIn     | interface |                                               |
+| txUdpDataOut  | txUdpDataOut    | interface |                                               |
+| DataOutApp    | DataOutApp      | interface |                                               |
+| DataInApp     | DataInApp       | interface |                                               |
+| myIpAddress   | myIpAddress     | port      |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| SocketTable   | s_axi_s_axilite | interface |                                               |
+| numberSockets | s_axi_s_axilite | register  | name=numberSockets offset=0x210 range=32      |
+| numberSockets | s_axi_s_axilite | register  | name=numberSockets_ctrl offset=0x214 range=32 |
++---------------+-----------------+-----------+-----------------------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+  No burst in design
+
+================================================================
+== Bind Op Report
+================================================================
++--------------------------+-----+--------+-------------+-----+--------+---------+
+| Name                     | DSP | Pragma | Variable    | Op  | Impl   | Latency |
++--------------------------+-----+--------+-------------+-----+--------+---------+
+| + udp                    | 0   |        |             |     |        |         |
+|  + appGetMetaData        | 0   |        |             |     |        |         |
+|    add_ln885_fu_208_p2   | -   |        | add_ln885   | add | fabric | 0       |
+|    add_ln223_fu_224_p2   | -   |        | add_ln223   | add | fabric | 0       |
+|  + udpTxEngine           | 0   |        |             |     |        |         |
+|    add_ln229_fu_526_p2   | -   |        | add_ln229   | add | fabric | 0       |
+|    add_ln229_1_fu_538_p2 | -   |        | add_ln229_1 | add | fabric | 0       |
++--------------------------+-----+--------+-------------+-----+--------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
++--------------------------------+------+------+--------+----------------------------+---------+------+---------+
+| Name                           | BRAM | URAM | Pragma | Variable                   | Storage | Impl | Latency |
++--------------------------------+------+------+--------+----------------------------+---------+------+---------+
+| + udp                          | 60   | 0    |        |                            |         |      |         |
+|   SocketTable_valid_15_c_U     | -    | -    |        | SocketTable_valid_15_c     | fifo    | srl  | 0       |
+|   SocketTable_valid_14_c_U     | -    | -    |        | SocketTable_valid_14_c     | fifo    | srl  | 0       |
+|   SocketTable_valid_13_c_U     | -    | -    |        | SocketTable_valid_13_c     | fifo    | srl  | 0       |
+|   SocketTable_valid_12_c_U     | -    | -    |        | SocketTable_valid_12_c     | fifo    | srl  | 0       |
+|   SocketTable_valid_11_c_U     | -    | -    |        | SocketTable_valid_11_c     | fifo    | srl  | 0       |
+|   SocketTable_valid_10_c_U     | -    | -    |        | SocketTable_valid_10_c     | fifo    | srl  | 0       |
+|   SocketTable_valid_9_c_U      | -    | -    |        | SocketTable_valid_9_c      | fifo    | srl  | 0       |
+|   SocketTable_valid_8_c_U      | -    | -    |        | SocketTable_valid_8_c      | fifo    | srl  | 0       |
+|   SocketTable_valid_7_c_U      | -    | -    |        | SocketTable_valid_7_c      | fifo    | srl  | 0       |
+|   SocketTable_valid_6_c_U      | -    | -    |        | SocketTable_valid_6_c      | fifo    | srl  | 0       |
+|   SocketTable_valid_5_c_U      | -    | -    |        | SocketTable_valid_5_c      | fifo    | srl  | 0       |
+|   SocketTable_valid_4_c_U      | -    | -    |        | SocketTable_valid_4_c      | fifo    | srl  | 0       |
+|   SocketTable_valid_3_c_U      | -    | -    |        | SocketTable_valid_3_c      | fifo    | srl  | 0       |
+|   SocketTable_valid_2_c_U      | -    | -    |        | SocketTable_valid_2_c      | fifo    | srl  | 0       |
+|   SocketTable_valid_1_c_U      | -    | -    |        | SocketTable_valid_1_c      | fifo    | srl  | 0       |
+|   SocketTable_valid_0_c_U      | -    | -    |        | SocketTable_valid_0_c      | fifo    | srl  | 0       |
+|   SocketTable_myPort_15_c_U    | -    | -    |        | SocketTable_myPort_15_c    | fifo    | srl  | 0       |
+|   SocketTable_myPort_14_c_U    | -    | -    |        | SocketTable_myPort_14_c    | fifo    | srl  | 0       |
+|   SocketTable_myPort_13_c_U    | -    | -    |        | SocketTable_myPort_13_c    | fifo    | srl  | 0       |
+|   SocketTable_myPort_12_c_U    | -    | -    |        | SocketTable_myPort_12_c    | fifo    | srl  | 0       |
+|   SocketTable_myPort_11_c_U    | -    | -    |        | SocketTable_myPort_11_c    | fifo    | srl  | 0       |
+|   SocketTable_myPort_10_c_U    | -    | -    |        | SocketTable_myPort_10_c    | fifo    | srl  | 0       |
+|   SocketTable_myPort_9_c_U     | -    | -    |        | SocketTable_myPort_9_c     | fifo    | srl  | 0       |
+|   SocketTable_myPort_8_c_U     | -    | -    |        | SocketTable_myPort_8_c     | fifo    | srl  | 0       |
+|   SocketTable_myPort_7_c_U     | -    | -    |        | SocketTable_myPort_7_c     | fifo    | srl  | 0       |
+|   SocketTable_myPort_6_c_U     | -    | -    |        | SocketTable_myPort_6_c     | fifo    | srl  | 0       |
+|   SocketTable_myPort_5_c_U     | -    | -    |        | SocketTable_myPort_5_c     | fifo    | srl  | 0       |
+|   SocketTable_myPort_4_c_U     | -    | -    |        | SocketTable_myPort_4_c     | fifo    | srl  | 0       |
+|   SocketTable_myPort_3_c_U     | -    | -    |        | SocketTable_myPort_3_c     | fifo    | srl  | 0       |
+|   SocketTable_myPort_2_c_U     | -    | -    |        | SocketTable_myPort_2_c     | fifo    | srl  | 0       |
+|   SocketTable_myPort_1_c_U     | -    | -    |        | SocketTable_myPort_1_c     | fifo    | srl  | 0       |
+|   SocketTable_myPort_0_c_U     | -    | -    |        | SocketTable_myPort_0_c     | fifo    | srl  | 0       |
+|   SocketTable_theirPort_15_c_U | -    | -    |        | SocketTable_theirPort_15_c | fifo    | srl  | 0       |
+|   SocketTable_theirPort_14_c_U | -    | -    |        | SocketTable_theirPort_14_c | fifo    | srl  | 0       |
+|   SocketTable_theirPort_13_c_U | -    | -    |        | SocketTable_theirPort_13_c | fifo    | srl  | 0       |
+|   SocketTable_theirPort_12_c_U | -    | -    |        | SocketTable_theirPort_12_c | fifo    | srl  | 0       |
+|   SocketTable_theirPort_11_c_U | -    | -    |        | SocketTable_theirPort_11_c | fifo    | srl  | 0       |
+|   SocketTable_theirPort_10_c_U | -    | -    |        | SocketTable_theirPort_10_c | fifo    | srl  | 0       |
+|   SocketTable_theirPort_9_c_U  | -    | -    |        | SocketTable_theirPort_9_c  | fifo    | srl  | 0       |
+|   SocketTable_theirPort_8_c_U  | -    | -    |        | SocketTable_theirPort_8_c  | fifo    | srl  | 0       |
+|   SocketTable_theirPort_7_c_U  | -    | -    |        | SocketTable_theirPort_7_c  | fifo    | srl  | 0       |
+|   SocketTable_theirPort_6_c_U  | -    | -    |        | SocketTable_theirPort_6_c  | fifo    | srl  | 0       |
+|   SocketTable_theirPort_5_c_U  | -    | -    |        | SocketTable_theirPort_5_c  | fifo    | srl  | 0       |
+|   SocketTable_theirPort_4_c_U  | -    | -    |        | SocketTable_theirPort_4_c  | fifo    | srl  | 0       |
+|   SocketTable_theirPort_3_c_U  | -    | -    |        | SocketTable_theirPort_3_c  | fifo    | srl  | 0       |
+|   SocketTable_theirPort_2_c_U  | -    | -    |        | SocketTable_theirPort_2_c  | fifo    | srl  | 0       |
+|   SocketTable_theirPort_1_c_U  | -    | -    |        | SocketTable_theirPort_1_c  | fifo    | srl  | 0       |
+|   SocketTable_theirPort_0_c_U  | -    | -    |        | SocketTable_theirPort_0_c  | fifo    | srl  | 0       |
+|   SocketTable_theirIP_15_c_U   | -    | -    |        | SocketTable_theirIP_15_c   | fifo    | srl  | 0       |
+|   SocketTable_theirIP_14_c_U   | -    | -    |        | SocketTable_theirIP_14_c   | fifo    | srl  | 0       |
+|   SocketTable_theirIP_13_c_U   | -    | -    |        | SocketTable_theirIP_13_c   | fifo    | srl  | 0       |
+|   SocketTable_theirIP_12_c_U   | -    | -    |        | SocketTable_theirIP_12_c   | fifo    | srl  | 0       |
+|   SocketTable_theirIP_11_c_U   | -    | -    |        | SocketTable_theirIP_11_c   | fifo    | srl  | 0       |
+|   SocketTable_theirIP_10_c_U   | -    | -    |        | SocketTable_theirIP_10_c   | fifo    | srl  | 0       |
+|   SocketTable_theirIP_9_c_U    | -    | -    |        | SocketTable_theirIP_9_c    | fifo    | srl  | 0       |
+|   SocketTable_theirIP_8_c_U    | -    | -    |        | SocketTable_theirIP_8_c    | fifo    | srl  | 0       |
+|   SocketTable_theirIP_7_c_U    | -    | -    |        | SocketTable_theirIP_7_c    | fifo    | srl  | 0       |
+|   SocketTable_theirIP_6_c_U    | -    | -    |        | SocketTable_theirIP_6_c    | fifo    | srl  | 0       |
+|   SocketTable_theirIP_5_c_U    | -    | -    |        | SocketTable_theirIP_5_c    | fifo    | srl  | 0       |
+|   SocketTable_theirIP_4_c_U    | -    | -    |        | SocketTable_theirIP_4_c    | fifo    | srl  | 0       |
+|   SocketTable_theirIP_3_c_U    | -    | -    |        | SocketTable_theirIP_3_c    | fifo    | srl  | 0       |
+|   SocketTable_theirIP_2_c_U    | -    | -    |        | SocketTable_theirIP_2_c    | fifo    | srl  | 0       |
+|   SocketTable_theirIP_1_c_U    | -    | -    |        | SocketTable_theirIP_1_c    | fifo    | srl  | 0       |
+|   SocketTable_theirIP_0_c_U    | -    | -    |        | SocketTable_theirIP_0_c    | fifo    | srl  | 0       |
+|   myIpAddress_c_U              | -    | -    |        | myIpAddress_c              | fifo    | srl  | 0       |
++--------------------------------+------+------+--------+----------------------------+---------+------+---------+
+
+
+================================================================
+== User Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------------+-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Type            | Options                                       | Location                                                                                                                                                                   |
++-----------------+-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| inline          |                                               | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/TOE/common_utilities/common_utilities.cpp:178 in len2keep      |
+| pipeline        | II=1                                          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/TOE/common_utilities/common_utilities.cpp:911 in databroadcast |
+| inline          | off                                           | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/TOE/common_utilities/common_utilities.cpp:912 in databroadcast |
+| inline          |                                               | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/TOE/common_utilities/common_utilities.cpp:960 in combine_words |
+| inline          | off                                           | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:47 in tablehandler                                 |
+| pipeline        | II=1                                          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:48 in tablehandler                                 |
+| array_partition | variable=SocketTable complete dim=1           | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:49 in tablehandler, SocketTable                    |
+| disaggregate    | variable=SocketTable                          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:50 in tablehandler, SocketTable                    |
+| inline          | off                                           | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:98 in udprxengine                                  |
+| pipeline        | II=1                                          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:99 in udprxengine                                  |
+| inline          | off                                           | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:196 in rxengpacketdropper                          |
+| pipeline        | II=1                                          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:197 in rxengpacketdropper                          |
+| inline          | off                                           | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:236 in appgetmetadata                              |
+| pipeline        | II=1                                          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:237 in appgetmetadata                              |
+| inline          | off                                           | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:285 in udptxengine                                 |
+| pipeline        | II=1                                          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:286 in udptxengine                                 |
+| dataflow        |                                               | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:420 in udp                                         |
+| interface       | axis register both port=rxUdpDataIn           | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:423 in udp, rxUdpDataIn                            |
+| interface       | axis register both port=txUdpDataOut          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:424 in udp, txUdpDataOut                           |
+| interface       | axis register both port=DataOutApp            | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:425 in udp, DataOutApp                             |
+| interface       | axis register both port=DataInApp             | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:426 in udp, DataInApp                              |
+| interface       | ap_none register port=myIpAddress             | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:428 in udp, myIpAddress                            |
+| interface       | s_axilite port=SocketTable bundle=s_axilite   | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:429 in udp, SocketTable                            |
+| interface       | s_axilite port=numberSockets bundle=s_axilite | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:430 in udp, numberSockets                          |
+| interface       | ap_ctrl_none port=return                      | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:431 in udp, return                                 |
+| stream          | variable=ureDataPayload depth=256             | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:437 in udp, ureDataPayload                         |
+| stream          | variable=agmdDataOut depth=256                | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:440 in udp, agmdDataOut                            |
+| stream          | variable=ureMetaData depth=32                 | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:443 in udp, ureMetaData                            |
+| stream          | variable=rthDropFifo depth=32                 | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:446 in udp, rthDropFifo                            |
+| stream          | variable=agmdIdOut depth=256                  | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:449 in udp, agmdIdOut                              |
+| stream          | variable=agmdpayloadLenOut depth=256          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:452 in udp, agmdpayloadLenOut                      |
+| stream          | variable=txthMetaData depth=32                | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:456 in udp, txthMetaData                           |
++-----------------+-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+

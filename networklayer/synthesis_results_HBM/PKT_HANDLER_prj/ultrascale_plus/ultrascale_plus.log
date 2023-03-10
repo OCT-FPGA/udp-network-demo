@@ -1,0 +1,73 @@
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2021.2 (64-bit)
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xcu280-fsvh2892-2L-e 
+INFO: [HLS 200-1611] Setting target device to 'xcu280-fsvh2892-2L-e'
+INFO: [HLS 200-1510] Running: create_clock -period 3.1 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 3.1ns.
+INFO: [HLS 200-1510] Running: set_clock_uncertainty 0.2 
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.2ns.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 0 seconds; current allocated memory: 1.115 GB.
+INFO: [HLS 200-10] Analyzing design file '/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 6.42 seconds. CPU system time: 0.89 seconds. Elapsed time: 11.92 seconds; current allocated memory: 206.113 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-284] Auto array partition mode is set into default.
+INFO: [HLS 214-178] Inlining function 'byteSwap16(ap_uint<16>)' into 'packet_identification(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&, hls::stream<axiWordi, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:170:0)
+INFO: [HLS 214-270] Starting automatic array partition analysis...
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint<512>s.i512' into 'packet_identification(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&, hls::stream<axiWordi, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint<3>s.i3' into 'packet_identification(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&, hls::stream<axiWordi, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint<1>s.i1' into 'packet_identification(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&, hls::stream<axiWordi, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint<64>s.i64' into 'packet_identification(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&, hls::stream<axiWordi, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i1024.s_struct.axiWordis' into 'packet_identification(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&, hls::stream<axiWordi, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i512.s_struct.ap_uint<512>s' into 'ethernet_remover(hls::stream<axiWordi, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i3.s_struct.ap_uint<3>s' into 'ethernet_remover(hls::stream<axiWordi, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i1.s_struct.ap_uint<1>s' into 'ethernet_remover(hls::stream<axiWordi, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i64.s_struct.ap_uint<64>s' into 'ethernet_remover(hls::stream<axiWordi, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 4.93 seconds. CPU system time: 0.57 seconds. Elapsed time: 8.19 seconds; current allocated memory: 207.840 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 207.840 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.09 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.62 seconds; current allocated memory: 219.129 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.15 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.2 seconds; current allocated memory: 234.957 MB.
+INFO: [XFORM 203-712] Applying dataflow to function 'packet_handler' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:285:1), detected/extracted 2 process function(s): 
+	 'packet_identification'
+	 'ethernet_remover'.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:144:9) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:86:9) in function 'ethernet_remover'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:144:9) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:136:4) in function 'ethernet_remover'... converting 3 basic blocks.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.25 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.27 seconds; current allocated memory: 270.715 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.77 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.84 seconds; current allocated memory: 312.047 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'packet_handler' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'packet_identification' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'packet_identification'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, function 'packet_identification'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.07 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.1 seconds; current allocated memory: 313.844 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 329.648 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ethernet_remover' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'ethernet_remover'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, function 'ethernet_remover'
+WARNING: [HLS 200-871] Estimated clock period (3.06721ns) exceeds the target (target clock period: 3.1ns, clock uncertainty: 0.2ns, effective delay budget: 2.9ns).
+WARNING: [HLS 200-1016] The critical path in module 'ethernet_remover' consists of the following:	fifo read operation ('eth_level_pkt_read', /tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:144) on port 'eth_level_pkt' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:144) [68]  (1.45 ns)
+	'icmp' operation ('icmp_ln1064') [73]  (0.5 ns)
+	'select' operation ('select_ln1064') [78]  (0.278 ns)
+	multiplexor before 'phi' operation ('er_fsm_state_new_0_i') with incoming values : ('select_ln1064') [95]  (0.387 ns)
+	'phi' operation ('er_fsm_state_new_0_i') with incoming values : ('select_ln1064') [95]  (0 ns)
+	multiplexor before 'phi' operation ('er_fsm_state_new_6_i') with incoming values : ('select_ln121', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:121) ('select_ln1064') [102]  (0.453 ns)
+	'phi' operation ('er_fsm_state_new_6_i') with incoming values : ('select_ln121', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:121) ('select_ln1064') [102]  (0 ns)
+	'store' operation ('er_fsm_state_write_ln74', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:74) of variable 'er_fsm_state_new_6_i' on static variable 'er_fsm_state' [105]  (0 ns)
+

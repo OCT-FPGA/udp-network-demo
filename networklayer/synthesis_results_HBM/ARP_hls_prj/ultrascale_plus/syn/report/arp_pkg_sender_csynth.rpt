@@ -1,0 +1,191 @@
+
+
+================================================================
+== Vitis HLS Report for 'arp_pkg_sender'
+================================================================
+* Date:           Wed Mar  8 19:14:18 2023
+
+* Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+* Project:        ARP_hls_prj
+* Solution:       ultrascale_plus (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  3.10 ns|  2.536 ns|     0.20 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        2|        2|  6.200 ns|  6.200 ns|    1|    1|      yes|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+------+---------+---------+-----+
+|         Name        | BRAM_18K|  DSP |    FF   |   LUT   | URAM|
++---------------------+---------+------+---------+---------+-----+
+|DSP                  |        -|     -|        -|        -|    -|
+|Expression           |        -|     -|        0|      142|    -|
+|FIFO                 |        -|     -|        -|        -|    -|
+|Instance             |        -|     -|        -|        -|    -|
+|Memory               |        -|     -|        -|        -|    -|
+|Multiplexer          |        -|     -|        -|      100|    -|
+|Register             |        -|     -|      234|        -|    -|
++---------------------+---------+------+---------+---------+-----+
+|Total                |        0|     0|      234|      242|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available SLR        |     1344|  3008|   869120|   434560|  320|
++---------------------+---------+------+---------+---------+-----+
+|Utilization SLR (%)  |        0|     0|       ~0|       ~0|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available            |     4032|  9024|  2607360|  1303680|  960|
++---------------------+---------+------+---------+---------+-----+
+|Utilization (%)      |        0|     0|       ~0|       ~0|    0|
++---------------------+---------+------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+----+---+----+------------+------------+
+    |           Variable Name          | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+----+---+----+------------+------------+
+    |and_ln1064_fu_379_p2              |       and|   0|  0|  32|          32|          32|
+    |ap_condition_246                  |       and|   0|  0|   2|           1|           1|
+    |ap_predicate_op12_read_state1     |       and|   0|  0|   2|           1|           1|
+    |ap_predicate_op17_read_state1     |       and|   0|  0|   2|           1|           1|
+    |tmp_i_38_nbreadreq_fu_150_p3      |       and|   0|  0|   2|           1|           0|
+    |tmp_i_nbreadreq_fu_142_p3         |       and|   0|  0|   2|           1|           0|
+    |icmp_ln1064_fu_385_p2             |      icmp|   0|  0|  20|          32|           1|
+    |ap_block_pp0_stage0_01001         |        or|   0|  0|   2|           1|           1|
+    |ap_block_pp0_stage0_11001         |        or|   0|  0|   2|           1|           1|
+    |ap_block_state1_pp0_stage0_iter0  |        or|   0|  0|   2|           1|           1|
+    |ap_block_state2_io                |        or|   0|  0|   2|           1|           1|
+    |ap_block_state2_pp0_stage0_iter1  |        or|   0|  0|   2|           1|           1|
+    |ap_block_state3_io                |        or|   0|  0|   2|           1|           1|
+    |ap_block_state3_pp0_stage0_iter2  |        or|   0|  0|   2|           1|           1|
+    |auxQueryIP_V_2_fu_391_p3          |    select|   0|  0|  32|           1|          32|
+    |ap_enable_pp0                     |       xor|   0|  0|   2|           1|           2|
+    |xor_ln1064_fu_373_p2              |       xor|   0|  0|  32|          32|          32|
+    +----------------------------------+----------+----+---+----+------------+------------+
+    |Total                             |          |   0|  0| 142|         110|         109|
+    +----------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------------+----+-----------+-----+-----------+
+    |              Name             | LUT| Input Size| Bits| Total Bits|
+    +-------------------------------+----+-----------+-----+-----------+
+    |ap_done                        |   9|          2|    1|          2|
+    |aps_fsmState                   |  14|          3|    2|          6|
+    |arpDataOut_TDATA_blk_n         |   9|          2|    1|          2|
+    |arpDataOut_TDATA_int_regslice  |  14|          3|  512|       1536|
+    |arpReplyFifo_blk_n             |   9|          2|    1|          2|
+    |arpRequestFifo_blk_n           |   9|          2|    1|          2|
+    |gatewayIP_blk_n                |   9|          2|    1|          2|
+    |myIpAddress_blk_n              |   9|          2|    1|          2|
+    |myMacAddress_blk_n             |   9|          2|    1|          2|
+    |networkMask_blk_n              |   9|          2|    1|          2|
+    +-------------------------------+----+-----------+-----+-----------+
+    |Total                          | 100|         22|  522|       1558|
+    +-------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------------------+----+----+-----+-----------+
+    |                   Name                  | FF | LUT| Bits| Const Bits|
+    +-----------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                                |   1|   0|    1|          0|
+    |ap_done_reg                              |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1                  |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2                  |   1|   0|    1|          0|
+    |aps_fsmState                             |   2|   0|    2|          0|
+    |aps_fsmState_load_reg_483                |   2|   0|    2|          0|
+    |aps_fsmState_load_reg_483_pp0_iter1_reg  |   2|   0|    2|          0|
+    |inputIP_V                                |  32|   0|   32|          0|
+    |replyMeta_ethType_V                      |  16|   0|   16|          0|
+    |replyMeta_hwAddrSrc_V                    |  48|   0|   48|          0|
+    |replyMeta_hwLen_V                        |   8|   0|    8|          0|
+    |replyMeta_hwType_V                       |  16|   0|   16|          0|
+    |replyMeta_protoAddrSrc_V                 |  32|   0|   32|          0|
+    |replyMeta_protoLen_V                     |   8|   0|    8|          0|
+    |replyMeta_protoType_V                    |  16|   0|   16|          0|
+    |replyMeta_srcMac_V                       |  48|   0|   48|          0|
+    +-----------------------------------------+----+----+-----+-----------+
+    |Total                                    | 234|   0|  234|          0|
+    +-----------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------+-----+-----+------------+---------------------+--------------+
+|        RTL Ports       | Dir | Bits|  Protocol  |    Source Object    |    C Type    |
++------------------------+-----+-----+------------+---------------------+--------------+
+|ap_clk                  |   in|    1|  ap_ctrl_hs|       arp_pkg_sender|  return value|
+|ap_rst                  |   in|    1|  ap_ctrl_hs|       arp_pkg_sender|  return value|
+|ap_start                |   in|    1|  ap_ctrl_hs|       arp_pkg_sender|  return value|
+|ap_done                 |  out|    1|  ap_ctrl_hs|       arp_pkg_sender|  return value|
+|ap_continue             |   in|    1|  ap_ctrl_hs|       arp_pkg_sender|  return value|
+|ap_idle                 |  out|    1|  ap_ctrl_hs|       arp_pkg_sender|  return value|
+|ap_ready                |  out|    1|  ap_ctrl_hs|       arp_pkg_sender|  return value|
+|arpRequestFifo_dout     |   in|   32|     ap_fifo|       arpRequestFifo|       pointer|
+|arpRequestFifo_empty_n  |   in|    1|     ap_fifo|       arpRequestFifo|       pointer|
+|arpRequestFifo_read     |  out|    1|     ap_fifo|       arpRequestFifo|       pointer|
+|arpReplyFifo_dout       |   in|  256|     ap_fifo|         arpReplyFifo|       pointer|
+|arpReplyFifo_empty_n    |   in|    1|     ap_fifo|         arpReplyFifo|       pointer|
+|arpReplyFifo_read       |  out|    1|     ap_fifo|         arpReplyFifo|       pointer|
+|networkMask_dout        |   in|   32|     ap_fifo|          networkMask|       pointer|
+|networkMask_empty_n     |   in|    1|     ap_fifo|          networkMask|       pointer|
+|networkMask_read        |  out|    1|     ap_fifo|          networkMask|       pointer|
+|gatewayIP_dout          |   in|   32|     ap_fifo|            gatewayIP|       pointer|
+|gatewayIP_empty_n       |   in|    1|     ap_fifo|            gatewayIP|       pointer|
+|gatewayIP_read          |  out|    1|     ap_fifo|            gatewayIP|       pointer|
+|myIpAddress_dout        |   in|   32|     ap_fifo|          myIpAddress|       pointer|
+|myIpAddress_empty_n     |   in|    1|     ap_fifo|          myIpAddress|       pointer|
+|myIpAddress_read        |  out|    1|     ap_fifo|          myIpAddress|       pointer|
+|myMacAddress_dout       |   in|   48|     ap_fifo|         myMacAddress|       pointer|
+|myMacAddress_empty_n    |   in|    1|     ap_fifo|         myMacAddress|       pointer|
+|myMacAddress_read       |  out|    1|     ap_fifo|         myMacAddress|       pointer|
+|arpDataOut_TREADY       |   in|    1|        axis|  arpDataOut_V_last_V|       pointer|
+|arpDataOut_TVALID       |  out|    1|        axis|  arpDataOut_V_last_V|       pointer|
+|arpDataOut_TLAST        |  out|    1|        axis|  arpDataOut_V_last_V|       pointer|
+|arpDataOut_TDATA        |  out|  512|        axis|  arpDataOut_V_data_V|       pointer|
+|arpDataOut_TKEEP        |  out|   64|        axis|  arpDataOut_V_keep_V|       pointer|
+|arpDataOut_TSTRB        |  out|   64|        axis|  arpDataOut_V_strb_V|       pointer|
++------------------------+-----+-----+------------+---------------------+--------------+
+

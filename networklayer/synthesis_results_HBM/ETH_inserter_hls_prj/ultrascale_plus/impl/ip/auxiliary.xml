@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="ethernet_header_inserter" xd:componentRef="ethernet_header_inserter" xd:initiationInterval="1" xd:clockPeriod="3.1" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:arg xd:name="dataIn" xd:originalName="dataIn" xd:direction="in" xd:interfaceRef="dataIn" xd:busTypeRef="axis" xd:dataWidth="512"/>
+  <xd:arg xd:name="dataOut" xd:originalName="dataOut" xd:direction="out" xd:interfaceRef="dataOut" xd:busTypeRef="axis" xd:dataWidth="512"/>
+  <xd:arg xd:name="arpTableReplay" xd:originalName="arpTableReplay" xd:direction="in" xd:interfaceRef="arpTableReplay" xd:busTypeRef="axis" xd:dataWidth="128"/>
+  <xd:arg xd:name="arpTableRequest" xd:originalName="arpTableRequest" xd:direction="out" xd:interfaceRef="arpTableRequest" xd:busTypeRef="axis" xd:dataWidth="32"/>
+  <xd:arg xd:name="myMacAddress" xd:originalName="myMacAddress" xd:direction="in" xd:interfaceRef="myMacAddress" xd:busTypeRef="register" xd:dataWidth="48"/>
+  <xd:arg xd:name="regSubNetMask" xd:originalName="regSubNetMask" xd:direction="in" xd:interfaceRef="regSubNetMask" xd:busTypeRef="register" xd:dataWidth="32"/>
+  <xd:arg xd:name="regDefaultGateway" xd:originalName="regDefaultGateway" xd:direction="in" xd:interfaceRef="regDefaultGateway" xd:busTypeRef="register" xd:dataWidth="32"/>
+  <xd:latencyEstimates xd:best-case="9" xd:worst-case="9" xd:average-case="9"/>
+  <xd:resourceEstimates xd:LUT="7595" xd:FF="13968" xd:BRAM="0" xd:DSP="0"/>
+</xd:acceleratorMap>

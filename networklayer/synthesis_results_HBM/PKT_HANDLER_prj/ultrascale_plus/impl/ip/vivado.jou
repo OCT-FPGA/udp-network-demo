@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Wed Mar  8 19:14:21 2023
+# Process ID: 26367
+# Current directory: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/impl/ip
+# Command line: vivado -notrace -mode batch -source run_ippack.tcl
+# Log file: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/impl/ip/vivado.log
+# Journal file: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/impl/ip/vivado.jou
+# Running On: fpga-tools, OS: Linux, CPU Frequency: 2893.202 MHz, CPU Physical cores: 16, Host memory: 135196 MB
+#-----------------------------------------------------------
+source run_ippack.tcl -notrace

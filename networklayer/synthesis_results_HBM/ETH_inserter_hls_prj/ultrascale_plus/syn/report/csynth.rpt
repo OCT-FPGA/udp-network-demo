@@ -1,0 +1,210 @@
+
+
+================================================================
+== Synthesis Summary Report of 'ethernet_header_inserter'
+================================================================
++ General Information: 
+    * Date:           Wed Mar  8 19:14:20 2023
+    * Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+    * Project:        ETH_inserter_hls_prj
+    * Solution:       ultrascale_plus (Vivado IP Flow Target)
+    * Product family: virtexuplus
+    * Target device:  xcu280-fsvh2892-2L-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +-----------------------------------+------+------+---------+--------+----------+---------+------+----------+------+----+-------------+------------+-----+
+    |              Modules              | Issue|      | Latency | Latency| Iteration|         | Trip |          |      |    |             |            |     |
+    |              & Loops              | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined| BRAM | DSP|      FF     |     LUT    | URAM|
+    +-----------------------------------+------+------+---------+--------+----------+---------+------+----------+------+----+-------------+------------+-----+
+    |+ ethernet_header_inserter*        |     -|  0.08|        9|  27.900|         -|        1|     -|  dataflow|     -|   -|  13968 (~0%)|  7595 (~0%)|    -|
+    | + broadcaster_and_mac_request     |     -|  1.45|        2|   6.200|         -|        1|     -|       yes|     -|   -|    654 (~0%)|   190 (~0%)|    -|
+    | + compute_and_insert_ip_checksum  |     -|  0.08|        4|  12.400|         -|        1|     -|       yes|     -|   -|   2859 (~0%)|  2072 (~0%)|    -|
+    | + entry_proc                      |     -|  1.49|        0|   0.000|         -|        0|     -|        no|     -|   -|      3 (~0%)|    29 (~0%)|    -|
+    | + handle_output                   |     -|  0.67|        2|   6.200|         -|        1|     -|       yes|     -|   -|   1171 (~0%)|   291 (~0%)|    -|
+    +-----------------------------------+------+------+---------+--------+----------+---------+------+----------+------+----+-------------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* AXIS
++-----------------+---------------+-------+-------+-------+--------+-------+--------+
+| Interface       | Register Mode | TDATA | TKEEP | TLAST | TREADY | TSTRB | TVALID |
++-----------------+---------------+-------+-------+-------+--------+-------+--------+
+| arpTableReplay  | both          | 128   |       |       | 1      |       | 1      |
+| arpTableRequest | both          | 32    |       |       | 1      |       | 1      |
+| dataIn          | both          | 512   | 64    | 1     | 1      | 64    | 1      |
+| dataOut         | both          | 512   | 64    | 1     | 1      | 64    | 1      |
++-----------------+---------------+-------+-------+-------+--------+-------+--------+
+
+* REGISTER
++-------------------+---------+----------+
+| Interface         | Mode    | Bitwidth |
++-------------------+---------+----------+
+| myMacAddress      | ap_none | 48       |
+| regDefaultGateway | ap_none | 32       |
+| regSubNetMask     | ap_none | 32       |
++-------------------+---------+----------+
+
+* TOP LEVEL CONTROL
++-----------+--------------+----------+
+| Interface | Type         | Ports    |
++-----------+--------------+----------+
+| ap_clk    | clock        | ap_clk   |
+| ap_rst_n  | reset        | ap_rst_n |
+| ap_ctrl   | ap_ctrl_none |          |
++-----------+--------------+----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++-------------------+-----------+----------------------------------------------+
+| Argument          | Direction | Datatype                                     |
++-------------------+-----------+----------------------------------------------+
+| dataIn            | in        | stream<hls::axis<ap_uint<512>, 0, 0, 0>, 0>& |
+| dataOut           | out       | stream<hls::axis<ap_uint<512>, 0, 0, 0>, 0>& |
+| arpTableReplay    | in        | stream<arpTableReply, 0>&                    |
+| arpTableRequest   | out       | stream<ap_uint<32>, 0>&                      |
+| myMacAddress      | in        | ap_uint<48>&                                 |
+| regSubNetMask     | in        | ap_uint<32>&                                 |
+| regDefaultGateway | in        | ap_uint<32>&                                 |
++-------------------+-----------+----------------------------------------------+
+
+* SW-to-HW Mapping
++-------------------+-------------------+-----------+
+| Argument          | HW Interface      | HW Type   |
++-------------------+-------------------+-----------+
+| dataIn            | dataIn            | interface |
+| dataOut           | dataOut           | interface |
+| arpTableReplay    | arpTableReplay    | interface |
+| arpTableRequest   | arpTableRequest   | interface |
+| myMacAddress      | myMacAddress      | port      |
+| regSubNetMask     | regSubNetMask     | port      |
+| regDefaultGateway | regDefaultGateway | port      |
++-------------------+-------------------+-----------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+  No burst in design
+
+================================================================
+== Bind Op Report
+================================================================
++-----------------------------------+-----+--------+---------------+-----+--------+---------+
+| Name                              | DSP | Pragma | Variable      | Op  | Impl   | Latency |
++-----------------------------------+-----+--------+---------------+-----+--------+---------+
+| + ethernet_header_inserter        | 0   |        |               |     |        |         |
+|  + compute_and_insert_ip_checksum | 0   |        |               |     |        |         |
+|    add_ln1540_1_fu_1646_p2        | -   |        | add_ln1540_1  | add | fabric | 0       |
+|    ret_fu_1650_p2                 | -   |        | ret           | add | fabric | 0       |
+|    add_ln1540_3_fu_1662_p2        | -   |        | add_ln1540_3  | add | fabric | 0       |
+|    ret_24_fu_1666_p2              | -   |        | ret_24        | add | fabric | 0       |
+|    ret_25_fu_1591_p2              | -   |        | ret_25        | add | fabric | 0       |
+|    add_ln1540_6_fu_1678_p2        | -   |        | add_ln1540_6  | add | tadder | 0       |
+|    ret_26_fu_1682_p2              | -   |        | ret_26        | add | fabric | 0       |
+|    add_ln1540_8_fu_1694_p2        | -   |        | add_ln1540_8  | add | fabric | 0       |
+|    ret_27_fu_1698_p2              | -   |        | ret_27        | add | fabric | 0       |
+|    add_ln1540_10_fu_1710_p2       | -   |        | add_ln1540_10 | add | tadder | 0       |
+|    ret_28_fu_1714_p2              | -   |        | ret_28        | add | fabric | 0       |
+|    add_ln1540_12_fu_1726_p2       | -   |        | add_ln1540_12 | add | fabric | 0       |
+|    ret_29_fu_1730_p2              | -   |        | ret_29        | add | fabric | 0       |
+|    add_ln1540_15_fu_1742_p2       | -   |        | add_ln1540_15 | add | fabric | 0       |
+|    ret_30_fu_1746_p2              | -   |        | ret_30        | add | fabric | 0       |
+|    add_ln1540_18_fu_1758_p2       | -   |        | add_ln1540_18 | add | fabric | 0       |
+|    ret_31_fu_1762_p2              | -   |        | ret_31        | add | fabric | 0       |
+|    add_ln1540_22_fu_1774_p2       | -   |        | add_ln1540_22 | add | tadder | 0       |
+|    ret_32_fu_1778_p2              | -   |        | ret_32        | add | fabric | 0       |
+|    add_ln1540_28_fu_1790_p2       | -   |        | add_ln1540_28 | add | fabric | 0       |
+|    ret_33_fu_1794_p2              | -   |        | ret_33        | add | fabric | 0       |
+|    add_ln1540_35_fu_1806_p2       | -   |        | add_ln1540_35 | add | tadder | 0       |
+|    ret_34_fu_1810_p2              | -   |        | ret_34        | add | fabric | 0       |
+|    add_ln1540_37_fu_1822_p2       | -   |        | add_ln1540_37 | add | fabric | 0       |
+|    ret_35_fu_1826_p2              | -   |        | ret_35        | add | fabric | 0       |
+|    add_ln1540_14_fu_1838_p2       | -   |        | add_ln1540_14 | add | tadder | 0       |
+|    ret_36_fu_1842_p2              | -   |        | ret_36        | add | fabric | 0       |
+|    add_ln1540_16_fu_1856_p2       | -   |        | add_ln1540_16 | add | tadder | 0       |
+|    ret_37_fu_1862_p2              | -   |        | ret_37        | add | fabric | 0       |
+|    ret_38_fu_1875_p2              | -   |        | ret_38        | add | fabric | 0       |
+|    add_ln1540_19_fu_1889_p2       | -   |        | add_ln1540_19 | add | tadder | 0       |
+|    ret_39_fu_1895_p2              | -   |        | ret_39        | add | fabric | 0       |
+|    add_ln1540_21_fu_1909_p2       | -   |        | add_ln1540_21 | add | tadder | 0       |
+|    ret_40_fu_1915_p2              | -   |        | ret_40        | add | fabric | 0       |
+|    add_ln1540_23_fu_1929_p2       | -   |        | add_ln1540_23 | add | tadder | 0       |
+|    ret_41_fu_1935_p2              | -   |        | ret_41        | add | fabric | 0       |
+|    add_ln1540_25_fu_1949_p2       | -   |        | add_ln1540_25 | add | tadder | 0       |
+|    ret_42_fu_1955_p2              | -   |        | ret_42        | add | fabric | 0       |
+|    add_ln1540_31_fu_1969_p2       | -   |        | add_ln1540_31 | add | tadder | 0       |
+|    ret_43_fu_1975_p2              | -   |        | ret_43        | add | fabric | 0       |
+|    ret_44_fu_1993_p2              | -   |        | ret_44        | add | fabric | 0       |
+|    ret_45_fu_2007_p2              | -   |        | ret_45        | add | fabric | 0       |
+|    ret_46_fu_2021_p2              | -   |        | ret_46        | add | fabric | 0       |
+|    ret_47_fu_2035_p2              | -   |        | ret_47        | add | fabric | 0       |
+|    add_ln1540_26_fu_2041_p2       | -   |        | add_ln1540_26 | add | tadder | 0       |
+|    add_ln1540_27_fu_2047_p2       | -   |        | add_ln1540_27 | add | tadder | 0       |
+|    ret_48_fu_2089_p2              | -   |        | ret_48        | add | fabric | 0       |
+|    add_ln1540_29_fu_2053_p2       | -   |        | add_ln1540_29 | add | tadder | 0       |
+|    add_ln1540_30_fu_2059_p2       | -   |        | add_ln1540_30 | add | tadder | 0       |
+|    ret_49_fu_2101_p2              | -   |        | ret_49        | add | fabric | 0       |
+|    add_ln1540_32_fu_2065_p2       | -   |        | add_ln1540_32 | add | tadder | 0       |
+|    add_ln1540_33_fu_2071_p2       | -   |        | add_ln1540_33 | add | tadder | 0       |
+|    add_ln1540_fu_2077_p2          | -   |        | add_ln1540    | add | tadder | 0       |
+|    ret_50_fu_2115_p2              | -   |        | ret_50        | add | fabric | 0       |
+|    p_Val2_30_fu_2140_p2           | -   |        | p_Val2_30     | add | fabric | 0       |
+|    add_ln223_fu_2158_p2           | -   |        | add_ln223     | add | fabric | 0       |
+|    p_Val2_31_fu_2168_p2           | -   |        | p_Val2_31     | add | fabric | 0       |
++-----------------------------------+-----+--------+---------------+-----+--------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
++----------------------------+------+------+--------+----------------+---------+------+---------+
+| Name                       | BRAM | URAM | Pragma | Variable       | Storage | Impl | Latency |
++----------------------------+------+------+--------+----------------+---------+------+---------+
+| + ethernet_header_inserter | 0    | 0    |        |                |         |      |         |
+|   myMacAddress_c_U         | -    | -    |        | myMacAddress_c | fifo    | srl  | 0       |
++----------------------------+------+------+--------+----------------+---------+------+---------+
+
+
+================================================================
+== User Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------------+-----------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Type            | Options                                 | Location                                                                                                                                                                                                       |
++-----------------+-----------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| inline          | off                                     | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:41 in broadcaster_and_mac_request                   |
+| pipeline        | II=1                                    | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:42 in broadcaster_and_mac_request                   |
+| inline          | off                                     | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:95 in handle_output                                 |
+| pipeline        | II=1                                    | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:96 in handle_output                                 |
+| inline          | off                                     | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:230 in compute_and_insert_ip_checksum               |
+| pipeline        | II=1                                    | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:231 in compute_and_insert_ip_checksum               |
+| array_partition | variable=ip_ops complete dim=1          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:234 in compute_and_insert_ip_checksum, ip_ops       |
+| unroll          |                                         | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:257 in compute_and_insert_ip_checksum               |
+| unroll          |                                         | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:270 in compute_and_insert_ip_checksum               |
+| unroll          |                                         | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:276 in compute_and_insert_ip_checksum               |
+| unroll          |                                         | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:283 in compute_and_insert_ip_checksum               |
+| dataflow        |                                         | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:321 in ethernet_header_inserter                     |
+| interface       | ap_ctrl_none port=return                | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:322 in ethernet_header_inserter, return             |
+| interface       | axis register both port=dataIn          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:324 in ethernet_header_inserter, dataIn             |
+| interface       | axis register both port=dataOut         | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:325 in ethernet_header_inserter, dataOut            |
+| interface       | axis register both port=arpTableReplay  | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:327 in ethernet_header_inserter, arpTableReplay     |
+| interface       | axis register both port=arpTableRequest | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:328 in ethernet_header_inserter, arpTableRequest    |
+| interface       | ap_none register port=myMacAddress      | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:330 in ethernet_header_inserter, myMacAddress       |
+| interface       | ap_none register port=regSubNetMask     | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:331 in ethernet_header_inserter, regSubNetMask      |
+| interface       | ap_none register port=regDefaultGateway | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:332 in ethernet_header_inserter, regDefaultGateway  |
+| stream          | variable=ip_header_out depth=16         | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:336 in ethernet_header_inserter, ip_header_out      |
+| stream          | variable=no_ip_header_out depth=16      | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:339 in ethernet_header_inserter, no_ip_header_out   |
+| stream          | variable=ip_header_checksum depth=16    | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:342 in ethernet_header_inserter, ip_header_checksum |
++-----------------+-----------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+

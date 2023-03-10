@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="udp" xd:componentRef="udp" xd:initiationInterval="1" xd:clockPeriod="2.5" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:arg xd:name="rxUdpDataIn" xd:originalName="rxUdpDataIn" xd:direction="in" xd:interfaceRef="rxUdpDataIn" xd:busTypeRef="axis" xd:dataWidth="512"/>
+  <xd:arg xd:name="txUdpDataOut" xd:originalName="txUdpDataOut" xd:direction="out" xd:interfaceRef="txUdpDataOut" xd:busTypeRef="axis" xd:dataWidth="512"/>
+  <xd:arg xd:name="DataOutApp" xd:originalName="DataOutApp" xd:direction="out" xd:interfaceRef="DataOutApp" xd:busTypeRef="axis" xd:dataWidth="512"/>
+  <xd:arg xd:name="DataInApp" xd:originalName="DataInApp" xd:direction="in" xd:interfaceRef="DataInApp" xd:busTypeRef="axis" xd:dataWidth="512"/>
+  <xd:arg xd:name="myIpAddress" xd:originalName="myIpAddress" xd:direction="in" xd:interfaceRef="myIpAddress" xd:busTypeRef="register" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(s_axi_s_axilite)" xd:originalName="SocketTable" xd:direction="in" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(numberSockets)" xd:originalName="numberSockets" xd:direction="out" xd:interfaceRef="s_axi_s_axilite" xd:busTypeRef="axilite" xd:offset="0x210" xd:statusOffset="0x214" xd:handshakeRef="ap_vld" xd:dataWidth="32"/>
+  <xd:latencyEstimates xd:best-case="7" xd:worst-case="7" xd:average-case="7"/>
+  <xd:resourceEstimates xd:LUT="9968" xd:FF="11901" xd:BRAM="0" xd:DSP="0"/>
+</xd:acceleratorMap>

@@ -1,0 +1,136 @@
+
+
+================================================================
+== Synthesis Summary Report of 'icmp_server'
+================================================================
++ General Information: 
+    * Date:           Wed Mar  8 19:14:18 2023
+    * Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+    * Project:        ICMP_hls_prj
+    * Solution:       ultrascale_plus (Vivado IP Flow Target)
+    * Product family: virtexuplus
+    * Target device:  xcu280-fsvh2892-2L-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +---------------+------+------+---------+--------+----------+---------+------+----------+------+----+------------+-----------+-----+
+    |    Modules    | Issue|      | Latency | Latency| Iteration|         | Trip |          |      |    |            |           |     |
+    |    & Loops    | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF     |    LUT    | URAM|
+    +---------------+------+------+---------+--------+----------+---------+------+----------+------+----+------------+-----------+-----+
+    |+ icmp_server  |     -|  0.53|        2|   6.200|         -|        1|     -|       yes|     -|   -|  1481 (~0%)|  568 (~0%)|    -|
+    +---------------+------+------+---------+--------+----------+---------+------+----------+------+----+------------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* AXIS
++-------------+---------------+-------+-------+-------+--------+-------+--------+
+| Interface   | Register Mode | TDATA | TKEEP | TLAST | TREADY | TSTRB | TVALID |
++-------------+---------------+-------+-------+-------+--------+-------+--------+
+| m_axis_icmp | both          | 512   | 64    | 1     | 1      | 64    | 1      |
+| s_axis_icmp | both          | 512   | 64    | 1     | 1      | 64    | 1      |
++-------------+---------------+-------+-------+-------+--------+-------+--------+
+
+* REGISTER
++-------------+-----------+----------+
+| Interface   | Mode      | Bitwidth |
++-------------+-----------+----------+
+| myIpAddress | ap_stable | 32       |
++-------------+-----------+----------+
+
+* TOP LEVEL CONTROL
++-----------+--------------+----------+
+| Interface | Type         | Ports    |
++-----------+--------------+----------+
+| ap_clk    | clock        | ap_clk   |
+| ap_rst_n  | reset        | ap_rst_n |
+| ap_ctrl   | ap_ctrl_none |          |
++-----------+--------------+----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++-------------+-----------+----------------------------------------------+
+| Argument    | Direction | Datatype                                     |
++-------------+-----------+----------------------------------------------+
+| dataIn      | in        | stream<hls::axis<ap_uint<512>, 0, 0, 0>, 0>& |
+| myIpAddress | in        | ap_uint<32>&                                 |
+| dataOut     | out       | stream<hls::axis<ap_uint<512>, 0, 0, 0>, 0>& |
++-------------+-----------+----------------------------------------------+
+
+* SW-to-HW Mapping
++-------------+--------------+-----------+
+| Argument    | HW Interface | HW Type   |
++-------------+--------------+-----------+
+| dataIn      | s_axis_icmp  | interface |
+| myIpAddress | myIpAddress  | port      |
+| dataOut     | m_axis_icmp  | interface |
++-------------+--------------+-----------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+  No burst in design
+
+================================================================
+== Bind Op Report
+================================================================
++-------------------------------+-----+--------+-------------------+-----+--------+---------+
+| Name                          | DSP | Pragma | Variable          | Op  | Impl   | Latency |
++-------------------------------+-----+--------+-------------------+-----+--------+---------+
+| + icmp_server                 | 0   |        |                   |     |        |         |
+|   icmpChecksumTmp_V_fu_960_p2 | -   |        | icmpChecksumTmp_V | add | fabric | 0       |
+|   add_ln326_fu_680_p2         | -   |        | add_ln326         | add | fabric | 0       |
+|   ret_10_fu_708_p2            | -   |        | ret_10            | add | fabric | 0       |
+|   ret_11_fu_722_p2            | -   |        | ret_11            | add | fabric | 0       |
+|   ret_12_fu_736_p2            | -   |        | ret_12            | add | fabric | 0       |
+|   ret_13_fu_750_p2            | -   |        | ret_13            | add | fabric | 0       |
+|   ret_14_fu_764_p2            | -   |        | ret_14            | add | fabric | 0       |
+|   ret_15_fu_778_p2            | -   |        | ret_15            | add | fabric | 0       |
+|   ret_16_fu_792_p2            | -   |        | ret_16            | add | fabric | 0       |
+|   ret_17_fu_806_p2            | -   |        | ret_17            | add | fabric | 0       |
+|   ret_18_fu_1060_p2           | -   |        | ret_18            | add | fabric | 0       |
+|   checksumL4_r_V_fu_1092_p2   | -   |        | checksumL4_r_V    | add | fabric | 0       |
+|   add_ln45_fu_1098_p2         | -   |        | add_ln45          | add | tadder | 0       |
+|   checksumL4_o_V_fu_1104_p2   | -   |        | checksumL4_o_V    | add | tadder | 0       |
++-------------------------------+-----+--------+-------------------+-----+--------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
+  No bind storage info in design
+
+================================================================
+== User Pragma Report
+================================================================
+* Pragmas with Warnings
++-----------+------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+
+| Type      | Options                                              | Location                                                                                                                                                                | Messages                                                                          |
++-----------+------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+
+| interface | ap_stable register port=myIpAddress name=myIpAddress | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:129 in icmp_server, myIpAddress | 'Ap_stable' in '#pragma HLS INTERFACE' is deprecated, use 'Stable Pragma' instead |
++-----------+------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------+
+
+* Valid Pragma Syntax
++-----------+--------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Type      | Options                                          | Location                                                                                                                                                            |
++-----------+--------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| inline    |                                                  | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:40 in computechecksum20b    |
+| unroll    |                                                  | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:50 in computechecksum20b    |
+| unroll    |                                                  | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:55 in computechecksum20b    |
+| interface | ap_ctrl_none port=return                         | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:124 in icmp_server, return  |
+| interface | axis register both port=dataIn name=s_axis_icmp  | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:127 in icmp_server, dataIn  |
+| interface | axis register both port=dataOut name=m_axis_icmp | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:128 in icmp_server, dataOut |
+| pipeline  | II=1                                             | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:131 in icmp_server          |
+| unroll    |                                                  | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:153 in icmp_server          |
++-----------+--------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+

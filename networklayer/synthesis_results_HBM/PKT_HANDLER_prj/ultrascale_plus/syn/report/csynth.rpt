@@ -1,0 +1,102 @@
+
+
+================================================================
+== Synthesis Summary Report of 'packet_handler'
+================================================================
++ General Information: 
+    * Date:           Wed Mar  8 19:14:18 2023
+    * Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+    * Project:        PKT_HANDLER_prj
+    * Solution:       ultrascale_plus (Vivado IP Flow Target)
+    * Product family: virtexuplus
+    * Target device:  xcu280-fsvh2892-2L-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +--------------------------+--------+-------+---------+--------+----------+---------+------+----------+------+----+------------+------------+-----+
+    |          Modules         |  Issue |       | Latency | Latency| Iteration|         | Trip |          |      |    |            |            |     |
+    |          & Loops         |  Type  | Slack | (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF     |     LUT    | URAM|
+    +--------------------------+--------+-------+---------+--------+----------+---------+------+----------+------+----+------------+------------+-----+
+    |+ packet_handler*         |  Timing|  -0.17|        4|  12.400|         -|        1|     -|  dataflow|     -|   -|  6174 (~0%)|  2575 (~0%)|    -|
+    | + packet_identification  |       -|   1.06|        1|   3.100|         -|        1|     -|       yes|     -|   -|   620 (~0%)|   178 (~0%)|    -|
+    | + ethernet_remover       |  Timing|  -0.17|        2|   6.200|         -|        1|     -|       yes|     -|   -|  2462 (~0%)|   740 (~0%)|    -|
+    +--------------------------+--------+-------+---------+--------+----------+---------+------+----------+------+----+------------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* AXIS
++-----------+---------------+-------+-------+-------+-------+--------+-------+--------+
+| Interface | Register Mode | TDATA | TDEST | TKEEP | TLAST | TREADY | TSTRB | TVALID |
++-----------+---------------+-------+-------+-------+-------+--------+-------+--------+
+| m_axis    | both          | 512   | 3     | 64    | 1     | 1      | 64    | 1      |
+| s_axis    | both          | 512   | 3     | 64    | 1     | 1      | 64    | 1      |
++-----------+---------------+-------+-------+-------+-------+--------+-------+--------+
+
+* TOP LEVEL CONTROL
++-----------+--------------+----------+
+| Interface | Type         | Ports    |
++-----------+--------------+----------+
+| ap_clk    | clock        | ap_clk   |
+| ap_rst_n  | reset        | ap_rst_n |
+| ap_ctrl   | ap_ctrl_none |          |
++-----------+--------------+----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+----------------------------------------------+
+| Argument | Direction | Datatype                                     |
++----------+-----------+----------------------------------------------+
+| dataIn   | in        | stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>& |
+| dataOut  | out       | stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>& |
++----------+-----------+----------------------------------------------+
+
+* SW-to-HW Mapping
++----------+--------------+-----------+
+| Argument | HW Interface | HW Type   |
++----------+--------------+-----------+
+| dataIn   | s_axis       | interface |
+| dataOut  | m_axis       | interface |
++----------+--------------+-----------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+  No burst in design
+
+================================================================
+== Bind Op Report
+================================================================
+  No bind op info in design
+
+================================================================
+== Bind Storage Report
+================================================================
+  No bind storage info in design
+
+================================================================
+== User Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Type      | Options                                     | Location                                                                                                                                                                           |
++-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| pipeline  | II=1                                        | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:55 in ethernet_remover               |
+| pipeline  | II=1                                        | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:173 in packet_identification         |
+| interface | ap_ctrl_none port=return                    | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:279 in packet_handler, return        |
+| dataflow  |                                             | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:280 in packet_handler                |
+| interface | axis register both port=dataIn name=s_axis  | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:282 in packet_handler, dataIn        |
+| interface | axis register both port=dataOut name=m_axis | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:283 in packet_handler, dataOut       |
+| stream    | variable=eth_level_pkt depth=16             | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:286 in packet_handler, eth_level_pkt |
++-----------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+

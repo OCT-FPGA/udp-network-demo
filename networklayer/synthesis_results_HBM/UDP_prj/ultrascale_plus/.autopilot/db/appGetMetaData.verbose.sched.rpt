@@ -1,0 +1,183 @@
+
+
+================================================================
+== Vitis HLS Report for 'appGetMetaData'
+================================================================
+* Date:           Wed Mar  8 19:15:04 2023
+
+* Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+* Project:        UDP_prj
+* Solution:       ultrascale_plus (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  2.50 ns|  1.935 ns|     0.20 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        1|        1|  2.500 ns|  2.500 ns|    1|    1|      yes|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 2, States = { 1 2 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.27>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%agmd_state_load = load i1 %agmd_state"   --->   Operation 3 'load' 'agmd_state_load' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%tmp = nbreadreq i1 @_ssdm_op_NbReadReq.axis.i512P0A.i64P0A.i64P0A.i96P0A.i1P0A.i16P0A, i512 %DataInApp_V_data_V, i64 %DataInApp_V_keep_V, i64 %DataInApp_V_strb_V, i96 %DataInApp_V_user_V, i1 %DataInApp_V_last_V, i16 %DataInApp_V_dest_V, i32 1"   --->   Operation 4 'nbreadreq' 'tmp' <Predicate = true> <Delay = 0.00> <CoreInst = "axis">   --->   Core 123 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%br_ln246 = br i1 %agmd_state_load, void, void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:246]   --->   Operation 5 'br' 'br_ln246' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%br_ln248 = br i1 %tmp, void %._crit_edge.i, void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:248]   --->   Operation 6 'br' 'br_ln248' <Predicate = (!agmd_state_load)> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%tmp_1_i = nbwritereq i1 @_ssdm_op_NbWriteReq.ap_fifo.i1024P0A, i1024 %agmdDataOut, i32 1" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:139]   --->   Operation 7 'nbwritereq' 'tmp_1_i' <Predicate = (!agmd_state_load & tmp)> <Delay = 0.00> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.38> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1024> <Depth = 256> <FIFO>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%br_ln248 = br i1 %tmp_1_i, void %._crit_edge.i, void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:248]   --->   Operation 8 'br' 'br_ln248' <Predicate = (!agmd_state_load & tmp)> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%empty = read i753 @_ssdm_op_Read.axis.volatile.i512P0A.i64P0A.i64P0A.i96P0A.i1P0A.i16P0A, i512 %DataInApp_V_data_V, i64 %DataInApp_V_keep_V, i64 %DataInApp_V_strb_V, i96 %DataInApp_V_user_V, i1 %DataInApp_V_last_V, i16 %DataInApp_V_dest_V"   --->   Operation 9 'read' 'empty' <Predicate = (!agmd_state_load & tmp & tmp_1_i)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 123 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%tmp_data_V = extractvalue i753 %empty"   --->   Operation 10 'extractvalue' 'tmp_data_V' <Predicate = (!agmd_state_load & tmp & tmp_1_i)> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%tmp_keep_V = extractvalue i753 %empty"   --->   Operation 11 'extractvalue' 'tmp_keep_V' <Predicate = (!agmd_state_load & tmp & tmp_1_i)> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%tmp_last_V = extractvalue i753 %empty"   --->   Operation 12 'extractvalue' 'tmp_last_V' <Predicate = (!agmd_state_load & tmp & tmp_1_i)> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%tmp_dest_V = extractvalue i753 %empty"   --->   Operation 13 'extractvalue' 'tmp_dest_V' <Predicate = (!agmd_state_load & tmp & tmp_1_i)> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%tmp_23_i = bitconcatenate i577 @_ssdm_op_BitConcatenate.i577.i1.i64.i512, i1 %tmp_last_V, i64 %tmp_keep_V, i512 %tmp_data_V" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 14 'bitconcatenate' 'tmp_23_i' <Predicate = (!agmd_state_load & tmp & tmp_1_i)> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%zext_ln173_4 = zext i577 %tmp_23_i" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 15 'zext' 'zext_ln173_4' <Predicate = (!agmd_state_load & tmp & tmp_1_i)> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (1.15ns)   --->   "%write_ln173 = write void @_ssdm_op_Write.ap_fifo.volatile.i1024P0A, i1024 %agmdDataOut, i1024 %zext_ln173_4" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 16 'write' 'write_ln173' <Predicate = (!agmd_state_load & tmp & tmp_1_i)> <Delay = 1.15> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.38> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1024> <Depth = 256> <FIFO>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%br_ln256 = br i1 %tmp_last_V, void, void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:256]   --->   Operation 17 'br' 'br_ln256' <Predicate = (!agmd_state_load & tmp & tmp_1_i)> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.38ns)   --->   "%store_ln0 = store i1 1, i1 %agmd_state"   --->   Operation 18 'store' 'store_ln0' <Predicate = (!agmd_state_load & tmp & tmp_1_i & !tmp_last_V)> <Delay = 0.38>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 19 'br' 'br_ln0' <Predicate = (!agmd_state_load & tmp & tmp_1_i & !tmp_last_V)> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (1.02ns)   --->   "%op_V_1_i = call i7 @keep2len, i64 %tmp_keep_V" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:257]   --->   Operation 20 'call' 'op_V_1_i' <Predicate = (!agmd_state_load & tmp & tmp_1_i & tmp_last_V)> <Delay = 1.02> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%br_ln261 = br void %._crit_edge.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:261]   --->   Operation 21 'br' 'br_ln261' <Predicate = (!agmd_state_load & tmp & tmp_1_i)> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%br_ln262 = br void %appGetMetaData.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:262]   --->   Operation 22 'br' 'br_ln262' <Predicate = (!agmd_state_load)> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%br_ln264 = br i1 %tmp, void %._crit_edge2.i, void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:264]   --->   Operation 23 'br' 'br_ln264' <Predicate = (agmd_state_load)> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%tmp_i = nbwritereq i1 @_ssdm_op_NbWriteReq.ap_fifo.i1024P0A, i1024 %agmdDataOut, i32 1" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:139]   --->   Operation 24 'nbwritereq' 'tmp_i' <Predicate = (agmd_state_load & tmp)> <Delay = 0.00> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.38> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1024> <Depth = 256> <FIFO>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%br_ln264 = br i1 %tmp_i, void %._crit_edge2.i, void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:264]   --->   Operation 25 'br' 'br_ln264' <Predicate = (agmd_state_load & tmp)> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%empty_180 = read i753 @_ssdm_op_Read.axis.volatile.i512P0A.i64P0A.i64P0A.i96P0A.i1P0A.i16P0A, i512 %DataInApp_V_data_V, i64 %DataInApp_V_keep_V, i64 %DataInApp_V_strb_V, i96 %DataInApp_V_user_V, i1 %DataInApp_V_last_V, i16 %DataInApp_V_dest_V"   --->   Operation 26 'read' 'empty_180' <Predicate = (agmd_state_load & tmp & tmp_i)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 123 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%tmp_data_V_4 = extractvalue i753 %empty_180"   --->   Operation 27 'extractvalue' 'tmp_data_V_4' <Predicate = (agmd_state_load & tmp & tmp_i)> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%tmp_keep_V_4 = extractvalue i753 %empty_180"   --->   Operation 28 'extractvalue' 'tmp_keep_V_4' <Predicate = (agmd_state_load & tmp & tmp_i)> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%tmp_last_V_3 = extractvalue i753 %empty_180"   --->   Operation 29 'extractvalue' 'tmp_last_V_3' <Predicate = (agmd_state_load & tmp & tmp_i)> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%tmp_22_i = bitconcatenate i577 @_ssdm_op_BitConcatenate.i577.i1.i64.i512, i1 %tmp_last_V_3, i64 %tmp_keep_V_4, i512 %tmp_data_V_4" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 30 'bitconcatenate' 'tmp_22_i' <Predicate = (agmd_state_load & tmp & tmp_i)> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%zext_ln173 = zext i577 %tmp_22_i" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 31 'zext' 'zext_ln173' <Predicate = (agmd_state_load & tmp & tmp_i)> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (1.15ns)   --->   "%write_ln173 = write void @_ssdm_op_Write.ap_fifo.volatile.i1024P0A, i1024 %agmdDataOut, i1024 %zext_ln173" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 32 'write' 'write_ln173' <Predicate = (agmd_state_load & tmp & tmp_i)> <Delay = 1.15> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.38> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 1024> <Depth = 256> <FIFO>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%br_ln268 = br i1 %tmp_last_V_3, void, void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:268]   --->   Operation 33 'br' 'br_ln268' <Predicate = (agmd_state_load & tmp & tmp_i)> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (1.02ns)   --->   "%op2_V_i = call i7 @keep2len, i64 %tmp_keep_V_4" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:269]   --->   Operation 34 'call' 'op2_V_i' <Predicate = (agmd_state_load & tmp & tmp_i & tmp_last_V_3)> <Delay = 1.02> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 35 [1/1] (0.38ns)   --->   "%store_ln0 = store i1 0, i1 %agmd_state"   --->   Operation 35 'store' 'store_ln0' <Predicate = (agmd_state_load & tmp & tmp_i & tmp_last_V_3)> <Delay = 0.38>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%br_ln274 = br void %._crit_edge2.i" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:274]   --->   Operation 36 'br' 'br_ln274' <Predicate = (agmd_state_load & tmp & tmp_i)> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%br_ln275 = br void %appGetMetaData.exit" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:275]   --->   Operation 37 'br' 'br_ln275' <Predicate = (agmd_state_load)> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 1.93>
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %agmdDataOut, void @empty_11, i32 0, i32 0, void @empty_65, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 38 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 39 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %agmdDataOut, void @empty_11, i32 0, i32 0, void @empty_65, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 39 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 40 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %agmdDataOut, void @empty_11, i32 0, i32 0, void @empty_65, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 40 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 41 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %agmdIdOut, void @empty_11, i32 0, i32 0, void @empty_65, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 41 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 42 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %agmdIdOut, void @empty_11, i32 0, i32 0, void @empty_65, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 42 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 43 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %agmdIdOut, void @empty_11, i32 0, i32 0, void @empty_65, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 43 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 44 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %agmdpayloadLenOut, void @empty_11, i32 0, i32 0, void @empty_65, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 44 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 45 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %agmdpayloadLenOut, void @empty_11, i32 0, i32 0, void @empty_65, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 45 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 46 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %agmdpayloadLenOut, void @empty_11, i32 0, i32 0, void @empty_65, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 46 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 47 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %agmdpayloadLenOut, void @empty_11, i32 0, i32 0, void @empty_65, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 47 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 48 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %agmdDataOut, void @empty_11, i32 0, i32 0, void @empty_65, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 48 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 49 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %agmdIdOut, void @empty_11, i32 0, i32 0, void @empty_65, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 49 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 50 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %DataInApp_V_dest_V, i1 %DataInApp_V_last_V, i96 %DataInApp_V_user_V, i64 %DataInApp_V_strb_V, i64 %DataInApp_V_keep_V, i512 %DataInApp_V_data_V, void @empty_68, i32 1, i32 1, void @empty_66, i32 0, i32 0, void @empty_65, void @empty_65, void @empty_65, i32 0, i32 0, i32 0, i32 0, void @empty_65, void @empty_65"   --->   Operation 50 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 51 [1/1] (0.00ns)   --->   "%specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_65"   --->   Operation 51 'specpipeline' 'specpipeline_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 52 [1/1] (0.00ns)   --->   "%lenCount_V_load = load i16 %lenCount_V"   --->   Operation 52 'load' 'lenCount_V_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 53 [1/1] (1.15ns)   --->   "%write_ln173 = write void @_ssdm_op_Write.ap_fifo.volatile.i16P0A, i16 %agmdIdOut, i16 %tmp_dest_V" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 53 'write' 'write_ln173' <Predicate = (!agmd_state_load & tmp & tmp_1_i)> <Delay = 1.15> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 256> <FIFO>
+ST_2 : Operation 54 [1/1] (0.38ns)   --->   "%store_ln254 = store i16 64, i16 %lenCount_V" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:254]   --->   Operation 54 'store' 'store_ln254' <Predicate = (!agmd_state_load & tmp & tmp_1_i)> <Delay = 0.38>
+ST_2 : Operation 55 [1/1] (0.00ns)   --->   "%zext_ln223_1 = zext i7 %op_V_1_i"   --->   Operation 55 'zext' 'zext_ln223_1' <Predicate = (!agmd_state_load & tmp & tmp_1_i & tmp_last_V)> <Delay = 0.00>
+ST_2 : Operation 56 [1/1] (1.15ns)   --->   "%write_ln173 = write void @_ssdm_op_Write.ap_fifo.volatile.i16P0A, i16 %agmdpayloadLenOut, i16 %zext_ln223_1" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 56 'write' 'write_ln173' <Predicate = (!agmd_state_load & tmp & tmp_1_i & tmp_last_V)> <Delay = 1.15> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 256> <FIFO>
+ST_2 : Operation 57 [1/1] (0.00ns)   --->   "%br_ln258 = br void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:258]   --->   Operation 57 'br' 'br_ln258' <Predicate = (!agmd_state_load & tmp & tmp_1_i & tmp_last_V)> <Delay = 0.00>
+ST_2 : Operation 58 [1/1] (0.78ns)   --->   "%add_ln885 = add i16 %lenCount_V_load, i16 64"   --->   Operation 58 'add' 'add_ln885' <Predicate = (agmd_state_load & tmp & tmp_i & !tmp_last_V_3)> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 59 [1/1] (0.38ns)   --->   "%store_ln885 = store i16 %add_ln885, i16 %lenCount_V"   --->   Operation 59 'store' 'store_ln885' <Predicate = (agmd_state_load & tmp & tmp_i & !tmp_last_V_3)> <Delay = 0.38>
+ST_2 : Operation 60 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 60 'br' 'br_ln0' <Predicate = (agmd_state_load & tmp & tmp_i & !tmp_last_V_3)> <Delay = 0.00>
+ST_2 : Operation 61 [1/1] (0.00ns)   --->   "%zext_ln223 = zext i7 %op2_V_i"   --->   Operation 61 'zext' 'zext_ln223' <Predicate = (agmd_state_load & tmp & tmp_i & tmp_last_V_3)> <Delay = 0.00>
+ST_2 : Operation 62 [1/1] (0.78ns)   --->   "%add_ln223 = add i16 %lenCount_V_load, i16 %zext_ln223"   --->   Operation 62 'add' 'add_ln223' <Predicate = (agmd_state_load & tmp & tmp_i & tmp_last_V_3)> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 63 [1/1] (1.15ns)   --->   "%write_ln173 = write void @_ssdm_op_Write.ap_fifo.volatile.i16P0A, i16 %agmdpayloadLenOut, i16 %add_ln223" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 63 'write' 'write_ln173' <Predicate = (agmd_state_load & tmp & tmp_i & tmp_last_V_3)> <Delay = 1.15> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 256> <FIFO>
+ST_2 : Operation 64 [1/1] (0.00ns)   --->   "%br_ln271 = br void" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:271]   --->   Operation 64 'br' 'br_ln271' <Predicate = (agmd_state_load & tmp & tmp_i & tmp_last_V_3)> <Delay = 0.00>
+ST_2 : Operation 65 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 65 'ret' 'ret_ln0' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 2.5ns, clock uncertainty: 0.2ns.
+
+ <State 1>: 1.27ns
+The critical path consists of the following:
+	axis read operation ('empty_180') on port 'DataInApp_V_data_V' [65]  (0 ns)
+	fifo write operation ('write_ln173', /tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173) on port 'agmdDataOut' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173) [71]  (1.15 ns)
+	blocking operation 0.122 ns on control path)
+
+ <State 2>: 1.93ns
+The critical path consists of the following:
+	'load' operation ('lenCount_V_load') on static variable 'lenCount_V' [28]  (0 ns)
+	'add' operation ('add_ln223') [80]  (0.785 ns)
+	fifo write operation ('write_ln173', /tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173) on port 'agmdpayloadLenOut' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173) [81]  (1.15 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

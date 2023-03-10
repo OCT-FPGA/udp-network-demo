@@ -1,0 +1,202 @@
+
+
+================================================================
+== Synthesis Summary Report of 'arp_server'
+================================================================
++ General Information: 
+    * Date:           Wed Mar  8 19:14:19 2023
+    * Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+    * Project:        ARP_hls_prj
+    * Solution:       ultrascale_plus (Vivado IP Flow Target)
+    * Product family: virtexuplus
+    * Target device:  xcu280-fsvh2892-2L-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +---------------------+------+------+---------+--------+----------+---------+------+----------+---------+----+------------+------------+-----+
+    |       Modules       | Issue|      | Latency | Latency| Iteration|         | Trip |          |         |    |            |            |     |
+    |       & Loops       | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined|  BRAM   | DSP|     FF     |     LUT    | URAM|
+    +---------------------+------+------+---------+--------+----------+---------+------+----------+---------+----+------------+------------+-----+
+    |+ arp_server*        |     -|  0.29|        6|  18.600|         -|        2|     -|  dataflow|  3 (~0%)|   -|  1186 (~0%)|  1765 (~0%)|    -|
+    | + arp_pkg_receiver  |     -|  1.49|        1|   3.100|         -|        1|     -|       yes|        -|   -|   219 (~0%)|   113 (~0%)|    -|
+    | + entry_proc        |     -|  1.45|        0|   0.000|         -|        0|     -|        no|        -|   -|     3 (~0%)|    65 (~0%)|    -|
+    | + genARPDiscovery   |     -|  1.37|        2|   6.200|         -|        1|     -|       yes|        -|   -|   170 (~0%)|   251 (~0%)|    -|
+    | + arp_pkg_sender    |     -|  0.36|        2|   6.200|         -|        1|     -|       yes|        -|   -|   234 (~0%)|   242 (~0%)|    -|
+    | + arp_table         |    II|  0.29|        4|  12.400|         -|        2|     -|       yes|        -|   -|    83 (~0%)|   268 (~0%)|    -|
+    +---------------------+------+------+---------+--------+----------+---------+------+----------+---------+----+------------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* S_AXILITE Interfaces
++-----------------+------------+---------------+--------+----------+-------------------+
+| Interface       | Data Width | Address Width | Offset | Register | Resource Estimate |
++-----------------+------------+---------------+--------+----------+-------------------+
+| s_axi_s_axilite | 32         | 12            | 2048   | 0        | BRAM=3            |
++-----------------+------------+---------------+--------+----------+-------------------+
+
+* S_AXILITE Registers
++-----------------+-----------------+--------+-------+--------+------------------------------+---------------------+
+| Interface       | Register        | Offset | Width | Access | Description                  | Bit Fields          |
++-----------------+-----------------+--------+-------+--------+------------------------------+---------------------+
+| s_axi_s_axilite | arp_scan_i      | 0x10   | 32    | W      | Data signal of arp_scan_i    |                     |
+| s_axi_s_axilite | arp_scan_o      | 0x18   | 32    | R      | Data signal of arp_scan_o    |                     |
+| s_axi_s_axilite | arp_scan_o_ctrl | 0x1c   | 32    | R      | Control signal of arp_scan_o | 0=arp_scan_o_ap_vld |
++-----------------+-----------------+--------+-------+--------+------------------------------+---------------------+
+
+* AXIS
++-----------------+---------------+-------+-------+-------+--------+-------+--------+
+| Interface       | Register Mode | TDATA | TKEEP | TLAST | TREADY | TSTRB | TVALID |
++-----------------+---------------+-------+-------+-------+--------+-------+--------+
+| arpDataIn       | both          | 512   | 64    | 1     | 1      | 64    | 1      |
+| arpDataOut      | both          | 512   | 64    | 1     | 1      | 64    | 1      |
+| macIpEncode_req | both          | 32    |       |       | 1      |       | 1      |
+| macIpEncode_rsp | both          | 128   |       |       | 1      |       | 1      |
++-----------------+---------------+-------+-------+-------+--------+-------+--------+
+
+* REGISTER
++--------------+---------+----------+
+| Interface    | Mode    | Bitwidth |
++--------------+---------+----------+
+| gatewayIP    | ap_none | 32       |
+| myIpAddress  | ap_none | 32       |
+| myMacAddress | ap_none | 48       |
+| networkMask  | ap_none | 32       |
++--------------+---------+----------+
+
+* TOP LEVEL CONTROL
++-----------+--------------+----------+
+| Interface | Type         | Ports    |
++-----------+--------------+----------+
+| ap_clk    | clock        | ap_clk   |
+| ap_rst_n  | reset        | ap_rst_n |
+| ap_ctrl   | ap_ctrl_none |          |
++-----------+--------------+----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++-----------------+-----------+----------------------------------------------+
+| Argument        | Direction | Datatype                                     |
++-----------------+-----------+----------------------------------------------+
+| arpDataIn       | in        | stream<hls::axis<ap_uint<512>, 0, 0, 0>, 0>& |
+| macIpEncode_req | in        | stream<ap_uint<32>, 0>&                      |
+| arpDataOut      | out       | stream<hls::axis<ap_uint<512>, 0, 0, 0>, 0>& |
+| macIpEncode_rsp | out       | stream<arpTableReply, 0>&                    |
+| arpTable        | inout     | arpTableEntry*                               |
+| arp_scan        | inout     | ap_uint<1>&                                  |
+| myMacAddress    | in        | ap_uint<48>&                                 |
+| myIpAddress     | in        | ap_uint<32>&                                 |
+| gatewayIP       | in        | ap_uint<32>&                                 |
+| networkMask     | in        | ap_uint<32>&                                 |
++-----------------+-----------+----------------------------------------------+
+
+* SW-to-HW Mapping
++-----------------+-----------------+-----------+-------------------------------------------+
+| Argument        | HW Interface    | HW Type   | HW Info                                   |
++-----------------+-----------------+-----------+-------------------------------------------+
+| arpDataIn       | arpDataIn       | interface |                                           |
+| macIpEncode_req | macIpEncode_req | interface |                                           |
+| arpDataOut      | arpDataOut      | interface |                                           |
+| macIpEncode_rsp | macIpEncode_rsp | interface |                                           |
+| arpTable        | s_axi_s_axilite | interface |                                           |
+| arpTable        | s_axi_s_axilite | interface |                                           |
+| arpTable        | s_axi_s_axilite | interface |                                           |
+| arp_scan        | s_axi_s_axilite | register  | name=arp_scan_i offset=0x10 range=32      |
+| arp_scan        | s_axi_s_axilite | register  | name=arp_scan_o offset=0x18 range=32      |
+| arp_scan        | s_axi_s_axilite | register  | name=arp_scan_o_ctrl offset=0x1c range=32 |
+| myMacAddress    | myMacAddress    | port      |                                           |
+| myIpAddress     | myIpAddress     | port      |                                           |
+| gatewayIP       | gatewayIP       | port      |                                           |
+| networkMask     | networkMask     | port      |                                           |
++-----------------+-----------------+-----------+-------------------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+  No burst in design
+
+================================================================
+== Bind Op Report
+================================================================
++--------------------------+-----+--------+-------------+-----+--------+---------+
+| Name                     | DSP | Pragma | Variable    | Op  | Impl   | Latency |
++--------------------------+-----+--------+-------------+-----+--------+---------+
+| + arp_server             | 0   |        |             |     |        |         |
+|  + arp_pkg_receiver      | 0   |        |             |     |        |         |
+|    add_ln885_fu_256_p2   | -   |        | add_ln885   | add | fabric | 0       |
+|  + genARPDiscovery       | 0   |        |             |     |        |         |
+|    add_ln885_fu_268_p2   | -   |        | add_ln885   | add | fabric | 0       |
+|    add_ln885_1_fu_302_p2 | -   |        | add_ln885_1 | add | fabric | 0       |
++--------------------------+-----+--------+-------------+-----+--------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
++---------------------+------+------+--------+-----------------+---------+------+---------+
+| Name                | BRAM | URAM | Pragma | Variable        | Storage | Impl | Latency |
++---------------------+------+------+--------+-----------------+---------+------+---------+
+| + arp_server        | 3    | 0    |        |                 |         |      |         |
+|   networkMask_c13_U | -    | -    |        | networkMask_c13 | fifo    | srl  | 0       |
+|   networkMask_c_U   | -    | -    |        | networkMask_c   | fifo    | srl  | 0       |
+|   gatewayIP_c12_U   | -    | -    |        | gatewayIP_c12   | fifo    | srl  | 0       |
+|   gatewayIP_c_U     | -    | -    |        | gatewayIP_c     | fifo    | srl  | 0       |
+|   myIpAddress_c11_U | -    | -    |        | myIpAddress_c11 | fifo    | srl  | 0       |
+|   myIpAddress_c_U   | -    | -    |        | myIpAddress_c   | fifo    | srl  | 0       |
+|   myMacAddress_c_U  | -    | -    |        | myMacAddress_c  | fifo    | srl  | 0       |
++---------------------+------+------+--------+-----------------+---------+------+---------+
+
+
+================================================================
+== User Pragma Report
+================================================================
+* Pragmas with Warnings
++-----------+------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+| Type      | Options                                  | Location                                                                                                                                                          | Messages                                                                     |
++-----------+------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+| interface | s_axilite port=arpTable bundle=s_axilite | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:382 in arp_server, arpTable | The resource pragma (storage) on function argument, in 'call' is unsupported |
++-----------+------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
+
+* Valid Pragma Syntax
++--------------+------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Type         | Options                                  | Location                                                                                                                                                                    |
++--------------+------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| pipeline     | II=1                                     | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:50 in arp_pkg_receiver                |
+| inline       | off                                      | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:51 in arp_pkg_receiver                |
+| pipeline     | II=1                                     | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:108 in arp_pkg_sender                 |
+| inline       | off                                      | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:109 in arp_pkg_sender                 |
+| pipeline     | II=1                                     | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:214 in arp_table                      |
+| inline       | off                                      | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:215 in arp_table                      |
+| dependence   | variable=arpTable inter false            | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:217 in arp_table, arpTable            |
+| pipeline     | II=1                                     | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:265 in genarpdiscovery                |
+| reset        | variable=gia_fsm_state                   | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:275 in genarpdiscovery, gia_fsm_state |
+| interface    | ap_ctrl_none port=return                 | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:368 in arp_server, return             |
+| dataflow     |                                          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:369 in arp_server                     |
+| interface    | ap_none register port=myMacAddress       | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:371 in arp_server, myMacAddress       |
+| interface    | ap_none register port=myIpAddress        | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:372 in arp_server, myIpAddress        |
+| interface    | ap_none register port=gatewayIP          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:373 in arp_server, gatewayIP          |
+| interface    | ap_none register port=networkMask        | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:374 in arp_server, networkMask        |
+| interface    | axis register both port=arpDataIn        | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:377 in arp_server, arpDataIn          |
+| interface    | axis register both port=arpDataOut       | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:378 in arp_server, arpDataOut         |
+| interface    | axis register both port=macIpEncode_req  | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:379 in arp_server, macIpEncode_req    |
+| interface    | axis register both port=macIpEncode_rsp  | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:380 in arp_server, macIpEncode_rsp    |
+| interface    | s_axilite port=arp_scan bundle=s_axilite | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:381 in arp_server, arp_scan           |
+| bind_storage | variable=arpTable type=ram_t2p           | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:383 in arp_server, arpTable           |
+| disaggregate | variable=arpTable                        | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:384 in arp_server, arpTable           |
+| stream       | variable=arpReplyFifo depth=4            | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:387 in arp_server, arpReplyFifo       |
+| stream       | variable=arpRequestFifo depth=4          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:390 in arp_server, arpRequestFifo     |
+| stream       | variable=arpTableInsertFifo depth=4      | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:393 in arp_server, arpTableInsertFifo |
+| stream       | variable=macIpEncode_i depth=4           | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:396 in arp_server, macIpEncode_i      |
+| stream       | variable=macIpEncode_rsp_i depth=4       | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:399 in arp_server, macIpEncode_rsp_i  |
++--------------+------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+

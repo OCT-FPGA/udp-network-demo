@@ -1,0 +1,153 @@
+
+
+================================================================
+== Vitis HLS Report for 'ethernet_header_inserter'
+================================================================
+* Date:           Wed Mar  8 19:14:20 2023
+
+* Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+* Project:        ETH_inserter_hls_prj
+* Solution:       ultrascale_plus (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  3.10 ns|  2.816 ns|     0.20 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+----------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline |
+    |   min   |   max   |    min    |    max    | min | max |   Type   |
+    +---------+---------+-----------+-----------+-----+-----+----------+
+    |        9|        9|  27.900 ns|  27.900 ns|    1|    1|  dataflow|
+    +---------+---------+-----------+-----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        +-----------------------------------+--------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |                                   |                                |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+        |              Instance             |             Module             |   min   |   max   |    min    |    max    | min | max |   Type  |
+        +-----------------------------------+--------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |broadcaster_and_mac_request_U0     |broadcaster_and_mac_request     |        2|        2|   6.200 ns|   6.200 ns|    1|    1|      yes|
+        |compute_and_insert_ip_checksum_U0  |compute_and_insert_ip_checksum  |        4|        4|  12.400 ns|  12.400 ns|    1|    1|      yes|
+        |entry_proc_U0                      |entry_proc                      |        0|        0|       0 ns|       0 ns|    0|    0|       no|
+        |handle_output_U0                   |handle_output                   |        2|        2|   6.200 ns|   6.200 ns|    1|    1|      yes|
+        +-----------------------------------+--------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+------+---------+---------+-----+
+|         Name        | BRAM_18K|  DSP |    FF   |   LUT   | URAM|
++---------------------+---------+------+---------+---------+-----+
+|DSP                  |        -|     -|        -|        -|    -|
+|Expression           |        -|     -|        -|        -|    -|
+|FIFO                 |        0|     -|     9281|     5013|    -|
+|Instance             |        -|     -|     4687|     2582|    -|
+|Memory               |        -|     -|        -|        -|    -|
+|Multiplexer          |        -|     -|        -|        -|    -|
+|Register             |        -|     -|        -|        -|    -|
++---------------------+---------+------+---------+---------+-----+
+|Total                |        0|     0|    13968|     7595|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available SLR        |     1344|  3008|   869120|   434560|  320|
++---------------------+---------+------+---------+---------+-----+
+|Utilization SLR (%)  |        0|     0|        1|        1|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available            |     4032|  9024|  2607360|  1303680|  960|
++---------------------+---------+------+---------+---------+-----+
+|Utilization (%)      |        0|     0|       ~0|       ~0|    0|
++---------------------+---------+------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    +-----------------------------------+--------------------------------+---------+----+------+------+-----+
+    |              Instance             |             Module             | BRAM_18K| DSP|  FF  |  LUT | URAM|
+    +-----------------------------------+--------------------------------+---------+----+------+------+-----+
+    |broadcaster_and_mac_request_U0     |broadcaster_and_mac_request     |        0|   0|   654|   190|    0|
+    |compute_and_insert_ip_checksum_U0  |compute_and_insert_ip_checksum  |        0|   0|  2859|  2072|    0|
+    |entry_proc_U0                      |entry_proc                      |        0|   0|     3|    29|    0|
+    |handle_output_U0                   |handle_output                   |        0|   0|  1171|   291|    0|
+    +-----------------------------------+--------------------------------+---------+----+------+------+-----+
+    |Total                              |                                |        0|   0|  4687|  2582|    0|
+    +-----------------------------------+--------------------------------+---------+----+------+------+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +----------------------+---------+------+----+-----+------+------+---------+
+    |         Name         | BRAM_18K|  FF  | LUT| URAM| Depth| Bits | Size:D*B|
+    +----------------------+---------+------+----+-----+------+------+---------+
+    |ip_header_checksum_U  |        0|  3092|   0|    -|    16|  1024|    16384|
+    |ip_header_out_U       |        0|  3092|   0|    -|    16|  1024|    16384|
+    |myMacAddress_c_U      |        0|     5|   0|    -|     4|    48|      192|
+    |no_ip_header_out_U    |        0|  3092|   0|    -|    16|  1024|    16384|
+    +----------------------+---------+------+----+-----+------+------+---------+
+    |Total                 |        0|  9281|   0|    0|    52|  3120|    49344|
+    +----------------------+---------+------+----+-----+------+------+---------+
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------+-----+-----+--------------+--------------------------+--------------+
+|        RTL Ports       | Dir | Bits|   Protocol   |       Source Object      |    C Type    |
++------------------------+-----+-----+--------------+--------------------------+--------------+
+|ap_local_block          |  out|    1|  ap_ctrl_none|  ethernet_header_inserter|  return value|
+|ap_local_deadlock       |  out|    1|  ap_ctrl_none|  ethernet_header_inserter|  return value|
+|ap_clk                  |   in|    1|  ap_ctrl_none|  ethernet_header_inserter|  return value|
+|ap_rst_n                |   in|    1|  ap_ctrl_none|  ethernet_header_inserter|  return value|
+|dataIn_TDATA            |   in|  512|          axis|           dataIn_V_data_V|       pointer|
+|dataIn_TKEEP            |   in|   64|          axis|           dataIn_V_keep_V|       pointer|
+|dataIn_TSTRB            |   in|   64|          axis|           dataIn_V_strb_V|       pointer|
+|dataIn_TLAST            |   in|    1|          axis|           dataIn_V_last_V|       pointer|
+|dataIn_TVALID           |   in|    1|          axis|           dataIn_V_last_V|       pointer|
+|dataIn_TREADY           |  out|    1|          axis|           dataIn_V_last_V|       pointer|
+|dataOut_TDATA           |  out|  512|          axis|          dataOut_V_data_V|       pointer|
+|dataOut_TKEEP           |  out|   64|          axis|          dataOut_V_keep_V|       pointer|
+|dataOut_TSTRB           |  out|   64|          axis|          dataOut_V_strb_V|       pointer|
+|dataOut_TLAST           |  out|    1|          axis|          dataOut_V_last_V|       pointer|
+|dataOut_TVALID          |  out|    1|          axis|          dataOut_V_last_V|       pointer|
+|dataOut_TREADY          |   in|    1|          axis|          dataOut_V_last_V|       pointer|
+|arpTableReplay_TDATA    |   in|  128|          axis|            arpTableReplay|       pointer|
+|arpTableReplay_TVALID   |   in|    1|          axis|            arpTableReplay|       pointer|
+|arpTableReplay_TREADY   |  out|    1|          axis|            arpTableReplay|       pointer|
+|arpTableRequest_TDATA   |  out|   32|          axis|           arpTableRequest|       pointer|
+|arpTableRequest_TVALID  |  out|    1|          axis|           arpTableRequest|       pointer|
+|arpTableRequest_TREADY  |   in|    1|          axis|           arpTableRequest|       pointer|
+|myMacAddress            |   in|   48|       ap_none|              myMacAddress|       pointer|
+|regSubNetMask           |   in|   32|       ap_none|             regSubNetMask|       pointer|
+|regDefaultGateway       |   in|   32|       ap_none|         regDefaultGateway|       pointer|
++------------------------+-----+-----+--------------+--------------------------+--------------+
+

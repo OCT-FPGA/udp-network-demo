@@ -84,7 +84,7 @@ LIST_XO += $(USERKRNLDIR)xofiles/rxkrnl.xo
 	
 # Linker params
 # Linker userPostSysLinkTcl param
-HLS_IP_FOLDER  = $(shell readlink -f ./$(NETLAYERDIR)synthesis_results_HMB)
+HLS_IP_FOLDER  = $(shell readlink -f ./$(NETLAYERDIR)synthesis_results_HBM)
 LIST_REPOS := --user_ip_repo_paths $(HLS_IP_FOLDER)
 
 

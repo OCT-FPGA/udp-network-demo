@@ -1,0 +1,563 @@
+
+
+================================================================
+== Vitis HLS Report for 'TableHandler'
+================================================================
+* Date:           Wed Mar  8 19:15:05 2023
+
+* Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+* Project:        UDP_prj
+* Solution:       ultrascale_plus (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  2.50 ns|  2.253 ns|     0.20 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        2|        2|  5.000 ns|  5.000 ns|    1|    1|      yes|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+------+---------+---------+-----+
+|         Name        | BRAM_18K|  DSP |    FF   |   LUT   | URAM|
++---------------------+---------+------+---------+---------+-----+
+|DSP                  |        -|     -|        -|        -|    -|
+|Expression           |        -|     -|        0|      881|    -|
+|FIFO                 |        -|     -|        -|        -|    -|
+|Instance             |        -|     -|        0|      260|    -|
+|Memory               |        -|     -|        -|        -|    -|
+|Multiplexer          |        -|     -|        -|      720|    -|
+|Register             |        -|     -|      357|        -|    -|
++---------------------+---------+------+---------+---------+-----+
+|Total                |        0|     0|      357|     1861|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available SLR        |     1344|  3008|   869120|   434560|  320|
++---------------------+---------+------+---------+---------+-----+
+|Utilization SLR (%)  |        0|     0|       ~0|       ~0|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available            |     4032|  9024|  2607360|  1303680|  960|
++---------------------+---------+------+---------+---------+-----+
+|Utilization (%)      |        0|     0|       ~0|       ~0|    0|
++---------------------+---------+------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    +----------------------+-----------------+---------+----+---+----+-----+
+    |       Instance       |      Module     | BRAM_18K| DSP| FF| LUT| URAM|
+    +----------------------+-----------------+---------+----+---+----+-----+
+    |mux_1616_16_1_1_U142  |mux_1616_16_1_1  |        0|   0|  0|  65|    0|
+    |mux_1616_16_1_1_U143  |mux_1616_16_1_1  |        0|   0|  0|  65|    0|
+    |mux_1616_1_1_1_U144   |mux_1616_1_1_1   |        0|   0|  0|  65|    0|
+    |mux_1616_32_1_1_U141  |mux_1616_32_1_1  |        0|   0|  0|  65|    0|
+    +----------------------+-----------------+---------+----+---+----+-----+
+    |Total                 |                 |        0|   0|  0| 260|    0|
+    +----------------------+-----------------+---------+----+---+----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+----+---+----+------------+------------+
+    |           Variable Name          | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+----+---+----+------------+------------+
+    |and_ln60_10_fu_1127_p2            |       and|   0|  0|   2|           1|           1|
+    |and_ln60_11_fu_1157_p2            |       and|   0|  0|   2|           1|           1|
+    |and_ln60_12_fu_1187_p2            |       and|   0|  0|   2|           1|           1|
+    |and_ln60_13_fu_1217_p2            |       and|   0|  0|   2|           1|           1|
+    |and_ln60_14_fu_1247_p2            |       and|   0|  0|   2|           1|           1|
+    |and_ln60_15_fu_1427_p2            |       and|   0|  0|   2|           1|           1|
+    |and_ln60_16_fu_821_p2             |       and|   0|  0|   2|           1|           1|
+    |and_ln60_17_fu_851_p2             |       and|   0|  0|   2|           1|           1|
+    |and_ln60_18_fu_881_p2             |       and|   0|  0|   2|           1|           1|
+    |and_ln60_19_fu_911_p2             |       and|   0|  0|   2|           1|           1|
+    |and_ln60_1_fu_857_p2              |       and|   0|  0|   2|           1|           1|
+    |and_ln60_20_fu_941_p2             |       and|   0|  0|   2|           1|           1|
+    |and_ln60_21_fu_971_p2             |       and|   0|  0|   2|           1|           1|
+    |and_ln60_22_fu_1001_p2            |       and|   0|  0|   2|           1|           1|
+    |and_ln60_23_fu_1031_p2            |       and|   0|  0|   2|           1|           1|
+    |and_ln60_24_fu_1061_p2            |       and|   0|  0|   2|           1|           1|
+    |and_ln60_25_fu_1091_p2            |       and|   0|  0|   2|           1|           1|
+    |and_ln60_26_fu_1121_p2            |       and|   0|  0|   2|           1|           1|
+    |and_ln60_27_fu_1151_p2            |       and|   0|  0|   2|           1|           1|
+    |and_ln60_28_fu_1181_p2            |       and|   0|  0|   2|           1|           1|
+    |and_ln60_29_fu_1211_p2            |       and|   0|  0|   2|           1|           1|
+    |and_ln60_2_fu_887_p2              |       and|   0|  0|   2|           1|           1|
+    |and_ln60_30_fu_1241_p2            |       and|   0|  0|   2|           1|           1|
+    |and_ln60_31_fu_1423_p2            |       and|   0|  0|   2|           1|           1|
+    |and_ln60_3_fu_917_p2              |       and|   0|  0|   2|           1|           1|
+    |and_ln60_4_fu_947_p2              |       and|   0|  0|   2|           1|           1|
+    |and_ln60_5_fu_977_p2              |       and|   0|  0|   2|           1|           1|
+    |and_ln60_6_fu_1007_p2             |       and|   0|  0|   2|           1|           1|
+    |and_ln60_7_fu_1037_p2             |       and|   0|  0|   2|           1|           1|
+    |and_ln60_8_fu_1067_p2             |       and|   0|  0|   2|           1|           1|
+    |and_ln60_9_fu_1097_p2             |       and|   0|  0|   2|           1|           1|
+    |and_ln60_fu_827_p2                |       and|   0|  0|   2|           1|           1|
+    |ap_block_state2_pp0_stage0_iter1  |       and|   0|  0|   2|           1|           1|
+    |ap_block_state3_pp0_stage0_iter2  |       and|   0|  0|   2|           1|           1|
+    |ap_condition_717                  |       and|   0|  0|   2|           1|           1|
+    |ap_condition_725                  |       and|   0|  0|   2|           1|           1|
+    |ap_condition_732                  |       and|   0|  0|   2|           1|           1|
+    |ap_condition_736                  |       and|   0|  0|   2|           1|           1|
+    |ap_condition_740                  |       and|   0|  0|   2|           1|           1|
+    |ap_condition_744                  |       and|   0|  0|   2|           1|           1|
+    |ap_condition_748                  |       and|   0|  0|   2|           1|           1|
+    |ap_condition_752                  |       and|   0|  0|   2|           1|           1|
+    |ap_condition_756                  |       and|   0|  0|   2|           1|           1|
+    |ap_condition_760                  |       and|   0|  0|   2|           1|           1|
+    |ap_condition_764                  |       and|   0|  0|   2|           1|           1|
+    |ap_condition_768                  |       and|   0|  0|   2|           1|           1|
+    |ap_condition_772                  |       and|   0|  0|   2|           1|           1|
+    |ap_condition_776                  |       and|   0|  0|   2|           1|           1|
+    |ap_condition_780                  |       and|   0|  0|   2|           1|           1|
+    |ap_condition_784                  |       and|   0|  0|   2|           1|           1|
+    |tmp_i_650_nbreadreq_fu_666_p3     |       and|   0|  0|   2|           1|           0|
+    |tmp_i_nbreadreq_fu_652_p3         |       and|   0|  0|   2|           1|           0|
+    |icmp_ln1064_10_fu_899_p2          |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_11_fu_905_p2          |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_12_fu_923_p2          |      icmp|   0|  0|  20|          32|          32|
+    |icmp_ln1064_13_fu_929_p2          |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_14_fu_935_p2          |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_15_fu_953_p2          |      icmp|   0|  0|  20|          32|          32|
+    |icmp_ln1064_16_fu_959_p2          |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_17_fu_965_p2          |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_18_fu_983_p2          |      icmp|   0|  0|  20|          32|          32|
+    |icmp_ln1064_19_fu_989_p2          |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_1_fu_809_p2           |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_20_fu_995_p2          |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_21_fu_1013_p2         |      icmp|   0|  0|  20|          32|          32|
+    |icmp_ln1064_22_fu_1019_p2         |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_23_fu_1025_p2         |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_24_fu_1043_p2         |      icmp|   0|  0|  20|          32|          32|
+    |icmp_ln1064_25_fu_1049_p2         |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_26_fu_1055_p2         |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_27_fu_1073_p2         |      icmp|   0|  0|  20|          32|          32|
+    |icmp_ln1064_28_fu_1079_p2         |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_29_fu_1085_p2         |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_2_fu_815_p2           |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_30_fu_1103_p2         |      icmp|   0|  0|  20|          32|          32|
+    |icmp_ln1064_31_fu_1109_p2         |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_32_fu_1115_p2         |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_33_fu_1133_p2         |      icmp|   0|  0|  20|          32|          32|
+    |icmp_ln1064_34_fu_1139_p2         |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_35_fu_1145_p2         |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_36_fu_1163_p2         |      icmp|   0|  0|  20|          32|          32|
+    |icmp_ln1064_37_fu_1169_p2         |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_38_fu_1175_p2         |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_39_fu_1193_p2         |      icmp|   0|  0|  20|          32|          32|
+    |icmp_ln1064_3_fu_833_p2           |      icmp|   0|  0|  20|          32|          32|
+    |icmp_ln1064_40_fu_1199_p2         |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_41_fu_1205_p2         |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_42_fu_1223_p2         |      icmp|   0|  0|  20|          32|          32|
+    |icmp_ln1064_43_fu_1229_p2         |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_44_fu_1235_p2         |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_45_fu_1253_p2         |      icmp|   0|  0|  20|          32|          32|
+    |icmp_ln1064_46_fu_1259_p2         |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_47_fu_1265_p2         |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_4_fu_839_p2           |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_5_fu_845_p2           |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_6_fu_863_p2           |      icmp|   0|  0|  20|          32|          32|
+    |icmp_ln1064_7_fu_869_p2           |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_8_fu_875_p2           |      icmp|   0|  0|  13|          16|          16|
+    |icmp_ln1064_9_fu_893_p2           |      icmp|   0|  0|  20|          32|          32|
+    |icmp_ln1064_fu_803_p2             |      icmp|   0|  0|  20|          32|          32|
+    |icmp_ln1068_fu_1531_p2            |      icmp|   0|  0|   9|           5|           2|
+    |icmp_ln68_fu_1537_p2              |      icmp|   0|  0|  20|          32|          32|
+    |ap_block_pp0_stage0_01001         |        or|   0|  0|   2|           1|           1|
+    |ap_block_state1_pp0_stage0_iter0  |        or|   0|  0|   2|           1|           1|
+    |currResp_drop_V_fu_1542_p2        |        or|   0|  0|   2|           1|           1|
+    |select_ln60_fu_1432_p3            |    select|   0|  0|   4|           1|           4|
+    |ap_enable_pp0                     |       xor|   0|  0|   2|           1|           2|
+    +----------------------------------+----------+----+---+----+------------+------------+
+    |Total                             |          |   0|  0| 881|        1118|        1117|
+    +----------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------------------------------+----+-----------+-----+-----------+
+    |                 Name                 | LUT| Input Size| Bits| Total Bits|
+    +--------------------------------------+----+-----------+-----+-----------+
+    |SocketTable_myPort_0_blk_n            |   9|          2|    1|          2|
+    |SocketTable_myPort_10_blk_n           |   9|          2|    1|          2|
+    |SocketTable_myPort_11_blk_n           |   9|          2|    1|          2|
+    |SocketTable_myPort_12_blk_n           |   9|          2|    1|          2|
+    |SocketTable_myPort_13_blk_n           |   9|          2|    1|          2|
+    |SocketTable_myPort_14_blk_n           |   9|          2|    1|          2|
+    |SocketTable_myPort_15_blk_n           |   9|          2|    1|          2|
+    |SocketTable_myPort_1_blk_n            |   9|          2|    1|          2|
+    |SocketTable_myPort_2_blk_n            |   9|          2|    1|          2|
+    |SocketTable_myPort_3_blk_n            |   9|          2|    1|          2|
+    |SocketTable_myPort_4_blk_n            |   9|          2|    1|          2|
+    |SocketTable_myPort_5_blk_n            |   9|          2|    1|          2|
+    |SocketTable_myPort_6_blk_n            |   9|          2|    1|          2|
+    |SocketTable_myPort_7_blk_n            |   9|          2|    1|          2|
+    |SocketTable_myPort_8_blk_n            |   9|          2|    1|          2|
+    |SocketTable_myPort_9_blk_n            |   9|          2|    1|          2|
+    |SocketTable_theirIP_0_blk_n           |   9|          2|    1|          2|
+    |SocketTable_theirIP_10_blk_n          |   9|          2|    1|          2|
+    |SocketTable_theirIP_11_blk_n          |   9|          2|    1|          2|
+    |SocketTable_theirIP_12_blk_n          |   9|          2|    1|          2|
+    |SocketTable_theirIP_13_blk_n          |   9|          2|    1|          2|
+    |SocketTable_theirIP_14_blk_n          |   9|          2|    1|          2|
+    |SocketTable_theirIP_15_blk_n          |   9|          2|    1|          2|
+    |SocketTable_theirIP_1_blk_n           |   9|          2|    1|          2|
+    |SocketTable_theirIP_2_blk_n           |   9|          2|    1|          2|
+    |SocketTable_theirIP_3_blk_n           |   9|          2|    1|          2|
+    |SocketTable_theirIP_4_blk_n           |   9|          2|    1|          2|
+    |SocketTable_theirIP_5_blk_n           |   9|          2|    1|          2|
+    |SocketTable_theirIP_6_blk_n           |   9|          2|    1|          2|
+    |SocketTable_theirIP_7_blk_n           |   9|          2|    1|          2|
+    |SocketTable_theirIP_8_blk_n           |   9|          2|    1|          2|
+    |SocketTable_theirIP_9_blk_n           |   9|          2|    1|          2|
+    |SocketTable_theirPort_0_blk_n         |   9|          2|    1|          2|
+    |SocketTable_theirPort_10_blk_n        |   9|          2|    1|          2|
+    |SocketTable_theirPort_11_blk_n        |   9|          2|    1|          2|
+    |SocketTable_theirPort_12_blk_n        |   9|          2|    1|          2|
+    |SocketTable_theirPort_13_blk_n        |   9|          2|    1|          2|
+    |SocketTable_theirPort_14_blk_n        |   9|          2|    1|          2|
+    |SocketTable_theirPort_15_blk_n        |   9|          2|    1|          2|
+    |SocketTable_theirPort_1_blk_n         |   9|          2|    1|          2|
+    |SocketTable_theirPort_2_blk_n         |   9|          2|    1|          2|
+    |SocketTable_theirPort_3_blk_n         |   9|          2|    1|          2|
+    |SocketTable_theirPort_4_blk_n         |   9|          2|    1|          2|
+    |SocketTable_theirPort_5_blk_n         |   9|          2|    1|          2|
+    |SocketTable_theirPort_6_blk_n         |   9|          2|    1|          2|
+    |SocketTable_theirPort_7_blk_n         |   9|          2|    1|          2|
+    |SocketTable_theirPort_8_blk_n         |   9|          2|    1|          2|
+    |SocketTable_theirPort_9_blk_n         |   9|          2|    1|          2|
+    |SocketTable_valid_0_blk_n             |   9|          2|    1|          2|
+    |SocketTable_valid_10_blk_n            |   9|          2|    1|          2|
+    |SocketTable_valid_11_blk_n            |   9|          2|    1|          2|
+    |SocketTable_valid_12_blk_n            |   9|          2|    1|          2|
+    |SocketTable_valid_13_blk_n            |   9|          2|    1|          2|
+    |SocketTable_valid_14_blk_n            |   9|          2|    1|          2|
+    |SocketTable_valid_15_blk_n            |   9|          2|    1|          2|
+    |SocketTable_valid_1_blk_n             |   9|          2|    1|          2|
+    |SocketTable_valid_2_blk_n             |   9|          2|    1|          2|
+    |SocketTable_valid_3_blk_n             |   9|          2|    1|          2|
+    |SocketTable_valid_4_blk_n             |   9|          2|    1|          2|
+    |SocketTable_valid_5_blk_n             |   9|          2|    1|          2|
+    |SocketTable_valid_6_blk_n             |   9|          2|    1|          2|
+    |SocketTable_valid_7_blk_n             |   9|          2|    1|          2|
+    |SocketTable_valid_8_blk_n             |   9|          2|    1|          2|
+    |SocketTable_valid_9_blk_n             |   9|          2|    1|          2|
+    |agmdIdOut_blk_n                       |   9|          2|    1|          2|
+    |ap_done                               |   9|          2|    1|          2|
+    |ap_phi_reg_pp0_iter2_index_V_reg_702  |  81|         17|    5|         85|
+    |myIpAddress_blk_n                     |   9|          2|    1|          2|
+    |numberSockets                         |   9|          2|    1|          2|
+    |rthDropFifo_blk_n                     |   9|          2|    1|          2|
+    |txthMetaData_blk_n                    |   9|          2|    1|          2|
+    |ureMetaData_blk_n                     |   9|          2|    1|          2|
+    +--------------------------------------+----+-----------+-----+-----------+
+    |Total                                 | 720|        159|   76|        227|
+    +--------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------------------------+----+----+-----+-----------+
+    |                      Name                     | FF | LUT| Bits| Const Bits|
+    +-----------------------------------------------+----+----+-----+-----------+
+    |and_ln60_10_reg_1654                           |   1|   0|    1|          0|
+    |and_ln60_11_reg_1658                           |   1|   0|    1|          0|
+    |and_ln60_12_reg_1662                           |   1|   0|    1|          0|
+    |and_ln60_13_reg_1666                           |   1|   0|    1|          0|
+    |and_ln60_14_reg_1670                           |   1|   0|    1|          0|
+    |and_ln60_1_reg_1618                            |   1|   0|    1|          0|
+    |and_ln60_2_reg_1622                            |   1|   0|    1|          0|
+    |and_ln60_3_reg_1626                            |   1|   0|    1|          0|
+    |and_ln60_4_reg_1630                            |   1|   0|    1|          0|
+    |and_ln60_5_reg_1634                            |   1|   0|    1|          0|
+    |and_ln60_6_reg_1638                            |   1|   0|    1|          0|
+    |and_ln60_7_reg_1642                            |   1|   0|    1|          0|
+    |and_ln60_8_reg_1646                            |   1|   0|    1|          0|
+    |and_ln60_9_reg_1650                            |   1|   0|    1|          0|
+    |and_ln60_reg_1614                              |   1|   0|    1|          0|
+    |ap_CS_fsm                                      |   1|   0|    1|          0|
+    |ap_done_reg                                    |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1                        |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2                        |   1|   0|    1|          0|
+    |ap_phi_reg_pp0_iter1_index_V_reg_702           |   5|   0|    5|          0|
+    |ap_phi_reg_pp0_iter2_index_V_reg_702           |   5|   0|    5|          0|
+    |cS_myPort_V_reg_1703                           |  16|   0|   16|          0|
+    |cS_theirIP_V_reg_1693                          |  32|   0|   32|          0|
+    |cS_theirPort_V_reg_1698                        |  16|   0|   16|          0|
+    |cS_valid_V_reg_1708                            |   1|   0|    1|          0|
+    |currRxMeta_myIP_V_reg_1599                     |  32|   0|   32|          0|
+    |currRxMeta_myIP_V_reg_1599_pp0_iter1_reg       |  32|   0|   32|          0|
+    |currRxMeta_myPort_V_reg_1609                   |  16|   0|   16|          0|
+    |currRxMeta_myPort_V_reg_1609_pp0_iter1_reg     |  16|   0|   16|          0|
+    |currRxMeta_theirIP_V_reg_1594                  |  32|   0|   32|          0|
+    |currRxMeta_theirIP_V_reg_1594_pp0_iter1_reg    |  32|   0|   32|          0|
+    |currRxMeta_theirPort_V_reg_1604                |  16|   0|   16|          0|
+    |currRxMeta_theirPort_V_reg_1604_pp0_iter1_reg  |  16|   0|   16|          0|
+    |icmp_ln1064_45_reg_1674                        |   1|   0|    1|          0|
+    |icmp_ln1064_46_reg_1679                        |   1|   0|    1|          0|
+    |icmp_ln1064_47_reg_1684                        |   1|   0|    1|          0|
+    |inputVector_V_reg_1578                         |  32|   0|   32|          0|
+    |inputVector_V_reg_1578_pp0_iter1_reg           |  32|   0|   32|          0|
+    |numberSockets_preg                             |   1|   0|   16|         15|
+    |tmp_i_650_reg_1689                             |   1|   0|    1|          0|
+    |tmp_i_reg_1590                                 |   1|   0|    1|          0|
+    |tmp_i_reg_1590_pp0_iter1_reg                   |   1|   0|    1|          0|
+    +-----------------------------------------------+----+----+-----+-----------+
+    |Total                                          | 357|   0|  372|         15|
+    +-----------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------------------+-----+-----+------------+--------------------------+--------------+
+|             RTL Ports            | Dir | Bits|  Protocol  |       Source Object      |    C Type    |
++----------------------------------+-----+-----+------------+--------------------------+--------------+
+|ap_clk                            |   in|    1|  ap_ctrl_hs|              TableHandler|  return value|
+|ap_rst                            |   in|    1|  ap_ctrl_hs|              TableHandler|  return value|
+|ap_start                          |   in|    1|  ap_ctrl_hs|              TableHandler|  return value|
+|ap_done                           |  out|    1|  ap_ctrl_hs|              TableHandler|  return value|
+|ap_continue                       |   in|    1|  ap_ctrl_hs|              TableHandler|  return value|
+|ap_idle                           |  out|    1|  ap_ctrl_hs|              TableHandler|  return value|
+|ap_ready                          |  out|    1|  ap_ctrl_hs|              TableHandler|  return value|
+|SocketTable_valid_15_dout         |   in|    1|     ap_fifo|      SocketTable_valid_15|       pointer|
+|SocketTable_valid_15_empty_n      |   in|    1|     ap_fifo|      SocketTable_valid_15|       pointer|
+|SocketTable_valid_15_read         |  out|    1|     ap_fifo|      SocketTable_valid_15|       pointer|
+|SocketTable_valid_14_dout         |   in|    1|     ap_fifo|      SocketTable_valid_14|       pointer|
+|SocketTable_valid_14_empty_n      |   in|    1|     ap_fifo|      SocketTable_valid_14|       pointer|
+|SocketTable_valid_14_read         |  out|    1|     ap_fifo|      SocketTable_valid_14|       pointer|
+|SocketTable_valid_13_dout         |   in|    1|     ap_fifo|      SocketTable_valid_13|       pointer|
+|SocketTable_valid_13_empty_n      |   in|    1|     ap_fifo|      SocketTable_valid_13|       pointer|
+|SocketTable_valid_13_read         |  out|    1|     ap_fifo|      SocketTable_valid_13|       pointer|
+|SocketTable_valid_12_dout         |   in|    1|     ap_fifo|      SocketTable_valid_12|       pointer|
+|SocketTable_valid_12_empty_n      |   in|    1|     ap_fifo|      SocketTable_valid_12|       pointer|
+|SocketTable_valid_12_read         |  out|    1|     ap_fifo|      SocketTable_valid_12|       pointer|
+|SocketTable_valid_11_dout         |   in|    1|     ap_fifo|      SocketTable_valid_11|       pointer|
+|SocketTable_valid_11_empty_n      |   in|    1|     ap_fifo|      SocketTable_valid_11|       pointer|
+|SocketTable_valid_11_read         |  out|    1|     ap_fifo|      SocketTable_valid_11|       pointer|
+|SocketTable_valid_10_dout         |   in|    1|     ap_fifo|      SocketTable_valid_10|       pointer|
+|SocketTable_valid_10_empty_n      |   in|    1|     ap_fifo|      SocketTable_valid_10|       pointer|
+|SocketTable_valid_10_read         |  out|    1|     ap_fifo|      SocketTable_valid_10|       pointer|
+|SocketTable_valid_9_dout          |   in|    1|     ap_fifo|       SocketTable_valid_9|       pointer|
+|SocketTable_valid_9_empty_n       |   in|    1|     ap_fifo|       SocketTable_valid_9|       pointer|
+|SocketTable_valid_9_read          |  out|    1|     ap_fifo|       SocketTable_valid_9|       pointer|
+|SocketTable_valid_8_dout          |   in|    1|     ap_fifo|       SocketTable_valid_8|       pointer|
+|SocketTable_valid_8_empty_n       |   in|    1|     ap_fifo|       SocketTable_valid_8|       pointer|
+|SocketTable_valid_8_read          |  out|    1|     ap_fifo|       SocketTable_valid_8|       pointer|
+|SocketTable_valid_7_dout          |   in|    1|     ap_fifo|       SocketTable_valid_7|       pointer|
+|SocketTable_valid_7_empty_n       |   in|    1|     ap_fifo|       SocketTable_valid_7|       pointer|
+|SocketTable_valid_7_read          |  out|    1|     ap_fifo|       SocketTable_valid_7|       pointer|
+|SocketTable_valid_6_dout          |   in|    1|     ap_fifo|       SocketTable_valid_6|       pointer|
+|SocketTable_valid_6_empty_n       |   in|    1|     ap_fifo|       SocketTable_valid_6|       pointer|
+|SocketTable_valid_6_read          |  out|    1|     ap_fifo|       SocketTable_valid_6|       pointer|
+|SocketTable_valid_5_dout          |   in|    1|     ap_fifo|       SocketTable_valid_5|       pointer|
+|SocketTable_valid_5_empty_n       |   in|    1|     ap_fifo|       SocketTable_valid_5|       pointer|
+|SocketTable_valid_5_read          |  out|    1|     ap_fifo|       SocketTable_valid_5|       pointer|
+|SocketTable_valid_4_dout          |   in|    1|     ap_fifo|       SocketTable_valid_4|       pointer|
+|SocketTable_valid_4_empty_n       |   in|    1|     ap_fifo|       SocketTable_valid_4|       pointer|
+|SocketTable_valid_4_read          |  out|    1|     ap_fifo|       SocketTable_valid_4|       pointer|
+|SocketTable_valid_3_dout          |   in|    1|     ap_fifo|       SocketTable_valid_3|       pointer|
+|SocketTable_valid_3_empty_n       |   in|    1|     ap_fifo|       SocketTable_valid_3|       pointer|
+|SocketTable_valid_3_read          |  out|    1|     ap_fifo|       SocketTable_valid_3|       pointer|
+|SocketTable_valid_2_dout          |   in|    1|     ap_fifo|       SocketTable_valid_2|       pointer|
+|SocketTable_valid_2_empty_n       |   in|    1|     ap_fifo|       SocketTable_valid_2|       pointer|
+|SocketTable_valid_2_read          |  out|    1|     ap_fifo|       SocketTable_valid_2|       pointer|
+|SocketTable_valid_1_dout          |   in|    1|     ap_fifo|       SocketTable_valid_1|       pointer|
+|SocketTable_valid_1_empty_n       |   in|    1|     ap_fifo|       SocketTable_valid_1|       pointer|
+|SocketTable_valid_1_read          |  out|    1|     ap_fifo|       SocketTable_valid_1|       pointer|
+|SocketTable_valid_0_dout          |   in|    1|     ap_fifo|       SocketTable_valid_0|       pointer|
+|SocketTable_valid_0_empty_n       |   in|    1|     ap_fifo|       SocketTable_valid_0|       pointer|
+|SocketTable_valid_0_read          |  out|    1|     ap_fifo|       SocketTable_valid_0|       pointer|
+|SocketTable_myPort_15_dout        |   in|   16|     ap_fifo|     SocketTable_myPort_15|       pointer|
+|SocketTable_myPort_15_empty_n     |   in|    1|     ap_fifo|     SocketTable_myPort_15|       pointer|
+|SocketTable_myPort_15_read        |  out|    1|     ap_fifo|     SocketTable_myPort_15|       pointer|
+|SocketTable_myPort_14_dout        |   in|   16|     ap_fifo|     SocketTable_myPort_14|       pointer|
+|SocketTable_myPort_14_empty_n     |   in|    1|     ap_fifo|     SocketTable_myPort_14|       pointer|
+|SocketTable_myPort_14_read        |  out|    1|     ap_fifo|     SocketTable_myPort_14|       pointer|
+|SocketTable_myPort_13_dout        |   in|   16|     ap_fifo|     SocketTable_myPort_13|       pointer|
+|SocketTable_myPort_13_empty_n     |   in|    1|     ap_fifo|     SocketTable_myPort_13|       pointer|
+|SocketTable_myPort_13_read        |  out|    1|     ap_fifo|     SocketTable_myPort_13|       pointer|
+|SocketTable_myPort_12_dout        |   in|   16|     ap_fifo|     SocketTable_myPort_12|       pointer|
+|SocketTable_myPort_12_empty_n     |   in|    1|     ap_fifo|     SocketTable_myPort_12|       pointer|
+|SocketTable_myPort_12_read        |  out|    1|     ap_fifo|     SocketTable_myPort_12|       pointer|
+|SocketTable_myPort_11_dout        |   in|   16|     ap_fifo|     SocketTable_myPort_11|       pointer|
+|SocketTable_myPort_11_empty_n     |   in|    1|     ap_fifo|     SocketTable_myPort_11|       pointer|
+|SocketTable_myPort_11_read        |  out|    1|     ap_fifo|     SocketTable_myPort_11|       pointer|
+|SocketTable_myPort_10_dout        |   in|   16|     ap_fifo|     SocketTable_myPort_10|       pointer|
+|SocketTable_myPort_10_empty_n     |   in|    1|     ap_fifo|     SocketTable_myPort_10|       pointer|
+|SocketTable_myPort_10_read        |  out|    1|     ap_fifo|     SocketTable_myPort_10|       pointer|
+|SocketTable_myPort_9_dout         |   in|   16|     ap_fifo|      SocketTable_myPort_9|       pointer|
+|SocketTable_myPort_9_empty_n      |   in|    1|     ap_fifo|      SocketTable_myPort_9|       pointer|
+|SocketTable_myPort_9_read         |  out|    1|     ap_fifo|      SocketTable_myPort_9|       pointer|
+|SocketTable_myPort_8_dout         |   in|   16|     ap_fifo|      SocketTable_myPort_8|       pointer|
+|SocketTable_myPort_8_empty_n      |   in|    1|     ap_fifo|      SocketTable_myPort_8|       pointer|
+|SocketTable_myPort_8_read         |  out|    1|     ap_fifo|      SocketTable_myPort_8|       pointer|
+|SocketTable_myPort_7_dout         |   in|   16|     ap_fifo|      SocketTable_myPort_7|       pointer|
+|SocketTable_myPort_7_empty_n      |   in|    1|     ap_fifo|      SocketTable_myPort_7|       pointer|
+|SocketTable_myPort_7_read         |  out|    1|     ap_fifo|      SocketTable_myPort_7|       pointer|
+|SocketTable_myPort_6_dout         |   in|   16|     ap_fifo|      SocketTable_myPort_6|       pointer|
+|SocketTable_myPort_6_empty_n      |   in|    1|     ap_fifo|      SocketTable_myPort_6|       pointer|
+|SocketTable_myPort_6_read         |  out|    1|     ap_fifo|      SocketTable_myPort_6|       pointer|
+|SocketTable_myPort_5_dout         |   in|   16|     ap_fifo|      SocketTable_myPort_5|       pointer|
+|SocketTable_myPort_5_empty_n      |   in|    1|     ap_fifo|      SocketTable_myPort_5|       pointer|
+|SocketTable_myPort_5_read         |  out|    1|     ap_fifo|      SocketTable_myPort_5|       pointer|
+|SocketTable_myPort_4_dout         |   in|   16|     ap_fifo|      SocketTable_myPort_4|       pointer|
+|SocketTable_myPort_4_empty_n      |   in|    1|     ap_fifo|      SocketTable_myPort_4|       pointer|
+|SocketTable_myPort_4_read         |  out|    1|     ap_fifo|      SocketTable_myPort_4|       pointer|
+|SocketTable_myPort_3_dout         |   in|   16|     ap_fifo|      SocketTable_myPort_3|       pointer|
+|SocketTable_myPort_3_empty_n      |   in|    1|     ap_fifo|      SocketTable_myPort_3|       pointer|
+|SocketTable_myPort_3_read         |  out|    1|     ap_fifo|      SocketTable_myPort_3|       pointer|
+|SocketTable_myPort_2_dout         |   in|   16|     ap_fifo|      SocketTable_myPort_2|       pointer|
+|SocketTable_myPort_2_empty_n      |   in|    1|     ap_fifo|      SocketTable_myPort_2|       pointer|
+|SocketTable_myPort_2_read         |  out|    1|     ap_fifo|      SocketTable_myPort_2|       pointer|
+|SocketTable_myPort_1_dout         |   in|   16|     ap_fifo|      SocketTable_myPort_1|       pointer|
+|SocketTable_myPort_1_empty_n      |   in|    1|     ap_fifo|      SocketTable_myPort_1|       pointer|
+|SocketTable_myPort_1_read         |  out|    1|     ap_fifo|      SocketTable_myPort_1|       pointer|
+|SocketTable_myPort_0_dout         |   in|   16|     ap_fifo|      SocketTable_myPort_0|       pointer|
+|SocketTable_myPort_0_empty_n      |   in|    1|     ap_fifo|      SocketTable_myPort_0|       pointer|
+|SocketTable_myPort_0_read         |  out|    1|     ap_fifo|      SocketTable_myPort_0|       pointer|
+|SocketTable_theirPort_15_dout     |   in|   16|     ap_fifo|  SocketTable_theirPort_15|       pointer|
+|SocketTable_theirPort_15_empty_n  |   in|    1|     ap_fifo|  SocketTable_theirPort_15|       pointer|
+|SocketTable_theirPort_15_read     |  out|    1|     ap_fifo|  SocketTable_theirPort_15|       pointer|
+|SocketTable_theirPort_14_dout     |   in|   16|     ap_fifo|  SocketTable_theirPort_14|       pointer|
+|SocketTable_theirPort_14_empty_n  |   in|    1|     ap_fifo|  SocketTable_theirPort_14|       pointer|
+|SocketTable_theirPort_14_read     |  out|    1|     ap_fifo|  SocketTable_theirPort_14|       pointer|
+|SocketTable_theirPort_13_dout     |   in|   16|     ap_fifo|  SocketTable_theirPort_13|       pointer|
+|SocketTable_theirPort_13_empty_n  |   in|    1|     ap_fifo|  SocketTable_theirPort_13|       pointer|
+|SocketTable_theirPort_13_read     |  out|    1|     ap_fifo|  SocketTable_theirPort_13|       pointer|
+|SocketTable_theirPort_12_dout     |   in|   16|     ap_fifo|  SocketTable_theirPort_12|       pointer|
+|SocketTable_theirPort_12_empty_n  |   in|    1|     ap_fifo|  SocketTable_theirPort_12|       pointer|
+|SocketTable_theirPort_12_read     |  out|    1|     ap_fifo|  SocketTable_theirPort_12|       pointer|
+|SocketTable_theirPort_11_dout     |   in|   16|     ap_fifo|  SocketTable_theirPort_11|       pointer|
+|SocketTable_theirPort_11_empty_n  |   in|    1|     ap_fifo|  SocketTable_theirPort_11|       pointer|
+|SocketTable_theirPort_11_read     |  out|    1|     ap_fifo|  SocketTable_theirPort_11|       pointer|
+|SocketTable_theirPort_10_dout     |   in|   16|     ap_fifo|  SocketTable_theirPort_10|       pointer|
+|SocketTable_theirPort_10_empty_n  |   in|    1|     ap_fifo|  SocketTable_theirPort_10|       pointer|
+|SocketTable_theirPort_10_read     |  out|    1|     ap_fifo|  SocketTable_theirPort_10|       pointer|
+|SocketTable_theirPort_9_dout      |   in|   16|     ap_fifo|   SocketTable_theirPort_9|       pointer|
+|SocketTable_theirPort_9_empty_n   |   in|    1|     ap_fifo|   SocketTable_theirPort_9|       pointer|
+|SocketTable_theirPort_9_read      |  out|    1|     ap_fifo|   SocketTable_theirPort_9|       pointer|
+|SocketTable_theirPort_8_dout      |   in|   16|     ap_fifo|   SocketTable_theirPort_8|       pointer|
+|SocketTable_theirPort_8_empty_n   |   in|    1|     ap_fifo|   SocketTable_theirPort_8|       pointer|
+|SocketTable_theirPort_8_read      |  out|    1|     ap_fifo|   SocketTable_theirPort_8|       pointer|
+|SocketTable_theirPort_7_dout      |   in|   16|     ap_fifo|   SocketTable_theirPort_7|       pointer|
+|SocketTable_theirPort_7_empty_n   |   in|    1|     ap_fifo|   SocketTable_theirPort_7|       pointer|
+|SocketTable_theirPort_7_read      |  out|    1|     ap_fifo|   SocketTable_theirPort_7|       pointer|
+|SocketTable_theirPort_6_dout      |   in|   16|     ap_fifo|   SocketTable_theirPort_6|       pointer|
+|SocketTable_theirPort_6_empty_n   |   in|    1|     ap_fifo|   SocketTable_theirPort_6|       pointer|
+|SocketTable_theirPort_6_read      |  out|    1|     ap_fifo|   SocketTable_theirPort_6|       pointer|
+|SocketTable_theirPort_5_dout      |   in|   16|     ap_fifo|   SocketTable_theirPort_5|       pointer|
+|SocketTable_theirPort_5_empty_n   |   in|    1|     ap_fifo|   SocketTable_theirPort_5|       pointer|
+|SocketTable_theirPort_5_read      |  out|    1|     ap_fifo|   SocketTable_theirPort_5|       pointer|
+|SocketTable_theirPort_4_dout      |   in|   16|     ap_fifo|   SocketTable_theirPort_4|       pointer|
+|SocketTable_theirPort_4_empty_n   |   in|    1|     ap_fifo|   SocketTable_theirPort_4|       pointer|
+|SocketTable_theirPort_4_read      |  out|    1|     ap_fifo|   SocketTable_theirPort_4|       pointer|
+|SocketTable_theirPort_3_dout      |   in|   16|     ap_fifo|   SocketTable_theirPort_3|       pointer|
+|SocketTable_theirPort_3_empty_n   |   in|    1|     ap_fifo|   SocketTable_theirPort_3|       pointer|
+|SocketTable_theirPort_3_read      |  out|    1|     ap_fifo|   SocketTable_theirPort_3|       pointer|
+|SocketTable_theirPort_2_dout      |   in|   16|     ap_fifo|   SocketTable_theirPort_2|       pointer|
+|SocketTable_theirPort_2_empty_n   |   in|    1|     ap_fifo|   SocketTable_theirPort_2|       pointer|
+|SocketTable_theirPort_2_read      |  out|    1|     ap_fifo|   SocketTable_theirPort_2|       pointer|
+|SocketTable_theirPort_1_dout      |   in|   16|     ap_fifo|   SocketTable_theirPort_1|       pointer|
+|SocketTable_theirPort_1_empty_n   |   in|    1|     ap_fifo|   SocketTable_theirPort_1|       pointer|
+|SocketTable_theirPort_1_read      |  out|    1|     ap_fifo|   SocketTable_theirPort_1|       pointer|
+|SocketTable_theirPort_0_dout      |   in|   16|     ap_fifo|   SocketTable_theirPort_0|       pointer|
+|SocketTable_theirPort_0_empty_n   |   in|    1|     ap_fifo|   SocketTable_theirPort_0|       pointer|
+|SocketTable_theirPort_0_read      |  out|    1|     ap_fifo|   SocketTable_theirPort_0|       pointer|
+|SocketTable_theirIP_15_dout       |   in|   32|     ap_fifo|    SocketTable_theirIP_15|       pointer|
+|SocketTable_theirIP_15_empty_n    |   in|    1|     ap_fifo|    SocketTable_theirIP_15|       pointer|
+|SocketTable_theirIP_15_read       |  out|    1|     ap_fifo|    SocketTable_theirIP_15|       pointer|
+|SocketTable_theirIP_14_dout       |   in|   32|     ap_fifo|    SocketTable_theirIP_14|       pointer|
+|SocketTable_theirIP_14_empty_n    |   in|    1|     ap_fifo|    SocketTable_theirIP_14|       pointer|
+|SocketTable_theirIP_14_read       |  out|    1|     ap_fifo|    SocketTable_theirIP_14|       pointer|
+|SocketTable_theirIP_13_dout       |   in|   32|     ap_fifo|    SocketTable_theirIP_13|       pointer|
+|SocketTable_theirIP_13_empty_n    |   in|    1|     ap_fifo|    SocketTable_theirIP_13|       pointer|
+|SocketTable_theirIP_13_read       |  out|    1|     ap_fifo|    SocketTable_theirIP_13|       pointer|
+|SocketTable_theirIP_12_dout       |   in|   32|     ap_fifo|    SocketTable_theirIP_12|       pointer|
+|SocketTable_theirIP_12_empty_n    |   in|    1|     ap_fifo|    SocketTable_theirIP_12|       pointer|
+|SocketTable_theirIP_12_read       |  out|    1|     ap_fifo|    SocketTable_theirIP_12|       pointer|
+|SocketTable_theirIP_11_dout       |   in|   32|     ap_fifo|    SocketTable_theirIP_11|       pointer|
+|SocketTable_theirIP_11_empty_n    |   in|    1|     ap_fifo|    SocketTable_theirIP_11|       pointer|
+|SocketTable_theirIP_11_read       |  out|    1|     ap_fifo|    SocketTable_theirIP_11|       pointer|
+|SocketTable_theirIP_10_dout       |   in|   32|     ap_fifo|    SocketTable_theirIP_10|       pointer|
+|SocketTable_theirIP_10_empty_n    |   in|    1|     ap_fifo|    SocketTable_theirIP_10|       pointer|
+|SocketTable_theirIP_10_read       |  out|    1|     ap_fifo|    SocketTable_theirIP_10|       pointer|
+|SocketTable_theirIP_9_dout        |   in|   32|     ap_fifo|     SocketTable_theirIP_9|       pointer|
+|SocketTable_theirIP_9_empty_n     |   in|    1|     ap_fifo|     SocketTable_theirIP_9|       pointer|
+|SocketTable_theirIP_9_read        |  out|    1|     ap_fifo|     SocketTable_theirIP_9|       pointer|
+|SocketTable_theirIP_8_dout        |   in|   32|     ap_fifo|     SocketTable_theirIP_8|       pointer|
+|SocketTable_theirIP_8_empty_n     |   in|    1|     ap_fifo|     SocketTable_theirIP_8|       pointer|
+|SocketTable_theirIP_8_read        |  out|    1|     ap_fifo|     SocketTable_theirIP_8|       pointer|
+|SocketTable_theirIP_7_dout        |   in|   32|     ap_fifo|     SocketTable_theirIP_7|       pointer|
+|SocketTable_theirIP_7_empty_n     |   in|    1|     ap_fifo|     SocketTable_theirIP_7|       pointer|
+|SocketTable_theirIP_7_read        |  out|    1|     ap_fifo|     SocketTable_theirIP_7|       pointer|
+|SocketTable_theirIP_6_dout        |   in|   32|     ap_fifo|     SocketTable_theirIP_6|       pointer|
+|SocketTable_theirIP_6_empty_n     |   in|    1|     ap_fifo|     SocketTable_theirIP_6|       pointer|
+|SocketTable_theirIP_6_read        |  out|    1|     ap_fifo|     SocketTable_theirIP_6|       pointer|
+|SocketTable_theirIP_5_dout        |   in|   32|     ap_fifo|     SocketTable_theirIP_5|       pointer|
+|SocketTable_theirIP_5_empty_n     |   in|    1|     ap_fifo|     SocketTable_theirIP_5|       pointer|
+|SocketTable_theirIP_5_read        |  out|    1|     ap_fifo|     SocketTable_theirIP_5|       pointer|
+|SocketTable_theirIP_4_dout        |   in|   32|     ap_fifo|     SocketTable_theirIP_4|       pointer|
+|SocketTable_theirIP_4_empty_n     |   in|    1|     ap_fifo|     SocketTable_theirIP_4|       pointer|
+|SocketTable_theirIP_4_read        |  out|    1|     ap_fifo|     SocketTable_theirIP_4|       pointer|
+|SocketTable_theirIP_3_dout        |   in|   32|     ap_fifo|     SocketTable_theirIP_3|       pointer|
+|SocketTable_theirIP_3_empty_n     |   in|    1|     ap_fifo|     SocketTable_theirIP_3|       pointer|
+|SocketTable_theirIP_3_read        |  out|    1|     ap_fifo|     SocketTable_theirIP_3|       pointer|
+|SocketTable_theirIP_2_dout        |   in|   32|     ap_fifo|     SocketTable_theirIP_2|       pointer|
+|SocketTable_theirIP_2_empty_n     |   in|    1|     ap_fifo|     SocketTable_theirIP_2|       pointer|
+|SocketTable_theirIP_2_read        |  out|    1|     ap_fifo|     SocketTable_theirIP_2|       pointer|
+|SocketTable_theirIP_1_dout        |   in|   32|     ap_fifo|     SocketTable_theirIP_1|       pointer|
+|SocketTable_theirIP_1_empty_n     |   in|    1|     ap_fifo|     SocketTable_theirIP_1|       pointer|
+|SocketTable_theirIP_1_read        |  out|    1|     ap_fifo|     SocketTable_theirIP_1|       pointer|
+|SocketTable_theirIP_0_dout        |   in|   32|     ap_fifo|     SocketTable_theirIP_0|       pointer|
+|SocketTable_theirIP_0_empty_n     |   in|    1|     ap_fifo|     SocketTable_theirIP_0|       pointer|
+|SocketTable_theirIP_0_read        |  out|    1|     ap_fifo|     SocketTable_theirIP_0|       pointer|
+|myIpAddress_dout                  |   in|   32|     ap_fifo|               myIpAddress|       pointer|
+|myIpAddress_empty_n               |   in|    1|     ap_fifo|               myIpAddress|       pointer|
+|myIpAddress_read                  |  out|    1|     ap_fifo|               myIpAddress|       pointer|
+|ureMetaData_dout                  |   in|  128|     ap_fifo|               ureMetaData|       pointer|
+|ureMetaData_empty_n               |   in|    1|     ap_fifo|               ureMetaData|       pointer|
+|ureMetaData_read                  |  out|    1|     ap_fifo|               ureMetaData|       pointer|
+|agmdIdOut_dout                    |   in|   16|     ap_fifo|                 agmdIdOut|       pointer|
+|agmdIdOut_empty_n                 |   in|    1|     ap_fifo|                 agmdIdOut|       pointer|
+|agmdIdOut_read                    |  out|    1|     ap_fifo|                 agmdIdOut|       pointer|
+|txthMetaData_din                  |  out|  128|     ap_fifo|              txthMetaData|       pointer|
+|txthMetaData_full_n               |   in|    1|     ap_fifo|              txthMetaData|       pointer|
+|txthMetaData_write                |  out|    1|     ap_fifo|              txthMetaData|       pointer|
+|rthDropFifo_din                   |  out|  160|     ap_fifo|               rthDropFifo|       pointer|
+|rthDropFifo_full_n                |   in|    1|     ap_fifo|               rthDropFifo|       pointer|
+|rthDropFifo_write                 |  out|    1|     ap_fifo|               rthDropFifo|       pointer|
+|numberSockets                     |  out|   16|      ap_vld|             numberSockets|       pointer|
+|numberSockets_ap_vld              |  out|    1|      ap_vld|             numberSockets|       pointer|
++----------------------------------+-----+-----+------------+--------------------------+--------------+
+

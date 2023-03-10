@@ -50,15 +50,18 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define MY_IP_ADDR 0xC0A80101
 #define THEIR_IP_ADDR 0xC0A80102
 #define IP_GATEWAY 0xC0A801FF
-#define ARP_DISCOVERY 0x3010
-#define ARP_IP_ADDR_OFFSET 0x3400
-#define ARP_MAC_ADDR_OFFSET 0x3800
-#define ARP_VALID_OFFSET 0x3100
+#define ARP_DISCOVERY 0x1010
+#define ARP_IP_ADDR_OFFSET 0x1400
+#define ARP_MAC_ADDR_OFFSET 0x1800
+#define ARP_VALID_OFFSET 0x1100
 #define IP_ADDR_OFFSET 0x0018
-#define GATEWAY_OFFSET 0x001C
+#define IP_GATEWAY_OFFSET 0x001C
 #define MAC_ADDR_OFFSET 0x0010
-#define NUM_SOCKETS_HW 0x2210
-#define UDP_OFFSET 0x2000
+#define NUM_SOCKETS_HW 0x0A10
+#define UDP_TI_OFFSET 0x0810
+#define UDP_TP_OFFSET 0x0890
+#define UDP_MP_OFFSET 0x0910
+#define UDP_V_OFFSET 0x0990 
 
 typedef struct {
 	uint32_t theirIP;
@@ -170,7 +173,7 @@ int main(int argc, char **argv) {
     	xclRegWrite(handle, nlidx, MAC_ADDR_OFFSET, mac_address); 
     	xclRegWrite(handle, nlidx, MAC_ADDR_OFFSET + 4, mac_address >> 32);
     	xclRegWrite(handle, nlidx, IP_ADDR_OFFSET, my_ip_address);
-    	xclRegWrite(handle, nlidx, GATEWAY_OFFSET, ip_gateway); 
+    	xclRegWrite(handle, nlidx, IP_GATEWAY_OFFSET, ip_gateway); 
 
 	unsigned num_sockets_hw = 0, num_sockets_sw = sizeof(sockets) / sizeof(sockets[0]);
     	sockets[0].theirIP = their_ip_address;
@@ -193,15 +196,15 @@ int main(int argc, char **argv) {
 		return 1;
 	}
 	for (unsigned int i = 0; i < num_sockets_hw; i++) {
-		uint32_t TI_OFFSET = 0x10 + i * 8;
-		uint32_t TP_OFFSET = TI_OFFSET + 16 * 8;
-		uint32_t MP_OFFSET = TI_OFFSET + 16 * 8 * 2;
-		uint32_t V_OFFSET  = TI_OFFSET + 16 * 8 * 3;
+		uint32_t TI_OFFSET = UDP_TI_OFFSET + i * 8;
+		uint32_t TP_OFFSET = UDP_TP_OFFSET + i * 8;
+		uint32_t MP_OFFSET = UDP_MP_OFFSET + i * 8;
+		uint32_t V_OFFSET  = UDP_V_OFFSET + i * 8;
                   
-		xclRegWrite(handle, nlidx, UDP_OFFSET + TI_OFFSET, sockets[i].theirIP);
-		xclRegWrite(handle, nlidx, UDP_OFFSET + TP_OFFSET, sockets[i].theirPort);
-		xclRegWrite(handle, nlidx, UDP_OFFSET + MP_OFFSET, sockets[i].myPort);
-		xclRegWrite(handle, nlidx, UDP_OFFSET + V_OFFSET, sockets[i].valid);
+		xclRegWrite(handle, nlidx, TI_OFFSET, sockets[i].theirIP);
+		xclRegWrite(handle, nlidx, TP_OFFSET, sockets[i].theirPort);
+		xclRegWrite(handle, nlidx, MP_OFFSET, sockets[i].myPort);
+		xclRegWrite(handle, nlidx, V_OFFSET, sockets[i].valid);
 	}
 	for(int i = 0; i < 256; i++) {
 		xclRegWrite(handle, nlidx, ARP_VALID_OFFSET + (i / 4) * 4, 0);

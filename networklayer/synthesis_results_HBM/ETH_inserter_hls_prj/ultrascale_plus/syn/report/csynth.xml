@@ -1,0 +1,921 @@
+<profile>
+    <ReportVersion>
+        <Version>2021.2</Version>
+    </ReportVersion>
+    <UserAssignments>
+        <unit>ns</unit>
+        <ProductFamily>virtexuplus</ProductFamily>
+        <Part>xcu280-fsvh2892-2L-e</Part>
+        <TopModelName>ethernet_header_inserter</TopModelName>
+        <TargetClockPeriod>3.10</TargetClockPeriod>
+        <ClockUncertainty>0.20</ClockUncertainty>
+        <FlowTarget>vivado</FlowTarget>
+    </UserAssignments>
+    <PerformanceEstimates>
+        <PipelineType>dataflow</PipelineType>
+        <SummaryOfTimingAnalysis>
+            <unit>ns</unit>
+            <EstimatedClockPeriod>2.816</EstimatedClockPeriod>
+        </SummaryOfTimingAnalysis>
+        <SummaryOfOverallLatency>
+            <unit>clock cycles</unit>
+            <Best-caseLatency>9</Best-caseLatency>
+            <Average-caseLatency>9</Average-caseLatency>
+            <Worst-caseLatency>9</Worst-caseLatency>
+            <Best-caseRealTimeLatency>27.900 ns</Best-caseRealTimeLatency>
+            <Average-caseRealTimeLatency>27.900 ns</Average-caseRealTimeLatency>
+            <Worst-caseRealTimeLatency>27.900 ns</Worst-caseRealTimeLatency>
+            <DataflowPipelineThroughput>1</DataflowPipelineThroughput>
+            <Interval-min>1</Interval-min>
+            <Interval-max>1</Interval-max>
+        </SummaryOfOverallLatency>
+    </PerformanceEstimates>
+    <AreaEstimates>
+        <Resources>
+            <BRAM_18K>0</BRAM_18K>
+            <FF>13968</FF>
+            <LUT>7595</LUT>
+            <DSP>0</DSP>
+            <URAM>0</URAM>
+        </Resources>
+        <AvailableResources>
+            <BRAM_18K>4032</BRAM_18K>
+            <DSP>9024</DSP>
+            <FF>2607360</FF>
+            <LUT>1303680</LUT>
+            <URAM>960</URAM>
+        </AvailableResources>
+    </AreaEstimates>
+    <InterfaceSummary>
+        <RtlPorts>
+            <name>ap_local_block</name>
+            <Object>ethernet_header_inserter</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_none</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_local_deadlock</name>
+            <Object>ethernet_header_inserter</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_none</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_clk</name>
+            <Object>ethernet_header_inserter</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_rst_n</name>
+            <Object>ethernet_header_inserter</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>dataIn_TDATA</name>
+            <Object>dataIn_V_data_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>512</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>dataIn_TKEEP</name>
+            <Object>dataIn_V_keep_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>64</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>dataIn_TSTRB</name>
+            <Object>dataIn_V_strb_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>64</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>dataIn_TLAST</name>
+            <Object>dataIn_V_last_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>dataIn_TVALID</name>
+            <Object>dataIn_V_last_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>dataIn_TREADY</name>
+            <Object>dataIn_V_last_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>dataOut_TDATA</name>
+            <Object>dataOut_V_data_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>512</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>dataOut_TKEEP</name>
+            <Object>dataOut_V_keep_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>64</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>dataOut_TSTRB</name>
+            <Object>dataOut_V_strb_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>64</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>dataOut_TLAST</name>
+            <Object>dataOut_V_last_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>dataOut_TVALID</name>
+            <Object>dataOut_V_last_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>dataOut_TREADY</name>
+            <Object>dataOut_V_last_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>arpTableReplay_TDATA</name>
+            <Object>arpTableReplay</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>128</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>arpTableReplay_TVALID</name>
+            <Object>arpTableReplay</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>arpTableReplay_TREADY</name>
+            <Object>arpTableReplay</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>arpTableRequest_TDATA</name>
+            <Object>arpTableRequest</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>arpTableRequest_TVALID</name>
+            <Object>arpTableRequest</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>arpTableRequest_TREADY</name>
+            <Object>arpTableRequest</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>myMacAddress</name>
+            <Object>myMacAddress</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>48</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regSubNetMask</name>
+            <Object>regSubNetMask</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>regDefaultGateway</name>
+            <Object>regDefaultGateway</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+    </InterfaceSummary>
+    <RTLDesignHierarchy>
+        <TopModule MAX_DEPTH="3">
+            <ModuleName>ethernet_header_inserter</ModuleName>
+            <InstancesList>
+                <Instance>
+                    <InstName>broadcaster_and_mac_request_U0</InstName>
+                    <ModuleName>broadcaster_and_mac_request</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>102</ID>
+                </Instance>
+                <Instance>
+                    <InstName>compute_and_insert_ip_checksum_U0</InstName>
+                    <ModuleName>compute_and_insert_ip_checksum</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>126</ID>
+                    <BindInstances>add_ln1540_1_fu_1646_p2 ret_fu_1650_p2 add_ln1540_3_fu_1662_p2 ret_24_fu_1666_p2 ret_25_fu_1591_p2 add_ln1540_6_fu_1678_p2 ret_26_fu_1682_p2 add_ln1540_8_fu_1694_p2 ret_27_fu_1698_p2 add_ln1540_10_fu_1710_p2 ret_28_fu_1714_p2 add_ln1540_12_fu_1726_p2 ret_29_fu_1730_p2 add_ln1540_15_fu_1742_p2 ret_30_fu_1746_p2 add_ln1540_18_fu_1758_p2 ret_31_fu_1762_p2 add_ln1540_22_fu_1774_p2 ret_32_fu_1778_p2 add_ln1540_28_fu_1790_p2 ret_33_fu_1794_p2 add_ln1540_35_fu_1806_p2 ret_34_fu_1810_p2 add_ln1540_37_fu_1822_p2 ret_35_fu_1826_p2 add_ln1540_14_fu_1838_p2 ret_36_fu_1842_p2 add_ln1540_16_fu_1856_p2 ret_37_fu_1862_p2 ret_38_fu_1875_p2 add_ln1540_19_fu_1889_p2 ret_39_fu_1895_p2 add_ln1540_21_fu_1909_p2 ret_40_fu_1915_p2 add_ln1540_23_fu_1929_p2 ret_41_fu_1935_p2 add_ln1540_25_fu_1949_p2 ret_42_fu_1955_p2 add_ln1540_31_fu_1969_p2 ret_43_fu_1975_p2 ret_44_fu_1993_p2 ret_45_fu_2007_p2 ret_46_fu_2021_p2 ret_47_fu_2035_p2 add_ln1540_26_fu_2041_p2 add_ln1540_27_fu_2047_p2 ret_48_fu_2089_p2 add_ln1540_29_fu_2053_p2 add_ln1540_30_fu_2059_p2 ret_49_fu_2101_p2 add_ln1540_32_fu_2065_p2 add_ln1540_33_fu_2071_p2 add_ln1540_fu_2077_p2 ret_50_fu_2115_p2 p_Val2_30_fu_2140_p2 add_ln223_fu_2158_p2 p_Val2_31_fu_2168_p2</BindInstances>
+                </Instance>
+                <Instance>
+                    <InstName>entry_proc_U0</InstName>
+                    <ModuleName>entry_proc</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>134</ID>
+                </Instance>
+                <Instance>
+                    <InstName>handle_output_U0</InstName>
+                    <ModuleName>handle_output</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>141</ID>
+                </Instance>
+            </InstancesList>
+            <BindInstances>myMacAddress_c_U</BindInstances>
+        </TopModule>
+    </RTLDesignHierarchy>
+    <ModuleInformation>
+        <Module>
+            <Name>entry_proc</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>3.10</TargetClockPeriod>
+                    <ClockUncertainty>0.20</ClockUncertainty>
+                    <EstimatedClockPeriod>1.410</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>0</Best-caseLatency>
+                    <Average-caseLatency>0</Average-caseLatency>
+                    <Worst-caseLatency>0</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0 ns</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0 ns</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>0</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>3</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>29</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+        </Module>
+        <Module>
+            <Name>broadcaster_and_mac_request</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>3.10</TargetClockPeriod>
+                    <ClockUncertainty>0.20</ClockUncertainty>
+                    <TargetInitiationInterval>1</TargetInitiationInterval>
+                    <EstimatedClockPeriod>1.450</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>2</Best-caseLatency>
+                    <Average-caseLatency>2</Average-caseLatency>
+                    <Worst-caseLatency>2</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>6.200 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>6.200 ns</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>6.200 ns</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>1</PipelineInitiationInterval>
+                    <PipelineDepth>3</PipelineDepth>
+                    <PipelineType>yes</PipelineType>
+                </SummaryOfOverallLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>654</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>190</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+        </Module>
+        <Module>
+            <Name>compute_and_insert_ip_checksum</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>3.10</TargetClockPeriod>
+                    <ClockUncertainty>0.20</ClockUncertainty>
+                    <TargetInitiationInterval>1</TargetInitiationInterval>
+                    <EstimatedClockPeriod>2.816</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>4</Best-caseLatency>
+                    <Average-caseLatency>4</Average-caseLatency>
+                    <Worst-caseLatency>4</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>12.400 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>12.400 ns</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>12.400 ns</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>1</PipelineInitiationInterval>
+                    <PipelineDepth>5</PipelineDepth>
+                    <PipelineType>yes</PipelineType>
+                </SummaryOfOverallLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>2859</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>2072</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_1_fu_1646_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_fu_1650_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_3_fu_1662_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_24_fu_1666_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_24"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_25_fu_1591_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_25"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_6_fu_1678_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_6"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_26_fu_1682_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_26"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_8_fu_1694_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_8"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_27_fu_1698_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_27"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_10_fu_1710_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_10"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_28_fu_1714_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_28"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_12_fu_1726_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_12"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_29_fu_1730_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_29"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_15_fu_1742_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_15"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_30_fu_1746_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_30"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_18_fu_1758_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_18"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_31_fu_1762_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_31"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_22_fu_1774_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_22"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_32_fu_1778_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_32"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_28_fu_1790_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_28"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_33_fu_1794_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_33"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_35_fu_1806_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_35"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_34_fu_1810_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_34"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_37_fu_1822_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_37"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_35_fu_1826_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_35"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_14_fu_1838_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_14"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_36_fu_1842_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_36"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_16_fu_1856_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_16"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_37_fu_1862_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_37"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_38_fu_1875_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_38"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_19_fu_1889_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_19"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_39_fu_1895_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_39"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_21_fu_1909_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_21"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_40_fu_1915_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_40"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_23_fu_1929_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_23"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_41_fu_1935_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_41"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_25_fu_1949_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_25"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_42_fu_1955_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_42"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_31_fu_1969_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_31"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_43_fu_1975_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_43"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_44_fu_1993_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_44"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_45_fu_2007_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_45"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_46_fu_2021_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_46"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_47_fu_2035_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_47"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_26_fu_2041_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_26"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_27_fu_2047_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_27"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_48_fu_2089_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_48"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_29_fu_2053_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_29"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_30_fu_2059_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_30"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_49_fu_2101_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_49"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_32_fu_2065_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_32"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_33_fu_2071_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_33"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_fu_2077_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_50_fu_2115_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_50"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="p_Val2_30_fu_2140_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int.h:223" URAM="0" VARIABLE="p_Val2_30"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln223_fu_2158_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int.h:223" URAM="0" VARIABLE="add_ln223"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="p_Val2_31_fu_2168_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int.h:223" URAM="0" VARIABLE="p_Val2_31"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>handle_output</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>3.10</TargetClockPeriod>
+                    <ClockUncertainty>0.20</ClockUncertainty>
+                    <TargetInitiationInterval>1</TargetInitiationInterval>
+                    <EstimatedClockPeriod>2.229</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>2</Best-caseLatency>
+                    <Average-caseLatency>2</Average-caseLatency>
+                    <Worst-caseLatency>2</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>6.200 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>6.200 ns</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>6.200 ns</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>1</PipelineInitiationInterval>
+                    <PipelineDepth>3</PipelineDepth>
+                    <PipelineType>yes</PipelineType>
+                </SummaryOfOverallLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>1171</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>291</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+        </Module>
+        <Module>
+            <Name>ethernet_header_inserter</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>3.10</TargetClockPeriod>
+                    <ClockUncertainty>0.20</ClockUncertainty>
+                    <EstimatedClockPeriod>2.816</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>9</Best-caseLatency>
+                    <Average-caseLatency>9</Average-caseLatency>
+                    <Worst-caseLatency>9</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>27.900 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>27.900 ns</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>27.900 ns</Worst-caseRealTimeLatency>
+                    <DataflowPipelineThroughput>1</DataflowPipelineThroughput>
+                    <PipelineInitiationInterval>1</PipelineInitiationInterval>
+                    <PipelineType>dataflow</PipelineType>
+                </SummaryOfOverallLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <FF>13968</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>7595</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="myMacAddress_c_U" SOURCE="" URAM="0" VARIABLE="myMacAddress_c"/>
+            </BindNodes>
+        </Module>
+    </ModuleInformation>
+    <FIFOInformation>
+        <FIFOInst>
+            <Name>ip_header_out_U</Name>
+            <ParentInst/>
+            <StaticDepth>16</StaticDepth>
+            <RuntimeDepth>mOutPtr</RuntimeDepth>
+            <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+            </InterfaceList>
+        </FIFOInst>
+        <FIFOInst>
+            <Name>no_ip_header_out_U</Name>
+            <ParentInst/>
+            <StaticDepth>16</StaticDepth>
+            <RuntimeDepth>mOutPtr</RuntimeDepth>
+            <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+            </InterfaceList>
+        </FIFOInst>
+        <FIFOInst>
+            <Name>ip_header_checksum_U</Name>
+            <ParentInst/>
+            <StaticDepth>16</StaticDepth>
+            <RuntimeDepth>mOutPtr</RuntimeDepth>
+            <InterfaceList>
+                <Interface>clk</Interface>
+                <Interface>reset</Interface>
+                <Interface>if_write</Interface>
+                <Interface>if_din</Interface>
+                <Interface>if_full_n</Interface>
+                <Interface>if_read</Interface>
+                <Interface>if_empty_n</Interface>
+            </InterfaceList>
+        </FIFOInst>
+    </FIFOInformation>
+    <UserConfigCommands/>
+    <Args>
+        <Arg ArgName="dataIn" index="0" direction="in" srcType="stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0, 0, 0&gt;, 0&gt;&amp;" srcSize="1024">
+            <hwRefs>
+                <hwRef type="interface" interface="dataIn" name="" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="dataOut" index="1" direction="out" srcType="stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0, 0, 0&gt;, 0&gt;&amp;" srcSize="1024">
+            <hwRefs>
+                <hwRef type="interface" interface="dataOut" name="" usage="data" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="arpTableReplay" index="2" direction="in" srcType="stream&lt;arpTableReply, 0&gt;&amp;" srcSize="128">
+            <hwRefs>
+                <hwRef type="interface" interface="arpTableReplay" name="" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="arpTableRequest" index="3" direction="out" srcType="stream&lt;ap_uint&lt;32&gt;, 0&gt;&amp;" srcSize="32">
+            <hwRefs>
+                <hwRef type="interface" interface="arpTableRequest" name="" usage="data" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="myMacAddress" index="4" direction="in" srcType="ap_uint&lt;48&gt;&amp;" srcSize="64">
+            <hwRefs>
+                <hwRef type="port" interface="myMacAddress" name="myMacAddress" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="regSubNetMask" index="5" direction="in" srcType="ap_uint&lt;32&gt;&amp;" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="regSubNetMask" name="regSubNetMask" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="regDefaultGateway" index="6" direction="in" srcType="ap_uint&lt;32&gt;&amp;" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="regDefaultGateway" name="regDefaultGateway" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+    </Args>
+    <Interfaces>
+        <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
+            <busParams>
+                <busParam busParamName="ASSOCIATED_BUSIF">dataIn:dataOut:arpTableReplay:arpTableRequest</busParam>
+                <busParam busParamName="ASSOCIATED_RESET">ap_rst_n</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_clk">CLK</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_clk</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_rst_n" type="reset" busTypeName="reset" mode="slave">
+            <busParams>
+                <busParam busParamName="POLARITY">ACTIVE_LOW</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_rst_n">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_rst_n</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="dataIn" type="axi4stream" busTypeName="axis" mode="slave" dataWidth="512" portPrefix="dataIn_">
+            <ports>
+                <port>dataIn_TDATA</port>
+                <port>dataIn_TKEEP</port>
+                <port>dataIn_TLAST</port>
+                <port>dataIn_TREADY</port>
+                <port>dataIn_TSTRB</port>
+                <port>dataIn_TVALID</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="axis" register_option="1" register_mode="both" argName="dataIn"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="dataOut" type="axi4stream" busTypeName="axis" mode="master" dataWidth="512" portPrefix="dataOut_">
+            <ports>
+                <port>dataOut_TDATA</port>
+                <port>dataOut_TKEEP</port>
+                <port>dataOut_TLAST</port>
+                <port>dataOut_TREADY</port>
+                <port>dataOut_TSTRB</port>
+                <port>dataOut_TVALID</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="axis" register_option="1" register_mode="both" argName="dataOut"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="arpTableReplay" type="axi4stream" busTypeName="axis" mode="slave" dataWidth="128" portPrefix="arpTableReplay_">
+            <ports>
+                <port>arpTableReplay_TDATA</port>
+                <port>arpTableReplay_TREADY</port>
+                <port>arpTableReplay_TVALID</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="axis" register_option="1" register_mode="both" argName="arpTableReplay"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="arpTableRequest" type="axi4stream" busTypeName="axis" mode="master" dataWidth="32" portPrefix="arpTableRequest_">
+            <ports>
+                <port>arpTableRequest_TDATA</port>
+                <port>arpTableRequest_TREADY</port>
+                <port>arpTableRequest_TVALID</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="axis" register_option="1" register_mode="both" argName="arpTableRequest"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="myMacAddress" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="48">
+            <portMaps>
+                <portMap portMapName="myMacAddress">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>myMacAddress</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="1" argName="myMacAddress"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="regSubNetMask" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="regSubNetMask">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>regSubNetMask</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="1" argName="regSubNetMask"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="regDefaultGateway" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="regDefaultGateway">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>regDefaultGateway</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="1" argName="regDefaultGateway"/>
+            </constraints>
+        </Interface>
+    </Interfaces>
+    <ReportHWInterface>
+        <section name="HW Interfaces" level="0">
+            <item name="AXIS">
+                <table isCollapsed="0">
+                    <keys size="8">Interface, Register Mode, TDATA, TKEEP, TLAST, TREADY, TSTRB, TVALID</keys>
+                    <column name="arpTableReplay">both, 128, , , 1, , 1</column>
+                    <column name="arpTableRequest">both, 32, , , 1, , 1</column>
+                    <column name="dataIn">both, 512, 64, 1, 1, 64, 1</column>
+                    <column name="dataOut">both, 512, 64, 1, 1, 64, 1</column>
+                </table>
+            </item>
+            <item name="REGISTER">
+                <table isCollapsed="0">
+                    <keys size="3">Interface, Mode, Bitwidth</keys>
+                    <column name="myMacAddress">ap_none, 48</column>
+                    <column name="regDefaultGateway">ap_none, 32</column>
+                    <column name="regSubNetMask">ap_none, 32</column>
+                </table>
+            </item>
+            <item name="TOP LEVEL CONTROL">
+                <table isCollapsed="0">
+                    <keys size="3">Interface, Type, Ports</keys>
+                    <column name="ap_clk">clock, ap_clk</column>
+                    <column name="ap_rst_n">reset, ap_rst_n</column>
+                    <column name="ap_ctrl">ap_ctrl_none</column>
+                </table>
+            </item>
+        </section>
+    </ReportHWInterface>
+    <ReportSWInterface>
+        <section name="SW I/O Information" level="0">
+            <item name="Top Function Arguments">
+                <table isCollapsed="1">
+                    <keys size="3">Argument, Direction, Datatype</keys>
+                    <column name="dataIn">in, stream&lt;hls::axis&lt;ap_uint&lt;512&gt; 0 0 0&gt; 0&gt;&amp;</column>
+                    <column name="dataOut">out, stream&lt;hls::axis&lt;ap_uint&lt;512&gt; 0 0 0&gt; 0&gt;&amp;</column>
+                    <column name="arpTableReplay">in, stream&lt;arpTableReply 0&gt;&amp;</column>
+                    <column name="arpTableRequest">out, stream&lt;ap_uint&lt;32&gt; 0&gt;&amp;</column>
+                    <column name="myMacAddress">in, ap_uint&lt;48&gt;&amp;</column>
+                    <column name="regSubNetMask">in, ap_uint&lt;32&gt;&amp;</column>
+                    <column name="regDefaultGateway">in, ap_uint&lt;32&gt;&amp;</column>
+                </table>
+            </item>
+            <item name="SW-to-HW Mapping">
+                <table isCollapsed="1">
+                    <keys size="3">Argument, HW Interface, HW Type</keys>
+                    <column name="dataIn">dataIn, interface</column>
+                    <column name="dataOut">dataOut, interface</column>
+                    <column name="arpTableReplay">arpTableReplay, interface</column>
+                    <column name="arpTableRequest">arpTableRequest, interface</column>
+                    <column name="myMacAddress">myMacAddress, port</column>
+                    <column name="regSubNetMask">regSubNetMask, port</column>
+                    <column name="regDefaultGateway">regDefaultGateway, port</column>
+                </table>
+            </item>
+        </section>
+    </ReportSWInterface>
+    <ReportBurst>
+        <section name="M_AXI Burst Information" level="0" HEADER_NOTE="Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings."/>
+    </ReportBurst>
+    <PragmaReport>
+        <Pragma type="inline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:41" status="valid" parentFunction="broadcaster_and_mac_request" variable="" isDirective="0" options="off"/>
+        <Pragma type="pipeline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:42" status="valid" parentFunction="broadcaster_and_mac_request" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="inline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:95" status="valid" parentFunction="handle_output" variable="" isDirective="0" options="off"/>
+        <Pragma type="pipeline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:96" status="valid" parentFunction="handle_output" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="inline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:230" status="valid" parentFunction="compute_and_insert_ip_checksum" variable="" isDirective="0" options="off"/>
+        <Pragma type="pipeline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:231" status="valid" parentFunction="compute_and_insert_ip_checksum" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="array_partition" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:234" status="valid" parentFunction="compute_and_insert_ip_checksum" variable="ip_ops" isDirective="0" options="variable=ip_ops complete dim=1"/>
+        <Pragma type="unroll" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:257" status="valid" parentFunction="compute_and_insert_ip_checksum" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:270" status="valid" parentFunction="compute_and_insert_ip_checksum" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:276" status="valid" parentFunction="compute_and_insert_ip_checksum" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:283" status="valid" parentFunction="compute_and_insert_ip_checksum" variable="" isDirective="0" options=""/>
+        <Pragma type="dataflow" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:321" status="valid" parentFunction="ethernet_header_inserter" variable="" isDirective="0" options=""/>
+        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:322" status="valid" parentFunction="ethernet_header_inserter" variable="return" isDirective="0" options="ap_ctrl_none port=return"/>
+        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:324" status="valid" parentFunction="ethernet_header_inserter" variable="dataIn" isDirective="0" options="axis register both port=dataIn"/>
+        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:325" status="valid" parentFunction="ethernet_header_inserter" variable="dataOut" isDirective="0" options="axis register both port=dataOut"/>
+        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:327" status="valid" parentFunction="ethernet_header_inserter" variable="arpTableReplay" isDirective="0" options="axis register both port=arpTableReplay"/>
+        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:328" status="valid" parentFunction="ethernet_header_inserter" variable="arpTableRequest" isDirective="0" options="axis register both port=arpTableRequest"/>
+        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:330" status="valid" parentFunction="ethernet_header_inserter" variable="myMacAddress" isDirective="0" options="ap_none register port=myMacAddress"/>
+        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:331" status="valid" parentFunction="ethernet_header_inserter" variable="regSubNetMask" isDirective="0" options="ap_none register port=regSubNetMask"/>
+        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:332" status="valid" parentFunction="ethernet_header_inserter" variable="regDefaultGateway" isDirective="0" options="ap_none register port=regDefaultGateway"/>
+        <Pragma type="stream" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:336" status="valid" parentFunction="ethernet_header_inserter" variable="ip_header_out" isDirective="0" options="variable=ip_header_out depth=16"/>
+        <Pragma type="stream" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:339" status="valid" parentFunction="ethernet_header_inserter" variable="no_ip_header_out" isDirective="0" options="variable=no_ip_header_out depth=16"/>
+        <Pragma type="stream" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:342" status="valid" parentFunction="ethernet_header_inserter" variable="ip_header_checksum" isDirective="0" options="variable=ip_header_checksum depth=16"/>
+    </PragmaReport>
+</profile>
+
