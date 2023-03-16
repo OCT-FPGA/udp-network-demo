@@ -232,10 +232,10 @@ int main(int argc, char **argv) {
 		uint32_t MP_OFFSET = TI_OFFSET + 16 * 8 * 2;
 		uint32_t V_OFFSET  = TI_OFFSET + 16 * 8 * 3;
 
-		xclRegWrite(handle[0], nlidx[0], UDP_OFFSET + TI_OFFSET, sockets[i][0].theirIP);
-		xclRegWrite(handle[0], nlidx[0], UDP_OFFSET + TP_OFFSET, sockets[i][0].theirPort);
-		xclRegWrite(handle[0], nlidx[0], UDP_OFFSET + MP_OFFSET, sockets[i][0].myPort);
-		xclRegWrite(handle[0], nlidx[0], UDP_OFFSET + V_OFFSET, sockets[i][0].valid);
+		xclRegWrite(handle, nlidx[0], UDP_OFFSET + TI_OFFSET, sockets[i][0].theirIP);
+		xclRegWrite(handle, nlidx[0], UDP_OFFSET + TP_OFFSET, sockets[i][0].theirPort);
+		xclRegWrite(handle, nlidx[0], UDP_OFFSET + MP_OFFSET, sockets[i][0].myPort);
+		xclRegWrite(handle, nlidx[0], UDP_OFFSET + V_OFFSET, sockets[i][0].valid);
 	}
     for(int i = 0; i < 256; i++) {
 		xclRegWrite(handle, nlidx[0], ARP_VALID_OFFSET + (i / 4) * 4, 0);
@@ -316,10 +316,10 @@ int main(int argc, char **argv) {
 		uint32_t MP_OFFSET = TI_OFFSET + 16 * 8 * 2;
 		uint32_t V_OFFSET  = TI_OFFSET + 16 * 8 * 3;
 
-		xclRegWrite(handle[1], nlidx[1], UDP_OFFSET + TI_OFFSET, sockets[i][1].theirIP);
-		xclRegWrite(handle[1], nlidx[1], UDP_OFFSET + TP_OFFSET, sockets[i][1].theirPort);
-		xclRegWrite(handle[1], nlidx[1], UDP_OFFSET + MP_OFFSET, sockets[i][1].myPort);
-		xclRegWrite(handle[1], nlidx[1], UDP_OFFSET + V_OFFSET, sockets[i][1].valid);
+		xclRegWrite(handle, nlidx[1], UDP_OFFSET + TI_OFFSET, sockets[i][1].theirIP);
+		xclRegWrite(handle, nlidx[1], UDP_OFFSET + TP_OFFSET, sockets[i][1].theirPort);
+		xclRegWrite(handle, nlidx[1], UDP_OFFSET + MP_OFFSET, sockets[i][1].myPort);
+		xclRegWrite(handle, nlidx[1], UDP_OFFSET + V_OFFSET, sockets[i][1].valid);
 	}
     for(int i = 0; i < 256; i++) {
 		xclRegWrite(handle, nlidx[1], ARP_VALID_OFFSET + (i / 4) * 4, 0);
