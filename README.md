@@ -1,6 +1,6 @@
 # UDP Encryption and Decryption Example Using 2 Network Attached Alveo U280s
 
-UDP encrypt and decrypt example with pre-built network layer and cmac kernels. Note: You will use Vitis 2021.1 to build the bitstream in this tutorial. To use an older version, switch to the branch with the version number that you want to use. 
+UDP encrypt and decrypt example with pre-built network layer and cmac kernels. Note: You will use Vitis 2021.2 to build the bitstream in this tutorial. To use an older version, switch to the branch with the version number that you want to use. 
 
 ## Introduction
 
