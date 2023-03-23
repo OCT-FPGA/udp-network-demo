@@ -43,7 +43,7 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <sys/stat.h>
 #include "CL/cl_ext_xilinx.h"
 #include "experimental/xclbin_util.h"
-
+#include "ip_to_hex.h"
 #include "fileops.h"
 
 #define BYTES_PER_PACKET 1408
@@ -166,9 +166,9 @@ int main(int argc, char **argv) {
 
        	xclOpenContext(handle, xclbinId, nlidx, false);
 	
-	unsigned int my_ip_address = argc>=5 ? (unsigned int)strtol(argv[4], NULL, 16) : (unsigned int)MY_IP_ADDR;
-	unsigned int their_ip_address = argc>=6 ? (unsigned int)strtol(argv[5], NULL, 16) : (unsigned int)THEIR_IP_ADDR;
-	unsigned int ip_gateway = argc>=7 ? (unsigned int)strtol(argv[6], NULL, 16) : (unsigned int)IP_GATEWAY;
+	unsigned int my_ip_address = argc>=5 ? ip_to_hex(argv[4]) : (unsigned int)MY_IP_ADDR;
+	unsigned int their_ip_address = argc>=6 ? ip_to_hex(argv[5]) : (unsigned int)THEIR_IP_ADDR;
+	unsigned int ip_gateway = argc>=7 ? ip_to_hex(argv[6]) : (unsigned int)IP_GATEWAY;
     	long mac_address = (0xf0f1f2f3f4f5 & 0xFFFFFFFFFF0) + (my_ip_address & 0xF);
     	xclRegWrite(handle, nlidx, MAC_ADDR_OFFSET, mac_address); 
     	xclRegWrite(handle, nlidx, MAC_ADDR_OFFSET + 4, mac_address >> 32);

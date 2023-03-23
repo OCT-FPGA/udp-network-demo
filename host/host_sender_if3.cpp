@@ -43,7 +43,7 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <sys/stat.h>
 #include "CL/cl_ext_xilinx.h"
 #include "experimental/xclbin_util.h"
-
+#include "ip_to_hex.h"
 #include "fileops.h"
 
 #define BYTES_PER_PACKET 1408
@@ -187,7 +187,7 @@ int main(int argc, char **argv) {
 	xclbin_uuid(buf, xclbinId);
 
 	unsigned num_sockets_hw = 0, num_sockets_sw = sizeof(sockets[0]) / sizeof(sockets[0][0]);
-	unsigned int ip_gateway = argc>=11 ? (unsigned int)strtol(argv[10], NULL, 16) : (unsigned int)IP_GATEWAY;
+	unsigned int ip_gateway = argc>=11 ? ip_to_hex(argv[10]) : (unsigned int)IP_GATEWAY;
 
 
 	/*
@@ -198,8 +198,8 @@ int main(int argc, char **argv) {
 
        	xclOpenContext(handle, xclbinId, nlidx[0], false);
 	
-	unsigned int my_ip_address0 = argc>=7 ? (unsigned int)strtol(argv[6], NULL, 16) : (unsigned int)MY_IP_ADDR0;
-	unsigned int their_ip_address0 = argc>=9 ? (unsigned int)strtol(argv[8], NULL, 16) : (unsigned int)THEIR_IP_ADDR0;
+	unsigned int my_ip_address0 = argc>=7 ? ip_to_hex(argv[6]) : (unsigned int)MY_IP_ADDR0;
+	unsigned int their_ip_address0 = argc>=9 ? ip_to_hex(argv[8]) : (unsigned int)THEIR_IP_ADDR0;
     	long mac_address0 = (0xf0f1f2f3f4f5 & 0xFFFFFFFFFF0) + (my_ip_address0 & 0xF);
     	xclRegWrite(handle, nlidx[0], MAC_ADDR_OFFSET, mac_address0);
     	xclRegWrite(handle, nlidx[0], MAC_ADDR_OFFSET + 4, mac_address0 >> 32);
@@ -284,8 +284,8 @@ int main(int argc, char **argv) {
 
        	xclOpenContext(handle, xclbinId, nlidx[1], false);
 	
-	unsigned int my_ip_address1 = argc>=8 ? (unsigned int)strtol(argv[7], NULL, 16) : (unsigned int)MY_IP_ADDR1;
-	unsigned int their_ip_address1 = argc>=10 ? (unsigned int)strtol(argv[9], NULL, 16) : (unsigned int)THEIR_IP_ADDR1;
+	unsigned int my_ip_address1 = argc>=8 ? ip_to_hex(argv[7]) : (unsigned int)MY_IP_ADDR1;
+	unsigned int their_ip_address1 = argc>=10 ? ip_to_hex(argv[9]) : (unsigned int)THEIR_IP_ADDR1;
 	//unsigned int ip_gateway = argc>=11 ? (unsigned int)strtol(argv[10], NULL, 16) : (unsigned int)IP_GATEWAY;
     	long mac_address1 = (0xf0f1f2f3f4f5 & 0xFFFFFFFFFF0) + (my_ip_address1 & 0xF);
     	xclRegWrite(handle, nlidx[1], MAC_ADDR_OFFSET, mac_address1);

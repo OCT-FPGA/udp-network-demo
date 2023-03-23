@@ -42,7 +42,9 @@ CXXFLAGS += $(opencl_CXXFLAGS) -Wall -O0 -g -std=gnu++14
 CXXFLAGS +=  -DVITIS_PLATFORM=$(VITIS_PLATFORM)
 LDFLAGS += $(opencl_LDFLAGS)
 SENDER_HOST_SRCS += host/fileops.cpp
+SENDER_HOST_SRCS += host/ip_to_hex.cpp
 RECEIVER_HOST_SRCS += host/fileops.cpp
+RECEIVER_HOST_SRCS += host/ip_to_hex.cpp
 SENDER_HOST_SRCS += host/host_sender_if$(INTERFACE).cpp
 RECEIVER_HOST_SRCS += host/host_receiver_if$(INTERFACE).cpp
 
