@@ -49,8 +49,6 @@ using namespace std;
 #define DWIDTH 512
 #define TDWIDTH 16
 
-void KeyExpansion(unsigned char* inputKey, unsigned short Nk, unsigned char* expandedKey);
-void AES_Encrypt(unsigned char plaintext[stt_lng], unsigned char expandedKey[ExtdCipherKeyLenghth_max], unsigned short Nr, unsigned char ciphertext[stt_lng]);
 typedef ap_axiu<DWIDTH, 1, 1, TDWIDTH> pkt;
 
 extern "C" {
