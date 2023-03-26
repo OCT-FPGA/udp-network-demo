@@ -39,12 +39,10 @@ to global memory via memory mapped interface */
 #include "ap_axi_sdata.h"
 #include "ap_int.h"
 #include "hls_stream.h"
-//#include "./aes/AESfunctions.h"
 #include "./aes/AESfunctions.cpp"
-//#include "./aes/AEStables.h"
 #include <iostream>
-using namespace std;
 #include <cstdio>
+using namespace std;
 
 #define DWIDTH 512
 #define TDWIDTH 16
