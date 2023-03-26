@@ -41,12 +41,10 @@ and writes to a stream interface to another kernel */
 #include "ap_int.h"
 #include <ap_fixed.h>
 #include "hls_stream.h"
-//#include "./aes/AESfunctions.h"
 #include "./aes/AESfunctions.cpp"
 #include <iostream>
-using namespace std;
 #include <cstdio>
-
+using namespace std;
 
 #define DWIDTH 512
 #define TDWIDTH 16
