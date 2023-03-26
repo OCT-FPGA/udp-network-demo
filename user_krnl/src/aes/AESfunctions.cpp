@@ -1,5 +1,8 @@
+/*
+ * Original code from:
+ * https://github.com/hplp/AES_implementations
+ * */
 #include "AESfunctions.h"
-#include "AEStables.h"
 
 void SubBytes(unsigned char* state) {
 #pragma HLS inline off
@@ -232,24 +235,56 @@ void AES_Decrypt(unsigned char ciphertext[stt_lng],
 	}
 }
 
-// AES Full
-/*void AES_Full(bool mode_cipher, bool mode_inverse_cipher,
-		unsigned char data_in[stt_lng],
-		unsigned char expandedKey[ExtdCipherKeyLenghth_max], unsigned short Nr,
-		unsigned char data_out[stt_lng]) {
-#pragma HLS INTERFACE s_axilite port=mode_cipher bundle=CRTLS
-#pragma HLS INTERFACE s_axilite port=mode_inverse_cipher bundle=CRTLS
-#pragma HLS INTERFACE s_axilite port=data_in bundle=CRTLS
-#pragma HLS INTERFACE s_axilite port=expandedKey bundle=CRTLS
-#pragma HLS INTERFACE s_axilite port=Nr bundle=CRTLS
-#pragma HLS INTERFACE s_axilite port=data_out bundle=CRTLS
-#pragma HLS INTERFACe s_axilite port=return bundle=CRTLS
+void KeyExpansionCore(unsigned char* in4, unsigned char i) {
+        // RotWord rotates left
+        // SubWord substitutes with S - Box value
+        unsigned char t = in4[0];
+        in4[0] = s_box[in4[1]];
+        in4[1] = s_box[in4[2]];
+        in4[2] = s_box[in4[3]];
+        in4[3] = s_box[t];
+        // RCon (round constant) 1st byte XOR rcon
+        in4[0] = in4[0] ^ rcon[i];
+}
 
-#pragma HLS inline region // will inline the functions unless inlining is off
-	if (mode_cipher) {
-		AES_Encrypt(data_in, expandedKey, Nr, data_out);
-	}
-	if (mode_inverse_cipher) {
-		AES_Decrypt(data_in, expandedKey, Nr, data_out);
-	}
-}*/
+void SubWord(unsigned char* in4) {
+        // SubWord substitutes with S - Box value
+        in4[0] = s_box[in4[0]];
+        in4[1] = s_box[in4[1]];
+        in4[2] = s_box[in4[2]];
+        in4[3] = s_box[in4[3]];
+}
+
+void KeyExpansion(unsigned char* inputKey, unsigned short Nk,
+                unsigned char* expandedKey) {
+        unsigned short Nr = (Nk > Nb) ? Nk + 6 : Nb + 6; // = 10, 12 or 14 rounds
+        // Copy the inputKey at the beginning of expandedKey
+        for (unsigned short i = 0; i < Nk * rows; i++) {
+                expandedKey[i] = inputKey[i];
+        }
+
+        // Variables
+        unsigned short byGen = Nk * rows;
+        unsigned short rconIdx = 1;
+        unsigned char temp[rows];
+
+        // Generate expanded keys
+        while (byGen < (Nr + 1) * stt_lng) {
+                // Read previously generated last 4 bytes (last word)
+                for (unsigned short i = 0; i < rows; i++) {
+                        temp[i] = expandedKey[byGen - rows + i];
+                }
+                // Perform KeyExpansionCore once for each 16 byte key
+                if (byGen % (Nk * rows) == 0) {
+                        KeyExpansionCore(temp, rconIdx);
+                        rconIdx++;
+                } else if ((Nk > 6) && (byGen % (Nk * rows) == (4 * rows))) {
+                        SubWord(temp);
+                }
+                // XOR temp with [bytesGenerated-16] and store in expandedKeys
+                for (unsigned short i = 0; i < rows; i++) {
+                        expandedKey[byGen] = expandedKey[byGen - Nk * rows] ^ temp[i];
+                        byGen++;
+                }
+        }
+}
