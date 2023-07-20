@@ -106,7 +106,7 @@ Receiver side syntax:
 Example - Receive 1 UDP packet on interface 1 without decrypting
 
 ```
-./host_receiver_if1 1
+./host_receiver_if1 demo_if1.xclbin 1
 ```
 
 Sender side syntax:
