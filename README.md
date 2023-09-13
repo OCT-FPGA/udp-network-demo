@@ -10,7 +10,7 @@ In this example, we use Xilinx XUP UDP stack [1] and CMAC kernels as pre-built b
 
 - A build machine with Vitis 2023.1. If you do not have such machine, we can provide you with access to one. [This document](https://github.com/OCT-FPGA/OCT-Tutorials/blob/master/nercsetup/nerc-vm-guide.md) will guide you on how to sign up and obtain access to our build machine.
 
-- A Cloudlab experiment should be created with two nodes. Instructions are given [here](https://github.com/OCT-FPGA/oct-tutorials/tree/master/cloudlab-setup). Note that you don't need to set up the experiment until you finish bitstream generation. The Cloudlab experiment is only needed for the targeting workflow. This workflow has been tested and verified using Xilinx RunTime (XRT) version 2023.1. Other versions may also support, but not tested. So, you may select the Cloudlab profile ```oct-u280``` with any of these tool versions, and two compute nodes when creating the experiment.  
+- A Cloudlab experiment should be created with two nodes. Instructions are given [here](https://github.com/OCT-FPGA/oct-tutorials/tree/master/cloudlab-setup). Note that you don't need to set up the experiment until you finish bitstream generation. The Cloudlab experiment is only needed for the targeting workflow. This workflow has been tested and verified using Xilinx RunTime (XRT) version 2023.1. Other versions may also support, but not tested. Select the CloudLab profile ```oct-u280``` with two compute nodes when creating the experiment.  
 
 ## Architecture
 
