@@ -9,6 +9,9 @@ set isOneStateSeq 0
 set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
+set hasInterrupt 0
+set DLRegFirstOffset 0
+set DLRegItemOffset 0
 set C_modelName {arp_pkg_sender}
 set C_modelType { void 0 }
 set C_modelArgList {
@@ -23,6 +26,7 @@ set C_modelArgList {
 	{ arpReplyFifo int 256 regular {fifo 0 volatile } {global 0}  }
 	{ arpRequestFifo int 32 regular {fifo 0 volatile } {global 0}  }
 }
+set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "arpDataOut_V_data_V", "interface" : "axis", "bitwidth" : 512, "direction" : "WRITEONLY"} , 
  	{ "Name" : "arpDataOut_V_keep_V", "interface" : "axis", "bitwidth" : 64, "direction" : "WRITEONLY"} , 
@@ -35,7 +39,7 @@ set C_modelArgMapList {[
  	{ "Name" : "arpReplyFifo", "interface" : "fifo", "bitwidth" : 256, "direction" : "READONLY", "extern" : 0} , 
  	{ "Name" : "arpRequestFifo", "interface" : "fifo", "bitwidth" : 32, "direction" : "READONLY", "extern" : 0} ]}
 # RTL Port declarations: 
-set portNum 31
+set portNum 43
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -45,21 +49,33 @@ set portList {
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
 	{ arpRequestFifo_dout sc_in sc_lv 32 signal 9 } 
+	{ arpRequestFifo_num_data_valid sc_in sc_lv 3 signal 9 } 
+	{ arpRequestFifo_fifo_cap sc_in sc_lv 3 signal 9 } 
 	{ arpRequestFifo_empty_n sc_in sc_logic 1 signal 9 } 
 	{ arpRequestFifo_read sc_out sc_logic 1 signal 9 } 
 	{ arpReplyFifo_dout sc_in sc_lv 256 signal 8 } 
+	{ arpReplyFifo_num_data_valid sc_in sc_lv 3 signal 8 } 
+	{ arpReplyFifo_fifo_cap sc_in sc_lv 3 signal 8 } 
 	{ arpReplyFifo_empty_n sc_in sc_logic 1 signal 8 } 
 	{ arpReplyFifo_read sc_out sc_logic 1 signal 8 } 
 	{ networkMask_dout sc_in sc_lv 32 signal 7 } 
+	{ networkMask_num_data_valid sc_in sc_lv 3 signal 7 } 
+	{ networkMask_fifo_cap sc_in sc_lv 3 signal 7 } 
 	{ networkMask_empty_n sc_in sc_logic 1 signal 7 } 
 	{ networkMask_read sc_out sc_logic 1 signal 7 } 
 	{ gatewayIP_dout sc_in sc_lv 32 signal 6 } 
+	{ gatewayIP_num_data_valid sc_in sc_lv 3 signal 6 } 
+	{ gatewayIP_fifo_cap sc_in sc_lv 3 signal 6 } 
 	{ gatewayIP_empty_n sc_in sc_logic 1 signal 6 } 
 	{ gatewayIP_read sc_out sc_logic 1 signal 6 } 
 	{ myIpAddress_dout sc_in sc_lv 32 signal 5 } 
+	{ myIpAddress_num_data_valid sc_in sc_lv 2 signal 5 } 
+	{ myIpAddress_fifo_cap sc_in sc_lv 2 signal 5 } 
 	{ myIpAddress_empty_n sc_in sc_logic 1 signal 5 } 
 	{ myIpAddress_read sc_out sc_logic 1 signal 5 } 
 	{ myMacAddress_dout sc_in sc_lv 48 signal 4 } 
+	{ myMacAddress_num_data_valid sc_in sc_lv 3 signal 4 } 
+	{ myMacAddress_fifo_cap sc_in sc_lv 3 signal 4 } 
 	{ myMacAddress_empty_n sc_in sc_logic 1 signal 4 } 
 	{ myMacAddress_read sc_out sc_logic 1 signal 4 } 
 	{ arpDataOut_TREADY sc_in sc_logic 1 outacc 3 } 
@@ -78,21 +94,33 @@ set NewPortList {[
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
  	{ "name": "arpRequestFifo_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "arpRequestFifo", "role": "dout" }} , 
+ 	{ "name": "arpRequestFifo_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "arpRequestFifo", "role": "num_data_valid" }} , 
+ 	{ "name": "arpRequestFifo_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "arpRequestFifo", "role": "fifo_cap" }} , 
  	{ "name": "arpRequestFifo_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "arpRequestFifo", "role": "empty_n" }} , 
  	{ "name": "arpRequestFifo_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "arpRequestFifo", "role": "read" }} , 
  	{ "name": "arpReplyFifo_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":256, "type": "signal", "bundle":{"name": "arpReplyFifo", "role": "dout" }} , 
+ 	{ "name": "arpReplyFifo_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "arpReplyFifo", "role": "num_data_valid" }} , 
+ 	{ "name": "arpReplyFifo_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "arpReplyFifo", "role": "fifo_cap" }} , 
  	{ "name": "arpReplyFifo_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "arpReplyFifo", "role": "empty_n" }} , 
  	{ "name": "arpReplyFifo_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "arpReplyFifo", "role": "read" }} , 
  	{ "name": "networkMask_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "networkMask", "role": "dout" }} , 
+ 	{ "name": "networkMask_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "networkMask", "role": "num_data_valid" }} , 
+ 	{ "name": "networkMask_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "networkMask", "role": "fifo_cap" }} , 
  	{ "name": "networkMask_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "networkMask", "role": "empty_n" }} , 
  	{ "name": "networkMask_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "networkMask", "role": "read" }} , 
  	{ "name": "gatewayIP_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gatewayIP", "role": "dout" }} , 
+ 	{ "name": "gatewayIP_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gatewayIP", "role": "num_data_valid" }} , 
+ 	{ "name": "gatewayIP_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gatewayIP", "role": "fifo_cap" }} , 
  	{ "name": "gatewayIP_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gatewayIP", "role": "empty_n" }} , 
  	{ "name": "gatewayIP_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gatewayIP", "role": "read" }} , 
  	{ "name": "myIpAddress_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "myIpAddress", "role": "dout" }} , 
+ 	{ "name": "myIpAddress_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "myIpAddress", "role": "num_data_valid" }} , 
+ 	{ "name": "myIpAddress_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "myIpAddress", "role": "fifo_cap" }} , 
  	{ "name": "myIpAddress_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "myIpAddress", "role": "empty_n" }} , 
  	{ "name": "myIpAddress_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "myIpAddress", "role": "read" }} , 
  	{ "name": "myMacAddress_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":48, "type": "signal", "bundle":{"name": "myMacAddress", "role": "dout" }} , 
+ 	{ "name": "myMacAddress_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "myMacAddress", "role": "num_data_valid" }} , 
+ 	{ "name": "myMacAddress_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "myMacAddress", "role": "fifo_cap" }} , 
  	{ "name": "myMacAddress_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "myMacAddress", "role": "empty_n" }} , 
  	{ "name": "myMacAddress_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "myMacAddress", "role": "read" }} , 
  	{ "name": "arpDataOut_TREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "arpDataOut_V_last_V", "role": "default" }} , 
@@ -118,12 +146,12 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "1",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "arpDataOut_V_data_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "arpDataOut_V_data_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "arpDataOut",
 				"BlockSignal" : [
 					{"Name" : "arpDataOut_TDATA_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "arpDataOut_V_keep_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "arpDataOut_V_strb_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "arpDataOut_V_last_V", "Type" : "Axis", "Direction" : "O"},
+			{"Name" : "arpDataOut_V_keep_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "arpDataOut"},
+			{"Name" : "arpDataOut_V_strb_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "arpDataOut"},
+			{"Name" : "arpDataOut_V_last_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "arpDataOut"},
 			{"Name" : "myMacAddress", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "myMacAddress_blk_n", "Type" : "RtlSignal"}]},
@@ -140,18 +168,18 @@ set RtlHierarchyInfo {[
 			{"Name" : "arpReplyFifo", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "4", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "arpReplyFifo_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "replyMeta_srcMac_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "replyMeta_ethType_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "replyMeta_hwType_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "replyMeta_protoType_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "replyMeta_hwLen_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "replyMeta_protoLen_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "replyMeta_hwAddrSrc_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "replyMeta_protoAddrSrc_V", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "replyMeta_srcMac", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "replyMeta_ethType", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "replyMeta_hwType", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "replyMeta_protoType", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "replyMeta_hwLen", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "replyMeta_protoLen", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "replyMeta_hwAddrSrc", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "replyMeta_protoAddrSrc", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "arpRequestFifo", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "4", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "arpRequestFifo_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "inputIP_V", "Type" : "OVld", "Direction" : "IO"}]},
+			{"Name" : "inputIP", "Type" : "OVld", "Direction" : "IO"}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_arpDataOut_V_data_V_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_arpDataOut_V_keep_V_U", "Parent" : "0"},
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_arpDataOut_V_strb_V_U", "Parent" : "0"},
@@ -170,16 +198,16 @@ set ArgLastReadFirstWriteLatency {
 		networkMask {Type I LastRead 1 FirstWrite -1}
 		aps_fsmState {Type IO LastRead -1 FirstWrite -1}
 		arpReplyFifo {Type I LastRead 0 FirstWrite -1}
-		replyMeta_srcMac_V {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_ethType_V {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_hwType_V {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_protoType_V {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_hwLen_V {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_protoLen_V {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_hwAddrSrc_V {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_protoAddrSrc_V {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_srcMac {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_ethType {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_hwType {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_protoType {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_hwLen {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_protoLen {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_hwAddrSrc {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_protoAddrSrc {Type IO LastRead -1 FirstWrite -1}
 		arpRequestFifo {Type I LastRead 0 FirstWrite -1}
-		inputIP_V {Type IO LastRead -1 FirstWrite -1}}}
+		inputIP {Type IO LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
@@ -197,10 +225,10 @@ set Spec2ImplPortList {
 	arpDataOut_V_keep_V { axis {  { arpDataOut_TKEEP out_data 1 64 } } }
 	arpDataOut_V_strb_V { axis {  { arpDataOut_TSTRB out_data 1 64 } } }
 	arpDataOut_V_last_V { axis {  { arpDataOut_TREADY out_acc 0 1 }  { arpDataOut_TVALID out_vld 1 1 }  { arpDataOut_TLAST out_data 1 1 } } }
-	myMacAddress { ap_fifo {  { myMacAddress_dout fifo_data 0 48 }  { myMacAddress_empty_n fifo_status 0 1 }  { myMacAddress_read fifo_update 1 1 } } }
-	myIpAddress { ap_fifo {  { myIpAddress_dout fifo_data 0 32 }  { myIpAddress_empty_n fifo_status 0 1 }  { myIpAddress_read fifo_update 1 1 } } }
-	gatewayIP { ap_fifo {  { gatewayIP_dout fifo_data 0 32 }  { gatewayIP_empty_n fifo_status 0 1 }  { gatewayIP_read fifo_update 1 1 } } }
-	networkMask { ap_fifo {  { networkMask_dout fifo_data 0 32 }  { networkMask_empty_n fifo_status 0 1 }  { networkMask_read fifo_update 1 1 } } }
-	arpReplyFifo { ap_fifo {  { arpReplyFifo_dout fifo_data 0 256 }  { arpReplyFifo_empty_n fifo_status 0 1 }  { arpReplyFifo_read fifo_update 1 1 } } }
-	arpRequestFifo { ap_fifo {  { arpRequestFifo_dout fifo_data 0 32 }  { arpRequestFifo_empty_n fifo_status 0 1 }  { arpRequestFifo_read fifo_update 1 1 } } }
+	myMacAddress { ap_fifo {  { myMacAddress_dout fifo_port_we 0 48 }  { myMacAddress_num_data_valid fifo_status_num_data_valid 0 3 }  { myMacAddress_fifo_cap fifo_update 0 3 }  { myMacAddress_empty_n fifo_status 0 1 }  { myMacAddress_read fifo_data 1 1 } } }
+	myIpAddress { ap_fifo {  { myIpAddress_dout fifo_port_we 0 32 }  { myIpAddress_num_data_valid fifo_status_num_data_valid 0 2 }  { myIpAddress_fifo_cap fifo_update 0 2 }  { myIpAddress_empty_n fifo_status 0 1 }  { myIpAddress_read fifo_data 1 1 } } }
+	gatewayIP { ap_fifo {  { gatewayIP_dout fifo_port_we 0 32 }  { gatewayIP_num_data_valid fifo_status_num_data_valid 0 3 }  { gatewayIP_fifo_cap fifo_update 0 3 }  { gatewayIP_empty_n fifo_status 0 1 }  { gatewayIP_read fifo_data 1 1 } } }
+	networkMask { ap_fifo {  { networkMask_dout fifo_port_we 0 32 }  { networkMask_num_data_valid fifo_status_num_data_valid 0 3 }  { networkMask_fifo_cap fifo_update 0 3 }  { networkMask_empty_n fifo_status 0 1 }  { networkMask_read fifo_data 1 1 } } }
+	arpReplyFifo { ap_fifo {  { arpReplyFifo_dout fifo_port_we 0 256 }  { arpReplyFifo_num_data_valid fifo_status_num_data_valid 0 3 }  { arpReplyFifo_fifo_cap fifo_update 0 3 }  { arpReplyFifo_empty_n fifo_status 0 1 }  { arpReplyFifo_read fifo_data 1 1 } } }
+	arpRequestFifo { ap_fifo {  { arpRequestFifo_dout fifo_port_we 0 32 }  { arpRequestFifo_num_data_valid fifo_status_num_data_valid 0 3 }  { arpRequestFifo_fifo_cap fifo_update 0 3 }  { arpRequestFifo_empty_n fifo_status 0 1 }  { arpRequestFifo_read fifo_data 1 1 } } }
 }

@@ -1,0 +1,35 @@
+<design_size title="Design Size Report">
+    <item name="Instructions per Function for each Compilation Phase">
+        <hiertable>
+            <header size="6" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Performance/Pipeline" col5="Optimizations"/>
+            <rows>
+                <row id="0" col0="packet_handler" col1="packet_handler.cpp:275" col2="3081" col3="483" col4="359" col5="386">
+                    <row id="6" col0="packet_identification" col1="packet_handler.cpp:168" col2="1323" col3="199" col4="118" col5="142">
+                        <row id="3" col0="axiWordi" col1="packet_handler.hpp:64" col2="37" col3="" col4="" col5=""/>
+                        <row id="8" col0="byteSwap16" col1="packet_handler.cpp:39" col2="235" col3="19" col4="" col5=""/>
+                    </row>
+                    <row id="1" col0="ethernet_remover" col1="packet_handler.cpp:51" col2="1734" col3="265" col4="233" col5="220">
+                        <row id="3" col0="axiWordi" col1="packet_handler.hpp:64" col2="74" col2_disp="   74 (2 calls)" col3="" col4="" col5=""/>
+                    </row>
+                </row>
+            </rows>
+            <notes/>
+        </hiertable>
+    </item>
+    <item name="Description of Compilation Phases">
+        <table>
+            <keys size="2">Compilation Phase, Description</keys>
+            <column name="Compile/Link">All functions are compiled and linked into a single design</column>
+            <column name="Unroll/Inline">After user unroll and inline pragmas are applied</column>
+            <column name="Performance/Pipeline">After performance and pipeline pragmas are applied</column>
+            <column name="Optimizations">After high level synthesis optimizations</column>
+        </table>
+    </item>
+    <item name="Design Size Message Settings">
+        <table>
+            <keys size="3">Message Setting, Value, Description</keys>
+            <column name="config_compile -design_size_maximum_warning">100000, Show a warning when total design instructions exceeds this value</column>
+        </table>
+    </item>
+</design_size>
+

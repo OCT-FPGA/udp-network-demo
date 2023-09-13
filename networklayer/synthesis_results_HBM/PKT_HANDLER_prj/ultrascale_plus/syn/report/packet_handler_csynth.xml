@@ -1,12 +1,12 @@
 <profile>
 
 <ReportVersion>
-<Version>2021.2</Version>
+<Version>2023.1</Version>
 </ReportVersion>
 
 <UserAssignments>
 <unit>ns</unit>
-<ProductFamily>virtexuplus</ProductFamily>
+<ProductFamily>virtexuplusHBM</ProductFamily>
 <Part>xcu280-fsvh2892-2L-e</Part>
 <TopModelName>packet_handler</TopModelName>
 <TargetClockPeriod>3.10</TargetClockPeriod>
@@ -18,16 +18,16 @@
 <PipelineType>dataflow</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>3.067</EstimatedClockPeriod>
+<EstimatedClockPeriod>3.140</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
 <Best-caseLatency>4</Best-caseLatency>
 <Average-caseLatency>4</Average-caseLatency>
 <Worst-caseLatency>4</Worst-caseLatency>
-<Best-caseRealTimeLatency>12.400 ns</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>12.400 ns</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>12.400 ns</Worst-caseRealTimeLatency>
+<Best-caseRealTimeLatency>12.559 ns</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>12.559 ns</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>12.559 ns</Worst-caseRealTimeLatency>
 <DataflowPipelineThroughput>1</DataflowPipelineThroughput>
 <Interval-min>1</Interval-min>
 <Interval-max>1</Interval-max>
@@ -37,8 +37,8 @@
 <AreaEstimates>
 <Resources>
 <BRAM_18K>0</BRAM_18K>
-<FF>6174</FF>
-<LUT>2575</LUT>
+<FF>6176</FF>
+<LUT>2651</LUT>
 <DSP>0</DSP>
 <URAM>0</URAM>
 </Resources>
@@ -52,50 +52,6 @@
 </AreaEstimates>
 
 <InterfaceSummary>
-<RtlPorts>
-<name>ap_local_block</name>
-<Object>packet_handler</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_none</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>unknown</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>ap_local_deadlock</name>
-<Object>packet_handler</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_none</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>unknown</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>ap_clk</name>
-<Object>packet_handler</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_none</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>ap_rst_n</name>
-<Object>packet_handler</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_none</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
 <RtlPorts>
 <name>s_axis_TDATA</name>
 <Object>s_axis_V_data_V</Object>
@@ -263,6 +219,28 @@
 <Bits>1</Bits>
 <Attribute>control</Attribute>
 <CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>ap_clk</name>
+<Object>packet_handler</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_none</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_rst_n</name>
+<Object>packet_handler</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_none</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
 </RtlPorts>
 </InterfaceSummary>
 

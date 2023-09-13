@@ -1,0 +1,94 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "3 2 1 5 4",
+    "file": "udp.cpp",
+    "fileloc": 407,
+    "instructions": 256,
+    "name": "udp",
+    "total_instructions": 1534
+  },
+  "1": {
+    "basicblocks": 12,
+    "calls": "",
+    "file": "udp.cpp",
+    "fileloc": 190,
+    "instructions": 80,
+    "loads": {
+      "G": 7,
+      "L": 2
+    },
+    "name": "rxEngPacketDropper",
+    "stores": {
+      "G": 8,
+      "L": 13
+    },
+    "total_instructions": 80
+  },
+  "2": {
+    "basicblocks": 22,
+    "calls": "",
+    "file": "udp.cpp",
+    "fileloc": 39,
+    "instructions": 296,
+    "loads": {
+      "L": 116
+    },
+    "name": "TableHandler",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 296
+  },
+  "3": {
+    "basicblocks": 16,
+    "calls": "",
+    "file": "udp.cpp",
+    "fileloc": 94,
+    "instructions": 151,
+    "loads": {
+      "G": 5,
+      "L": 8
+    },
+    "name": "udpRxEngine",
+    "stores": {
+      "G": 8,
+      "L": 12
+    },
+    "total_instructions": 151
+  },
+  "4": {
+    "basicblocks": 27,
+    "calls": "",
+    "file": "udp.cpp",
+    "fileloc": 280,
+    "instructions": 237,
+    "loads": {
+      "G": 13,
+      "L": 5
+    },
+    "name": "udpTxEngine",
+    "stores": {
+      "G": 18,
+      "L": 33
+    },
+    "total_instructions": 237
+  },
+  "5": {
+    "basicblocks": 144,
+    "calls": "",
+    "file": "udp.cpp",
+    "fileloc": 231,
+    "instructions": 514,
+    "loads": {
+      "G": 3,
+      "L": 12
+    },
+    "name": "appGetMetaData",
+    "stores": {
+      "G": 4,
+      "L": 17
+    },
+    "total_instructions": 514
+  }
+}

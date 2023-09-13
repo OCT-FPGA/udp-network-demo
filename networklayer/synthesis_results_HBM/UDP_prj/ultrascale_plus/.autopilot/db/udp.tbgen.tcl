@@ -9,6 +9,9 @@ set isOneStateSeq 0
 set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
+set hasInterrupt 0
+set DLRegFirstOffset 0
+set DLRegItemOffset 0
 set C_modelName {udp}
 set C_modelType { void 0 }
 set C_modelArgList {
@@ -98,8 +101,8 @@ set C_modelArgList {
 	{ SocketTable_valid_14 int 1 regular {axi_slave 0}  }
 	{ SocketTable_valid_15 int 1 regular {axi_slave 0}  }
 	{ numberSockets int 16 regular {axi_slave 1}  }
-	{ ap_local_deadlock int 1 unused {axi_slave 1}  }
 }
+set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "rxUdpDataIn_V_data_V", "interface" : "axis", "bitwidth" : 512, "direction" : "READONLY"} , 
  	{ "Name" : "rxUdpDataIn_V_keep_V", "interface" : "axis", "bitwidth" : 64, "direction" : "READONLY"} , 
@@ -186,12 +189,10 @@ set C_modelArgMapList {[
  	{ "Name" : "SocketTable_valid_13", "interface" : "axi_slave", "bundle":"s_axilite","type":"ap_none","bitwidth" : 1, "direction" : "READONLY", "offset" : {"in":504}, "offset_end" : {"in":511}} , 
  	{ "Name" : "SocketTable_valid_14", "interface" : "axi_slave", "bundle":"s_axilite","type":"ap_none","bitwidth" : 1, "direction" : "READONLY", "offset" : {"in":512}, "offset_end" : {"in":519}} , 
  	{ "Name" : "SocketTable_valid_15", "interface" : "axi_slave", "bundle":"s_axilite","type":"ap_none","bitwidth" : 1, "direction" : "READONLY", "offset" : {"in":520}, "offset_end" : {"in":527}} , 
- 	{ "Name" : "numberSockets", "interface" : "axi_slave", "bundle":"s_axilite","type":"ap_vld","bitwidth" : 16, "direction" : "WRITEONLY", "offset" : {"out":528}, "offset_end" : {"out":535}} , 
- 	{ "Name" : "ap_local_deadlock", "interface" : "axi_slave", "bundle":"s_axilite","type":"ap_none","bitwidth" : 1, "direction" : "WRITEONLY", "offset" : {"out":0}, "offset_end" : {"out":4294967295}} ]}
+ 	{ "Name" : "numberSockets", "interface" : "axi_slave", "bundle":"s_axilite","type":"ap_vld","bitwidth" : 16, "direction" : "WRITEONLY", "offset" : {"out":528}, "offset_end" : {"out":535}} ]}
 # RTL Port declarations: 
-set portNum 49
+set portNum 48
 set portList { 
-	{ ap_local_block sc_out sc_logic 1 signal -1 } 
 	{ s_axi_s_axilite_AWVALID sc_in sc_logic 1 signal -1 } 
 	{ s_axi_s_axilite_AWREADY sc_out sc_logic 1 signal -1 } 
 	{ s_axi_s_axilite_AWADDR sc_in sc_lv 10 signal -1 } 
@@ -249,7 +250,7 @@ set NewPortList {[
 	{ "name": "s_axi_s_axilite_WREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_axilite", "role": "WREADY" } },
 	{ "name": "s_axi_s_axilite_WDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "s_axilite", "role": "WDATA" } },
 	{ "name": "s_axi_s_axilite_WSTRB", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "s_axilite", "role": "WSTRB" } },
-	{ "name": "s_axi_s_axilite_ARADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":10, "type": "signal", "bundle":{"name": "s_axilite", "role": "ARADDR" },"address":[{"name":"numberSockets","role":"data","value":"528"}, {"name":"numberSockets","role":"valid","value":"532","valid_bit":"0"},{"name":"ap_local_deadlock","role":"data","value":"0"}] },
+	{ "name": "s_axi_s_axilite_ARADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":10, "type": "signal", "bundle":{"name": "s_axilite", "role": "ARADDR" },"address":[{"name":"numberSockets","role":"data","value":"528"}, {"name":"numberSockets","role":"valid","value":"532","valid_bit":"0"}] },
 	{ "name": "s_axi_s_axilite_ARVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_axilite", "role": "ARVALID" } },
 	{ "name": "s_axi_s_axilite_ARREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_axilite", "role": "ARREADY" } },
 	{ "name": "s_axi_s_axilite_RVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_axilite", "role": "RVALID" } },
@@ -259,7 +260,6 @@ set NewPortList {[
 	{ "name": "s_axi_s_axilite_BVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_axilite", "role": "BVALID" } },
 	{ "name": "s_axi_s_axilite_BREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_axilite", "role": "BREADY" } },
 	{ "name": "s_axi_s_axilite_BRESP", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "s_axilite", "role": "BRESP" } }, 
- 	{ "name": "ap_local_block", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ap_local_block", "role": "default" }} , 
  	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
  	{ "name": "ap_rst_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "reset", "bundle":{"name": "ap_rst_n", "role": "default" }} , 
  	{ "name": "rxUdpDataIn_TDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":512, "type": "signal", "bundle":{"name": "rxUdpDataIn_V_data_V", "role": "default" }} , 
@@ -293,7 +293,7 @@ set NewPortList {[
  	{ "name": "txUdpDataOut_TREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "txUdpDataOut_V_last_V", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "8", "13", "20", "28", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100", "101", "102", "103", "104", "105", "106", "107"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "8", "13", "20", "27", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100", "101", "102", "103", "104", "105", "106"],
 		"CDFG" : "udp",
 		"Protocol" : "ap_ctrl_none",
 		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "0", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0", "real_start" : "0",
@@ -314,66 +314,66 @@ set RtlHierarchyInfo {[
 		"OutputProcess" : [
 			{"ID" : "8", "Name" : "TableHandler_U0"},
 			{"ID" : "13", "Name" : "rxEngPacketDropper_U0"},
-			{"ID" : "28", "Name" : "udpTxEngine_U0"}],
+			{"ID" : "27", "Name" : "udpTxEngine_U0"}],
 		"Port" : [
-			{"Name" : "rxUdpDataIn_V_data_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "rxUdpDataIn_V_data_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "rxUdpDataIn",
 				"SubConnect" : [
 					{"ID" : "3", "SubInstance" : "udpRxEngine_U0", "Port" : "rxUdpDataIn_V_data_V"}]},
-			{"Name" : "rxUdpDataIn_V_keep_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "rxUdpDataIn_V_keep_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "rxUdpDataIn",
 				"SubConnect" : [
 					{"ID" : "3", "SubInstance" : "udpRxEngine_U0", "Port" : "rxUdpDataIn_V_keep_V"}]},
-			{"Name" : "rxUdpDataIn_V_strb_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "rxUdpDataIn_V_strb_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "rxUdpDataIn",
 				"SubConnect" : [
 					{"ID" : "3", "SubInstance" : "udpRxEngine_U0", "Port" : "rxUdpDataIn_V_strb_V"}]},
-			{"Name" : "rxUdpDataIn_V_last_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "rxUdpDataIn_V_last_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "rxUdpDataIn",
 				"SubConnect" : [
 					{"ID" : "3", "SubInstance" : "udpRxEngine_U0", "Port" : "rxUdpDataIn_V_last_V"}]},
-			{"Name" : "txUdpDataOut_V_data_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "txUdpDataOut_V_data_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "txUdpDataOut",
 				"SubConnect" : [
-					{"ID" : "28", "SubInstance" : "udpTxEngine_U0", "Port" : "txUdpDataOut_V_data_V"}]},
-			{"Name" : "txUdpDataOut_V_keep_V", "Type" : "Axis", "Direction" : "O",
+					{"ID" : "27", "SubInstance" : "udpTxEngine_U0", "Port" : "txUdpDataOut_V_data_V"}]},
+			{"Name" : "txUdpDataOut_V_keep_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "txUdpDataOut",
 				"SubConnect" : [
-					{"ID" : "28", "SubInstance" : "udpTxEngine_U0", "Port" : "txUdpDataOut_V_keep_V"}]},
-			{"Name" : "txUdpDataOut_V_strb_V", "Type" : "Axis", "Direction" : "O",
+					{"ID" : "27", "SubInstance" : "udpTxEngine_U0", "Port" : "txUdpDataOut_V_keep_V"}]},
+			{"Name" : "txUdpDataOut_V_strb_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "txUdpDataOut",
 				"SubConnect" : [
-					{"ID" : "28", "SubInstance" : "udpTxEngine_U0", "Port" : "txUdpDataOut_V_strb_V"}]},
-			{"Name" : "txUdpDataOut_V_last_V", "Type" : "Axis", "Direction" : "O",
+					{"ID" : "27", "SubInstance" : "udpTxEngine_U0", "Port" : "txUdpDataOut_V_strb_V"}]},
+			{"Name" : "txUdpDataOut_V_last_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "txUdpDataOut",
 				"SubConnect" : [
-					{"ID" : "28", "SubInstance" : "udpTxEngine_U0", "Port" : "txUdpDataOut_V_last_V"}]},
-			{"Name" : "DataOutApp_V_data_V", "Type" : "Axis", "Direction" : "O",
+					{"ID" : "27", "SubInstance" : "udpTxEngine_U0", "Port" : "txUdpDataOut_V_last_V"}]},
+			{"Name" : "DataOutApp_V_data_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "DataOutApp",
 				"SubConnect" : [
 					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "DataOutApp_V_data_V"}]},
-			{"Name" : "DataOutApp_V_keep_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "DataOutApp_V_keep_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "DataOutApp",
 				"SubConnect" : [
 					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "DataOutApp_V_keep_V"}]},
-			{"Name" : "DataOutApp_V_strb_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "DataOutApp_V_strb_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "DataOutApp",
 				"SubConnect" : [
 					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "DataOutApp_V_strb_V"}]},
-			{"Name" : "DataOutApp_V_user_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "DataOutApp_V_user_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "DataOutApp",
 				"SubConnect" : [
 					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "DataOutApp_V_user_V"}]},
-			{"Name" : "DataOutApp_V_last_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "DataOutApp_V_last_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "DataOutApp",
 				"SubConnect" : [
 					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "DataOutApp_V_last_V"}]},
-			{"Name" : "DataOutApp_V_dest_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "DataOutApp_V_dest_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "DataOutApp",
 				"SubConnect" : [
 					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "DataOutApp_V_dest_V"}]},
-			{"Name" : "DataInApp_V_data_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "DataInApp_V_data_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "DataInApp",
 				"SubConnect" : [
 					{"ID" : "20", "SubInstance" : "appGetMetaData_U0", "Port" : "DataInApp_V_data_V"}]},
-			{"Name" : "DataInApp_V_keep_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "DataInApp_V_keep_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "DataInApp",
 				"SubConnect" : [
 					{"ID" : "20", "SubInstance" : "appGetMetaData_U0", "Port" : "DataInApp_V_keep_V"}]},
-			{"Name" : "DataInApp_V_strb_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "DataInApp_V_strb_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "DataInApp",
 				"SubConnect" : [
 					{"ID" : "20", "SubInstance" : "appGetMetaData_U0", "Port" : "DataInApp_V_strb_V"}]},
-			{"Name" : "DataInApp_V_user_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "DataInApp_V_user_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "DataInApp",
 				"SubConnect" : [
 					{"ID" : "20", "SubInstance" : "appGetMetaData_U0", "Port" : "DataInApp_V_user_V"}]},
-			{"Name" : "DataInApp_V_last_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "DataInApp_V_last_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "DataInApp",
 				"SubConnect" : [
 					{"ID" : "20", "SubInstance" : "appGetMetaData_U0", "Port" : "DataInApp_V_last_V"}]},
-			{"Name" : "DataInApp_V_dest_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "DataInApp_V_dest_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "DataInApp",
 				"SubConnect" : [
 					{"ID" : "20", "SubInstance" : "appGetMetaData_U0", "Port" : "DataInApp_V_dest_V"}]},
 			{"Name" : "myIpAddress", "Type" : "None", "Direction" : "I",
@@ -577,12 +577,12 @@ set RtlHierarchyInfo {[
 			{"Name" : "ure_state", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "3", "SubInstance" : "udpRxEngine_U0", "Port" : "ure_state"}]},
-			{"Name" : "prevWord_data_V_1", "Type" : "OVld", "Direction" : "IO",
+			{"Name" : "prevWord_data_1", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "udpRxEngine_U0", "Port" : "prevWord_data_V_1"}]},
-			{"Name" : "prevWord_keep_V_1", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "3", "SubInstance" : "udpRxEngine_U0", "Port" : "prevWord_data_1"}]},
+			{"Name" : "prevWord_keep_1", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "udpRxEngine_U0", "Port" : "prevWord_keep_V_1"}]},
+					{"ID" : "3", "SubInstance" : "udpRxEngine_U0", "Port" : "prevWord_keep_1"}]},
 			{"Name" : "ureMetaData", "Type" : "Fifo", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "3", "SubInstance" : "udpRxEngine_U0", "Port" : "ureMetaData"},
@@ -593,79 +593,78 @@ set RtlHierarchyInfo {[
 					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "ureDataPayload"}]},
 			{"Name" : "rthDropFifo", "Type" : "Fifo", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "rthDropFifo"},
-					{"ID" : "8", "SubInstance" : "TableHandler_U0", "Port" : "rthDropFifo"}]},
+					{"ID" : "8", "SubInstance" : "TableHandler_U0", "Port" : "rthDropFifo"},
+					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "rthDropFifo"}]},
 			{"Name" : "agmdIdOut", "Type" : "Fifo", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "8", "SubInstance" : "TableHandler_U0", "Port" : "agmdIdOut"},
-					{"ID" : "20", "SubInstance" : "appGetMetaData_U0", "Port" : "agmdIdOut"}]},
+					{"ID" : "20", "SubInstance" : "appGetMetaData_U0", "Port" : "agmdIdOut"},
+					{"ID" : "8", "SubInstance" : "TableHandler_U0", "Port" : "agmdIdOut"}]},
 			{"Name" : "txthMetaData", "Type" : "Fifo", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "28", "SubInstance" : "udpTxEngine_U0", "Port" : "txthMetaData"},
+					{"ID" : "27", "SubInstance" : "udpTxEngine_U0", "Port" : "txthMetaData"},
 					{"ID" : "8", "SubInstance" : "TableHandler_U0", "Port" : "txthMetaData"}]},
 			{"Name" : "repd_state", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "repd_state"}]},
-			{"Name" : "response_drop_V", "Type" : "OVld", "Direction" : "IO",
+			{"Name" : "response_drop", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "response_drop_V"}]},
-			{"Name" : "response_id_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "response_drop"}]},
+			{"Name" : "response_id", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "response_id_V"}]},
-			{"Name" : "response_user_myIP_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "response_id"}]},
+			{"Name" : "response_user_myIP", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "response_user_myIP_V"}]},
-			{"Name" : "response_user_theirIP_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "response_user_myIP"}]},
+			{"Name" : "response_user_theirIP", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "response_user_theirIP_V"}]},
-			{"Name" : "response_user_myPort_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "response_user_theirIP"}]},
+			{"Name" : "response_user_myPort", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "response_user_myPort_V"}]},
-			{"Name" : "response_user_theirPort_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "response_user_myPort"}]},
+			{"Name" : "response_user_theirPort", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "response_user_theirPort_V"}]},
+					{"ID" : "13", "SubInstance" : "rxEngPacketDropper_U0", "Port" : "response_user_theirPort"}]},
 			{"Name" : "agmd_state", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "20", "SubInstance" : "appGetMetaData_U0", "Port" : "agmd_state"}]},
-			{"Name" : "lenCount_V", "Type" : "OVld", "Direction" : "IO",
+			{"Name" : "lenCount", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "20", "SubInstance" : "appGetMetaData_U0", "Port" : "lenCount_V"}]},
+					{"ID" : "20", "SubInstance" : "appGetMetaData_U0", "Port" : "lenCount"}]},
 			{"Name" : "agmdDataOut", "Type" : "Fifo", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "28", "SubInstance" : "udpTxEngine_U0", "Port" : "agmdDataOut"},
-					{"ID" : "20", "SubInstance" : "appGetMetaData_U0", "Port" : "agmdDataOut"}]},
+					{"ID" : "20", "SubInstance" : "appGetMetaData_U0", "Port" : "agmdDataOut"},
+					{"ID" : "27", "SubInstance" : "udpTxEngine_U0", "Port" : "agmdDataOut"}]},
 			{"Name" : "agmdpayloadLenOut", "Type" : "Fifo", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "28", "SubInstance" : "udpTxEngine_U0", "Port" : "agmdpayloadLenOut"},
-					{"ID" : "20", "SubInstance" : "appGetMetaData_U0", "Port" : "agmdpayloadLenOut"}]},
+					{"ID" : "20", "SubInstance" : "appGetMetaData_U0", "Port" : "agmdpayloadLenOut"},
+					{"ID" : "27", "SubInstance" : "udpTxEngine_U0", "Port" : "agmdpayloadLenOut"}]},
 			{"Name" : "ute_state", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "28", "SubInstance" : "udpTxEngine_U0", "Port" : "ute_state"}]},
-			{"Name" : "prevWord_data_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "27", "SubInstance" : "udpTxEngine_U0", "Port" : "ute_state"}]},
+			{"Name" : "prevWord_data", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "28", "SubInstance" : "udpTxEngine_U0", "Port" : "prevWord_data_V"}]},
-			{"Name" : "prevWord_keep_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "27", "SubInstance" : "udpTxEngine_U0", "Port" : "prevWord_data"}]},
+			{"Name" : "prevWord_keep", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "28", "SubInstance" : "udpTxEngine_U0", "Port" : "prevWord_keep_V"}]},
-			{"Name" : "currMetaData_theirIP_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "27", "SubInstance" : "udpTxEngine_U0", "Port" : "prevWord_keep"}]},
+			{"Name" : "currMetaData_theirIP", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "28", "SubInstance" : "udpTxEngine_U0", "Port" : "currMetaData_theirIP_V"}]},
-			{"Name" : "currMetaData_myIP_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "27", "SubInstance" : "udpTxEngine_U0", "Port" : "currMetaData_theirIP"}]},
+			{"Name" : "currMetaData_myIP", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "28", "SubInstance" : "udpTxEngine_U0", "Port" : "currMetaData_myIP_V"}]},
-			{"Name" : "currMetaData_theirPort_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "27", "SubInstance" : "udpTxEngine_U0", "Port" : "currMetaData_myIP"}]},
+			{"Name" : "currMetaData_theirPort", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "28", "SubInstance" : "udpTxEngine_U0", "Port" : "currMetaData_theirPort_V"}]},
-			{"Name" : "currMetaData_myPort_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "27", "SubInstance" : "udpTxEngine_U0", "Port" : "currMetaData_theirPort"}]},
+			{"Name" : "currMetaData_myPort", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "28", "SubInstance" : "udpTxEngine_U0", "Port" : "currMetaData_myPort_V"}]},
-			{"Name" : "ip_len_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "27", "SubInstance" : "udpTxEngine_U0", "Port" : "currMetaData_myPort"}]},
+			{"Name" : "ip_len", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "28", "SubInstance" : "udpTxEngine_U0", "Port" : "ip_len_V"}]},
-			{"Name" : "udp_len_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "27", "SubInstance" : "udpTxEngine_U0", "Port" : "ip_len"}]},
+			{"Name" : "udp_len", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "28", "SubInstance" : "udpTxEngine_U0", "Port" : "udp_len_V"}]},
-			{"Name" : "ap_local_deadlock", "Type" : "None", "Direction" : "O"}]},
+					{"ID" : "27", "SubInstance" : "udpTxEngine_U0", "Port" : "udp_len"}]}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_axilite_s_axi_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.entry_proc_U0", "Parent" : "0",
 		"CDFG" : "entry_proc",
@@ -683,263 +682,263 @@ set RtlHierarchyInfo {[
 		"IsBlackBox" : "0",
 		"Port" : [
 			{"Name" : "myIpAddress", "Type" : "None", "Direction" : "I"},
-			{"Name" : "myIpAddress_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "33", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "myIpAddress_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "32", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "myIpAddress_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirIP_0", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirIP_0_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "34", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_0_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "33", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_0_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirIP_1", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirIP_1_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "35", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_1_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "34", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_1_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirIP_2", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirIP_2_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "36", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_2_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "35", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_2_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirIP_3", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirIP_3_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "37", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_3_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "36", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_3_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirIP_4", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirIP_4_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "38", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_4_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "37", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_4_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirIP_5", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirIP_5_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "39", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_5_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "38", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_5_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirIP_6", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirIP_6_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "40", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_6_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "39", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_6_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirIP_7", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirIP_7_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "41", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_7_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "40", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_7_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirIP_8", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirIP_8_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "42", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_8_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "41", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_8_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirIP_9", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirIP_9_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "43", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_9_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "42", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_9_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirIP_10", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirIP_10_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "44", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_10_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "43", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_10_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirIP_11", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirIP_11_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "45", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_11_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "44", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_11_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirIP_12", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirIP_12_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "46", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_12_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "45", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_12_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirIP_13", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirIP_13_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "47", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_13_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "46", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_13_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirIP_14", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirIP_14_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "48", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_14_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "47", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_14_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirIP_15", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirIP_15_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "49", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_15_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "48", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_15_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirPort_0", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirPort_0_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "50", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_0_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "49", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_0_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirPort_1", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirPort_1_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "51", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_1_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "50", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_1_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirPort_2", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirPort_2_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "52", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_2_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "51", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_2_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirPort_3", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirPort_3_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "53", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_3_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "52", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_3_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirPort_4", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirPort_4_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "54", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_4_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "53", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_4_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirPort_5", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirPort_5_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "55", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_5_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "54", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_5_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirPort_6", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirPort_6_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "56", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_6_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "55", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_6_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirPort_7", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirPort_7_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "57", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_7_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "56", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_7_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirPort_8", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirPort_8_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "58", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_8_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "57", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_8_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirPort_9", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirPort_9_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "59", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_9_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "58", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_9_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirPort_10", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirPort_10_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "60", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_10_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "59", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_10_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirPort_11", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirPort_11_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "61", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_11_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "60", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_11_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirPort_12", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirPort_12_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "62", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_12_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "61", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_12_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirPort_13", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirPort_13_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "63", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_13_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "62", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_13_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirPort_14", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirPort_14_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "64", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_14_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "63", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_14_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_theirPort_15", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_theirPort_15_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "65", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_15_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "64", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_15_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_myPort_0", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_myPort_0_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "66", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_0_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "65", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_0_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_myPort_1", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_myPort_1_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "67", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_1_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "66", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_1_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_myPort_2", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_myPort_2_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "68", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_2_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "67", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_2_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_myPort_3", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_myPort_3_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "69", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_3_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "68", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_3_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_myPort_4", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_myPort_4_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "70", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_4_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "69", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_4_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_myPort_5", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_myPort_5_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "71", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_5_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "70", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_5_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_myPort_6", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_myPort_6_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "72", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_6_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "71", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_6_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_myPort_7", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_myPort_7_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "73", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_7_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "72", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_7_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_myPort_8", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_myPort_8_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "74", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_8_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "73", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_8_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_myPort_9", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_myPort_9_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "75", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_9_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "74", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_9_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_myPort_10", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_myPort_10_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "76", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_10_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "75", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_10_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_myPort_11", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_myPort_11_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "77", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_11_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "76", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_11_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_myPort_12", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_myPort_12_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "78", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_12_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "77", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_12_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_myPort_13", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_myPort_13_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "79", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_13_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "78", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_13_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_myPort_14", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_myPort_14_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "80", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_14_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "79", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_14_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_myPort_15", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_myPort_15_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "81", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_15_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "80", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_15_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_valid_0", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_valid_0_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "82", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_0_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "81", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_0_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_valid_1", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_valid_1_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "83", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_1_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "82", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_1_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_valid_2", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_valid_2_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "84", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_2_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "83", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_2_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_valid_3", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_valid_3_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "85", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_3_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "84", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_3_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_valid_4", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_valid_4_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "86", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_4_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "85", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_4_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_valid_5", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_valid_5_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "87", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_5_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "86", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_5_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_valid_6", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_valid_6_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "88", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_6_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "87", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_6_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_valid_7", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_valid_7_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "89", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_7_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "88", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_7_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_valid_8", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_valid_8_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "90", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_8_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "89", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_8_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_valid_9", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_valid_9_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "91", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_9_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "90", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_9_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_valid_10", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_valid_10_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "92", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_10_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "91", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_10_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_valid_11", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_valid_11_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "93", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_11_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "92", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_11_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_valid_12", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_valid_12_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "94", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_12_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "93", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_12_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_valid_13", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_valid_13_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "95", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_13_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "94", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_13_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_valid_14", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_valid_14_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "96", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_14_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "95", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_14_c_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "SocketTable_valid_15", "Type" : "None", "Direction" : "I"},
-			{"Name" : "SocketTable_valid_15_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "97", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_15_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "96", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_15_c_blk_n", "Type" : "RtlSignal"}]}]},
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.udpRxEngine_U0", "Parent" : "0", "Child" : ["4", "5", "6", "7"],
@@ -957,19 +956,19 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "1",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "rxUdpDataIn_V_data_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "rxUdpDataIn_V_data_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "rxUdpDataIn",
 				"BlockSignal" : [
 					{"Name" : "rxUdpDataIn_TDATA_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "rxUdpDataIn_V_keep_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "rxUdpDataIn_V_strb_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "rxUdpDataIn_V_last_V", "Type" : "Axis", "Direction" : "I"},
+			{"Name" : "rxUdpDataIn_V_keep_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "rxUdpDataIn"},
+			{"Name" : "rxUdpDataIn_V_strb_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "rxUdpDataIn"},
+			{"Name" : "rxUdpDataIn_V_last_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "rxUdpDataIn"},
 			{"Name" : "ure_state", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "prevWord_data_V_1", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "prevWord_keep_V_1", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "ureMetaData", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "98", "DependentChanDepth" : "32", "DependentChanType" : "0",
+			{"Name" : "prevWord_data_1", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "prevWord_keep_1", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "ureMetaData", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "97", "DependentChanDepth" : "32", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "ureMetaData_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "ureDataPayload", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["13"], "DependentChan" : "99", "DependentChanDepth" : "256", "DependentChanType" : "0",
+			{"Name" : "ureDataPayload", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["13"], "DependentChan" : "98", "DependentChanDepth" : "256", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "ureDataPayload_blk_n", "Type" : "RtlSignal"}]}]},
 	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.udpRxEngine_U0.regslice_both_rxUdpDataIn_V_data_V_U", "Parent" : "3"},
@@ -993,218 +992,218 @@ set RtlHierarchyInfo {[
 		"StartSource" : "2",
 		"StartFifo" : "start_for_TableHandler_U0_U",
 		"Port" : [
-			{"Name" : "SocketTable_theirIP_0", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "34", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_0", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "33", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_0_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirIP_1", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "35", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_1", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "34", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_1_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirIP_2", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "36", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_2", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "35", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_2_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirIP_3", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "37", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_3", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "36", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_3_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirIP_4", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "38", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_4", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "37", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_4_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirIP_5", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "39", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_5", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "38", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_5_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirIP_6", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "40", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_6", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "39", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_6_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirIP_7", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "41", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_7", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "40", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_7_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirIP_8", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "42", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_8", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "41", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_8_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirIP_9", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "43", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_9", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "42", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_9_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirIP_10", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "44", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_10", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "43", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_10_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirIP_11", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "45", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_11", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "44", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_11_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirIP_12", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "46", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_12", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "45", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_12_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirIP_13", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "47", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_13", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "46", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_13_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirIP_14", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "48", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_14", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "47", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_14_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirIP_15", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "49", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirIP_15", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "48", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirIP_15_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirPort_0", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "50", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_0", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "49", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_0_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirPort_1", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "51", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_1", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "50", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_1_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirPort_2", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "52", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_2", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "51", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_2_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirPort_3", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "53", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_3", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "52", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_3_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirPort_4", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "54", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_4", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "53", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_4_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirPort_5", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "55", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_5", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "54", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_5_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirPort_6", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "56", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_6", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "55", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_6_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirPort_7", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "57", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_7", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "56", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_7_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirPort_8", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "58", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_8", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "57", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_8_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirPort_9", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "59", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_9", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "58", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_9_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirPort_10", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "60", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_10", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "59", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_10_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirPort_11", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "61", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_11", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "60", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_11_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirPort_12", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "62", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_12", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "61", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_12_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirPort_13", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "63", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_13", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "62", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_13_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirPort_14", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "64", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_14", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "63", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_14_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_theirPort_15", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "65", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_theirPort_15", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "64", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_theirPort_15_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_myPort_0", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "66", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_0", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "65", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_0_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_myPort_1", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "67", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_1", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "66", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_1_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_myPort_2", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "68", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_2", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "67", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_2_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_myPort_3", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "69", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_3", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "68", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_3_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_myPort_4", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "70", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_4", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "69", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_4_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_myPort_5", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "71", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_5", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "70", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_5_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_myPort_6", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "72", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_6", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "71", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_6_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_myPort_7", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "73", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_7", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "72", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_7_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_myPort_8", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "74", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_8", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "73", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_8_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_myPort_9", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "75", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_9", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "74", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_9_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_myPort_10", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "76", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_10", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "75", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_10_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_myPort_11", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "77", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_11", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "76", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_11_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_myPort_12", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "78", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_12", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "77", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_12_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_myPort_13", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "79", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_13", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "78", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_13_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_myPort_14", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "80", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_14", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "79", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_14_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_myPort_15", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "81", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_myPort_15", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "80", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_myPort_15_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_valid_0", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "82", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_0", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "81", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_0_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_valid_1", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "83", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_1", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "82", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_1_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_valid_2", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "84", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_2", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "83", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_2_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_valid_3", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "85", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_3", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "84", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_3_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_valid_4", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "86", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_4", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "85", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_4_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_valid_5", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "87", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_5", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "86", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_5_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_valid_6", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "88", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_6", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "87", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_6_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_valid_7", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "89", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_7", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "88", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_7_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_valid_8", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "90", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_8", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "89", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_8_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_valid_9", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "91", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_9", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "90", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_9_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_valid_10", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "92", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_10", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "91", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_10_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_valid_11", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "93", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_11", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "92", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_11_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_valid_12", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "94", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_12", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "93", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_12_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_valid_13", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "95", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_13", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "94", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_13_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_valid_14", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "96", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_14", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "95", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_14_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "SocketTable_valid_15", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "97", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "SocketTable_valid_15", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "96", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "SocketTable_valid_15_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "numberSockets", "Type" : "Vld", "Direction" : "O"},
-			{"Name" : "myIpAddress", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "33", "DependentChanDepth" : "3", "DependentChanType" : "2",
+			{"Name" : "myIpAddress", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "32", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "myIpAddress_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "ureMetaData", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["3"], "DependentChan" : "98", "DependentChanDepth" : "32", "DependentChanType" : "0",
+			{"Name" : "ureMetaData", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["3"], "DependentChan" : "97", "DependentChanDepth" : "32", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "ureMetaData_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "rthDropFifo", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["13"], "DependentChan" : "100", "DependentChanDepth" : "32", "DependentChanType" : "0",
+			{"Name" : "rthDropFifo", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["13"], "DependentChan" : "99", "DependentChanDepth" : "32", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "rthDropFifo_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "agmdIdOut", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["20"], "DependentChan" : "101", "DependentChanDepth" : "256", "DependentChanType" : "0",
+			{"Name" : "agmdIdOut", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["20"], "DependentChan" : "100", "DependentChanDepth" : "256", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "agmdIdOut_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "txthMetaData", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["28"], "DependentChan" : "102", "DependentChanDepth" : "32", "DependentChanType" : "0",
+			{"Name" : "txthMetaData", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["27"], "DependentChan" : "101", "DependentChanDepth" : "32", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "txthMetaData_blk_n", "Type" : "RtlSignal"}]}]},
-	{"ID" : "9", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.TableHandler_U0.mux_1616_32_1_1_U141", "Parent" : "8"},
-	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.TableHandler_U0.mux_1616_16_1_1_U142", "Parent" : "8"},
-	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.TableHandler_U0.mux_1616_16_1_1_U143", "Parent" : "8"},
-	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.TableHandler_U0.mux_1616_1_1_1_U144", "Parent" : "8"},
+	{"ID" : "9", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.TableHandler_U0.mux_16_4_32_1_1_U141", "Parent" : "8"},
+	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.TableHandler_U0.mux_16_4_16_1_1_U142", "Parent" : "8"},
+	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.TableHandler_U0.mux_16_4_16_1_1_U143", "Parent" : "8"},
+	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.TableHandler_U0.mux_16_4_1_1_1_U144", "Parent" : "8"},
 	{"ID" : "13", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.rxEngPacketDropper_U0", "Parent" : "0", "Child" : ["14", "15", "16", "17", "18", "19"],
 		"CDFG" : "rxEngPacketDropper",
 		"Protocol" : "ap_ctrl_hs",
@@ -1222,25 +1221,25 @@ set RtlHierarchyInfo {[
 		"StartSource" : "3",
 		"StartFifo" : "start_for_rxEngPacketDropper_U0_U",
 		"Port" : [
-			{"Name" : "DataOutApp_V_data_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "DataOutApp_V_data_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "DataOutApp",
 				"BlockSignal" : [
 					{"Name" : "DataOutApp_TDATA_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "DataOutApp_V_keep_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "DataOutApp_V_strb_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "DataOutApp_V_user_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "DataOutApp_V_last_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "DataOutApp_V_dest_V", "Type" : "Axis", "Direction" : "O"},
+			{"Name" : "DataOutApp_V_keep_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "DataOutApp"},
+			{"Name" : "DataOutApp_V_strb_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "DataOutApp"},
+			{"Name" : "DataOutApp_V_user_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "DataOutApp"},
+			{"Name" : "DataOutApp_V_last_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "DataOutApp"},
+			{"Name" : "DataOutApp_V_dest_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "DataOutApp"},
 			{"Name" : "repd_state", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "response_drop_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "rthDropFifo", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["8"], "DependentChan" : "100", "DependentChanDepth" : "32", "DependentChanType" : "0",
+			{"Name" : "response_drop", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "rthDropFifo", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["8"], "DependentChan" : "99", "DependentChanDepth" : "32", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "rthDropFifo_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "response_id_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "response_user_myIP_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "response_user_theirIP_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "response_user_myPort_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "response_user_theirPort_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "ureDataPayload", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["3"], "DependentChan" : "99", "DependentChanDepth" : "256", "DependentChanType" : "0",
+			{"Name" : "response_id", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "response_user_myIP", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "response_user_theirIP", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "response_user_myPort", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "response_user_theirPort", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "ureDataPayload", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["3"], "DependentChan" : "98", "DependentChanDepth" : "256", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "ureDataPayload_blk_n", "Type" : "RtlSignal"}]}]},
 	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.rxEngPacketDropper_U0.regslice_both_DataOutApp_V_data_V_U", "Parent" : "13"},
@@ -1249,7 +1248,7 @@ set RtlHierarchyInfo {[
 	{"ID" : "17", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.rxEngPacketDropper_U0.regslice_both_DataOutApp_V_user_V_U", "Parent" : "13"},
 	{"ID" : "18", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.rxEngPacketDropper_U0.regslice_both_DataOutApp_V_last_V_U", "Parent" : "13"},
 	{"ID" : "19", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.rxEngPacketDropper_U0.regslice_both_DataOutApp_V_dest_V_U", "Parent" : "13"},
-	{"ID" : "20", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.appGetMetaData_U0", "Parent" : "0", "Child" : ["21", "22", "23", "24", "25", "26", "27"],
+	{"ID" : "20", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.appGetMetaData_U0", "Parent" : "0", "Child" : ["21", "22", "23", "24", "25", "26"],
 		"CDFG" : "appGetMetaData",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "1",
@@ -1264,48 +1263,32 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "1",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "DataInApp_V_data_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "DataInApp_V_data_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "DataInApp",
 				"BlockSignal" : [
 					{"Name" : "DataInApp_TDATA_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "DataInApp_V_keep_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "DataInApp_V_strb_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "DataInApp_V_user_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "DataInApp_V_last_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "DataInApp_V_dest_V", "Type" : "Axis", "Direction" : "I"},
+			{"Name" : "DataInApp_V_keep_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "DataInApp"},
+			{"Name" : "DataInApp_V_strb_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "DataInApp"},
+			{"Name" : "DataInApp_V_user_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "DataInApp"},
+			{"Name" : "DataInApp_V_last_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "DataInApp"},
+			{"Name" : "DataInApp_V_dest_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "DataInApp"},
 			{"Name" : "agmd_state", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "lenCount_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "agmdDataOut", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["28"], "DependentChan" : "103", "DependentChanDepth" : "256", "DependentChanType" : "0",
+			{"Name" : "lenCount", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "agmdDataOut", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["27"], "DependentChan" : "102", "DependentChanDepth" : "256", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "agmdDataOut_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "agmdIdOut", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "101", "DependentChanDepth" : "256", "DependentChanType" : "0",
+			{"Name" : "agmdIdOut", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["8"], "DependentChan" : "100", "DependentChanDepth" : "256", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "agmdIdOut_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "agmdpayloadLenOut", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["28"], "DependentChan" : "104", "DependentChanDepth" : "256", "DependentChanType" : "0",
+			{"Name" : "agmdpayloadLenOut", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["27"], "DependentChan" : "103", "DependentChanDepth" : "256", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "agmdpayloadLenOut_blk_n", "Type" : "RtlSignal"}]}]},
-	{"ID" : "21", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.appGetMetaData_U0.grp_keep2len_fu_121", "Parent" : "20",
-		"CDFG" : "keep2len",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "1", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0", "real_start" : "0",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "1",
-		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
-		"Combinational" : "1",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"IsBlackBox" : "0",
-		"Port" : [
-			{"Name" : "keepValue", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "22", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.appGetMetaData_U0.regslice_both_DataInApp_V_data_V_U", "Parent" : "20"},
-	{"ID" : "23", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.appGetMetaData_U0.regslice_both_DataInApp_V_keep_V_U", "Parent" : "20"},
-	{"ID" : "24", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.appGetMetaData_U0.regslice_both_DataInApp_V_strb_V_U", "Parent" : "20"},
-	{"ID" : "25", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.appGetMetaData_U0.regslice_both_DataInApp_V_user_V_U", "Parent" : "20"},
-	{"ID" : "26", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.appGetMetaData_U0.regslice_both_DataInApp_V_last_V_U", "Parent" : "20"},
-	{"ID" : "27", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.appGetMetaData_U0.regslice_both_DataInApp_V_dest_V_U", "Parent" : "20"},
-	{"ID" : "28", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.udpTxEngine_U0", "Parent" : "0", "Child" : ["29", "30", "31", "32"],
+	{"ID" : "21", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.appGetMetaData_U0.regslice_both_DataInApp_V_data_V_U", "Parent" : "20"},
+	{"ID" : "22", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.appGetMetaData_U0.regslice_both_DataInApp_V_keep_V_U", "Parent" : "20"},
+	{"ID" : "23", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.appGetMetaData_U0.regslice_both_DataInApp_V_strb_V_U", "Parent" : "20"},
+	{"ID" : "24", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.appGetMetaData_U0.regslice_both_DataInApp_V_user_V_U", "Parent" : "20"},
+	{"ID" : "25", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.appGetMetaData_U0.regslice_both_DataInApp_V_last_V_U", "Parent" : "20"},
+	{"ID" : "26", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.appGetMetaData_U0.regslice_both_DataInApp_V_dest_V_U", "Parent" : "20"},
+	{"ID" : "27", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.udpTxEngine_U0", "Parent" : "0", "Child" : ["28", "29", "30", "31"],
 		"CDFG" : "udpTxEngine",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
@@ -1322,109 +1305,109 @@ set RtlHierarchyInfo {[
 		"StartSource" : "20",
 		"StartFifo" : "start_for_udpTxEngine_U0_U",
 		"Port" : [
-			{"Name" : "txUdpDataOut_V_data_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "txUdpDataOut_V_data_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "txUdpDataOut",
 				"BlockSignal" : [
 					{"Name" : "txUdpDataOut_TDATA_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "txUdpDataOut_V_keep_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "txUdpDataOut_V_strb_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "txUdpDataOut_V_last_V", "Type" : "Axis", "Direction" : "O"},
+			{"Name" : "txUdpDataOut_V_keep_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "txUdpDataOut"},
+			{"Name" : "txUdpDataOut_V_strb_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "txUdpDataOut"},
+			{"Name" : "txUdpDataOut_V_last_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "txUdpDataOut"},
 			{"Name" : "ute_state", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "prevWord_data_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "prevWord_keep_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "txthMetaData", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["8"], "DependentChan" : "102", "DependentChanDepth" : "32", "DependentChanType" : "0",
+			{"Name" : "prevWord_data", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "prevWord_keep", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "txthMetaData", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["8"], "DependentChan" : "101", "DependentChanDepth" : "32", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "txthMetaData_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "agmdpayloadLenOut", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["20"], "DependentChan" : "104", "DependentChanDepth" : "256", "DependentChanType" : "0",
+			{"Name" : "agmdpayloadLenOut", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["20"], "DependentChan" : "103", "DependentChanDepth" : "256", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "agmdpayloadLenOut_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "currMetaData_theirIP_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "currMetaData_myIP_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "currMetaData_theirPort_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "currMetaData_myPort_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "ip_len_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "udp_len_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "agmdDataOut", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["20"], "DependentChan" : "103", "DependentChanDepth" : "256", "DependentChanType" : "0",
+			{"Name" : "currMetaData_theirIP", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "currMetaData_myIP", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "currMetaData_theirPort", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "currMetaData_myPort", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "ip_len", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "udp_len", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "agmdDataOut", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["20"], "DependentChan" : "102", "DependentChanDepth" : "256", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "agmdDataOut_blk_n", "Type" : "RtlSignal"}]}]},
-	{"ID" : "29", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.udpTxEngine_U0.regslice_both_txUdpDataOut_V_data_V_U", "Parent" : "28"},
-	{"ID" : "30", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.udpTxEngine_U0.regslice_both_txUdpDataOut_V_keep_V_U", "Parent" : "28"},
-	{"ID" : "31", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.udpTxEngine_U0.regslice_both_txUdpDataOut_V_strb_V_U", "Parent" : "28"},
-	{"ID" : "32", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.udpTxEngine_U0.regslice_both_txUdpDataOut_V_last_V_U", "Parent" : "28"},
-	{"ID" : "33", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.myIpAddress_c_U", "Parent" : "0"},
-	{"ID" : "34", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_0_c_U", "Parent" : "0"},
-	{"ID" : "35", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_1_c_U", "Parent" : "0"},
-	{"ID" : "36", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_2_c_U", "Parent" : "0"},
-	{"ID" : "37", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_3_c_U", "Parent" : "0"},
-	{"ID" : "38", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_4_c_U", "Parent" : "0"},
-	{"ID" : "39", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_5_c_U", "Parent" : "0"},
-	{"ID" : "40", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_6_c_U", "Parent" : "0"},
-	{"ID" : "41", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_7_c_U", "Parent" : "0"},
-	{"ID" : "42", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_8_c_U", "Parent" : "0"},
-	{"ID" : "43", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_9_c_U", "Parent" : "0"},
-	{"ID" : "44", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_10_c_U", "Parent" : "0"},
-	{"ID" : "45", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_11_c_U", "Parent" : "0"},
-	{"ID" : "46", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_12_c_U", "Parent" : "0"},
-	{"ID" : "47", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_13_c_U", "Parent" : "0"},
-	{"ID" : "48", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_14_c_U", "Parent" : "0"},
-	{"ID" : "49", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_15_c_U", "Parent" : "0"},
-	{"ID" : "50", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_0_c_U", "Parent" : "0"},
-	{"ID" : "51", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_1_c_U", "Parent" : "0"},
-	{"ID" : "52", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_2_c_U", "Parent" : "0"},
-	{"ID" : "53", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_3_c_U", "Parent" : "0"},
-	{"ID" : "54", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_4_c_U", "Parent" : "0"},
-	{"ID" : "55", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_5_c_U", "Parent" : "0"},
-	{"ID" : "56", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_6_c_U", "Parent" : "0"},
-	{"ID" : "57", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_7_c_U", "Parent" : "0"},
-	{"ID" : "58", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_8_c_U", "Parent" : "0"},
-	{"ID" : "59", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_9_c_U", "Parent" : "0"},
-	{"ID" : "60", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_10_c_U", "Parent" : "0"},
-	{"ID" : "61", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_11_c_U", "Parent" : "0"},
-	{"ID" : "62", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_12_c_U", "Parent" : "0"},
-	{"ID" : "63", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_13_c_U", "Parent" : "0"},
-	{"ID" : "64", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_14_c_U", "Parent" : "0"},
-	{"ID" : "65", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_15_c_U", "Parent" : "0"},
-	{"ID" : "66", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_0_c_U", "Parent" : "0"},
-	{"ID" : "67", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_1_c_U", "Parent" : "0"},
-	{"ID" : "68", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_2_c_U", "Parent" : "0"},
-	{"ID" : "69", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_3_c_U", "Parent" : "0"},
-	{"ID" : "70", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_4_c_U", "Parent" : "0"},
-	{"ID" : "71", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_5_c_U", "Parent" : "0"},
-	{"ID" : "72", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_6_c_U", "Parent" : "0"},
-	{"ID" : "73", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_7_c_U", "Parent" : "0"},
-	{"ID" : "74", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_8_c_U", "Parent" : "0"},
-	{"ID" : "75", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_9_c_U", "Parent" : "0"},
-	{"ID" : "76", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_10_c_U", "Parent" : "0"},
-	{"ID" : "77", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_11_c_U", "Parent" : "0"},
-	{"ID" : "78", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_12_c_U", "Parent" : "0"},
-	{"ID" : "79", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_13_c_U", "Parent" : "0"},
-	{"ID" : "80", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_14_c_U", "Parent" : "0"},
-	{"ID" : "81", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_15_c_U", "Parent" : "0"},
-	{"ID" : "82", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_0_c_U", "Parent" : "0"},
-	{"ID" : "83", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_1_c_U", "Parent" : "0"},
-	{"ID" : "84", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_2_c_U", "Parent" : "0"},
-	{"ID" : "85", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_3_c_U", "Parent" : "0"},
-	{"ID" : "86", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_4_c_U", "Parent" : "0"},
-	{"ID" : "87", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_5_c_U", "Parent" : "0"},
-	{"ID" : "88", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_6_c_U", "Parent" : "0"},
-	{"ID" : "89", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_7_c_U", "Parent" : "0"},
-	{"ID" : "90", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_8_c_U", "Parent" : "0"},
-	{"ID" : "91", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_9_c_U", "Parent" : "0"},
-	{"ID" : "92", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_10_c_U", "Parent" : "0"},
-	{"ID" : "93", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_11_c_U", "Parent" : "0"},
-	{"ID" : "94", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_12_c_U", "Parent" : "0"},
-	{"ID" : "95", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_13_c_U", "Parent" : "0"},
-	{"ID" : "96", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_14_c_U", "Parent" : "0"},
-	{"ID" : "97", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_15_c_U", "Parent" : "0"},
-	{"ID" : "98", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.ureMetaData_U", "Parent" : "0"},
-	{"ID" : "99", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.ureDataPayload_U", "Parent" : "0"},
-	{"ID" : "100", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.rthDropFifo_U", "Parent" : "0"},
-	{"ID" : "101", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.agmdIdOut_U", "Parent" : "0"},
-	{"ID" : "102", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.txthMetaData_U", "Parent" : "0"},
-	{"ID" : "103", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.agmdDataOut_U", "Parent" : "0"},
-	{"ID" : "104", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.agmdpayloadLenOut_U", "Parent" : "0"},
-	{"ID" : "105", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_TableHandler_U0_U", "Parent" : "0"},
-	{"ID" : "106", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_rxEngPacketDropper_U0_U", "Parent" : "0"},
-	{"ID" : "107", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_udpTxEngine_U0_U", "Parent" : "0"}]}
+	{"ID" : "28", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.udpTxEngine_U0.regslice_both_txUdpDataOut_V_data_V_U", "Parent" : "27"},
+	{"ID" : "29", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.udpTxEngine_U0.regslice_both_txUdpDataOut_V_keep_V_U", "Parent" : "27"},
+	{"ID" : "30", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.udpTxEngine_U0.regslice_both_txUdpDataOut_V_strb_V_U", "Parent" : "27"},
+	{"ID" : "31", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.udpTxEngine_U0.regslice_both_txUdpDataOut_V_last_V_U", "Parent" : "27"},
+	{"ID" : "32", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.myIpAddress_c_U", "Parent" : "0"},
+	{"ID" : "33", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_0_c_U", "Parent" : "0"},
+	{"ID" : "34", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_1_c_U", "Parent" : "0"},
+	{"ID" : "35", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_2_c_U", "Parent" : "0"},
+	{"ID" : "36", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_3_c_U", "Parent" : "0"},
+	{"ID" : "37", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_4_c_U", "Parent" : "0"},
+	{"ID" : "38", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_5_c_U", "Parent" : "0"},
+	{"ID" : "39", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_6_c_U", "Parent" : "0"},
+	{"ID" : "40", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_7_c_U", "Parent" : "0"},
+	{"ID" : "41", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_8_c_U", "Parent" : "0"},
+	{"ID" : "42", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_9_c_U", "Parent" : "0"},
+	{"ID" : "43", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_10_c_U", "Parent" : "0"},
+	{"ID" : "44", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_11_c_U", "Parent" : "0"},
+	{"ID" : "45", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_12_c_U", "Parent" : "0"},
+	{"ID" : "46", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_13_c_U", "Parent" : "0"},
+	{"ID" : "47", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_14_c_U", "Parent" : "0"},
+	{"ID" : "48", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirIP_15_c_U", "Parent" : "0"},
+	{"ID" : "49", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_0_c_U", "Parent" : "0"},
+	{"ID" : "50", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_1_c_U", "Parent" : "0"},
+	{"ID" : "51", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_2_c_U", "Parent" : "0"},
+	{"ID" : "52", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_3_c_U", "Parent" : "0"},
+	{"ID" : "53", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_4_c_U", "Parent" : "0"},
+	{"ID" : "54", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_5_c_U", "Parent" : "0"},
+	{"ID" : "55", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_6_c_U", "Parent" : "0"},
+	{"ID" : "56", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_7_c_U", "Parent" : "0"},
+	{"ID" : "57", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_8_c_U", "Parent" : "0"},
+	{"ID" : "58", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_9_c_U", "Parent" : "0"},
+	{"ID" : "59", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_10_c_U", "Parent" : "0"},
+	{"ID" : "60", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_11_c_U", "Parent" : "0"},
+	{"ID" : "61", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_12_c_U", "Parent" : "0"},
+	{"ID" : "62", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_13_c_U", "Parent" : "0"},
+	{"ID" : "63", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_14_c_U", "Parent" : "0"},
+	{"ID" : "64", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_theirPort_15_c_U", "Parent" : "0"},
+	{"ID" : "65", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_0_c_U", "Parent" : "0"},
+	{"ID" : "66", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_1_c_U", "Parent" : "0"},
+	{"ID" : "67", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_2_c_U", "Parent" : "0"},
+	{"ID" : "68", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_3_c_U", "Parent" : "0"},
+	{"ID" : "69", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_4_c_U", "Parent" : "0"},
+	{"ID" : "70", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_5_c_U", "Parent" : "0"},
+	{"ID" : "71", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_6_c_U", "Parent" : "0"},
+	{"ID" : "72", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_7_c_U", "Parent" : "0"},
+	{"ID" : "73", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_8_c_U", "Parent" : "0"},
+	{"ID" : "74", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_9_c_U", "Parent" : "0"},
+	{"ID" : "75", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_10_c_U", "Parent" : "0"},
+	{"ID" : "76", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_11_c_U", "Parent" : "0"},
+	{"ID" : "77", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_12_c_U", "Parent" : "0"},
+	{"ID" : "78", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_13_c_U", "Parent" : "0"},
+	{"ID" : "79", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_14_c_U", "Parent" : "0"},
+	{"ID" : "80", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_myPort_15_c_U", "Parent" : "0"},
+	{"ID" : "81", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_0_c_U", "Parent" : "0"},
+	{"ID" : "82", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_1_c_U", "Parent" : "0"},
+	{"ID" : "83", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_2_c_U", "Parent" : "0"},
+	{"ID" : "84", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_3_c_U", "Parent" : "0"},
+	{"ID" : "85", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_4_c_U", "Parent" : "0"},
+	{"ID" : "86", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_5_c_U", "Parent" : "0"},
+	{"ID" : "87", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_6_c_U", "Parent" : "0"},
+	{"ID" : "88", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_7_c_U", "Parent" : "0"},
+	{"ID" : "89", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_8_c_U", "Parent" : "0"},
+	{"ID" : "90", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_9_c_U", "Parent" : "0"},
+	{"ID" : "91", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_10_c_U", "Parent" : "0"},
+	{"ID" : "92", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_11_c_U", "Parent" : "0"},
+	{"ID" : "93", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_12_c_U", "Parent" : "0"},
+	{"ID" : "94", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_13_c_U", "Parent" : "0"},
+	{"ID" : "95", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_14_c_U", "Parent" : "0"},
+	{"ID" : "96", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.SocketTable_valid_15_c_U", "Parent" : "0"},
+	{"ID" : "97", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.ureMetaData_U", "Parent" : "0"},
+	{"ID" : "98", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.ureDataPayload_U", "Parent" : "0"},
+	{"ID" : "99", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.rthDropFifo_U", "Parent" : "0"},
+	{"ID" : "100", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.agmdIdOut_U", "Parent" : "0"},
+	{"ID" : "101", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.txthMetaData_U", "Parent" : "0"},
+	{"ID" : "102", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.agmdDataOut_U", "Parent" : "0"},
+	{"ID" : "103", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.agmdpayloadLenOut_U", "Parent" : "0"},
+	{"ID" : "104", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_TableHandler_U0_U", "Parent" : "0"},
+	{"ID" : "105", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_rxEngPacketDropper_U0_U", "Parent" : "0"},
+	{"ID" : "106", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_udpTxEngine_U0_U", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -1516,34 +1499,33 @@ set ArgLastReadFirstWriteLatency {
 		SocketTable_valid_15 {Type I LastRead 0 FirstWrite -1}
 		numberSockets {Type O LastRead -1 FirstWrite 2}
 		ure_state {Type IO LastRead -1 FirstWrite -1}
-		prevWord_data_V_1 {Type IO LastRead -1 FirstWrite -1}
-		prevWord_keep_V_1 {Type IO LastRead -1 FirstWrite -1}
+		prevWord_data_1 {Type IO LastRead -1 FirstWrite -1}
+		prevWord_keep_1 {Type IO LastRead -1 FirstWrite -1}
 		ureMetaData {Type IO LastRead -1 FirstWrite -1}
 		ureDataPayload {Type IO LastRead -1 FirstWrite -1}
 		rthDropFifo {Type IO LastRead -1 FirstWrite -1}
 		agmdIdOut {Type IO LastRead -1 FirstWrite -1}
 		txthMetaData {Type IO LastRead -1 FirstWrite -1}
 		repd_state {Type IO LastRead -1 FirstWrite -1}
-		response_drop_V {Type IO LastRead -1 FirstWrite -1}
-		response_id_V {Type IO LastRead -1 FirstWrite -1}
-		response_user_myIP_V {Type IO LastRead -1 FirstWrite -1}
-		response_user_theirIP_V {Type IO LastRead -1 FirstWrite -1}
-		response_user_myPort_V {Type IO LastRead -1 FirstWrite -1}
-		response_user_theirPort_V {Type IO LastRead -1 FirstWrite -1}
+		response_drop {Type IO LastRead -1 FirstWrite -1}
+		response_id {Type IO LastRead -1 FirstWrite -1}
+		response_user_myIP {Type IO LastRead -1 FirstWrite -1}
+		response_user_theirIP {Type IO LastRead -1 FirstWrite -1}
+		response_user_myPort {Type IO LastRead -1 FirstWrite -1}
+		response_user_theirPort {Type IO LastRead -1 FirstWrite -1}
 		agmd_state {Type IO LastRead -1 FirstWrite -1}
-		lenCount_V {Type IO LastRead -1 FirstWrite -1}
+		lenCount {Type IO LastRead -1 FirstWrite -1}
 		agmdDataOut {Type IO LastRead -1 FirstWrite -1}
 		agmdpayloadLenOut {Type IO LastRead -1 FirstWrite -1}
 		ute_state {Type IO LastRead -1 FirstWrite -1}
-		prevWord_data_V {Type IO LastRead -1 FirstWrite -1}
-		prevWord_keep_V {Type IO LastRead -1 FirstWrite -1}
-		currMetaData_theirIP_V {Type IO LastRead -1 FirstWrite -1}
-		currMetaData_myIP_V {Type IO LastRead -1 FirstWrite -1}
-		currMetaData_theirPort_V {Type IO LastRead -1 FirstWrite -1}
-		currMetaData_myPort_V {Type IO LastRead -1 FirstWrite -1}
-		ip_len_V {Type IO LastRead -1 FirstWrite -1}
-		udp_len_V {Type IO LastRead -1 FirstWrite -1}
-		ap_local_deadlock {Type O LastRead -1 FirstWrite -1}}
+		prevWord_data {Type IO LastRead -1 FirstWrite -1}
+		prevWord_keep {Type IO LastRead -1 FirstWrite -1}
+		currMetaData_theirIP {Type IO LastRead -1 FirstWrite -1}
+		currMetaData_myIP {Type IO LastRead -1 FirstWrite -1}
+		currMetaData_theirPort {Type IO LastRead -1 FirstWrite -1}
+		currMetaData_myPort {Type IO LastRead -1 FirstWrite -1}
+		ip_len {Type IO LastRead -1 FirstWrite -1}
+		udp_len {Type IO LastRead -1 FirstWrite -1}}
 	entry_proc {
 		myIpAddress {Type I LastRead 0 FirstWrite -1}
 		myIpAddress_c {Type O LastRead -1 FirstWrite 0}
@@ -1681,8 +1663,8 @@ set ArgLastReadFirstWriteLatency {
 		rxUdpDataIn_V_strb_V {Type I LastRead 0 FirstWrite -1}
 		rxUdpDataIn_V_last_V {Type I LastRead 0 FirstWrite -1}
 		ure_state {Type IO LastRead -1 FirstWrite -1}
-		prevWord_data_V_1 {Type IO LastRead -1 FirstWrite -1}
-		prevWord_keep_V_1 {Type IO LastRead -1 FirstWrite -1}
+		prevWord_data_1 {Type IO LastRead -1 FirstWrite -1}
+		prevWord_keep_1 {Type IO LastRead -1 FirstWrite -1}
 		ureMetaData {Type O LastRead -1 FirstWrite 1}
 		ureDataPayload {Type O LastRead -1 FirstWrite 1}}
 	TableHandler {
@@ -1764,13 +1746,13 @@ set ArgLastReadFirstWriteLatency {
 		DataOutApp_V_last_V {Type O LastRead -1 FirstWrite 1}
 		DataOutApp_V_dest_V {Type O LastRead -1 FirstWrite 1}
 		repd_state {Type IO LastRead -1 FirstWrite -1}
-		response_drop_V {Type IO LastRead -1 FirstWrite -1}
+		response_drop {Type IO LastRead -1 FirstWrite -1}
 		rthDropFifo {Type I LastRead 0 FirstWrite -1}
-		response_id_V {Type IO LastRead -1 FirstWrite -1}
-		response_user_myIP_V {Type IO LastRead -1 FirstWrite -1}
-		response_user_theirIP_V {Type IO LastRead -1 FirstWrite -1}
-		response_user_myPort_V {Type IO LastRead -1 FirstWrite -1}
-		response_user_theirPort_V {Type IO LastRead -1 FirstWrite -1}
+		response_id {Type IO LastRead -1 FirstWrite -1}
+		response_user_myIP {Type IO LastRead -1 FirstWrite -1}
+		response_user_theirIP {Type IO LastRead -1 FirstWrite -1}
+		response_user_myPort {Type IO LastRead -1 FirstWrite -1}
+		response_user_theirPort {Type IO LastRead -1 FirstWrite -1}
 		ureDataPayload {Type I LastRead 0 FirstWrite -1}}
 	appGetMetaData {
 		DataInApp_V_data_V {Type I LastRead 0 FirstWrite -1}
@@ -1780,28 +1762,26 @@ set ArgLastReadFirstWriteLatency {
 		DataInApp_V_last_V {Type I LastRead 0 FirstWrite -1}
 		DataInApp_V_dest_V {Type I LastRead 0 FirstWrite -1}
 		agmd_state {Type IO LastRead -1 FirstWrite -1}
-		lenCount_V {Type IO LastRead -1 FirstWrite -1}
+		lenCount {Type IO LastRead -1 FirstWrite -1}
 		agmdDataOut {Type O LastRead 0 FirstWrite 0}
 		agmdIdOut {Type O LastRead -1 FirstWrite 1}
 		agmdpayloadLenOut {Type O LastRead -1 FirstWrite 1}}
-	keep2len {
-		keepValue {Type I LastRead 0 FirstWrite -1}}
 	udpTxEngine {
 		txUdpDataOut_V_data_V {Type O LastRead -1 FirstWrite 1}
 		txUdpDataOut_V_keep_V {Type O LastRead -1 FirstWrite 1}
 		txUdpDataOut_V_strb_V {Type O LastRead -1 FirstWrite 1}
 		txUdpDataOut_V_last_V {Type O LastRead -1 FirstWrite 1}
 		ute_state {Type IO LastRead -1 FirstWrite -1}
-		prevWord_data_V {Type IO LastRead -1 FirstWrite -1}
-		prevWord_keep_V {Type IO LastRead -1 FirstWrite -1}
+		prevWord_data {Type IO LastRead -1 FirstWrite -1}
+		prevWord_keep {Type IO LastRead -1 FirstWrite -1}
 		txthMetaData {Type I LastRead 0 FirstWrite -1}
 		agmdpayloadLenOut {Type I LastRead 0 FirstWrite -1}
-		currMetaData_theirIP_V {Type IO LastRead -1 FirstWrite -1}
-		currMetaData_myIP_V {Type IO LastRead -1 FirstWrite -1}
-		currMetaData_theirPort_V {Type IO LastRead -1 FirstWrite -1}
-		currMetaData_myPort_V {Type IO LastRead -1 FirstWrite -1}
-		ip_len_V {Type IO LastRead -1 FirstWrite -1}
-		udp_len_V {Type IO LastRead -1 FirstWrite -1}
+		currMetaData_theirIP {Type IO LastRead -1 FirstWrite -1}
+		currMetaData_myIP {Type IO LastRead -1 FirstWrite -1}
+		currMetaData_theirPort {Type IO LastRead -1 FirstWrite -1}
+		currMetaData_myPort {Type IO LastRead -1 FirstWrite -1}
+		ip_len {Type IO LastRead -1 FirstWrite -1}
+		udp_len {Type IO LastRead -1 FirstWrite -1}
 		agmdDataOut {Type I LastRead 0 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
@@ -1838,8 +1818,7 @@ set Spec2ImplPortList {
 	myIpAddress { ap_none {  { myIpAddress in_data 0 32 } } }
 }
 
-set busDeadlockParameterList { 
-}
+set maxi_interface_dict [dict create]
 
 # RTL port scheduling information:
 set fifoSchedulingInfoList { 

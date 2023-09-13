@@ -1,10 +1,10 @@
 <profile>
     <ReportVersion>
-        <Version>2021.2</Version>
+        <Version>2023.1</Version>
     </ReportVersion>
     <UserAssignments>
         <unit>ns</unit>
-        <ProductFamily>virtexuplus</ProductFamily>
+        <ProductFamily>virtexuplusHBM</ProductFamily>
         <Part>xcu280-fsvh2892-2L-e</Part>
         <TopModelName>ethernet_header_inserter</TopModelName>
         <TargetClockPeriod>3.10</TargetClockPeriod>
@@ -34,7 +34,7 @@
         <Resources>
             <BRAM_18K>0</BRAM_18K>
             <FF>13968</FF>
-            <LUT>7595</LUT>
+            <LUT>7685</LUT>
             <DSP>0</DSP>
             <URAM>0</URAM>
         </Resources>
@@ -47,50 +47,6 @@
         </AvailableResources>
     </AreaEstimates>
     <InterfaceSummary>
-        <RtlPorts>
-            <name>ap_local_block</name>
-            <Object>ethernet_header_inserter</Object>
-            <Type>return value</Type>
-            <Scope/>
-            <IOProtocol>ap_ctrl_none</IOProtocol>
-            <IOConfig/>
-            <Dir>out</Dir>
-            <Bits>1</Bits>
-            <Attribute>unknown</Attribute>
-        </RtlPorts>
-        <RtlPorts>
-            <name>ap_local_deadlock</name>
-            <Object>ethernet_header_inserter</Object>
-            <Type>return value</Type>
-            <Scope/>
-            <IOProtocol>ap_ctrl_none</IOProtocol>
-            <IOConfig/>
-            <Dir>out</Dir>
-            <Bits>1</Bits>
-            <Attribute>unknown</Attribute>
-        </RtlPorts>
-        <RtlPorts>
-            <name>ap_clk</name>
-            <Object>ethernet_header_inserter</Object>
-            <Type>return value</Type>
-            <Scope/>
-            <IOProtocol>ap_ctrl_none</IOProtocol>
-            <IOConfig/>
-            <Dir>in</Dir>
-            <Bits>1</Bits>
-            <Attribute>control</Attribute>
-        </RtlPorts>
-        <RtlPorts>
-            <name>ap_rst_n</name>
-            <Object>ethernet_header_inserter</Object>
-            <Type>return value</Type>
-            <Scope/>
-            <IOProtocol>ap_ctrl_none</IOProtocol>
-            <IOConfig/>
-            <Dir>in</Dir>
-            <Bits>1</Bits>
-            <Attribute>control</Attribute>
-        </RtlPorts>
         <RtlPorts>
             <name>dataIn_TDATA</name>
             <Object>dataIn_V_data_V</Object>
@@ -313,7 +269,7 @@
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>ap_none</IOProtocol>
-            <IOConfig>register, both mode</IOConfig>
+            <IOConfig>register</IOConfig>
             <Dir>in</Dir>
             <Bits>48</Bits>
             <Attribute>data</Attribute>
@@ -325,7 +281,7 @@
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>ap_none</IOProtocol>
-            <IOConfig>register, both mode</IOConfig>
+            <IOConfig>register</IOConfig>
             <Dir>in</Dir>
             <Bits>32</Bits>
             <Attribute>data</Attribute>
@@ -337,11 +293,33 @@
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>ap_none</IOProtocol>
-            <IOConfig>register, both mode</IOConfig>
+            <IOConfig>register</IOConfig>
             <Dir>in</Dir>
             <Bits>32</Bits>
             <Attribute>data</Attribute>
             <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_clk</name>
+            <Object>ethernet_header_inserter</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_rst_n</name>
+            <Object>ethernet_header_inserter</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
         </RtlPorts>
     </InterfaceSummary>
     <RTLDesignHierarchy>
@@ -352,26 +330,26 @@
                     <InstName>broadcaster_and_mac_request_U0</InstName>
                     <ModuleName>broadcaster_and_mac_request</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>102</ID>
+                    <ID>110</ID>
                 </Instance>
                 <Instance>
                     <InstName>compute_and_insert_ip_checksum_U0</InstName>
                     <ModuleName>compute_and_insert_ip_checksum</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>126</ID>
-                    <BindInstances>add_ln1540_1_fu_1646_p2 ret_fu_1650_p2 add_ln1540_3_fu_1662_p2 ret_24_fu_1666_p2 ret_25_fu_1591_p2 add_ln1540_6_fu_1678_p2 ret_26_fu_1682_p2 add_ln1540_8_fu_1694_p2 ret_27_fu_1698_p2 add_ln1540_10_fu_1710_p2 ret_28_fu_1714_p2 add_ln1540_12_fu_1726_p2 ret_29_fu_1730_p2 add_ln1540_15_fu_1742_p2 ret_30_fu_1746_p2 add_ln1540_18_fu_1758_p2 ret_31_fu_1762_p2 add_ln1540_22_fu_1774_p2 ret_32_fu_1778_p2 add_ln1540_28_fu_1790_p2 ret_33_fu_1794_p2 add_ln1540_35_fu_1806_p2 ret_34_fu_1810_p2 add_ln1540_37_fu_1822_p2 ret_35_fu_1826_p2 add_ln1540_14_fu_1838_p2 ret_36_fu_1842_p2 add_ln1540_16_fu_1856_p2 ret_37_fu_1862_p2 ret_38_fu_1875_p2 add_ln1540_19_fu_1889_p2 ret_39_fu_1895_p2 add_ln1540_21_fu_1909_p2 ret_40_fu_1915_p2 add_ln1540_23_fu_1929_p2 ret_41_fu_1935_p2 add_ln1540_25_fu_1949_p2 ret_42_fu_1955_p2 add_ln1540_31_fu_1969_p2 ret_43_fu_1975_p2 ret_44_fu_1993_p2 ret_45_fu_2007_p2 ret_46_fu_2021_p2 ret_47_fu_2035_p2 add_ln1540_26_fu_2041_p2 add_ln1540_27_fu_2047_p2 ret_48_fu_2089_p2 add_ln1540_29_fu_2053_p2 add_ln1540_30_fu_2059_p2 ret_49_fu_2101_p2 add_ln1540_32_fu_2065_p2 add_ln1540_33_fu_2071_p2 add_ln1540_fu_2077_p2 ret_50_fu_2115_p2 p_Val2_30_fu_2140_p2 add_ln223_fu_2158_p2 p_Val2_31_fu_2168_p2</BindInstances>
+                    <ID>134</ID>
+                    <BindInstances>add_ln271_15_fu_1648_p2 add_ln271_fu_1652_p2 add_ln271_16_fu_1664_p2 add_ln271_1_fu_1668_p2 add_ln271_2_fu_1593_p2 add_ln271_3_fu_1684_p2 add_ln271_18_fu_1696_p2 add_ln271_4_fu_1700_p2 add_ln271_5_fu_1716_p2 add_ln271_20_fu_1728_p2 add_ln271_6_fu_1732_p2 add_ln271_21_fu_1744_p2 add_ln271_7_fu_1748_p2 add_ln271_22_fu_1760_p2 add_ln271_8_fu_1764_p2 add_ln271_9_fu_1780_p2 add_ln271_24_fu_1792_p2 add_ln271_10_fu_1796_p2 add_ln271_11_fu_1812_p2 add_ln271_26_fu_1824_p2 add_ln271_12_fu_1828_p2 add_ln271_13_fu_1844_p2 add_ln277_fu_1864_p2 add_ln277_1_fu_1877_p2 add_ln277_2_fu_1897_p2 add_ln277_3_fu_1917_p2 add_ln277_4_fu_1937_p2 add_ln277_5_fu_1957_p2 add_ln277_6_fu_1977_p2 add_ln284_fu_1995_p2 add_ln284_1_fu_2009_p2 add_ln284_2_fu_2023_p2 add_ln284_3_fu_2037_p2 add_ln287_fu_2091_p2 add_ln288_fu_2103_p2 add_ln290_1_fu_2117_p2 add_ln291_fu_2139_p2 add_ln292_1_fu_2157_p2 add_ln292_fu_2166_p2</BindInstances>
                 </Instance>
                 <Instance>
                     <InstName>entry_proc_U0</InstName>
                     <ModuleName>entry_proc</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>134</ID>
+                    <ID>142</ID>
                 </Instance>
                 <Instance>
                     <InstName>handle_output_U0</InstName>
                     <ModuleName>handle_output</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>141</ID>
+                    <ID>149</ID>
                 </Instance>
             </InstancesList>
             <BindInstances>myMacAddress_c_U</BindInstances>
@@ -443,7 +421,7 @@
                     <FF>654</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>190</LUT>
+                    <LUT>209</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -484,7 +462,7 @@
                     <FF>2859</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>2072</LUT>
+                    <LUT>2143</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -499,63 +477,45 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_1_fu_1646_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_fu_1650_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_3_fu_1662_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_3"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_24_fu_1666_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_24"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_25_fu_1591_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_25"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_6_fu_1678_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_6"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_26_fu_1682_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_26"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_8_fu_1694_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_8"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_27_fu_1698_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_27"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_10_fu_1710_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_10"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_28_fu_1714_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_28"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_12_fu_1726_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_12"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_29_fu_1730_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_29"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_15_fu_1742_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_15"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_30_fu_1746_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_30"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_18_fu_1758_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_18"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_31_fu_1762_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_31"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_22_fu_1774_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_22"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_32_fu_1778_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_32"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_28_fu_1790_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_28"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_33_fu_1794_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_33"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_35_fu_1806_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_35"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_34_fu_1810_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_34"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_37_fu_1822_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_37"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_35_fu_1826_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_35"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_14_fu_1838_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_14"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_36_fu_1842_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_36"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_16_fu_1856_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_16"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_37_fu_1862_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_37"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_38_fu_1875_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_38"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_19_fu_1889_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_19"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_39_fu_1895_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_39"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_21_fu_1909_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_21"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_40_fu_1915_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_40"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_23_fu_1929_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_23"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_41_fu_1935_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_41"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_25_fu_1949_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_25"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_42_fu_1955_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_42"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_31_fu_1969_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_31"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_43_fu_1975_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_43"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_44_fu_1993_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_44"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_45_fu_2007_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_45"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_46_fu_2021_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_46"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_47_fu_2035_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_47"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_26_fu_2041_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_26"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_27_fu_2047_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_27"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_48_fu_2089_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_48"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_29_fu_2053_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_29"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_30_fu_2059_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_30"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_49_fu_2101_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_49"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_32_fu_2065_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_32"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_33_fu_2071_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540_33"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1540_fu_2077_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="add_ln1540"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_50_fu_2115_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_50"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="p_Val2_30_fu_2140_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int.h:223" URAM="0" VARIABLE="p_Val2_30"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln223_fu_2158_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int.h:223" URAM="0" VARIABLE="add_ln223"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="p_Val2_31_fu_2168_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int.h:223" URAM="0" VARIABLE="p_Val2_31"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_15_fu_1648_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271_15"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_fu_1652_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_16_fu_1664_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271_16"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_1_fu_1668_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_2_fu_1593_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_3_fu_1684_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_18_fu_1696_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271_18"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_4_fu_1700_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_5_fu_1716_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271_5"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_20_fu_1728_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271_20"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_6_fu_1732_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271_6"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_21_fu_1744_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271_21"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_7_fu_1748_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271_7"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_22_fu_1760_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271_22"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_8_fu_1764_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271_8"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_9_fu_1780_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271_9"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_24_fu_1792_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271_24"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_10_fu_1796_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271_10"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_11_fu_1812_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271_11"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_26_fu_1824_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271_26"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_12_fu_1828_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271_12"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln271_13_fu_1844_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:271" URAM="0" VARIABLE="add_ln271_13"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln277_fu_1864_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:277" URAM="0" VARIABLE="add_ln277"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln277_1_fu_1877_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:277" URAM="0" VARIABLE="add_ln277_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln277_2_fu_1897_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:277" URAM="0" VARIABLE="add_ln277_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln277_3_fu_1917_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:277" URAM="0" VARIABLE="add_ln277_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln277_4_fu_1937_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:277" URAM="0" VARIABLE="add_ln277_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln277_5_fu_1957_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:277" URAM="0" VARIABLE="add_ln277_5"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln277_6_fu_1977_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:277" URAM="0" VARIABLE="add_ln277_6"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln284_fu_1995_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:284" URAM="0" VARIABLE="add_ln284"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln284_1_fu_2009_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:284" URAM="0" VARIABLE="add_ln284_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln284_2_fu_2023_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:284" URAM="0" VARIABLE="add_ln284_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln284_3_fu_2037_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:284" URAM="0" VARIABLE="add_ln284_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln287_fu_2091_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:287" URAM="0" VARIABLE="add_ln287"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln288_fu_2103_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:288" URAM="0" VARIABLE="add_ln288"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln290_1_fu_2117_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:290" URAM="0" VARIABLE="add_ln290_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln291_fu_2139_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:291" URAM="0" VARIABLE="add_ln291"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln292_1_fu_2157_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:292" URAM="0" VARIABLE="add_ln292_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln292_fu_2166_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:292" URAM="0" VARIABLE="add_ln292"/>
             </BindNodes>
         </Module>
         <Module>
@@ -565,7 +525,7 @@
                     <TargetClockPeriod>3.10</TargetClockPeriod>
                     <ClockUncertainty>0.20</ClockUncertainty>
                     <TargetInitiationInterval>1</TargetInitiationInterval>
-                    <EstimatedClockPeriod>2.229</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>2.214</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>2</Best-caseLatency>
@@ -627,7 +587,7 @@
                     <FF>13968</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>7595</LUT>
+                    <LUT>7685</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <DSP>0</DSP>
@@ -639,7 +599,7 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="myMacAddress_c_U" SOURCE="" URAM="0" VARIABLE="myMacAddress_c"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="myMacAddress_c_U" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:321" URAM="0" VARIABLE="myMacAddress_c"/>
             </BindNodes>
         </Module>
     </ModuleInformation>
@@ -729,29 +689,6 @@
         </Arg>
     </Args>
     <Interfaces>
-        <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
-            <busParams>
-                <busParam busParamName="ASSOCIATED_BUSIF">dataIn:dataOut:arpTableReplay:arpTableRequest</busParam>
-                <busParam busParamName="ASSOCIATED_RESET">ap_rst_n</busParam>
-            </busParams>
-            <portMaps>
-                <portMap portMapName="ap_clk">CLK</portMap>
-            </portMaps>
-            <ports>
-                <port>ap_clk</port>
-            </ports>
-        </Interface>
-        <Interface InterfaceName="ap_rst_n" type="reset" busTypeName="reset" mode="slave">
-            <busParams>
-                <busParam busParamName="POLARITY">ACTIVE_LOW</busParam>
-            </busParams>
-            <portMaps>
-                <portMap portMapName="ap_rst_n">RST</portMap>
-            </portMaps>
-            <ports>
-                <port>ap_rst_n</port>
-            </ports>
-        </Interface>
         <Interface InterfaceName="dataIn" type="axi4stream" busTypeName="axis" mode="slave" dataWidth="512" portPrefix="dataIn_">
             <ports>
                 <port>dataIn_TDATA</port>
@@ -831,32 +768,55 @@
                 <constraint constraint_type="pragma interface" mode="ap_none" register_option="1" argName="regDefaultGateway"/>
             </constraints>
         </Interface>
+        <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
+            <busParams>
+                <busParam busParamName="ASSOCIATED_BUSIF">dataIn:dataOut:arpTableReplay:arpTableRequest</busParam>
+                <busParam busParamName="ASSOCIATED_RESET">ap_rst_n</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_clk">CLK</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_clk</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_rst_n" type="reset" busTypeName="reset" mode="slave">
+            <busParams>
+                <busParam busParamName="POLARITY">ACTIVE_LOW</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_rst_n">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_rst_n</port>
+            </ports>
+        </Interface>
     </Interfaces>
     <ReportHWInterface>
         <section name="HW Interfaces" level="0">
             <item name="AXIS">
-                <table isCollapsed="0">
-                    <keys size="8">Interface, Register Mode, TDATA, TKEEP, TLAST, TREADY, TSTRB, TVALID</keys>
-                    <column name="arpTableReplay">both, 128, , , 1, , 1</column>
-                    <column name="arpTableRequest">both, 32, , , 1, , 1</column>
-                    <column name="dataIn">both, 512, 64, 1, 1, 64, 1</column>
-                    <column name="dataOut">both, 512, 64, 1, 1, 64, 1</column>
+                <table>
+                    <keys size="9">Interface, Direction, Register Mode, TDATA, TKEEP, TLAST, TREADY, TSTRB, TVALID</keys>
+                    <column name="arpTableReplay">in, both, 128, , , 1, , 1</column>
+                    <column name="arpTableRequest">out, both, 32, , , 1, , 1</column>
+                    <column name="dataIn">in, both, 512, 64, 1, 1, 64, 1</column>
+                    <column name="dataOut">out, both, 512, 64, 1, 1, 64, 1</column>
                 </table>
             </item>
-            <item name="REGISTER">
-                <table isCollapsed="0">
-                    <keys size="3">Interface, Mode, Bitwidth</keys>
-                    <column name="myMacAddress">ap_none, 48</column>
-                    <column name="regDefaultGateway">ap_none, 32</column>
-                    <column name="regSubNetMask">ap_none, 32</column>
+            <item name="Other Ports">
+                <table>
+                    <keys size="4">Port, Mode, Direction, Bitwidth</keys>
+                    <column name="myMacAddress">ap_none, in, 48</column>
+                    <column name="regDefaultGateway">ap_none, in, 32</column>
+                    <column name="regSubNetMask">ap_none, in, 32</column>
                 </table>
             </item>
             <item name="TOP LEVEL CONTROL">
-                <table isCollapsed="0">
+                <table>
                     <keys size="3">Interface, Type, Ports</keys>
                     <column name="ap_clk">clock, ap_clk</column>
                     <column name="ap_rst_n">reset, ap_rst_n</column>
-                    <column name="ap_ctrl">ap_ctrl_none</column>
+                    <column name="ap_ctrl">ap_ctrl_none, </column>
                 </table>
             </item>
         </section>
@@ -864,7 +824,7 @@
     <ReportSWInterface>
         <section name="SW I/O Information" level="0">
             <item name="Top Function Arguments">
-                <table isCollapsed="1">
+                <table>
                     <keys size="3">Argument, Direction, Datatype</keys>
                     <column name="dataIn">in, stream&lt;hls::axis&lt;ap_uint&lt;512&gt; 0 0 0&gt; 0&gt;&amp;</column>
                     <column name="dataOut">out, stream&lt;hls::axis&lt;ap_uint&lt;512&gt; 0 0 0&gt; 0&gt;&amp;</column>
@@ -876,7 +836,7 @@
                 </table>
             </item>
             <item name="SW-to-HW Mapping">
-                <table isCollapsed="1">
+                <table>
                     <keys size="3">Argument, HW Interface, HW Type</keys>
                     <column name="dataIn">dataIn, interface</column>
                     <column name="dataOut">dataOut, interface</column>
@@ -889,33 +849,31 @@
             </item>
         </section>
     </ReportSWInterface>
-    <ReportBurst>
-        <section name="M_AXI Burst Information" level="0" HEADER_NOTE="Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings."/>
-    </ReportBurst>
+    <ResolutionUrl key="ZZZ">www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=ZZZ.html</ResolutionUrl>
     <PragmaReport>
-        <Pragma type="inline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:41" status="valid" parentFunction="broadcaster_and_mac_request" variable="" isDirective="0" options="off"/>
-        <Pragma type="pipeline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:42" status="valid" parentFunction="broadcaster_and_mac_request" variable="" isDirective="0" options="II=1"/>
-        <Pragma type="inline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:95" status="valid" parentFunction="handle_output" variable="" isDirective="0" options="off"/>
-        <Pragma type="pipeline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:96" status="valid" parentFunction="handle_output" variable="" isDirective="0" options="II=1"/>
-        <Pragma type="inline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:230" status="valid" parentFunction="compute_and_insert_ip_checksum" variable="" isDirective="0" options="off"/>
-        <Pragma type="pipeline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:231" status="valid" parentFunction="compute_and_insert_ip_checksum" variable="" isDirective="0" options="II=1"/>
-        <Pragma type="array_partition" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:234" status="valid" parentFunction="compute_and_insert_ip_checksum" variable="ip_ops" isDirective="0" options="variable=ip_ops complete dim=1"/>
-        <Pragma type="unroll" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:257" status="valid" parentFunction="compute_and_insert_ip_checksum" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:270" status="valid" parentFunction="compute_and_insert_ip_checksum" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:276" status="valid" parentFunction="compute_and_insert_ip_checksum" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:283" status="valid" parentFunction="compute_and_insert_ip_checksum" variable="" isDirective="0" options=""/>
-        <Pragma type="dataflow" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:321" status="valid" parentFunction="ethernet_header_inserter" variable="" isDirective="0" options=""/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:322" status="valid" parentFunction="ethernet_header_inserter" variable="return" isDirective="0" options="ap_ctrl_none port=return"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:324" status="valid" parentFunction="ethernet_header_inserter" variable="dataIn" isDirective="0" options="axis register both port=dataIn"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:325" status="valid" parentFunction="ethernet_header_inserter" variable="dataOut" isDirective="0" options="axis register both port=dataOut"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:327" status="valid" parentFunction="ethernet_header_inserter" variable="arpTableReplay" isDirective="0" options="axis register both port=arpTableReplay"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:328" status="valid" parentFunction="ethernet_header_inserter" variable="arpTableRequest" isDirective="0" options="axis register both port=arpTableRequest"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:330" status="valid" parentFunction="ethernet_header_inserter" variable="myMacAddress" isDirective="0" options="ap_none register port=myMacAddress"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:331" status="valid" parentFunction="ethernet_header_inserter" variable="regSubNetMask" isDirective="0" options="ap_none register port=regSubNetMask"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:332" status="valid" parentFunction="ethernet_header_inserter" variable="regDefaultGateway" isDirective="0" options="ap_none register port=regDefaultGateway"/>
-        <Pragma type="stream" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:336" status="valid" parentFunction="ethernet_header_inserter" variable="ip_header_out" isDirective="0" options="variable=ip_header_out depth=16"/>
-        <Pragma type="stream" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:339" status="valid" parentFunction="ethernet_header_inserter" variable="no_ip_header_out" isDirective="0" options="variable=no_ip_header_out depth=16"/>
-        <Pragma type="stream" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:342" status="valid" parentFunction="ethernet_header_inserter" variable="ip_header_checksum" isDirective="0" options="variable=ip_header_checksum depth=16"/>
+        <Pragma type="inline" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:41" status="valid" parentFunction="broadcaster_and_mac_request" variable="" isDirective="0" options="off"/>
+        <Pragma type="pipeline" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:42" status="valid" parentFunction="broadcaster_and_mac_request" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="inline" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:95" status="valid" parentFunction="handle_output" variable="" isDirective="0" options="off"/>
+        <Pragma type="pipeline" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:96" status="valid" parentFunction="handle_output" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="inline" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:230" status="valid" parentFunction="compute_and_insert_ip_checksum" variable="" isDirective="0" options="off"/>
+        <Pragma type="pipeline" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:231" status="valid" parentFunction="compute_and_insert_ip_checksum" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="array_partition" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:234" status="valid" parentFunction="compute_and_insert_ip_checksum" variable="ip_ops" isDirective="0" options="variable=ip_ops complete dim=1"/>
+        <Pragma type="unroll" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:257" status="valid" parentFunction="compute_and_insert_ip_checksum" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:270" status="valid" parentFunction="compute_and_insert_ip_checksum" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:276" status="valid" parentFunction="compute_and_insert_ip_checksum" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:283" status="valid" parentFunction="compute_and_insert_ip_checksum" variable="" isDirective="0" options=""/>
+        <Pragma type="dataflow" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:321" status="valid" parentFunction="ethernet_header_inserter" variable="" isDirective="0" options=""/>
+        <Pragma type="interface" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:322" status="valid" parentFunction="ethernet_header_inserter" variable="return" isDirective="0" options="ap_ctrl_none port=return"/>
+        <Pragma type="interface" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:324" status="valid" parentFunction="ethernet_header_inserter" variable="dataIn" isDirective="0" options="axis register both port=dataIn"/>
+        <Pragma type="interface" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:325" status="valid" parentFunction="ethernet_header_inserter" variable="dataOut" isDirective="0" options="axis register both port=dataOut"/>
+        <Pragma type="interface" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:327" status="valid" parentFunction="ethernet_header_inserter" variable="arpTableReplay" isDirective="0" options="axis register both port=arpTableReplay"/>
+        <Pragma type="interface" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:328" status="valid" parentFunction="ethernet_header_inserter" variable="arpTableRequest" isDirective="0" options="axis register both port=arpTableRequest"/>
+        <Pragma type="interface" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:330" status="valid" parentFunction="ethernet_header_inserter" variable="myMacAddress" isDirective="0" options="ap_none register port=myMacAddress"/>
+        <Pragma type="interface" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:331" status="valid" parentFunction="ethernet_header_inserter" variable="regSubNetMask" isDirective="0" options="ap_none register port=regSubNetMask"/>
+        <Pragma type="interface" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:332" status="valid" parentFunction="ethernet_header_inserter" variable="regDefaultGateway" isDirective="0" options="ap_none register port=regDefaultGateway"/>
+        <Pragma type="stream" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:336" status="valid" parentFunction="ethernet_header_inserter" variable="ip_header_out" isDirective="0" options="variable=ip_header_out depth=16"/>
+        <Pragma type="stream" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:339" status="valid" parentFunction="ethernet_header_inserter" variable="no_ip_header_out" isDirective="0" options="variable=no_ip_header_out depth=16"/>
+        <Pragma type="stream" location="../hls/ethernet_inserter/ethernet_header_inserter.cpp:342" status="valid" parentFunction="ethernet_header_inserter" variable="ip_header_checksum" isDirective="0" options="variable=ip_header_checksum depth=16"/>
     </PragmaReport>
 </profile>
 

@@ -1,13 +1,14 @@
 #-----------------------------------------------------------
-# Vivado v2021.2 (64-bit)
-# SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
-# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Wed Mar  8 19:14:20 2023
-# Process ID: 26317
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Fri Sep  8 14:08:19 2023
+# Process ID: 1435129
 # Current directory: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/ICMP_hls_prj/ultrascale_plus/impl/ip
 # Command line: vivado -notrace -mode batch -source run_ippack.tcl
 # Log file: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/ICMP_hls_prj/ultrascale_plus/impl/ip/vivado.log
 # Journal file: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/ICMP_hls_prj/ultrascale_plus/impl/ip/vivado.jou
-# Running On: fpga-tools, OS: Linux, CPU Frequency: 2893.202 MHz, CPU Physical cores: 16, Host memory: 135196 MB
+# Running On: fpga-tools, OS: Linux, CPU Frequency: 2893.196 MHz, CPU Physical cores: 16, Host memory: 135075 MB
 #-----------------------------------------------------------
 source run_ippack.tcl -notrace

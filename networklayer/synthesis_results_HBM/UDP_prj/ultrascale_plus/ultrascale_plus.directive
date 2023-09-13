@@ -5,11 +5,6 @@
                 <option name="name" value="udp"/>
             </pragma>
         </directive>
-        <directive functionName="udp" label="" functionLabel="">
-            <pragma name="TOP">
-                <option name="name" value="udp"/>
-            </pragma>
-        </directive>
     </sourceFile>
 </AutoPilot:ProjectResources>
 

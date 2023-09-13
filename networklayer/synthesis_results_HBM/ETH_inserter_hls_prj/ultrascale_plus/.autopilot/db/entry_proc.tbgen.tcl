@@ -9,17 +9,21 @@ set isOneStateSeq 1
 set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
+set hasInterrupt 0
+set DLRegFirstOffset 0
+set DLRegItemOffset 0
 set C_modelName {entry_proc}
 set C_modelType { void 0 }
 set C_modelArgList {
 	{ myMacAddress int 48 regular {pointer 0}  }
 	{ myMacAddress_c int 48 regular {fifo 1}  }
 }
+set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "myMacAddress", "interface" : "wire", "bitwidth" : 48, "direction" : "READONLY"} , 
  	{ "Name" : "myMacAddress_c", "interface" : "fifo", "bitwidth" : 48, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
-set portNum 14
+set portNum 16
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -33,6 +37,8 @@ set portList {
 	{ start_write sc_out sc_logic 1 signal -1 } 
 	{ myMacAddress sc_in sc_lv 48 signal 0 } 
 	{ myMacAddress_c_din sc_out sc_lv 48 signal 1 } 
+	{ myMacAddress_c_num_data_valid sc_in sc_lv 3 signal 1 } 
+	{ myMacAddress_c_fifo_cap sc_in sc_lv 3 signal 1 } 
 	{ myMacAddress_c_full_n sc_in sc_logic 1 signal 1 } 
 	{ myMacAddress_c_write sc_out sc_logic 1 signal 1 } 
 }
@@ -49,6 +55,8 @@ set NewPortList {[
  	{ "name": "start_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "start_write", "role": "default" }} , 
  	{ "name": "myMacAddress", "direction": "in", "datatype": "sc_lv", "bitwidth":48, "type": "signal", "bundle":{"name": "myMacAddress", "role": "default" }} , 
  	{ "name": "myMacAddress_c_din", "direction": "out", "datatype": "sc_lv", "bitwidth":48, "type": "signal", "bundle":{"name": "myMacAddress_c", "role": "din" }} , 
+ 	{ "name": "myMacAddress_c_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "myMacAddress_c", "role": "num_data_valid" }} , 
+ 	{ "name": "myMacAddress_c_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "myMacAddress_c", "role": "fifo_cap" }} , 
  	{ "name": "myMacAddress_c_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "myMacAddress_c", "role": "full_n" }} , 
  	{ "name": "myMacAddress_c_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "myMacAddress_c", "role": "write" }}  ]}
 
@@ -91,5 +99,5 @@ set PipelineEnableSignalInfo {[
 
 set Spec2ImplPortList { 
 	myMacAddress { ap_none {  { myMacAddress in_data 0 48 } } }
-	myMacAddress_c { ap_fifo {  { myMacAddress_c_din fifo_data 1 48 }  { myMacAddress_c_full_n fifo_status 0 1 }  { myMacAddress_c_write fifo_update 1 1 } } }
+	myMacAddress_c { ap_fifo {  { myMacAddress_c_din fifo_port_we 1 48 }  { myMacAddress_c_num_data_valid fifo_status_num_data_valid 0 3 }  { myMacAddress_c_fifo_cap fifo_update 0 3 }  { myMacAddress_c_full_n fifo_status 0 1 }  { myMacAddress_c_write fifo_data 1 1 } } }
 }

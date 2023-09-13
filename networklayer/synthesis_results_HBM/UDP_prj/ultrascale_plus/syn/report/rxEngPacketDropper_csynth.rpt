@@ -3,12 +3,12 @@
 ================================================================
 == Vitis HLS Report for 'rxEngPacketDropper'
 ================================================================
-* Date:           Wed Mar  8 19:15:06 2023
+* Date:           Fri Sep  8 14:09:03 2023
 
-* Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+* Version:        2023.1 (Build 3854077 on May  4 2023)
 * Project:        UDP_prj
 * Solution:       ultrascale_plus (Vivado IP Flow Target)
-* Product family: virtexuplus
+* Product family: virtexuplusHBM
 * Target device:  xcu280-fsvh2892-2L-e
 
 
@@ -86,14 +86,14 @@
     +----------------------------------+----------+----+---+----+------------+------------+
     |ap_block_state2_io                |       and|   0|  0|   2|           1|           1|
     |ap_block_state3_io                |       and|   0|  0|   2|           1|           1|
-    |ap_condition_176                  |       and|   0|  0|   2|           1|           1|
-    |ap_condition_179                  |       and|   0|  0|   2|           1|           1|
-    |ap_predicate_op19_read_state1     |       and|   0|  0|   2|           1|           1|
-    |ap_predicate_op37_read_state1     |       and|   0|  0|   2|           1|           1|
-    |ap_predicate_op53_write_state2    |       and|   0|  0|   2|           1|           1|
-    |ap_predicate_op54_write_state3    |       and|   0|  0|   2|           1|           1|
-    |tmp_i_179_nbreadreq_fu_112_p3     |       and|   0|  0|   2|           1|           0|
-    |tmp_i_nbreadreq_fu_98_p3          |       and|   0|  0|   2|           1|           0|
+    |ap_condition_180                  |       and|   0|  0|   2|           1|           1|
+    |ap_condition_183                  |       and|   0|  0|   2|           1|           1|
+    |ap_predicate_op20_read_state1     |       and|   0|  0|   2|           1|           1|
+    |ap_predicate_op38_read_state1     |       and|   0|  0|   2|           1|           1|
+    |ap_predicate_op54_write_state2    |       and|   0|  0|   2|           1|           1|
+    |ap_predicate_op55_write_state3    |       and|   0|  0|   2|           1|           1|
+    |tmp_i_184_nbreadreq_fu_120_p3     |       and|   0|  0|   2|           1|           0|
+    |tmp_i_nbreadreq_fu_106_p3         |       and|   0|  0|   2|           1|           0|
     |ap_block_pp0_stage0_01001         |        or|   0|  0|   2|           1|           1|
     |ap_block_pp0_stage0_11001         |        or|   0|  0|   2|           1|           1|
     |ap_block_state1_pp0_stage0_iter0  |        or|   0|  0|   2|           1|           1|
@@ -116,32 +116,32 @@
     +------------------------+----+-----------+-----+-----------+
 
     * Register: 
-    +--------------------------------------------+-----+----+-----+-----------+
-    |                    Name                    |  FF | LUT| Bits| Const Bits|
-    +--------------------------------------------+-----+----+-----+-----------+
-    |ap_CS_fsm                                   |    1|   0|    1|          0|
-    |ap_done_reg                                 |    1|   0|    1|          0|
-    |ap_enable_reg_pp0_iter1                     |    1|   0|    1|          0|
-    |ap_enable_reg_pp0_iter2                     |    1|   0|    1|          0|
-    |currWord_data_V_reg_328                     |  512|   0|  512|          0|
-    |currWord_keep_V_reg_333                     |   64|   0|   64|          0|
-    |currWord_last_V_reg_338                     |    1|   0|    1|          0|
-    |repd_state                                  |    1|   0|    1|          0|
-    |repd_state_load_reg_313                     |    1|   0|    1|          0|
-    |repd_state_load_reg_313_pp0_iter1_reg       |    1|   0|    1|          0|
-    |response_drop_V                             |    1|   0|    1|          0|
-    |response_drop_V_load_reg_317                |    1|   0|    1|          0|
-    |response_drop_V_load_reg_317_pp0_iter1_reg  |    1|   0|    1|          0|
-    |response_id_V                               |   16|   0|   16|          0|
-    |response_user_myIP_V                        |   32|   0|   32|          0|
-    |response_user_myPort_V                      |   16|   0|   16|          0|
-    |response_user_theirIP_V                     |   32|   0|   32|          0|
-    |response_user_theirPort_V                   |   16|   0|   16|          0|
-    |tmp_i_179_reg_324                           |    1|   0|    1|          0|
-    |tmp_i_179_reg_324_pp0_iter1_reg             |    1|   0|    1|          0|
-    +--------------------------------------------+-----+----+-----+-----------+
-    |Total                                       |  701|   0|  701|          0|
-    +--------------------------------------------+-----+----+-----+-----------+
+    +------------------------------------------+-----+----+-----+-----------+
+    |                   Name                   |  FF | LUT| Bits| Const Bits|
+    +------------------------------------------+-----+----+-----+-----------+
+    |ap_CS_fsm                                 |    1|   0|    1|          0|
+    |ap_done_reg                               |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1                   |    1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2                   |    1|   0|    1|          0|
+    |currWord_data_reg_336                     |  512|   0|  512|          0|
+    |currWord_keep_reg_341                     |   64|   0|   64|          0|
+    |currWord_last_reg_346                     |    1|   0|    1|          0|
+    |repd_state                                |    1|   0|    1|          0|
+    |repd_state_load_reg_321                   |    1|   0|    1|          0|
+    |repd_state_load_reg_321_pp0_iter1_reg     |    1|   0|    1|          0|
+    |response_drop                             |    1|   0|    1|          0|
+    |response_drop_load_reg_325                |    1|   0|    1|          0|
+    |response_drop_load_reg_325_pp0_iter1_reg  |    1|   0|    1|          0|
+    |response_id                               |   16|   0|   16|          0|
+    |response_user_myIP                        |   32|   0|   32|          0|
+    |response_user_myPort                      |   16|   0|   16|          0|
+    |response_user_theirIP                     |   32|   0|   32|          0|
+    |response_user_theirPort                   |   16|   0|   16|          0|
+    |tmp_i_184_reg_332                         |    1|   0|    1|          0|
+    |tmp_i_184_reg_332_pp0_iter1_reg           |    1|   0|    1|          0|
+    +------------------------------------------+-----+----+-----+-----------+
+    |Total                                     |  701|   0|  701|          0|
+    +------------------------------------------+-----+----+-----+-----------+
 
 
 
@@ -149,29 +149,33 @@
 == Interface
 ================================================================
 * Summary: 
-+------------------------+-----+------+------------+---------------------+--------------+
-|        RTL Ports       | Dir | Bits |  Protocol  |    Source Object    |    C Type    |
-+------------------------+-----+------+------------+---------------------+--------------+
-|ap_clk                  |   in|     1|  ap_ctrl_hs|   rxEngPacketDropper|  return value|
-|ap_rst                  |   in|     1|  ap_ctrl_hs|   rxEngPacketDropper|  return value|
-|ap_start                |   in|     1|  ap_ctrl_hs|   rxEngPacketDropper|  return value|
-|ap_done                 |  out|     1|  ap_ctrl_hs|   rxEngPacketDropper|  return value|
-|ap_continue             |   in|     1|  ap_ctrl_hs|   rxEngPacketDropper|  return value|
-|ap_idle                 |  out|     1|  ap_ctrl_hs|   rxEngPacketDropper|  return value|
-|ap_ready                |  out|     1|  ap_ctrl_hs|   rxEngPacketDropper|  return value|
-|rthDropFifo_dout        |   in|   160|     ap_fifo|          rthDropFifo|       pointer|
-|rthDropFifo_empty_n     |   in|     1|     ap_fifo|          rthDropFifo|       pointer|
-|rthDropFifo_read        |  out|     1|     ap_fifo|          rthDropFifo|       pointer|
-|ureDataPayload_dout     |   in|  1024|     ap_fifo|       ureDataPayload|       pointer|
-|ureDataPayload_empty_n  |   in|     1|     ap_fifo|       ureDataPayload|       pointer|
-|ureDataPayload_read     |  out|     1|     ap_fifo|       ureDataPayload|       pointer|
-|DataOutApp_TREADY       |   in|     1|        axis|  DataOutApp_V_dest_V|       pointer|
-|DataOutApp_TVALID       |  out|     1|        axis|  DataOutApp_V_dest_V|       pointer|
-|DataOutApp_TDEST        |  out|    16|        axis|  DataOutApp_V_dest_V|       pointer|
-|DataOutApp_TDATA        |  out|   512|        axis|  DataOutApp_V_data_V|       pointer|
-|DataOutApp_TKEEP        |  out|    64|        axis|  DataOutApp_V_keep_V|       pointer|
-|DataOutApp_TSTRB        |  out|    64|        axis|  DataOutApp_V_strb_V|       pointer|
-|DataOutApp_TUSER        |  out|    96|        axis|  DataOutApp_V_user_V|       pointer|
-|DataOutApp_TLAST        |  out|     1|        axis|  DataOutApp_V_last_V|       pointer|
-+------------------------+-----+------+------------+---------------------+--------------+
++-------------------------------+-----+------+------------+---------------------+--------------+
+|           RTL Ports           | Dir | Bits |  Protocol  |    Source Object    |    C Type    |
++-------------------------------+-----+------+------------+---------------------+--------------+
+|ap_clk                         |   in|     1|  ap_ctrl_hs|   rxEngPacketDropper|  return value|
+|ap_rst                         |   in|     1|  ap_ctrl_hs|   rxEngPacketDropper|  return value|
+|ap_start                       |   in|     1|  ap_ctrl_hs|   rxEngPacketDropper|  return value|
+|ap_done                        |  out|     1|  ap_ctrl_hs|   rxEngPacketDropper|  return value|
+|ap_continue                    |   in|     1|  ap_ctrl_hs|   rxEngPacketDropper|  return value|
+|ap_idle                        |  out|     1|  ap_ctrl_hs|   rxEngPacketDropper|  return value|
+|ap_ready                       |  out|     1|  ap_ctrl_hs|   rxEngPacketDropper|  return value|
+|rthDropFifo_dout               |   in|   160|     ap_fifo|          rthDropFifo|       pointer|
+|rthDropFifo_num_data_valid     |   in|     6|     ap_fifo|          rthDropFifo|       pointer|
+|rthDropFifo_fifo_cap           |   in|     6|     ap_fifo|          rthDropFifo|       pointer|
+|rthDropFifo_empty_n            |   in|     1|     ap_fifo|          rthDropFifo|       pointer|
+|rthDropFifo_read               |  out|     1|     ap_fifo|          rthDropFifo|       pointer|
+|ureDataPayload_dout            |   in|  1024|     ap_fifo|       ureDataPayload|       pointer|
+|ureDataPayload_num_data_valid  |   in|     9|     ap_fifo|       ureDataPayload|       pointer|
+|ureDataPayload_fifo_cap        |   in|     9|     ap_fifo|       ureDataPayload|       pointer|
+|ureDataPayload_empty_n         |   in|     1|     ap_fifo|       ureDataPayload|       pointer|
+|ureDataPayload_read            |  out|     1|     ap_fifo|       ureDataPayload|       pointer|
+|DataOutApp_TREADY              |   in|     1|        axis|  DataOutApp_V_dest_V|       pointer|
+|DataOutApp_TVALID              |  out|     1|        axis|  DataOutApp_V_dest_V|       pointer|
+|DataOutApp_TDEST               |  out|    16|        axis|  DataOutApp_V_dest_V|       pointer|
+|DataOutApp_TDATA               |  out|   512|        axis|  DataOutApp_V_data_V|       pointer|
+|DataOutApp_TKEEP               |  out|    64|        axis|  DataOutApp_V_keep_V|       pointer|
+|DataOutApp_TSTRB               |  out|    64|        axis|  DataOutApp_V_strb_V|       pointer|
+|DataOutApp_TUSER               |  out|    96|        axis|  DataOutApp_V_user_V|       pointer|
+|DataOutApp_TLAST               |  out|     1|        axis|  DataOutApp_V_last_V|       pointer|
++-------------------------------+-----+------+------------+---------------------+--------------+
 

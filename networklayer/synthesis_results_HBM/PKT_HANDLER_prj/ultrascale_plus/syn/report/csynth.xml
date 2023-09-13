@@ -1,10 +1,10 @@
 <profile>
     <ReportVersion>
-        <Version>2021.2</Version>
+        <Version>2023.1</Version>
     </ReportVersion>
     <UserAssignments>
         <unit>ns</unit>
-        <ProductFamily>virtexuplus</ProductFamily>
+        <ProductFamily>virtexuplusHBM</ProductFamily>
         <Part>xcu280-fsvh2892-2L-e</Part>
         <TopModelName>packet_handler</TopModelName>
         <TargetClockPeriod>3.10</TargetClockPeriod>
@@ -15,16 +15,16 @@
         <PipelineType>dataflow</PipelineType>
         <SummaryOfTimingAnalysis>
             <unit>ns</unit>
-            <EstimatedClockPeriod>3.067</EstimatedClockPeriod>
+            <EstimatedClockPeriod>3.140</EstimatedClockPeriod>
         </SummaryOfTimingAnalysis>
         <SummaryOfOverallLatency>
             <unit>clock cycles</unit>
             <Best-caseLatency>4</Best-caseLatency>
             <Average-caseLatency>4</Average-caseLatency>
             <Worst-caseLatency>4</Worst-caseLatency>
-            <Best-caseRealTimeLatency>12.400 ns</Best-caseRealTimeLatency>
-            <Average-caseRealTimeLatency>12.400 ns</Average-caseRealTimeLatency>
-            <Worst-caseRealTimeLatency>12.400 ns</Worst-caseRealTimeLatency>
+            <Best-caseRealTimeLatency>12.559 ns</Best-caseRealTimeLatency>
+            <Average-caseRealTimeLatency>12.559 ns</Average-caseRealTimeLatency>
+            <Worst-caseRealTimeLatency>12.559 ns</Worst-caseRealTimeLatency>
             <DataflowPipelineThroughput>1</DataflowPipelineThroughput>
             <Interval-min>1</Interval-min>
             <Interval-max>1</Interval-max>
@@ -33,8 +33,8 @@
     <AreaEstimates>
         <Resources>
             <BRAM_18K>0</BRAM_18K>
-            <FF>6174</FF>
-            <LUT>2575</LUT>
+            <FF>6176</FF>
+            <LUT>2651</LUT>
             <DSP>0</DSP>
             <URAM>0</URAM>
         </Resources>
@@ -47,50 +47,6 @@
         </AvailableResources>
     </AreaEstimates>
     <InterfaceSummary>
-        <RtlPorts>
-            <name>ap_local_block</name>
-            <Object>packet_handler</Object>
-            <Type>return value</Type>
-            <Scope/>
-            <IOProtocol>ap_ctrl_none</IOProtocol>
-            <IOConfig/>
-            <Dir>out</Dir>
-            <Bits>1</Bits>
-            <Attribute>unknown</Attribute>
-        </RtlPorts>
-        <RtlPorts>
-            <name>ap_local_deadlock</name>
-            <Object>packet_handler</Object>
-            <Type>return value</Type>
-            <Scope/>
-            <IOProtocol>ap_ctrl_none</IOProtocol>
-            <IOConfig/>
-            <Dir>out</Dir>
-            <Bits>1</Bits>
-            <Attribute>unknown</Attribute>
-        </RtlPorts>
-        <RtlPorts>
-            <name>ap_clk</name>
-            <Object>packet_handler</Object>
-            <Type>return value</Type>
-            <Scope/>
-            <IOProtocol>ap_ctrl_none</IOProtocol>
-            <IOConfig/>
-            <Dir>in</Dir>
-            <Bits>1</Bits>
-            <Attribute>control</Attribute>
-        </RtlPorts>
-        <RtlPorts>
-            <name>ap_rst_n</name>
-            <Object>packet_handler</Object>
-            <Type>return value</Type>
-            <Scope/>
-            <IOProtocol>ap_ctrl_none</IOProtocol>
-            <IOConfig/>
-            <Dir>in</Dir>
-            <Bits>1</Bits>
-            <Attribute>control</Attribute>
-        </RtlPorts>
         <RtlPorts>
             <name>s_axis_TDATA</name>
             <Object>s_axis_V_data_V</Object>
@@ -259,6 +215,28 @@
             <Attribute>control</Attribute>
             <CType>int</CType>
         </RtlPorts>
+        <RtlPorts>
+            <name>ap_clk</name>
+            <Object>packet_handler</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_rst_n</name>
+            <Object>packet_handler</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
     </InterfaceSummary>
     <RTLDesignHierarchy>
         <TopModule MAX_DEPTH="2">
@@ -268,13 +246,13 @@
                     <InstName>packet_identification_U0</InstName>
                     <ModuleName>packet_identification</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>72</ID>
+                    <ID>80</ID>
                 </Instance>
                 <Instance>
                     <InstName>ethernet_remover_U0</InstName>
                     <ModuleName>ethernet_remover</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>92</ID>
+                    <ID>100</ID>
                 </Instance>
             </InstancesList>
         </TopModule>
@@ -287,7 +265,7 @@
                     <TargetClockPeriod>3.10</TargetClockPeriod>
                     <ClockUncertainty>0.20</ClockUncertainty>
                     <TargetInitiationInterval>1</TargetInitiationInterval>
-                    <EstimatedClockPeriod>1.837</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>1.450</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>1</Best-caseLatency>
@@ -298,7 +276,7 @@
                     <Worst-caseRealTimeLatency>3.100 ns</Worst-caseRealTimeLatency>
                     <PipelineInitiationInterval>1</PipelineInitiationInterval>
                     <PipelineDepth>2</PipelineDepth>
-                    <PipelineType>yes</PipelineType>
+                    <PipelineType>yes(flp)</PipelineType>
                 </SummaryOfOverallLatency>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -306,7 +284,7 @@
                     <FF>620</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>178</LUT>
+                    <LUT>230</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -328,26 +306,26 @@
                     <TargetClockPeriod>3.10</TargetClockPeriod>
                     <ClockUncertainty>0.20</ClockUncertainty>
                     <TargetInitiationInterval>1</TargetInitiationInterval>
-                    <EstimatedClockPeriod>3.067</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>3.140</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>2</Best-caseLatency>
                     <Average-caseLatency>2</Average-caseLatency>
                     <Worst-caseLatency>2</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>6.200 ns</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>6.200 ns</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>6.200 ns</Worst-caseRealTimeLatency>
+                    <Best-caseRealTimeLatency>6.279 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>6.279 ns</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>6.279 ns</Worst-caseRealTimeLatency>
                     <PipelineInitiationInterval>1</PipelineInitiationInterval>
                     <PipelineDepth>3</PipelineDepth>
-                    <PipelineType>yes</PipelineType>
+                    <PipelineType>yes(flp)</PipelineType>
                 </SummaryOfOverallLatency>
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>2462</FF>
+                    <FF>2464</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>740</LUT>
+                    <LUT>764</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -368,15 +346,15 @@
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>3.10</TargetClockPeriod>
                     <ClockUncertainty>0.20</ClockUncertainty>
-                    <EstimatedClockPeriod>3.067</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>3.140</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>4</Best-caseLatency>
                     <Average-caseLatency>4</Average-caseLatency>
                     <Worst-caseLatency>4</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>12.400 ns</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>12.400 ns</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>12.400 ns</Worst-caseRealTimeLatency>
+                    <Best-caseRealTimeLatency>12.559 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>12.559 ns</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>12.559 ns</Worst-caseRealTimeLatency>
                     <DataflowPipelineThroughput>1</DataflowPipelineThroughput>
                     <PipelineInitiationInterval>1</PipelineInitiationInterval>
                     <PipelineType>dataflow</PipelineType>
@@ -387,10 +365,10 @@
                     <BRAM_18K>0</BRAM_18K>
                     <AVAIL_BRAM>4032</AVAIL_BRAM>
                     <UTIL_BRAM>0</UTIL_BRAM>
-                    <FF>6174</FF>
+                    <FF>6176</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>2575</LUT>
+                    <LUT>2651</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <DSP>0</DSP>
@@ -434,29 +412,6 @@
         </Arg>
     </Args>
     <Interfaces>
-        <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
-            <busParams>
-                <busParam busParamName="ASSOCIATED_BUSIF">s_axis:m_axis</busParam>
-                <busParam busParamName="ASSOCIATED_RESET">ap_rst_n</busParam>
-            </busParams>
-            <portMaps>
-                <portMap portMapName="ap_clk">CLK</portMap>
-            </portMaps>
-            <ports>
-                <port>ap_clk</port>
-            </ports>
-        </Interface>
-        <Interface InterfaceName="ap_rst_n" type="reset" busTypeName="reset" mode="slave">
-            <busParams>
-                <busParam busParamName="POLARITY">ACTIVE_LOW</busParam>
-            </busParams>
-            <portMaps>
-                <portMap portMapName="ap_rst_n">RST</portMap>
-            </portMaps>
-            <ports>
-                <port>ap_rst_n</port>
-            </ports>
-        </Interface>
         <Interface InterfaceName="s_axis" type="axi4stream" busTypeName="axis" mode="slave" dataWidth="512" portPrefix="s_axis_">
             <ports>
                 <port>s_axis_TDATA</port>
@@ -485,22 +440,45 @@
                 <constraint constraint_type="pragma interface" mode="axis" register_option="1" register_mode="both" argName="dataOut"/>
             </constraints>
         </Interface>
+        <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
+            <busParams>
+                <busParam busParamName="ASSOCIATED_BUSIF">s_axis:m_axis</busParam>
+                <busParam busParamName="ASSOCIATED_RESET">ap_rst_n</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_clk">CLK</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_clk</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_rst_n" type="reset" busTypeName="reset" mode="slave">
+            <busParams>
+                <busParam busParamName="POLARITY">ACTIVE_LOW</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_rst_n">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_rst_n</port>
+            </ports>
+        </Interface>
     </Interfaces>
     <ReportHWInterface>
         <section name="HW Interfaces" level="0">
             <item name="AXIS">
-                <table isCollapsed="0">
-                    <keys size="9">Interface, Register Mode, TDATA, TDEST, TKEEP, TLAST, TREADY, TSTRB, TVALID</keys>
-                    <column name="m_axis">both, 512, 3, 64, 1, 1, 64, 1</column>
-                    <column name="s_axis">both, 512, 3, 64, 1, 1, 64, 1</column>
+                <table>
+                    <keys size="10">Interface, Direction, Register Mode, TDATA, TDEST, TKEEP, TLAST, TREADY, TSTRB, TVALID</keys>
+                    <column name="m_axis">out, both, 512, 3, 64, 1, 1, 64, 1</column>
+                    <column name="s_axis">in, both, 512, 3, 64, 1, 1, 64, 1</column>
                 </table>
             </item>
             <item name="TOP LEVEL CONTROL">
-                <table isCollapsed="0">
+                <table>
                     <keys size="3">Interface, Type, Ports</keys>
                     <column name="ap_clk">clock, ap_clk</column>
                     <column name="ap_rst_n">reset, ap_rst_n</column>
-                    <column name="ap_ctrl">ap_ctrl_none</column>
+                    <column name="ap_ctrl">ap_ctrl_none, </column>
                 </table>
             </item>
         </section>
@@ -508,14 +486,14 @@
     <ReportSWInterface>
         <section name="SW I/O Information" level="0">
             <item name="Top Function Arguments">
-                <table isCollapsed="1">
+                <table>
                     <keys size="3">Argument, Direction, Datatype</keys>
                     <column name="dataIn">in, stream&lt;hls::axis&lt;ap_uint&lt;512&gt; 0 0 3&gt; 0&gt;&amp;</column>
                     <column name="dataOut">out, stream&lt;hls::axis&lt;ap_uint&lt;512&gt; 0 0 3&gt; 0&gt;&amp;</column>
                 </table>
             </item>
             <item name="SW-to-HW Mapping">
-                <table isCollapsed="1">
+                <table>
                     <keys size="3">Argument, HW Interface, HW Type</keys>
                     <column name="dataIn">s_axis, interface</column>
                     <column name="dataOut">m_axis, interface</column>
@@ -523,17 +501,15 @@
             </item>
         </section>
     </ReportSWInterface>
-    <ReportBurst>
-        <section name="M_AXI Burst Information" level="0" HEADER_NOTE="Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings."/>
-    </ReportBurst>
+    <ResolutionUrl key="ZZZ">www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=ZZZ.html</ResolutionUrl>
     <PragmaReport>
-        <Pragma type="pipeline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:55" status="valid" parentFunction="ethernet_remover" variable="" isDirective="0" options="II=1"/>
-        <Pragma type="pipeline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:173" status="valid" parentFunction="packet_identification" variable="" isDirective="0" options="II=1"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:279" status="valid" parentFunction="packet_handler" variable="return" isDirective="0" options="ap_ctrl_none port=return"/>
-        <Pragma type="dataflow" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:280" status="valid" parentFunction="packet_handler" variable="" isDirective="0" options=""/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:282" status="valid" parentFunction="packet_handler" variable="dataIn" isDirective="0" options="axis register both port=dataIn name=s_axis"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:283" status="valid" parentFunction="packet_handler" variable="dataOut" isDirective="0" options="axis register both port=dataOut name=m_axis"/>
-        <Pragma type="stream" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:286" status="valid" parentFunction="packet_handler" variable="eth_level_pkt" isDirective="0" options="variable=eth_level_pkt depth=16"/>
+        <Pragma type="pipeline" location="../hls/packet_handler/packet_handler.cpp:55" status="valid" parentFunction="ethernet_remover" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="pipeline" location="../hls/packet_handler/packet_handler.cpp:173" status="valid" parentFunction="packet_identification" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="interface" location="../hls/packet_handler/packet_handler.cpp:279" status="valid" parentFunction="packet_handler" variable="return" isDirective="0" options="ap_ctrl_none port=return"/>
+        <Pragma type="dataflow" location="../hls/packet_handler/packet_handler.cpp:280" status="valid" parentFunction="packet_handler" variable="" isDirective="0" options=""/>
+        <Pragma type="interface" location="../hls/packet_handler/packet_handler.cpp:282" status="valid" parentFunction="packet_handler" variable="dataIn" isDirective="0" options="axis register both port=dataIn name=s_axis"/>
+        <Pragma type="interface" location="../hls/packet_handler/packet_handler.cpp:283" status="valid" parentFunction="packet_handler" variable="dataOut" isDirective="0" options="axis register both port=dataOut name=m_axis"/>
+        <Pragma type="stream" location="../hls/packet_handler/packet_handler.cpp:286" status="valid" parentFunction="packet_handler" variable="eth_level_pkt" isDirective="0" options="variable=eth_level_pkt depth=16"/>
     </PragmaReport>
 </profile>
 

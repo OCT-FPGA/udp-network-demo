@@ -1,0 +1,89 @@
+{
+    "1": {
+        "name": "appGetMetaData",
+        "file": "udp.cpp",
+        "fileloc": "0",
+        "instructions": "322",
+        "total_instructions": "322",
+        "calls": "",
+        "basicblocks": "144",
+        "loads": {
+            "G": "2"
+        },
+        "stores": {
+            "G": "4"
+        }
+    },
+    "2": {
+        "name": "udpTxEngine",
+        "file": "udp.cpp",
+        "fileloc": "0",
+        "instructions": "135",
+        "total_instructions": "135",
+        "calls": "",
+        "basicblocks": "27",
+        "loads": {
+            "G": "9"
+        },
+        "stores": {
+            "G": "18"
+        }
+    },
+    "3": {
+        "name": "entry_proc",
+        "file": "udp.cpp",
+        "fileloc": "0",
+        "instructions": "196",
+        "total_instructions": "196",
+        "calls": "",
+        "basicblocks": "1"
+    },
+    "4": {
+        "name": "udpRxEngine",
+        "file": "udp.cpp",
+        "fileloc": "0",
+        "instructions": "88",
+        "total_instructions": "88",
+        "calls": "",
+        "basicblocks": "16",
+        "loads": {
+            "G": "3"
+        },
+        "stores": {
+            "G": "8"
+        }
+    },
+    "0": {
+        "name": "udp",
+        "file": "udp.cpp",
+        "fileloc": "407",
+        "instructions": "444",
+        "total_instructions": "1523",
+        "calls": "3 4 5 6 1 2",
+        "basicblocks": "1"
+    },
+    "5": {
+        "name": "TableHandler",
+        "file": "udp.cpp",
+        "fileloc": "0",
+        "instructions": "285",
+        "total_instructions": "285",
+        "calls": "",
+        "basicblocks": "21"
+    },
+    "6": {
+        "name": "rxEngPacketDropper",
+        "file": "udp.cpp",
+        "fileloc": "0",
+        "instructions": "53",
+        "total_instructions": "53",
+        "calls": "",
+        "basicblocks": "12",
+        "loads": {
+            "G": "7"
+        },
+        "stores": {
+            "G": "8"
+        }
+    }
+}

@@ -9,6 +9,9 @@ set isOneStateSeq 1
 set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
+set hasInterrupt 0
+set DLRegFirstOffset 0
+set DLRegItemOffset 0
 set C_modelName {entry_proc}
 set C_modelType { void 0 }
 set C_modelArgList {
@@ -21,6 +24,7 @@ set C_modelArgList {
 	{ networkMask_c int 32 regular {fifo 1}  }
 	{ networkMask_c13 int 32 regular {fifo 1}  }
 }
+set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "myMacAddress", "interface" : "wire", "bitwidth" : 48, "direction" : "READONLY"} , 
  	{ "Name" : "myMacAddress_c", "interface" : "fifo", "bitwidth" : 48, "direction" : "WRITEONLY"} , 
@@ -31,7 +35,7 @@ set C_modelArgMapList {[
  	{ "Name" : "networkMask_c", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
  	{ "Name" : "networkMask_c13", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
-set portNum 28
+set portNum 38
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -45,20 +49,30 @@ set portList {
 	{ start_write sc_out sc_logic 1 signal -1 } 
 	{ myMacAddress sc_in sc_lv 48 signal 0 } 
 	{ myMacAddress_c_din sc_out sc_lv 48 signal 1 } 
+	{ myMacAddress_c_num_data_valid sc_in sc_lv 3 signal 1 } 
+	{ myMacAddress_c_fifo_cap sc_in sc_lv 3 signal 1 } 
 	{ myMacAddress_c_full_n sc_in sc_logic 1 signal 1 } 
 	{ myMacAddress_c_write sc_out sc_logic 1 signal 1 } 
 	{ gatewayIP sc_in sc_lv 32 signal 2 } 
 	{ gatewayIP_c_din sc_out sc_lv 32 signal 3 } 
+	{ gatewayIP_c_num_data_valid sc_in sc_lv 3 signal 3 } 
+	{ gatewayIP_c_fifo_cap sc_in sc_lv 3 signal 3 } 
 	{ gatewayIP_c_full_n sc_in sc_logic 1 signal 3 } 
 	{ gatewayIP_c_write sc_out sc_logic 1 signal 3 } 
 	{ gatewayIP_c12_din sc_out sc_lv 32 signal 4 } 
+	{ gatewayIP_c12_num_data_valid sc_in sc_lv 3 signal 4 } 
+	{ gatewayIP_c12_fifo_cap sc_in sc_lv 3 signal 4 } 
 	{ gatewayIP_c12_full_n sc_in sc_logic 1 signal 4 } 
 	{ gatewayIP_c12_write sc_out sc_logic 1 signal 4 } 
 	{ networkMask sc_in sc_lv 32 signal 5 } 
 	{ networkMask_c_din sc_out sc_lv 32 signal 6 } 
+	{ networkMask_c_num_data_valid sc_in sc_lv 3 signal 6 } 
+	{ networkMask_c_fifo_cap sc_in sc_lv 3 signal 6 } 
 	{ networkMask_c_full_n sc_in sc_logic 1 signal 6 } 
 	{ networkMask_c_write sc_out sc_logic 1 signal 6 } 
 	{ networkMask_c13_din sc_out sc_lv 32 signal 7 } 
+	{ networkMask_c13_num_data_valid sc_in sc_lv 3 signal 7 } 
+	{ networkMask_c13_fifo_cap sc_in sc_lv 3 signal 7 } 
 	{ networkMask_c13_full_n sc_in sc_logic 1 signal 7 } 
 	{ networkMask_c13_write sc_out sc_logic 1 signal 7 } 
 }
@@ -75,20 +89,30 @@ set NewPortList {[
  	{ "name": "start_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "start_write", "role": "default" }} , 
  	{ "name": "myMacAddress", "direction": "in", "datatype": "sc_lv", "bitwidth":48, "type": "signal", "bundle":{"name": "myMacAddress", "role": "default" }} , 
  	{ "name": "myMacAddress_c_din", "direction": "out", "datatype": "sc_lv", "bitwidth":48, "type": "signal", "bundle":{"name": "myMacAddress_c", "role": "din" }} , 
+ 	{ "name": "myMacAddress_c_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "myMacAddress_c", "role": "num_data_valid" }} , 
+ 	{ "name": "myMacAddress_c_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "myMacAddress_c", "role": "fifo_cap" }} , 
  	{ "name": "myMacAddress_c_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "myMacAddress_c", "role": "full_n" }} , 
  	{ "name": "myMacAddress_c_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "myMacAddress_c", "role": "write" }} , 
  	{ "name": "gatewayIP", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gatewayIP", "role": "default" }} , 
  	{ "name": "gatewayIP_c_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gatewayIP_c", "role": "din" }} , 
+ 	{ "name": "gatewayIP_c_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gatewayIP_c", "role": "num_data_valid" }} , 
+ 	{ "name": "gatewayIP_c_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gatewayIP_c", "role": "fifo_cap" }} , 
  	{ "name": "gatewayIP_c_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gatewayIP_c", "role": "full_n" }} , 
  	{ "name": "gatewayIP_c_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gatewayIP_c", "role": "write" }} , 
  	{ "name": "gatewayIP_c12_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gatewayIP_c12", "role": "din" }} , 
+ 	{ "name": "gatewayIP_c12_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gatewayIP_c12", "role": "num_data_valid" }} , 
+ 	{ "name": "gatewayIP_c12_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gatewayIP_c12", "role": "fifo_cap" }} , 
  	{ "name": "gatewayIP_c12_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gatewayIP_c12", "role": "full_n" }} , 
  	{ "name": "gatewayIP_c12_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gatewayIP_c12", "role": "write" }} , 
  	{ "name": "networkMask", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "networkMask", "role": "default" }} , 
  	{ "name": "networkMask_c_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "networkMask_c", "role": "din" }} , 
+ 	{ "name": "networkMask_c_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "networkMask_c", "role": "num_data_valid" }} , 
+ 	{ "name": "networkMask_c_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "networkMask_c", "role": "fifo_cap" }} , 
  	{ "name": "networkMask_c_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "networkMask_c", "role": "full_n" }} , 
  	{ "name": "networkMask_c_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "networkMask_c", "role": "write" }} , 
  	{ "name": "networkMask_c13_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "networkMask_c13", "role": "din" }} , 
+ 	{ "name": "networkMask_c13_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "networkMask_c13", "role": "num_data_valid" }} , 
+ 	{ "name": "networkMask_c13_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "networkMask_c13", "role": "fifo_cap" }} , 
  	{ "name": "networkMask_c13_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "networkMask_c13", "role": "full_n" }} , 
  	{ "name": "networkMask_c13_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "networkMask_c13", "role": "write" }}  ]}
 
@@ -151,11 +175,11 @@ set PipelineEnableSignalInfo {[
 
 set Spec2ImplPortList { 
 	myMacAddress { ap_none {  { myMacAddress in_data 0 48 } } }
-	myMacAddress_c { ap_fifo {  { myMacAddress_c_din fifo_data 1 48 }  { myMacAddress_c_full_n fifo_status 0 1 }  { myMacAddress_c_write fifo_update 1 1 } } }
+	myMacAddress_c { ap_fifo {  { myMacAddress_c_din fifo_port_we 1 48 }  { myMacAddress_c_num_data_valid fifo_status_num_data_valid 0 3 }  { myMacAddress_c_fifo_cap fifo_update 0 3 }  { myMacAddress_c_full_n fifo_status 0 1 }  { myMacAddress_c_write fifo_data 1 1 } } }
 	gatewayIP { ap_none {  { gatewayIP in_data 0 32 } } }
-	gatewayIP_c { ap_fifo {  { gatewayIP_c_din fifo_data 1 32 }  { gatewayIP_c_full_n fifo_status 0 1 }  { gatewayIP_c_write fifo_update 1 1 } } }
-	gatewayIP_c12 { ap_fifo {  { gatewayIP_c12_din fifo_data 1 32 }  { gatewayIP_c12_full_n fifo_status 0 1 }  { gatewayIP_c12_write fifo_update 1 1 } } }
+	gatewayIP_c { ap_fifo {  { gatewayIP_c_din fifo_port_we 1 32 }  { gatewayIP_c_num_data_valid fifo_status_num_data_valid 0 3 }  { gatewayIP_c_fifo_cap fifo_update 0 3 }  { gatewayIP_c_full_n fifo_status 0 1 }  { gatewayIP_c_write fifo_data 1 1 } } }
+	gatewayIP_c12 { ap_fifo {  { gatewayIP_c12_din fifo_port_we 1 32 }  { gatewayIP_c12_num_data_valid fifo_status_num_data_valid 0 3 }  { gatewayIP_c12_fifo_cap fifo_update 0 3 }  { gatewayIP_c12_full_n fifo_status 0 1 }  { gatewayIP_c12_write fifo_data 1 1 } } }
 	networkMask { ap_none {  { networkMask in_data 0 32 } } }
-	networkMask_c { ap_fifo {  { networkMask_c_din fifo_data 1 32 }  { networkMask_c_full_n fifo_status 0 1 }  { networkMask_c_write fifo_update 1 1 } } }
-	networkMask_c13 { ap_fifo {  { networkMask_c13_din fifo_data 1 32 }  { networkMask_c13_full_n fifo_status 0 1 }  { networkMask_c13_write fifo_update 1 1 } } }
+	networkMask_c { ap_fifo {  { networkMask_c_din fifo_port_we 1 32 }  { networkMask_c_num_data_valid fifo_status_num_data_valid 0 3 }  { networkMask_c_fifo_cap fifo_update 0 3 }  { networkMask_c_full_n fifo_status 0 1 }  { networkMask_c_write fifo_data 1 1 } } }
+	networkMask_c13 { ap_fifo {  { networkMask_c13_din fifo_port_we 1 32 }  { networkMask_c13_num_data_valid fifo_status_num_data_valid 0 3 }  { networkMask_c13_fifo_cap fifo_update 0 3 }  { networkMask_c13_full_n fifo_status 0 1 }  { networkMask_c13_write fifo_data 1 1 } } }
 }

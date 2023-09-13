@@ -9,6 +9,9 @@ set isOneStateSeq 0
 set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
+set hasInterrupt 0
+set DLRegFirstOffset 0
+set DLRegItemOffset 0
 set C_modelName {udpRxEngine}
 set C_modelType { void 0 }
 set C_modelArgList {
@@ -19,6 +22,7 @@ set C_modelArgList {
 	{ ureMetaData int 128 regular {fifo 1 volatile } {global 1}  }
 	{ ureDataPayload int 1024 regular {fifo 1 volatile } {global 1}  }
 }
+set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "rxUdpDataIn_V_data_V", "interface" : "axis", "bitwidth" : 512, "direction" : "READONLY"} , 
  	{ "Name" : "rxUdpDataIn_V_keep_V", "interface" : "axis", "bitwidth" : 64, "direction" : "READONLY"} , 
@@ -27,7 +31,7 @@ set C_modelArgMapList {[
  	{ "Name" : "ureMetaData", "interface" : "fifo", "bitwidth" : 128, "direction" : "WRITEONLY", "extern" : 0} , 
  	{ "Name" : "ureDataPayload", "interface" : "fifo", "bitwidth" : 1024, "direction" : "WRITEONLY", "extern" : 0} ]}
 # RTL Port declarations: 
-set portNum 22
+set portNum 26
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -39,9 +43,13 @@ set portList {
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
 	{ rxUdpDataIn_TVALID sc_in sc_logic 1 invld 3 } 
 	{ ureDataPayload_din sc_out sc_lv 1024 signal 5 } 
+	{ ureDataPayload_num_data_valid sc_in sc_lv 9 signal 5 } 
+	{ ureDataPayload_fifo_cap sc_in sc_lv 9 signal 5 } 
 	{ ureDataPayload_full_n sc_in sc_logic 1 signal 5 } 
 	{ ureDataPayload_write sc_out sc_logic 1 signal 5 } 
 	{ ureMetaData_din sc_out sc_lv 128 signal 4 } 
+	{ ureMetaData_num_data_valid sc_in sc_lv 6 signal 4 } 
+	{ ureMetaData_fifo_cap sc_in sc_lv 6 signal 4 } 
 	{ ureMetaData_full_n sc_in sc_logic 1 signal 4 } 
 	{ ureMetaData_write sc_out sc_logic 1 signal 4 } 
 	{ start_out sc_out sc_logic 1 signal -1 } 
@@ -63,9 +71,13 @@ set NewPortList {[
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
  	{ "name": "rxUdpDataIn_TVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "rxUdpDataIn_V_last_V", "role": "default" }} , 
  	{ "name": "ureDataPayload_din", "direction": "out", "datatype": "sc_lv", "bitwidth":1024, "type": "signal", "bundle":{"name": "ureDataPayload", "role": "din" }} , 
+ 	{ "name": "ureDataPayload_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "ureDataPayload", "role": "num_data_valid" }} , 
+ 	{ "name": "ureDataPayload_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "ureDataPayload", "role": "fifo_cap" }} , 
  	{ "name": "ureDataPayload_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ureDataPayload", "role": "full_n" }} , 
  	{ "name": "ureDataPayload_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ureDataPayload", "role": "write" }} , 
  	{ "name": "ureMetaData_din", "direction": "out", "datatype": "sc_lv", "bitwidth":128, "type": "signal", "bundle":{"name": "ureMetaData", "role": "din" }} , 
+ 	{ "name": "ureMetaData_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "ureMetaData", "role": "num_data_valid" }} , 
+ 	{ "name": "ureMetaData_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "ureMetaData", "role": "fifo_cap" }} , 
  	{ "name": "ureMetaData_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ureMetaData", "role": "full_n" }} , 
  	{ "name": "ureMetaData_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ureMetaData", "role": "write" }} , 
  	{ "name": "start_out", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "start_out", "role": "default" }} , 
@@ -92,15 +104,15 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "1",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "rxUdpDataIn_V_data_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "rxUdpDataIn_V_data_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "rxUdpDataIn",
 				"BlockSignal" : [
 					{"Name" : "rxUdpDataIn_TDATA_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "rxUdpDataIn_V_keep_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "rxUdpDataIn_V_strb_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "rxUdpDataIn_V_last_V", "Type" : "Axis", "Direction" : "I"},
+			{"Name" : "rxUdpDataIn_V_keep_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "rxUdpDataIn"},
+			{"Name" : "rxUdpDataIn_V_strb_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "rxUdpDataIn"},
+			{"Name" : "rxUdpDataIn_V_last_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "rxUdpDataIn"},
 			{"Name" : "ure_state", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "prevWord_data_V_1", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "prevWord_keep_V_1", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "prevWord_data_1", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "prevWord_keep_1", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "ureMetaData", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "32", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "ureMetaData_blk_n", "Type" : "RtlSignal"}]},
@@ -120,8 +132,8 @@ set ArgLastReadFirstWriteLatency {
 		rxUdpDataIn_V_strb_V {Type I LastRead 0 FirstWrite -1}
 		rxUdpDataIn_V_last_V {Type I LastRead 0 FirstWrite -1}
 		ure_state {Type IO LastRead -1 FirstWrite -1}
-		prevWord_data_V_1 {Type IO LastRead -1 FirstWrite -1}
-		prevWord_keep_V_1 {Type IO LastRead -1 FirstWrite -1}
+		prevWord_data_1 {Type IO LastRead -1 FirstWrite -1}
+		prevWord_keep_1 {Type IO LastRead -1 FirstWrite -1}
 		ureMetaData {Type O LastRead -1 FirstWrite 1}
 		ureDataPayload {Type O LastRead -1 FirstWrite 1}}}
 
@@ -141,6 +153,6 @@ set Spec2ImplPortList {
 	rxUdpDataIn_V_keep_V { axis {  { rxUdpDataIn_TKEEP in_data 0 64 } } }
 	rxUdpDataIn_V_strb_V { axis {  { rxUdpDataIn_TSTRB in_data 0 64 } } }
 	rxUdpDataIn_V_last_V { axis {  { rxUdpDataIn_TVALID in_vld 0 1 }  { rxUdpDataIn_TREADY in_acc 1 1 }  { rxUdpDataIn_TLAST in_data 0 1 } } }
-	ureMetaData { ap_fifo {  { ureMetaData_din fifo_data 1 128 }  { ureMetaData_full_n fifo_status 0 1 }  { ureMetaData_write fifo_update 1 1 } } }
-	ureDataPayload { ap_fifo {  { ureDataPayload_din fifo_data 1 1024 }  { ureDataPayload_full_n fifo_status 0 1 }  { ureDataPayload_write fifo_update 1 1 } } }
+	ureMetaData { ap_fifo {  { ureMetaData_din fifo_port_we 1 128 }  { ureMetaData_num_data_valid fifo_status_num_data_valid 0 6 }  { ureMetaData_fifo_cap fifo_update 0 6 }  { ureMetaData_full_n fifo_status 0 1 }  { ureMetaData_write fifo_data 1 1 } } }
+	ureDataPayload { ap_fifo {  { ureDataPayload_din fifo_port_we 1 1024 }  { ureDataPayload_num_data_valid fifo_status_num_data_valid 0 9 }  { ureDataPayload_fifo_cap fifo_update 0 9 }  { ureDataPayload_full_n fifo_status 0 1 }  { ureDataPayload_write fifo_data 1 1 } } }
 }

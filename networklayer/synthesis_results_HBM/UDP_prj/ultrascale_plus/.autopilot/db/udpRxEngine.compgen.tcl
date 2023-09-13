@@ -94,7 +94,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_ureMetaData \
     op interface \
-    ports { ureMetaData_din { O 128 vector } ureMetaData_full_n { I 1 bit } ureMetaData_write { O 1 bit } } \
+    ports { ureMetaData_din { O 128 vector } ureMetaData_num_data_valid { I 6 vector } ureMetaData_fifo_cap { I 6 vector } ureMetaData_full_n { I 1 bit } ureMetaData_write { O 1 bit } } \
 } "
 }
 
@@ -109,7 +109,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_ureDataPayload \
     op interface \
-    ports { ureDataPayload_din { O 1024 vector } ureDataPayload_full_n { I 1 bit } ureDataPayload_write { O 1 bit } } \
+    ports { ureDataPayload_din { O 1024 vector } ureDataPayload_num_data_valid { I 9 vector } ureDataPayload_fifo_cap { I 9 vector } ureDataPayload_full_n { I 1 bit } ureDataPayload_write { O 1 bit } } \
 } "
 }
 

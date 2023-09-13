@@ -9,6 +9,9 @@ set isOneStateSeq 0
 set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
+set hasInterrupt 0
+set DLRegFirstOffset 0
+set DLRegItemOffset 0
 set C_modelName {packet_handler}
 set C_modelType { void 0 }
 set C_modelArgList {
@@ -23,6 +26,7 @@ set C_modelArgList {
 	{ m_axis_V_last_V int 1 regular {axi_s 1 volatile  { m_axis Last } }  }
 	{ m_axis_V_dest_V int 3 regular {axi_s 1 volatile  { m_axis Dest } }  }
 }
+set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "s_axis_V_data_V", "interface" : "axis", "bitwidth" : 512, "direction" : "READONLY"} , 
  	{ "Name" : "s_axis_V_keep_V", "interface" : "axis", "bitwidth" : 64, "direction" : "READONLY"} , 
@@ -35,10 +39,8 @@ set C_modelArgMapList {[
  	{ "Name" : "m_axis_V_last_V", "interface" : "axis", "bitwidth" : 1, "direction" : "WRITEONLY"} , 
  	{ "Name" : "m_axis_V_dest_V", "interface" : "axis", "bitwidth" : 3, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
-set portNum 18
+set portNum 16
 set portList { 
-	{ ap_local_block sc_out sc_logic 1 signal -1 } 
-	{ ap_local_deadlock sc_out sc_logic 1 signal -1 } 
 	{ s_axis_TDATA sc_in sc_lv 512 signal 0 } 
 	{ s_axis_TKEEP sc_in sc_lv 64 signal 1 } 
 	{ s_axis_TSTRB sc_in sc_lv 64 signal 2 } 
@@ -57,9 +59,7 @@ set portList {
 	{ m_axis_TREADY sc_in sc_logic 1 outacc 9 } 
 }
 set NewPortList {[ 
-	{ "name": "ap_local_block", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ap_local_block", "role": "default" }} , 
- 	{ "name": "ap_local_deadlock", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ap_local_deadlock", "role": "default" }} , 
- 	{ "name": "s_axis_TDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":512, "type": "signal", "bundle":{"name": "s_axis_V_data_V", "role": "default" }} , 
+	{ "name": "s_axis_TDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":512, "type": "signal", "bundle":{"name": "s_axis_V_data_V", "role": "default" }} , 
  	{ "name": "s_axis_TKEEP", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "s_axis_V_keep_V", "role": "default" }} , 
  	{ "name": "s_axis_TSTRB", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "s_axis_V_strb_V", "role": "default" }} , 
  	{ "name": "s_axis_TLAST", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "s_axis_V_last_V", "role": "default" }} , 
@@ -96,63 +96,63 @@ set RtlHierarchyInfo {[
 		"OutputProcess" : [
 			{"ID" : "7", "Name" : "ethernet_remover_U0"}],
 		"Port" : [
-			{"Name" : "s_axis_V_data_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "s_axis_V_data_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "s_axis",
 				"SubConnect" : [
 					{"ID" : "1", "SubInstance" : "packet_identification_U0", "Port" : "s_axis_V_data_V"}]},
-			{"Name" : "s_axis_V_keep_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "s_axis_V_keep_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "s_axis",
 				"SubConnect" : [
 					{"ID" : "1", "SubInstance" : "packet_identification_U0", "Port" : "s_axis_V_keep_V"}]},
-			{"Name" : "s_axis_V_strb_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "s_axis_V_strb_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "s_axis",
 				"SubConnect" : [
 					{"ID" : "1", "SubInstance" : "packet_identification_U0", "Port" : "s_axis_V_strb_V"}]},
-			{"Name" : "s_axis_V_last_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "s_axis_V_last_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "s_axis",
 				"SubConnect" : [
 					{"ID" : "1", "SubInstance" : "packet_identification_U0", "Port" : "s_axis_V_last_V"}]},
-			{"Name" : "s_axis_V_dest_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "s_axis_V_dest_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "s_axis",
 				"SubConnect" : [
 					{"ID" : "1", "SubInstance" : "packet_identification_U0", "Port" : "s_axis_V_dest_V"}]},
-			{"Name" : "m_axis_V_data_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "m_axis_V_data_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "m_axis",
 				"SubConnect" : [
 					{"ID" : "7", "SubInstance" : "ethernet_remover_U0", "Port" : "m_axis_V_data_V"}]},
-			{"Name" : "m_axis_V_keep_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "m_axis_V_keep_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "m_axis",
 				"SubConnect" : [
 					{"ID" : "7", "SubInstance" : "ethernet_remover_U0", "Port" : "m_axis_V_keep_V"}]},
-			{"Name" : "m_axis_V_strb_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "m_axis_V_strb_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "m_axis",
 				"SubConnect" : [
 					{"ID" : "7", "SubInstance" : "ethernet_remover_U0", "Port" : "m_axis_V_strb_V"}]},
-			{"Name" : "m_axis_V_last_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "m_axis_V_last_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "m_axis",
 				"SubConnect" : [
 					{"ID" : "7", "SubInstance" : "ethernet_remover_U0", "Port" : "m_axis_V_last_V"}]},
-			{"Name" : "m_axis_V_dest_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "m_axis_V_dest_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "m_axis",
 				"SubConnect" : [
 					{"ID" : "7", "SubInstance" : "ethernet_remover_U0", "Port" : "m_axis_V_dest_V"}]},
 			{"Name" : "pi_fsm_state", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "1", "SubInstance" : "packet_identification_U0", "Port" : "pi_fsm_state"}]},
-			{"Name" : "tdest_r_V", "Type" : "OVld", "Direction" : "IO",
-				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "packet_identification_U0", "Port" : "tdest_r_V"}]},
 			{"Name" : "eth_level_pkt", "Type" : "Fifo", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "7", "SubInstance" : "ethernet_remover_U0", "Port" : "eth_level_pkt"},
-					{"ID" : "1", "SubInstance" : "packet_identification_U0", "Port" : "eth_level_pkt"}]},
+					{"ID" : "1", "SubInstance" : "packet_identification_U0", "Port" : "eth_level_pkt"},
+					{"ID" : "7", "SubInstance" : "ethernet_remover_U0", "Port" : "eth_level_pkt"}]},
+			{"Name" : "tdest_r", "Type" : "OVld", "Direction" : "IO",
+				"SubConnect" : [
+					{"ID" : "1", "SubInstance" : "packet_identification_U0", "Port" : "tdest_r"}]},
 			{"Name" : "er_fsm_state", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "7", "SubInstance" : "ethernet_remover_U0", "Port" : "er_fsm_state"}]},
-			{"Name" : "prevWord_data_V", "Type" : "OVld", "Direction" : "IO",
+			{"Name" : "prevWord_data", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "7", "SubInstance" : "ethernet_remover_U0", "Port" : "prevWord_data_V"}]},
-			{"Name" : "prevWord_keep_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "7", "SubInstance" : "ethernet_remover_U0", "Port" : "prevWord_data"}]},
+			{"Name" : "prevWord_keep", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "7", "SubInstance" : "ethernet_remover_U0", "Port" : "prevWord_keep_V"}]},
-			{"Name" : "prevWord_dest_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "7", "SubInstance" : "ethernet_remover_U0", "Port" : "prevWord_keep"}]},
+			{"Name" : "prevWord_dest", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "7", "SubInstance" : "ethernet_remover_U0", "Port" : "prevWord_dest_V"}]}]},
+					{"ID" : "7", "SubInstance" : "ethernet_remover_U0", "Port" : "prevWord_dest"}]}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.packet_identification_U0", "Parent" : "0", "Child" : ["2", "3", "4", "5", "6"],
 		"CDFG" : "packet_identification",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "1",
-		"Pipeline" : "Aligned", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"Pipeline" : "Unaligned", "UnalignedPipeline" : "1", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "1",
 		"VariableLatency" : "0", "ExactLatency" : "1", "EstimateLatencyMin" : "1", "EstimateLatencyMax" : "1",
 		"Combinational" : "0",
@@ -163,18 +163,18 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "1",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "s_axis_V_data_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "s_axis_V_data_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "s_axis",
 				"BlockSignal" : [
 					{"Name" : "s_axis_TDATA_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "s_axis_V_keep_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "s_axis_V_strb_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "s_axis_V_last_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "s_axis_V_dest_V", "Type" : "Axis", "Direction" : "I"},
+			{"Name" : "s_axis_V_keep_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "s_axis"},
+			{"Name" : "s_axis_V_strb_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "s_axis"},
+			{"Name" : "s_axis_V_last_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "s_axis"},
+			{"Name" : "s_axis_V_dest_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "s_axis"},
 			{"Name" : "pi_fsm_state", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "tdest_r_V", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "eth_level_pkt", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["7"], "DependentChan" : "13", "DependentChanDepth" : "16", "DependentChanType" : "0",
 				"BlockSignal" : [
-					{"Name" : "eth_level_pkt_blk_n", "Type" : "RtlSignal"}]}]},
+					{"Name" : "eth_level_pkt_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "tdest_r", "Type" : "OVld", "Direction" : "IO"}]},
 	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.packet_identification_U0.regslice_both_s_axis_V_data_V_U", "Parent" : "1"},
 	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.packet_identification_U0.regslice_both_s_axis_V_keep_V_U", "Parent" : "1"},
 	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.packet_identification_U0.regslice_both_s_axis_V_strb_V_U", "Parent" : "1"},
@@ -184,7 +184,7 @@ set RtlHierarchyInfo {[
 		"CDFG" : "ethernet_remover",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
-		"Pipeline" : "Aligned", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"Pipeline" : "Unaligned", "UnalignedPipeline" : "1", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "1",
 		"VariableLatency" : "0", "ExactLatency" : "2", "EstimateLatencyMin" : "2", "EstimateLatencyMax" : "2",
 		"Combinational" : "0",
@@ -197,17 +197,17 @@ set RtlHierarchyInfo {[
 		"StartSource" : "1",
 		"StartFifo" : "start_for_ethernet_remover_U0_U",
 		"Port" : [
-			{"Name" : "m_axis_V_data_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "m_axis_V_data_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "m_axis",
 				"BlockSignal" : [
 					{"Name" : "m_axis_TDATA_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "m_axis_V_keep_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "m_axis_V_strb_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "m_axis_V_last_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "m_axis_V_dest_V", "Type" : "Axis", "Direction" : "O"},
+			{"Name" : "m_axis_V_keep_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "m_axis"},
+			{"Name" : "m_axis_V_strb_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "m_axis"},
+			{"Name" : "m_axis_V_last_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "m_axis"},
+			{"Name" : "m_axis_V_dest_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "m_axis"},
 			{"Name" : "er_fsm_state", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "prevWord_data_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "prevWord_keep_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "prevWord_dest_V", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "prevWord_data", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "prevWord_keep", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "prevWord_dest", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "eth_level_pkt", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "13", "DependentChanDepth" : "16", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "eth_level_pkt_blk_n", "Type" : "RtlSignal"}]}]},
@@ -233,12 +233,12 @@ set ArgLastReadFirstWriteLatency {
 		m_axis_V_last_V {Type O LastRead -1 FirstWrite 1}
 		m_axis_V_dest_V {Type O LastRead -1 FirstWrite 1}
 		pi_fsm_state {Type IO LastRead -1 FirstWrite -1}
-		tdest_r_V {Type IO LastRead -1 FirstWrite -1}
 		eth_level_pkt {Type IO LastRead -1 FirstWrite -1}
+		tdest_r {Type IO LastRead -1 FirstWrite -1}
 		er_fsm_state {Type IO LastRead -1 FirstWrite -1}
-		prevWord_data_V {Type IO LastRead -1 FirstWrite -1}
-		prevWord_keep_V {Type IO LastRead -1 FirstWrite -1}
-		prevWord_dest_V {Type IO LastRead -1 FirstWrite -1}}
+		prevWord_data {Type IO LastRead -1 FirstWrite -1}
+		prevWord_keep {Type IO LastRead -1 FirstWrite -1}
+		prevWord_dest {Type IO LastRead -1 FirstWrite -1}}
 	packet_identification {
 		s_axis_V_data_V {Type I LastRead 0 FirstWrite -1}
 		s_axis_V_keep_V {Type I LastRead 0 FirstWrite -1}
@@ -246,8 +246,8 @@ set ArgLastReadFirstWriteLatency {
 		s_axis_V_last_V {Type I LastRead 0 FirstWrite -1}
 		s_axis_V_dest_V {Type I LastRead 0 FirstWrite -1}
 		pi_fsm_state {Type IO LastRead -1 FirstWrite -1}
-		tdest_r_V {Type IO LastRead -1 FirstWrite -1}
-		eth_level_pkt {Type O LastRead -1 FirstWrite 1}}
+		eth_level_pkt {Type O LastRead -1 FirstWrite 1}
+		tdest_r {Type IO LastRead -1 FirstWrite -1}}
 	ethernet_remover {
 		m_axis_V_data_V {Type O LastRead -1 FirstWrite 1}
 		m_axis_V_keep_V {Type O LastRead -1 FirstWrite 1}
@@ -255,9 +255,9 @@ set ArgLastReadFirstWriteLatency {
 		m_axis_V_last_V {Type O LastRead -1 FirstWrite 1}
 		m_axis_V_dest_V {Type O LastRead -1 FirstWrite 1}
 		er_fsm_state {Type IO LastRead -1 FirstWrite -1}
-		prevWord_data_V {Type IO LastRead -1 FirstWrite -1}
-		prevWord_keep_V {Type IO LastRead -1 FirstWrite -1}
-		prevWord_dest_V {Type IO LastRead -1 FirstWrite -1}
+		prevWord_data {Type IO LastRead -1 FirstWrite -1}
+		prevWord_keep {Type IO LastRead -1 FirstWrite -1}
+		prevWord_dest {Type IO LastRead -1 FirstWrite -1}
 		eth_level_pkt {Type I LastRead 0 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
@@ -283,8 +283,7 @@ set Spec2ImplPortList {
 	m_axis_V_dest_V { axis {  { m_axis_TDEST out_data 1 3 }  { m_axis_TVALID out_vld 1 1 }  { m_axis_TREADY out_acc 0 1 } } }
 }
 
-set busDeadlockParameterList { 
-}
+set maxi_interface_dict [dict create]
 
 # RTL port scheduling information:
 set fifoSchedulingInfoList { 

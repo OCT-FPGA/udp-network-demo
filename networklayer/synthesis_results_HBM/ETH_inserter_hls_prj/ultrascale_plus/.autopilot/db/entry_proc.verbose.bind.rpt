@@ -3,12 +3,12 @@
 ================================================================
 == Vitis HLS Report for 'entry_proc'
 ================================================================
-* Date:           Wed Mar  8 19:14:17 2023
+* Date:           Fri Sep  8 14:08:16 2023
 
-* Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+* Version:        2023.1 (Build 3854077 on May  4 2023)
 * Project:        ETH_inserter_hls_prj
 * Solution:       ultrascale_plus (Vivado IP Flow Target)
-* Product family: virtexuplus
+* Product family: virtexuplusHBM
 * Target device:  xcu280-fsvh2892-2L-e
 
 
@@ -75,7 +75,7 @@ IsGatedGlobalClock: 0
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 1.41>
-ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i48 %myMacAddress_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str"   --->   Operation 2 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i48 %myMacAddress_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0"   --->   Operation 2 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%myMacAddress_read = read i48 @_ssdm_op_Read.ap_auto.i48P0A, i48 %myMacAddress"   --->   Operation 3 'read' 'myMacAddress_read' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 4 [1/1] (1.41ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_fifo.i48P0A, i48 %myMacAddress_c, i48 %myMacAddress_read"   --->   Operation 4 'write' 'write_ln0' <Predicate = true> <Delay = 1.41> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.41> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 48> <Depth = 4> <FIFO>
 ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 5 'ret' 'ret_ln0' <Predicate = true> <Delay = 0.00>
@@ -192,10 +192,10 @@ ret_ln0           (ret          ) [ 00]
 
 <comp id="18" class="1001" name="const_18">
 <pin_list>
-<pin id="19" dir="1" index="0" bw="1" slack="0"/>
+<pin id="19" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i48P0A"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
@@ -204,15 +204,24 @@ ret_ln0           (ret          ) [ 00]
 <pin id="21" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i48P0A"/></StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1001" name="const_22">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
 <StgValue><ssdm name="_ssdm_op_Write.ap_fifo.i48P0A"/></StgValue>
 </bind>
 </comp>
 
-<comp id="22" class="1004" name="myMacAddress_read_read_fu_22">
+<comp id="24" class="1004" name="myMacAddress_read_read_fu_24">
 <pin_list>
-<pin id="23" dir="0" index="0" bw="48" slack="0"/>
-<pin id="24" dir="0" index="1" bw="48" slack="0"/>
-<pin id="25" dir="1" index="2" bw="48" slack="0"/>
+<pin id="25" dir="0" index="0" bw="48" slack="0"/>
+<pin id="26" dir="0" index="1" bw="48" slack="0"/>
+<pin id="27" dir="1" index="2" bw="48" slack="0"/>
 </pin_list>
 <bind>
 <opcode="read(1150) " fcode="read"/>
@@ -220,12 +229,12 @@ ret_ln0           (ret          ) [ 00]
 </bind>
 </comp>
 
-<comp id="28" class="1004" name="write_ln0_write_fu_28">
+<comp id="30" class="1004" name="write_ln0_write_fu_30">
 <pin_list>
-<pin id="29" dir="0" index="0" bw="0" slack="0"/>
-<pin id="30" dir="0" index="1" bw="48" slack="0"/>
-<pin id="31" dir="0" index="2" bw="48" slack="0"/>
-<pin id="32" dir="1" index="3" bw="0" slack="2147483647"/>
+<pin id="31" dir="0" index="0" bw="0" slack="0"/>
+<pin id="32" dir="0" index="1" bw="48" slack="0"/>
+<pin id="33" dir="0" index="2" bw="48" slack="0"/>
+<pin id="34" dir="1" index="3" bw="0" slack="2147483647"/>
 </pin_list>
 <bind>
 <opcode="write(1151) " fcode="write"/>
@@ -236,15 +245,15 @@ ret_ln0           (ret          ) [ 00]
 </comp_list>
 
 <net_list>
-<net id="26"><net_src comp="18" pin="0"/><net_sink comp="22" pin=0"/></net>
+<net id="28"><net_src comp="20" pin="0"/><net_sink comp="24" pin=0"/></net>
 
-<net id="27"><net_src comp="0" pin="0"/><net_sink comp="22" pin=1"/></net>
+<net id="29"><net_src comp="0" pin="0"/><net_sink comp="24" pin=1"/></net>
 
-<net id="33"><net_src comp="20" pin="0"/><net_sink comp="28" pin=0"/></net>
+<net id="35"><net_src comp="22" pin="0"/><net_sink comp="30" pin=0"/></net>
 
-<net id="34"><net_src comp="2" pin="0"/><net_sink comp="28" pin=1"/></net>
+<net id="36"><net_src comp="2" pin="0"/><net_sink comp="30" pin=1"/></net>
 
-<net id="35"><net_src comp="22" pin="2"/><net_sink comp="28" pin=2"/></net>
+<net id="37"><net_src comp="24" pin="2"/><net_sink comp="30" pin=2"/></net>
 
 </net_list>
 
@@ -268,9 +277,9 @@ ret_ln0           (ret          ) [ 00]
 |----------|------------------------------|
 | Operation|        Functional Unit       |
 |----------|------------------------------|
-|   read   | myMacAddress_read_read_fu_22 |
+|   read   | myMacAddress_read_read_fu_24 |
 |----------|------------------------------|
-|   write  |     write_ln0_write_fu_28    |
+|   write  |     write_ln0_write_fu_30    |
 |----------|------------------------------|
 |   Total  |                              |
 |----------|------------------------------|

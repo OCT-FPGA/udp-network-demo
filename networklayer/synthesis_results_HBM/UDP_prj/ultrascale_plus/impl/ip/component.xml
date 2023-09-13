@@ -2761,7 +2761,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>5845e0d0</spirit:value>
+            <spirit:value>9da098d9</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2777,7 +2777,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>1be7ccda</spirit:value>
+            <spirit:value>07c3b33e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2793,7 +2793,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>fb4af1cb</spirit:value>
+            <spirit:value>fb0679bd</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2809,7 +2809,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>744b53a1</spirit:value>
+            <spirit:value>b73ada0a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2823,7 +2823,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>736d2006</spirit:value>
+            <spirit:value>de186a0f</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2879,19 +2879,6 @@
       </spirit:view>
     </spirit:views>
     <spirit:ports>
-      <spirit:port>
-        <spirit:name>ap_local_block</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>STD_LOGIC</spirit:typeName>
-              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
       <spirit:port>
         <spirit:name>s_axi_s_axilite_AWADDR</spirit:name>
         <spirit:wire>
@@ -3729,19 +3716,15 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/udp_keep2len.v</spirit:name>
+        <spirit:name>hdl/verilog/udp_mux_16_4_1_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/udp_mux_1616_1_1_1.v</spirit:name>
+        <spirit:name>hdl/verilog/udp_mux_16_4_16_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/udp_mux_1616_16_1_1.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/udp_mux_1616_32_1_1.v</spirit:name>
+        <spirit:name>hdl/verilog/udp_mux_16_4_32_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -3858,22 +3841,17 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/udp_keep2len.v</spirit:name>
+        <spirit:name>hdl/verilog/udp_mux_16_4_1_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/udp_mux_1616_1_1_1.v</spirit:name>
+        <spirit:name>hdl/verilog/udp_mux_16_4_16_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/udp_mux_1616_16_1_1.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/udp_mux_1616_32_1_1.v</spirit:name>
+        <spirit:name>hdl/verilog/udp_mux_16_4_32_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -3972,19 +3950,15 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/udp_keep2len.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/udp_mux_16_4_1_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/udp_mux_1616_1_1_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/udp_mux_16_4_16_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/udp_mux_1616_16_1_1.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/udp_mux_1616_32_1_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/udp_mux_16_4_32_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -4026,7 +4000,7 @@
       <spirit:file>
         <spirit:name>hdl/vhdl/udp.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_a3972d42</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_93260de6</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -4077,22 +4051,17 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/udp_keep2len.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/udp_mux_16_4_1_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/udp_mux_1616_1_1_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/udp_mux_16_4_16_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/udp_mux_1616_16_1_1.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/udp_mux_1616_32_1_1.vhd</spirit:name>
+        <spirit:name>hdl/vhdl/udp_mux_16_4_32_1_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -4251,19 +4220,19 @@
       </xilinx:taxonomies>
       <xilinx:displayName>Udp</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>2112934155</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2023-03-09T00:15:37Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>2113198809</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2023-09-08T14:09:33Z</xilinx:coreCreationDateTime>
       <xilinx:sdxKernelAttributes>
         <xilinx:sdx_kernel>true</xilinx:sdx_kernel>
         <xilinx:sdx_kernel_type>hls</xilinx:sdx_kernel_type>
       </xilinx:sdxKernelAttributes>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2023.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="c7deac98"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="fece414e"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="67f86406"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="ba38a18c"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="edb47070"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="c3a3d0c2"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="e9118f56"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="77c22932"/>
     </xilinx:packagingInfo>

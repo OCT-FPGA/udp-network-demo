@@ -19,7 +19,7 @@ target triple = "fpga64-xilinx-none"
 %"struct.ssdm_int<3, false>" = type { i3 }
 
 ; Function Attrs: noinline
-define void @apatb_packet_handler_ir(%"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* %dataIn, %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* %dataOut) local_unnamed_addr #0 {
+define void @apatb_packet_handler_ir(%"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* noalias nonnull dereferenceable(128) %dataIn, %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* noalias nonnull dereferenceable(128) %dataOut) local_unnamed_addr #0 {
 entry:
   %dataIn_copy.data = alloca i512
   %dataIn_copy.keep = alloca i64
@@ -31,22 +31,22 @@ entry:
   %dataOut_copy.strb = alloca i64
   %dataOut_copy.last = alloca i1
   %dataOut_copy.dest = alloca i3
-  call fastcc void @copy_in(%"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* %dataIn, i512* %dataIn_copy.data, i64* %dataIn_copy.keep, i64* %dataIn_copy.strb, i1* %dataIn_copy.last, i3* %dataIn_copy.dest, %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* %dataOut, i512* %dataOut_copy.data, i64* %dataOut_copy.keep, i64* %dataOut_copy.strb, i1* %dataOut_copy.last, i3* %dataOut_copy.dest)
+  call fastcc void @copy_in(%"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* nonnull %dataIn, i512* %dataIn_copy.data, i64* %dataIn_copy.keep, i64* %dataIn_copy.strb, i1* %dataIn_copy.last, i3* %dataIn_copy.dest, %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* nonnull %dataOut, i512* %dataOut_copy.data, i64* %dataOut_copy.keep, i64* %dataOut_copy.strb, i1* %dataOut_copy.last, i3* %dataOut_copy.dest)
   call void @apatb_packet_handler_hw(i512* %dataIn_copy.data, i64* %dataIn_copy.keep, i64* %dataIn_copy.strb, i1* %dataIn_copy.last, i3* %dataIn_copy.dest, i512* %dataOut_copy.data, i64* %dataOut_copy.keep, i64* %dataOut_copy.strb, i1* %dataOut_copy.last, i3* %dataOut_copy.dest)
-  call fastcc void @copy_out(%"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* %dataIn, i512* %dataIn_copy.data, i64* %dataIn_copy.keep, i64* %dataIn_copy.strb, i1* %dataIn_copy.last, i3* %dataIn_copy.dest, %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* %dataOut, i512* %dataOut_copy.data, i64* %dataOut_copy.keep, i64* %dataOut_copy.strb, i1* %dataOut_copy.last, i3* %dataOut_copy.dest)
+  call void @copy_back(%"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* %dataIn, i512* %dataIn_copy.data, i64* %dataIn_copy.keep, i64* %dataIn_copy.strb, i1* %dataIn_copy.last, i3* %dataIn_copy.dest, %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* %dataOut, i512* %dataOut_copy.data, i64* %dataOut_copy.keep, i64* %dataOut_copy.strb, i1* %dataOut_copy.last, i3* %dataOut_copy.dest)
   ret void
 }
 
 ; Function Attrs: argmemonly noinline
-define internal fastcc void @copy_in(%"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"*, i512* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="1.0" %_V_data_V, i64* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="1.1" %_V_keep_V, i64* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="1.2" %_V_strb_V, i1* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="1.3" %_V_last_V, i3* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="1.4" %_V_dest_V, %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"*, i512* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="3.0" %_V_data_V1, i64* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="3.1" %_V_keep_V2, i64* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="3.2" %_V_strb_V3, i1* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="3.3" %_V_last_V4, i3* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="3.4" %_V_dest_V5) unnamed_addr #1 {
+define internal fastcc void @copy_in(%"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* noalias, i512* noalias "unpacked"="1.0" %_V_data_V, i64* noalias "unpacked"="1.1" %_V_keep_V, i64* noalias "unpacked"="1.2" %_V_strb_V, i1* noalias "unpacked"="1.3" %_V_last_V, i3* noalias "unpacked"="1.4" %_V_dest_V, %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* noalias, i512* noalias "unpacked"="3.0" %_V_data_V1, i64* noalias "unpacked"="3.1" %_V_keep_V2, i64* noalias "unpacked"="3.2" %_V_strb_V3, i1* noalias "unpacked"="3.3" %_V_last_V4, i3* noalias "unpacked"="3.4" %_V_dest_V5) unnamed_addr #1 {
 entry:
-  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>.34"(i512* %_V_data_V, i64* %_V_keep_V, i64* %_V_strb_V, i1* %_V_last_V, i3* %_V_dest_V, %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* %0)
-  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>.34"(i512* %_V_data_V1, i64* %_V_keep_V2, i64* %_V_strb_V3, i1* %_V_last_V4, i3* %_V_dest_V5, %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* %1)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>.20"(i512* %_V_data_V, i64* %_V_keep_V, i64* %_V_strb_V, i1* %_V_last_V, i3* %_V_dest_V, %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* %0)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>.20"(i512* %_V_data_V1, i64* %_V_keep_V2, i64* %_V_strb_V3, i1* %_V_last_V4, i3* %_V_dest_V5, %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* %1)
   ret void
 }
 
 ; Function Attrs: argmemonly noinline
-define internal fastcc void @copy_out(%"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"*, i512* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="1.0" %_V_data_V, i64* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="1.1" %_V_keep_V, i64* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="1.2" %_V_strb_V, i1* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="1.3" %_V_last_V, i3* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="1.4" %_V_dest_V, %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"*, i512* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="3.0" %_V_data_V1, i64* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="3.1" %_V_keep_V2, i64* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="3.2" %_V_strb_V3, i1* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="3.3" %_V_last_V4, i3* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="3.4" %_V_dest_V5) unnamed_addr #2 {
+define internal fastcc void @copy_out(%"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* noalias, i512* noalias "unpacked"="1.0" %_V_data_V, i64* noalias "unpacked"="1.1" %_V_keep_V, i64* noalias "unpacked"="1.2" %_V_strb_V, i1* noalias "unpacked"="1.3" %_V_last_V, i3* noalias "unpacked"="1.4" %_V_dest_V, %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* noalias, i512* noalias "unpacked"="3.0" %_V_data_V1, i64* noalias "unpacked"="3.1" %_V_keep_V2, i64* noalias "unpacked"="3.2" %_V_strb_V3, i1* noalias "unpacked"="3.3" %_V_last_V4, i3* noalias "unpacked"="3.4" %_V_dest_V5) unnamed_addr #2 {
 entry:
   call fastcc void @"onebyonecpy_hls.p0class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"(%"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* %0, i512* %_V_data_V, i64* %_V_keep_V, i64* %_V_strb_V, i1* %_V_last_V, i3* %_V_dest_V)
   call fastcc void @"onebyonecpy_hls.p0class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"(%"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* %1, i512* %_V_data_V1, i64* %_V_keep_V2, i64* %_V_strb_V3, i1* %_V_last_V4, i3* %_V_dest_V5)
@@ -54,14 +54,14 @@ entry:
 }
 
 ; Function Attrs: argmemonly noinline
-define internal fastcc void @"onebyonecpy_hls.p0class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"(%"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* noalias align 512 "fpga.caller.interfaces"="layout_transformed", i512* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="1.0" %_V_data_V, i64* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="1.1" %_V_keep_V, i64* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="1.2" %_V_strb_V, i1* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="1.3" %_V_last_V, i3* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="1.4" %_V_dest_V) unnamed_addr #3 {
+define internal fastcc void @"onebyonecpy_hls.p0class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"(%"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* noalias align 512 %dst, i512* noalias "unpacked"="1.0" %src_V_data_V, i64* noalias "unpacked"="1.1" %src_V_keep_V, i64* noalias "unpacked"="1.2" %src_V_strb_V, i1* noalias "unpacked"="1.3" %src_V_last_V, i3* noalias "unpacked"="1.4" %src_V_dest_V) unnamed_addr #3 {
 entry:
-  %1 = icmp eq %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* %0, null
-  %2 = or i1 %1, false
-  br i1 %2, label %ret, label %copy
+  %0 = icmp eq %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* %dst, null
+  %1 = or i1 %0, false
+  br i1 %1, label %ret, label %copy
 
 copy:                                             ; preds = %entry
-  call fastcc void @"streamcpy_hls.p0class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>.28"(%"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* nonnull align 512 %0, i512* %_V_data_V, i64* %_V_keep_V, i64* %_V_strb_V, i1* %_V_last_V, i3* %_V_dest_V)
+  call fastcc void @"streamcpy_hls.p0class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>.14"(%"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* nonnull align 512 %dst, i512* %src_V_data_V, i64* %src_V_keep_V, i64* %src_V_strb_V, i1* %src_V_last_V, i3* %src_V_dest_V)
   br label %ret
 
 ret:                                              ; preds = %copy, %entry
@@ -69,7 +69,7 @@ ret:                                              ; preds = %copy, %entry
 }
 
 ; Function Attrs: argmemonly noinline
-define internal fastcc void @"streamcpy_hls.p0class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>.28"(%"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* noalias nocapture align 512 "fpga.caller.interfaces"="layout_transformed", i512* noalias nocapture "fpga.caller.interfaces"="layout_transformed" "unpacked"="1.0" %_V_data_V, i64* noalias nocapture "fpga.caller.interfaces"="layout_transformed" "unpacked"="1.1" %_V_keep_V, i64* noalias nocapture "fpga.caller.interfaces"="layout_transformed" "unpacked"="1.2" %_V_strb_V, i1* noalias nocapture "fpga.caller.interfaces"="layout_transformed" "unpacked"="1.3" %_V_last_V, i3* noalias nocapture "fpga.caller.interfaces"="layout_transformed" "unpacked"="1.4" %_V_dest_V) unnamed_addr #4 {
+define internal fastcc void @"streamcpy_hls.p0class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>.14"(%"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* noalias nocapture align 512, i512* noalias nocapture "unpacked"="1.0" %_V_data_V, i64* noalias nocapture "unpacked"="1.1" %_V_keep_V, i64* noalias nocapture "unpacked"="1.2" %_V_strb_V, i1* noalias nocapture "unpacked"="1.3" %_V_last_V, i3* noalias nocapture "unpacked"="1.4" %_V_dest_V) unnamed_addr #4 {
 entry:
   %1 = alloca %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"
   %2 = alloca i512
@@ -134,14 +134,14 @@ ret:                                              ; preds = %empty
 }
 
 ; Function Attrs: argmemonly noinline
-define internal fastcc void @"onebyonecpy_hls.p0class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>.34"(i512* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="0.0" %_V_data_V, i64* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="0.1" %_V_keep_V, i64* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="0.2" %_V_strb_V, i1* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="0.3" %_V_last_V, i3* noalias "fpga.caller.interfaces"="layout_transformed" "unpacked"="0.4" %_V_dest_V, %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* noalias "fpga.caller.interfaces"="layout_transformed") unnamed_addr #3 {
+define internal fastcc void @"onebyonecpy_hls.p0class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>.20"(i512* noalias "unpacked"="0.0" %dst_V_data_V, i64* noalias "unpacked"="0.1" %dst_V_keep_V, i64* noalias "unpacked"="0.2" %dst_V_strb_V, i1* noalias "unpacked"="0.3" %dst_V_last_V, i3* noalias "unpacked"="0.4" %dst_V_dest_V, %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* noalias %src) unnamed_addr #3 {
 entry:
-  %1 = icmp eq %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* %0, null
-  %2 = or i1 false, %1
-  br i1 %2, label %ret, label %copy
+  %0 = icmp eq %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* %src, null
+  %1 = or i1 false, %0
+  br i1 %1, label %ret, label %copy
 
 copy:                                             ; preds = %entry
-  call fastcc void @"streamcpy_hls.p0class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>.37"(i512* %_V_data_V, i64* %_V_keep_V, i64* %_V_strb_V, i1* %_V_last_V, i3* %_V_dest_V, %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* nonnull %0)
+  call fastcc void @"streamcpy_hls.p0class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>.23"(i512* %dst_V_data_V, i64* %dst_V_keep_V, i64* %dst_V_strb_V, i1* %dst_V_last_V, i3* %dst_V_dest_V, %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* nonnull %src)
   br label %ret
 
 ret:                                              ; preds = %copy, %entry
@@ -149,7 +149,7 @@ ret:                                              ; preds = %copy, %entry
 }
 
 ; Function Attrs: argmemonly noinline
-define internal fastcc void @"streamcpy_hls.p0class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>.37"(i512* noalias nocapture "fpga.caller.interfaces"="layout_transformed" "unpacked"="0.0" %_V_data_V, i64* noalias nocapture "fpga.caller.interfaces"="layout_transformed" "unpacked"="0.1" %_V_keep_V, i64* noalias nocapture "fpga.caller.interfaces"="layout_transformed" "unpacked"="0.2" %_V_strb_V, i1* noalias nocapture "fpga.caller.interfaces"="layout_transformed" "unpacked"="0.3" %_V_last_V, i3* noalias nocapture "fpga.caller.interfaces"="layout_transformed" "unpacked"="0.4" %_V_dest_V, %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* noalias nocapture "fpga.caller.interfaces"="layout_transformed") unnamed_addr #4 {
+define internal fastcc void @"streamcpy_hls.p0class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>.23"(i512* noalias nocapture "unpacked"="0.0" %_V_data_V, i64* noalias nocapture "unpacked"="0.1" %_V_keep_V, i64* noalias nocapture "unpacked"="0.2" %_V_strb_V, i1* noalias nocapture "unpacked"="0.3" %_V_last_V, i3* noalias nocapture "unpacked"="0.4" %_V_dest_V, %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* noalias nocapture) unnamed_addr #4 {
 entry:
   %1 = alloca %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"
   %2 = alloca %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"
@@ -198,6 +198,14 @@ ret:                                              ; preds = %empty
 }
 
 declare void @apatb_packet_handler_hw(i512*, i64*, i64*, i1*, i3*, i512*, i64*, i64*, i1*, i3*)
+
+; Function Attrs: argmemonly noinline
+define internal fastcc void @copy_back(%"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* noalias, i512* noalias "unpacked"="1.0" %_V_data_V, i64* noalias "unpacked"="1.1" %_V_keep_V, i64* noalias "unpacked"="1.2" %_V_strb_V, i1* noalias "unpacked"="1.3" %_V_last_V, i3* noalias "unpacked"="1.4" %_V_dest_V, %"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* noalias, i512* noalias "unpacked"="3.0" %_V_data_V1, i64* noalias "unpacked"="3.1" %_V_keep_V2, i64* noalias "unpacked"="3.2" %_V_strb_V3, i1* noalias "unpacked"="3.3" %_V_last_V4, i3* noalias "unpacked"="3.4" %_V_dest_V5) unnamed_addr #2 {
+entry:
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"(%"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* %0, i512* %_V_data_V, i64* %_V_keep_V, i64* %_V_strb_V, i1* %_V_last_V, i3* %_V_dest_V)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"(%"class.hls::stream<hls::axis<ap_uint<512>, 0, 0, 3>, 0>"* %1, i512* %_V_data_V1, i64* %_V_keep_V2, i64* %_V_strb_V3, i1* %_V_last_V4, i3* %_V_dest_V5)
+  ret void
+}
 
 define void @packet_handler_hw_stub_wrapper(i512*, i64*, i64*, i1*, i3*, i512*, i64*, i64*, i1*, i3*) #5 {
 entry:

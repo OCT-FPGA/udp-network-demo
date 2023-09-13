@@ -694,7 +694,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>ac4357cb</spirit:value>
+            <spirit:value>2a114d29</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -710,7 +710,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>5b7017a8</spirit:value>
+            <spirit:value>114b3ff3</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -726,7 +726,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>0a0f675e</spirit:value>
+            <spirit:value>d863b058</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -742,7 +742,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>6d285247</spirit:value>
+            <spirit:value>a8e9158a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -756,7 +756,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>1e078949</spirit:value>
+            <spirit:value>3eee3f44</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -812,19 +812,6 @@
       </spirit:view>
     </spirit:views>
     <spirit:ports>
-      <spirit:port>
-        <spirit:name>ap_local_block</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>STD_LOGIC</spirit:typeName>
-              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
       <spirit:port>
         <spirit:name>s_axi_s_axilite_AWADDR</spirit:name>
         <spirit:wire>
@@ -1730,7 +1717,7 @@
       <spirit:file>
         <spirit:name>hdl/vhdl/arp_server.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_db67369d</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_319f2082</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1915,19 +1902,19 @@
       </xilinx:taxonomies>
       <xilinx:displayName>Arp_server</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>2112934154</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2023-03-09T00:14:34Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>2113198808</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2023-09-08T14:08:33Z</xilinx:coreCreationDateTime>
       <xilinx:sdxKernelAttributes>
         <xilinx:sdx_kernel>true</xilinx:sdx_kernel>
         <xilinx:sdx_kernel_type>hls</xilinx:sdx_kernel_type>
       </xilinx:sdxKernelAttributes>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2023.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="d758d4ba"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="a13f8c9a"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="a24ebd73"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="8756227b"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="d140ae15"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="f94164dd"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="5f0afb3d"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="bda8246a"/>
     </xilinx:packagingInfo>

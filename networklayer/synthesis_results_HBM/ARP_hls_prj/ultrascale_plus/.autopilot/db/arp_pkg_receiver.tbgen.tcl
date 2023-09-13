@@ -9,6 +9,9 @@ set isOneStateSeq 0
 set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
+set hasInterrupt 0
+set DLRegFirstOffset 0
+set DLRegItemOffset 0
 set C_modelName {arp_pkg_receiver}
 set C_modelType { void 0 }
 set C_modelArgList {
@@ -22,6 +25,7 @@ set C_modelArgList {
 	{ arpReplyFifo int 256 regular {fifo 1 volatile } {global 1}  }
 	{ arpTableInsertFifo int 128 regular {fifo 1 volatile } {global 1}  }
 }
+set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "arpDataIn_V_data_V", "interface" : "axis", "bitwidth" : 512, "direction" : "READONLY"} , 
  	{ "Name" : "arpDataIn_V_keep_V", "interface" : "axis", "bitwidth" : 64, "direction" : "READONLY"} , 
@@ -33,7 +37,7 @@ set C_modelArgMapList {[
  	{ "Name" : "arpReplyFifo", "interface" : "fifo", "bitwidth" : 256, "direction" : "WRITEONLY", "extern" : 0} , 
  	{ "Name" : "arpTableInsertFifo", "interface" : "fifo", "bitwidth" : 128, "direction" : "WRITEONLY", "extern" : 0} ]}
 # RTL Port declarations: 
-set portNum 26
+set portNum 34
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -43,16 +47,24 @@ set portList {
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
 	{ myIpAddress_c11_din sc_out sc_lv 32 signal 6 } 
+	{ myIpAddress_c11_num_data_valid sc_in sc_lv 2 signal 6 } 
+	{ myIpAddress_c11_fifo_cap sc_in sc_lv 2 signal 6 } 
 	{ myIpAddress_c11_full_n sc_in sc_logic 1 signal 6 } 
 	{ myIpAddress_c11_write sc_out sc_logic 1 signal 6 } 
 	{ myIpAddress_c_din sc_out sc_lv 32 signal 5 } 
+	{ myIpAddress_c_num_data_valid sc_in sc_lv 2 signal 5 } 
+	{ myIpAddress_c_fifo_cap sc_in sc_lv 2 signal 5 } 
 	{ myIpAddress_c_full_n sc_in sc_logic 1 signal 5 } 
 	{ myIpAddress_c_write sc_out sc_logic 1 signal 5 } 
 	{ arpDataIn_TVALID sc_in sc_logic 1 invld 3 } 
 	{ arpTableInsertFifo_din sc_out sc_lv 128 signal 8 } 
+	{ arpTableInsertFifo_num_data_valid sc_in sc_lv 3 signal 8 } 
+	{ arpTableInsertFifo_fifo_cap sc_in sc_lv 3 signal 8 } 
 	{ arpTableInsertFifo_full_n sc_in sc_logic 1 signal 8 } 
 	{ arpTableInsertFifo_write sc_out sc_logic 1 signal 8 } 
 	{ arpReplyFifo_din sc_out sc_lv 256 signal 7 } 
+	{ arpReplyFifo_num_data_valid sc_in sc_lv 3 signal 7 } 
+	{ arpReplyFifo_fifo_cap sc_in sc_lv 3 signal 7 } 
 	{ arpReplyFifo_full_n sc_in sc_logic 1 signal 7 } 
 	{ arpReplyFifo_write sc_out sc_logic 1 signal 7 } 
 	{ arpDataIn_TDATA sc_in sc_lv 512 signal 0 } 
@@ -71,16 +83,24 @@ set NewPortList {[
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
  	{ "name": "myIpAddress_c11_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "myIpAddress_c11", "role": "din" }} , 
+ 	{ "name": "myIpAddress_c11_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "myIpAddress_c11", "role": "num_data_valid" }} , 
+ 	{ "name": "myIpAddress_c11_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "myIpAddress_c11", "role": "fifo_cap" }} , 
  	{ "name": "myIpAddress_c11_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "myIpAddress_c11", "role": "full_n" }} , 
  	{ "name": "myIpAddress_c11_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "myIpAddress_c11", "role": "write" }} , 
  	{ "name": "myIpAddress_c_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "myIpAddress_c", "role": "din" }} , 
+ 	{ "name": "myIpAddress_c_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "myIpAddress_c", "role": "num_data_valid" }} , 
+ 	{ "name": "myIpAddress_c_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "myIpAddress_c", "role": "fifo_cap" }} , 
  	{ "name": "myIpAddress_c_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "myIpAddress_c", "role": "full_n" }} , 
  	{ "name": "myIpAddress_c_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "myIpAddress_c", "role": "write" }} , 
  	{ "name": "arpDataIn_TVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "arpDataIn_V_last_V", "role": "default" }} , 
  	{ "name": "arpTableInsertFifo_din", "direction": "out", "datatype": "sc_lv", "bitwidth":128, "type": "signal", "bundle":{"name": "arpTableInsertFifo", "role": "din" }} , 
+ 	{ "name": "arpTableInsertFifo_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "arpTableInsertFifo", "role": "num_data_valid" }} , 
+ 	{ "name": "arpTableInsertFifo_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "arpTableInsertFifo", "role": "fifo_cap" }} , 
  	{ "name": "arpTableInsertFifo_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "arpTableInsertFifo", "role": "full_n" }} , 
  	{ "name": "arpTableInsertFifo_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "arpTableInsertFifo", "role": "write" }} , 
  	{ "name": "arpReplyFifo_din", "direction": "out", "datatype": "sc_lv", "bitwidth":256, "type": "signal", "bundle":{"name": "arpReplyFifo", "role": "din" }} , 
+ 	{ "name": "arpReplyFifo_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "arpReplyFifo", "role": "num_data_valid" }} , 
+ 	{ "name": "arpReplyFifo_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "arpReplyFifo", "role": "fifo_cap" }} , 
  	{ "name": "arpReplyFifo_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "arpReplyFifo", "role": "full_n" }} , 
  	{ "name": "arpReplyFifo_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "arpReplyFifo", "role": "write" }} , 
  	{ "name": "arpDataIn_TDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":512, "type": "signal", "bundle":{"name": "arpDataIn_V_data_V", "role": "default" }} , 
@@ -106,12 +126,12 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "1",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "arpDataIn_V_data_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "arpDataIn_V_data_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "arpDataIn",
 				"BlockSignal" : [
 					{"Name" : "arpDataIn_TDATA_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "arpDataIn_V_keep_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "arpDataIn_V_strb_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "arpDataIn_V_last_V", "Type" : "Axis", "Direction" : "I"},
+			{"Name" : "arpDataIn_V_keep_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "arpDataIn"},
+			{"Name" : "arpDataIn_V_strb_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "arpDataIn"},
+			{"Name" : "arpDataIn_V_last_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "arpDataIn"},
 			{"Name" : "myIpAddress", "Type" : "None", "Direction" : "I"},
 			{"Name" : "myIpAddress_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
@@ -119,7 +139,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "myIpAddress_c11", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "myIpAddress_c11_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "wordCount_V", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "wordCount", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "arpReplyFifo", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "4", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "arpReplyFifo_blk_n", "Type" : "RtlSignal"}]},
@@ -141,7 +161,7 @@ set ArgLastReadFirstWriteLatency {
 		myIpAddress {Type I LastRead 0 FirstWrite -1}
 		myIpAddress_c {Type O LastRead -1 FirstWrite 0}
 		myIpAddress_c11 {Type O LastRead -1 FirstWrite 0}
-		wordCount_V {Type IO LastRead -1 FirstWrite -1}
+		wordCount {Type IO LastRead -1 FirstWrite -1}
 		arpReplyFifo {Type O LastRead -1 FirstWrite 1}
 		arpTableInsertFifo {Type O LastRead -1 FirstWrite 1}}}
 
@@ -162,8 +182,8 @@ set Spec2ImplPortList {
 	arpDataIn_V_strb_V { axis {  { arpDataIn_TSTRB in_data 0 64 } } }
 	arpDataIn_V_last_V { axis {  { arpDataIn_TVALID in_vld 0 1 }  { arpDataIn_TREADY in_acc 1 1 }  { arpDataIn_TLAST in_data 0 1 } } }
 	myIpAddress { ap_none {  { myIpAddress in_data 0 32 } } }
-	myIpAddress_c { ap_fifo {  { myIpAddress_c_din fifo_data 1 32 }  { myIpAddress_c_full_n fifo_status 0 1 }  { myIpAddress_c_write fifo_update 1 1 } } }
-	myIpAddress_c11 { ap_fifo {  { myIpAddress_c11_din fifo_data 1 32 }  { myIpAddress_c11_full_n fifo_status 0 1 }  { myIpAddress_c11_write fifo_update 1 1 } } }
-	arpReplyFifo { ap_fifo {  { arpReplyFifo_din fifo_data 1 256 }  { arpReplyFifo_full_n fifo_status 0 1 }  { arpReplyFifo_write fifo_update 1 1 } } }
-	arpTableInsertFifo { ap_fifo {  { arpTableInsertFifo_din fifo_data 1 128 }  { arpTableInsertFifo_full_n fifo_status 0 1 }  { arpTableInsertFifo_write fifo_update 1 1 } } }
+	myIpAddress_c { ap_fifo {  { myIpAddress_c_din fifo_port_we 1 32 }  { myIpAddress_c_num_data_valid fifo_status_num_data_valid 0 2 }  { myIpAddress_c_fifo_cap fifo_update 0 2 }  { myIpAddress_c_full_n fifo_status 0 1 }  { myIpAddress_c_write fifo_data 1 1 } } }
+	myIpAddress_c11 { ap_fifo {  { myIpAddress_c11_din fifo_port_we 1 32 }  { myIpAddress_c11_num_data_valid fifo_status_num_data_valid 0 2 }  { myIpAddress_c11_fifo_cap fifo_update 0 2 }  { myIpAddress_c11_full_n fifo_status 0 1 }  { myIpAddress_c11_write fifo_data 1 1 } } }
+	arpReplyFifo { ap_fifo {  { arpReplyFifo_din fifo_port_we 1 256 }  { arpReplyFifo_num_data_valid fifo_status_num_data_valid 0 3 }  { arpReplyFifo_fifo_cap fifo_update 0 3 }  { arpReplyFifo_full_n fifo_status 0 1 }  { arpReplyFifo_write fifo_data 1 1 } } }
+	arpTableInsertFifo { ap_fifo {  { arpTableInsertFifo_din fifo_port_we 1 128 }  { arpTableInsertFifo_num_data_valid fifo_status_num_data_valid 0 3 }  { arpTableInsertFifo_fifo_cap fifo_update 0 3 }  { arpTableInsertFifo_full_n fifo_status 0 1 }  { arpTableInsertFifo_write fifo_data 1 1 } } }
 }

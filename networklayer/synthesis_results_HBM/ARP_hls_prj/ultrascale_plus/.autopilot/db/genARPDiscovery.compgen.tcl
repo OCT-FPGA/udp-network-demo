@@ -86,7 +86,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_macIpEncode_i \
     op interface \
-    ports { macIpEncode_i_din { O 32 vector } macIpEncode_i_full_n { I 1 bit } macIpEncode_i_write { O 1 bit } } \
+    ports { macIpEncode_i_din { O 32 vector } macIpEncode_i_num_data_valid { I 3 vector } macIpEncode_i_fifo_cap { I 3 vector } macIpEncode_i_full_n { I 1 bit } macIpEncode_i_write { O 1 bit } } \
 } "
 }
 
@@ -101,7 +101,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_macIpEncode_rsp_i \
     op interface \
-    ports { macIpEncode_rsp_i_dout { I 128 vector } macIpEncode_rsp_i_empty_n { I 1 bit } macIpEncode_rsp_i_read { O 1 bit } } \
+    ports { macIpEncode_rsp_i_dout { I 128 vector } macIpEncode_rsp_i_num_data_valid { I 3 vector } macIpEncode_rsp_i_fifo_cap { I 3 vector } macIpEncode_rsp_i_empty_n { I 1 bit } macIpEncode_rsp_i_read { O 1 bit } } \
 } "
 }
 

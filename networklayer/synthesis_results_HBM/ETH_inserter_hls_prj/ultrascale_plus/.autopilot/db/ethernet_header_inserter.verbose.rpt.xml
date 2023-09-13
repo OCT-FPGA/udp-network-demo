@@ -1,12 +1,12 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'ethernet_header_inserter'" level="0">
-<item name = "Date">Wed Mar  8 19:14:20 2023
+<item name = "Date">Fri Sep  8 14:08:19 2023
 </item>
-<item name = "Version">2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)</item>
+<item name = "Version">2023.1 (Build 3854077 on May  4 2023)</item>
 <item name = "Project">ETH_inserter_hls_prj</item>
 <item name = "Solution">ultrascale_plus (Vivado IP Flow Target)</item>
-<item name = "Product family">virtexuplus</item>
+<item name = "Product family">virtexuplusHBM</item>
 <item name = "Target device">xcu280-fsvh2892-2L-e</item>
 </section>
 
@@ -53,7 +53,7 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, -, -, -</column>
 <column name="FIFO">0, -, 9281, 5013, -</column>
-<column name="Instance">-, -, 4687, 2582, -</column>
+<column name="Instance">-, -, 4687, 2672, -</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, -, -</column>
 <column name="Register">-, -, -, -, -</column>
@@ -67,8 +67,8 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="broadcaster_and_mac_request_U0">broadcaster_and_mac_request, 0, 0, 654, 190, 0</column>
-<column name="compute_and_insert_ip_checksum_U0">compute_and_insert_ip_checksum, 0, 0, 2859, 2072, 0</column>
+<column name="broadcaster_and_mac_request_U0">broadcaster_and_mac_request, 0, 0, 654, 209, 0</column>
+<column name="compute_and_insert_ip_checksum_U0">compute_and_insert_ip_checksum, 0, 0, 2859, 2143, 0</column>
 <column name="entry_proc_U0">entry_proc, 0, 0, 3, 29, 0</column>
 <column name="handle_output_U0">handle_output, 0, 0, 1171, 291, 0</column>
 </table>
@@ -108,10 +108,6 @@
 <section name = "Interface" level="0">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
-<column name="ap_local_block">out, 1, ap_ctrl_none, ethernet_header_inserter, return value</column>
-<column name="ap_local_deadlock">out, 1, ap_ctrl_none, ethernet_header_inserter, return value</column>
-<column name="ap_clk">in, 1, ap_ctrl_none, ethernet_header_inserter, return value</column>
-<column name="ap_rst_n">in, 1, ap_ctrl_none, ethernet_header_inserter, return value</column>
 <column name="dataIn_TDATA">in, 512, axis, dataIn_V_data_V, pointer</column>
 <column name="dataIn_TKEEP">in, 64, axis, dataIn_V_keep_V, pointer</column>
 <column name="dataIn_TSTRB">in, 64, axis, dataIn_V_strb_V, pointer</column>
@@ -133,6 +129,8 @@
 <column name="myMacAddress">in, 48, ap_none, myMacAddress, pointer</column>
 <column name="regSubNetMask">in, 32, ap_none, regSubNetMask, pointer</column>
 <column name="regDefaultGateway">in, 32, ap_none, regDefaultGateway, pointer</column>
+<column name="ap_clk">in, 1, ap_ctrl_none, ethernet_header_inserter, return value</column>
+<column name="ap_rst_n">in, 1, ap_ctrl_none, ethernet_header_inserter, return value</column>
 </table>
 </item>
 </section>

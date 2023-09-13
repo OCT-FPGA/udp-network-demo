@@ -1,10 +1,10 @@
 <profile>
     <ReportVersion>
-        <Version>2021.2</Version>
+        <Version>2023.1</Version>
     </ReportVersion>
     <UserAssignments>
         <unit>ns</unit>
-        <ProductFamily>virtexuplus</ProductFamily>
+        <ProductFamily>virtexuplusHBM</ProductFamily>
         <Part>xcu280-fsvh2892-2L-e</Part>
         <TopModelName>icmp_server</TopModelName>
         <TargetClockPeriod>3.10</TargetClockPeriod>
@@ -16,7 +16,7 @@
         <PipelineType>yes</PipelineType>
         <SummaryOfTimingAnalysis>
             <unit>ns</unit>
-            <EstimatedClockPeriod>2.373</EstimatedClockPeriod>
+            <EstimatedClockPeriod>2.678</EstimatedClockPeriod>
         </SummaryOfTimingAnalysis>
         <SummaryOfOverallLatency>
             <unit>clock cycles</unit>
@@ -34,8 +34,8 @@
     </PerformanceEstimates>
     <AreaEstimates>
         <Resources>
-            <FF>1481</FF>
-            <LUT>568</LUT>
+            <FF>1498</FF>
+            <LUT>605</LUT>
             <BRAM_18K>0</BRAM_18K>
             <DSP>0</DSP>
             <URAM>0</URAM>
@@ -49,28 +49,6 @@
         </AvailableResources>
     </AreaEstimates>
     <InterfaceSummary>
-        <RtlPorts>
-            <name>ap_local_block</name>
-            <Object>icmp_server</Object>
-            <Type>return value</Type>
-            <Scope/>
-            <IOProtocol>ap_ctrl_none</IOProtocol>
-            <IOConfig/>
-            <Dir>out</Dir>
-            <Bits>1</Bits>
-            <Attribute>unknown</Attribute>
-        </RtlPorts>
-        <RtlPorts>
-            <name>ap_local_deadlock</name>
-            <Object>icmp_server</Object>
-            <Type>return value</Type>
-            <Scope/>
-            <IOProtocol>ap_ctrl_none</IOProtocol>
-            <IOConfig/>
-            <Dir>out</Dir>
-            <Bits>1</Bits>
-            <Attribute>unknown</Attribute>
-        </RtlPorts>
         <RtlPorts>
             <name>ap_clk</name>
             <Object>icmp_server</Object>
@@ -166,12 +144,12 @@
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>myIpAddress</name>
-            <Object>myIpAddress</Object>
+            <name>myIpAddress_0</name>
+            <Object>myIpAddress_0</Object>
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>ap_stable</IOProtocol>
-            <IOConfig>register, both mode</IOConfig>
+            <IOConfig>register</IOConfig>
             <Dir>in</Dir>
             <Bits>32</Bits>
             <Attribute>data</Attribute>
@@ -253,7 +231,7 @@
     <RTLDesignHierarchy>
         <TopModule MAX_DEPTH="2">
             <ModuleName>icmp_server</ModuleName>
-            <BindInstances>icmpChecksumTmp_V_fu_960_p2 add_ln326_fu_680_p2 ret_10_fu_708_p2 ret_11_fu_722_p2 ret_12_fu_736_p2 ret_13_fu_750_p2 ret_14_fu_764_p2 ret_15_fu_778_p2 ret_16_fu_792_p2 ret_17_fu_806_p2 ret_18_fu_1060_p2 checksumL4_r_V_fu_1092_p2 add_ln45_fu_1098_p2 checksumL4_o_V_fu_1104_p2</BindInstances>
+            <BindInstances>icmpChecksumTmp_fu_954_p2 add_ln160_fu_616_p2 checksumL1_fu_716_p2 checksumL1_1_fu_730_p2 checksumL1_2_fu_744_p2 checksumL1_3_fu_758_p2 checksumL1_4_fu_772_p2 checksumL2_fu_786_p2 checksumL2_1_fu_800_p2 add_ln61_fu_1054_p2 checksumL3_fu_1067_p2 checksumL4_r_fu_1099_p2</BindInstances>
         </TopModule>
     </RTLDesignHierarchy>
     <ModuleInformation>
@@ -264,7 +242,7 @@
                     <TargetClockPeriod>3.10</TargetClockPeriod>
                     <ClockUncertainty>0.20</ClockUncertainty>
                     <TargetInitiationInterval>1</TargetInitiationInterval>
-                    <EstimatedClockPeriod>2.373</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>2.678</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>2</Best-caseLatency>
@@ -280,10 +258,10 @@
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>1481</FF>
+                    <FF>1498</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>568</LUT>
+                    <LUT>605</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -298,20 +276,18 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="icmpChecksumTmp_V_fu_960_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int.h:223" URAM="0" VARIABLE="icmpChecksumTmp_V"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln326_fu_680_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int.h:326" URAM="0" VARIABLE="add_ln326"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_10_fu_708_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_10"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_11_fu_722_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_11"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_12_fu_736_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_12"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_13_fu_750_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_13"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_14_fu_764_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_14"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_15_fu_778_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_15"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_16_fu_792_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_16"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_17_fu_806_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_17"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="ret_18_fu_1060_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:1540" URAM="0" VARIABLE="ret_18"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="checksumL4_r_V_fu_1092_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int.h:223" URAM="0" VARIABLE="checksumL4_r_V"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln45_fu_1098_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:45" URAM="0" VARIABLE="add_ln45"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="checksumL4_o_V_fu_1104_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int.h:229" URAM="0" VARIABLE="checksumL4_o_V"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="icmpChecksumTmp_fu_954_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:197" URAM="0" VARIABLE="icmpChecksumTmp"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln160_fu_616_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:160" URAM="0" VARIABLE="add_ln160"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="checksumL1_fu_716_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:56" URAM="0" VARIABLE="checksumL1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="checksumL1_1_fu_730_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:56" URAM="0" VARIABLE="checksumL1_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="checksumL1_2_fu_744_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:56" URAM="0" VARIABLE="checksumL1_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="checksumL1_3_fu_758_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:56" URAM="0" VARIABLE="checksumL1_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="checksumL1_4_fu_772_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:56" URAM="0" VARIABLE="checksumL1_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="checksumL2_fu_786_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:59" URAM="0" VARIABLE="checksumL2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="checksumL2_1_fu_800_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:60" URAM="0" VARIABLE="checksumL2_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln61_fu_1054_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:61" URAM="0" VARIABLE="add_ln61"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="checksumL3_fu_1067_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:61" URAM="0" VARIABLE="checksumL3"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="checksumL4_r_fu_1099_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:63" URAM="0" VARIABLE="checksumL4_r"/>
             </BindNodes>
         </Module>
     </ModuleInformation>
@@ -325,7 +301,7 @@
         </Arg>
         <Arg ArgName="myIpAddress" index="1" direction="in" srcType="ap_uint&lt;32&gt;&amp;" srcSize="32">
             <hwRefs>
-                <hwRef type="port" interface="myIpAddress" name="myIpAddress" usage="data" direction="in"/>
+                <hwRef type="port" interface="myIpAddress_0" name="myIpAddress_0" usage="data" direction="in"/>
             </hwRefs>
         </Arg>
         <Arg ArgName="dataOut" index="2" direction="out" srcType="stream&lt;hls::axis&lt;ap_uint&lt;512&gt;, 0, 0, 0&gt;, 0&gt;&amp;" srcSize="1024">
@@ -371,12 +347,12 @@
                 <constraint constraint_type="pragma interface" mode="axis" register_option="1" register_mode="both" argName="dataIn"/>
             </constraints>
         </Interface>
-        <Interface InterfaceName="myIpAddress" type="data" busTypeName="data" protocol="ap_stable" mode="slave" dataWidth="32">
+        <Interface InterfaceName="myIpAddress_0" type="data" busTypeName="data" protocol="ap_stable" mode="slave" dataWidth="32">
             <portMaps>
-                <portMap portMapName="myIpAddress">DATA</portMap>
+                <portMap portMapName="myIpAddress_0">DATA</portMap>
             </portMaps>
             <ports>
-                <port>myIpAddress</port>
+                <port>myIpAddress_0</port>
             </ports>
             <constraints>
                 <constraint constraint_type="pragma interface" mode="ap_stable" register_option="1" argName="myIpAddress"/>
@@ -399,24 +375,24 @@
     <ReportHWInterface>
         <section name="HW Interfaces" level="0">
             <item name="AXIS">
-                <table isCollapsed="0">
-                    <keys size="8">Interface, Register Mode, TDATA, TKEEP, TLAST, TREADY, TSTRB, TVALID</keys>
-                    <column name="m_axis_icmp">both, 512, 64, 1, 1, 64, 1</column>
-                    <column name="s_axis_icmp">both, 512, 64, 1, 1, 64, 1</column>
+                <table>
+                    <keys size="9">Interface, Direction, Register Mode, TDATA, TKEEP, TLAST, TREADY, TSTRB, TVALID</keys>
+                    <column name="m_axis_icmp">out, both, 512, 64, 1, 1, 64, 1</column>
+                    <column name="s_axis_icmp">in, both, 512, 64, 1, 1, 64, 1</column>
                 </table>
             </item>
-            <item name="REGISTER">
-                <table isCollapsed="0">
-                    <keys size="3">Interface, Mode, Bitwidth</keys>
-                    <column name="myIpAddress">ap_stable, 32</column>
+            <item name="Other Ports">
+                <table>
+                    <keys size="4">Port, Mode, Direction, Bitwidth</keys>
+                    <column name="myIpAddress_0">ap_stable, in, 32</column>
                 </table>
             </item>
             <item name="TOP LEVEL CONTROL">
-                <table isCollapsed="0">
+                <table>
                     <keys size="3">Interface, Type, Ports</keys>
                     <column name="ap_clk">clock, ap_clk</column>
                     <column name="ap_rst_n">reset, ap_rst_n</column>
-                    <column name="ap_ctrl">ap_ctrl_none</column>
+                    <column name="ap_ctrl">ap_ctrl_none, </column>
                 </table>
             </item>
         </section>
@@ -424,7 +400,7 @@
     <ReportSWInterface>
         <section name="SW I/O Information" level="0">
             <item name="Top Function Arguments">
-                <table isCollapsed="1">
+                <table>
                     <keys size="3">Argument, Direction, Datatype</keys>
                     <column name="dataIn">in, stream&lt;hls::axis&lt;ap_uint&lt;512&gt; 0 0 0&gt; 0&gt;&amp;</column>
                     <column name="myIpAddress">in, ap_uint&lt;32&gt;&amp;</column>
@@ -432,30 +408,28 @@
                 </table>
             </item>
             <item name="SW-to-HW Mapping">
-                <table isCollapsed="1">
+                <table>
                     <keys size="3">Argument, HW Interface, HW Type</keys>
                     <column name="dataIn">s_axis_icmp, interface</column>
-                    <column name="myIpAddress">myIpAddress, port</column>
+                    <column name="myIpAddress">myIpAddress_0, port</column>
                     <column name="dataOut">m_axis_icmp, interface</column>
                 </table>
             </item>
         </section>
     </ReportSWInterface>
-    <ReportBurst>
-        <section name="M_AXI Burst Information" level="0" HEADER_NOTE="Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings."/>
-    </ReportBurst>
+    <ResolutionUrl key="ZZZ">www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=ZZZ.html</ResolutionUrl>
     <PragmaReport>
-        <Pragma type="inline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:40" status="valid" parentFunction="computechecksum20b" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:50" status="valid" parentFunction="computechecksum20b" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:55" status="valid" parentFunction="computechecksum20b" variable="" isDirective="0" options=""/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:124" status="valid" parentFunction="icmp_server" variable="return" isDirective="0" options="ap_ctrl_none port=return"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:127" status="valid" parentFunction="icmp_server" variable="dataIn" isDirective="0" options="axis register both port=dataIn name=s_axis_icmp"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:128" status="valid" parentFunction="icmp_server" variable="dataOut" isDirective="0" options="axis register both port=dataOut name=m_axis_icmp"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:129" status="warning" parentFunction="icmp_server" variable="myIpAddress" isDirective="0" options="ap_stable register port=myIpAddress name=myIpAddress">
-            <Msg msg_id="207-5524" msg_severity="WARNING" msg_body="'Ap_stable' in '#pragma HLS INTERFACE' is deprecated, use 'Stable Pragma' instead"/>
+        <Pragma type="inline" location="../hls/icmp_server/icmp_server.cpp:40" status="valid" parentFunction="computechecksum20b" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../hls/icmp_server/icmp_server.cpp:50" status="valid" parentFunction="computechecksum20b" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../hls/icmp_server/icmp_server.cpp:55" status="valid" parentFunction="computechecksum20b" variable="" isDirective="0" options=""/>
+        <Pragma type="interface" location="../hls/icmp_server/icmp_server.cpp:124" status="valid" parentFunction="icmp_server" variable="return" isDirective="0" options="ap_ctrl_none port=return"/>
+        <Pragma type="interface" location="../hls/icmp_server/icmp_server.cpp:127" status="valid" parentFunction="icmp_server" variable="dataIn" isDirective="0" options="axis register both port=dataIn name=s_axis_icmp"/>
+        <Pragma type="interface" location="../hls/icmp_server/icmp_server.cpp:128" status="valid" parentFunction="icmp_server" variable="dataOut" isDirective="0" options="axis register both port=dataOut name=m_axis_icmp"/>
+        <Pragma type="interface" location="../hls/icmp_server/icmp_server.cpp:129" status="warning" parentFunction="icmp_server" variable="myIpAddress" isDirective="0" options="ap_stable register port=myIpAddress name=myIpAddress">
+            <Msg msg_id="207-5532" msg_severity="WARNING" msg_body="'Ap_stable' in '#pragma HLS INTERFACE' is deprecated, use 'Stable Pragma' instead"/>
         </Pragma>
-        <Pragma type="pipeline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:131" status="valid" parentFunction="icmp_server" variable="" isDirective="0" options="II=1"/>
-        <Pragma type="unroll" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:153" status="valid" parentFunction="icmp_server" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="../hls/icmp_server/icmp_server.cpp:131" status="valid" parentFunction="icmp_server" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="unroll" location="../hls/icmp_server/icmp_server.cpp:153" status="valid" parentFunction="icmp_server" variable="" isDirective="0" options=""/>
     </PragmaReport>
 </profile>
 

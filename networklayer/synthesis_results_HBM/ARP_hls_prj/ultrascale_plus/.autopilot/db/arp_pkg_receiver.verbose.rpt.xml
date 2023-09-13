@@ -1,12 +1,12 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'arp_pkg_receiver'" level="0">
-<item name = "Date">Wed Mar  8 19:14:18 2023
+<item name = "Date">Fri Sep  8 14:08:17 2023
 </item>
-<item name = "Version">2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)</item>
+<item name = "Version">2023.1 (Build 3854077 on May  4 2023)</item>
 <item name = "Project">ARP_hls_prj</item>
 <item name = "Solution">ultrascale_plus (Vivado IP Flow Target)</item>
-<item name = "Product family">virtexuplus</item>
+<item name = "Product family">virtexuplusHBM</item>
 <item name = "Target device">xcu280-fsvh2892-2L-e</item>
 </section>
 
@@ -47,12 +47,12 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 59, -</column>
+<column name="Expression">-, -, 0, 131, -</column>
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, -, -, -, -</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, 54, -</column>
-<column name="Register">-, -, 219, -, -</column>
+<column name="Register">-, -, 251, -, -</column>
 <specialColumn name="Available SLR">1344, 3008, 869120, 434560, 320</specialColumn>
 <specialColumn name="Utilization SLR (%)">0, 0, ~0, ~0, 0</specialColumn>
 <specialColumn name="Available">4032, 9024, 2607360, 1303680, 960</specialColumn>
@@ -79,16 +79,20 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln885_fu_256_p2">+, 0, 0, 12, 4, 1</column>
-<column name="ap_predicate_op46_write_state2">and, 0, 0, 2, 1, 1</column>
+<column name="add_ln83_fu_298_p2">+, 0, 0, 12, 4, 1</column>
+<column name="and_ln74_fu_260_p2">and, 0, 0, 2, 1, 1</column>
+<column name="and_ln76_fu_272_p2">and, 0, 0, 2, 1, 1</column>
 <column name="ap_predicate_op50_write_state2">and, 0, 0, 2, 1, 1</column>
-<column name="tmp_nbreadreq_fu_128_p6">and, 0, 0, 2, 1, 0</column>
-<column name="grp_fu_168_p2">icmp, 0, 0, 20, 32, 32</column>
-<column name="icmp_ln1064_fu_199_p2">icmp, 0, 0, 9, 4, 1</column>
+<column name="ap_predicate_op54_write_state2">and, 0, 0, 2, 1, 1</column>
+<column name="tmp_i_nbreadreq_fu_136_p6">and, 0, 0, 2, 1, 0</column>
+<column name="icmp_ln62_fu_202_p2">icmp, 0, 0, 12, 4, 1</column>
+<column name="icmp_ln74_1_fu_254_p2">icmp, 0, 0, 39, 32, 32</column>
+<column name="icmp_ln74_fu_248_p2">icmp, 0, 0, 23, 16, 9</column>
+<column name="icmp_ln76_fu_266_p2">icmp, 0, 0, 23, 16, 10</column>
 <column name="ap_block_pp0_stage0_01001">or, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state1_pp0_stage0_iter0">or, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state2_pp0_stage0_iter1">or, 0, 0, 2, 1, 1</column>
-<column name="select_ln80_fu_262_p3">select, 0, 0, 4, 1, 1</column>
+<column name="select_ln80_fu_304_p3">select, 0, 0, 4, 1, 1</column>
 <column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>
@@ -104,19 +108,19 @@
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="and_ln74_reg_370">1, 0, 1, 0</column>
+<column name="and_ln76_reg_374">1, 0, 1, 0</column>
 <column name="ap_CS_fsm">1, 0, 1, 0</column>
 <column name="ap_done_reg">1, 0, 1, 0</column>
 <column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
-<column name="icmp_ln1064_2_reg_337">1, 0, 1, 0</column>
-<column name="icmp_ln1064_3_reg_333">1, 0, 1, 0</column>
-<column name="icmp_ln1064_reg_314">1, 0, 1, 0</column>
-<column name="meta_hwAddrSrc_V_reg_327">48, 0, 48, 0</column>
-<column name="meta_srcMac_V_reg_318">48, 0, 48, 0</column>
-<column name="opCode_V_reg_323">16, 0, 16, 0</column>
-<column name="reg_182">32, 0, 32, 0</column>
-<column name="tmp_11_i_reg_341">64, 0, 64, 0</column>
-<column name="tmp_reg_310">1, 0, 1, 0</column>
-<column name="wordCount_V">4, 0, 4, 0</column>
+<column name="icmp_ln62_reg_356">1, 0, 1, 0</column>
+<column name="meta_hwAddrSrc_reg_365">48, 0, 48, 0</column>
+<column name="meta_srcMac_reg_360">48, 0, 48, 0</column>
+<column name="reg_185">32, 0, 32, 0</column>
+<column name="tmp_11_i_reg_378">48, 0, 48, 0</column>
+<column name="tmp_13_i_reg_383">64, 0, 64, 0</column>
+<column name="tmp_i_reg_352">1, 0, 1, 0</column>
+<column name="wordCount">4, 0, 4, 0</column>
 </table>
 </item>
 </section>
@@ -134,18 +138,26 @@
 <column name="ap_idle">out, 1, ap_ctrl_hs, arp_pkg_receiver, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, arp_pkg_receiver, return value</column>
 <column name="myIpAddress_c11_din">out, 32, ap_fifo, myIpAddress_c11, pointer</column>
+<column name="myIpAddress_c11_num_data_valid">in, 2, ap_fifo, myIpAddress_c11, pointer</column>
+<column name="myIpAddress_c11_fifo_cap">in, 2, ap_fifo, myIpAddress_c11, pointer</column>
 <column name="myIpAddress_c11_full_n">in, 1, ap_fifo, myIpAddress_c11, pointer</column>
 <column name="myIpAddress_c11_write">out, 1, ap_fifo, myIpAddress_c11, pointer</column>
 <column name="myIpAddress_c_din">out, 32, ap_fifo, myIpAddress_c, pointer</column>
+<column name="myIpAddress_c_num_data_valid">in, 2, ap_fifo, myIpAddress_c, pointer</column>
+<column name="myIpAddress_c_fifo_cap">in, 2, ap_fifo, myIpAddress_c, pointer</column>
 <column name="myIpAddress_c_full_n">in, 1, ap_fifo, myIpAddress_c, pointer</column>
 <column name="myIpAddress_c_write">out, 1, ap_fifo, myIpAddress_c, pointer</column>
 <column name="arpDataIn_TVALID">in, 1, axis, arpDataIn_V_last_V, pointer</column>
 <column name="arpDataIn_TREADY">out, 1, axis, arpDataIn_V_last_V, pointer</column>
 <column name="arpDataIn_TLAST">in, 1, axis, arpDataIn_V_last_V, pointer</column>
 <column name="arpTableInsertFifo_din">out, 128, ap_fifo, arpTableInsertFifo, pointer</column>
+<column name="arpTableInsertFifo_num_data_valid">in, 3, ap_fifo, arpTableInsertFifo, pointer</column>
+<column name="arpTableInsertFifo_fifo_cap">in, 3, ap_fifo, arpTableInsertFifo, pointer</column>
 <column name="arpTableInsertFifo_full_n">in, 1, ap_fifo, arpTableInsertFifo, pointer</column>
 <column name="arpTableInsertFifo_write">out, 1, ap_fifo, arpTableInsertFifo, pointer</column>
 <column name="arpReplyFifo_din">out, 256, ap_fifo, arpReplyFifo, pointer</column>
+<column name="arpReplyFifo_num_data_valid">in, 3, ap_fifo, arpReplyFifo, pointer</column>
+<column name="arpReplyFifo_fifo_cap">in, 3, ap_fifo, arpReplyFifo, pointer</column>
 <column name="arpReplyFifo_full_n">in, 1, ap_fifo, arpReplyFifo, pointer</column>
 <column name="arpReplyFifo_write">out, 1, ap_fifo, arpReplyFifo, pointer</column>
 <column name="arpDataIn_TDATA">in, 512, axis, arpDataIn_V_data_V, pointer</column>

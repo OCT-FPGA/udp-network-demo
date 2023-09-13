@@ -1,0 +1,56 @@
+================================================================
+== Design Size Report
+================================================================
+
+* Instructions per Function for each Compilation Phase
++-----------------------+-------------------------+------------------+-----------------+----------------------+---------------+
+| Function              | Location                | Compile/Link     | Unroll/Inline   | Performance/Pipeline | Optimizations |
++-----------------------+-------------------------+------------------+-----------------+----------------------+---------------+
+| + udp                 | udp.cpp:407             | 15,347           | 2,696           | 1,285                | 1,534         |
+|  + udpRxEngine        | udp.cpp:94              |  3,295           |   519           |   130                |   151         |
+|     axis_udp          | udp.hpp:56              |     28           |                 |                      |               |
+|     axis_udp          | udp.hpp:57              |     20 (2 calls) |    14 (2 calls) |                      |               |
+|     byteSwap<16>      | udp.hpp:101             |    665 (5 calls) |    85 (5 calls) |                      |               |
+|     byteSwap<32>      | udp.hpp:101             |    262 (2 calls) |    54 (2 calls) |                      |               |
+|     udpMetadata       | udp.hpp:84              |     16           |    11           |                      |               |
+|  + TableHandler       | udp.cpp:39              |    977           |   437           |   265                |   296         |
+|     udpMetadata       | udp.hpp:83              |     46           |                 |                      |               |
+|     socket_table      | udp.hpp:71              |     37           |                 |                      |               |
+|   + tableResponse     | udp.hpp:94              |     58           |                 |                      |               |
+|      userMetadata     | udp.hpp:45              |     37           |                 |                      |               |
+|     byteSwap<32>      | udp.hpp:101             |    393 (3 calls) |    81 (3 calls) |                      |               |
+|     userMetadata      | udp.hpp:46              |     13           |     9           |                      |               |
+|     udpMetadata       | udp.hpp:84              |     16           |    11           |                      |               |
+|  + rxEngPacketDropper | udp.cpp:190             |    577           |    84           |    78                |    80         |
+|   + tableResponse     | udp.hpp:94              |     58           |                 |                      |               |
+|      userMetadata     | udp.hpp:45              |     37           |                 |                      |               |
+|     axis_udp          | udp.hpp:56              |     28           |                 |                      |               |
+|  + appGetMetaData     | udp.cpp:231             |  6,289           | 1,107           |   484                |   514         |
+|     axis_udp          | udp.hpp:56              |     28           |                 |                      |               |
+|     axis_udp          | udp.hpp:57              |     20 (2 calls) |    14 (2 calls) |                      |               |
+|     keep2len          | common_utilities.cpp:40 |  5,544 (2 calls) |   904 (2 calls) |                      |               |
+|  + udpTxEngine        | udp.cpp:280             |  4,097           |   459           |   237                |   237         |
+|     udpMetadata       | udp.hpp:83              |     46           |                 |                      |               |
+|     axis_udp          | udp.hpp:56              |     28           |                 |                      |               |
+|     byteSwap<16>      | udp.hpp:101             |    532 (4 calls) |    68 (4 calls) |                      |               |
+|     byteSwap<32>      | udp.hpp:101             |    262 (2 calls) |    54 (2 calls) |                      |               |
++-----------------------+-------------------------+------------------+-----------------+----------------------+---------------+
+
+* Description of Compilation Phases
++----------------------+------------------------------------------------------------+
+| Compilation Phase    | Description                                                |
++----------------------+------------------------------------------------------------+
+| Compile/Link         | All functions are compiled and linked into a single design |
+| Unroll/Inline        | After user unroll and inline pragmas are applied           |
+| Performance/Pipeline | After performance and pipeline pragmas are applied         |
+| Optimizations        | After high level synthesis optimizations                   |
++----------------------+------------------------------------------------------------+
+
+* Design Size Message Settings
++---------------------------------------------+--------+------------------------------------------------------------------+
+| Message Setting                             | Value  | Description                                                      |
++---------------------------------------------+--------+------------------------------------------------------------------+
+| config_compile -design_size_maximum_warning | 100000 | Show a warning when total design instructions exceeds this value |
++---------------------------------------------+--------+------------------------------------------------------------------+
+
+

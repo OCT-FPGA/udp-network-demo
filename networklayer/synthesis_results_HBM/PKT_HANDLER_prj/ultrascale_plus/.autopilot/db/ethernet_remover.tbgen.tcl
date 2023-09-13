@@ -3,12 +3,15 @@ set isTopModule 0
 set isCombinational 0
 set isDatapathOnly 0
 set isPipelined 1
-set pipeline_type function
+set pipeline_type function_flushable
 set FunctionProtocol ap_ctrl_hs
 set isOneStateSeq 0
 set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
+set hasInterrupt 0
+set DLRegFirstOffset 0
+set DLRegItemOffset 0
 set C_modelName {ethernet_remover}
 set C_modelType { void 0 }
 set C_modelArgList {
@@ -19,6 +22,7 @@ set C_modelArgList {
 	{ m_axis_V_dest_V int 3 regular {axi_s 1 volatile  { m_axis Dest } }  }
 	{ eth_level_pkt int 1024 regular {fifo 0 volatile } {global 0}  }
 }
+set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "m_axis_V_data_V", "interface" : "axis", "bitwidth" : 512, "direction" : "WRITEONLY"} , 
  	{ "Name" : "m_axis_V_keep_V", "interface" : "axis", "bitwidth" : 64, "direction" : "WRITEONLY"} , 
@@ -27,7 +31,7 @@ set C_modelArgMapList {[
  	{ "Name" : "m_axis_V_dest_V", "interface" : "axis", "bitwidth" : 3, "direction" : "WRITEONLY"} , 
  	{ "Name" : "eth_level_pkt", "interface" : "fifo", "bitwidth" : 1024, "direction" : "READONLY", "extern" : 0} ]}
 # RTL Port declarations: 
-set portNum 17
+set portNum 19
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -37,6 +41,8 @@ set portList {
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
 	{ eth_level_pkt_dout sc_in sc_lv 1024 signal 5 } 
+	{ eth_level_pkt_num_data_valid sc_in sc_lv 5 signal 5 } 
+	{ eth_level_pkt_fifo_cap sc_in sc_lv 5 signal 5 } 
 	{ eth_level_pkt_empty_n sc_in sc_logic 1 signal 5 } 
 	{ eth_level_pkt_read sc_out sc_logic 1 signal 5 } 
 	{ m_axis_TREADY sc_in sc_logic 1 outacc 4 } 
@@ -56,6 +62,8 @@ set NewPortList {[
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
  	{ "name": "eth_level_pkt_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":1024, "type": "signal", "bundle":{"name": "eth_level_pkt", "role": "dout" }} , 
+ 	{ "name": "eth_level_pkt_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":5, "type": "signal", "bundle":{"name": "eth_level_pkt", "role": "num_data_valid" }} , 
+ 	{ "name": "eth_level_pkt_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":5, "type": "signal", "bundle":{"name": "eth_level_pkt", "role": "fifo_cap" }} , 
  	{ "name": "eth_level_pkt_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "eth_level_pkt", "role": "empty_n" }} , 
  	{ "name": "eth_level_pkt_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "eth_level_pkt", "role": "read" }} , 
  	{ "name": "m_axis_TREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "m_axis_V_dest_V", "role": "default" }} , 
@@ -71,7 +79,7 @@ set RtlHierarchyInfo {[
 		"CDFG" : "ethernet_remover",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
-		"Pipeline" : "Aligned", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"Pipeline" : "Unaligned", "UnalignedPipeline" : "1", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "1",
 		"VariableLatency" : "0", "ExactLatency" : "2", "EstimateLatencyMin" : "2", "EstimateLatencyMax" : "2",
 		"Combinational" : "0",
@@ -82,17 +90,17 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "1",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "m_axis_V_data_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "m_axis_V_data_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "m_axis",
 				"BlockSignal" : [
 					{"Name" : "m_axis_TDATA_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "m_axis_V_keep_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "m_axis_V_strb_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "m_axis_V_last_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "m_axis_V_dest_V", "Type" : "Axis", "Direction" : "O"},
+			{"Name" : "m_axis_V_keep_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "m_axis"},
+			{"Name" : "m_axis_V_strb_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "m_axis"},
+			{"Name" : "m_axis_V_last_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "m_axis"},
+			{"Name" : "m_axis_V_dest_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "m_axis"},
 			{"Name" : "er_fsm_state", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "prevWord_data_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "prevWord_keep_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "prevWord_dest_V", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "prevWord_data", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "prevWord_keep", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "prevWord_dest", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "eth_level_pkt", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "16", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "eth_level_pkt_blk_n", "Type" : "RtlSignal"}]}]},
@@ -111,9 +119,9 @@ set ArgLastReadFirstWriteLatency {
 		m_axis_V_last_V {Type O LastRead -1 FirstWrite 1}
 		m_axis_V_dest_V {Type O LastRead -1 FirstWrite 1}
 		er_fsm_state {Type IO LastRead -1 FirstWrite -1}
-		prevWord_data_V {Type IO LastRead -1 FirstWrite -1}
-		prevWord_keep_V {Type IO LastRead -1 FirstWrite -1}
-		prevWord_dest_V {Type IO LastRead -1 FirstWrite -1}
+		prevWord_data {Type IO LastRead -1 FirstWrite -1}
+		prevWord_keep {Type IO LastRead -1 FirstWrite -1}
+		prevWord_dest {Type IO LastRead -1 FirstWrite -1}
 		eth_level_pkt {Type I LastRead 0 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
@@ -124,7 +132,6 @@ set PerformanceInfo {[
 ]}
 
 set PipelineEnableSignalInfo {[
-	{"Pipeline" : "0", "EnableSignal" : "ap_enable_pp0"}
 ]}
 
 set Spec2ImplPortList { 
@@ -133,5 +140,5 @@ set Spec2ImplPortList {
 	m_axis_V_strb_V { axis {  { m_axis_TSTRB out_data 1 64 } } }
 	m_axis_V_last_V { axis {  { m_axis_TLAST out_data 1 1 } } }
 	m_axis_V_dest_V { axis {  { m_axis_TREADY out_acc 0 1 }  { m_axis_TVALID out_vld 1 1 }  { m_axis_TDEST out_data 1 3 } } }
-	eth_level_pkt { ap_fifo {  { eth_level_pkt_dout fifo_data 0 1024 }  { eth_level_pkt_empty_n fifo_status 0 1 }  { eth_level_pkt_read fifo_update 1 1 } } }
+	eth_level_pkt { ap_fifo {  { eth_level_pkt_dout fifo_port_we 0 1024 }  { eth_level_pkt_num_data_valid fifo_status_num_data_valid 0 5 }  { eth_level_pkt_fifo_cap fifo_update 0 5 }  { eth_level_pkt_empty_n fifo_status 0 1 }  { eth_level_pkt_read fifo_data 1 1 } } }
 }

@@ -4,30 +4,29 @@
 == Synthesis Summary Report of 'udp'
 ================================================================
 + General Information: 
-    * Date:           Wed Mar  8 19:15:08 2023
-    * Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+    * Date:           Fri Sep  8 14:09:07 2023
+    * Version:        2023.1 (Build 3854077 on May  4 2023)
     * Project:        UDP_prj
     * Solution:       ultrascale_plus (Vivado IP Flow Target)
-    * Product family: virtexuplus
+    * Product family: virtexuplusHBM
     * Target device:  xcu280-fsvh2892-2L-e
     
 
 + Performance & Resource Estimates: 
     
     PS: '+' for module; 'o' for loop; '*' for dataflow
-    +-----------------------+------+------+---------+--------+----------+---------+------+----------+---------+----+-------------+------------+-----+
-    |        Modules        | Issue|      | Latency | Latency| Iteration|         | Trip |          |         |    |             |            |     |
-    |        & Loops        | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined|  BRAM   | DSP|      FF     |     LUT    | URAM|
-    +-----------------------+------+------+---------+--------+----------+---------+------+----------+---------+----+-------------+------------+-----+
-    |+ udp*                 |     -|  0.05|        7|  17.500|         -|        1|     -|  dataflow|  60 (1%)|   -|  11901 (~0%)|  9968 (~0%)|    -|
-    | + udpRxEngine         |     -|  1.15|        1|   2.500|         -|        1|     -|       yes|        -|   -|   1260 (~0%)|   149 (~0%)|    -|
-    | + entry_proc          |     -|  1.15|        0|   0.000|         -|        0|     -|        no|        -|   -|      3 (~0%)|   605 (~0%)|    -|
-    | + TableHandler        |     -|  0.05|        2|   5.000|         -|        1|     -|       yes|        -|   -|    357 (~0%)|  1861 (~0%)|    -|
-    | + appGetMetaData      |     -|  0.37|        1|   2.500|         -|        1|     -|       yes|        -|   -|     50 (~0%)|   443 (~0%)|    -|
-    |  + keep2len           |     -|  1.27|        0|   0.000|         -|        1|     -|       yes|        -|   -|            -|   276 (~0%)|    -|
-    | + rxEngPacketDropper  |     -|  0.64|        2|   5.000|         -|        1|     -|       yes|        -|   -|    701 (~0%)|    66 (~0%)|    -|
-    | + udpTxEngine         |     -|  0.37|        2|   5.000|         -|        1|     -|       yes|        -|   -|   1839 (~0%)|   298 (~0%)|    -|
-    +-----------------------+------+------+---------+--------+----------+---------+------+----------+---------+----+-------------+------------+-----+
+    +-----------------------+------+------+---------+--------+----------+---------+------+----------+---------+----+-------------+-------------+-----+
+    |        Modules        | Issue|      | Latency | Latency| Iteration|         | Trip |          |         |    |             |             |     |
+    |        & Loops        | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined|  BRAM   | DSP|      FF     |     LUT     | URAM|
+    +-----------------------+------+------+---------+--------+----------+---------+------+----------+---------+----+-------------+-------------+-----+
+    |+ udp*                 |     -|  0.03|        7|  17.500|         -|        1|     -|  dataflow|  60 (1%)|   -|  12111 (~0%)|  11152 (~0%)|    -|
+    | + udpRxEngine         |     -|  1.15|        1|   2.500|         -|        1|     -|       yes|        -|   -|   1260 (~0%)|    149 (~0%)|    -|
+    | + entry_proc          |     -|  1.15|        0|   0.000|         -|        0|     -|        no|        -|   -|      3 (~0%)|    605 (~0%)|    -|
+    | + TableHandler        |     -|  0.03|        2|   5.000|         -|        1|     -|       yes|        -|   -|    549 (~0%)|   2507 (~0%)|    -|
+    | + appGetMetaData      |     -|  0.36|        1|   2.500|         -|        1|     -|       yes|        -|   -|     57 (~0%)|    983 (~0%)|    -|
+    | + rxEngPacketDropper  |     -|  0.64|        2|   5.000|         -|        1|     -|       yes|        -|   -|    701 (~0%)|     66 (~0%)|    -|
+    | + udpTxEngine         |     -|  0.42|        2|   5.000|         -|        1|     -|       yes|        -|   -|   1857 (~0%)|    298 (~0%)|    -|
+    +-----------------------+------+------+---------+--------+----------+---------+------+----------+---------+----+-------------+-------------+-----+
 
 
 ================================================================
@@ -113,21 +112,21 @@
 +-----------------+--------------------------+--------+-------+--------+-----------------------------------------+------------------------+
 
 * AXIS
-+--------------+---------------+-------+-------+-------+-------+--------+-------+-------+--------+
-| Interface    | Register Mode | TDATA | TDEST | TKEEP | TLAST | TREADY | TSTRB | TUSER | TVALID |
-+--------------+---------------+-------+-------+-------+-------+--------+-------+-------+--------+
-| DataInApp    | both          | 512   | 16    | 64    | 1     | 1      | 64    | 96    | 1      |
-| DataOutApp   | both          | 512   | 16    | 64    | 1     | 1      | 64    | 96    | 1      |
-| rxUdpDataIn  | both          | 512   |       | 64    | 1     | 1      | 64    |       | 1      |
-| txUdpDataOut | both          | 512   |       | 64    | 1     | 1      | 64    |       | 1      |
-+--------------+---------------+-------+-------+-------+-------+--------+-------+-------+--------+
++--------------+-----------+---------------+-------+-------+-------+-------+--------+-------+-------+--------+
+| Interface    | Direction | Register Mode | TDATA | TDEST | TKEEP | TLAST | TREADY | TSTRB | TUSER | TVALID |
++--------------+-----------+---------------+-------+-------+-------+-------+--------+-------+-------+--------+
+| DataInApp    | in        | both          | 512   | 16    | 64    | 1     | 1      | 64    | 96    | 1      |
+| DataOutApp   | out       | both          | 512   | 16    | 64    | 1     | 1      | 64    | 96    | 1      |
+| rxUdpDataIn  | in        | both          | 512   |       | 64    | 1     | 1      | 64    |       | 1      |
+| txUdpDataOut | out       | both          | 512   |       | 64    | 1     | 1      | 64    |       | 1      |
++--------------+-----------+---------------+-------+-------+-------+-------+--------+-------+-------+--------+
 
-* REGISTER
-+-------------+---------+----------+
-| Interface   | Mode    | Bitwidth |
-+-------------+---------+----------+
-| myIpAddress | ap_none | 32       |
-+-------------+---------+----------+
+* Other Ports
++-------------+---------+-----------+----------+
+| Port        | Mode    | Direction | Bitwidth |
++-------------+---------+-----------+----------+
+| myIpAddress | ap_none | in        | 32       |
++-------------+---------+-----------+----------+
 
 * TOP LEVEL CONTROL
 +-----------+--------------+----------+
@@ -234,26 +233,19 @@
 
 
 ================================================================
-== M_AXI Burst Information
-================================================================
- Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
-
-  No burst in design
-
-================================================================
 == Bind Op Report
 ================================================================
-+--------------------------+-----+--------+-------------+-----+--------+---------+
-| Name                     | DSP | Pragma | Variable    | Op  | Impl   | Latency |
-+--------------------------+-----+--------+-------------+-----+--------+---------+
-| + udp                    | 0   |        |             |     |        |         |
-|  + appGetMetaData        | 0   |        |             |     |        |         |
-|    add_ln885_fu_208_p2   | -   |        | add_ln885   | add | fabric | 0       |
-|    add_ln223_fu_224_p2   | -   |        | add_ln223   | add | fabric | 0       |
-|  + udpTxEngine           | 0   |        |             |     |        |         |
-|    add_ln229_fu_526_p2   | -   |        | add_ln229   | add | fabric | 0       |
-|    add_ln229_1_fu_538_p2 | -   |        | add_ln229_1 | add | fabric | 0       |
-+--------------------------+-----+--------+-------------+-----+--------+---------+
++-------------------------+-----+--------+-----------+-----+--------+---------+
+| Name                    | DSP | Pragma | Variable  | Op  | Impl   | Latency |
++-------------------------+-----+--------+-----------+-----+--------+---------+
+| + udp                   | 0   |        |           |     |        |         |
+|  + appGetMetaData       | 0   |        |           |     |        |         |
+|    add_ln273_fu_1494_p2 | -   |        | add_ln273 | add | fabric | 0       |
+|    add_ln269_fu_1510_p2 | -   |        | add_ln269 | add | fabric | 0       |
+|  + udpTxEngine          | 0   |        |           |     |        |         |
+|    add_ln310_fu_774_p2  | -   |        | add_ln310 | add | fabric | 0       |
+|    add_ln311_fu_785_p2  | -   |        | add_ln311 | add | fabric | 0       |
++-------------------------+-----+--------+-----------+-----+--------+---------+
 
 
 ================================================================
@@ -332,44 +324,44 @@
 
 
 ================================================================
-== User Pragma Report
+== Pragma Report
 ================================================================
 * Valid Pragma Syntax
-+-----------------+-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Type            | Options                                       | Location                                                                                                                                                                   |
-+-----------------+-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| inline          |                                               | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/TOE/common_utilities/common_utilities.cpp:178 in len2keep      |
-| pipeline        | II=1                                          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/TOE/common_utilities/common_utilities.cpp:911 in databroadcast |
-| inline          | off                                           | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/TOE/common_utilities/common_utilities.cpp:912 in databroadcast |
-| inline          |                                               | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/TOE/common_utilities/common_utilities.cpp:960 in combine_words |
-| inline          | off                                           | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:47 in tablehandler                                 |
-| pipeline        | II=1                                          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:48 in tablehandler                                 |
-| array_partition | variable=SocketTable complete dim=1           | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:49 in tablehandler, SocketTable                    |
-| disaggregate    | variable=SocketTable                          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:50 in tablehandler, SocketTable                    |
-| inline          | off                                           | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:98 in udprxengine                                  |
-| pipeline        | II=1                                          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:99 in udprxengine                                  |
-| inline          | off                                           | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:196 in rxengpacketdropper                          |
-| pipeline        | II=1                                          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:197 in rxengpacketdropper                          |
-| inline          | off                                           | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:236 in appgetmetadata                              |
-| pipeline        | II=1                                          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:237 in appgetmetadata                              |
-| inline          | off                                           | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:285 in udptxengine                                 |
-| pipeline        | II=1                                          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:286 in udptxengine                                 |
-| dataflow        |                                               | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:420 in udp                                         |
-| interface       | axis register both port=rxUdpDataIn           | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:423 in udp, rxUdpDataIn                            |
-| interface       | axis register both port=txUdpDataOut          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:424 in udp, txUdpDataOut                           |
-| interface       | axis register both port=DataOutApp            | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:425 in udp, DataOutApp                             |
-| interface       | axis register both port=DataInApp             | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:426 in udp, DataInApp                              |
-| interface       | ap_none register port=myIpAddress             | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:428 in udp, myIpAddress                            |
-| interface       | s_axilite port=SocketTable bundle=s_axilite   | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:429 in udp, SocketTable                            |
-| interface       | s_axilite port=numberSockets bundle=s_axilite | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:430 in udp, numberSockets                          |
-| interface       | ap_ctrl_none port=return                      | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:431 in udp, return                                 |
-| stream          | variable=ureDataPayload depth=256             | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:437 in udp, ureDataPayload                         |
-| stream          | variable=agmdDataOut depth=256                | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:440 in udp, agmdDataOut                            |
-| stream          | variable=ureMetaData depth=32                 | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:443 in udp, ureMetaData                            |
-| stream          | variable=rthDropFifo depth=32                 | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:446 in udp, rthDropFifo                            |
-| stream          | variable=agmdIdOut depth=256                  | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:449 in udp, agmdIdOut                              |
-| stream          | variable=agmdpayloadLenOut depth=256          | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:452 in udp, agmdpayloadLenOut                      |
-| stream          | variable=txthMetaData depth=32                | /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/UDP/udp.cpp:456 in udp, txthMetaData                           |
-+-----------------+-----------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------+-----------------------------------------------+-----------------------------------------------------------------------+
+| Type            | Options                                       | Location                                                              |
++-----------------+-----------------------------------------------+-----------------------------------------------------------------------+
+| inline          |                                               | ../hls/TOE/common_utilities/common_utilities.cpp:178 in len2keep      |
+| pipeline        | II=1                                          | ../hls/TOE/common_utilities/common_utilities.cpp:911 in databroadcast |
+| inline          | off                                           | ../hls/TOE/common_utilities/common_utilities.cpp:912 in databroadcast |
+| inline          |                                               | ../hls/TOE/common_utilities/common_utilities.cpp:960 in combine_words |
+| inline          | off                                           | ../hls/UDP/udp.cpp:47 in tablehandler                                 |
+| pipeline        | II=1                                          | ../hls/UDP/udp.cpp:48 in tablehandler                                 |
+| array_partition | variable=SocketTable complete dim=1           | ../hls/UDP/udp.cpp:49 in tablehandler, SocketTable                    |
+| disaggregate    | variable=SocketTable                          | ../hls/UDP/udp.cpp:50 in tablehandler, SocketTable                    |
+| inline          | off                                           | ../hls/UDP/udp.cpp:98 in udprxengine                                  |
+| pipeline        | II=1                                          | ../hls/UDP/udp.cpp:99 in udprxengine                                  |
+| inline          | off                                           | ../hls/UDP/udp.cpp:196 in rxengpacketdropper                          |
+| pipeline        | II=1                                          | ../hls/UDP/udp.cpp:197 in rxengpacketdropper                          |
+| inline          | off                                           | ../hls/UDP/udp.cpp:236 in appgetmetadata                              |
+| pipeline        | II=1                                          | ../hls/UDP/udp.cpp:237 in appgetmetadata                              |
+| inline          | off                                           | ../hls/UDP/udp.cpp:285 in udptxengine                                 |
+| pipeline        | II=1                                          | ../hls/UDP/udp.cpp:286 in udptxengine                                 |
+| dataflow        |                                               | ../hls/UDP/udp.cpp:420 in udp                                         |
+| interface       | axis register both port=rxUdpDataIn           | ../hls/UDP/udp.cpp:423 in udp, rxUdpDataIn                            |
+| interface       | axis register both port=txUdpDataOut          | ../hls/UDP/udp.cpp:424 in udp, txUdpDataOut                           |
+| interface       | axis register both port=DataOutApp            | ../hls/UDP/udp.cpp:425 in udp, DataOutApp                             |
+| interface       | axis register both port=DataInApp             | ../hls/UDP/udp.cpp:426 in udp, DataInApp                              |
+| interface       | ap_none register port=myIpAddress             | ../hls/UDP/udp.cpp:428 in udp, myIpAddress                            |
+| interface       | s_axilite port=SocketTable bundle=s_axilite   | ../hls/UDP/udp.cpp:429 in udp, SocketTable                            |
+| interface       | s_axilite port=numberSockets bundle=s_axilite | ../hls/UDP/udp.cpp:430 in udp, numberSockets                          |
+| interface       | ap_ctrl_none port=return                      | ../hls/UDP/udp.cpp:431 in udp, return                                 |
+| stream          | variable=ureDataPayload depth=256             | ../hls/UDP/udp.cpp:437 in udp, ureDataPayload                         |
+| stream          | variable=agmdDataOut depth=256                | ../hls/UDP/udp.cpp:440 in udp, agmdDataOut                            |
+| stream          | variable=ureMetaData depth=32                 | ../hls/UDP/udp.cpp:443 in udp, ureMetaData                            |
+| stream          | variable=rthDropFifo depth=32                 | ../hls/UDP/udp.cpp:446 in udp, rthDropFifo                            |
+| stream          | variable=agmdIdOut depth=256                  | ../hls/UDP/udp.cpp:449 in udp, agmdIdOut                              |
+| stream          | variable=agmdpayloadLenOut depth=256          | ../hls/UDP/udp.cpp:452 in udp, agmdpayloadLenOut                      |
+| stream          | variable=txthMetaData depth=32                | ../hls/UDP/udp.cpp:456 in udp, txthMetaData                           |
++-----------------+-----------------------------------------------+-----------------------------------------------------------------------+
 
 

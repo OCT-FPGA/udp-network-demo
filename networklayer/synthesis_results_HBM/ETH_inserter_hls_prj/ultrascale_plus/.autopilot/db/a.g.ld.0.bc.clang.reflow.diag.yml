@@ -1,0 +1,112 @@
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp, 
+                   Line: 282, Column: 21 }
+Function:        _Z30compute_and_insert_ip_checksumRN3hls6streamI7my_axisILi512EELi0EEES4_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_282_3
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp, 
+                   Line: 275, Column: 21 }
+Function:        _Z30compute_and_insert_ip_checksumRN3hls6streamI7my_axisILi512EELi0EEES4_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_275_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp, 
+                   Line: 269, Column: 21 }
+Function:        _Z30compute_and_insert_ip_checksumRN3hls6streamI7my_axisILi512EELi0EEES4_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_269_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp, 
+                   Line: 255, Column: 13 }
+Function:        _Z30compute_and_insert_ip_checksumRN3hls6streamI7my_axisILi512EELi0EEES4_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        data_ops
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp, 
+                   Line: 229, Column: 0 }
+Function:        _Z30compute_and_insert_ip_checksumRN3hls6streamI7my_axisILi512EELi0EEES4_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_282_3
+  - String:          ''' ('
+  - LoopLoc:         '/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:282:21'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          compute_and_insert_ip_checksum
+  - String:          ''' completely with a factor of '
+  - Factor:          '4'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp, 
+                   Line: 229, Column: 0 }
+Function:        _Z30compute_and_insert_ip_checksumRN3hls6streamI7my_axisILi512EELi0EEES4_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_275_2
+  - String:          ''' ('
+  - LoopLoc:         '/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:275:21'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          compute_and_insert_ip_checksum
+  - String:          ''' completely with a factor of '
+  - Factor:          '7'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp, 
+                   Line: 229, Column: 0 }
+Function:        _Z30compute_and_insert_ip_checksumRN3hls6streamI7my_axisILi512EELi0EEES4_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_269_1
+  - String:          ''' ('
+  - LoopLoc:         '/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:269:21'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          compute_and_insert_ip_checksum
+  - String:          ''' completely with a factor of '
+  - Factor:          '15'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp, 
+                   Line: 229, Column: 0 }
+Function:        _Z30compute_and_insert_ip_checksumRN3hls6streamI7my_axisILi512EELi0EEES4_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        data_ops
+  - String:          ''' ('
+  - LoopLoc:         '/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:255:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          compute_and_insert_ip_checksum
+  - String:          ''' completely with a factor of '
+  - Factor:          '30'
+...

@@ -1,12 +1,12 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'rxEngPacketDropper'" level="0">
-<item name = "Date">Wed Mar  8 19:15:06 2023
+<item name = "Date">Fri Sep  8 14:09:03 2023
 </item>
-<item name = "Version">2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)</item>
+<item name = "Version">2023.1 (Build 3854077 on May  4 2023)</item>
 <item name = "Project">UDP_prj</item>
 <item name = "Solution">ultrascale_plus (Vivado IP Flow Target)</item>
-<item name = "Product family">virtexuplus</item>
+<item name = "Product family">virtexuplusHBM</item>
 <item name = "Target device">xcu280-fsvh2892-2L-e</item>
 </section>
 
@@ -81,14 +81,14 @@
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
 <column name="ap_block_state2_io">and, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state3_io">and, 0, 0, 2, 1, 1</column>
-<column name="ap_condition_176">and, 0, 0, 2, 1, 1</column>
-<column name="ap_condition_179">and, 0, 0, 2, 1, 1</column>
-<column name="ap_predicate_op19_read_state1">and, 0, 0, 2, 1, 1</column>
-<column name="ap_predicate_op37_read_state1">and, 0, 0, 2, 1, 1</column>
-<column name="ap_predicate_op53_write_state2">and, 0, 0, 2, 1, 1</column>
-<column name="ap_predicate_op54_write_state3">and, 0, 0, 2, 1, 1</column>
-<column name="tmp_i_179_nbreadreq_fu_112_p3">and, 0, 0, 2, 1, 0</column>
-<column name="tmp_i_nbreadreq_fu_98_p3">and, 0, 0, 2, 1, 0</column>
+<column name="ap_condition_180">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_183">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op20_read_state1">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op38_read_state1">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op54_write_state2">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op55_write_state3">and, 0, 0, 2, 1, 1</column>
+<column name="tmp_i_184_nbreadreq_fu_120_p3">and, 0, 0, 2, 1, 0</column>
+<column name="tmp_i_nbreadreq_fu_106_p3">and, 0, 0, 2, 1, 0</column>
 <column name="ap_block_pp0_stage0_01001">or, 0, 0, 2, 1, 1</column>
 <column name="ap_block_pp0_stage0_11001">or, 0, 0, 2, 1, 1</column>
 <column name="ap_block_state1_pp0_stage0_iter0">or, 0, 0, 2, 1, 1</column>
@@ -110,22 +110,22 @@
 <column name="ap_done_reg">1, 0, 1, 0</column>
 <column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
 <column name="ap_enable_reg_pp0_iter2">1, 0, 1, 0</column>
-<column name="currWord_data_V_reg_328">512, 0, 512, 0</column>
-<column name="currWord_keep_V_reg_333">64, 0, 64, 0</column>
-<column name="currWord_last_V_reg_338">1, 0, 1, 0</column>
+<column name="currWord_data_reg_336">512, 0, 512, 0</column>
+<column name="currWord_keep_reg_341">64, 0, 64, 0</column>
+<column name="currWord_last_reg_346">1, 0, 1, 0</column>
 <column name="repd_state">1, 0, 1, 0</column>
-<column name="repd_state_load_reg_313">1, 0, 1, 0</column>
-<column name="repd_state_load_reg_313_pp0_iter1_reg">1, 0, 1, 0</column>
-<column name="response_drop_V">1, 0, 1, 0</column>
-<column name="response_drop_V_load_reg_317">1, 0, 1, 0</column>
-<column name="response_drop_V_load_reg_317_pp0_iter1_reg">1, 0, 1, 0</column>
-<column name="response_id_V">16, 0, 16, 0</column>
-<column name="response_user_myIP_V">32, 0, 32, 0</column>
-<column name="response_user_myPort_V">16, 0, 16, 0</column>
-<column name="response_user_theirIP_V">32, 0, 32, 0</column>
-<column name="response_user_theirPort_V">16, 0, 16, 0</column>
-<column name="tmp_i_179_reg_324">1, 0, 1, 0</column>
-<column name="tmp_i_179_reg_324_pp0_iter1_reg">1, 0, 1, 0</column>
+<column name="repd_state_load_reg_321">1, 0, 1, 0</column>
+<column name="repd_state_load_reg_321_pp0_iter1_reg">1, 0, 1, 0</column>
+<column name="response_drop">1, 0, 1, 0</column>
+<column name="response_drop_load_reg_325">1, 0, 1, 0</column>
+<column name="response_drop_load_reg_325_pp0_iter1_reg">1, 0, 1, 0</column>
+<column name="response_id">16, 0, 16, 0</column>
+<column name="response_user_myIP">32, 0, 32, 0</column>
+<column name="response_user_myPort">16, 0, 16, 0</column>
+<column name="response_user_theirIP">32, 0, 32, 0</column>
+<column name="response_user_theirPort">16, 0, 16, 0</column>
+<column name="tmp_i_184_reg_332">1, 0, 1, 0</column>
+<column name="tmp_i_184_reg_332_pp0_iter1_reg">1, 0, 1, 0</column>
 </table>
 </item>
 </section>
@@ -143,9 +143,13 @@
 <column name="ap_idle">out, 1, ap_ctrl_hs, rxEngPacketDropper, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, rxEngPacketDropper, return value</column>
 <column name="rthDropFifo_dout">in, 160, ap_fifo, rthDropFifo, pointer</column>
+<column name="rthDropFifo_num_data_valid">in, 6, ap_fifo, rthDropFifo, pointer</column>
+<column name="rthDropFifo_fifo_cap">in, 6, ap_fifo, rthDropFifo, pointer</column>
 <column name="rthDropFifo_empty_n">in, 1, ap_fifo, rthDropFifo, pointer</column>
 <column name="rthDropFifo_read">out, 1, ap_fifo, rthDropFifo, pointer</column>
 <column name="ureDataPayload_dout">in, 1024, ap_fifo, ureDataPayload, pointer</column>
+<column name="ureDataPayload_num_data_valid">in, 9, ap_fifo, ureDataPayload, pointer</column>
+<column name="ureDataPayload_fifo_cap">in, 9, ap_fifo, ureDataPayload, pointer</column>
 <column name="ureDataPayload_empty_n">in, 1, ap_fifo, ureDataPayload, pointer</column>
 <column name="ureDataPayload_read">out, 1, ap_fifo, ureDataPayload, pointer</column>
 <column name="DataOutApp_TREADY">in, 1, axis, DataOutApp_V_dest_V, pointer</column>

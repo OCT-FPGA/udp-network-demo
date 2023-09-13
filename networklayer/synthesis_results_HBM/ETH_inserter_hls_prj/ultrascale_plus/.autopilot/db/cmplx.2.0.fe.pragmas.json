@@ -1,0 +1,65 @@
+{
+  "0": {
+    "basicblocks": 7,
+    "calls": "1 2 3",
+    "file": "ethernet_header_inserter.cpp",
+    "fileloc": 308,
+    "instructions": 45,
+    "loads": {
+      "G": 3
+    },
+    "name": "ethernet_header_inserter",
+    "stores": {
+      "G": 3
+    },
+    "total_instructions": 1224
+  },
+  "1": {
+    "basicblocks": 15,
+    "calls": "",
+    "file": "ethernet_header_inserter.cpp",
+    "fileloc": 33,
+    "instructions": 92,
+    "loads": {
+      "G": 1,
+      "L": 10
+    },
+    "name": "broadcaster_and_mac_request",
+    "stores": {
+      "G": 2
+    },
+    "total_instructions": 92
+  },
+  "2": {
+    "basicblocks": 131,
+    "calls": "",
+    "file": "ethernet_header_inserter.cpp",
+    "fileloc": 226,
+    "instructions": 847,
+    "loads": {
+      "G": 76
+    },
+    "name": "compute_and_insert_ip_checksum",
+    "stores": {
+      "G": 104
+    },
+    "total_instructions": 847
+  },
+  "3": {
+    "basicblocks": 40,
+    "calls": "",
+    "file": "ethernet_header_inserter.cpp",
+    "fileloc": 85,
+    "instructions": 240,
+    "loads": {
+      "G": 9,
+      "L": 1
+    },
+    "name": "handle_output",
+    "stores": {
+      "G": 21,
+      "L": 21
+    },
+    "total_instructions": 240
+  }
+}

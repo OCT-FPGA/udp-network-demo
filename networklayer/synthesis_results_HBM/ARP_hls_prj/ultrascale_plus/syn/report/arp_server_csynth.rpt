@@ -3,12 +3,12 @@
 ================================================================
 == Vitis HLS Report for 'arp_server'
 ================================================================
-* Date:           Wed Mar  8 19:14:18 2023
+* Date:           Fri Sep  8 14:08:18 2023
 
-* Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+* Version:        2023.1 (Build 3854077 on May  4 2023)
 * Project:        ARP_hls_prj
 * Solution:       ultrascale_plus (Vivado IP Flow Target)
-* Product family: virtexuplus
+* Product family: virtexuplusHBM
 * Target device:  xcu280-fsvh2892-2L-e
 
 
@@ -20,7 +20,7 @@
     +--------+---------+----------+------------+
     |  Clock |  Target | Estimated| Uncertainty|
     +--------+---------+----------+------------+
-    |ap_clk  |  3.10 ns|  2.612 ns|     0.20 ns|
+    |ap_clk  |  3.10 ns|  2.633 ns|     0.20 ns|
     +--------+---------+----------+------------+
 
 + Latency: 
@@ -60,12 +60,12 @@
 |DSP                  |        -|     -|        -|        -|    -|
 |Expression           |        -|     -|        -|        -|    -|
 |FIFO                 |        -|     -|      186|      570|    -|
-|Instance             |        3|     -|     1000|     1195|    0|
+|Instance             |        3|     -|     1027|     1341|    0|
 |Memory               |        -|     -|        -|        -|    -|
 |Multiplexer          |        -|     -|        -|        -|    -|
 |Register             |        -|     -|        -|        -|    -|
 +---------------------+---------+------+---------+---------+-----+
-|Total                |        3|     0|     1186|     1765|    0|
+|Total                |        3|     0|     1213|     1911|    0|
 +---------------------+---------+------+---------+---------+-----+
 |Available SLR        |     1344|  3008|   869120|   434560|  320|
 +---------------------+---------+------+---------+---------+-----+
@@ -81,14 +81,14 @@
     +---------------------+------------------+---------+----+-----+-----+-----+
     |       Instance      |      Module      | BRAM_18K| DSP|  FF | LUT | URAM|
     +---------------------+------------------+---------+----+-----+-----+-----+
-    |arp_pkg_receiver_U0  |arp_pkg_receiver  |        0|   0|  219|  113|    0|
-    |arp_pkg_sender_U0    |arp_pkg_sender    |        0|   0|  234|  242|    0|
-    |arp_table_U0         |arp_table         |        0|   0|   83|  268|    0|
+    |arp_pkg_receiver_U0  |arp_pkg_receiver  |        0|   0|  251|  185|    0|
+    |arp_pkg_sender_U0    |arp_pkg_sender    |        0|   0|  234|  261|    0|
+    |arp_table_U0         |arp_table         |        0|   0|   83|  287|    0|
     |entry_proc_U0        |entry_proc        |        0|   0|    3|   65|    0|
-    |genARPDiscovery_U0   |genARPDiscovery   |        0|   0|  170|  251|    0|
-    |s_axilite_s_axi_U    |s_axilite_s_axi   |        3|   0|  291|  256|    0|
+    |genARPDiscovery_U0   |genARPDiscovery   |        0|   0|  170|  280|    0|
+    |s_axilite_s_axi_U    |s_axilite_s_axi   |        3|   0|  286|  263|    0|
     +---------------------+------------------+---------+----+-----+-----+-----+
-    |Total                |                  |        3|   0| 1000| 1195|    0|
+    |Total                |                  |        3|   0| 1027| 1341|    0|
     +---------------------+------------------+---------+----+-----+-----+-----+
 
     * DSP: 
@@ -135,24 +135,23 @@
 +-------------------------+-----+-----+--------------+---------------------+--------------+
 |        RTL Ports        | Dir | Bits|   Protocol   |    Source Object    |    C Type    |
 +-------------------------+-----+-----+--------------+---------------------+--------------+
-|s_axi_s_axilite_AWVALID  |   in|    1|         s_axi|            s_axilite|        scalar|
-|s_axi_s_axilite_AWREADY  |  out|    1|         s_axi|            s_axilite|        scalar|
-|s_axi_s_axilite_AWADDR   |   in|   12|         s_axi|            s_axilite|        scalar|
-|s_axi_s_axilite_WVALID   |   in|    1|         s_axi|            s_axilite|        scalar|
-|s_axi_s_axilite_WREADY   |  out|    1|         s_axi|            s_axilite|        scalar|
-|s_axi_s_axilite_WDATA    |   in|   32|         s_axi|            s_axilite|        scalar|
-|s_axi_s_axilite_WSTRB    |   in|    4|         s_axi|            s_axilite|        scalar|
-|s_axi_s_axilite_ARVALID  |   in|    1|         s_axi|            s_axilite|        scalar|
-|s_axi_s_axilite_ARREADY  |  out|    1|         s_axi|            s_axilite|        scalar|
-|s_axi_s_axilite_ARADDR   |   in|   12|         s_axi|            s_axilite|        scalar|
-|s_axi_s_axilite_RVALID   |  out|    1|         s_axi|            s_axilite|        scalar|
-|s_axi_s_axilite_RREADY   |   in|    1|         s_axi|            s_axilite|        scalar|
-|s_axi_s_axilite_RDATA    |  out|   32|         s_axi|            s_axilite|        scalar|
-|s_axi_s_axilite_RRESP    |  out|    2|         s_axi|            s_axilite|        scalar|
-|s_axi_s_axilite_BVALID   |  out|    1|         s_axi|            s_axilite|        scalar|
-|s_axi_s_axilite_BREADY   |   in|    1|         s_axi|            s_axilite|        scalar|
-|s_axi_s_axilite_BRESP    |  out|    2|         s_axi|            s_axilite|        scalar|
-|ap_local_block           |  out|    1|  ap_ctrl_none|           arp_server|  return value|
+|s_axi_s_axilite_AWVALID  |   in|    1|         s_axi|            s_axilite|         array|
+|s_axi_s_axilite_AWREADY  |  out|    1|         s_axi|            s_axilite|         array|
+|s_axi_s_axilite_AWADDR   |   in|   12|         s_axi|            s_axilite|         array|
+|s_axi_s_axilite_WVALID   |   in|    1|         s_axi|            s_axilite|         array|
+|s_axi_s_axilite_WREADY   |  out|    1|         s_axi|            s_axilite|         array|
+|s_axi_s_axilite_WDATA    |   in|   32|         s_axi|            s_axilite|         array|
+|s_axi_s_axilite_WSTRB    |   in|    4|         s_axi|            s_axilite|         array|
+|s_axi_s_axilite_ARVALID  |   in|    1|         s_axi|            s_axilite|         array|
+|s_axi_s_axilite_ARREADY  |  out|    1|         s_axi|            s_axilite|         array|
+|s_axi_s_axilite_ARADDR   |   in|   12|         s_axi|            s_axilite|         array|
+|s_axi_s_axilite_RVALID   |  out|    1|         s_axi|            s_axilite|         array|
+|s_axi_s_axilite_RREADY   |   in|    1|         s_axi|            s_axilite|         array|
+|s_axi_s_axilite_RDATA    |  out|   32|         s_axi|            s_axilite|         array|
+|s_axi_s_axilite_RRESP    |  out|    2|         s_axi|            s_axilite|         array|
+|s_axi_s_axilite_BVALID   |  out|    1|         s_axi|            s_axilite|         array|
+|s_axi_s_axilite_BREADY   |   in|    1|         s_axi|            s_axilite|         array|
+|s_axi_s_axilite_BRESP    |  out|    2|         s_axi|            s_axilite|         array|
 |ap_clk                   |   in|    1|  ap_ctrl_none|           arp_server|  return value|
 |ap_rst_n                 |   in|    1|  ap_ctrl_none|           arp_server|  return value|
 |arpDataIn_TDATA          |   in|  512|          axis|   arpDataIn_V_data_V|       pointer|

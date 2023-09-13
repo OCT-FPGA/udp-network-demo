@@ -1,12 +1,12 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'arp_server'" level="0">
-<item name = "Date">Wed Mar  8 19:14:18 2023
+<item name = "Date">Fri Sep  8 14:08:18 2023
 </item>
-<item name = "Version">2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)</item>
+<item name = "Version">2023.1 (Build 3854077 on May  4 2023)</item>
 <item name = "Project">ARP_hls_prj</item>
 <item name = "Solution">ultrascale_plus (Vivado IP Flow Target)</item>
-<item name = "Product family">virtexuplus</item>
+<item name = "Product family">virtexuplusHBM</item>
 <item name = "Target device">xcu280-fsvh2892-2L-e</item>
 </section>
 
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">3.10 ns, 2.612 ns, 0.20 ns</column>
+<column name="ap_clk">3.10 ns, 2.633 ns, 0.20 ns</column>
 </table>
 </item>
 </section>
@@ -54,7 +54,7 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, -, -, -</column>
 <column name="FIFO">-, -, 186, 570, -</column>
-<column name="Instance">3, -, 1000, 1195, 0</column>
+<column name="Instance">3, -, 1027, 1341, 0</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, -, -</column>
 <column name="Register">-, -, -, -, -</column>
@@ -68,12 +68,12 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="arp_pkg_receiver_U0">arp_pkg_receiver, 0, 0, 219, 113, 0</column>
-<column name="arp_pkg_sender_U0">arp_pkg_sender, 0, 0, 234, 242, 0</column>
-<column name="arp_table_U0">arp_table, 0, 0, 83, 268, 0</column>
+<column name="arp_pkg_receiver_U0">arp_pkg_receiver, 0, 0, 251, 185, 0</column>
+<column name="arp_pkg_sender_U0">arp_pkg_sender, 0, 0, 234, 261, 0</column>
+<column name="arp_table_U0">arp_table, 0, 0, 83, 287, 0</column>
 <column name="entry_proc_U0">entry_proc, 0, 0, 3, 65, 0</column>
-<column name="genARPDiscovery_U0">genARPDiscovery, 0, 0, 170, 251, 0</column>
-<column name="s_axilite_s_axi_U">s_axilite_s_axi, 3, 0, 291, 256, 0</column>
+<column name="genARPDiscovery_U0">genARPDiscovery, 0, 0, 170, 280, 0</column>
+<column name="s_axilite_s_axi_U">s_axilite_s_axi, 3, 0, 286, 263, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -119,24 +119,23 @@
 <section name = "Interface" level="0">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
-<column name="s_axi_s_axilite_AWVALID">in, 1, s_axi, s_axilite, scalar</column>
-<column name="s_axi_s_axilite_AWREADY">out, 1, s_axi, s_axilite, scalar</column>
-<column name="s_axi_s_axilite_AWADDR">in, 12, s_axi, s_axilite, scalar</column>
-<column name="s_axi_s_axilite_WVALID">in, 1, s_axi, s_axilite, scalar</column>
-<column name="s_axi_s_axilite_WREADY">out, 1, s_axi, s_axilite, scalar</column>
-<column name="s_axi_s_axilite_WDATA">in, 32, s_axi, s_axilite, scalar</column>
-<column name="s_axi_s_axilite_WSTRB">in, 4, s_axi, s_axilite, scalar</column>
-<column name="s_axi_s_axilite_ARVALID">in, 1, s_axi, s_axilite, scalar</column>
-<column name="s_axi_s_axilite_ARREADY">out, 1, s_axi, s_axilite, scalar</column>
-<column name="s_axi_s_axilite_ARADDR">in, 12, s_axi, s_axilite, scalar</column>
-<column name="s_axi_s_axilite_RVALID">out, 1, s_axi, s_axilite, scalar</column>
-<column name="s_axi_s_axilite_RREADY">in, 1, s_axi, s_axilite, scalar</column>
-<column name="s_axi_s_axilite_RDATA">out, 32, s_axi, s_axilite, scalar</column>
-<column name="s_axi_s_axilite_RRESP">out, 2, s_axi, s_axilite, scalar</column>
-<column name="s_axi_s_axilite_BVALID">out, 1, s_axi, s_axilite, scalar</column>
-<column name="s_axi_s_axilite_BREADY">in, 1, s_axi, s_axilite, scalar</column>
-<column name="s_axi_s_axilite_BRESP">out, 2, s_axi, s_axilite, scalar</column>
-<column name="ap_local_block">out, 1, ap_ctrl_none, arp_server, return value</column>
+<column name="s_axi_s_axilite_AWVALID">in, 1, s_axi, s_axilite, array</column>
+<column name="s_axi_s_axilite_AWREADY">out, 1, s_axi, s_axilite, array</column>
+<column name="s_axi_s_axilite_AWADDR">in, 12, s_axi, s_axilite, array</column>
+<column name="s_axi_s_axilite_WVALID">in, 1, s_axi, s_axilite, array</column>
+<column name="s_axi_s_axilite_WREADY">out, 1, s_axi, s_axilite, array</column>
+<column name="s_axi_s_axilite_WDATA">in, 32, s_axi, s_axilite, array</column>
+<column name="s_axi_s_axilite_WSTRB">in, 4, s_axi, s_axilite, array</column>
+<column name="s_axi_s_axilite_ARVALID">in, 1, s_axi, s_axilite, array</column>
+<column name="s_axi_s_axilite_ARREADY">out, 1, s_axi, s_axilite, array</column>
+<column name="s_axi_s_axilite_ARADDR">in, 12, s_axi, s_axilite, array</column>
+<column name="s_axi_s_axilite_RVALID">out, 1, s_axi, s_axilite, array</column>
+<column name="s_axi_s_axilite_RREADY">in, 1, s_axi, s_axilite, array</column>
+<column name="s_axi_s_axilite_RDATA">out, 32, s_axi, s_axilite, array</column>
+<column name="s_axi_s_axilite_RRESP">out, 2, s_axi, s_axilite, array</column>
+<column name="s_axi_s_axilite_BVALID">out, 1, s_axi, s_axilite, array</column>
+<column name="s_axi_s_axilite_BREADY">in, 1, s_axi, s_axilite, array</column>
+<column name="s_axi_s_axilite_BRESP">out, 2, s_axi, s_axilite, array</column>
 <column name="ap_clk">in, 1, ap_ctrl_none, arp_server, return value</column>
 <column name="ap_rst_n">in, 1, ap_ctrl_none, arp_server, return value</column>
 <column name="arpDataIn_TDATA">in, 512, axis, arpDataIn_V_data_V, pointer</column>

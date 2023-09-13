@@ -18,7 +18,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_ip_header_out \
     op interface \
-    ports { ip_header_out_dout { I 1024 vector } ip_header_out_empty_n { I 1 bit } ip_header_out_read { O 1 bit } } \
+    ports { ip_header_out_dout { I 1024 vector } ip_header_out_num_data_valid { I 5 vector } ip_header_out_fifo_cap { I 5 vector } ip_header_out_empty_n { I 1 bit } ip_header_out_read { O 1 bit } } \
 } "
 }
 
@@ -33,7 +33,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_ip_header_checksum \
     op interface \
-    ports { ip_header_checksum_din { O 1024 vector } ip_header_checksum_full_n { I 1 bit } ip_header_checksum_write { O 1 bit } } \
+    ports { ip_header_checksum_din { O 1024 vector } ip_header_checksum_num_data_valid { I 5 vector } ip_header_checksum_fifo_cap { I 5 vector } ip_header_checksum_full_n { I 1 bit } ip_header_checksum_write { O 1 bit } } \
 } "
 }
 

@@ -9,6 +9,9 @@ set isOneStateSeq 0
 set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
+set hasInterrupt 0
+set DLRegFirstOffset 0
+set DLRegItemOffset 0
 set C_modelName {broadcaster_and_mac_request}
 set C_modelType { void 0 }
 set C_modelArgList {
@@ -22,6 +25,7 @@ set C_modelArgList {
 	{ ip_header_out int 1024 regular {fifo 1 volatile } {global 1}  }
 	{ no_ip_header_out int 1024 regular {fifo 1 volatile } {global 1}  }
 }
+set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "dataIn_V_data_V", "interface" : "axis", "bitwidth" : 512, "direction" : "READONLY"} , 
  	{ "Name" : "dataIn_V_keep_V", "interface" : "axis", "bitwidth" : 64, "direction" : "READONLY"} , 
@@ -33,7 +37,7 @@ set C_modelArgMapList {[
  	{ "Name" : "ip_header_out", "interface" : "fifo", "bitwidth" : 1024, "direction" : "WRITEONLY", "extern" : 0} , 
  	{ "Name" : "no_ip_header_out", "interface" : "fifo", "bitwidth" : 1024, "direction" : "WRITEONLY", "extern" : 0} ]}
 # RTL Port declarations: 
-set portNum 27
+set portNum 31
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -46,9 +50,13 @@ set portList {
 	{ dataIn_TVALID sc_in sc_logic 1 invld 3 } 
 	{ arpTableRequest_TREADY sc_in sc_logic 1 outacc 4 } 
 	{ ip_header_out_din sc_out sc_lv 1024 signal 7 } 
+	{ ip_header_out_num_data_valid sc_in sc_lv 5 signal 7 } 
+	{ ip_header_out_fifo_cap sc_in sc_lv 5 signal 7 } 
 	{ ip_header_out_full_n sc_in sc_logic 1 signal 7 } 
 	{ ip_header_out_write sc_out sc_logic 1 signal 7 } 
 	{ no_ip_header_out_din sc_out sc_lv 1024 signal 8 } 
+	{ no_ip_header_out_num_data_valid sc_in sc_lv 5 signal 8 } 
+	{ no_ip_header_out_fifo_cap sc_in sc_lv 5 signal 8 } 
 	{ no_ip_header_out_full_n sc_in sc_logic 1 signal 8 } 
 	{ no_ip_header_out_write sc_out sc_logic 1 signal 8 } 
 	{ start_out sc_out sc_logic 1 signal -1 } 
@@ -75,9 +83,13 @@ set NewPortList {[
  	{ "name": "dataIn_TVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "dataIn_V_last_V", "role": "default" }} , 
  	{ "name": "arpTableRequest_TREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "arpTableRequest", "role": "TREADY" }} , 
  	{ "name": "ip_header_out_din", "direction": "out", "datatype": "sc_lv", "bitwidth":1024, "type": "signal", "bundle":{"name": "ip_header_out", "role": "din" }} , 
+ 	{ "name": "ip_header_out_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":5, "type": "signal", "bundle":{"name": "ip_header_out", "role": "num_data_valid" }} , 
+ 	{ "name": "ip_header_out_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":5, "type": "signal", "bundle":{"name": "ip_header_out", "role": "fifo_cap" }} , 
  	{ "name": "ip_header_out_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ip_header_out", "role": "full_n" }} , 
  	{ "name": "ip_header_out_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ip_header_out", "role": "write" }} , 
  	{ "name": "no_ip_header_out_din", "direction": "out", "datatype": "sc_lv", "bitwidth":1024, "type": "signal", "bundle":{"name": "no_ip_header_out", "role": "din" }} , 
+ 	{ "name": "no_ip_header_out_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":5, "type": "signal", "bundle":{"name": "no_ip_header_out", "role": "num_data_valid" }} , 
+ 	{ "name": "no_ip_header_out_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":5, "type": "signal", "bundle":{"name": "no_ip_header_out", "role": "fifo_cap" }} , 
  	{ "name": "no_ip_header_out_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "no_ip_header_out", "role": "full_n" }} , 
  	{ "name": "no_ip_header_out_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "no_ip_header_out", "role": "write" }} , 
  	{ "name": "start_out", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "start_out", "role": "default" }} , 
@@ -108,12 +120,12 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "1",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "dataIn_V_data_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "dataIn_V_data_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "dataIn",
 				"BlockSignal" : [
 					{"Name" : "dataIn_TDATA_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "dataIn_V_keep_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "dataIn_V_strb_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "dataIn_V_last_V", "Type" : "Axis", "Direction" : "I"},
+			{"Name" : "dataIn_V_keep_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "dataIn"},
+			{"Name" : "dataIn_V_strb_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "dataIn"},
+			{"Name" : "dataIn_V_last_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "dataIn"},
 			{"Name" : "arpTableRequest", "Type" : "Axis", "Direction" : "O",
 				"BlockSignal" : [
 					{"Name" : "arpTableRequest_TDATA_blk_n", "Type" : "RtlSignal"}]},
@@ -165,6 +177,6 @@ set Spec2ImplPortList {
 	arpTableRequest { axis {  { arpTableRequest_TREADY out_acc 0 1 }  { arpTableRequest_TDATA out_data 1 32 }  { arpTableRequest_TVALID out_vld 1 1 } } }
 	regSubNetMask { ap_none {  { regSubNetMask in_data 0 32 } } }
 	regDefaultGateway { ap_none {  { regDefaultGateway in_data 0 32 } } }
-	ip_header_out { ap_fifo {  { ip_header_out_din fifo_data 1 1024 }  { ip_header_out_full_n fifo_status 0 1 }  { ip_header_out_write fifo_update 1 1 } } }
-	no_ip_header_out { ap_fifo {  { no_ip_header_out_din fifo_data 1 1024 }  { no_ip_header_out_full_n fifo_status 0 1 }  { no_ip_header_out_write fifo_update 1 1 } } }
+	ip_header_out { ap_fifo {  { ip_header_out_din fifo_port_we 1 1024 }  { ip_header_out_num_data_valid fifo_status_num_data_valid 0 5 }  { ip_header_out_fifo_cap fifo_update 0 5 }  { ip_header_out_full_n fifo_status 0 1 }  { ip_header_out_write fifo_data 1 1 } } }
+	no_ip_header_out { ap_fifo {  { no_ip_header_out_din fifo_port_we 1 1024 }  { no_ip_header_out_num_data_valid fifo_status_num_data_valid 0 5 }  { no_ip_header_out_fifo_cap fifo_update 0 5 }  { no_ip_header_out_full_n fifo_status 0 1 }  { no_ip_header_out_write fifo_data 1 1 } } }
 }

@@ -1,21 +1,21 @@
-#include <systemc>
-#include <iostream>
-#include <cstdlib>
-#include <cstddef>
-#include <stdint.h>
-#include "SysCFileHandler.h"
-#include "ap_int.h"
-#include "ap_fixed.h"
-#include <complex>
-#include <stdbool.h>
-#include "autopilot_cbe.h"
-#include "hls_stream.h"
-#include "hls_half.h"
 #include "hls_signal_handler.h"
+#include <algorithm>
+#include <complex>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <exception>
+#include <fstream>
+#include <iomanip>
+#include <iostream>
+#include <map>
+#include "ap_fixed.h"
+#include "ap_int.h"
+#include "autopilot_cbe.h"
+#include "hls_half.h"
+#include "hls_stream.h"
 
 using namespace std;
-using namespace sc_core;
-using namespace sc_dt;
 
 // wrapc file define:
 #define AUTOTB_TVIN_arpDataIn_V_data_V "../tv/cdatafile/c.arp_server.autotvin_arpDataIn_V_data_V.dat"
@@ -34,12 +34,9 @@ using namespace sc_dt;
 #define WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_strb_V "../tv/stream_size/stream_ingress_status_arpDataIn_V_strb_V.dat"
 #define WRAPC_STREAM_SIZE_IN_arpDataIn_V_last_V "../tv/stream_size/stream_size_in_arpDataIn_V_last_V.dat"
 #define WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_last_V "../tv/stream_size/stream_ingress_status_arpDataIn_V_last_V.dat"
-// wrapc file define:
 #define AUTOTB_TVIN_macIpEncode_req "../tv/cdatafile/c.arp_server.autotvin_macIpEncode_req.dat"
-#define AUTOTB_TVOUT_macIpEncode_req "../tv/cdatafile/c.arp_server.autotvout_macIpEncode_req.dat"
 #define WRAPC_STREAM_SIZE_IN_macIpEncode_req "../tv/stream_size/stream_size_in_macIpEncode_req.dat"
 #define WRAPC_STREAM_INGRESS_STATUS_macIpEncode_req "../tv/stream_size/stream_ingress_status_macIpEncode_req.dat"
-// wrapc file define:
 #define AUTOTB_TVIN_arpDataOut_V_data_V "../tv/cdatafile/c.arp_server.autotvin_arpDataOut_V_data_V.dat"
 #define AUTOTB_TVOUT_arpDataOut_V_data_V "../tv/cdatafile/c.arp_server.autotvout_arpDataOut_V_data_V.dat"
 #define AUTOTB_TVIN_arpDataOut_V_keep_V "../tv/cdatafile/c.arp_server.autotvin_arpDataOut_V_keep_V.dat"
@@ -56,1533 +53,1535 @@ using namespace sc_dt;
 #define WRAPC_STREAM_EGRESS_STATUS_arpDataOut_V_strb_V "../tv/stream_size/stream_egress_status_arpDataOut_V_strb_V.dat"
 #define WRAPC_STREAM_SIZE_OUT_arpDataOut_V_last_V "../tv/stream_size/stream_size_out_arpDataOut_V_last_V.dat"
 #define WRAPC_STREAM_EGRESS_STATUS_arpDataOut_V_last_V "../tv/stream_size/stream_egress_status_arpDataOut_V_last_V.dat"
-// wrapc file define:
-#define AUTOTB_TVIN_macIpEncode_rsp "../tv/cdatafile/c.arp_server.autotvin_macIpEncode_rsp.dat"
 #define AUTOTB_TVOUT_macIpEncode_rsp "../tv/cdatafile/c.arp_server.autotvout_macIpEncode_rsp.dat"
 #define WRAPC_STREAM_SIZE_OUT_macIpEncode_rsp "../tv/stream_size/stream_size_out_macIpEncode_rsp.dat"
 #define WRAPC_STREAM_EGRESS_STATUS_macIpEncode_rsp "../tv/stream_size/stream_egress_status_macIpEncode_rsp.dat"
-// wrapc file define:
 #define AUTOTB_TVIN_arpTable_macAddress "../tv/cdatafile/c.arp_server.autotvin_arpTable_macAddress.dat"
 #define AUTOTB_TVOUT_arpTable_macAddress "../tv/cdatafile/c.arp_server.autotvout_arpTable_macAddress.dat"
-// wrapc file define:
 #define AUTOTB_TVIN_arpTable_ipAddress "../tv/cdatafile/c.arp_server.autotvin_arpTable_ipAddress.dat"
 #define AUTOTB_TVOUT_arpTable_ipAddress "../tv/cdatafile/c.arp_server.autotvout_arpTable_ipAddress.dat"
-// wrapc file define:
 #define AUTOTB_TVIN_arpTable_valid "../tv/cdatafile/c.arp_server.autotvin_arpTable_valid.dat"
 #define AUTOTB_TVOUT_arpTable_valid "../tv/cdatafile/c.arp_server.autotvout_arpTable_valid.dat"
-// wrapc file define:
 #define AUTOTB_TVIN_arp_scan "../tv/cdatafile/c.arp_server.autotvin_arp_scan.dat"
 #define AUTOTB_TVOUT_arp_scan "../tv/cdatafile/c.arp_server.autotvout_arp_scan.dat"
-// wrapc file define:
 #define AUTOTB_TVIN_myMacAddress "../tv/cdatafile/c.arp_server.autotvin_myMacAddress.dat"
 #define AUTOTB_TVOUT_myMacAddress "../tv/cdatafile/c.arp_server.autotvout_myMacAddress.dat"
-// wrapc file define:
 #define AUTOTB_TVIN_myIpAddress "../tv/cdatafile/c.arp_server.autotvin_myIpAddress.dat"
 #define AUTOTB_TVOUT_myIpAddress "../tv/cdatafile/c.arp_server.autotvout_myIpAddress.dat"
-// wrapc file define:
 #define AUTOTB_TVIN_gatewayIP "../tv/cdatafile/c.arp_server.autotvin_gatewayIP.dat"
 #define AUTOTB_TVOUT_gatewayIP "../tv/cdatafile/c.arp_server.autotvout_gatewayIP.dat"
-// wrapc file define:
 #define AUTOTB_TVIN_networkMask "../tv/cdatafile/c.arp_server.autotvin_networkMask.dat"
 #define AUTOTB_TVOUT_networkMask "../tv/cdatafile/c.arp_server.autotvout_networkMask.dat"
 
-#define INTER_TCL "../tv/cdatafile/ref.tcl"
 
 // tvout file define:
 #define AUTOTB_TVOUT_PC_arpDataIn_V_data_V "../tv/rtldatafile/rtl.arp_server.autotvout_arpDataIn_V_data_V.dat"
 #define AUTOTB_TVOUT_PC_arpDataIn_V_keep_V "../tv/rtldatafile/rtl.arp_server.autotvout_arpDataIn_V_keep_V.dat"
 #define AUTOTB_TVOUT_PC_arpDataIn_V_strb_V "../tv/rtldatafile/rtl.arp_server.autotvout_arpDataIn_V_strb_V.dat"
 #define AUTOTB_TVOUT_PC_arpDataIn_V_last_V "../tv/rtldatafile/rtl.arp_server.autotvout_arpDataIn_V_last_V.dat"
-// tvout file define:
-#define AUTOTB_TVOUT_PC_macIpEncode_req "../tv/rtldatafile/rtl.arp_server.autotvout_macIpEncode_req.dat"
-// tvout file define:
 #define AUTOTB_TVOUT_PC_arpDataOut_V_data_V "../tv/rtldatafile/rtl.arp_server.autotvout_arpDataOut_V_data_V.dat"
 #define AUTOTB_TVOUT_PC_arpDataOut_V_keep_V "../tv/rtldatafile/rtl.arp_server.autotvout_arpDataOut_V_keep_V.dat"
 #define AUTOTB_TVOUT_PC_arpDataOut_V_strb_V "../tv/rtldatafile/rtl.arp_server.autotvout_arpDataOut_V_strb_V.dat"
 #define AUTOTB_TVOUT_PC_arpDataOut_V_last_V "../tv/rtldatafile/rtl.arp_server.autotvout_arpDataOut_V_last_V.dat"
-// tvout file define:
 #define AUTOTB_TVOUT_PC_macIpEncode_rsp "../tv/rtldatafile/rtl.arp_server.autotvout_macIpEncode_rsp.dat"
-// tvout file define:
 #define AUTOTB_TVOUT_PC_arpTable_macAddress "../tv/rtldatafile/rtl.arp_server.autotvout_arpTable_macAddress.dat"
-// tvout file define:
 #define AUTOTB_TVOUT_PC_arpTable_ipAddress "../tv/rtldatafile/rtl.arp_server.autotvout_arpTable_ipAddress.dat"
-// tvout file define:
 #define AUTOTB_TVOUT_PC_arpTable_valid "../tv/rtldatafile/rtl.arp_server.autotvout_arpTable_valid.dat"
-// tvout file define:
 #define AUTOTB_TVOUT_PC_arp_scan "../tv/rtldatafile/rtl.arp_server.autotvout_arp_scan.dat"
-// tvout file define:
-#define AUTOTB_TVOUT_PC_myMacAddress "../tv/rtldatafile/rtl.arp_server.autotvout_myMacAddress.dat"
-// tvout file define:
-#define AUTOTB_TVOUT_PC_myIpAddress "../tv/rtldatafile/rtl.arp_server.autotvout_myIpAddress.dat"
-// tvout file define:
-#define AUTOTB_TVOUT_PC_gatewayIP "../tv/rtldatafile/rtl.arp_server.autotvout_gatewayIP.dat"
-// tvout file define:
-#define AUTOTB_TVOUT_PC_networkMask "../tv/rtldatafile/rtl.arp_server.autotvout_networkMask.dat"
 
 
-inline void rev_endian(char* p, size_t nbytes)
+namespace hls::sim
 {
-  std::reverse(p, p+nbytes);
-}
+  template<size_t n>
+  struct Byte {
+    unsigned char a[n];
 
-template<size_t bit_width>
-struct transaction {
-  typedef uint64_t depth_t;
-  static const size_t wbytes = (bit_width+7)>>3;
-  static const size_t dbytes = sizeof(depth_t);
-  const depth_t depth;
-  const size_t vbytes;
-  const size_t tbytes;
-  char * const p;
-  typedef char (*p_dat)[wbytes];
-  p_dat vp;
-
-  void reorder() {
-    rev_endian(p, dbytes);
-    p_dat vp = (p_dat) (p+dbytes);
-    for (depth_t i = 0; i < depth; ++i) {
-      rev_endian(vp[i], wbytes);
+    Byte()
+    {
+      for (size_t i = 0; i < n; ++i) {
+        a[i] = 0;
+      }
     }
-  }
 
-  transaction(depth_t depth)
-    : depth(depth), vbytes(wbytes*depth), tbytes(dbytes+vbytes),
-      p(new char[tbytes]) {
-    *(depth_t*)p = depth;
-    vp = (p_dat) (p+dbytes);
-  }
-
-  template<size_t psize>
-  void import(char* param, depth_t num, int64_t offset) {
-    param -= offset*psize;
-    for (depth_t i = 0; i < num; ++i) {
-      memcpy(vp[i], param, wbytes);
-      param += psize;
+    template<typename T>
+    Byte<n>& operator= (const T &val)
+    {
+      std::memcpy(a, &val, n);
+      return *this;
     }
-    vp += num;
-  }
+  };
 
-  template<size_t psize>
-  void send(char* param, depth_t num) {
-    for (depth_t i = 0; i < num; ++i) {
-      memcpy(param, vp[i], wbytes);
-      param += psize;
+  struct SimException : public std::exception {
+    const std::string msg;
+    const size_t line;
+    SimException(const std::string &msg, const size_t line)
+      : msg(msg), line(line)
+    {
     }
-    vp += num;
-  }
+  };
 
-  template<size_t psize>
-  void send(char* param, depth_t num, int64_t skip) {
-    for (depth_t i = 0; i < num; ++i) {
-      memcpy(param, vp[skip+i], wbytes);
-      param += psize;
-    }
-  }
-
-  ~transaction() { if (p) { delete[] p; } }
-};
-      
-
-inline const std::string begin_str(int num)
-{
-  return std::string("[[transaction]] ")
-         .append(std::to_string(num))
-         .append("\n");
-}
-
-inline const std::string end_str()
-{
-  return std::string("[[/transaction]] \n");
-}
-      
-class INTER_TCL_FILE {
-  public:
-INTER_TCL_FILE(const char* name) {
-  mName = name; 
-  arpDataIn_V_data_V_depth = 0;
-  arpDataIn_V_keep_V_depth = 0;
-  arpDataIn_V_strb_V_depth = 0;
-  arpDataIn_V_last_V_depth = 0;
-  macIpEncode_req_depth = 0;
-  arpDataOut_V_data_V_depth = 0;
-  arpDataOut_V_keep_V_depth = 0;
-  arpDataOut_V_strb_V_depth = 0;
-  arpDataOut_V_last_V_depth = 0;
-  macIpEncode_rsp_depth = 0;
-  arpTable_macAddress_depth = 0;
-  arpTable_ipAddress_depth = 0;
-  arpTable_valid_depth = 0;
-  arp_scan_depth = 0;
-  myMacAddress_depth = 0;
-  myIpAddress_depth = 0;
-  gatewayIP_depth = 0;
-  networkMask_depth = 0;
-  trans_num =0;
-}
-~INTER_TCL_FILE() {
-  mFile.open(mName);
-  if (!mFile.good()) {
-    cout << "Failed to open file ref.tcl" << endl;
-    exit (1); 
-  }
-  string total_list = get_depth_list();
-  mFile << "set depth_list {\n";
-  mFile << total_list;
-  mFile << "}\n";
-  mFile << "set trans_num "<<trans_num<<endl;
-  mFile.close();
-}
-string get_depth_list () {
-  stringstream total_list;
-  total_list << "{arpDataIn_V_data_V " << arpDataIn_V_data_V_depth << "}\n";
-  total_list << "{arpDataIn_V_keep_V " << arpDataIn_V_keep_V_depth << "}\n";
-  total_list << "{arpDataIn_V_strb_V " << arpDataIn_V_strb_V_depth << "}\n";
-  total_list << "{arpDataIn_V_last_V " << arpDataIn_V_last_V_depth << "}\n";
-  total_list << "{macIpEncode_req " << macIpEncode_req_depth << "}\n";
-  total_list << "{arpDataOut_V_data_V " << arpDataOut_V_data_V_depth << "}\n";
-  total_list << "{arpDataOut_V_keep_V " << arpDataOut_V_keep_V_depth << "}\n";
-  total_list << "{arpDataOut_V_strb_V " << arpDataOut_V_strb_V_depth << "}\n";
-  total_list << "{arpDataOut_V_last_V " << arpDataOut_V_last_V_depth << "}\n";
-  total_list << "{macIpEncode_rsp " << macIpEncode_rsp_depth << "}\n";
-  total_list << "{arpTable_macAddress " << arpTable_macAddress_depth << "}\n";
-  total_list << "{arpTable_ipAddress " << arpTable_ipAddress_depth << "}\n";
-  total_list << "{arpTable_valid " << arpTable_valid_depth << "}\n";
-  total_list << "{arp_scan " << arp_scan_depth << "}\n";
-  total_list << "{myMacAddress " << myMacAddress_depth << "}\n";
-  total_list << "{myIpAddress " << myIpAddress_depth << "}\n";
-  total_list << "{gatewayIP " << gatewayIP_depth << "}\n";
-  total_list << "{networkMask " << networkMask_depth << "}\n";
-  return total_list.str();
-}
-void set_num (int num , int* class_num) {
-  (*class_num) = (*class_num) > num ? (*class_num) : num;
-}
-void set_string(std::string list, std::string* class_list) {
-  (*class_list) = list;
-}
-  public:
-    int arpDataIn_V_data_V_depth;
-    int arpDataIn_V_keep_V_depth;
-    int arpDataIn_V_strb_V_depth;
-    int arpDataIn_V_last_V_depth;
-    int macIpEncode_req_depth;
-    int arpDataOut_V_data_V_depth;
-    int arpDataOut_V_keep_V_depth;
-    int arpDataOut_V_strb_V_depth;
-    int arpDataOut_V_last_V_depth;
-    int macIpEncode_rsp_depth;
-    int arpTable_macAddress_depth;
-    int arpTable_ipAddress_depth;
-    int arpTable_valid_depth;
-    int arp_scan_depth;
-    int myMacAddress_depth;
-    int myIpAddress_depth;
-    int gatewayIP_depth;
-    int networkMask_depth;
-    int trans_num;
-  private:
-    ofstream mFile;
-    const char* mName;
-};
-
-static bool RTLOutputCheckAndReplacement(std::string &AESL_token, std::string PortName) {
-  bool err = false;
-  size_t x_found;
-
-  // search and replace 'X' with '0' from the 3rd char of token
-  while ((x_found = AESL_token.find('X', 0)) != string::npos)
-    err = true, AESL_token.replace(x_found, 1, "0");
-  
-  // search and replace 'x' with '0' from the 3rd char of token
-  while ((x_found = AESL_token.find('x', 2)) != string::npos)
-    err = true, AESL_token.replace(x_found, 1, "0");
-  
-  return err;}
-struct __cosim_s40__ { char data[64]; };
-struct __cosim_s4__ { char data[4]; };
-struct __cosim_s10__ { char data[16]; };
-struct __cosim_s8__ { char data[8]; };
-struct __cosim_s1__ { char data[1]; };
-extern "C" void arp_server_hw_stub_wrapper(volatile void *, volatile void *, volatile void *, volatile void *, volatile void *, volatile void *, volatile void *, volatile void *, volatile void *, volatile void *, volatile void *, volatile void *, volatile void *, volatile void *, volatile void *, volatile void *, volatile void *, volatile void *);
-
-extern "C" void apatb_arp_server_hw(volatile void * __xlx_apatb_param_arpDataIn_V_data_V, volatile void * __xlx_apatb_param_arpDataIn_V_keep_V, volatile void * __xlx_apatb_param_arpDataIn_V_strb_V, volatile void * __xlx_apatb_param_arpDataIn_V_last_V, volatile void * __xlx_apatb_param_macIpEncode_req, volatile void * __xlx_apatb_param_arpDataOut_V_data_V, volatile void * __xlx_apatb_param_arpDataOut_V_keep_V, volatile void * __xlx_apatb_param_arpDataOut_V_strb_V, volatile void * __xlx_apatb_param_arpDataOut_V_last_V, volatile void * __xlx_apatb_param_macIpEncode_rsp, volatile void * __xlx_apatb_param_arpTable_macAddress, volatile void * __xlx_apatb_param_arpTable_ipAddress, volatile void * __xlx_apatb_param_arpTable_valid, volatile void * __xlx_apatb_param_arp_scan, volatile void * __xlx_apatb_param_myMacAddress, volatile void * __xlx_apatb_param_myIpAddress, volatile void * __xlx_apatb_param_gatewayIP, volatile void * __xlx_apatb_param_networkMask) {
-  refine_signal_handler();
-  fstream wrapc_switch_file_token;
-  wrapc_switch_file_token.open(".hls_cosim_wrapc_switch.log");
-static AESL_FILE_HANDLER aesl_fh;
-  int AESL_i;
-  if (wrapc_switch_file_token.good())
+  void errExit(const size_t line, const std::string &msg)
   {
+    std::string s;
+    s += "ERROR";
+//  s += '(';
+//  s += __FILE__;
+//  s += ":";
+//  s += std::to_string(line);
+//  s += ')';
+    s += ": ";
+    s += msg;
+    s += "\n";
+    fputs(s.c_str(), stderr);
+    exit(1);
+  }
+}
 
+
+namespace hls::sim
+{
+  template<size_t n>
+  void move(void* to, void* from)
+  {
+    auto t = (hls::stream<ap_uint<n>>*)to;
+    auto f = (hls::stream<ap_uint<n>>*)from;
+    while (!f->empty()) {
+      t->write(f->read());
+    }
+  }
+
+  template<size_t n>
+  void task_move(void* to, void* from)
+  {
+    auto t = (hls::stream<ap_uint<n>>*)to;
+    auto f = (hls::stream<ap_uint<n>>*)from;
+    std::thread(
+      [=] () { while (true) { t->write(f->read()); } }
+    ).detach();
+  }
+
+  template<typename A, typename K, typename S, typename U, typename L, typename I, typename E>
+  struct MoveAXIS
+  {
+    struct ST { A data; K keep; S strb; U user; L last; I id; E dest; };
+
+    static void toSC(void* data, void* keep, void* strb, void* user, void* last, void* id, void* dest, void* axis)
+    {
+      ST st;
+      ((hls::stream<ST>*)axis)->read(st);
+      ((hls::stream<A>*)data)->write(st.data);
+      ((hls::stream<K>*)keep)->write(st.keep);
+      ((hls::stream<S>*)strb)->write(st.strb);
+      ((hls::stream<U>*)user)->write(st.user);
+      ((hls::stream<L>*)last)->write(st.last);
+      ((hls::stream<I>*)id)->write(st.id);
+      ((hls::stream<E>*)dest)->write(st.dest);
+    }
+
+    static void fromSC(void* data, void* keep, void* strb, void* user, void* last, void* id, void* dest, void* axis)
+    {
+      ST st;
+      ((hls::stream<A>*)data)->read(st.data);
+      ((hls::stream<K>*)keep)->read(st.keep);
+      ((hls::stream<S>*)strb)->read(st.strb);
+      ((hls::stream<U>*)user)->read(st.user);
+      ((hls::stream<L>*)last)->read(st.last);
+      ((hls::stream<I>*)id)->read(st.id);
+      ((hls::stream<E>*)dest)->read(st.dest);
+      ((hls::stream<ST>*)axis)->write(st);
+    }
+  };
+
+  template<size_t sdata, size_t skeep, size_t sstrb, size_t suser,
+           size_t slast, size_t sid, size_t sdest>
+  void move_to_SC(void* data, void* keep, void* strb, void* user, void* last,
+                  void* id, void* dest, void* axis)
+  {
+    typedef MoveAXIS<ap_uint<sdata>, ap_uint<skeep>, ap_uint<sstrb>,
+                     ap_uint<suser>, ap_uint<slast>, ap_uint<sid>,
+                     ap_uint<sdest>> M;
+    while (!((hls::stream<typename M::ST>*)axis)->empty()) {
+      M::toSC(data, keep, strb, user, last, id, dest, axis);
+    }
+  }
+
+  template<size_t sdata, size_t skeep, size_t sstrb, size_t suser,
+           size_t slast, size_t sid, size_t sdest>
+  void task_move_to_SC(void* data, void* keep, void* strb, void* user, void* last,
+                       void* id, void* dest, void* axis)
+  {
+    typedef MoveAXIS<ap_uint<sdata>, ap_uint<skeep>, ap_uint<sstrb>,
+                     ap_uint<suser>, ap_uint<slast>, ap_uint<sid>,
+                     ap_uint<sdest>> M;
+    std::thread(
+      [=] () { while (true) M::toSC(data, keep, strb, user, last, id, dest, axis); }
+    ).detach();
+  }
+
+  template<size_t sdata, size_t skeep, size_t sstrb, size_t suser,
+           size_t slast, size_t sid, size_t sdest>
+  void move_from_SC(void* axis, void* data, void* keep, void* strb, void* user, void* last,
+                    void* id, void* dest)
+  {
+    typedef MoveAXIS<ap_uint<sdata>, ap_uint<skeep>, ap_uint<sstrb>,
+                     ap_uint<suser>, ap_uint<slast>, ap_uint<sid>,
+                     ap_uint<sdest>> M;
+    while (!((hls::stream<ap_uint<sdata>>*)data)->empty()) {
+      M::fromSC(data, keep, strb, user, last, id, dest, axis);
+    }
+  }
+
+  template<size_t sdata, size_t skeep, size_t sstrb, size_t suser,
+           size_t slast, size_t sid, size_t sdest>
+  void task_move_from_SC(void* axis, void* data, void* keep, void* strb, void* user, void* last,
+                         void* id, void* dest)
+  {
+    typedef MoveAXIS<ap_uint<sdata>, ap_uint<skeep>, ap_uint<sstrb>,
+                     ap_uint<suser>, ap_uint<slast>, ap_uint<sid>,
+                     ap_uint<sdest>> M;
+    std::thread(
+      [=] () { while (true) M::fromSC(data, keep, strb, user, last, id, dest, axis); }
+    ).detach();
+  }
+}
+
+namespace hls::sim
+{
+  size_t divide_ceil(size_t a, size_t b)
+  {
+    return (a + b - 1) / b;
+  }
+
+  const bool little_endian()
+  {
+    int a = 1;
+    return *(char*)&a == 1;
+  }
+
+  inline void rev_endian(unsigned char *p, size_t nbytes)
+  {
+    std::reverse(p, p+nbytes);
+  }
+
+  const bool LE = little_endian();
+
+  inline size_t least_nbyte(size_t width)
+  {
+    return (width+7)>>3;
+  }
+
+  std::string formatData(unsigned char *pos, size_t wbits)
+  {
+    size_t wbytes = least_nbyte(wbits);
+    size_t i = LE ? wbytes-1 : 0;
+    auto next = [&] () {
+      auto c = pos[i];
+      LE ? --i : ++i;
+      return c;
+    };
+    std::ostringstream ss;
+    ss << "0x";
+    if (int t = (wbits & 0x7)) {
+      if (t <= 4) {
+        unsigned char mask = (1<<t)-1;
+        ss << std::hex << std::setfill('0') << std::setw(1)
+           << (int) (next() & mask);
+        wbytes -= 1;
+      }
+    }
+    for (size_t i = 0; i < wbytes; ++i) {
+      ss << std::hex << std::setfill('0') << std::setw(2) << (int)next();
+    }
+    return ss.str();
+  }
+
+  char ord(char c)
+  {
+    if (c >= 'a' && c <= 'f') {
+      return c-'a'+10;
+    } else if (c >= 'A' && c <= 'F') {
+      return c-'A'+10;
+    } else if (c >= '0' && c <= '9') {
+      return c-'0';
+    } else {
+      throw SimException("Not Hexdecimal Digit", __LINE__);
+    }
+  }
+
+  void unformatData(const char *data, unsigned char *put, size_t pbytes = 0)
+  {
+    size_t nchars = strlen(data+2);
+    size_t nbytes = (nchars+1)>>1;
+    if (pbytes == 0) {
+      pbytes = nbytes;
+    } else if (pbytes > nbytes) {
+      throw SimException("Wrong size specified", __LINE__);
+    }
+    put = LE ? put : put+pbytes-1;
+    auto nextp = [&] () {
+      return LE ? put++ : put--;
+    };
+    const char *c = data + (nchars + 2) - 1;
+    auto next = [&] () {
+      char res { *c == 'x' ? (char)0 : ord(*c) };
+      --c;
+      return res;
+    };
+    for (size_t i = 0; i < pbytes; ++i) {
+      char l = next();
+      char h = next();
+      *nextp() = (h<<4)+l;
+    }
+  }
+
+  char* strip(char *s)
+  {
+    while (isspace(*s)) {
+      ++s;
+    }
+    for (char *p = s+strlen(s)-1; p >= s; --p) {
+      if (isspace(*p)) {
+        *p = 0;
+      } else {
+        return s;
+      }
+    }
+    return s;
+  }
+
+  size_t sum(const std::vector<size_t> &v)
+  {
+    size_t res = 0;
+    for (const auto &e : v) {
+      res += e;
+    }
+    return res;
+  }
+
+  const char* bad = "Bad TV file";
+  const char* err = "Error on TV file";
+
+  const unsigned char bmark[] = {
+    0x5a, 0x5a, 0xa5, 0xa5, 0x0f, 0x0f, 0xf0, 0xf0
+  };
+
+#ifdef USE_BINARY_TV_FILE
+  class Input {
+    FILE *fp;
+    long pos;
+
+    void read(unsigned char *buf, size_t size)
+    {
+      if (fread(buf, size, 1, fp) != 1) {
+        throw SimException(bad, __LINE__);
+      }
+      if (LE) {
+        rev_endian(buf, size);
+      }
+    }
+
+  public:
+    void advance(size_t nbytes)
+    {
+      if (fseek(fp, nbytes, SEEK_CUR) == -1) {
+        throw SimException(bad, __LINE__);
+      }
+    }
+
+    Input(const char *path) : fp(nullptr)
+    {
+      fp = fopen(path, "rb");
+      if (fp == nullptr) {
+        errExit(__LINE__, err);
+      }
+    }
+
+    void begin()
+    {
+      advance(8);
+      pos = ftell(fp);
+    }
+
+    void reset()
+    {
+      fseek(fp, pos, SEEK_SET);
+    }
+
+    void into(unsigned char *param, size_t wbytes, size_t asize, size_t nbytes)
+    {
+      size_t n = nbytes / asize;
+      size_t r = nbytes % asize;
+      for (size_t i = 0; i < n; ++i) {
+        read(param, wbytes);
+        param += asize;
+      }
+      if (r > 0) {
+        advance(asize-r);
+        read(param, r);
+      }
+    }
+
+    ~Input()
+    {
+      unsigned char buf[8];
+      size_t res = fread(buf, 8, 1, fp);
+      fclose(fp);
+      if (res != 1) {
+        errExit(__LINE__, bad);
+      }
+      if (std::memcmp(buf, bmark, 8) != 0) {
+        errExit(__LINE__, bad);
+      }
+    }
+  };
+
+  class Output {
+    FILE *fp;
+
+    void write(unsigned char *buf, size_t size)
+    {
+      if (LE) {
+        rev_endian(buf, size);
+      }
+      if (fwrite(buf, size, 1, fp) != 1) {
+        throw SimException(err, __LINE__);
+      }
+      if (LE) {
+        rev_endian(buf, size);
+      }
+    }
+
+  public:
+    Output(const char *path) : fp(nullptr)
+    {
+      fp = fopen(path, "wb");
+      if (fp == nullptr) {
+        errExit(__LINE__, err);
+      }
+    }
+
+    void begin(size_t total)
+    {
+      unsigned char buf[8] = {0};
+      std::memcpy(buf, &total, sizeof(buf));
+      write(buf, sizeof(buf));
+    }
+
+    void from(unsigned char *param, size_t wbytes, size_t asize, size_t nbytes, size_t skip)
+    {
+      param -= asize*skip;
+      size_t n = divide_ceil(nbytes, asize);
+      for (size_t i = 0; i < n; ++i) {
+        write(param, wbytes);
+        param += asize;
+      }
+    }
+
+    ~Output()
+    {
+      size_t res = fwrite(bmark, 8, 1, fp);
+      fclose(fp);
+      if (res != 1) {
+        errExit(__LINE__, err);
+      }
+    }
+  };
+#endif
+
+  class Reader {
+    FILE *fp;
+    long pos;
+    int size;
+    char *s;
+
+    void readline()
+    {
+      s = fgets(s, size, fp);
+      if (s == nullptr) {
+        throw SimException(bad, __LINE__);
+      }
+    }
+
+  public:
+    Reader(const char *path) : fp(nullptr), size(1<<12), s(new char[size])
+    {
+      try {
+        fp = fopen(path, "r");
+        if (fp == nullptr) {
+          throw SimException(err, __LINE__);
+        } else {
+          readline();
+          static const char mark[] = "[[[runtime]]]\n";
+          if (strcmp(s, mark) != 0) {
+            throw SimException(bad, __LINE__);
+          }
+        }
+      } catch (const hls::sim::SimException &e) {
+        errExit(e.line, e.msg);
+      }
+    }
+
+    ~Reader()
+    {
+      fclose(fp);
+      delete[] s;
+    }
+
+    void begin()
+    {
+      readline();
+      static const char mark[] = "[[transaction]]";
+      if (strncmp(s, mark, strlen(mark)) != 0) {
+        throw SimException(bad, __LINE__);
+      }
+      pos = ftell(fp);
+    }
+
+    void reset()
+    {
+      fseek(fp, pos, SEEK_SET);
+    }
+
+    void skip(size_t n)
+    {
+      for (size_t i = 0; i < n; ++i) {
+        readline();
+      }
+    }
+
+    char* next()
+    {
+      long pos = ftell(fp);
+      readline();
+      if (*s == '[') {
+        fseek(fp, pos, SEEK_SET);
+        return nullptr;
+      }
+      return strip(s);
+    }
+
+    void end()
+    {
+      do {
+        readline();
+      } while (strcmp(s, "[[/transaction]]\n") != 0);
+    }
+  };
+
+  class Writer {
+    FILE *fp;
+
+    void write(const char *s)
+    {
+      if (fputs(s, fp) == EOF) {
+        throw SimException(err, __LINE__);
+      }
+    }
+
+  public:
+    Writer(const char *path) : fp(nullptr)
+    {
+      try {
+        fp = fopen(path, "w");
+        if (fp == nullptr) {
+          throw SimException(err, __LINE__);
+        } else {
+          static const char mark[] = "[[[runtime]]]\n";
+          write(mark);
+        }
+      } catch (const hls::sim::SimException &e) {
+        errExit(e.line, e.msg);
+      }
+    }
+
+    virtual ~Writer()
+    {
+      try {
+        static const char mark[] = "[[[/runtime]]]\n";
+        write(mark);
+      } catch (const hls::sim::SimException &e) {
+        errExit(e.line, e.msg);
+      }
+      fclose(fp);
+    }
+
+    void begin(size_t AESL_transaction)
+    {
+      static const char mark[] = "[[transaction]]           ";
+      write(mark);
+      auto buf = std::to_string(AESL_transaction);
+      buf.push_back('\n');
+      buf.push_back('\0');
+      write(buf.data());
+    }
+
+    void next(const char *s)
+    {
+      write(s);
+      write("\n");
+    }
+
+    void end()
+    {
+      static const char mark[] = "[[/transaction]]\n";
+      write(mark);
+    }
+  };
+
+  bool RTLOutputCheckAndReplacement(char *data)
+  {
+    bool changed = false;
+    for (size_t i = 2; i < strlen(data); ++i) {
+      if (data[i] == 'X' || data[i] == 'x') {
+        data[i] = '0';
+        changed = true;
+      }
+    }
+    return changed;
+  }
+
+  void warnOnX()
+  {
+    static const char msg[] =
+      "WARNING: [SIM 212-201] RTL produces unknown value "
+      "'x' or 'X' on some port, possible cause: "
+      "There are uninitialized variables in the design.\n";
+    fprintf(stderr, msg);
+  }
+
+#ifndef POST_CHECK
+  class RefTCL {
+    FILE *fp;
+    std::ostringstream ss;
+
+    void formatDepth()
+    {
+      ss << "set depth_list {\n";
+      for (auto &p : depth) {
+        ss << "  {" << p.first << " " << p.second << "}\n";
+      }
+      if (nameHBM != "") {
+        ss << "  {" << nameHBM << " " << depthHBM << "}\n";
+      }
+      ss << "}\n";
+    }
+
+    void formatTransNum()
+    {
+      ss << "set trans_num " << AESL_transaction << "\n";
+    }
+
+    void formatHBM()
+    {
+      ss << "set HBM_ArgDict {\n"
+         << "  Name " << nameHBM << "\n"
+         << "  Port " << portHBM << "\n"
+         << "  BitWidth " << widthHBM << "\n"
+         << "}\n";
+    }
+
+    void close()
+    {
+      formatDepth();
+      formatTransNum();
+      if (nameHBM != "") {
+        formatHBM();
+      }
+      std::string &&s { ss.str() };
+      size_t res = fwrite(s.data(), s.size(), 1, fp);
+      fclose(fp);
+      if (res != 1) {
+        errExit(__LINE__, err);
+      }
+    }
+
+  public:
+    std::map<const std::string, size_t> depth;
+    std::string nameHBM;
+    size_t depthHBM;
+    std::string portHBM;
+    unsigned widthHBM;
+    size_t AESL_transaction;
+    std::mutex mut;
+
+    RefTCL(const char *path)
+    {
+      fp = fopen(path, "w");
+      if (fp == nullptr) {
+        errExit(__LINE__, err);
+      }
+    }
+
+    void set(const char* name, size_t dep)
+    {
+      std::lock_guard<std::mutex> guard(mut);
+      if (depth[name] < dep) {
+        depth[name] = dep;
+      }
+    }
+
+    ~RefTCL()
+    {
+      close();
+    }
+  };
+
+#endif
+
+  struct Register {
+    const char* name;
+    unsigned width;
+#ifdef POST_CHECK
+    Reader* reader;
+#else
+    Writer* owriter;
+    Writer* iwriter;
+#endif
+    void* param;
+
+#ifndef POST_CHECK
+    void doTCL(RefTCL &tcl)
+    {
+      if (strcmp(name, "return") == 0) {
+        tcl.set("ap_return", 1);
+      } else {
+        tcl.set(name, 1);
+      }
+    }
+#endif
+    ~Register()
+    {
+#ifdef POST_CHECK
+      delete reader;
+#else
+      delete owriter;
+      delete iwriter;
+#endif
+    }
+  };
+
+  template<typename Reader, typename Writer>
+  struct Memory {
+    unsigned width;
+    unsigned asize;
+    bool hbm;
+    std::vector<const char*> name;
+#ifdef POST_CHECK
+    Reader* reader;
+#else
+    Writer* owriter;
+    Writer* iwriter;
+#endif
+    std::vector<void*> param;
+    std::vector<size_t> nbytes;
+    std::vector<size_t> offset;
+    std::vector<bool> hasWrite;
+
+    size_t depth()
+    {
+      size_t depth = 0;
+      for (size_t n : nbytes) {
+        depth += divide_ceil(n, asize);
+      }
+      return depth;
+    }
+
+#ifndef POST_CHECK
+    void doTCL(RefTCL &tcl)
+    {
+      if (hbm) {
+        tcl.nameHBM.append(name[0]);
+        tcl.portHBM.append("{").append(name[0]);
+        for (size_t i = 1; i < name.size(); ++i) {
+          tcl.nameHBM.append("_").append(name[i]);
+          tcl.portHBM.append(" ").append(name[i]);
+        }
+        tcl.nameHBM.append("_HBM");
+        tcl.portHBM.append("}");
+        tcl.widthHBM = width;
+        tcl.depthHBM = divide_ceil(nbytes[0], asize);
+      } else {
+        tcl.set(name[0], depth());
+      }
+    }
+#endif
+
+    ~Memory()
+    {
+#ifdef POST_CHECK
+      delete reader;
+#else
+      delete owriter;
+      delete iwriter;
+#endif
+    }
+  };
+
+  struct A2Stream {
+    unsigned width;
+    unsigned asize;
+    const char* name;
+#ifdef POST_CHECK
+    Reader* reader;
+#else
+    Writer* owriter;
+    Writer* iwriter;
+#endif
+    void* param;
+    size_t nbytes;
+    bool hasWrite;
+
+#ifndef POST_CHECK
+    void doTCL(RefTCL &tcl)
+    {
+      tcl.set(name, divide_ceil(nbytes, asize));
+    }
+#endif
+
+    ~A2Stream()
+    {
+#ifdef POST_CHECK
+      delete reader;
+#else
+      delete owriter;
+      delete iwriter;
+#endif
+    }
+  };
+
+  template<typename E>
+  struct Stream {
+    unsigned width;
+    const char* name;
+#ifdef POST_CHECK
+    Reader* reader;
+#else
+    Writer* writer;
+    Writer* swriter;
+    Writer* gwriter;
+#endif
+    hls::stream<E>* param;
+    std::vector<E> buf;
+    size_t initSize;
+    size_t depth;
+    bool hasWrite;
+
+    void markSize()
+    {
+      initSize = param->size();
+    }
+
+    void buffer()
+    {
+      buf.clear();
+      while (!param->empty()) {
+        buf.push_back(param->read());
+      }
+      for (auto &e : buf) {
+        param->write(e);
+      }
+    }
+
+#ifndef POST_CHECK
+    void doTCL(RefTCL &tcl)
+    {
+      tcl.set(name, depth);
+    }
+#endif
+
+    ~Stream()
+    {
+#ifdef POST_CHECK
+      delete reader;
+#else
+      delete writer;
+      delete swriter;
+      delete gwriter;
+#endif
+    }
+  };
+
+#ifdef POST_CHECK
+  void check(Register &port)
+  {
+    port.reader->begin();
+    bool foundX = false;
+    if (char *s = port.reader->next()) {
+      foundX |= RTLOutputCheckAndReplacement(s);
+      unformatData(s, (unsigned char*)port.param);
+    }
+    port.reader->end();
+    if (foundX) {
+      warnOnX();
+    }
+  }
+
+#ifdef USE_BINARY_TV_FILE
+  void checkHBM(Memory<Input, Output> &port)
+  {
+    port.reader->begin();
+    size_t wbytes = least_nbyte(port.width);
+    for (size_t i = 0; i < port.param.size(); ++i) {
+      if (port.hasWrite[i]) {
+        port.reader->reset();
+        size_t skip = wbytes * port.offset[i];
+        port.reader->advance(skip);
+        port.reader->into((unsigned char*)port.param[i], wbytes,
+                           port.asize, port.nbytes[i] - skip);
+      }
+    }
+  }
+
+  void check(Memory<Input, Output> &port)
+  {
+    if (port.hbm) {
+      return checkHBM(port);
+    } else {
+      port.reader->begin();
+      size_t wbytes = least_nbyte(port.width);
+      for (size_t i = 0; i < port.param.size(); ++i) {
+        if (port.hasWrite[i]) {
+          port.reader->into((unsigned char*)port.param[i], wbytes,
+                             port.asize, port.nbytes[i]);
+        } else {
+          size_t n = divide_ceil(port.nbytes[i], port.asize);
+          port.reader->advance(port.asize*n);
+        }
+      }
+    }
+  }
+#endif
+  void transfer(Reader *reader, size_t nbytes, unsigned char *put, bool &foundX)
+  {
+    if (char *s = reader->next()) {
+      foundX |= RTLOutputCheckAndReplacement(s);
+      unformatData(s, put, nbytes);
+    } else {
+      throw SimException("No more data", __LINE__);
+    }
+  }
+
+  void checkHBM(Memory<Reader, Writer> &port)
+  {
+    port.reader->begin();
+    bool foundX = false;
+    size_t wbytes = least_nbyte(port.width);
+    for (size_t i = 0, last = port.param.size()-1; i <= last; ++i) {
+      if (port.hasWrite[i]) {
+        port.reader->skip(port.offset[i]);
+        size_t n = port.nbytes[i] / port.asize - port.offset[i];
+        unsigned char *put = (unsigned char*)port.param[i];
+        for (size_t j = 0; j < n; ++j) {
+          transfer(port.reader, wbytes, put, foundX);
+          put += port.asize;
+        }
+        if (i < last) {
+          port.reader->reset();
+        }
+      }
+    }
+    port.reader->end();
+    if (foundX) {
+      warnOnX();
+    }
+  }
+
+  void check(Memory<Reader, Writer> &port)
+  {
+    if (port.hbm) {
+      return checkHBM(port);
+    } else {
+      port.reader->begin();
+      bool foundX = false;
+      size_t wbytes = least_nbyte(port.width);
+      for (size_t i = 0; i < port.param.size(); ++i) {
+        if (port.hasWrite[i]) {
+          size_t n = port.nbytes[i] / port.asize;
+          size_t r = port.nbytes[i] % port.asize;
+          unsigned char *put = (unsigned char*)port.param[i];
+          for (size_t j = 0; j < n; ++j) {
+            transfer(port.reader, wbytes, put, foundX);
+            put += port.asize;
+          }
+          if (r > 0) {
+            transfer(port.reader, r, put, foundX);
+          }
+        } else {
+          size_t n = divide_ceil(port.nbytes[i], port.asize);
+          port.reader->skip(n);
+        }
+      }
+      port.reader->end();
+      if (foundX) {
+        warnOnX();
+      }
+    }
+  }
+
+  void check(A2Stream &port)
+  {
+    port.reader->begin();
+    bool foundX = false;
+    if (port.hasWrite) {
+      size_t wbytes = least_nbyte(port.width);
+      size_t n = port.nbytes / port.asize;
+      size_t r = port.nbytes % port.asize;
+      unsigned char *put = (unsigned char*)port.param;
+      for (size_t j = 0; j < n; ++j) {
+        if (char *s = port.reader->next()) {
+          foundX |= RTLOutputCheckAndReplacement(s);
+          unformatData(s, put, wbytes);
+        }
+        put += port.asize;
+      }
+      if (r > 0) {
+        if (char *s = port.reader->next()) {
+          foundX |= RTLOutputCheckAndReplacement(s);
+          unformatData(s, put, r);
+        }
+      }
+    }
+    port.reader->end();
+    if (foundX) {
+      warnOnX();
+    }
+  }
+
+  template<typename E>
+  void check(Stream<E> &port)
+  {
+    if (port.hasWrite) {
+      port.reader->begin();
+      bool foundX = false;
+      E *p = new E;
+      while (char *s = port.reader->next()) {
+        foundX |= RTLOutputCheckAndReplacement(s);
+        unformatData(s, (unsigned char*)p);
+        port.param->write(*p);
+      }
+      delete p;
+      port.reader->end();
+      if (foundX) {
+        warnOnX();
+      }
+    } else {
+      port.reader->begin();
+      size_t n = 0;
+      if (char *s = port.reader->next()) {
+        std::istringstream ss(s);
+        ss >> n;
+      } else {
+        throw SimException(bad, __LINE__);
+      }
+      port.reader->end();
+      for (size_t j = 0; j < n; ++j) {
+        port.param->read();
+      }
+    }
+  }
+#else
+  void dump(Register &port, Writer *writer, size_t AESL_transaction)
+  {
+    writer->begin(AESL_transaction);
+    std::string &&s { formatData((unsigned char*)port.param, port.width) };
+    writer->next(s.data());
+    writer->end();
+  }
+
+  void error_on_depth_unspecified(const char *portName)
+  {
+    std::string msg {"A depth specification is required for MAXI interface port "};
+    msg.append("'");
+    msg.append(portName);
+    msg.append("'");
+    msg.append(" for cosimulation.");
+    throw SimException(msg, __LINE__);
+  }
+
+#ifdef USE_BINARY_TV_FILE
+  void dump(Memory<Input, Output> &port, Output *writer, size_t AESL_transaction)
+  {
+    writer->begin(port.depth());
+    size_t wbytes = least_nbyte(port.width);
+    for (size_t i = 0; i < port.param.size(); ++i) {
+      if (port.nbytes[i] == 0) {
+        error_on_depth_unspecified(port.hbm ? port.name[i] : port.name[0]);
+      }
+      writer->from((unsigned char*)port.param[i], wbytes, port.asize,
+                   port.nbytes[i], 0);
+    }
+  }
+
+#endif
+  void dump(Memory<Reader, Writer> &port, Writer *writer, size_t AESL_transaction)
+  {
+    writer->begin(AESL_transaction);
+    for (size_t i = 0; i < port.param.size(); ++i) {
+      if (port.nbytes[i] == 0) {
+        error_on_depth_unspecified(port.hbm ? port.name[i] : port.name[0]);
+      }
+      size_t n = divide_ceil(port.nbytes[i], port.asize);
+      unsigned char *put = (unsigned char*)port.param[i];
+      for (size_t j = 0; j < n; ++j) {
+        std::string &&s {
+          formatData(put, port.width)
+        };
+        writer->next(s.data());
+        put += port.asize;
+      }
+      if (port.hbm) {
+        break;
+      }
+    }
+    writer->end();
+  }
+
+  void dump(A2Stream &port, Writer *writer, size_t AESL_transaction)
+  {
+    writer->begin(AESL_transaction);
+    size_t n = divide_ceil(port.nbytes, port.asize);
+    unsigned char *put = (unsigned char*)port.param;
+    for (size_t j = 0; j < n; ++j) {
+      std::string &&s { formatData(put, port.width) };
+      writer->next(s.data());
+      put += port.asize;
+    }
+    writer->end();
+  }
+
+  template<typename E>
+  void dump(Stream<E> &port, size_t AESL_transaction)
+  {
+    if (port.hasWrite) {
+      port.writer->begin(AESL_transaction);
+      port.depth = port.param->size()-port.initSize;
+      for (size_t j = 0; j < port.depth; ++j) {
+        std::string &&s {
+          formatData((unsigned char*)&port.buf[port.initSize+j], port.width)
+        };
+        port.writer->next(s.c_str());
+      }
+      port.writer->end();
+
+      port.swriter->begin(AESL_transaction);
+      port.swriter->next(std::to_string(port.depth).c_str());
+      port.swriter->end();
+    } else {
+      port.writer->begin(AESL_transaction);
+      port.depth = port.initSize-port.param->size();
+      for (size_t j = 0; j < port.depth; ++j) {
+        std::string &&s {
+          formatData((unsigned char*)&port.buf[j], port.width)
+        };
+        port.writer->next(s.c_str());
+      }
+      port.writer->end();
+
+      port.swriter->begin(AESL_transaction);
+      port.swriter->next(std::to_string(port.depth).c_str());
+      port.swriter->end();
+
+      port.gwriter->begin(AESL_transaction);
+      size_t n = (port.depth ? port.initSize : port.depth);
+      size_t d = port.depth;
+      do {
+        port.gwriter->next(std::to_string(n--).c_str());
+      } while (d--);
+      port.gwriter->end();
+    }
+  }
+#endif
+}
+
+
+
+extern "C"
+void arp_server_hw_stub_wrapper(void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*);
+
+extern "C"
+void apatb_arp_server_hw(void* __xlx_apatb_param_arpDataIn_V_data_V, void* __xlx_apatb_param_arpDataIn_V_keep_V, void* __xlx_apatb_param_arpDataIn_V_strb_V, void* __xlx_apatb_param_arpDataIn_V_last_V, void* __xlx_apatb_param_macIpEncode_req, void* __xlx_apatb_param_arpDataOut_V_data_V, void* __xlx_apatb_param_arpDataOut_V_keep_V, void* __xlx_apatb_param_arpDataOut_V_strb_V, void* __xlx_apatb_param_arpDataOut_V_last_V, void* __xlx_apatb_param_macIpEncode_rsp, void* __xlx_apatb_param_arpTable_macAddress, void* __xlx_apatb_param_arpTable_ipAddress, void* __xlx_apatb_param_arpTable_valid, void* __xlx_apatb_param_arp_scan, void* __xlx_apatb_param_myMacAddress, void* __xlx_apatb_param_myIpAddress, void* __xlx_apatb_param_gatewayIP, void* __xlx_apatb_param_networkMask)
+{
+  static hls::sim::Stream<hls::sim::Byte<64>> port0 {
+    .width = 512,
+    .name = "arpDataIn_V_data_V",
+#ifdef POST_CHECK
+    .reader = new hls::sim::Reader(WRAPC_STREAM_SIZE_IN_arpDataIn_V_data_V),
+#else
+    .writer = new hls::sim::Writer(AUTOTB_TVIN_arpDataIn_V_data_V),
+    .swriter = new hls::sim::Writer(WRAPC_STREAM_SIZE_IN_arpDataIn_V_data_V),
+    .gwriter = new hls::sim::Writer(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_data_V),
+#endif
+  };
+  port0.param = (hls::stream<hls::sim::Byte<64>>*)__xlx_apatb_param_arpDataIn_V_data_V;
+  port0.hasWrite = false;
+
+  static hls::sim::Stream<hls::sim::Byte<8>> port1 {
+    .width = 64,
+    .name = "arpDataIn_V_keep_V",
+#ifdef POST_CHECK
+    .reader = new hls::sim::Reader(WRAPC_STREAM_SIZE_IN_arpDataIn_V_keep_V),
+#else
+    .writer = new hls::sim::Writer(AUTOTB_TVIN_arpDataIn_V_keep_V),
+    .swriter = new hls::sim::Writer(WRAPC_STREAM_SIZE_IN_arpDataIn_V_keep_V),
+    .gwriter = new hls::sim::Writer(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_keep_V),
+#endif
+  };
+  port1.param = (hls::stream<hls::sim::Byte<8>>*)__xlx_apatb_param_arpDataIn_V_keep_V;
+  port1.hasWrite = false;
+
+  static hls::sim::Stream<hls::sim::Byte<8>> port2 {
+    .width = 64,
+    .name = "arpDataIn_V_strb_V",
+#ifdef POST_CHECK
+    .reader = new hls::sim::Reader(WRAPC_STREAM_SIZE_IN_arpDataIn_V_strb_V),
+#else
+    .writer = new hls::sim::Writer(AUTOTB_TVIN_arpDataIn_V_strb_V),
+    .swriter = new hls::sim::Writer(WRAPC_STREAM_SIZE_IN_arpDataIn_V_strb_V),
+    .gwriter = new hls::sim::Writer(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_strb_V),
+#endif
+  };
+  port2.param = (hls::stream<hls::sim::Byte<8>>*)__xlx_apatb_param_arpDataIn_V_strb_V;
+  port2.hasWrite = false;
+
+  static hls::sim::Stream<hls::sim::Byte<1>> port3 {
+    .width = 1,
+    .name = "arpDataIn_V_last_V",
+#ifdef POST_CHECK
+    .reader = new hls::sim::Reader(WRAPC_STREAM_SIZE_IN_arpDataIn_V_last_V),
+#else
+    .writer = new hls::sim::Writer(AUTOTB_TVIN_arpDataIn_V_last_V),
+    .swriter = new hls::sim::Writer(WRAPC_STREAM_SIZE_IN_arpDataIn_V_last_V),
+    .gwriter = new hls::sim::Writer(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_last_V),
+#endif
+  };
+  port3.param = (hls::stream<hls::sim::Byte<1>>*)__xlx_apatb_param_arpDataIn_V_last_V;
+  port3.hasWrite = false;
+
+  static hls::sim::Stream<hls::sim::Byte<4>> port4 {
+    .width = 32,
+    .name = "macIpEncode_req",
+#ifdef POST_CHECK
+    .reader = new hls::sim::Reader(WRAPC_STREAM_SIZE_IN_macIpEncode_req),
+#else
+    .writer = new hls::sim::Writer(AUTOTB_TVIN_macIpEncode_req),
+    .swriter = new hls::sim::Writer(WRAPC_STREAM_SIZE_IN_macIpEncode_req),
+    .gwriter = new hls::sim::Writer(WRAPC_STREAM_INGRESS_STATUS_macIpEncode_req),
+#endif
+  };
+  port4.param = (hls::stream<hls::sim::Byte<4>>*)__xlx_apatb_param_macIpEncode_req;
+  port4.hasWrite = false;
+
+  static hls::sim::Stream<hls::sim::Byte<64>> port5 {
+    .width = 512,
+    .name = "arpDataOut_V_data_V",
+#ifdef POST_CHECK
+    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_arpDataOut_V_data_V),
+#else
+    .writer = new hls::sim::Writer(AUTOTB_TVOUT_arpDataOut_V_data_V),
+    .swriter = new hls::sim::Writer(WRAPC_STREAM_SIZE_OUT_arpDataOut_V_data_V),
+    .gwriter = new hls::sim::Writer(WRAPC_STREAM_EGRESS_STATUS_arpDataOut_V_data_V),
+#endif
+  };
+  port5.param = (hls::stream<hls::sim::Byte<64>>*)__xlx_apatb_param_arpDataOut_V_data_V;
+  port5.hasWrite = true;
+
+  static hls::sim::Stream<hls::sim::Byte<8>> port6 {
+    .width = 64,
+    .name = "arpDataOut_V_keep_V",
+#ifdef POST_CHECK
+    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_arpDataOut_V_keep_V),
+#else
+    .writer = new hls::sim::Writer(AUTOTB_TVOUT_arpDataOut_V_keep_V),
+    .swriter = new hls::sim::Writer(WRAPC_STREAM_SIZE_OUT_arpDataOut_V_keep_V),
+    .gwriter = new hls::sim::Writer(WRAPC_STREAM_EGRESS_STATUS_arpDataOut_V_keep_V),
+#endif
+  };
+  port6.param = (hls::stream<hls::sim::Byte<8>>*)__xlx_apatb_param_arpDataOut_V_keep_V;
+  port6.hasWrite = true;
+
+  static hls::sim::Stream<hls::sim::Byte<8>> port7 {
+    .width = 64,
+    .name = "arpDataOut_V_strb_V",
+#ifdef POST_CHECK
+    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_arpDataOut_V_strb_V),
+#else
+    .writer = new hls::sim::Writer(AUTOTB_TVOUT_arpDataOut_V_strb_V),
+    .swriter = new hls::sim::Writer(WRAPC_STREAM_SIZE_OUT_arpDataOut_V_strb_V),
+    .gwriter = new hls::sim::Writer(WRAPC_STREAM_EGRESS_STATUS_arpDataOut_V_strb_V),
+#endif
+  };
+  port7.param = (hls::stream<hls::sim::Byte<8>>*)__xlx_apatb_param_arpDataOut_V_strb_V;
+  port7.hasWrite = true;
+
+  static hls::sim::Stream<hls::sim::Byte<1>> port8 {
+    .width = 1,
+    .name = "arpDataOut_V_last_V",
+#ifdef POST_CHECK
+    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_arpDataOut_V_last_V),
+#else
+    .writer = new hls::sim::Writer(AUTOTB_TVOUT_arpDataOut_V_last_V),
+    .swriter = new hls::sim::Writer(WRAPC_STREAM_SIZE_OUT_arpDataOut_V_last_V),
+    .gwriter = new hls::sim::Writer(WRAPC_STREAM_EGRESS_STATUS_arpDataOut_V_last_V),
+#endif
+  };
+  port8.param = (hls::stream<hls::sim::Byte<1>>*)__xlx_apatb_param_arpDataOut_V_last_V;
+  port8.hasWrite = true;
+
+  static hls::sim::Stream<hls::sim::Byte<16>> port9 {
+    .width = 128,
+    .name = "macIpEncode_rsp",
+#ifdef POST_CHECK
+    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_macIpEncode_rsp),
+#else
+    .writer = new hls::sim::Writer(AUTOTB_TVOUT_macIpEncode_rsp),
+    .swriter = new hls::sim::Writer(WRAPC_STREAM_SIZE_OUT_macIpEncode_rsp),
+    .gwriter = new hls::sim::Writer(WRAPC_STREAM_EGRESS_STATUS_macIpEncode_rsp),
+#endif
+  };
+  port9.param = (hls::stream<hls::sim::Byte<16>>*)__xlx_apatb_param_macIpEncode_rsp;
+  port9.hasWrite = true;
+
+  static hls::sim::Register port10 {
+    .name = "arp_scan",
+    .width = 1,
+#ifdef POST_CHECK
+    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_arp_scan),
+#else
+    .owriter = new hls::sim::Writer(AUTOTB_TVOUT_arp_scan),
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_arp_scan),
+#endif
+  };
+  port10.param = __xlx_apatb_param_arp_scan;
+
+  static hls::sim::Register port11 {
+    .name = "myMacAddress",
+    .width = 48,
+#ifdef POST_CHECK
+#else
+    .owriter = nullptr,
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_myMacAddress),
+#endif
+  };
+  port11.param = __xlx_apatb_param_myMacAddress;
+
+  static hls::sim::Register port12 {
+    .name = "myIpAddress",
+    .width = 32,
+#ifdef POST_CHECK
+#else
+    .owriter = nullptr,
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_myIpAddress),
+#endif
+  };
+  port12.param = __xlx_apatb_param_myIpAddress;
+
+  static hls::sim::Register port13 {
+    .name = "gatewayIP",
+    .width = 32,
+#ifdef POST_CHECK
+#else
+    .owriter = nullptr,
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_gatewayIP),
+#endif
+  };
+  port13.param = __xlx_apatb_param_gatewayIP;
+
+  static hls::sim::Register port14 {
+    .name = "networkMask",
+    .width = 32,
+#ifdef POST_CHECK
+#else
+    .owriter = nullptr,
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_networkMask),
+#endif
+  };
+  port14.param = __xlx_apatb_param_networkMask;
+
+#ifdef USE_BINARY_TV_FILE
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port15 {
+#else
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port15 {
+#endif
+    .width = 48,
+    .asize = 8,
+    .hbm = false,
+    .name = { "arpTable_macAddress" },
+#ifdef POST_CHECK
+#ifdef USE_BINARY_TV_FILE
+    .reader = new hls::sim::Input(AUTOTB_TVOUT_PC_arpTable_macAddress),
+#else
+    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_arpTable_macAddress),
+#endif
+#else
+#ifdef USE_BINARY_TV_FILE
+    .owriter = new hls::sim::Output(AUTOTB_TVOUT_arpTable_macAddress),
+#else
+    .owriter = new hls::sim::Writer(AUTOTB_TVOUT_arpTable_macAddress),
+#endif
+#ifdef USE_BINARY_TV_FILE
+    .iwriter = new hls::sim::Output(AUTOTB_TVIN_arpTable_macAddress),
+#else
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_arpTable_macAddress),
+#endif
+#endif
+  };
+  port15.param = { __xlx_apatb_param_arpTable_macAddress };
+  port15.nbytes = { 2048 };
+  port15.offset = {  };
+  port15.hasWrite = { true };
+
+#ifdef USE_BINARY_TV_FILE
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port16 {
+#else
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port16 {
+#endif
+    .width = 32,
+    .asize = 4,
+    .hbm = false,
+    .name = { "arpTable_ipAddress" },
+#ifdef POST_CHECK
+#ifdef USE_BINARY_TV_FILE
+    .reader = new hls::sim::Input(AUTOTB_TVOUT_PC_arpTable_ipAddress),
+#else
+    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_arpTable_ipAddress),
+#endif
+#else
+#ifdef USE_BINARY_TV_FILE
+    .owriter = new hls::sim::Output(AUTOTB_TVOUT_arpTable_ipAddress),
+#else
+    .owriter = new hls::sim::Writer(AUTOTB_TVOUT_arpTable_ipAddress),
+#endif
+#ifdef USE_BINARY_TV_FILE
+    .iwriter = new hls::sim::Output(AUTOTB_TVIN_arpTable_ipAddress),
+#else
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_arpTable_ipAddress),
+#endif
+#endif
+  };
+  port16.param = { __xlx_apatb_param_arpTable_ipAddress };
+  port16.nbytes = { 1024 };
+  port16.offset = {  };
+  port16.hasWrite = { true };
+
+#ifdef USE_BINARY_TV_FILE
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port17 {
+#else
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port17 {
+#endif
+    .width = 1,
+    .asize = 1,
+    .hbm = false,
+    .name = { "arpTable_valid" },
+#ifdef POST_CHECK
+#ifdef USE_BINARY_TV_FILE
+    .reader = new hls::sim::Input(AUTOTB_TVOUT_PC_arpTable_valid),
+#else
+    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_arpTable_valid),
+#endif
+#else
+#ifdef USE_BINARY_TV_FILE
+    .owriter = new hls::sim::Output(AUTOTB_TVOUT_arpTable_valid),
+#else
+    .owriter = new hls::sim::Writer(AUTOTB_TVOUT_arpTable_valid),
+#endif
+#ifdef USE_BINARY_TV_FILE
+    .iwriter = new hls::sim::Output(AUTOTB_TVIN_arpTable_valid),
+#else
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_arpTable_valid),
+#endif
+#endif
+  };
+  port17.param = { __xlx_apatb_param_arpTable_valid };
+  port17.nbytes = { 256 };
+  port17.offset = {  };
+  port17.hasWrite = { true };
+
+  try {
+#ifdef POST_CHECK
     CodeState = ENTER_WRAPC_PC;
-    static unsigned AESL_transaction_pc = 0;
-    string AESL_token;
-    string AESL_num;
-long __xlx_apatb_param_arpDataIn_stream_buf_final_size;
-{
-      static ifstream rtl_tv_out_file;
-      if (!rtl_tv_out_file.is_open()) {
-        rtl_tv_out_file.open(WRAPC_STREAM_SIZE_IN_arpDataIn_V_data_V);
-        if (rtl_tv_out_file.good()) {
-          rtl_tv_out_file >> AESL_token;
-          if (AESL_token != "[[[runtime]]]")
-            exit(1);
-        }
-      }
-  
-      if (rtl_tv_out_file.good()) {
-        rtl_tv_out_file >> AESL_token; 
-        rtl_tv_out_file >> AESL_num;  // transaction number
-        if (AESL_token != "[[transaction]]") {
-          cerr << "Unexpected token: " << AESL_token << endl;
-          exit(1);
-        }
-        if (atoi(AESL_num.c_str()) == AESL_transaction_pc) {
-          rtl_tv_out_file >> AESL_token; //data
-          while (AESL_token != "[[/transaction]]"){__xlx_apatb_param_arpDataIn_stream_buf_final_size = atoi(AESL_token.c_str());
-
-            rtl_tv_out_file >> AESL_token; //data or [[/transaction]]
-            if (AESL_token == "[[[/runtime]]]" || rtl_tv_out_file.eof())
-              exit(1);
-          }
-        } // end transaction
-      } // end file is good
-    } // end post check logic bolck
-  for (long i = 0; i < __xlx_apatb_param_arpDataIn_stream_buf_final_size; ++i) {
-((hls::stream<__cosim_s40__>*)__xlx_apatb_param_arpDataIn_V_data_V)->read();
-((hls::stream<long long>*)__xlx_apatb_param_arpDataIn_V_keep_V)->read();
-((hls::stream<long long>*)__xlx_apatb_param_arpDataIn_V_strb_V)->read();
-((hls::stream<char>*)__xlx_apatb_param_arpDataIn_V_last_V)->read();
-}
-long __xlx_apatb_param_macIpEncode_req_stream_buf_final_size;
-{
-      static ifstream rtl_tv_out_file;
-      if (!rtl_tv_out_file.is_open()) {
-        rtl_tv_out_file.open(WRAPC_STREAM_SIZE_IN_macIpEncode_req);
-        if (rtl_tv_out_file.good()) {
-          rtl_tv_out_file >> AESL_token;
-          if (AESL_token != "[[[runtime]]]")
-            exit(1);
-        }
-      }
-  
-      if (rtl_tv_out_file.good()) {
-        rtl_tv_out_file >> AESL_token; 
-        rtl_tv_out_file >> AESL_num;  // transaction number
-        if (AESL_token != "[[transaction]]") {
-          cerr << "Unexpected token: " << AESL_token << endl;
-          exit(1);
-        }
-        if (atoi(AESL_num.c_str()) == AESL_transaction_pc) {
-          rtl_tv_out_file >> AESL_token; //data
-          while (AESL_token != "[[/transaction]]"){__xlx_apatb_param_macIpEncode_req_stream_buf_final_size = atoi(AESL_token.c_str());
-
-            rtl_tv_out_file >> AESL_token; //data or [[/transaction]]
-            if (AESL_token == "[[[/runtime]]]" || rtl_tv_out_file.eof())
-              exit(1);
-          }
-        } // end transaction
-      } // end file is good
-    } // end post check logic bolck
-  for (long i = 0; i < __xlx_apatb_param_macIpEncode_req_stream_buf_final_size; ++i)((hls::stream<__cosim_s4__>*)__xlx_apatb_param_macIpEncode_req)->read();
-{unsigned xlx_stream_arpDataOut_size = 0;
-
-          std::vector<sc_bv<512> > arpDataOut_V_data_V_pc_buffer_Copy;
-{
-      static ifstream rtl_tv_out_file;
-      if (!rtl_tv_out_file.is_open()) {
-        rtl_tv_out_file.open(AUTOTB_TVOUT_PC_arpDataOut_V_data_V);
-        if (rtl_tv_out_file.good()) {
-          rtl_tv_out_file >> AESL_token;
-          if (AESL_token != "[[[runtime]]]")
-            exit(1);
-        }
-      }
-  
-      if (rtl_tv_out_file.good()) {
-        rtl_tv_out_file >> AESL_token; 
-        rtl_tv_out_file >> AESL_num;  // transaction number
-        if (AESL_token != "[[transaction]]") {
-          cerr << "Unexpected token: " << AESL_token << endl;
-          exit(1);
-        }
-        if (atoi(AESL_num.c_str()) == AESL_transaction_pc) {
-          std::vector<sc_bv<512> > arpDataOut_V_data_V_pc_buffer;
-          int i = 0;
-          bool has_unknown_value = false;
-          rtl_tv_out_file >> AESL_token; //data
-          while (AESL_token != "[[/transaction]]"){
-
-            has_unknown_value |= RTLOutputCheckAndReplacement(AESL_token, "arpDataOut");
-  
-            // push token into output port buffer
-            if (AESL_token != "") {
-              arpDataOut_V_data_V_pc_buffer.push_back(AESL_token.c_str());
-              i++;
-            }
-  
-            rtl_tv_out_file >> AESL_token; //data or [[/transaction]]
-            if (AESL_token == "[[[/runtime]]]" || rtl_tv_out_file.eof())
-              exit(1);
-          }
-          if (has_unknown_value) {
-            cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'x' or 'X' on port " 
-                 << "arpDataOut" << ", possible cause: There are uninitialized variables in the C design."
-                 << endl; 
-          }
-  
-          if (i > 0) {xlx_stream_arpDataOut_size=arpDataOut_V_data_V_pc_buffer.size();
-arpDataOut_V_data_V_pc_buffer_Copy=arpDataOut_V_data_V_pc_buffer;
-}
-        } // end transaction
-      } // end file is good
-    } // end post check logic bolck
-  
-          std::vector<sc_bv<512> > arpDataOut_V_keep_V_pc_buffer_Copy;
-{
-      static ifstream rtl_tv_out_file;
-      if (!rtl_tv_out_file.is_open()) {
-        rtl_tv_out_file.open(AUTOTB_TVOUT_PC_arpDataOut_V_keep_V);
-        if (rtl_tv_out_file.good()) {
-          rtl_tv_out_file >> AESL_token;
-          if (AESL_token != "[[[runtime]]]")
-            exit(1);
-        }
-      }
-  
-      if (rtl_tv_out_file.good()) {
-        rtl_tv_out_file >> AESL_token; 
-        rtl_tv_out_file >> AESL_num;  // transaction number
-        if (AESL_token != "[[transaction]]") {
-          cerr << "Unexpected token: " << AESL_token << endl;
-          exit(1);
-        }
-        if (atoi(AESL_num.c_str()) == AESL_transaction_pc) {
-          std::vector<sc_bv<512> > arpDataOut_V_keep_V_pc_buffer;
-          int i = 0;
-          bool has_unknown_value = false;
-          rtl_tv_out_file >> AESL_token; //data
-          while (AESL_token != "[[/transaction]]"){
-
-            has_unknown_value |= RTLOutputCheckAndReplacement(AESL_token, "arpDataOut");
-  
-            // push token into output port buffer
-            if (AESL_token != "") {
-              arpDataOut_V_keep_V_pc_buffer.push_back(AESL_token.c_str());
-              i++;
-            }
-  
-            rtl_tv_out_file >> AESL_token; //data or [[/transaction]]
-            if (AESL_token == "[[[/runtime]]]" || rtl_tv_out_file.eof())
-              exit(1);
-          }
-          if (has_unknown_value) {
-            cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'x' or 'X' on port " 
-                 << "arpDataOut" << ", possible cause: There are uninitialized variables in the C design."
-                 << endl; 
-          }
-  
-          if (i > 0) {xlx_stream_arpDataOut_size=arpDataOut_V_keep_V_pc_buffer.size();
-arpDataOut_V_keep_V_pc_buffer_Copy=arpDataOut_V_keep_V_pc_buffer;
-}
-        } // end transaction
-      } // end file is good
-    } // end post check logic bolck
-  
-          std::vector<sc_bv<512> > arpDataOut_V_strb_V_pc_buffer_Copy;
-{
-      static ifstream rtl_tv_out_file;
-      if (!rtl_tv_out_file.is_open()) {
-        rtl_tv_out_file.open(AUTOTB_TVOUT_PC_arpDataOut_V_strb_V);
-        if (rtl_tv_out_file.good()) {
-          rtl_tv_out_file >> AESL_token;
-          if (AESL_token != "[[[runtime]]]")
-            exit(1);
-        }
-      }
-  
-      if (rtl_tv_out_file.good()) {
-        rtl_tv_out_file >> AESL_token; 
-        rtl_tv_out_file >> AESL_num;  // transaction number
-        if (AESL_token != "[[transaction]]") {
-          cerr << "Unexpected token: " << AESL_token << endl;
-          exit(1);
-        }
-        if (atoi(AESL_num.c_str()) == AESL_transaction_pc) {
-          std::vector<sc_bv<512> > arpDataOut_V_strb_V_pc_buffer;
-          int i = 0;
-          bool has_unknown_value = false;
-          rtl_tv_out_file >> AESL_token; //data
-          while (AESL_token != "[[/transaction]]"){
-
-            has_unknown_value |= RTLOutputCheckAndReplacement(AESL_token, "arpDataOut");
-  
-            // push token into output port buffer
-            if (AESL_token != "") {
-              arpDataOut_V_strb_V_pc_buffer.push_back(AESL_token.c_str());
-              i++;
-            }
-  
-            rtl_tv_out_file >> AESL_token; //data or [[/transaction]]
-            if (AESL_token == "[[[/runtime]]]" || rtl_tv_out_file.eof())
-              exit(1);
-          }
-          if (has_unknown_value) {
-            cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'x' or 'X' on port " 
-                 << "arpDataOut" << ", possible cause: There are uninitialized variables in the C design."
-                 << endl; 
-          }
-  
-          if (i > 0) {xlx_stream_arpDataOut_size=arpDataOut_V_strb_V_pc_buffer.size();
-arpDataOut_V_strb_V_pc_buffer_Copy=arpDataOut_V_strb_V_pc_buffer;
-}
-        } // end transaction
-      } // end file is good
-    } // end post check logic bolck
-  
-          std::vector<sc_bv<512> > arpDataOut_V_last_V_pc_buffer_Copy;
-{
-      static ifstream rtl_tv_out_file;
-      if (!rtl_tv_out_file.is_open()) {
-        rtl_tv_out_file.open(AUTOTB_TVOUT_PC_arpDataOut_V_last_V);
-        if (rtl_tv_out_file.good()) {
-          rtl_tv_out_file >> AESL_token;
-          if (AESL_token != "[[[runtime]]]")
-            exit(1);
-        }
-      }
-  
-      if (rtl_tv_out_file.good()) {
-        rtl_tv_out_file >> AESL_token; 
-        rtl_tv_out_file >> AESL_num;  // transaction number
-        if (AESL_token != "[[transaction]]") {
-          cerr << "Unexpected token: " << AESL_token << endl;
-          exit(1);
-        }
-        if (atoi(AESL_num.c_str()) == AESL_transaction_pc) {
-          std::vector<sc_bv<512> > arpDataOut_V_last_V_pc_buffer;
-          int i = 0;
-          bool has_unknown_value = false;
-          rtl_tv_out_file >> AESL_token; //data
-          while (AESL_token != "[[/transaction]]"){
-
-            has_unknown_value |= RTLOutputCheckAndReplacement(AESL_token, "arpDataOut");
-  
-            // push token into output port buffer
-            if (AESL_token != "") {
-              arpDataOut_V_last_V_pc_buffer.push_back(AESL_token.c_str());
-              i++;
-            }
-  
-            rtl_tv_out_file >> AESL_token; //data or [[/transaction]]
-            if (AESL_token == "[[[/runtime]]]" || rtl_tv_out_file.eof())
-              exit(1);
-          }
-          if (has_unknown_value) {
-            cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'x' or 'X' on port " 
-                 << "arpDataOut" << ", possible cause: There are uninitialized variables in the C design."
-                 << endl; 
-          }
-  
-          if (i > 0) {xlx_stream_arpDataOut_size=arpDataOut_V_last_V_pc_buffer.size();
-arpDataOut_V_last_V_pc_buffer_Copy=arpDataOut_V_last_V_pc_buffer;
-}
-        } // end transaction
-      } // end file is good
-    } // end post check logic bolck
-  for (int j = 0, e = xlx_stream_arpDataOut_size; j != e; ++j) {
-__cosim_s40__ xlx_stream_elt_data;
-((long long*)&xlx_stream_elt_data)[0*8+0] = arpDataOut_V_data_V_pc_buffer_Copy[j].range(63,0).to_int64();
-((long long*)&xlx_stream_elt_data)[0*8+1] = arpDataOut_V_data_V_pc_buffer_Copy[j].range(127,64).to_int64();
-((long long*)&xlx_stream_elt_data)[0*8+2] = arpDataOut_V_data_V_pc_buffer_Copy[j].range(191,128).to_int64();
-((long long*)&xlx_stream_elt_data)[0*8+3] = arpDataOut_V_data_V_pc_buffer_Copy[j].range(255,192).to_int64();
-((long long*)&xlx_stream_elt_data)[0*8+4] = arpDataOut_V_data_V_pc_buffer_Copy[j].range(319,256).to_int64();
-((long long*)&xlx_stream_elt_data)[0*8+5] = arpDataOut_V_data_V_pc_buffer_Copy[j].range(383,320).to_int64();
-((long long*)&xlx_stream_elt_data)[0*8+6] = arpDataOut_V_data_V_pc_buffer_Copy[j].range(447,384).to_int64();
-((long long*)&xlx_stream_elt_data)[0*8+7] = arpDataOut_V_data_V_pc_buffer_Copy[j].range(511,448).to_int64();
-((hls::stream<__cosim_s40__>*)__xlx_apatb_param_arpDataOut_V_data_V)->write(xlx_stream_elt_data);
-long long xlx_stream_elt_keep;
-((long long*)&xlx_stream_elt_keep)[0] = arpDataOut_V_keep_V_pc_buffer_Copy[j].to_int64();
-((hls::stream<long long>*)__xlx_apatb_param_arpDataOut_V_keep_V)->write(xlx_stream_elt_keep);
-long long xlx_stream_elt_strb;
-((long long*)&xlx_stream_elt_strb)[0] = arpDataOut_V_strb_V_pc_buffer_Copy[j].to_int64();
-((hls::stream<long long>*)__xlx_apatb_param_arpDataOut_V_strb_V)->write(xlx_stream_elt_strb);
-char xlx_stream_elt_last;
-((char*)&xlx_stream_elt_last)[0] = arpDataOut_V_last_V_pc_buffer_Copy[j].to_uint64();
-((hls::stream<char>*)__xlx_apatb_param_arpDataOut_V_last_V)->write(xlx_stream_elt_last);
-}}long __xlx_apatb_param_macIpEncode_rsp_stream_buf_final_size;
-{
-      static ifstream rtl_tv_out_file;
-      if (!rtl_tv_out_file.is_open()) {
-        rtl_tv_out_file.open(WRAPC_STREAM_SIZE_OUT_macIpEncode_rsp);
-        if (rtl_tv_out_file.good()) {
-          rtl_tv_out_file >> AESL_token;
-          if (AESL_token != "[[[runtime]]]")
-            exit(1);
-        }
-      }
-  
-      if (rtl_tv_out_file.good()) {
-        rtl_tv_out_file >> AESL_token; 
-        rtl_tv_out_file >> AESL_num;  // transaction number
-        if (AESL_token != "[[transaction]]") {
-          cerr << "Unexpected token: " << AESL_token << endl;
-          exit(1);
-        }
-        if (atoi(AESL_num.c_str()) == AESL_transaction_pc) {
-          rtl_tv_out_file >> AESL_token; //data
-          while (AESL_token != "[[/transaction]]"){__xlx_apatb_param_macIpEncode_rsp_stream_buf_final_size = atoi(AESL_token.c_str());
-
-            rtl_tv_out_file >> AESL_token; //data or [[/transaction]]
-            if (AESL_token == "[[[/runtime]]]" || rtl_tv_out_file.eof())
-              exit(1);
-          }
-        } // end transaction
-      } // end file is good
-    } // end post check logic bolck
-  {
-      static ifstream rtl_tv_out_file;
-      if (!rtl_tv_out_file.is_open()) {
-        rtl_tv_out_file.open(AUTOTB_TVOUT_PC_macIpEncode_rsp);
-        if (rtl_tv_out_file.good()) {
-          rtl_tv_out_file >> AESL_token;
-          if (AESL_token != "[[[runtime]]]")
-            exit(1);
-        }
-      }
-  
-      if (rtl_tv_out_file.good()) {
-        rtl_tv_out_file >> AESL_token; 
-        rtl_tv_out_file >> AESL_num;  // transaction number
-        if (AESL_token != "[[transaction]]") {
-          cerr << "Unexpected token: " << AESL_token << endl;
-          exit(1);
-        }
-        if (atoi(AESL_num.c_str()) == AESL_transaction_pc) {
-          std::vector<sc_bv<128> > macIpEncode_rsp_pc_buffer;
-          int i = 0;
-          bool has_unknown_value = false;
-          rtl_tv_out_file >> AESL_token; //data
-          while (AESL_token != "[[/transaction]]"){
-
-            has_unknown_value |= RTLOutputCheckAndReplacement(AESL_token, "macIpEncode_rsp");
-  
-            // push token into output port buffer
-            if (AESL_token != "") {
-              macIpEncode_rsp_pc_buffer.push_back(AESL_token.c_str());
-              i++;
-            }
-  
-            rtl_tv_out_file >> AESL_token; //data or [[/transaction]]
-            if (AESL_token == "[[[/runtime]]]" || rtl_tv_out_file.eof())
-              exit(1);
-          }
-          if (has_unknown_value) {
-            cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'x' or 'X' on port " 
-                 << "macIpEncode_rsp" << ", possible cause: There are uninitialized variables in the C design."
-                 << endl; 
-          }
-  
-          if (i > 0) {for (int j = 0, e = i; j != e; ++j) {
-__cosim_s10__ xlx_stream_elt;
-((long long*)&xlx_stream_elt)[0*2+0] = macIpEncode_rsp_pc_buffer[j].range(63,0).to_int64();
-((long long*)&xlx_stream_elt)[0*2+1] = macIpEncode_rsp_pc_buffer[j].range(127,64).to_int64();
-((hls::stream<__cosim_s10__>*)__xlx_apatb_param_macIpEncode_rsp)->write(xlx_stream_elt);
-}
-}
-        } // end transaction
-      } // end file is good
-    } // end post check logic bolck
-  #ifdef USE_BINARY_TV_FILE
-{
-transaction<48> tr(256);
-aesl_fh.read(AUTOTB_TVOUT_PC_arpTable_macAddress, tr.p, tr.tbytes);
-tr.reorder();
-tr.send<8>((char*)__xlx_apatb_param_arpTable_macAddress, 256);
-}
+    check(port10);
+    check(port15);
+    check(port16);
+    check(port17);
+    check(port0);
+    check(port1);
+    check(port2);
+    check(port3);
+    check(port4);
+    check(port5);
+    check(port6);
+    check(port7);
+    check(port8);
+    check(port9);
 #else
-{
-      static ifstream rtl_tv_out_file;
-      if (!rtl_tv_out_file.is_open()) {
-        rtl_tv_out_file.open(AUTOTB_TVOUT_PC_arpTable_macAddress);
-        if (rtl_tv_out_file.good()) {
-          rtl_tv_out_file >> AESL_token;
-          if (AESL_token != "[[[runtime]]]")
-            exit(1);
-        }
-      }
-  
-      if (rtl_tv_out_file.good()) {
-        rtl_tv_out_file >> AESL_token; 
-        rtl_tv_out_file >> AESL_num;  // transaction number
-        if (AESL_token != "[[transaction]]") {
-          cerr << "Unexpected token: " << AESL_token << endl;
-          exit(1);
-        }
-        if (atoi(AESL_num.c_str()) == AESL_transaction_pc) {
-          std::vector<sc_bv<48> > arpTable_macAddress_pc_buffer(256);
-          int i = 0;
-          bool has_unknown_value = false;
-          rtl_tv_out_file >> AESL_token; //data
-          while (AESL_token != "[[/transaction]]"){
-
-            has_unknown_value |= RTLOutputCheckAndReplacement(AESL_token, "arpTable_macAddress");
-  
-            // push token into output port buffer
-            if (AESL_token != "") {
-              arpTable_macAddress_pc_buffer[i] = AESL_token.c_str();;
-              i++;
-            }
-  
-            rtl_tv_out_file >> AESL_token; //data or [[/transaction]]
-            if (AESL_token == "[[[/runtime]]]" || rtl_tv_out_file.eof())
-              exit(1);
-          }
-          if (has_unknown_value) {
-            cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'x' or 'X' on port " 
-                 << "arpTable_macAddress" << ", possible cause: There are uninitialized variables in the C design."
-                 << endl; 
-          }
-  
-          if (i > 0) {{
-            int i = 0;
-            for (int j = 0, e = 256; j < e; j += 1, ++i) {((char*)__xlx_apatb_param_arpTable_macAddress)[j*8+0] = arpTable_macAddress_pc_buffer[i].range(7, 0).to_int64();
-((char*)__xlx_apatb_param_arpTable_macAddress)[j*8+1] = arpTable_macAddress_pc_buffer[i].range(15, 8).to_int64();
-((char*)__xlx_apatb_param_arpTable_macAddress)[j*8+2] = arpTable_macAddress_pc_buffer[i].range(23, 16).to_int64();
-((char*)__xlx_apatb_param_arpTable_macAddress)[j*8+3] = arpTable_macAddress_pc_buffer[i].range(31, 24).to_int64();
-((char*)__xlx_apatb_param_arpTable_macAddress)[j*8+4] = arpTable_macAddress_pc_buffer[i].range(39, 32).to_int64();
-((char*)__xlx_apatb_param_arpTable_macAddress)[j*8+5] = arpTable_macAddress_pc_buffer[i].range(47, 40).to_int64();
-}}}
-        } // end transaction
-      } // end file is good
-    } // end post check logic bolck
-  #endif
-#ifdef USE_BINARY_TV_FILE
-{
-transaction<32> tr(256);
-aesl_fh.read(AUTOTB_TVOUT_PC_arpTable_ipAddress, tr.p, tr.tbytes);
-tr.reorder();
-tr.send<4>((char*)__xlx_apatb_param_arpTable_ipAddress, 256);
-}
-#else
-{
-      static ifstream rtl_tv_out_file;
-      if (!rtl_tv_out_file.is_open()) {
-        rtl_tv_out_file.open(AUTOTB_TVOUT_PC_arpTable_ipAddress);
-        if (rtl_tv_out_file.good()) {
-          rtl_tv_out_file >> AESL_token;
-          if (AESL_token != "[[[runtime]]]")
-            exit(1);
-        }
-      }
-  
-      if (rtl_tv_out_file.good()) {
-        rtl_tv_out_file >> AESL_token; 
-        rtl_tv_out_file >> AESL_num;  // transaction number
-        if (AESL_token != "[[transaction]]") {
-          cerr << "Unexpected token: " << AESL_token << endl;
-          exit(1);
-        }
-        if (atoi(AESL_num.c_str()) == AESL_transaction_pc) {
-          std::vector<sc_bv<32> > arpTable_ipAddress_pc_buffer(256);
-          int i = 0;
-          bool has_unknown_value = false;
-          rtl_tv_out_file >> AESL_token; //data
-          while (AESL_token != "[[/transaction]]"){
-
-            has_unknown_value |= RTLOutputCheckAndReplacement(AESL_token, "arpTable_ipAddress");
-  
-            // push token into output port buffer
-            if (AESL_token != "") {
-              arpTable_ipAddress_pc_buffer[i] = AESL_token.c_str();;
-              i++;
-            }
-  
-            rtl_tv_out_file >> AESL_token; //data or [[/transaction]]
-            if (AESL_token == "[[[/runtime]]]" || rtl_tv_out_file.eof())
-              exit(1);
-          }
-          if (has_unknown_value) {
-            cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'x' or 'X' on port " 
-                 << "arpTable_ipAddress" << ", possible cause: There are uninitialized variables in the C design."
-                 << endl; 
-          }
-  
-          if (i > 0) {{
-            int i = 0;
-            for (int j = 0, e = 256; j < e; j += 1, ++i) {((char*)__xlx_apatb_param_arpTable_ipAddress)[j*4+0] = arpTable_ipAddress_pc_buffer[i].range(7, 0).to_int64();
-((char*)__xlx_apatb_param_arpTable_ipAddress)[j*4+1] = arpTable_ipAddress_pc_buffer[i].range(15, 8).to_int64();
-((char*)__xlx_apatb_param_arpTable_ipAddress)[j*4+2] = arpTable_ipAddress_pc_buffer[i].range(23, 16).to_int64();
-((char*)__xlx_apatb_param_arpTable_ipAddress)[j*4+3] = arpTable_ipAddress_pc_buffer[i].range(31, 24).to_int64();
-}}}
-        } // end transaction
-      } // end file is good
-    } // end post check logic bolck
-  #endif
-#ifdef USE_BINARY_TV_FILE
-{
-transaction<1> tr(256);
-aesl_fh.read(AUTOTB_TVOUT_PC_arpTable_valid, tr.p, tr.tbytes);
-tr.reorder();
-tr.send<1>((char*)__xlx_apatb_param_arpTable_valid, 256);
-}
-#else
-{
-      static ifstream rtl_tv_out_file;
-      if (!rtl_tv_out_file.is_open()) {
-        rtl_tv_out_file.open(AUTOTB_TVOUT_PC_arpTable_valid);
-        if (rtl_tv_out_file.good()) {
-          rtl_tv_out_file >> AESL_token;
-          if (AESL_token != "[[[runtime]]]")
-            exit(1);
-        }
-      }
-  
-      if (rtl_tv_out_file.good()) {
-        rtl_tv_out_file >> AESL_token; 
-        rtl_tv_out_file >> AESL_num;  // transaction number
-        if (AESL_token != "[[transaction]]") {
-          cerr << "Unexpected token: " << AESL_token << endl;
-          exit(1);
-        }
-        if (atoi(AESL_num.c_str()) == AESL_transaction_pc) {
-          std::vector<sc_bv<1> > arpTable_valid_pc_buffer(256);
-          int i = 0;
-          bool has_unknown_value = false;
-          rtl_tv_out_file >> AESL_token; //data
-          while (AESL_token != "[[/transaction]]"){
-
-            has_unknown_value |= RTLOutputCheckAndReplacement(AESL_token, "arpTable_valid");
-  
-            // push token into output port buffer
-            if (AESL_token != "") {
-              arpTable_valid_pc_buffer[i] = AESL_token.c_str();;
-              i++;
-            }
-  
-            rtl_tv_out_file >> AESL_token; //data or [[/transaction]]
-            if (AESL_token == "[[[/runtime]]]" || rtl_tv_out_file.eof())
-              exit(1);
-          }
-          if (has_unknown_value) {
-            cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'x' or 'X' on port " 
-                 << "arpTable_valid" << ", possible cause: There are uninitialized variables in the C design."
-                 << endl; 
-          }
-  
-          if (i > 0) {{
-            int i = 0;
-            for (int j = 0, e = 256; j < e; j += 1, ++i) {((char*)__xlx_apatb_param_arpTable_valid)[j*1+0] = arpTable_valid_pc_buffer[i].range(0, 0).to_uint64();
-}}}
-        } // end transaction
-      } // end file is good
-    } // end post check logic bolck
-  #endif
-{
-      static ifstream rtl_tv_out_file;
-      if (!rtl_tv_out_file.is_open()) {
-        rtl_tv_out_file.open(AUTOTB_TVOUT_PC_arp_scan);
-        if (rtl_tv_out_file.good()) {
-          rtl_tv_out_file >> AESL_token;
-          if (AESL_token != "[[[runtime]]]")
-            exit(1);
-        }
-      }
-  
-      if (rtl_tv_out_file.good()) {
-        rtl_tv_out_file >> AESL_token; 
-        rtl_tv_out_file >> AESL_num;  // transaction number
-        if (AESL_token != "[[transaction]]") {
-          cerr << "Unexpected token: " << AESL_token << endl;
-          exit(1);
-        }
-        if (atoi(AESL_num.c_str()) == AESL_transaction_pc) {
-          std::vector<sc_bv<1> > arp_scan_pc_buffer(1);
-          int i = 0;
-          bool has_unknown_value = false;
-          rtl_tv_out_file >> AESL_token; //data
-          while (AESL_token != "[[/transaction]]"){
-
-            has_unknown_value |= RTLOutputCheckAndReplacement(AESL_token, "arp_scan");
-  
-            // push token into output port buffer
-            if (AESL_token != "") {
-              arp_scan_pc_buffer[i] = AESL_token.c_str();;
-              i++;
-            }
-  
-            rtl_tv_out_file >> AESL_token; //data or [[/transaction]]
-            if (AESL_token == "[[[/runtime]]]" || rtl_tv_out_file.eof())
-              exit(1);
-          }
-          if (has_unknown_value) {
-            cerr << "WARNING: [SIM 212-201] RTL produces unknown value 'x' or 'X' on port " 
-                 << "arp_scan" << ", possible cause: There are uninitialized variables in the C design."
-                 << endl; 
-          }
-  
-          if (i > 0) {((char*)__xlx_apatb_param_arp_scan)[0*1+0] = arp_scan_pc_buffer[0].range(0, 0).to_uint64();
-}
-        } // end transaction
-      } // end file is good
-    } // end post check logic bolck
-  
-    AESL_transaction_pc++;
-    return ;
-  }
-static unsigned AESL_transaction;
-static INTER_TCL_FILE tcl_file(INTER_TCL);
-std::vector<char> __xlx_sprintf_buffer(1024);
-CodeState = ENTER_WRAPC;
-aesl_fh.touch(WRAPC_STREAM_SIZE_IN_arpDataIn_V_data_V);
-aesl_fh.touch(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_data_V);
-aesl_fh.touch(WRAPC_STREAM_SIZE_IN_arpDataIn_V_keep_V);
-aesl_fh.touch(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_keep_V);
-aesl_fh.touch(WRAPC_STREAM_SIZE_IN_arpDataIn_V_strb_V);
-aesl_fh.touch(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_strb_V);
-aesl_fh.touch(WRAPC_STREAM_SIZE_IN_arpDataIn_V_last_V);
-aesl_fh.touch(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_last_V);
-aesl_fh.touch(WRAPC_STREAM_SIZE_IN_macIpEncode_req);
-aesl_fh.touch(WRAPC_STREAM_INGRESS_STATUS_macIpEncode_req);
-aesl_fh.touch(WRAPC_STREAM_SIZE_OUT_arpDataOut_V_data_V);
-aesl_fh.touch(WRAPC_STREAM_EGRESS_STATUS_arpDataOut_V_data_V);
-aesl_fh.touch(WRAPC_STREAM_SIZE_OUT_arpDataOut_V_keep_V);
-aesl_fh.touch(WRAPC_STREAM_EGRESS_STATUS_arpDataOut_V_keep_V);
-aesl_fh.touch(WRAPC_STREAM_SIZE_OUT_arpDataOut_V_strb_V);
-aesl_fh.touch(WRAPC_STREAM_EGRESS_STATUS_arpDataOut_V_strb_V);
-aesl_fh.touch(WRAPC_STREAM_SIZE_OUT_arpDataOut_V_last_V);
-aesl_fh.touch(WRAPC_STREAM_EGRESS_STATUS_arpDataOut_V_last_V);
-aesl_fh.touch(WRAPC_STREAM_SIZE_OUT_macIpEncode_rsp);
-aesl_fh.touch(WRAPC_STREAM_EGRESS_STATUS_macIpEncode_rsp);
-CodeState = DUMP_INPUTS;
-// data
-std::vector<__cosim_s40__> __xlx_apatb_param_arpDataIn_V_data_V_stream_buf;
-{
-  while (!((hls::stream<__cosim_s40__>*)__xlx_apatb_param_arpDataIn_V_data_V)->empty())
-    __xlx_apatb_param_arpDataIn_V_data_V_stream_buf.push_back(((hls::stream<__cosim_s40__>*)__xlx_apatb_param_arpDataIn_V_data_V)->read());
-  for (int i = 0; i < __xlx_apatb_param_arpDataIn_V_data_V_stream_buf.size(); ++i)
-    ((hls::stream<__cosim_s40__>*)__xlx_apatb_param_arpDataIn_V_data_V)->write(__xlx_apatb_param_arpDataIn_V_data_V_stream_buf[i]);
-  }
-long __xlx_apatb_param_arpDataIn_stream_buf_size = ((hls::stream<__cosim_s40__>*)__xlx_apatb_param_arpDataIn_V_data_V)->size();
-// keep
-std::vector<long long> __xlx_apatb_param_arpDataIn_V_keep_V_stream_buf;
-{
-  while (!((hls::stream<long long>*)__xlx_apatb_param_arpDataIn_V_keep_V)->empty())
-    __xlx_apatb_param_arpDataIn_V_keep_V_stream_buf.push_back(((hls::stream<long long>*)__xlx_apatb_param_arpDataIn_V_keep_V)->read());
-  for (int i = 0; i < __xlx_apatb_param_arpDataIn_V_keep_V_stream_buf.size(); ++i)
-    ((hls::stream<long long>*)__xlx_apatb_param_arpDataIn_V_keep_V)->write(__xlx_apatb_param_arpDataIn_V_keep_V_stream_buf[i]);
-  }
-// strb
-std::vector<long long> __xlx_apatb_param_arpDataIn_V_strb_V_stream_buf;
-{
-  while (!((hls::stream<long long>*)__xlx_apatb_param_arpDataIn_V_strb_V)->empty())
-    __xlx_apatb_param_arpDataIn_V_strb_V_stream_buf.push_back(((hls::stream<long long>*)__xlx_apatb_param_arpDataIn_V_strb_V)->read());
-  for (int i = 0; i < __xlx_apatb_param_arpDataIn_V_strb_V_stream_buf.size(); ++i)
-    ((hls::stream<long long>*)__xlx_apatb_param_arpDataIn_V_strb_V)->write(__xlx_apatb_param_arpDataIn_V_strb_V_stream_buf[i]);
-  }
-// user
-// last
-std::vector<char> __xlx_apatb_param_arpDataIn_V_last_V_stream_buf;
-{
-  while (!((hls::stream<char>*)__xlx_apatb_param_arpDataIn_V_last_V)->empty())
-    __xlx_apatb_param_arpDataIn_V_last_V_stream_buf.push_back(((hls::stream<char>*)__xlx_apatb_param_arpDataIn_V_last_V)->read());
-  for (int i = 0; i < __xlx_apatb_param_arpDataIn_V_last_V_stream_buf.size(); ++i)
-    ((hls::stream<char>*)__xlx_apatb_param_arpDataIn_V_last_V)->write(__xlx_apatb_param_arpDataIn_V_last_V_stream_buf[i]);
-  }
-// id
-// dest
-std::vector<__cosim_s4__> __xlx_apatb_param_macIpEncode_req_stream_buf;
-{
-  while (!((hls::stream<__cosim_s4__>*)__xlx_apatb_param_macIpEncode_req)->empty())
-    __xlx_apatb_param_macIpEncode_req_stream_buf.push_back(((hls::stream<__cosim_s4__>*)__xlx_apatb_param_macIpEncode_req)->read());
-  for (int i = 0; i < __xlx_apatb_param_macIpEncode_req_stream_buf.size(); ++i)
-    ((hls::stream<__cosim_s4__>*)__xlx_apatb_param_macIpEncode_req)->write(__xlx_apatb_param_macIpEncode_req_stream_buf[i]);
-  }
-long __xlx_apatb_param_macIpEncode_req_stream_buf_size = ((hls::stream<__cosim_s4__>*)__xlx_apatb_param_macIpEncode_req)->size();
-// data
-std::vector<__cosim_s40__> __xlx_apatb_param_arpDataOut_V_data_V_stream_buf;
-long __xlx_apatb_param_arpDataOut_stream_buf_size = ((hls::stream<__cosim_s40__>*)__xlx_apatb_param_arpDataOut_V_data_V)->size();
-// keep
-std::vector<long long> __xlx_apatb_param_arpDataOut_V_keep_V_stream_buf;
-// strb
-std::vector<long long> __xlx_apatb_param_arpDataOut_V_strb_V_stream_buf;
-// user
-// last
-std::vector<char> __xlx_apatb_param_arpDataOut_V_last_V_stream_buf;
-// id
-// dest
-std::vector<__cosim_s10__> __xlx_apatb_param_macIpEncode_rsp_stream_buf;
-long __xlx_apatb_param_macIpEncode_rsp_stream_buf_size = ((hls::stream<__cosim_s10__>*)__xlx_apatb_param_macIpEncode_rsp)->size();
-unsigned __xlx_offset_byte_param_arpTable_macAddress = 0;
-#ifdef USE_BINARY_TV_FILE
-{
-aesl_fh.touch(AUTOTB_TVIN_arpTable_macAddress, 'b');
-transaction<48> tr(256);
-  __xlx_offset_byte_param_arpTable_macAddress = 0*8;
-  if (__xlx_apatb_param_arpTable_macAddress) {
-tr.import<8>((char*)__xlx_apatb_param_arpTable_macAddress, 256, 0);
-  }
-tr.reorder();
-aesl_fh.write(AUTOTB_TVIN_arpTable_macAddress, tr.p, tr.tbytes);
-}
-
-  tcl_file.set_num(256, &tcl_file.arpTable_macAddress_depth);
-#else
-// print arpTable_macAddress Transactions
-{
-aesl_fh.write(AUTOTB_TVIN_arpTable_macAddress, begin_str(AESL_transaction));
-{
-  __xlx_offset_byte_param_arpTable_macAddress = 0*8;
-  if (__xlx_apatb_param_arpTable_macAddress) {
-    for (int j = 0  - 0, e = 256 - 0; j != e; ++j) {
-sc_bv<48> __xlx_tmp_lv = ((long long*)__xlx_apatb_param_arpTable_macAddress)[j];
-aesl_fh.write(AUTOTB_TVIN_arpTable_macAddress, __xlx_tmp_lv.to_string(SC_HEX)+string("\n"));
-    }
-  }
-}
-
-  tcl_file.set_num(256, &tcl_file.arpTable_macAddress_depth);
-aesl_fh.write(AUTOTB_TVIN_arpTable_macAddress, end_str());
-}
-
+    static hls::sim::RefTCL tcl("../tv/cdatafile/ref.tcl");
+    CodeState = DUMP_INPUTS;
+    dump(port10, port10.iwriter, tcl.AESL_transaction);
+    dump(port11, port11.iwriter, tcl.AESL_transaction);
+    dump(port12, port12.iwriter, tcl.AESL_transaction);
+    dump(port13, port13.iwriter, tcl.AESL_transaction);
+    dump(port14, port14.iwriter, tcl.AESL_transaction);
+    dump(port15, port15.iwriter, tcl.AESL_transaction);
+    dump(port16, port16.iwriter, tcl.AESL_transaction);
+    dump(port17, port17.iwriter, tcl.AESL_transaction);
+    port10.doTCL(tcl);
+    port11.doTCL(tcl);
+    port12.doTCL(tcl);
+    port13.doTCL(tcl);
+    port14.doTCL(tcl);
+    port15.doTCL(tcl);
+    port16.doTCL(tcl);
+    port17.doTCL(tcl);
+    port0.markSize();
+    port1.markSize();
+    port2.markSize();
+    port3.markSize();
+    port4.markSize();
+    port0.buffer();
+    port1.buffer();
+    port2.buffer();
+    port3.buffer();
+    port4.buffer();
+    port5.markSize();
+    port6.markSize();
+    port7.markSize();
+    port8.markSize();
+    port9.markSize();
+    CodeState = CALL_C_DUT;
+    arp_server_hw_stub_wrapper(__xlx_apatb_param_arpDataIn_V_data_V, __xlx_apatb_param_arpDataIn_V_keep_V, __xlx_apatb_param_arpDataIn_V_strb_V, __xlx_apatb_param_arpDataIn_V_last_V, __xlx_apatb_param_macIpEncode_req, __xlx_apatb_param_arpDataOut_V_data_V, __xlx_apatb_param_arpDataOut_V_keep_V, __xlx_apatb_param_arpDataOut_V_strb_V, __xlx_apatb_param_arpDataOut_V_last_V, __xlx_apatb_param_macIpEncode_rsp, __xlx_apatb_param_arpTable_macAddress, __xlx_apatb_param_arpTable_ipAddress, __xlx_apatb_param_arpTable_valid, __xlx_apatb_param_arp_scan, __xlx_apatb_param_myMacAddress, __xlx_apatb_param_myIpAddress, __xlx_apatb_param_gatewayIP, __xlx_apatb_param_networkMask);
+    port5.buffer();
+    port6.buffer();
+    port7.buffer();
+    port8.buffer();
+    port9.buffer();
+    dump(port0, tcl.AESL_transaction);
+    dump(port1, tcl.AESL_transaction);
+    dump(port2, tcl.AESL_transaction);
+    dump(port3, tcl.AESL_transaction);
+    dump(port4, tcl.AESL_transaction);
+    port0.doTCL(tcl);
+    port1.doTCL(tcl);
+    port2.doTCL(tcl);
+    port3.doTCL(tcl);
+    port4.doTCL(tcl);
+    CodeState = DUMP_OUTPUTS;
+    dump(port10, port10.owriter, tcl.AESL_transaction);
+    dump(port15, port15.owriter, tcl.AESL_transaction);
+    dump(port16, port16.owriter, tcl.AESL_transaction);
+    dump(port17, port17.owriter, tcl.AESL_transaction);
+    dump(port5, tcl.AESL_transaction);
+    dump(port6, tcl.AESL_transaction);
+    dump(port7, tcl.AESL_transaction);
+    dump(port8, tcl.AESL_transaction);
+    dump(port9, tcl.AESL_transaction);
+    port5.doTCL(tcl);
+    port6.doTCL(tcl);
+    port7.doTCL(tcl);
+    port8.doTCL(tcl);
+    port9.doTCL(tcl);
+    tcl.AESL_transaction++;
 #endif
-unsigned __xlx_offset_byte_param_arpTable_ipAddress = 0;
-#ifdef USE_BINARY_TV_FILE
-{
-aesl_fh.touch(AUTOTB_TVIN_arpTable_ipAddress, 'b');
-transaction<32> tr(256);
-  __xlx_offset_byte_param_arpTable_ipAddress = 0*4;
-  if (__xlx_apatb_param_arpTable_ipAddress) {
-tr.import<4>((char*)__xlx_apatb_param_arpTable_ipAddress, 256, 0);
+  } catch (const hls::sim::SimException &e) {
+    hls::sim::errExit(e.line, e.msg);
   }
-tr.reorder();
-aesl_fh.write(AUTOTB_TVIN_arpTable_ipAddress, tr.p, tr.tbytes);
-}
-
-  tcl_file.set_num(256, &tcl_file.arpTable_ipAddress_depth);
-#else
-// print arpTable_ipAddress Transactions
-{
-aesl_fh.write(AUTOTB_TVIN_arpTable_ipAddress, begin_str(AESL_transaction));
-{
-  __xlx_offset_byte_param_arpTable_ipAddress = 0*4;
-  if (__xlx_apatb_param_arpTable_ipAddress) {
-    for (int j = 0  - 0, e = 256 - 0; j != e; ++j) {
-sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_arpTable_ipAddress)[j];
-aesl_fh.write(AUTOTB_TVIN_arpTable_ipAddress, __xlx_tmp_lv.to_string(SC_HEX)+string("\n"));
-    }
-  }
-}
-
-  tcl_file.set_num(256, &tcl_file.arpTable_ipAddress_depth);
-aesl_fh.write(AUTOTB_TVIN_arpTable_ipAddress, end_str());
-}
-
-#endif
-unsigned __xlx_offset_byte_param_arpTable_valid = 0;
-#ifdef USE_BINARY_TV_FILE
-{
-aesl_fh.touch(AUTOTB_TVIN_arpTable_valid, 'b');
-transaction<1> tr(256);
-  __xlx_offset_byte_param_arpTable_valid = 0*1;
-  if (__xlx_apatb_param_arpTable_valid) {
-tr.import<1>((char*)__xlx_apatb_param_arpTable_valid, 256, 0);
-  }
-tr.reorder();
-aesl_fh.write(AUTOTB_TVIN_arpTable_valid, tr.p, tr.tbytes);
-}
-
-  tcl_file.set_num(256, &tcl_file.arpTable_valid_depth);
-#else
-// print arpTable_valid Transactions
-{
-aesl_fh.write(AUTOTB_TVIN_arpTable_valid, begin_str(AESL_transaction));
-{
-  __xlx_offset_byte_param_arpTable_valid = 0*1;
-  if (__xlx_apatb_param_arpTable_valid) {
-    for (int j = 0  - 0, e = 256 - 0; j != e; ++j) {
-sc_bv<1> __xlx_tmp_lv = ((char*)__xlx_apatb_param_arpTable_valid)[j];
-aesl_fh.write(AUTOTB_TVIN_arpTable_valid, __xlx_tmp_lv.to_string(SC_HEX)+string("\n"));
-    }
-  }
-}
-
-  tcl_file.set_num(256, &tcl_file.arpTable_valid_depth);
-aesl_fh.write(AUTOTB_TVIN_arpTable_valid, end_str());
-}
-
-#endif
-// print arp_scan Transactions
-{
-aesl_fh.write(AUTOTB_TVIN_arp_scan, begin_str(AESL_transaction));
-{
-    sc_bv<1> __xlx_tmp_lv = *((char*)__xlx_apatb_param_arp_scan);
-aesl_fh.write(AUTOTB_TVIN_arp_scan, __xlx_tmp_lv.to_string(SC_HEX)+string("\n"));
-}
-  tcl_file.set_num(1, &tcl_file.arp_scan_depth);
-aesl_fh.write(AUTOTB_TVIN_arp_scan, end_str());
-}
-
-// print myMacAddress Transactions
-{
-aesl_fh.write(AUTOTB_TVIN_myMacAddress, begin_str(AESL_transaction));
-{
-    sc_bv<48> __xlx_tmp_lv = *((long long*)__xlx_apatb_param_myMacAddress);
-aesl_fh.write(AUTOTB_TVIN_myMacAddress, __xlx_tmp_lv.to_string(SC_HEX)+string("\n"));
-}
-  tcl_file.set_num(1, &tcl_file.myMacAddress_depth);
-aesl_fh.write(AUTOTB_TVIN_myMacAddress, end_str());
-}
-
-// print myIpAddress Transactions
-{
-aesl_fh.write(AUTOTB_TVIN_myIpAddress, begin_str(AESL_transaction));
-{
-    sc_bv<32> __xlx_tmp_lv = *((int*)__xlx_apatb_param_myIpAddress);
-aesl_fh.write(AUTOTB_TVIN_myIpAddress, __xlx_tmp_lv.to_string(SC_HEX)+string("\n"));
-}
-  tcl_file.set_num(1, &tcl_file.myIpAddress_depth);
-aesl_fh.write(AUTOTB_TVIN_myIpAddress, end_str());
-}
-
-// print gatewayIP Transactions
-{
-aesl_fh.write(AUTOTB_TVIN_gatewayIP, begin_str(AESL_transaction));
-{
-    sc_bv<32> __xlx_tmp_lv = *((int*)__xlx_apatb_param_gatewayIP);
-aesl_fh.write(AUTOTB_TVIN_gatewayIP, __xlx_tmp_lv.to_string(SC_HEX)+string("\n"));
-}
-  tcl_file.set_num(1, &tcl_file.gatewayIP_depth);
-aesl_fh.write(AUTOTB_TVIN_gatewayIP, end_str());
-}
-
-// print networkMask Transactions
-{
-aesl_fh.write(AUTOTB_TVIN_networkMask, begin_str(AESL_transaction));
-{
-    sc_bv<32> __xlx_tmp_lv = *((int*)__xlx_apatb_param_networkMask);
-aesl_fh.write(AUTOTB_TVIN_networkMask, __xlx_tmp_lv.to_string(SC_HEX)+string("\n"));
-}
-  tcl_file.set_num(1, &tcl_file.networkMask_depth);
-aesl_fh.write(AUTOTB_TVIN_networkMask, end_str());
-}
-
-CodeState = CALL_C_DUT;
-arp_server_hw_stub_wrapper(__xlx_apatb_param_arpDataIn_V_data_V, __xlx_apatb_param_arpDataIn_V_keep_V, __xlx_apatb_param_arpDataIn_V_strb_V, __xlx_apatb_param_arpDataIn_V_last_V, __xlx_apatb_param_macIpEncode_req, __xlx_apatb_param_arpDataOut_V_data_V, __xlx_apatb_param_arpDataOut_V_keep_V, __xlx_apatb_param_arpDataOut_V_strb_V, __xlx_apatb_param_arpDataOut_V_last_V, __xlx_apatb_param_macIpEncode_rsp, __xlx_apatb_param_arpTable_macAddress, __xlx_apatb_param_arpTable_ipAddress, __xlx_apatb_param_arpTable_valid, __xlx_apatb_param_arp_scan, __xlx_apatb_param_myMacAddress, __xlx_apatb_param_myIpAddress, __xlx_apatb_param_gatewayIP, __xlx_apatb_param_networkMask);
-CodeState = DUMP_OUTPUTS;
-long __xlx_apatb_param_arpDataIn_stream_buf_final_size = __xlx_apatb_param_arpDataIn_stream_buf_size - ((hls::stream<__cosim_s40__>*)__xlx_apatb_param_arpDataIn_V_data_V)->size();
-aesl_fh.write(AUTOTB_TVIN_arpDataIn_V_data_V, begin_str(AESL_transaction));
-aesl_fh.write(AUTOTB_TVIN_arpDataIn_V_keep_V, begin_str(AESL_transaction));
-aesl_fh.write(AUTOTB_TVIN_arpDataIn_V_strb_V, begin_str(AESL_transaction));
-aesl_fh.write(AUTOTB_TVIN_arpDataIn_V_last_V, begin_str(AESL_transaction));
-for (int j = 0, e = __xlx_apatb_param_arpDataIn_stream_buf_final_size; j != e; ++j) {
-sc_bv<512> __xlx_tmp_0_lv;
-{
-sc_bv<512> __xlx_tmp_lv;
-__xlx_tmp_lv.range(63,0) = ((long long*)&__xlx_apatb_param_arpDataIn_V_data_V_stream_buf[j])[0*8+0];
-__xlx_tmp_lv.range(127,64) = ((long long*)&__xlx_apatb_param_arpDataIn_V_data_V_stream_buf[j])[0*8+1];
-__xlx_tmp_lv.range(191,128) = ((long long*)&__xlx_apatb_param_arpDataIn_V_data_V_stream_buf[j])[0*8+2];
-__xlx_tmp_lv.range(255,192) = ((long long*)&__xlx_apatb_param_arpDataIn_V_data_V_stream_buf[j])[0*8+3];
-__xlx_tmp_lv.range(319,256) = ((long long*)&__xlx_apatb_param_arpDataIn_V_data_V_stream_buf[j])[0*8+4];
-__xlx_tmp_lv.range(383,320) = ((long long*)&__xlx_apatb_param_arpDataIn_V_data_V_stream_buf[j])[0*8+5];
-__xlx_tmp_lv.range(447,384) = ((long long*)&__xlx_apatb_param_arpDataIn_V_data_V_stream_buf[j])[0*8+6];
-__xlx_tmp_lv.range(511,448) = ((long long*)&__xlx_apatb_param_arpDataIn_V_data_V_stream_buf[j])[0*8+7];
-__xlx_tmp_0_lv = __xlx_tmp_lv;
-}
-sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_0_lv.to_string(SC_HEX).c_str());
-aesl_fh.write(AUTOTB_TVIN_arpDataIn_V_data_V, __xlx_sprintf_buffer.data());
-sc_bv<64> __xlx_tmp_1_lv = ((long long*)&__xlx_apatb_param_arpDataIn_V_keep_V_stream_buf[j])[0];
-sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_1_lv.to_string(SC_HEX).c_str());
-aesl_fh.write(AUTOTB_TVIN_arpDataIn_V_keep_V, __xlx_sprintf_buffer.data());
-sc_bv<64> __xlx_tmp_2_lv = ((long long*)&__xlx_apatb_param_arpDataIn_V_strb_V_stream_buf[j])[0];
-sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_2_lv.to_string(SC_HEX).c_str());
-aesl_fh.write(AUTOTB_TVIN_arpDataIn_V_strb_V, __xlx_sprintf_buffer.data());
-sc_bv<1> __xlx_tmp_4_lv = ((char*)&__xlx_apatb_param_arpDataIn_V_last_V_stream_buf[j])[0];
-sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_4_lv.to_string(SC_HEX).c_str());
-aesl_fh.write(AUTOTB_TVIN_arpDataIn_V_last_V, __xlx_sprintf_buffer.data());
-}
-tcl_file.set_num(__xlx_apatb_param_arpDataIn_stream_buf_final_size, &tcl_file.arpDataIn_V_data_V_depth);
-aesl_fh.write(AUTOTB_TVIN_arpDataIn_V_data_V, end_str());
-tcl_file.set_num(__xlx_apatb_param_arpDataIn_stream_buf_final_size, &tcl_file.arpDataIn_V_keep_V_depth);
-aesl_fh.write(AUTOTB_TVIN_arpDataIn_V_keep_V, end_str());
-tcl_file.set_num(__xlx_apatb_param_arpDataIn_stream_buf_final_size, &tcl_file.arpDataIn_V_strb_V_depth);
-aesl_fh.write(AUTOTB_TVIN_arpDataIn_V_strb_V, end_str());
-tcl_file.set_num(__xlx_apatb_param_arpDataIn_stream_buf_final_size, &tcl_file.arpDataIn_V_last_V_depth);
-aesl_fh.write(AUTOTB_TVIN_arpDataIn_V_last_V, end_str());
-
-// dump stream ingress status to file
-
-// dump stream ingress status to file
-{
-aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_data_V, begin_str(AESL_transaction));
-if (__xlx_apatb_param_arpDataIn_stream_buf_final_size > 0) {
-  long arpDataIn_V_data_V_stream_ingress_size = __xlx_apatb_param_arpDataIn_stream_buf_size;
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", arpDataIn_V_data_V_stream_ingress_size);
- aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_data_V, __xlx_sprintf_buffer.data());
-  for (int j = 0, e = __xlx_apatb_param_arpDataIn_stream_buf_final_size; j != e; j++) {
-    arpDataIn_V_data_V_stream_ingress_size--;
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", arpDataIn_V_data_V_stream_ingress_size);
- aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_data_V, __xlx_sprintf_buffer.data());
-  }
-} else {
-  long arpDataIn_V_data_V_stream_ingress_size = 0;
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", arpDataIn_V_data_V_stream_ingress_size);
- aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_data_V, __xlx_sprintf_buffer.data());
-}
-aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_data_V, end_str());
-}
-
-// dump stream ingress status to file
-{
-aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_keep_V, begin_str(AESL_transaction));
-if (__xlx_apatb_param_arpDataIn_stream_buf_final_size > 0) {
-  long arpDataIn_V_keep_V_stream_ingress_size = __xlx_apatb_param_arpDataIn_stream_buf_size;
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", arpDataIn_V_keep_V_stream_ingress_size);
- aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_keep_V, __xlx_sprintf_buffer.data());
-  for (int j = 0, e = __xlx_apatb_param_arpDataIn_stream_buf_final_size; j != e; j++) {
-    arpDataIn_V_keep_V_stream_ingress_size--;
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", arpDataIn_V_keep_V_stream_ingress_size);
- aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_keep_V, __xlx_sprintf_buffer.data());
-  }
-} else {
-  long arpDataIn_V_keep_V_stream_ingress_size = 0;
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", arpDataIn_V_keep_V_stream_ingress_size);
- aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_keep_V, __xlx_sprintf_buffer.data());
-}
-aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_keep_V, end_str());
-}
-
-// dump stream ingress status to file
-{
-aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_strb_V, begin_str(AESL_transaction));
-if (__xlx_apatb_param_arpDataIn_stream_buf_final_size > 0) {
-  long arpDataIn_V_strb_V_stream_ingress_size = __xlx_apatb_param_arpDataIn_stream_buf_size;
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", arpDataIn_V_strb_V_stream_ingress_size);
- aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_strb_V, __xlx_sprintf_buffer.data());
-  for (int j = 0, e = __xlx_apatb_param_arpDataIn_stream_buf_final_size; j != e; j++) {
-    arpDataIn_V_strb_V_stream_ingress_size--;
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", arpDataIn_V_strb_V_stream_ingress_size);
- aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_strb_V, __xlx_sprintf_buffer.data());
-  }
-} else {
-  long arpDataIn_V_strb_V_stream_ingress_size = 0;
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", arpDataIn_V_strb_V_stream_ingress_size);
- aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_strb_V, __xlx_sprintf_buffer.data());
-}
-aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_strb_V, end_str());
-}
-
-// dump stream ingress status to file
-{
-aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_last_V, begin_str(AESL_transaction));
-if (__xlx_apatb_param_arpDataIn_stream_buf_final_size > 0) {
-  long arpDataIn_V_last_V_stream_ingress_size = __xlx_apatb_param_arpDataIn_stream_buf_size;
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", arpDataIn_V_last_V_stream_ingress_size);
- aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_last_V, __xlx_sprintf_buffer.data());
-  for (int j = 0, e = __xlx_apatb_param_arpDataIn_stream_buf_final_size; j != e; j++) {
-    arpDataIn_V_last_V_stream_ingress_size--;
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", arpDataIn_V_last_V_stream_ingress_size);
- aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_last_V, __xlx_sprintf_buffer.data());
-  }
-} else {
-  long arpDataIn_V_last_V_stream_ingress_size = 0;
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", arpDataIn_V_last_V_stream_ingress_size);
- aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_last_V, __xlx_sprintf_buffer.data());
-}
-aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_arpDataIn_V_last_V, end_str());
-}
-{
-aesl_fh.write(WRAPC_STREAM_SIZE_IN_arpDataIn_V_data_V, begin_str(AESL_transaction));
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", __xlx_apatb_param_arpDataIn_stream_buf_final_size);
- aesl_fh.write(WRAPC_STREAM_SIZE_IN_arpDataIn_V_data_V, __xlx_sprintf_buffer.data());
-aesl_fh.write(WRAPC_STREAM_SIZE_IN_arpDataIn_V_data_V, end_str());
-}
-{
-aesl_fh.write(WRAPC_STREAM_SIZE_IN_arpDataIn_V_keep_V, begin_str(AESL_transaction));
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", __xlx_apatb_param_arpDataIn_stream_buf_final_size);
- aesl_fh.write(WRAPC_STREAM_SIZE_IN_arpDataIn_V_keep_V, __xlx_sprintf_buffer.data());
-aesl_fh.write(WRAPC_STREAM_SIZE_IN_arpDataIn_V_keep_V, end_str());
-}
-{
-aesl_fh.write(WRAPC_STREAM_SIZE_IN_arpDataIn_V_strb_V, begin_str(AESL_transaction));
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", __xlx_apatb_param_arpDataIn_stream_buf_final_size);
- aesl_fh.write(WRAPC_STREAM_SIZE_IN_arpDataIn_V_strb_V, __xlx_sprintf_buffer.data());
-aesl_fh.write(WRAPC_STREAM_SIZE_IN_arpDataIn_V_strb_V, end_str());
-}
-{
-aesl_fh.write(WRAPC_STREAM_SIZE_IN_arpDataIn_V_last_V, begin_str(AESL_transaction));
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", __xlx_apatb_param_arpDataIn_stream_buf_final_size);
- aesl_fh.write(WRAPC_STREAM_SIZE_IN_arpDataIn_V_last_V, __xlx_sprintf_buffer.data());
-aesl_fh.write(WRAPC_STREAM_SIZE_IN_arpDataIn_V_last_V, end_str());
-}
-long __xlx_apatb_param_macIpEncode_req_stream_buf_final_size = __xlx_apatb_param_macIpEncode_req_stream_buf_size - ((hls::stream<__cosim_s4__>*)__xlx_apatb_param_macIpEncode_req)->size();
-// print macIpEncode_req Transactions
-{
-aesl_fh.write(AUTOTB_TVIN_macIpEncode_req, begin_str(AESL_transaction));
-for (int j = 0, e = __xlx_apatb_param_macIpEncode_req_stream_buf_final_size; j != e; ++j) {
-sc_bv<32> __xlx_tmp_lv_hw;
-sc_bv<32> __xlx_tmp_lv;
-__xlx_tmp_lv = ((int*)&__xlx_apatb_param_macIpEncode_req_stream_buf[j])[0];
-__xlx_tmp_lv_hw = __xlx_tmp_lv;
-
-    sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv_hw.to_string(SC_HEX).c_str());
-    aesl_fh.write(AUTOTB_TVIN_macIpEncode_req, __xlx_sprintf_buffer.data()); 
-  }
-
-  tcl_file.set_num(__xlx_apatb_param_macIpEncode_req_stream_buf_final_size, &tcl_file.macIpEncode_req_depth);
-aesl_fh.write(AUTOTB_TVIN_macIpEncode_req, end_str());
-}
-
-
-// dump stream ingress status to file
-{
-aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_macIpEncode_req, begin_str(AESL_transaction));
-if (__xlx_apatb_param_macIpEncode_req_stream_buf_final_size > 0) {
-  long macIpEncode_req_stream_ingress_size = __xlx_apatb_param_macIpEncode_req_stream_buf_size;
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", macIpEncode_req_stream_ingress_size);
- aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_macIpEncode_req, __xlx_sprintf_buffer.data());
-  for (int j = 0, e = __xlx_apatb_param_macIpEncode_req_stream_buf_final_size; j != e; j++) {
-    macIpEncode_req_stream_ingress_size--;
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", macIpEncode_req_stream_ingress_size);
- aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_macIpEncode_req, __xlx_sprintf_buffer.data());
-  }
-} else {
-  long macIpEncode_req_stream_ingress_size = 0;
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", macIpEncode_req_stream_ingress_size);
- aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_macIpEncode_req, __xlx_sprintf_buffer.data());
-}
-aesl_fh.write(WRAPC_STREAM_INGRESS_STATUS_macIpEncode_req, end_str());
-}
-{
-aesl_fh.write(WRAPC_STREAM_SIZE_IN_macIpEncode_req, begin_str(AESL_transaction));
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", __xlx_apatb_param_macIpEncode_req_stream_buf_final_size);
- aesl_fh.write(WRAPC_STREAM_SIZE_IN_macIpEncode_req, __xlx_sprintf_buffer.data());
-aesl_fh.write(WRAPC_STREAM_SIZE_IN_macIpEncode_req, end_str());
-}
-
-//********************** dump C output stream *******************
-long __xlx_apatb_param_arpDataOut_stream_buf_final_size = ((hls::stream<__cosim_s40__>*)__xlx_apatb_param_arpDataOut_V_data_V)->size() - __xlx_apatb_param_arpDataOut_stream_buf_size;
-{
-  while (!((hls::stream<__cosim_s40__>*)__xlx_apatb_param_arpDataOut_V_data_V)->empty())
-    __xlx_apatb_param_arpDataOut_V_data_V_stream_buf.push_back(((hls::stream<__cosim_s40__>*)__xlx_apatb_param_arpDataOut_V_data_V)->read());
-  for (int i = 0; i < __xlx_apatb_param_arpDataOut_V_data_V_stream_buf.size(); ++i)
-    ((hls::stream<__cosim_s40__>*)__xlx_apatb_param_arpDataOut_V_data_V)->write(__xlx_apatb_param_arpDataOut_V_data_V_stream_buf[i]);
-  }
-{
-  while (!((hls::stream<long long>*)__xlx_apatb_param_arpDataOut_V_keep_V)->empty())
-    __xlx_apatb_param_arpDataOut_V_keep_V_stream_buf.push_back(((hls::stream<long long>*)__xlx_apatb_param_arpDataOut_V_keep_V)->read());
-  for (int i = 0; i < __xlx_apatb_param_arpDataOut_V_keep_V_stream_buf.size(); ++i)
-    ((hls::stream<long long>*)__xlx_apatb_param_arpDataOut_V_keep_V)->write(__xlx_apatb_param_arpDataOut_V_keep_V_stream_buf[i]);
-  }
-{
-  while (!((hls::stream<long long>*)__xlx_apatb_param_arpDataOut_V_strb_V)->empty())
-    __xlx_apatb_param_arpDataOut_V_strb_V_stream_buf.push_back(((hls::stream<long long>*)__xlx_apatb_param_arpDataOut_V_strb_V)->read());
-  for (int i = 0; i < __xlx_apatb_param_arpDataOut_V_strb_V_stream_buf.size(); ++i)
-    ((hls::stream<long long>*)__xlx_apatb_param_arpDataOut_V_strb_V)->write(__xlx_apatb_param_arpDataOut_V_strb_V_stream_buf[i]);
-  }
-{
-  while (!((hls::stream<char>*)__xlx_apatb_param_arpDataOut_V_last_V)->empty())
-    __xlx_apatb_param_arpDataOut_V_last_V_stream_buf.push_back(((hls::stream<char>*)__xlx_apatb_param_arpDataOut_V_last_V)->read());
-  for (int i = 0; i < __xlx_apatb_param_arpDataOut_V_last_V_stream_buf.size(); ++i)
-    ((hls::stream<char>*)__xlx_apatb_param_arpDataOut_V_last_V)->write(__xlx_apatb_param_arpDataOut_V_last_V_stream_buf[i]);
-  }
-aesl_fh.write(AUTOTB_TVOUT_arpDataOut_V_data_V, begin_str(AESL_transaction));
-aesl_fh.write(AUTOTB_TVOUT_arpDataOut_V_keep_V, begin_str(AESL_transaction));
-aesl_fh.write(AUTOTB_TVOUT_arpDataOut_V_strb_V, begin_str(AESL_transaction));
-aesl_fh.write(AUTOTB_TVOUT_arpDataOut_V_last_V, begin_str(AESL_transaction));
-for (int j = 0, e = __xlx_apatb_param_arpDataOut_stream_buf_final_size; j != e; ++j) {
-sc_bv<512> __xlx_tmp_0_lv;
-{
-sc_bv<512> __xlx_tmp_lv;
-__xlx_tmp_lv.range(63,0) = ((long long*)&__xlx_apatb_param_arpDataOut_V_data_V_stream_buf[__xlx_apatb_param_arpDataOut_stream_buf_size+j])[0*8+0];
-__xlx_tmp_lv.range(127,64) = ((long long*)&__xlx_apatb_param_arpDataOut_V_data_V_stream_buf[__xlx_apatb_param_arpDataOut_stream_buf_size+j])[0*8+1];
-__xlx_tmp_lv.range(191,128) = ((long long*)&__xlx_apatb_param_arpDataOut_V_data_V_stream_buf[__xlx_apatb_param_arpDataOut_stream_buf_size+j])[0*8+2];
-__xlx_tmp_lv.range(255,192) = ((long long*)&__xlx_apatb_param_arpDataOut_V_data_V_stream_buf[__xlx_apatb_param_arpDataOut_stream_buf_size+j])[0*8+3];
-__xlx_tmp_lv.range(319,256) = ((long long*)&__xlx_apatb_param_arpDataOut_V_data_V_stream_buf[__xlx_apatb_param_arpDataOut_stream_buf_size+j])[0*8+4];
-__xlx_tmp_lv.range(383,320) = ((long long*)&__xlx_apatb_param_arpDataOut_V_data_V_stream_buf[__xlx_apatb_param_arpDataOut_stream_buf_size+j])[0*8+5];
-__xlx_tmp_lv.range(447,384) = ((long long*)&__xlx_apatb_param_arpDataOut_V_data_V_stream_buf[__xlx_apatb_param_arpDataOut_stream_buf_size+j])[0*8+6];
-__xlx_tmp_lv.range(511,448) = ((long long*)&__xlx_apatb_param_arpDataOut_V_data_V_stream_buf[__xlx_apatb_param_arpDataOut_stream_buf_size+j])[0*8+7];
-__xlx_tmp_0_lv = __xlx_tmp_lv;
-}
-sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_0_lv.to_string(SC_HEX).c_str());
-aesl_fh.write(AUTOTB_TVOUT_arpDataOut_V_data_V, __xlx_sprintf_buffer.data());
-sc_bv<64> __xlx_tmp_1_lv = ((long long*)&__xlx_apatb_param_arpDataOut_V_keep_V_stream_buf[__xlx_apatb_param_arpDataOut_stream_buf_size+j])[0];
-sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_1_lv.to_string(SC_HEX).c_str());
-aesl_fh.write(AUTOTB_TVOUT_arpDataOut_V_keep_V, __xlx_sprintf_buffer.data());
-sc_bv<64> __xlx_tmp_2_lv = ((long long*)&__xlx_apatb_param_arpDataOut_V_strb_V_stream_buf[__xlx_apatb_param_arpDataOut_stream_buf_size+j])[0];
-sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_2_lv.to_string(SC_HEX).c_str());
-aesl_fh.write(AUTOTB_TVOUT_arpDataOut_V_strb_V, __xlx_sprintf_buffer.data());
-sc_bv<1> __xlx_tmp_4_lv = ((char*)&__xlx_apatb_param_arpDataOut_V_last_V_stream_buf[__xlx_apatb_param_arpDataOut_stream_buf_size+j])[0];
-sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_4_lv.to_string(SC_HEX).c_str());
-aesl_fh.write(AUTOTB_TVOUT_arpDataOut_V_last_V, __xlx_sprintf_buffer.data());
-}
-tcl_file.set_num(__xlx_apatb_param_arpDataOut_stream_buf_final_size, &tcl_file.arpDataOut_V_data_V_depth);
-aesl_fh.write(AUTOTB_TVOUT_arpDataOut_V_data_V, end_str());
-tcl_file.set_num(__xlx_apatb_param_arpDataOut_stream_buf_final_size, &tcl_file.arpDataOut_V_keep_V_depth);
-aesl_fh.write(AUTOTB_TVOUT_arpDataOut_V_keep_V, end_str());
-tcl_file.set_num(__xlx_apatb_param_arpDataOut_stream_buf_final_size, &tcl_file.arpDataOut_V_strb_V_depth);
-aesl_fh.write(AUTOTB_TVOUT_arpDataOut_V_strb_V, end_str());
-tcl_file.set_num(__xlx_apatb_param_arpDataOut_stream_buf_final_size, &tcl_file.arpDataOut_V_last_V_depth);
-aesl_fh.write(AUTOTB_TVOUT_arpDataOut_V_last_V, end_str());
-{
-aesl_fh.write(WRAPC_STREAM_SIZE_OUT_arpDataOut_V_data_V, begin_str(AESL_transaction));
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", __xlx_apatb_param_arpDataOut_stream_buf_final_size);
- aesl_fh.write(WRAPC_STREAM_SIZE_OUT_arpDataOut_V_data_V, __xlx_sprintf_buffer.data());
-aesl_fh.write(WRAPC_STREAM_SIZE_OUT_arpDataOut_V_data_V, end_str());
-}
-{
-aesl_fh.write(WRAPC_STREAM_SIZE_OUT_arpDataOut_V_keep_V, begin_str(AESL_transaction));
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", __xlx_apatb_param_arpDataOut_stream_buf_final_size);
- aesl_fh.write(WRAPC_STREAM_SIZE_OUT_arpDataOut_V_keep_V, __xlx_sprintf_buffer.data());
-aesl_fh.write(WRAPC_STREAM_SIZE_OUT_arpDataOut_V_keep_V, end_str());
-}
-{
-aesl_fh.write(WRAPC_STREAM_SIZE_OUT_arpDataOut_V_strb_V, begin_str(AESL_transaction));
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", __xlx_apatb_param_arpDataOut_stream_buf_final_size);
- aesl_fh.write(WRAPC_STREAM_SIZE_OUT_arpDataOut_V_strb_V, __xlx_sprintf_buffer.data());
-aesl_fh.write(WRAPC_STREAM_SIZE_OUT_arpDataOut_V_strb_V, end_str());
-}
-{
-aesl_fh.write(WRAPC_STREAM_SIZE_OUT_arpDataOut_V_last_V, begin_str(AESL_transaction));
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", __xlx_apatb_param_arpDataOut_stream_buf_final_size);
- aesl_fh.write(WRAPC_STREAM_SIZE_OUT_arpDataOut_V_last_V, __xlx_sprintf_buffer.data());
-aesl_fh.write(WRAPC_STREAM_SIZE_OUT_arpDataOut_V_last_V, end_str());
-}
-long __xlx_apatb_param_macIpEncode_rsp_stream_buf_final_size = ((hls::stream<__cosim_s10__>*)__xlx_apatb_param_macIpEncode_rsp)->size() - __xlx_apatb_param_macIpEncode_rsp_stream_buf_size;
-{
-  while (!((hls::stream<__cosim_s10__>*)__xlx_apatb_param_macIpEncode_rsp)->empty())
-    __xlx_apatb_param_macIpEncode_rsp_stream_buf.push_back(((hls::stream<__cosim_s10__>*)__xlx_apatb_param_macIpEncode_rsp)->read());
-  for (int i = 0; i < __xlx_apatb_param_macIpEncode_rsp_stream_buf.size(); ++i)
-    ((hls::stream<__cosim_s10__>*)__xlx_apatb_param_macIpEncode_rsp)->write(__xlx_apatb_param_macIpEncode_rsp_stream_buf[i]);
-  }
-// print macIpEncode_rsp Transactions
-{
-aesl_fh.write(AUTOTB_TVOUT_macIpEncode_rsp, begin_str(AESL_transaction));
-for (int j = 0, e = __xlx_apatb_param_macIpEncode_rsp_stream_buf_final_size; j != e; ++j) {
-sc_bv<128> __xlx_tmp_lv;
-__xlx_tmp_lv.range(63,0) = ((long long*)&__xlx_apatb_param_macIpEncode_rsp_stream_buf[__xlx_apatb_param_macIpEncode_rsp_stream_buf_size+j])[0*2+0];
-__xlx_tmp_lv.range(127,64) = ((long long*)&__xlx_apatb_param_macIpEncode_rsp_stream_buf[__xlx_apatb_param_macIpEncode_rsp_stream_buf_size+j])[0*2+1];
-aesl_fh.write(AUTOTB_TVOUT_macIpEncode_rsp, __xlx_tmp_lv.to_string(SC_HEX)+string("\n"));
-}
-
-  tcl_file.set_num(__xlx_apatb_param_macIpEncode_rsp_stream_buf_final_size, &tcl_file.macIpEncode_rsp_depth);
-aesl_fh.write(AUTOTB_TVOUT_macIpEncode_rsp, end_str());
-}
-
-{
-aesl_fh.write(WRAPC_STREAM_SIZE_OUT_macIpEncode_rsp, begin_str(AESL_transaction));
-sprintf(__xlx_sprintf_buffer.data(), "%d\n", __xlx_apatb_param_macIpEncode_rsp_stream_buf_final_size);
- aesl_fh.write(WRAPC_STREAM_SIZE_OUT_macIpEncode_rsp, __xlx_sprintf_buffer.data());
-aesl_fh.write(WRAPC_STREAM_SIZE_OUT_macIpEncode_rsp, end_str());
-}
-#ifdef USE_BINARY_TV_FILE
-{
-aesl_fh.touch(AUTOTB_TVOUT_arpTable_macAddress, 'b');
-transaction<48> tr(256);
-  __xlx_offset_byte_param_arpTable_macAddress = 0*8;
-  if (__xlx_apatb_param_arpTable_macAddress) {
-tr.import<8>((char*)__xlx_apatb_param_arpTable_macAddress, 256, 0);
-  }
-tr.reorder();
-aesl_fh.write(AUTOTB_TVOUT_arpTable_macAddress, tr.p, tr.tbytes);
-}
-
-  tcl_file.set_num(256, &tcl_file.arpTable_macAddress_depth);
-#else
-// print arpTable_macAddress Transactions
-{
-aesl_fh.write(AUTOTB_TVOUT_arpTable_macAddress, begin_str(AESL_transaction));
-{
-  __xlx_offset_byte_param_arpTable_macAddress = 0*8;
-  if (__xlx_apatb_param_arpTable_macAddress) {
-    for (int j = 0  - 0, e = 256 - 0; j != e; ++j) {
-sc_bv<48> __xlx_tmp_lv = ((long long*)__xlx_apatb_param_arpTable_macAddress)[j];
-aesl_fh.write(AUTOTB_TVOUT_arpTable_macAddress, __xlx_tmp_lv.to_string(SC_HEX)+string("\n"));
-    }
-  }
-}
-
-  tcl_file.set_num(256, &tcl_file.arpTable_macAddress_depth);
-aesl_fh.write(AUTOTB_TVOUT_arpTable_macAddress, end_str());
-}
-
-#endif
-#ifdef USE_BINARY_TV_FILE
-{
-aesl_fh.touch(AUTOTB_TVOUT_arpTable_ipAddress, 'b');
-transaction<32> tr(256);
-  __xlx_offset_byte_param_arpTable_ipAddress = 0*4;
-  if (__xlx_apatb_param_arpTable_ipAddress) {
-tr.import<4>((char*)__xlx_apatb_param_arpTable_ipAddress, 256, 0);
-  }
-tr.reorder();
-aesl_fh.write(AUTOTB_TVOUT_arpTable_ipAddress, tr.p, tr.tbytes);
-}
-
-  tcl_file.set_num(256, &tcl_file.arpTable_ipAddress_depth);
-#else
-// print arpTable_ipAddress Transactions
-{
-aesl_fh.write(AUTOTB_TVOUT_arpTable_ipAddress, begin_str(AESL_transaction));
-{
-  __xlx_offset_byte_param_arpTable_ipAddress = 0*4;
-  if (__xlx_apatb_param_arpTable_ipAddress) {
-    for (int j = 0  - 0, e = 256 - 0; j != e; ++j) {
-sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_arpTable_ipAddress)[j];
-aesl_fh.write(AUTOTB_TVOUT_arpTable_ipAddress, __xlx_tmp_lv.to_string(SC_HEX)+string("\n"));
-    }
-  }
-}
-
-  tcl_file.set_num(256, &tcl_file.arpTable_ipAddress_depth);
-aesl_fh.write(AUTOTB_TVOUT_arpTable_ipAddress, end_str());
-}
-
-#endif
-#ifdef USE_BINARY_TV_FILE
-{
-aesl_fh.touch(AUTOTB_TVOUT_arpTable_valid, 'b');
-transaction<1> tr(256);
-  __xlx_offset_byte_param_arpTable_valid = 0*1;
-  if (__xlx_apatb_param_arpTable_valid) {
-tr.import<1>((char*)__xlx_apatb_param_arpTable_valid, 256, 0);
-  }
-tr.reorder();
-aesl_fh.write(AUTOTB_TVOUT_arpTable_valid, tr.p, tr.tbytes);
-}
-
-  tcl_file.set_num(256, &tcl_file.arpTable_valid_depth);
-#else
-// print arpTable_valid Transactions
-{
-aesl_fh.write(AUTOTB_TVOUT_arpTable_valid, begin_str(AESL_transaction));
-{
-  __xlx_offset_byte_param_arpTable_valid = 0*1;
-  if (__xlx_apatb_param_arpTable_valid) {
-    for (int j = 0  - 0, e = 256 - 0; j != e; ++j) {
-sc_bv<1> __xlx_tmp_lv = ((char*)__xlx_apatb_param_arpTable_valid)[j];
-aesl_fh.write(AUTOTB_TVOUT_arpTable_valid, __xlx_tmp_lv.to_string(SC_HEX)+string("\n"));
-    }
-  }
-}
-
-  tcl_file.set_num(256, &tcl_file.arpTable_valid_depth);
-aesl_fh.write(AUTOTB_TVOUT_arpTable_valid, end_str());
-}
-
-#endif
-// print arp_scan Transactions
-{
-aesl_fh.write(AUTOTB_TVOUT_arp_scan, begin_str(AESL_transaction));
-{
-    sc_bv<1> __xlx_tmp_lv = *((char*)__xlx_apatb_param_arp_scan);
-aesl_fh.write(AUTOTB_TVOUT_arp_scan, __xlx_tmp_lv.to_string(SC_HEX)+string("\n"));
-}
-  tcl_file.set_num(1, &tcl_file.arp_scan_depth);
-aesl_fh.write(AUTOTB_TVOUT_arp_scan, end_str());
-}
-
-CodeState = DELETE_CHAR_BUFFERS;
-AESL_transaction++;
-tcl_file.set_num(AESL_transaction , &tcl_file.trans_num);
 }

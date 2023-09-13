@@ -9,6 +9,9 @@ set isOneStateSeq 0
 set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
+set hasInterrupt 0
+set DLRegFirstOffset 0
+set DLRegItemOffset 0
 set C_modelName {rxEngPacketDropper}
 set C_modelType { void 0 }
 set C_modelArgList {
@@ -21,6 +24,7 @@ set C_modelArgList {
 	{ rthDropFifo int 160 regular {fifo 0 volatile } {global 0}  }
 	{ ureDataPayload int 1024 regular {fifo 0 volatile } {global 0}  }
 }
+set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "DataOutApp_V_data_V", "interface" : "axis", "bitwidth" : 512, "direction" : "WRITEONLY"} , 
  	{ "Name" : "DataOutApp_V_keep_V", "interface" : "axis", "bitwidth" : 64, "direction" : "WRITEONLY"} , 
@@ -31,7 +35,7 @@ set C_modelArgMapList {[
  	{ "Name" : "rthDropFifo", "interface" : "fifo", "bitwidth" : 160, "direction" : "READONLY", "extern" : 0} , 
  	{ "Name" : "ureDataPayload", "interface" : "fifo", "bitwidth" : 1024, "direction" : "READONLY", "extern" : 0} ]}
 # RTL Port declarations: 
-set portNum 21
+set portNum 25
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -41,9 +45,13 @@ set portList {
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
 	{ rthDropFifo_dout sc_in sc_lv 160 signal 6 } 
+	{ rthDropFifo_num_data_valid sc_in sc_lv 6 signal 6 } 
+	{ rthDropFifo_fifo_cap sc_in sc_lv 6 signal 6 } 
 	{ rthDropFifo_empty_n sc_in sc_logic 1 signal 6 } 
 	{ rthDropFifo_read sc_out sc_logic 1 signal 6 } 
 	{ ureDataPayload_dout sc_in sc_lv 1024 signal 7 } 
+	{ ureDataPayload_num_data_valid sc_in sc_lv 9 signal 7 } 
+	{ ureDataPayload_fifo_cap sc_in sc_lv 9 signal 7 } 
 	{ ureDataPayload_empty_n sc_in sc_logic 1 signal 7 } 
 	{ ureDataPayload_read sc_out sc_logic 1 signal 7 } 
 	{ DataOutApp_TREADY sc_in sc_logic 1 outacc 5 } 
@@ -64,9 +72,13 @@ set NewPortList {[
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
  	{ "name": "rthDropFifo_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":160, "type": "signal", "bundle":{"name": "rthDropFifo", "role": "dout" }} , 
+ 	{ "name": "rthDropFifo_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "rthDropFifo", "role": "num_data_valid" }} , 
+ 	{ "name": "rthDropFifo_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "rthDropFifo", "role": "fifo_cap" }} , 
  	{ "name": "rthDropFifo_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "rthDropFifo", "role": "empty_n" }} , 
  	{ "name": "rthDropFifo_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "rthDropFifo", "role": "read" }} , 
  	{ "name": "ureDataPayload_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":1024, "type": "signal", "bundle":{"name": "ureDataPayload", "role": "dout" }} , 
+ 	{ "name": "ureDataPayload_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "ureDataPayload", "role": "num_data_valid" }} , 
+ 	{ "name": "ureDataPayload_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "ureDataPayload", "role": "fifo_cap" }} , 
  	{ "name": "ureDataPayload_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ureDataPayload", "role": "empty_n" }} , 
  	{ "name": "ureDataPayload_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ureDataPayload", "role": "read" }} , 
  	{ "name": "DataOutApp_TREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "DataOutApp_V_dest_V", "role": "default" }} , 
@@ -94,24 +106,24 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "1",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "DataOutApp_V_data_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "DataOutApp_V_data_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "DataOutApp",
 				"BlockSignal" : [
 					{"Name" : "DataOutApp_TDATA_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "DataOutApp_V_keep_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "DataOutApp_V_strb_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "DataOutApp_V_user_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "DataOutApp_V_last_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "DataOutApp_V_dest_V", "Type" : "Axis", "Direction" : "O"},
+			{"Name" : "DataOutApp_V_keep_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "DataOutApp"},
+			{"Name" : "DataOutApp_V_strb_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "DataOutApp"},
+			{"Name" : "DataOutApp_V_user_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "DataOutApp"},
+			{"Name" : "DataOutApp_V_last_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "DataOutApp"},
+			{"Name" : "DataOutApp_V_dest_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "DataOutApp"},
 			{"Name" : "repd_state", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "response_drop_V", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "response_drop", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "rthDropFifo", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "32", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "rthDropFifo_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "response_id_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "response_user_myIP_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "response_user_theirIP_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "response_user_myPort_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "response_user_theirPort_V", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "response_id", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "response_user_myIP", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "response_user_theirIP", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "response_user_myPort", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "response_user_theirPort", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "ureDataPayload", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "256", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "ureDataPayload_blk_n", "Type" : "RtlSignal"}]}]},
@@ -132,13 +144,13 @@ set ArgLastReadFirstWriteLatency {
 		DataOutApp_V_last_V {Type O LastRead -1 FirstWrite 1}
 		DataOutApp_V_dest_V {Type O LastRead -1 FirstWrite 1}
 		repd_state {Type IO LastRead -1 FirstWrite -1}
-		response_drop_V {Type IO LastRead -1 FirstWrite -1}
+		response_drop {Type IO LastRead -1 FirstWrite -1}
 		rthDropFifo {Type I LastRead 0 FirstWrite -1}
-		response_id_V {Type IO LastRead -1 FirstWrite -1}
-		response_user_myIP_V {Type IO LastRead -1 FirstWrite -1}
-		response_user_theirIP_V {Type IO LastRead -1 FirstWrite -1}
-		response_user_myPort_V {Type IO LastRead -1 FirstWrite -1}
-		response_user_theirPort_V {Type IO LastRead -1 FirstWrite -1}
+		response_id {Type IO LastRead -1 FirstWrite -1}
+		response_user_myIP {Type IO LastRead -1 FirstWrite -1}
+		response_user_theirIP {Type IO LastRead -1 FirstWrite -1}
+		response_user_myPort {Type IO LastRead -1 FirstWrite -1}
+		response_user_theirPort {Type IO LastRead -1 FirstWrite -1}
 		ureDataPayload {Type I LastRead 0 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
@@ -159,6 +171,6 @@ set Spec2ImplPortList {
 	DataOutApp_V_user_V { axis {  { DataOutApp_TUSER out_data 1 96 } } }
 	DataOutApp_V_last_V { axis {  { DataOutApp_TLAST out_data 1 1 } } }
 	DataOutApp_V_dest_V { axis {  { DataOutApp_TREADY out_acc 0 1 }  { DataOutApp_TVALID out_vld 1 1 }  { DataOutApp_TDEST out_data 1 16 } } }
-	rthDropFifo { ap_fifo {  { rthDropFifo_dout fifo_data 0 160 }  { rthDropFifo_empty_n fifo_status 0 1 }  { rthDropFifo_read fifo_update 1 1 } } }
-	ureDataPayload { ap_fifo {  { ureDataPayload_dout fifo_data 0 1024 }  { ureDataPayload_empty_n fifo_status 0 1 }  { ureDataPayload_read fifo_update 1 1 } } }
+	rthDropFifo { ap_fifo {  { rthDropFifo_dout fifo_port_we 0 160 }  { rthDropFifo_num_data_valid fifo_status_num_data_valid 0 6 }  { rthDropFifo_fifo_cap fifo_update 0 6 }  { rthDropFifo_empty_n fifo_status 0 1 }  { rthDropFifo_read fifo_data 1 1 } } }
+	ureDataPayload { ap_fifo {  { ureDataPayload_dout fifo_port_we 0 1024 }  { ureDataPayload_num_data_valid fifo_status_num_data_valid 0 9 }  { ureDataPayload_fifo_cap fifo_update 0 9 }  { ureDataPayload_empty_n fifo_status 0 1 }  { ureDataPayload_read fifo_data 1 1 } } }
 }

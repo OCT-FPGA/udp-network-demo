@@ -109,7 +109,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_myIpAddress_c \
     op interface \
-    ports { myIpAddress_c_din { O 32 vector } myIpAddress_c_full_n { I 1 bit } myIpAddress_c_write { O 1 bit } } \
+    ports { myIpAddress_c_din { O 32 vector } myIpAddress_c_num_data_valid { I 2 vector } myIpAddress_c_fifo_cap { I 2 vector } myIpAddress_c_full_n { I 1 bit } myIpAddress_c_write { O 1 bit } } \
 } "
 }
 
@@ -124,7 +124,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_myIpAddress_c11 \
     op interface \
-    ports { myIpAddress_c11_din { O 32 vector } myIpAddress_c11_full_n { I 1 bit } myIpAddress_c11_write { O 1 bit } } \
+    ports { myIpAddress_c11_din { O 32 vector } myIpAddress_c11_num_data_valid { I 2 vector } myIpAddress_c11_fifo_cap { I 2 vector } myIpAddress_c11_full_n { I 1 bit } myIpAddress_c11_write { O 1 bit } } \
 } "
 }
 
@@ -139,7 +139,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_arpReplyFifo \
     op interface \
-    ports { arpReplyFifo_din { O 256 vector } arpReplyFifo_full_n { I 1 bit } arpReplyFifo_write { O 1 bit } } \
+    ports { arpReplyFifo_din { O 256 vector } arpReplyFifo_num_data_valid { I 3 vector } arpReplyFifo_fifo_cap { I 3 vector } arpReplyFifo_full_n { I 1 bit } arpReplyFifo_write { O 1 bit } } \
 } "
 }
 
@@ -154,7 +154,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_arpTableInsertFifo \
     op interface \
-    ports { arpTableInsertFifo_din { O 128 vector } arpTableInsertFifo_full_n { I 1 bit } arpTableInsertFifo_write { O 1 bit } } \
+    ports { arpTableInsertFifo_din { O 128 vector } arpTableInsertFifo_num_data_valid { I 3 vector } arpTableInsertFifo_fifo_cap { I 3 vector } arpTableInsertFifo_full_n { I 1 bit } arpTableInsertFifo_write { O 1 bit } } \
 } "
 }
 

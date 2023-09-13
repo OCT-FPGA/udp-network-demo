@@ -113,7 +113,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_eth_level_pkt \
     op interface \
-    ports { eth_level_pkt_dout { I 1024 vector } eth_level_pkt_empty_n { I 1 bit } eth_level_pkt_read { O 1 bit } } \
+    ports { eth_level_pkt_dout { I 1024 vector } eth_level_pkt_num_data_valid { I 5 vector } eth_level_pkt_fifo_cap { I 5 vector } eth_level_pkt_empty_n { I 1 bit } eth_level_pkt_read { O 1 bit } } \
 } "
 }
 

@@ -34,7 +34,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>87786224</coreId>
+						<coreId>1287360608</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>48</bitwidth>
@@ -70,7 +70,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>976434993</coreId>
+						<coreId>1287360608</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -214,7 +214,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88153168</coreId>
+						<coreId>512</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -250,7 +250,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>209312752</coreId>
+						<coreId>1287766800</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>128</bitwidth>
@@ -286,7 +286,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>209289808</coreId>
+						<coreId>1287902400</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -322,7 +322,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>1599294536</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -358,7 +358,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>1287514400</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>128</bitwidth>
@@ -380,7 +380,7 @@
 					<Obj>
 						<type>0</type>
 						<id>12</id>
-						<name>rhs_V</name>
+						<name>networkMask_read</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
 						<lineNumber>0</lineNumber>
@@ -390,7 +390,7 @@
 							<count>0</count>
 							<item_version>0</item_version>
 						</inlineStackInfo>
-						<originalName>rhs.V</originalName>
+						<originalName></originalName>
 						<rtlName></rtlName>
 						<control></control>
 						<opType></opType>
@@ -398,7 +398,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1814065012</coreId>
+						<coreId>1936484399</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -423,7 +423,7 @@
 					<Obj>
 						<type>0</type>
 						<id>14</id>
-						<name>auxIP_V</name>
+						<name>auxIP</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
 						<lineNumber>0</lineNumber>
@@ -433,7 +433,7 @@
 							<count>0</count>
 							<item_version>0</item_version>
 						</inlineStackInfo>
-						<originalName>auxIP.V</originalName>
+						<originalName>auxIP</originalName>
 						<rtlName></rtlName>
 						<control></control>
 						<opType></opType>
@@ -441,7 +441,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88277440</coreId>
+						<coreId>1287766800</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -466,7 +466,7 @@
 					<Obj>
 						<type>0</type>
 						<id>16</id>
-						<name>lhs_V_1</name>
+						<name>myIpAddress_read</name>
 						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
 						<lineNumber>205</lineNumber>
@@ -490,7 +490,7 @@
 								</second>
 							</item>
 						</inlineStackInfo>
-						<originalName>lhs.V</originalName>
+						<originalName></originalName>
 						<rtlName></rtlName>
 						<control></control>
 						<opType></opType>
@@ -498,7 +498,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1330007625</coreId>
+						<coreId>1287778168</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -524,11 +524,11 @@
 						<type>0</type>
 						<id>40</id>
 						<name>tmp_i</name>
-						<fileName>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</fileName>
+						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
-						<lineNumber>135</lineNumber>
-						<contextFuncName>empty</contextFuncName>
-						<contextNormFuncName>empty</contextNormFuncName>
+						<lineNumber>224</lineNumber>
+						<contextFuncName>arp_table</contextFuncName>
+						<contextNormFuncName>arp_table</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
@@ -539,10 +539,10 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</first>
-											<second>empty</second>
+											<first>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</first>
+											<second>arp_table</second>
 										</first>
-										<second>135</second>
+										<second>224</second>
 									</item>
 								</second>
 							</item>
@@ -555,7 +555,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88278464</coreId>
+						<coreId>1287778656</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -613,7 +613,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88279048</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -639,12 +639,12 @@
 					<Obj>
 						<type>0</type>
 						<id>43</id>
-						<name>tmp_6_i</name>
-						<fileName>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</fileName>
+						<name>tmp_i_29</name>
+						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
-						<lineNumber>135</lineNumber>
-						<contextFuncName>empty</contextFuncName>
-						<contextNormFuncName>empty</contextNormFuncName>
+						<lineNumber>228</lineNumber>
+						<contextFuncName>arp_table</contextFuncName>
+						<contextNormFuncName>arp_table</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
@@ -655,10 +655,10 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</first>
-											<second>empty</second>
+											<first>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</first>
+											<second>arp_table</second>
 										</first>
-										<second>135</second>
+										<second>228</second>
 									</item>
 								</second>
 							</item>
@@ -671,7 +671,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88223744</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -729,7 +729,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88231552</coreId>
+						<coreId>1287666512</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -755,12 +755,12 @@
 					<Obj>
 						<type>0</type>
 						<id>46</id>
-						<name>query_ip_V</name>
-						<fileName>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</fileName>
+						<name>query_ip</name>
+						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
-						<lineNumber>144</lineNumber>
-						<contextFuncName>read</contextFuncName>
-						<contextNormFuncName>read</contextNormFuncName>
+						<lineNumber>229</lineNumber>
+						<contextFuncName>arp_table</contextFuncName>
+						<contextNormFuncName>arp_table</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
@@ -771,15 +771,15 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</first>
-											<second>read</second>
+											<first>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</first>
+											<second>arp_table</second>
 										</first>
-										<second>144</second>
+										<second>229</second>
 									</item>
 								</second>
 							</item>
 						</inlineStackInfo>
-						<originalName>query_ip.V</originalName>
+						<originalName>query_ip</originalName>
 						<rtlName></rtlName>
 						<control></control>
 						<opType></opType>
@@ -787,7 +787,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88393376</coreId>
+						<coreId>1702059776</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -797,7 +797,7 @@
 					<item_version>0</item_version>
 					<item>151</item>
 					<item>152</item>
-					<item>629</item>
+					<item>674</item>
 				</oprand_edges>
 				<opcode>read</opcode>
 				<m_Display>0</m_Display>
@@ -813,12 +813,12 @@
 					<Obj>
 						<type>0</type>
 						<id>47</id>
-						<name>xor_ln1064</name>
-						<fileName>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h</fileName>
+						<name>xor_ln232</name>
+						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
-						<lineNumber>1064</lineNumber>
-						<contextFuncName>operator==&amp;lt;32, false&amp;gt;</contextFuncName>
-						<contextNormFuncName>operator_eq_32_false</contextNormFuncName>
+						<lineNumber>232</lineNumber>
+						<contextFuncName>arp_table</contextFuncName>
+						<contextNormFuncName>arp_table</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
@@ -829,10 +829,10 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h</first>
-											<second>operator==&amp;lt;32, false&amp;gt;</second>
+											<first>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</first>
+											<second>arp_table</second>
 										</first>
-										<second>1064</second>
+										<second>232</second>
 									</item>
 								</second>
 							</item>
@@ -845,7 +845,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88394160</coreId>
+						<coreId>1287943776</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -870,12 +870,12 @@
 					<Obj>
 						<type>0</type>
 						<id>48</id>
-						<name>and_ln1064</name>
-						<fileName>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h</fileName>
+						<name>and_ln232</name>
+						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
-						<lineNumber>1064</lineNumber>
-						<contextFuncName>operator==&amp;lt;32, false&amp;gt;</contextFuncName>
-						<contextNormFuncName>operator_eq_32_false</contextNormFuncName>
+						<lineNumber>232</lineNumber>
+						<contextFuncName>arp_table</contextFuncName>
+						<contextNormFuncName>arp_table</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
@@ -886,10 +886,10 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h</first>
-											<second>operator==&amp;lt;32, false&amp;gt;</second>
+											<first>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</first>
+											<second>arp_table</second>
 										</first>
-										<second>1064</second>
+										<second>232</second>
 									</item>
 								</second>
 							</item>
@@ -902,7 +902,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88280080</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -927,12 +927,12 @@
 					<Obj>
 						<type>0</type>
 						<id>49</id>
-						<name>icmp_ln1064</name>
-						<fileName>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h</fileName>
+						<name>icmp_ln232</name>
+						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
-						<lineNumber>1064</lineNumber>
-						<contextFuncName>operator==&amp;lt;32, false&amp;gt;</contextFuncName>
-						<contextNormFuncName>operator_eq_32_false</contextNormFuncName>
+						<lineNumber>232</lineNumber>
+						<contextFuncName>arp_table</contextFuncName>
+						<contextNormFuncName>arp_table</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
@@ -943,10 +943,10 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h</first>
-											<second>operator==&amp;lt;32, false&amp;gt;</second>
+											<first>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</first>
+											<second>arp_table</second>
 										</first>
-										<second>1064</second>
+										<second>232</second>
 									</item>
 								</second>
 							</item>
@@ -959,7 +959,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88240568</coreId>
+						<coreId>1287501328</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -975,7 +975,7 @@
 				<m_isOnCriticalPath>0</m_isOnCriticalPath>
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.85</m_delay>
+				<m_delay>0.88</m_delay>
 				<m_topoIndex>11</m_topoIndex>
 				<m_clusterGroupNumber>1</m_clusterGroupNumber>
 			</item>
@@ -985,11 +985,11 @@
 						<type>0</type>
 						<id>50</id>
 						<name>tmp_7_i</name>
-						<fileName>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_ref.h</fileName>
+						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
-						<lineNumber>708</lineNumber>
-						<contextFuncName>to_uint64</contextFuncName>
-						<contextNormFuncName>to_uint64</contextNormFuncName>
+						<lineNumber>237</lineNumber>
+						<contextFuncName>arp_table</contextFuncName>
+						<contextNormFuncName>arp_table</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
@@ -1000,10 +1000,10 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_ref.h</first>
-											<second>to_uint64</second>
+											<first>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</first>
+											<second>arp_table</second>
 										</first>
-										<second>708</second>
+										<second>237</second>
 									</item>
 								</second>
 							</item>
@@ -1016,7 +1016,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88239200</coreId>
+						<coreId>1287510576</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>8</bitwidth>
@@ -1044,11 +1044,11 @@
 						<type>0</type>
 						<id>51</id>
 						<name>tmp_8_i</name>
-						<fileName>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_ref.h</fileName>
+						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
-						<lineNumber>708</lineNumber>
-						<contextFuncName>to_uint64</contextFuncName>
-						<contextNormFuncName>to_uint64</contextNormFuncName>
+						<lineNumber>237</lineNumber>
+						<contextFuncName>arp_table</contextFuncName>
+						<contextNormFuncName>arp_table</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
@@ -1059,10 +1059,10 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_ref.h</first>
-											<second>to_uint64</second>
+											<first>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</first>
+											<second>arp_table</second>
 										</first>
-										<second>708</second>
+										<second>237</second>
 									</item>
 								</second>
 							</item>
@@ -1075,7 +1075,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88160672</coreId>
+						<coreId>1287512096</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>8</bitwidth>
@@ -1134,7 +1134,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>1287945424</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>8</bitwidth>
@@ -1160,12 +1160,12 @@
 					<Obj>
 						<type>0</type>
 						<id>53</id>
-						<name>zext_ln708</name>
-						<fileName>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_ref.h</fileName>
+						<name>zext_ln237</name>
+						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
-						<lineNumber>708</lineNumber>
-						<contextFuncName>to_uint64</contextFuncName>
-						<contextNormFuncName>to_uint64</contextNormFuncName>
+						<lineNumber>237</lineNumber>
+						<contextFuncName>arp_table</contextFuncName>
+						<contextNormFuncName>arp_table</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
@@ -1176,10 +1176,10 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_ref.h</first>
-											<second>to_uint64</second>
+											<first>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</first>
+											<second>arp_table</second>
 										</first>
-										<second>708</second>
+										<second>237</second>
 									</item>
 								</second>
 							</item>
@@ -1192,7 +1192,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88170832</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
@@ -1248,7 +1248,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88171904</coreId>
+						<coreId>1163152969</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>8</bitwidth>
@@ -1274,7 +1274,7 @@
 					<Obj>
 						<type>0</type>
 						<id>55</id>
-						<name>currEntry_macAddress_V_1</name>
+						<name>currEntry_macAddress_1</name>
 						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
 						<lineNumber>237</lineNumber>
@@ -1298,7 +1298,7 @@
 								</second>
 							</item>
 						</inlineStackInfo>
-						<originalName>currEntry.macAddress.V</originalName>
+						<originalName>currEntry.macAddress</originalName>
 						<rtlName></rtlName>
 						<control></control>
 						<opType></opType>
@@ -1306,7 +1306,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1397508187</coreId>
+						<coreId>1287360896</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>48</bitwidth>
@@ -1362,7 +1362,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88216592</coreId>
+						<coreId>1287769840</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>8</bitwidth>
@@ -1388,7 +1388,7 @@
 					<Obj>
 						<type>0</type>
 						<id>57</id>
-						<name>currEntry_ipAddress_V</name>
+						<name>currEntry_ipAddress_1</name>
 						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
 						<lineNumber>237</lineNumber>
@@ -1412,7 +1412,7 @@
 								</second>
 							</item>
 						</inlineStackInfo>
-						<originalName>currEntry.ipAddress.V</originalName>
+						<originalName>currEntry.ipAddress</originalName>
 						<rtlName></rtlName>
 						<control></control>
 						<opType></opType>
@@ -1420,7 +1420,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88359824</coreId>
+						<coreId>1287771056</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -1476,7 +1476,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88218624</coreId>
+						<coreId>1287880208</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>8</bitwidth>
@@ -1502,7 +1502,7 @@
 					<Obj>
 						<type>0</type>
 						<id>59</id>
-						<name>currEntry_valid_V_1</name>
+						<name>currEntry_valid_1</name>
 						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
 						<lineNumber>237</lineNumber>
@@ -1526,7 +1526,7 @@
 								</second>
 							</item>
 						</inlineStackInfo>
-						<originalName>currEntry.valid.V</originalName>
+						<originalName>currEntry.valid</originalName>
 						<rtlName></rtlName>
 						<control></control>
 						<opType></opType>
@@ -1534,7 +1534,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88220240</coreId>
+						<coreId>1287899168</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -1590,7 +1590,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1634887022</coreId>
+						<coreId>1287901024</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -1616,12 +1616,12 @@
 					<Obj>
 						<type>0</type>
 						<id>62</id>
-						<name>arpRequestFifo_write_ln173</name>
-						<fileName>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</fileName>
+						<name>arpRequestFifo_write_ln240</name>
+						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
-						<lineNumber>173</lineNumber>
-						<contextFuncName>write</contextFuncName>
-						<contextNormFuncName>write</contextNormFuncName>
+						<lineNumber>240</lineNumber>
+						<contextFuncName>arp_table</contextFuncName>
+						<contextNormFuncName>arp_table</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
@@ -1632,10 +1632,10 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</first>
-											<second>write</second>
+											<first>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</first>
+											<second>arp_table</second>
 										</first>
-										<second>173</second>
+										<second>240</second>
 									</item>
 								</second>
 							</item>
@@ -1648,7 +1648,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1701080677</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -1706,7 +1706,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>539112754</coreId>
+						<coreId>176</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -1730,12 +1730,12 @@
 					<Obj>
 						<type>0</type>
 						<id>65</id>
-						<name>tmp_9_i</name>
-						<fileName>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</fileName>
+						<name>tmp_10_i</name>
+						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
-						<lineNumber>173</lineNumber>
-						<contextFuncName>write</contextFuncName>
-						<contextNormFuncName>write</contextNormFuncName>
+						<lineNumber>243</lineNumber>
+						<contextFuncName>arp_table</contextFuncName>
+						<contextNormFuncName>arp_table</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
@@ -1746,10 +1746,10 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</first>
-											<second>write</second>
+											<first>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</first>
+											<second>arp_table</second>
 										</first>
-										<second>173</second>
+										<second>243</second>
 									</item>
 								</second>
 							</item>
@@ -1762,7 +1762,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>304</coreId>
+						<coreId>1287908192</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>97</bitwidth>
@@ -1790,12 +1790,12 @@
 					<Obj>
 						<type>0</type>
 						<id>66</id>
-						<name>zext_ln173</name>
-						<fileName>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</fileName>
+						<name>zext_ln243</name>
+						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
-						<lineNumber>173</lineNumber>
-						<contextFuncName>write</contextFuncName>
-						<contextNormFuncName>write</contextNormFuncName>
+						<lineNumber>243</lineNumber>
+						<contextFuncName>arp_table</contextFuncName>
+						<contextNormFuncName>arp_table</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
@@ -1806,10 +1806,10 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</first>
-											<second>write</second>
+											<first>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</first>
+											<second>arp_table</second>
 										</first>
-										<second>173</second>
+										<second>243</second>
 									</item>
 								</second>
 							</item>
@@ -1822,7 +1822,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88286696</coreId>
+						<coreId>1287908056</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>128</bitwidth>
@@ -1846,12 +1846,12 @@
 					<Obj>
 						<type>0</type>
 						<id>67</id>
-						<name>macIpEncode_rsp_i_write_ln173</name>
-						<fileName>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</fileName>
+						<name>macIpEncode_rsp_i_write_ln243</name>
+						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
-						<lineNumber>173</lineNumber>
-						<contextFuncName>write</contextFuncName>
-						<contextNormFuncName>write</contextNormFuncName>
+						<lineNumber>243</lineNumber>
+						<contextFuncName>arp_table</contextFuncName>
+						<contextNormFuncName>arp_table</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
@@ -1862,10 +1862,10 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</first>
-											<second>write</second>
+											<first>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</first>
+											<second>arp_table</second>
 										</first>
-										<second>173</second>
+										<second>243</second>
 									</item>
 								</second>
 							</item>
@@ -1878,7 +1878,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88286608</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -1936,7 +1936,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88288520</coreId>
+						<coreId>1287526432</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -1978,7 +1978,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88072336</coreId>
+						<coreId>1287534944</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -2003,11 +2003,11 @@
 						<type>0</type>
 						<id>72</id>
 						<name>arpTableInsertFifo_read</name>
-						<fileName>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</fileName>
+						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
-						<lineNumber>144</lineNumber>
-						<contextFuncName>read</contextFuncName>
-						<contextNormFuncName>read</contextNormFuncName>
+						<lineNumber>225</lineNumber>
+						<contextFuncName>arp_table</contextFuncName>
+						<contextNormFuncName>arp_table</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
@@ -2018,10 +2018,10 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</first>
-											<second>read</second>
+											<first>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</first>
+											<second>arp_table</second>
 										</first>
-										<second>144</second>
+										<second>225</second>
 									</item>
 								</second>
 							</item>
@@ -2044,7 +2044,7 @@
 					<item_version>0</item_version>
 					<item>104</item>
 					<item>105</item>
-					<item>628</item>
+					<item>673</item>
 				</oprand_edges>
 				<opcode>read</opcode>
 				<m_Display>0</m_Display>
@@ -2060,12 +2060,12 @@
 					<Obj>
 						<type>0</type>
 						<id>73</id>
-						<name>currEntry_macAddress_V</name>
-						<fileName>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</fileName>
+						<name>currEntry_macAddress</name>
+						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
-						<lineNumber>144</lineNumber>
-						<contextFuncName>read</contextFuncName>
-						<contextNormFuncName>read</contextNormFuncName>
+						<lineNumber>225</lineNumber>
+						<contextFuncName>arp_table</contextFuncName>
+						<contextNormFuncName>arp_table</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
@@ -2076,15 +2076,15 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</first>
-											<second>read</second>
+											<first>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</first>
+											<second>arp_table</second>
 										</first>
-										<second>144</second>
+										<second>225</second>
 									</item>
 								</second>
 							</item>
 						</inlineStackInfo>
-						<originalName>currEntry.macAddress.V</originalName>
+						<originalName>currEntry.macAddress</originalName>
 						<rtlName></rtlName>
 						<control></control>
 						<opType></opType>
@@ -2092,7 +2092,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88074672</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>48</bitwidth>
@@ -2116,12 +2116,12 @@
 					<Obj>
 						<type>0</type>
 						<id>74</id>
-						<name>currEntry_ipAddress_V_2</name>
-						<fileName>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</fileName>
+						<name>currEntry_ipAddress</name>
+						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
-						<lineNumber>144</lineNumber>
-						<contextFuncName>read</contextFuncName>
-						<contextNormFuncName>read</contextNormFuncName>
+						<lineNumber>225</lineNumber>
+						<contextFuncName>arp_table</contextFuncName>
+						<contextNormFuncName>arp_table</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
@@ -2132,15 +2132,15 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</first>
-											<second>read</second>
+											<first>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</first>
+											<second>arp_table</second>
 										</first>
-										<second>144</second>
+										<second>225</second>
 									</item>
 								</second>
 							</item>
 						</inlineStackInfo>
-						<originalName>currEntry.ipAddress.V</originalName>
+						<originalName>currEntry.ipAddress</originalName>
 						<rtlName></rtlName>
 						<control></control>
 						<opType></opType>
@@ -2148,7 +2148,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>6775156</coreId>
+						<coreId>1287541768</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -2175,12 +2175,12 @@
 					<Obj>
 						<type>0</type>
 						<id>75</id>
-						<name>currEntry_valid_V</name>
-						<fileName>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</fileName>
+						<name>currEntry_valid</name>
+						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
-						<lineNumber>144</lineNumber>
-						<contextFuncName>read</contextFuncName>
-						<contextNormFuncName>read</contextNormFuncName>
+						<lineNumber>225</lineNumber>
+						<contextFuncName>arp_table</contextFuncName>
+						<contextNormFuncName>arp_table</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
@@ -2191,15 +2191,15 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h</first>
-											<second>read</second>
+											<first>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</first>
+											<second>arp_table</second>
 										</first>
-										<second>144</second>
+										<second>225</second>
 									</item>
 								</second>
 							</item>
 						</inlineStackInfo>
-						<originalName>currEntry.valid.V</originalName>
+						<originalName>currEntry.valid</originalName>
 						<rtlName></rtlName>
 						<control></control>
 						<opType></opType>
@@ -2207,7 +2207,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>304</coreId>
+						<coreId>1287542816</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -2233,26 +2233,33 @@
 					<Obj>
 						<type>0</type>
 						<id>76</id>
-						<name>p_Result_4_i</name>
-						<fileName>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_ref.h</fileName>
+						<name>tmp_9_i</name>
+						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.hpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
-						<lineNumber>674</lineNumber>
-						<contextFuncName>get</contextFuncName>
-						<contextNormFuncName>get</contextNormFuncName>
+						<lineNumber>73</lineNumber>
+						<contextFuncName>get_id</contextFuncName>
+						<contextNormFuncName>get_id</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
 								<first>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</first>
 								<second>
-									<count>1</count>
+									<count>2</count>
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_ref.h</first>
-											<second>get</second>
+											<first>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</first>
+											<second>arp_table</second>
 										</first>
-										<second>674</second>
+										<second>226</second>
+									</item>
+									<item>
+										<first>
+											<first>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.hpp</first>
+											<second>get_id</second>
+										</first>
+										<second>73</second>
 									</item>
 								</second>
 							</item>
@@ -2265,7 +2272,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88078912</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>8</bitwidth>
@@ -2292,12 +2299,12 @@
 					<Obj>
 						<type>0</type>
 						<id>77</id>
-						<name>zext_ln587</name>
-						<fileName>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h</fileName>
+						<name>zext_ln226</name>
+						<fileName>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</fileName>
 						<fileDirectory>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM</fileDirectory>
-						<lineNumber>587</lineNumber>
-						<contextFuncName>operator unsigned long long</contextFuncName>
-						<contextNormFuncName>operator_unsigned_long_long</contextNormFuncName>
+						<lineNumber>226</lineNumber>
+						<contextFuncName>arp_table</contextFuncName>
+						<contextNormFuncName>arp_table</contextNormFuncName>
 						<inlineStackInfo>
 							<count>1</count>
 							<item_version>0</item_version>
@@ -2308,10 +2315,10 @@
 									<item_version>0</item_version>
 									<item>
 										<first>
-											<first>/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h</first>
-											<second>operator unsigned long long</second>
+											<first>/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp</first>
+											<second>arp_table</second>
 										</first>
-										<second>587</second>
+										<second>226</second>
 									</item>
 								</second>
 							</item>
@@ -2324,7 +2331,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88080120</coreId>
+						<coreId>608</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
@@ -2380,7 +2387,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88081360</coreId>
+						<coreId>1287547920</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>8</bitwidth>
@@ -2438,7 +2445,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88082864</coreId>
+						<coreId>1287902400</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -2495,7 +2502,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>1287516512</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>8</bitwidth>
@@ -2553,7 +2560,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88085944</coreId>
+						<coreId>1287518368</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -2610,7 +2617,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88019248</coreId>
+						<coreId>1287519808</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>8</bitwidth>
@@ -2668,7 +2675,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>1287521408</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -2725,7 +2732,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>784</coreId>
+						<coreId>1287522848</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -2767,7 +2774,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>304</coreId>
+						<coreId>1196312910</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -2812,7 +2819,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>176</coreId>
+						<coreId>1287527224</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -2843,7 +2850,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88021744</coreId>
+						<coreId>1287526392</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -2874,7 +2881,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1948254262</coreId>
+						<coreId>176</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -2905,10 +2912,10 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>176</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
-					<bitwidth>32</bitwidth>
+					<bitwidth>128</bitwidth>
 				</Value>
 				<const_type>0</const_type>
 				<content>96</content>
@@ -2936,7 +2943,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88044880</coreId>
+						<coreId>1287529704</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -2967,7 +2974,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1528955000</coreId>
+						<coreId>1287528464</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
@@ -2998,7 +3005,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>5195342</coreId>
+						<coreId>1919903347</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3029,7 +3036,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88048512</coreId>
+						<coreId>1287530944</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3060,7 +3067,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88048528</coreId>
+						<coreId>20</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3091,7 +3098,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>88049296</coreId>
+						<coreId>1287532032</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -3142,7 +3149,7 @@
 				<Obj>
 					<type>3</type>
 					<id>45</id>
-					<name></name>
+					<name>if.else.i</name>
 					<fileName></fileName>
 					<fileDirectory></fileDirectory>
 					<lineNumber>0</lineNumber>
@@ -3174,7 +3181,7 @@
 				<Obj>
 					<type>3</type>
 					<id>61</id>
-					<name></name>
+					<name>if.then3.i</name>
 					<fileName></fileName>
 					<fileDirectory></fileDirectory>
 					<lineNumber>0</lineNumber>
@@ -3192,7 +3199,7 @@
 					<coreName></coreName>
 					<isStorage>0</isStorage>
 					<storageDepth>0</storageDepth>
-					<coreId>88231264</coreId>
+					<coreId>0</coreId>
 					<rtlModuleName></rtlModuleName>
 				</Obj>
 				<node_objs>
@@ -3219,7 +3226,7 @@
 				<Obj>
 					<type>3</type>
 					<id>64</id>
-					<name></name>
+					<name>if.then12.i</name>
 					<fileName></fileName>
 					<fileDirectory></fileDirectory>
 					<lineNumber>0</lineNumber>
@@ -3237,7 +3244,7 @@
 					<coreName></coreName>
 					<isStorage>0</isStorage>
 					<storageDepth>0</storageDepth>
-					<coreId>1701978146</coreId>
+					<coreId>48</coreId>
 					<rtlModuleName></rtlModuleName>
 				</Obj>
 				<node_objs>
@@ -3251,7 +3258,7 @@
 				<Obj>
 					<type>3</type>
 					<id>69</id>
-					<name>._crit_edge1.i</name>
+					<name>if.end13.i</name>
 					<fileName></fileName>
 					<fileDirectory></fileDirectory>
 					<lineNumber>0</lineNumber>
@@ -3269,7 +3276,7 @@
 					<coreName></coreName>
 					<isStorage>0</isStorage>
 					<storageDepth>0</storageDepth>
-					<coreId>0</coreId>
+					<coreId>1287907448</coreId>
 					<rtlModuleName></rtlModuleName>
 				</Obj>
 				<node_objs>
@@ -3285,7 +3292,7 @@
 				<Obj>
 					<type>3</type>
 					<id>71</id>
-					<name>._crit_edge.i</name>
+					<name>if.end14.i</name>
 					<fileName></fileName>
 					<fileDirectory></fileDirectory>
 					<lineNumber>0</lineNumber>
@@ -3303,7 +3310,7 @@
 					<coreName></coreName>
 					<isStorage>0</isStorage>
 					<storageDepth>0</storageDepth>
-					<coreId>88289024</coreId>
+					<coreId>1287536272</coreId>
 					<rtlModuleName></rtlModuleName>
 				</Obj>
 				<node_objs>
@@ -3316,7 +3323,7 @@
 				<Obj>
 					<type>3</type>
 					<id>85</id>
-					<name></name>
+					<name>if.then.i</name>
 					<fileName></fileName>
 					<fileDirectory></fileDirectory>
 					<lineNumber>0</lineNumber>
@@ -3334,7 +3341,7 @@
 					<coreName></coreName>
 					<isStorage>0</isStorage>
 					<storageDepth>0</storageDepth>
-					<coreId>88110976</coreId>
+					<coreId>304</coreId>
 					<rtlModuleName></rtlModuleName>
 				</Obj>
 				<node_objs>
@@ -3377,7 +3384,7 @@
 					<coreName></coreName>
 					<isStorage>0</isStorage>
 					<storageDepth>0</storageDepth>
-					<coreId>0</coreId>
+					<coreId>1287522480</coreId>
 					<rtlModuleName></rtlModuleName>
 				</Obj>
 				<node_objs>
@@ -3979,84 +3986,84 @@
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_156">
-				<id>618</id>
+				<id>663</id>
 				<edge_type>2</edge_type>
 				<source_obj>42</source_obj>
 				<sink_obj>85</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_157">
-				<id>619</id>
+				<id>664</id>
 				<edge_type>2</edge_type>
 				<source_obj>42</source_obj>
 				<sink_obj>45</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_158">
-				<id>620</id>
+				<id>665</id>
 				<edge_type>2</edge_type>
 				<source_obj>45</source_obj>
 				<sink_obj>61</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_159">
-				<id>621</id>
+				<id>666</id>
 				<edge_type>2</edge_type>
 				<source_obj>45</source_obj>
 				<sink_obj>71</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_160">
-				<id>622</id>
+				<id>667</id>
 				<edge_type>2</edge_type>
 				<source_obj>61</source_obj>
 				<sink_obj>69</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_161">
-				<id>623</id>
+				<id>668</id>
 				<edge_type>2</edge_type>
 				<source_obj>61</source_obj>
 				<sink_obj>64</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_162">
-				<id>624</id>
+				<id>669</id>
 				<edge_type>2</edge_type>
 				<source_obj>64</source_obj>
 				<sink_obj>69</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_163">
-				<id>625</id>
+				<id>670</id>
 				<edge_type>2</edge_type>
 				<source_obj>69</source_obj>
 				<sink_obj>71</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_164">
-				<id>626</id>
+				<id>671</id>
 				<edge_type>2</edge_type>
 				<source_obj>71</source_obj>
 				<sink_obj>87</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_165">
-				<id>627</id>
+				<id>672</id>
 				<edge_type>2</edge_type>
 				<source_obj>85</source_obj>
 				<sink_obj>87</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_166">
-				<id>628</id>
+				<id>673</id>
 				<edge_type>4</edge_type>
 				<source_obj>40</source_obj>
 				<sink_obj>72</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_167">
-				<id>629</id>
+				<id>674</id>
 				<edge_type>4</edge_type>
 				<source_obj>43</source_obj>
 				<sink_obj>46</sink_obj>

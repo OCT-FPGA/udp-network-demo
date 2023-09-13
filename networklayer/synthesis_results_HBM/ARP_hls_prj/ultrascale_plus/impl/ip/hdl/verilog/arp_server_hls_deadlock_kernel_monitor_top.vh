@@ -1,8 +1,10 @@
 
 wire kernel_monitor_reset;
 wire kernel_monitor_clock;
+wire kernel_monitor_report;
 assign kernel_monitor_reset = ~ap_rst_n;
 assign kernel_monitor_clock = ap_clk;
+assign kernel_monitor_report = 1'b0;
 wire [3:0] axis_block_sigs;
 wire [8:0] inst_idle_sigs;
 wire [4:0] inst_block_sigs;
@@ -37,6 +39,7 @@ arp_server_hls_deadlock_idx0_monitor arp_server_hls_deadlock_idx0_monitor_U (
     .inst_block_sigs(inst_block_sigs),
     .block(kernel_block)
 );
+
 
 always @ (kernel_block or kernel_monitor_reset) begin
     if (kernel_block == 1'b1 && kernel_monitor_reset == 1'b0) begin

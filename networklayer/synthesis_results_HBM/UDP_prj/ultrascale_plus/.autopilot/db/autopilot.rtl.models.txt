@@ -2,9 +2,9 @@ udp_regslice_both
 udp_regslice_both
 udp_regslice_both
 udp_regslice_both
-udp_mux_1616_32_1_1
-udp_mux_1616_16_1_1
-udp_mux_1616_1_1_1
+udp_mux_16_4_32_1_1
+udp_mux_16_4_16_1_1
+udp_mux_16_4_1_1_1
 udp_regslice_both
 udp_regslice_both
 udp_regslice_both
@@ -101,7 +101,6 @@ entry_proc
 udpRxEngine
 TableHandler
 rxEngPacketDropper
-keep2len
 appGetMetaData
 udpTxEngine
 udp

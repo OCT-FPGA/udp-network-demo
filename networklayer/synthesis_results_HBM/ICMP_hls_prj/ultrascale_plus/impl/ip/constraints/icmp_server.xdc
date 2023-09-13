@@ -1,1 +1,1 @@
-set_false_path -through [get_ports myIpAddress[*]]
+set_false_path -through [get_ports myIpAddress_0[*]]

@@ -3,12 +3,12 @@
 ================================================================
 == Vitis HLS Report for 'entry_proc'
 ================================================================
-* Date:           Wed Mar  8 19:14:18 2023
+* Date:           Fri Sep  8 14:08:17 2023
 
-* Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+* Version:        2023.1 (Build 3854077 on May  4 2023)
 * Project:        ARP_hls_prj
 * Solution:       ultrascale_plus (Vivado IP Flow Target)
-* Product family: virtexuplus
+* Product family: virtexuplusHBM
 * Target device:  xcu280-fsvh2892-2L-e
 
 
@@ -121,36 +121,46 @@
 == Interface
 ================================================================
 * Summary: 
-+------------------------+-----+-----+------------+-----------------+--------------+
-|        RTL Ports       | Dir | Bits|  Protocol  |  Source Object  |    C Type    |
-+------------------------+-----+-----+------------+-----------------+--------------+
-|ap_clk                  |   in|    1|  ap_ctrl_hs|       entry_proc|  return value|
-|ap_rst                  |   in|    1|  ap_ctrl_hs|       entry_proc|  return value|
-|ap_start                |   in|    1|  ap_ctrl_hs|       entry_proc|  return value|
-|start_full_n            |   in|    1|  ap_ctrl_hs|       entry_proc|  return value|
-|ap_done                 |  out|    1|  ap_ctrl_hs|       entry_proc|  return value|
-|ap_continue             |   in|    1|  ap_ctrl_hs|       entry_proc|  return value|
-|ap_idle                 |  out|    1|  ap_ctrl_hs|       entry_proc|  return value|
-|ap_ready                |  out|    1|  ap_ctrl_hs|       entry_proc|  return value|
-|start_out               |  out|    1|  ap_ctrl_hs|       entry_proc|  return value|
-|start_write             |  out|    1|  ap_ctrl_hs|       entry_proc|  return value|
-|myMacAddress            |   in|   48|     ap_none|     myMacAddress|       pointer|
-|myMacAddress_c_din      |  out|   48|     ap_fifo|   myMacAddress_c|       pointer|
-|myMacAddress_c_full_n   |   in|    1|     ap_fifo|   myMacAddress_c|       pointer|
-|myMacAddress_c_write    |  out|    1|     ap_fifo|   myMacAddress_c|       pointer|
-|gatewayIP               |   in|   32|     ap_none|        gatewayIP|       pointer|
-|gatewayIP_c_din         |  out|   32|     ap_fifo|      gatewayIP_c|       pointer|
-|gatewayIP_c_full_n      |   in|    1|     ap_fifo|      gatewayIP_c|       pointer|
-|gatewayIP_c_write       |  out|    1|     ap_fifo|      gatewayIP_c|       pointer|
-|gatewayIP_c12_din       |  out|   32|     ap_fifo|    gatewayIP_c12|       pointer|
-|gatewayIP_c12_full_n    |   in|    1|     ap_fifo|    gatewayIP_c12|       pointer|
-|gatewayIP_c12_write     |  out|    1|     ap_fifo|    gatewayIP_c12|       pointer|
-|networkMask             |   in|   32|     ap_none|      networkMask|       pointer|
-|networkMask_c_din       |  out|   32|     ap_fifo|    networkMask_c|       pointer|
-|networkMask_c_full_n    |   in|    1|     ap_fifo|    networkMask_c|       pointer|
-|networkMask_c_write     |  out|    1|     ap_fifo|    networkMask_c|       pointer|
-|networkMask_c13_din     |  out|   32|     ap_fifo|  networkMask_c13|       pointer|
-|networkMask_c13_full_n  |   in|    1|     ap_fifo|  networkMask_c13|       pointer|
-|networkMask_c13_write   |  out|    1|     ap_fifo|  networkMask_c13|       pointer|
-+------------------------+-----+-----+------------+-----------------+--------------+
++--------------------------------+-----+-----+------------+-----------------+--------------+
+|            RTL Ports           | Dir | Bits|  Protocol  |  Source Object  |    C Type    |
++--------------------------------+-----+-----+------------+-----------------+--------------+
+|ap_clk                          |   in|    1|  ap_ctrl_hs|       entry_proc|  return value|
+|ap_rst                          |   in|    1|  ap_ctrl_hs|       entry_proc|  return value|
+|ap_start                        |   in|    1|  ap_ctrl_hs|       entry_proc|  return value|
+|start_full_n                    |   in|    1|  ap_ctrl_hs|       entry_proc|  return value|
+|ap_done                         |  out|    1|  ap_ctrl_hs|       entry_proc|  return value|
+|ap_continue                     |   in|    1|  ap_ctrl_hs|       entry_proc|  return value|
+|ap_idle                         |  out|    1|  ap_ctrl_hs|       entry_proc|  return value|
+|ap_ready                        |  out|    1|  ap_ctrl_hs|       entry_proc|  return value|
+|start_out                       |  out|    1|  ap_ctrl_hs|       entry_proc|  return value|
+|start_write                     |  out|    1|  ap_ctrl_hs|       entry_proc|  return value|
+|myMacAddress                    |   in|   48|     ap_none|     myMacAddress|       pointer|
+|myMacAddress_c_din              |  out|   48|     ap_fifo|   myMacAddress_c|       pointer|
+|myMacAddress_c_num_data_valid   |   in|    3|     ap_fifo|   myMacAddress_c|       pointer|
+|myMacAddress_c_fifo_cap         |   in|    3|     ap_fifo|   myMacAddress_c|       pointer|
+|myMacAddress_c_full_n           |   in|    1|     ap_fifo|   myMacAddress_c|       pointer|
+|myMacAddress_c_write            |  out|    1|     ap_fifo|   myMacAddress_c|       pointer|
+|gatewayIP                       |   in|   32|     ap_none|        gatewayIP|       pointer|
+|gatewayIP_c_din                 |  out|   32|     ap_fifo|      gatewayIP_c|       pointer|
+|gatewayIP_c_num_data_valid      |   in|    3|     ap_fifo|      gatewayIP_c|       pointer|
+|gatewayIP_c_fifo_cap            |   in|    3|     ap_fifo|      gatewayIP_c|       pointer|
+|gatewayIP_c_full_n              |   in|    1|     ap_fifo|      gatewayIP_c|       pointer|
+|gatewayIP_c_write               |  out|    1|     ap_fifo|      gatewayIP_c|       pointer|
+|gatewayIP_c12_din               |  out|   32|     ap_fifo|    gatewayIP_c12|       pointer|
+|gatewayIP_c12_num_data_valid    |   in|    3|     ap_fifo|    gatewayIP_c12|       pointer|
+|gatewayIP_c12_fifo_cap          |   in|    3|     ap_fifo|    gatewayIP_c12|       pointer|
+|gatewayIP_c12_full_n            |   in|    1|     ap_fifo|    gatewayIP_c12|       pointer|
+|gatewayIP_c12_write             |  out|    1|     ap_fifo|    gatewayIP_c12|       pointer|
+|networkMask                     |   in|   32|     ap_none|      networkMask|       pointer|
+|networkMask_c_din               |  out|   32|     ap_fifo|    networkMask_c|       pointer|
+|networkMask_c_num_data_valid    |   in|    3|     ap_fifo|    networkMask_c|       pointer|
+|networkMask_c_fifo_cap          |   in|    3|     ap_fifo|    networkMask_c|       pointer|
+|networkMask_c_full_n            |   in|    1|     ap_fifo|    networkMask_c|       pointer|
+|networkMask_c_write             |  out|    1|     ap_fifo|    networkMask_c|       pointer|
+|networkMask_c13_din             |  out|   32|     ap_fifo|  networkMask_c13|       pointer|
+|networkMask_c13_num_data_valid  |   in|    3|     ap_fifo|  networkMask_c13|       pointer|
+|networkMask_c13_fifo_cap        |   in|    3|     ap_fifo|  networkMask_c13|       pointer|
+|networkMask_c13_full_n          |   in|    1|     ap_fifo|  networkMask_c13|       pointer|
+|networkMask_c13_write           |  out|    1|     ap_fifo|  networkMask_c13|       pointer|
++--------------------------------+-----+-----+------------+-----------------+--------------+
 

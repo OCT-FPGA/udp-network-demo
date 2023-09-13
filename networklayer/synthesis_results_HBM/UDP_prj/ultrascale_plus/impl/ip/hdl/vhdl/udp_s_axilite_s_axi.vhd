@@ -1,6 +1,9 @@
 -- ==============================================================
--- Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2021.2 (64-bit)
--- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+-- Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.1 (64-bit)
+-- Tool Version Limit: 2023.05
+-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+-- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+-- 
 -- ==============================================================
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
@@ -96,8 +99,7 @@ port (
     SocketTable_valid_14  :out  STD_LOGIC_VECTOR(0 downto 0);
     SocketTable_valid_15  :out  STD_LOGIC_VECTOR(0 downto 0);
     numberSockets         :in   STD_LOGIC_VECTOR(15 downto 0);
-    numberSockets_ap_vld  :in   STD_LOGIC;
-    ap_local_deadlock     :in   STD_LOGIC_VECTOR(0 downto 0)
+    numberSockets_ap_vld  :in   STD_LOGIC
 );
 end entity udp_s_axilite_s_axi;
 

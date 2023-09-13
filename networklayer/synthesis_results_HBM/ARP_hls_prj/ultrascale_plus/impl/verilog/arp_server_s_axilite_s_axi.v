@@ -1,6 +1,9 @@
 // ==============================================================
-// Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2021.2 (64-bit)
-// Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+// Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.1 (64-bit)
+// Tool Version Limit: 2023.05
+// Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+// Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+// 
 // ==============================================================
 `timescale 1ns/1ps
 module arp_server_s_axilite_s_axi
@@ -45,8 +48,7 @@ module arp_server_s_axilite_s_axi
     input  wire                          arpTable_macAddress_ce0,
     input  wire                          arpTable_macAddress_we0,
     input  wire [47:0]                   arpTable_macAddress_d0,
-    output wire [47:0]                   arpTable_macAddress_q0,
-    input  wire [0:0]                    ap_local_deadlock
+    output wire [47:0]                   arpTable_macAddress_q0
 );
 //------------------------Address Info-------------------
 // 0x000 : reserved

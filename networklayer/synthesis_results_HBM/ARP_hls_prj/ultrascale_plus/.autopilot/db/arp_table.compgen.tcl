@@ -75,7 +75,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_myIpAddress \
     op interface \
-    ports { myIpAddress_dout { I 32 vector } myIpAddress_empty_n { I 1 bit } myIpAddress_read { O 1 bit } } \
+    ports { myIpAddress_dout { I 32 vector } myIpAddress_num_data_valid { I 2 vector } myIpAddress_fifo_cap { I 2 vector } myIpAddress_empty_n { I 1 bit } myIpAddress_read { O 1 bit } } \
 } "
 }
 
@@ -90,7 +90,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_gatewayIP \
     op interface \
-    ports { gatewayIP_dout { I 32 vector } gatewayIP_empty_n { I 1 bit } gatewayIP_read { O 1 bit } } \
+    ports { gatewayIP_dout { I 32 vector } gatewayIP_num_data_valid { I 3 vector } gatewayIP_fifo_cap { I 3 vector } gatewayIP_empty_n { I 1 bit } gatewayIP_read { O 1 bit } } \
 } "
 }
 
@@ -105,7 +105,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_networkMask \
     op interface \
-    ports { networkMask_dout { I 32 vector } networkMask_empty_n { I 1 bit } networkMask_read { O 1 bit } } \
+    ports { networkMask_dout { I 32 vector } networkMask_num_data_valid { I 3 vector } networkMask_fifo_cap { I 3 vector } networkMask_empty_n { I 1 bit } networkMask_read { O 1 bit } } \
 } "
 }
 
@@ -120,7 +120,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_arpTableInsertFifo \
     op interface \
-    ports { arpTableInsertFifo_dout { I 128 vector } arpTableInsertFifo_empty_n { I 1 bit } arpTableInsertFifo_read { O 1 bit } } \
+    ports { arpTableInsertFifo_dout { I 128 vector } arpTableInsertFifo_num_data_valid { I 3 vector } arpTableInsertFifo_fifo_cap { I 3 vector } arpTableInsertFifo_empty_n { I 1 bit } arpTableInsertFifo_read { O 1 bit } } \
 } "
 }
 
@@ -135,7 +135,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_macIpEncode_i \
     op interface \
-    ports { macIpEncode_i_dout { I 32 vector } macIpEncode_i_empty_n { I 1 bit } macIpEncode_i_read { O 1 bit } } \
+    ports { macIpEncode_i_dout { I 32 vector } macIpEncode_i_num_data_valid { I 3 vector } macIpEncode_i_fifo_cap { I 3 vector } macIpEncode_i_empty_n { I 1 bit } macIpEncode_i_read { O 1 bit } } \
 } "
 }
 
@@ -150,7 +150,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_arpRequestFifo \
     op interface \
-    ports { arpRequestFifo_din { O 32 vector } arpRequestFifo_full_n { I 1 bit } arpRequestFifo_write { O 1 bit } } \
+    ports { arpRequestFifo_din { O 32 vector } arpRequestFifo_num_data_valid { I 3 vector } arpRequestFifo_fifo_cap { I 3 vector } arpRequestFifo_full_n { I 1 bit } arpRequestFifo_write { O 1 bit } } \
 } "
 }
 
@@ -165,7 +165,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_macIpEncode_rsp_i \
     op interface \
-    ports { macIpEncode_rsp_i_din { O 128 vector } macIpEncode_rsp_i_full_n { I 1 bit } macIpEncode_rsp_i_write { O 1 bit } } \
+    ports { macIpEncode_rsp_i_din { O 128 vector } macIpEncode_rsp_i_num_data_valid { I 3 vector } macIpEncode_rsp_i_fifo_cap { I 3 vector } macIpEncode_rsp_i_full_n { I 1 bit } macIpEncode_rsp_i_write { O 1 bit } } \
 } "
 }
 

@@ -14,7 +14,7 @@ help:
 
 SYSROOT :=
 HOST_ARCH := x86
-DEVICE ?= xilinx_u280_xdma_201920_3
+DEVICE ?= xilinx_u280_gen3x16_xdma_1_202211_1
 INTERFACE ?= 0
 JOBS ?= 8
 XCLBIN_NAME ?= demo_if$(INTERFACE)
@@ -27,20 +27,10 @@ BUILD_DIR := ./build_hw_if$(INTERFACE)
 HOST_BUILD_DIR := ./host/build_sw_if$(INTERFACE)
 BINARY_CONTAINERS = $(BUILD_DIR)/${XCLBIN_NAME}.xclbin
 
-COMMON_REPO = ./
 PWD = $(shell readlink -f .)
-ABS_COMMON_REPO = $(shell readlink -f $(COMMON_REPO))
-
 #Include Libraries
-include $(ABS_COMMON_REPO)/common/includes/opencl/opencl.mk
-include $(ABS_COMMON_REPO)/common/includes/xcl2/xcl2.mk
-CXXFLAGS += $(xcl2_CXXFLAGS)
-LDFLAGS += $(xcl2_LDFLAGS)
-SENDER_HOST_SRCS += $(xcl2_SRCS)
-RECEIVER_HOST_SRCS += $(xcl2_SRCS)
-CXXFLAGS += $(opencl_CXXFLAGS) -Wall -O0 -g -std=gnu++14
-CXXFLAGS +=  -DVITIS_PLATFORM=$(VITIS_PLATFORM)
-LDFLAGS += $(opencl_LDFLAGS)
+CXX = g++
+CXXFLAGS = -g -std=c++17 -I$(XILINX_XRT)/include
 SENDER_HOST_SRCS += host/fileops.cpp
 SENDER_HOST_SRCS += host/ip_to_hex.cpp
 RECEIVER_HOST_SRCS += host/fileops.cpp
@@ -49,14 +39,11 @@ SENDER_HOST_SRCS += host/host_sender_if$(INTERFACE).cpp
 RECEIVER_HOST_SRCS += host/host_receiver_if$(INTERFACE).cpp
 
 # Host compiler global settings
-CXXFLAGS += -fmessage-length=0
-LDFLAGS += -lrt -lstdc++
+LDFLAGS = -L$(XILINX_XRT)/lib -lxrt_coreutil -pthread
 
 ifneq ($(HOST_ARCH), x86)
   LDFLAGS += --sysroot=$(SYSROOT)
 endif
-
-LDFLAGS+= -lOpenCL -luuid -lxrt_core -lxilinxopencl
 
 SENDER_EXECUTABLE = $(HOST_BUILD_DIR)/host_sender_if$(INTERFACE)
 RECEIVER_EXECUTABLE = $(HOST_BUILD_DIR)/host_receiver_if$(INTERFACE)
@@ -113,13 +100,13 @@ exe: $(SENDER_EXECUTABLE) $(RECEIVER_EXECUTABLE)
 # Building Host
 .PHONY: compile
 compile: $(SENDER_EXECUTABLE)
-$(SENDER_EXECUTABLE): check-xrt $(SENDER_HOST_SRCS) $(HOST_HDRS)
+$(SENDER_EXECUTABLE): check-xrt $(SENDER_HOST_SRCS) 
 	mkdir -p $(HOST_BUILD_DIR) 
-	$(CXX) $(CXXFLAGS) $(SENDER_HOST_SRCS) $(HOST_HDRS) -o '$@' $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) $(SENDER_HOST_SRCS) -o '$@' $(LDFLAGS)
 
 compile: $(RECEIVER_EXECUTABLE)
-$(RECEIVER_EXECUTABLE): check-xrt $(RECEIVER_HOST_SRCS) $(HOST_HDRS)
-	$(CXX) $(CXXFLAGS) $(RECEIVER_HOST_SRCS) $(HOST_HDRS) -o '$@' $(LDFLAGS)
+$(RECEIVER_EXECUTABLE): check-xrt $(RECEIVER_HOST_SRCS)
+	$(CXX) $(CXXFLAGS) $(RECEIVER_HOST_SRCS) -o '$@' $(LDFLAGS)
 
 
 check-devices:

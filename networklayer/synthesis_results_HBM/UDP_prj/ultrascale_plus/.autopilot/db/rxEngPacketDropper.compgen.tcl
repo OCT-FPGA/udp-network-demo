@@ -132,7 +132,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_rthDropFifo \
     op interface \
-    ports { rthDropFifo_dout { I 160 vector } rthDropFifo_empty_n { I 1 bit } rthDropFifo_read { O 1 bit } } \
+    ports { rthDropFifo_dout { I 160 vector } rthDropFifo_num_data_valid { I 6 vector } rthDropFifo_fifo_cap { I 6 vector } rthDropFifo_empty_n { I 1 bit } rthDropFifo_read { O 1 bit } } \
 } "
 }
 
@@ -147,7 +147,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_ureDataPayload \
     op interface \
-    ports { ureDataPayload_dout { I 1024 vector } ureDataPayload_empty_n { I 1 bit } ureDataPayload_read { O 1 bit } } \
+    ports { ureDataPayload_dout { I 1024 vector } ureDataPayload_num_data_valid { I 9 vector } ureDataPayload_fifo_cap { I 9 vector } ureDataPayload_empty_n { I 1 bit } ureDataPayload_read { O 1 bit } } \
 } "
 }
 

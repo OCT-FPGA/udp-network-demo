@@ -1,0 +1,101 @@
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp, 
+                   Line: 161, Column: 35 }
+Function:        _Z11icmp_serverRN3hls6streamINS_4axisI7ap_uintILi512EELm0ELm0ELm0EEELi0EEERS2_ILi32EES6_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'computeCheckSum20B(ap_uint<160>)'
+    DebugLoc:        { File: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp, 
+                       Line: 39, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'icmp_server(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, ap_uint<32>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)'
+    DebugLoc:        { File: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp, 
+                       Line: 122, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp, 
+                   Line: 54, Column: 21 }
+Function:        _Z11icmp_serverRN3hls6streamINS_4axisI7ap_uintILi512EELm0ELm0ELm0EEELi0EEERS2_ILi32EES6_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        sumElementsL1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp, 
+                   Line: 49, Column: 19 }
+Function:        _Z11icmp_serverRN3hls6streamINS_4axisI7ap_uintILi512EELm0ELm0ELm0EEELi0EEERS2_ILi32EES6_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        assign2array
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp, 
+                   Line: 152, Column: 35 }
+Function:        _Z11icmp_serverRN3hls6streamINS_4axisI7ap_uintILi512EELm0ELm0ELm0EEELi0EEERS2_ILi32EES6_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_152_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp, 
+                   Line: 122, Column: 0 }
+Function:        _Z11icmp_serverRN3hls6streamINS_4axisI7ap_uintILi512EELm0ELm0ELm0EEELi0EEERS2_ILi32EES6_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        sumElementsL1
+  - String:          ''' ('
+  - LoopLoc:         '/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:54:21'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          icmp_server
+  - String:          ''' completely with a factor of '
+  - Factor:          '5'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp, 
+                   Line: 122, Column: 0 }
+Function:        _Z11icmp_serverRN3hls6streamINS_4axisI7ap_uintILi512EELm0ELm0ELm0EEELi0EEERS2_ILi32EES6_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        assign2array
+  - String:          ''' ('
+  - LoopLoc:         '/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:49:19'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          icmp_server
+  - String:          ''' completely with a factor of '
+  - Factor:          '10'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp, 
+                   Line: 122, Column: 0 }
+Function:        _Z11icmp_serverRN3hls6streamINS_4axisI7ap_uintILi512EELm0ELm0ELm0EEELi0EEERS2_ILi32EES6_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_152_1
+  - String:          ''' ('
+  - LoopLoc:         '/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:152:35'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          icmp_server
+  - String:          ''' completely with a factor of '
+  - Factor:          '20'
+...

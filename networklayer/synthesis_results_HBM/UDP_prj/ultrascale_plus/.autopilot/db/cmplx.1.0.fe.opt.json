@@ -1,0 +1,217 @@
+{
+  "0": {
+    "basicblocks": 15,
+    "calls": "9 16 3 1 11",
+    "file": "udp.cpp",
+    "fileloc": 407,
+    "instructions": 91,
+    "loads": {
+      "G": 7
+    },
+    "name": "udp",
+    "stores": {
+      "G": 7
+    },
+    "total_instructions": 15347
+  },
+  "1": {
+    "basicblocks": 18,
+    "calls": "12 2 10 2 10",
+    "file": "udp.cpp",
+    "fileloc": 231,
+    "instructions": 145,
+    "loads": {
+      "G": 2,
+      "L": 11
+    },
+    "name": "appGetMetaData",
+    "stores": {
+      "G": 4,
+      "L": 10
+    },
+    "total_instructions": 6289
+  },
+  "10": {
+    "basicblocks": 130,
+    "calls": "",
+    "file": "common_utilities.cpp",
+    "fileloc": 40,
+    "instructions": 451,
+    "name": "keep2len",
+    "total_instructions": 2772
+  },
+  "11": {
+    "basicblocks": 37,
+    "calls": "13 12 6 5 5 6 6 6",
+    "file": "udp.cpp",
+    "fileloc": 280,
+    "instructions": 508,
+    "loads": {
+      "G": 11,
+      "L": 10
+    },
+    "name": "udpTxEngine",
+    "stores": {
+      "G": 14,
+      "L": 14
+    },
+    "total_instructions": 4097
+  },
+  "12": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "udp.hpp",
+    "fileloc": 56,
+    "instructions": 7,
+    "name": "axis_udp",
+    "total_instructions": 28
+  },
+  "13": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "udp.hpp",
+    "fileloc": 83,
+    "instructions": 11,
+    "name": "udpMetadata",
+    "total_instructions": 46
+  },
+  "14": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "udp.hpp",
+    "fileloc": 45,
+    "instructions": 9,
+    "name": "userMetadata",
+    "total_instructions": 37
+  },
+  "15": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "udp.hpp",
+    "fileloc": 46,
+    "instructions": 13,
+    "loads": {
+      "L": 4
+    },
+    "name": "userMetadata",
+    "stores": {
+      "L": 4
+    },
+    "total_instructions": 13
+  },
+  "16": {
+    "basicblocks": 18,
+    "calls": "13 8 4 5 5 15 5 7",
+    "file": "udp.cpp",
+    "fileloc": 39,
+    "instructions": 197,
+    "loads": {
+      "L": 16
+    },
+    "name": "TableHandler",
+    "stores": {
+      "L": 16
+    },
+    "total_instructions": 977
+  },
+  "2": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "udp.hpp",
+    "fileloc": 57,
+    "instructions": 10,
+    "loads": {
+      "L": 3
+    },
+    "name": "axis_udp",
+    "stores": {
+      "L": 3
+    },
+    "total_instructions": 10
+  },
+  "3": {
+    "basicblocks": 14,
+    "calls": "4 12",
+    "file": "udp.cpp",
+    "fileloc": 190,
+    "instructions": 77,
+    "loads": {
+      "G": 3,
+      "L": 4
+    },
+    "name": "rxEngPacketDropper",
+    "stores": {
+      "G": 3,
+      "L": 5
+    },
+    "total_instructions": 577
+  },
+  "4": {
+    "basicblocks": 1,
+    "calls": "14",
+    "file": "udp.hpp",
+    "fileloc": 94,
+    "instructions": 7,
+    "name": "tableResponse",
+    "total_instructions": 58
+  },
+  "5": {
+    "basicblocks": 7,
+    "calls": "",
+    "file": "udp.hpp",
+    "fileloc": 101,
+    "instructions": 25,
+    "name": "byteSwap<32>",
+    "total_instructions": 131
+  },
+  "6": {
+    "basicblocks": 7,
+    "calls": "",
+    "file": "udp.hpp",
+    "fileloc": 101,
+    "instructions": 25,
+    "name": "byteSwap<16>",
+    "total_instructions": 133
+  },
+  "7": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "udp.hpp",
+    "fileloc": 84,
+    "instructions": 16,
+    "loads": {
+      "L": 5
+    },
+    "name": "udpMetadata",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 16
+  },
+  "8": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "udp.hpp",
+    "fileloc": 71,
+    "instructions": 9,
+    "name": "socket_table",
+    "total_instructions": 37
+  },
+  "9": {
+    "basicblocks": 19,
+    "calls": "12 2 2 6 5 5 6 6 6 6 7",
+    "file": "udp.cpp",
+    "fileloc": 94,
+    "instructions": 434,
+    "loads": {
+      "G": 2,
+      "L": 17
+    },
+    "name": "udpRxEngine",
+    "stores": {
+      "G": 7,
+      "L": 15
+    },
+    "total_instructions": 3295
+  }
+}

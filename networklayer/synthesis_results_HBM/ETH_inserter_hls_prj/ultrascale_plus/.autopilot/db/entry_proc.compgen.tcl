@@ -33,7 +33,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_myMacAddress_c \
     op interface \
-    ports { myMacAddress_c_din { O 48 vector } myMacAddress_c_full_n { I 1 bit } myMacAddress_c_write { O 1 bit } } \
+    ports { myMacAddress_c_din { O 48 vector } myMacAddress_c_num_data_valid { I 3 vector } myMacAddress_c_fifo_cap { I 3 vector } myMacAddress_c_full_n { I 1 bit } myMacAddress_c_write { O 1 bit } } \
 } "
 }
 

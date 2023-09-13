@@ -1,0 +1,43 @@
+<design_size title="Design Size Report">
+    <item name="Instructions per Function for each Compilation Phase">
+        <hiertable>
+            <header size="6" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Performance/Pipeline" col5="Optimizations"/>
+            <rows>
+                <row id="0" col0="arp_server" col1="arp_server.cpp:355" col2="4537" col3="578" col4="351" col5="445">
+                    <row id="1" col0="genARPDiscovery" col1="arp_server.cpp:257" col2="793" col3="121" col4="73" col5="88">
+                        <row id="7" col0="arpTableEntry" col1="arp_server.hpp:68" col2="28" col3="" col4="" col5=""/>
+                        <row id="8" col0="arpTableReply" col1="arp_server.hpp:84" col2="16" col3="5" col4="" col5=""/>
+                    </row>
+                    <row id="6" col0="arp_pkg_receiver" col1="arp_server.cpp:44" col2="1245" col3="134" col4="68" col5="93">
+                        <row id="9" col0="arpReplyMeta" col1="arp_server.hpp:98" col2="73" col3="" col4="" col5=""/>
+                        <row id="4" col0="arpTableEntry" col1="arp_server.hpp:69" col2="10" col3="7" col4="" col5=""/>
+                    </row>
+                    <row id="2" col0="arp_pkg_sender" col1="arp_server.cpp:99" col2="2062" col3="175" col4="125" col5="123">
+                        <row id="9" col0="arpReplyMeta" col1="arp_server.hpp:98" col2="73" col3="" col4="" col5=""/>
+                    </row>
+                    <row id="3" col0="arp_table" col1="arp_server.cpp:204" col2="347" col3="77" col4="54" col5="78">
+                        <row id="7" col0="arpTableEntry" col1="arp_server.hpp:68" col2="28" col3="" col4="" col5=""/>
+                        <row id="10" col0="get_id" col1="arp_server.hpp:72" col2="59" col3="5" col4="" col5=""/>
+                    </row>
+                </row>
+            </rows>
+            <notes/>
+        </hiertable>
+    </item>
+    <item name="Description of Compilation Phases">
+        <table>
+            <keys size="2">Compilation Phase, Description</keys>
+            <column name="Compile/Link">All functions are compiled and linked into a single design</column>
+            <column name="Unroll/Inline">After user unroll and inline pragmas are applied</column>
+            <column name="Performance/Pipeline">After performance and pipeline pragmas are applied</column>
+            <column name="Optimizations">After high level synthesis optimizations</column>
+        </table>
+    </item>
+    <item name="Design Size Message Settings">
+        <table>
+            <keys size="3">Message Setting, Value, Description</keys>
+            <column name="config_compile -design_size_maximum_warning">100000, Show a warning when total design instructions exceeds this value</column>
+        </table>
+    </item>
+</design_size>
+

@@ -34,7 +34,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>1284921200</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>48</bitwidth>
@@ -70,7 +70,7 @@
 						<coreName>FIFO_SRL</coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>85634672</coreId>
+						<coreId>1285012544</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>48</bitwidth>
@@ -106,7 +106,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>997418094</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -142,7 +142,7 @@
 						<coreName>FIFO_SRL</coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>1284913928</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -178,7 +178,7 @@
 						<coreName>FIFO_SRL</coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1869098811</coreId>
+						<coreId>1284914464</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -214,7 +214,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1394631781</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -250,7 +250,7 @@
 						<coreName>FIFO_SRL</coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1528970616</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -286,7 +286,7 @@
 						<coreName>FIFO_SRL</coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>85624704</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -326,7 +326,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>1667592275</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -457,7 +457,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>1429781688</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -588,7 +588,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>1630347296</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>48</bitwidth>
@@ -723,7 +723,7 @@
 					<coreName></coreName>
 					<isStorage>0</isStorage>
 					<storageDepth>0</storageDepth>
-					<coreId>0</coreId>
+					<coreId>4294967295</coreId>
 					<rtlModuleName></rtlModuleName>
 				</Obj>
 				<node_objs>
@@ -1038,7 +1038,7 @@
 		<count>8</count>
 		<item_version>0</item_version>
 		<item class_id="34" tracking_level="0" version="0">
-			<first>38</first>
+			<first>40</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -1046,7 +1046,7 @@
 			</second>
 		</item>
 		<item>
-			<first>44</first>
+			<first>46</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -1054,7 +1054,7 @@
 			</second>
 		</item>
 		<item>
-			<first>52</first>
+			<first>54</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -1062,7 +1062,7 @@
 			</second>
 		</item>
 		<item>
-			<first>60</first>
+			<first>62</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -1070,7 +1070,7 @@
 			</second>
 		</item>
 		<item>
-			<first>66</first>
+			<first>68</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -1078,7 +1078,7 @@
 			</second>
 		</item>
 		<item>
-			<first>74</first>
+			<first>76</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -1086,7 +1086,7 @@
 			</second>
 		</item>
 		<item>
-			<first>82</first>
+			<first>84</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -1094,7 +1094,7 @@
 			</second>
 		</item>
 		<item>
-			<first>88</first>
+			<first>90</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -1114,7 +1114,7 @@
 		<count>8</count>
 		<item_version>0</item_version>
 		<item class_id="37" tracking_level="0" version="0">
-			<first>gatewayIP_read_read_fu_60</first>
+			<first>gatewayIP_read_read_fu_62</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -1122,7 +1122,7 @@
 			</second>
 		</item>
 		<item>
-			<first>myMacAddress_read_read_fu_82</first>
+			<first>myMacAddress_read_read_fu_84</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -1130,7 +1130,7 @@
 			</second>
 		</item>
 		<item>
-			<first>networkMask_read_read_fu_38</first>
+			<first>networkMask_read_read_fu_40</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -1138,7 +1138,7 @@
 			</second>
 		</item>
 		<item>
-			<first>write_ln0_write_fu_44</first>
+			<first>write_ln0_write_fu_46</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -1146,7 +1146,7 @@
 			</second>
 		</item>
 		<item>
-			<first>write_ln0_write_fu_52</first>
+			<first>write_ln0_write_fu_54</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -1154,7 +1154,7 @@
 			</second>
 		</item>
 		<item>
-			<first>write_ln0_write_fu_66</first>
+			<first>write_ln0_write_fu_68</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -1162,7 +1162,7 @@
 			</second>
 		</item>
 		<item>
-			<first>write_ln0_write_fu_74</first>
+			<first>write_ln0_write_fu_76</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -1170,7 +1170,7 @@
 			</second>
 		</item>
 		<item>
-			<first>write_ln0_write_fu_88</first>
+			<first>write_ln0_write_fu_90</first>
 			<second>
 				<count>1</count>
 				<item_version>0</item_version>
@@ -1332,35 +1332,35 @@
 		<item>
 			<first>2</first>
 			<second>
-				<first>1151</first>
+				<first>666</first>
 				<second>10</second>
 			</second>
 		</item>
 		<item>
 			<first>4</first>
 			<second>
-				<first>1151</first>
+				<first>666</first>
 				<second>10</second>
 			</second>
 		</item>
 		<item>
 			<first>5</first>
 			<second>
-				<first>1151</first>
+				<first>666</first>
 				<second>10</second>
 			</second>
 		</item>
 		<item>
 			<first>7</first>
 			<second>
-				<first>1151</first>
+				<first>666</first>
 				<second>10</second>
 			</second>
 		</item>
 		<item>
 			<first>8</first>
 			<second>
-				<first>1151</first>
+				<first>666</first>
 				<second>10</second>
 			</second>
 		</item>
@@ -1371,35 +1371,35 @@
 		<item>
 			<first>11</first>
 			<second>
-				<first>1151</first>
+				<first>666</first>
 				<second>10</second>
 			</second>
 		</item>
 		<item>
 			<first>13</first>
 			<second>
-				<first>1151</first>
+				<first>666</first>
 				<second>10</second>
 			</second>
 		</item>
 		<item>
 			<first>16</first>
 			<second>
-				<first>1151</first>
+				<first>666</first>
 				<second>10</second>
 			</second>
 		</item>
 		<item>
 			<first>18</first>
 			<second>
-				<first>1151</first>
+				<first>666</first>
 				<second>10</second>
 			</second>
 		</item>
 		<item>
 			<first>21</first>
 			<second>
-				<first>1151</first>
+				<first>666</first>
 				<second>10</second>
 			</second>
 		</item>

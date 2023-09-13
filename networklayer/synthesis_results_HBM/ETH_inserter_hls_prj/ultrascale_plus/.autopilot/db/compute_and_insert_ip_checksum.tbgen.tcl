@@ -9,17 +9,21 @@ set isOneStateSeq 0
 set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
+set hasInterrupt 0
+set DLRegFirstOffset 0
+set DLRegItemOffset 0
 set C_modelName {compute_and_insert_ip_checksum}
 set C_modelType { void 0 }
 set C_modelArgList {
 	{ ip_header_out int 1024 regular {fifo 0 volatile } {global 0}  }
 	{ ip_header_checksum int 1024 regular {fifo 1 volatile } {global 1}  }
 }
+set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "ip_header_out", "interface" : "fifo", "bitwidth" : 1024, "direction" : "READONLY", "extern" : 0} , 
  	{ "Name" : "ip_header_checksum", "interface" : "fifo", "bitwidth" : 1024, "direction" : "WRITEONLY", "extern" : 0} ]}
 # RTL Port declarations: 
-set portNum 13
+set portNum 17
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -29,9 +33,13 @@ set portList {
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
 	{ ip_header_out_dout sc_in sc_lv 1024 signal 0 } 
+	{ ip_header_out_num_data_valid sc_in sc_lv 5 signal 0 } 
+	{ ip_header_out_fifo_cap sc_in sc_lv 5 signal 0 } 
 	{ ip_header_out_empty_n sc_in sc_logic 1 signal 0 } 
 	{ ip_header_out_read sc_out sc_logic 1 signal 0 } 
 	{ ip_header_checksum_din sc_out sc_lv 1024 signal 1 } 
+	{ ip_header_checksum_num_data_valid sc_in sc_lv 5 signal 1 } 
+	{ ip_header_checksum_fifo_cap sc_in sc_lv 5 signal 1 } 
 	{ ip_header_checksum_full_n sc_in sc_logic 1 signal 1 } 
 	{ ip_header_checksum_write sc_out sc_logic 1 signal 1 } 
 }
@@ -44,9 +52,13 @@ set NewPortList {[
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
  	{ "name": "ip_header_out_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":1024, "type": "signal", "bundle":{"name": "ip_header_out", "role": "dout" }} , 
+ 	{ "name": "ip_header_out_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":5, "type": "signal", "bundle":{"name": "ip_header_out", "role": "num_data_valid" }} , 
+ 	{ "name": "ip_header_out_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":5, "type": "signal", "bundle":{"name": "ip_header_out", "role": "fifo_cap" }} , 
  	{ "name": "ip_header_out_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ip_header_out", "role": "empty_n" }} , 
  	{ "name": "ip_header_out_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ip_header_out", "role": "read" }} , 
  	{ "name": "ip_header_checksum_din", "direction": "out", "datatype": "sc_lv", "bitwidth":1024, "type": "signal", "bundle":{"name": "ip_header_checksum", "role": "din" }} , 
+ 	{ "name": "ip_header_checksum_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":5, "type": "signal", "bundle":{"name": "ip_header_checksum", "role": "num_data_valid" }} , 
+ 	{ "name": "ip_header_checksum_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":5, "type": "signal", "bundle":{"name": "ip_header_checksum", "role": "fifo_cap" }} , 
  	{ "name": "ip_header_checksum_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ip_header_checksum", "role": "full_n" }} , 
  	{ "name": "ip_header_checksum_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ip_header_checksum", "role": "write" }}  ]}
 
@@ -91,6 +103,6 @@ set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	ip_header_out { ap_fifo {  { ip_header_out_dout fifo_data 0 1024 }  { ip_header_out_empty_n fifo_status 0 1 }  { ip_header_out_read fifo_update 1 1 } } }
-	ip_header_checksum { ap_fifo {  { ip_header_checksum_din fifo_data 1 1024 }  { ip_header_checksum_full_n fifo_status 0 1 }  { ip_header_checksum_write fifo_update 1 1 } } }
+	ip_header_out { ap_fifo {  { ip_header_out_dout fifo_port_we 0 1024 }  { ip_header_out_num_data_valid fifo_status_num_data_valid 0 5 }  { ip_header_out_fifo_cap fifo_update 0 5 }  { ip_header_out_empty_n fifo_status 0 1 }  { ip_header_out_read fifo_data 1 1 } } }
+	ip_header_checksum { ap_fifo {  { ip_header_checksum_din fifo_port_we 1 1024 }  { ip_header_checksum_num_data_valid fifo_status_num_data_valid 0 5 }  { ip_header_checksum_fifo_cap fifo_update 0 5 }  { ip_header_checksum_full_n fifo_status 0 1 }  { ip_header_checksum_write fifo_data 1 1 } } }
 }

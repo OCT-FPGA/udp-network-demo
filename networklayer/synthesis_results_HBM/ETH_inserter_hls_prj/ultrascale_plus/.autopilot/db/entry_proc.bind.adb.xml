@@ -17,9 +17,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="3" bw="0" op_0_bw="0" op_1_bw="48" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0">
+<Node id="3" bw="0" op_0_bw="0" op_1_bw="48" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
 <![CDATA[
-entry:0 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i48 %myMacAddress_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str
+entry:0 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i48 %myMacAddress_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str, i32 4294967295, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -118,15 +118,19 @@ entry:3 %ret_ln0 = ret
 </dataflow>
 <dataflow id="31" from="ScalarProp_str" to="specinterface_ln0" fromId="30" toId="2">
 </dataflow>
-<dataflow id="33" from="_ssdm_op_Read.ap_auto.i48P0A" to="myMacAddress_read" fromId="32" toId="3">
+<dataflow id="33" from="StgValue_32" to="specinterface_ln0" fromId="32" toId="2">
 </dataflow>
-<dataflow id="34" from="myMacAddress" to="myMacAddress_read" fromId="6" toId="3">
+<dataflow id="34" from="StgValue_13" to="specinterface_ln0" fromId="13" toId="2">
 </dataflow>
-<dataflow id="36" from="_ssdm_op_Write.ap_fifo.i48P0A" to="write_ln0" fromId="35" toId="4">
+<dataflow id="36" from="_ssdm_op_Read.ap_auto.i48P0A" to="myMacAddress_read" fromId="35" toId="3">
 </dataflow>
-<dataflow id="37" from="myMacAddress_c" to="write_ln0" fromId="7" toId="4">
+<dataflow id="37" from="myMacAddress" to="myMacAddress_read" fromId="6" toId="3">
 </dataflow>
-<dataflow id="38" from="myMacAddress_read" to="write_ln0" fromId="3" toId="4">
+<dataflow id="39" from="_ssdm_op_Write.ap_fifo.i48P0A" to="write_ln0" fromId="38" toId="4">
+</dataflow>
+<dataflow id="40" from="myMacAddress_c" to="write_ln0" fromId="7" toId="4">
+</dataflow>
+<dataflow id="41" from="myMacAddress_read" to="write_ln0" fromId="3" toId="4">
 </dataflow>
 </dataflows>
 

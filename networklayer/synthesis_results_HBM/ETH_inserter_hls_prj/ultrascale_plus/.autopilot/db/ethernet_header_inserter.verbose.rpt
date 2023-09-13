@@ -3,12 +3,12 @@
 ================================================================
 == Vitis HLS Report for 'ethernet_header_inserter'
 ================================================================
-* Date:           Wed Mar  8 19:14:20 2023
+* Date:           Fri Sep  8 14:08:19 2023
 
-* Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+* Version:        2023.1 (Build 3854077 on May  4 2023)
 * Project:        ETH_inserter_hls_prj
 * Solution:       ultrascale_plus (Vivado IP Flow Target)
-* Product family: virtexuplus
+* Product family: virtexuplusHBM
 * Target device:  xcu280-fsvh2892-2L-e
 
 
@@ -59,12 +59,12 @@
 |DSP                  |        -|     -|        -|        -|    -|
 |Expression           |        -|     -|        -|        -|    -|
 |FIFO                 |        0|     -|     9281|     5013|    -|
-|Instance             |        -|     -|     4687|     2582|    -|
+|Instance             |        -|     -|     4687|     2672|    -|
 |Memory               |        -|     -|        -|        -|    -|
 |Multiplexer          |        -|     -|        -|        -|    -|
 |Register             |        -|     -|        -|        -|    -|
 +---------------------+---------+------+---------+---------+-----+
-|Total                |        0|     0|    13968|     7595|    0|
+|Total                |        0|     0|    13968|     7685|    0|
 +---------------------+---------+------+---------+---------+-----+
 |Available SLR        |     1344|  3008|   869120|   434560|  320|
 +---------------------+---------+------+---------+---------+-----+
@@ -80,12 +80,12 @@
     +-----------------------------------+--------------------------------+---------+----+------+------+-----+
     |              Instance             |             Module             | BRAM_18K| DSP|  FF  |  LUT | URAM|
     +-----------------------------------+--------------------------------+---------+----+------+------+-----+
-    |broadcaster_and_mac_request_U0     |broadcaster_and_mac_request     |        0|   0|   654|   190|    0|
-    |compute_and_insert_ip_checksum_U0  |compute_and_insert_ip_checksum  |        0|   0|  2859|  2072|    0|
+    |broadcaster_and_mac_request_U0     |broadcaster_and_mac_request     |        0|   0|   654|   209|    0|
+    |compute_and_insert_ip_checksum_U0  |compute_and_insert_ip_checksum  |        0|   0|  2859|  2143|    0|
     |entry_proc_U0                      |entry_proc                      |        0|   0|     3|    29|    0|
     |handle_output_U0                   |handle_output                   |        0|   0|  1171|   291|    0|
     +-----------------------------------+--------------------------------+---------+----+------+------+-----+
-    |Total                              |                                |        0|   0|  4687|  2582|    0|
+    |Total                              |                                |        0|   0|  4687|  2672|    0|
     +-----------------------------------+--------------------------------+---------+----+------+------+-----+
 
     * DSP: 
@@ -124,10 +124,6 @@
 +------------------------+-----+-----+--------------+--------------------------+--------------+
 |        RTL Ports       | Dir | Bits|   Protocol   |       Source Object      |    C Type    |
 +------------------------+-----+-----+--------------+--------------------------+--------------+
-|ap_local_block          |  out|    1|  ap_ctrl_none|  ethernet_header_inserter|  return value|
-|ap_local_deadlock       |  out|    1|  ap_ctrl_none|  ethernet_header_inserter|  return value|
-|ap_clk                  |   in|    1|  ap_ctrl_none|  ethernet_header_inserter|  return value|
-|ap_rst_n                |   in|    1|  ap_ctrl_none|  ethernet_header_inserter|  return value|
 |dataIn_TDATA            |   in|  512|          axis|           dataIn_V_data_V|       pointer|
 |dataIn_TKEEP            |   in|   64|          axis|           dataIn_V_keep_V|       pointer|
 |dataIn_TSTRB            |   in|   64|          axis|           dataIn_V_strb_V|       pointer|
@@ -149,6 +145,8 @@
 |myMacAddress            |   in|   48|       ap_none|              myMacAddress|       pointer|
 |regSubNetMask           |   in|   32|       ap_none|             regSubNetMask|       pointer|
 |regDefaultGateway       |   in|   32|       ap_none|         regDefaultGateway|       pointer|
+|ap_clk                  |   in|    1|  ap_ctrl_none|  ethernet_header_inserter|  return value|
+|ap_rst_n                |   in|    1|  ap_ctrl_none|  ethernet_header_inserter|  return value|
 +------------------------+-----+-----+--------------+--------------------------+--------------+
 
 ============================================================
@@ -200,10 +198,10 @@ IsGatedGlobalClock: 0
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 0.00>
-ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%myMacAddress_c = alloca i64 1"   --->   Operation 14 'alloca' 'myMacAddress_c' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.41> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 48> <Depth = 4> <FIFO>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%myMacAddress_c = alloca i64 1" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:321]   --->   Operation 14 'alloca' 'myMacAddress_c' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.41> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 48> <Depth = 4> <FIFO>
 
-State 2 <SV = 1> <Delay = 0.85>
-ST_2 : Operation 15 [3/3] (0.85ns)   --->   "%call_ln344 = call void @broadcaster_and_mac_request, i512 %dataIn_V_data_V, i64 %dataIn_V_keep_V, i64 %dataIn_V_strb_V, i1 %dataIn_V_last_V, i32 %arpTableRequest, i32 %regSubNetMask, i32 %regDefaultGateway, i1 %bmr_fsm_state, i1024 %ip_header_out, i1024 %no_ip_header_out" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:344]   --->   Operation 15 'call' 'call_ln344' <Predicate = true> <Delay = 0.85> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+State 2 <SV = 1> <Delay = 0.88>
+ST_2 : Operation 15 [3/3] (0.88ns)   --->   "%call_ln344 = call void @broadcaster_and_mac_request, i512 %dataIn_V_data_V, i64 %dataIn_V_keep_V, i64 %dataIn_V_strb_V, i1 %dataIn_V_last_V, i32 %arpTableRequest, i32 %regSubNetMask, i32 %regDefaultGateway, i1 %bmr_fsm_state, i1024 %ip_header_out, i1024 %no_ip_header_out" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:344]   --->   Operation 15 'call' 'call_ln344' <Predicate = true> <Delay = 0.88> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 3 <SV = 2> <Delay = 0.00>
 ST_3 : Operation 16 [2/3] (0.00ns)   --->   "%call_ln344 = call void @broadcaster_and_mac_request, i512 %dataIn_V_data_V, i64 %dataIn_V_keep_V, i64 %dataIn_V_strb_V, i1 %dataIn_V_last_V, i32 %arpTableRequest, i32 %regSubNetMask, i32 %regDefaultGateway, i1 %bmr_fsm_state, i1024 %ip_header_out, i1024 %no_ip_header_out" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:344]   --->   Operation 16 'call' 'call_ln344' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
@@ -224,51 +222,53 @@ State 8 <SV = 7> <Delay = 0.00>
 ST_8 : Operation 21 [2/5] (0.00ns)   --->   "%call_ln352 = call void @compute_and_insert_ip_checksum, i1024 %ip_header_out, i1024 %ip_header_checksum" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:352]   --->   Operation 21 'call' 'call_ln352' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 9 <SV = 8> <Delay = 1.41>
-ST_9 : Operation 22 [1/1] (1.41ns)   --->   "%call_ln0 = call void @entry_proc, i48 %myMacAddress, i48 %myMacAddress_c"   --->   Operation 22 'call' 'call_ln0' <Predicate = true> <Delay = 1.41> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_9 : Operation 22 [1/1] (1.41ns)   --->   "%call_ln321 = call void @entry_proc, i48 %myMacAddress, i48 %myMacAddress_c" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:321]   --->   Operation 22 'call' 'call_ln321' <Predicate = true> <Delay = 1.41> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 ST_9 : Operation 23 [1/5] (0.00ns)   --->   "%call_ln352 = call void @compute_and_insert_ip_checksum, i1024 %ip_header_out, i1024 %ip_header_checksum" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:352]   --->   Operation 23 'call' 'call_ln352' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 10 <SV = 9> <Delay = 0.00>
-ST_10 : Operation 24 [3/3] (0.00ns)   --->   "%call_ln356 = call void @handle_output, i128 %arpTableReplay, i48 %myMacAddress_c, i512 %dataOut_V_data_V, i64 %dataOut_V_keep_V, i64 %dataOut_V_strb_V, i1 %dataOut_V_last_V, i3 %mw_state, i112 %previous_word_data_V, i14 %previous_word_keep_V, i1024 %ip_header_checksum, i1024 %no_ip_header_out" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:356]   --->   Operation 24 'call' 'call_ln356' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_10 : Operation 24 [3/3] (0.00ns)   --->   "%call_ln356 = call void @handle_output, i128 %arpTableReplay, i48 %myMacAddress_c, i512 %dataOut_V_data_V, i64 %dataOut_V_keep_V, i64 %dataOut_V_strb_V, i1 %dataOut_V_last_V, i3 %mw_state, i112 %previous_word_data, i14 %previous_word_keep, i1024 %ip_header_checksum, i1024 %no_ip_header_out" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:356]   --->   Operation 24 'call' 'call_ln356' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
-State 11 <SV = 10> <Delay = 2.22>
-ST_11 : Operation 25 [2/3] (2.22ns)   --->   "%call_ln356 = call void @handle_output, i128 %arpTableReplay, i48 %myMacAddress_c, i512 %dataOut_V_data_V, i64 %dataOut_V_keep_V, i64 %dataOut_V_strb_V, i1 %dataOut_V_last_V, i3 %mw_state, i112 %previous_word_data_V, i14 %previous_word_keep_V, i1024 %ip_header_checksum, i1024 %no_ip_header_out" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:356]   --->   Operation 25 'call' 'call_ln356' <Predicate = true> <Delay = 2.22> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+State 11 <SV = 10> <Delay = 2.21>
+ST_11 : Operation 25 [2/3] (2.21ns)   --->   "%call_ln356 = call void @handle_output, i128 %arpTableReplay, i48 %myMacAddress_c, i512 %dataOut_V_data_V, i64 %dataOut_V_keep_V, i64 %dataOut_V_strb_V, i1 %dataOut_V_last_V, i3 %mw_state, i112 %previous_word_data, i14 %previous_word_keep, i1024 %ip_header_checksum, i1024 %no_ip_header_out" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:356]   --->   Operation 25 'call' 'call_ln356' <Predicate = true> <Delay = 2.21> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 12 <SV = 11> <Delay = 0.00>
-ST_12 : Operation 26 [1/3] (0.00ns)   --->   "%call_ln356 = call void @handle_output, i128 %arpTableReplay, i48 %myMacAddress_c, i512 %dataOut_V_data_V, i64 %dataOut_V_keep_V, i64 %dataOut_V_strb_V, i1 %dataOut_V_last_V, i3 %mw_state, i112 %previous_word_data_V, i14 %previous_word_keep_V, i1024 %ip_header_checksum, i1024 %no_ip_header_out" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:356]   --->   Operation 26 'call' 'call_ln356' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_12 : Operation 26 [1/3] (0.00ns)   --->   "%call_ln356 = call void @handle_output, i128 %arpTableReplay, i48 %myMacAddress_c, i512 %dataOut_V_data_V, i64 %dataOut_V_keep_V, i64 %dataOut_V_strb_V, i1 %dataOut_V_last_V, i3 %mw_state, i112 %previous_word_data, i14 %previous_word_keep, i1024 %ip_header_checksum, i1024 %no_ip_header_out" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:356]   --->   Operation 26 'call' 'call_ln356' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 13 <SV = 12> <Delay = 0.00>
-ST_13 : Operation 27 [1/1] (0.00ns)   --->   "%empty = specchannel i32 @_ssdm_op_SpecChannel, void @myMacAddress_c_str, i32 1, void @p_str, void @p_str, i32 4, i32 0, i48 %myMacAddress_c, i48 %myMacAddress_c"   --->   Operation 27 'specchannel' 'empty' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 28 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i48 %myMacAddress_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str"   --->   Operation 28 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 29 [1/1] (0.00ns)   --->   "%specdataflowpipeline_ln0 = specdataflowpipeline void @_ssdm_op_SpecDataflowPipeline, i32 4294967295, i32 0, void @empty_0"   --->   Operation 29 'specdataflowpipeline' 'specdataflowpipeline_ln0' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 30 [1/1] (0.00ns)   --->   "%empty_25 = specchannel i32 @_ssdm_op_SpecChannel, void @ip_header_checksum_str, i32 1, void @p_str, void @p_str, i32 16, i32 16, i1024 %ip_header_checksum, i1024 %ip_header_checksum"   --->   Operation 30 'specchannel' 'empty_25' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 31 [1/1] (0.00ns)   --->   "%empty_26 = specchannel i32 @_ssdm_op_SpecChannel, void @ip_header_out_str, i32 1, void @p_str, void @p_str, i32 16, i32 16, i1024 %ip_header_out, i1024 %ip_header_out"   --->   Operation 31 'specchannel' 'empty_26' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 32 [1/1] (0.00ns)   --->   "%empty_27 = specchannel i32 @_ssdm_op_SpecChannel, void @no_ip_header_out_str, i32 1, void @p_str, void @p_str, i32 16, i32 16, i1024 %no_ip_header_out, i1024 %no_ip_header_out"   --->   Operation 32 'specchannel' 'empty_27' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 33 [1/1] (0.00ns)   --->   "%spectopmodule_ln0 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_4"   --->   Operation 33 'spectopmodule' 'spectopmodule_ln0' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 34 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 0, void @empty_5, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 34 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 35 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i512 %dataIn_V_data_V, i64 %dataIn_V_keep_V, i64 %dataIn_V_strb_V, i1 %dataIn_V_last_V, void @empty_2, i32 1, i32 1, void @empty_1, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 35 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 27 [1/1] (0.00ns)   --->   "%empty = specchannel i32 @_ssdm_op_SpecChannel, void @myMacAddress_c_str, i32 1, void @p_str, void @p_str, i32 4, i32 0, i48 %myMacAddress_c, i48 %myMacAddress_c" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:321]   --->   Operation 27 'specchannel' 'empty' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 28 [1/1] (0.00ns)   --->   "%specinterface_ln321 = specinterface void @_ssdm_op_SpecInterface, i48 %myMacAddress_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str, i32 4294967295, i32 0" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:321]   --->   Operation 28 'specinterface' 'specinterface_ln321' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 29 [1/1] (0.00ns)   --->   "%specdataflowpipeline_ln321 = specdataflowpipeline void @_ssdm_op_SpecDataflowPipeline, i32 4294967295, i32 0, void @empty_2" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:321]   --->   Operation 29 'specdataflowpipeline' 'specdataflowpipeline_ln321' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 30 [1/1] (0.00ns)   --->   "%empty_27 = specchannel i32 @_ssdm_op_SpecChannel, void @ip_header_checksum_str, i32 1, void @p_str, void @p_str, i32 16, i32 16, i1024 %ip_header_checksum, i1024 %ip_header_checksum"   --->   Operation 30 'specchannel' 'empty_27' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 31 [1/1] (0.00ns)   --->   "%empty_28 = specchannel i32 @_ssdm_op_SpecChannel, void @ip_header_out_str, i32 1, void @p_str, void @p_str, i32 16, i32 16, i1024 %ip_header_out, i1024 %ip_header_out"   --->   Operation 31 'specchannel' 'empty_28' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 32 [1/1] (0.00ns)   --->   "%empty_29 = specchannel i32 @_ssdm_op_SpecChannel, void @no_ip_header_out_str, i32 1, void @p_str, void @p_str, i32 16, i32 16, i1024 %no_ip_header_out, i1024 %no_ip_header_out"   --->   Operation 32 'specchannel' 'empty_29' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 33 [1/1] (0.00ns)   --->   "%spectopmodule_ln308 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_6" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:308]   --->   Operation 33 'spectopmodule' 'spectopmodule_ln308' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 34 [1/1] (0.00ns)   --->   "%specinterface_ln308 = specinterface void @_ssdm_op_SpecInterface, i32 0, void @empty_7, i32 0, i32 0, void @empty_2, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:308]   --->   Operation 34 'specinterface' 'specinterface_ln308' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 35 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i512 %dataIn_V_data_V, i64 %dataIn_V_keep_V, i64 %dataIn_V_strb_V, i1 %dataIn_V_last_V, void @empty_4, i32 1, i32 1, void @empty_3, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0"   --->   Operation 35 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_13 : Operation 36 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i512 %dataIn_V_data_V"   --->   Operation 36 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
 ST_13 : Operation 37 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i64 %dataIn_V_keep_V"   --->   Operation 37 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
 ST_13 : Operation 38 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i64 %dataIn_V_strb_V"   --->   Operation 38 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
 ST_13 : Operation 39 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %dataIn_V_last_V"   --->   Operation 39 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 40 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i512 %dataOut_V_data_V, i64 %dataOut_V_keep_V, i64 %dataOut_V_strb_V, i1 %dataOut_V_last_V, void @empty_2, i32 1, i32 1, void @empty_1, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 40 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 40 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i512 %dataOut_V_data_V, i64 %dataOut_V_keep_V, i64 %dataOut_V_strb_V, i1 %dataOut_V_last_V, void @empty_4, i32 1, i32 1, void @empty_3, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0"   --->   Operation 40 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_13 : Operation 41 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i512 %dataOut_V_data_V"   --->   Operation 41 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
 ST_13 : Operation 42 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i64 %dataOut_V_keep_V"   --->   Operation 42 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
 ST_13 : Operation 43 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i64 %dataOut_V_strb_V"   --->   Operation 43 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
 ST_13 : Operation 44 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %dataOut_V_last_V"   --->   Operation 44 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 45 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %arpTableReplay, void @empty_2, i32 1, i32 1, void @empty_1, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 45 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 45 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i128 %arpTableReplay, void @empty_4, i32 1, i32 1, void @empty_3, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0"   --->   Operation 45 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_13 : Operation 46 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i128 %arpTableReplay"   --->   Operation 46 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 47 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %arpTableRequest, void @empty_2, i32 1, i32 1, void @empty_1, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 47 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 47 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %arpTableRequest, void @empty_4, i32 1, i32 1, void @empty_3, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0"   --->   Operation 47 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_13 : Operation 48 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %arpTableRequest"   --->   Operation 48 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
 ST_13 : Operation 49 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i48 %myMacAddress"   --->   Operation 49 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 50 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i48 %myMacAddress, void @empty, i32 1, i32 1, void @empty_1, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 50 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 50 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i48 %myMacAddress, void @empty_1, i32 1, i32 1, void @empty_2, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0"   --->   Operation 50 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_13 : Operation 51 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %regSubNetMask"   --->   Operation 51 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 52 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %regSubNetMask, void @empty, i32 1, i32 1, void @empty_1, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 52 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 52 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %regSubNetMask, void @empty_1, i32 1, i32 1, void @empty_2, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0"   --->   Operation 52 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_13 : Operation 53 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %regDefaultGateway"   --->   Operation 53 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 54 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %regDefaultGateway, void @empty, i32 1, i32 1, void @empty_1, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 54 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 55 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %ip_header_out, void @empty_3, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 55 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 56 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %no_ip_header_out, void @empty_3, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 56 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 57 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %ip_header_checksum, void @empty_3, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 57 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_13 : Operation 58 [1/1] (0.00ns)   --->   "%ret_ln362 = ret" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:362]   --->   Operation 58 'ret' 'ret_ln362' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 54 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %regDefaultGateway, void @empty_1, i32 1, i32 1, void @empty_2, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0"   --->   Operation 54 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 55 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %ip_header_out, void @empty_0, i32 0, i32 0, void @empty_2, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0"   --->   Operation 55 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 56 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %no_ip_header_out, void @empty_0, i32 0, i32 0, void @empty_2, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0"   --->   Operation 56 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 57 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1024 %ip_header_checksum, void @empty_0, i32 0, i32 0, void @empty_2, i32 0, i32 0, void @empty_2, void @empty_2, void @empty_2, i32 0, i32 0, i32 0, i32 0, void @empty_2, void @empty_2, i32 4294967295, i32 0"   --->   Operation 57 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 58 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln362 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i512 %dataIn_V_data_V, i64 %dataIn_V_keep_V, i64 %dataIn_V_strb_V, i1 0, i1 %dataIn_V_last_V, i1 0, i1 0, void @empty" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:362]   --->   Operation 58 'specaxissidechannel' 'specaxissidechannel_ln362' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 59 [1/1] (0.00ns)   --->   "%specaxissidechannel_ln362 = specaxissidechannel void @_ssdm_op_SpecAXISSideChannel, i512 %dataOut_V_data_V, i64 %dataOut_V_keep_V, i64 %dataOut_V_strb_V, i1 0, i1 %dataOut_V_last_V, i1 0, i1 0, void @empty_5" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:362]   --->   Operation 59 'specaxissidechannel' 'specaxissidechannel_ln362' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 60 [1/1] (0.00ns)   --->   "%ret_ln362 = ret" [/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/ethernet_inserter/ethernet_header_inserter.cpp:362]   --->   Operation 60 'ret' 'ret_ln362' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -300,51 +300,53 @@ Port [ ip_header_out]:  wired=0; compound=1; hidden=1; nouse=0; global=1; static
 Port [ no_ip_header_out]:  wired=0; compound=1; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=3; pingpong=0; private_global=1; IO mode=ap_fifo:ce=0
 Port [ ip_header_checksum]:  wired=0; compound=1; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=3; pingpong=0; private_global=1; IO mode=ap_fifo:ce=0
 Port [ mw_state]:  wired=0; compound=0; hidden=1; nouse=1; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=0; IO mode=ap_ovld:ce=0
-Port [ previous_word_data_V]:  wired=0; compound=0; hidden=1; nouse=1; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=0; IO mode=ap_ovld:ce=0
-Port [ previous_word_keep_V]:  wired=0; compound=0; hidden=1; nouse=1; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=0; IO mode=ap_ovld:ce=0
+Port [ previous_word_data]:  wired=0; compound=0; hidden=1; nouse=1; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=0; IO mode=ap_ovld:ce=0
+Port [ previous_word_keep]:  wired=0; compound=0; hidden=1; nouse=1; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=0; IO mode=ap_ovld:ce=0
 ---------------- STG Properties END ------------------
 
 ---------------- Datapath Model BEGIN ----------------
 
 <LifeTime>
 <method=bitvector/>
-myMacAddress_c           (alloca              ) [ 00111111111111]
-call_ln344               (call                ) [ 00000000000000]
-call_ln0                 (call                ) [ 00000000000000]
-call_ln352               (call                ) [ 00000000000000]
-call_ln356               (call                ) [ 00000000000000]
-empty                    (specchannel         ) [ 00000000000000]
-specinterface_ln0        (specinterface       ) [ 00000000000000]
-specdataflowpipeline_ln0 (specdataflowpipeline) [ 00000000000000]
-empty_25                 (specchannel         ) [ 00000000000000]
-empty_26                 (specchannel         ) [ 00000000000000]
-empty_27                 (specchannel         ) [ 00000000000000]
-spectopmodule_ln0        (spectopmodule       ) [ 00000000000000]
-specinterface_ln0        (specinterface       ) [ 00000000000000]
-specinterface_ln0        (specinterface       ) [ 00000000000000]
-specbitsmap_ln0          (specbitsmap         ) [ 00000000000000]
-specbitsmap_ln0          (specbitsmap         ) [ 00000000000000]
-specbitsmap_ln0          (specbitsmap         ) [ 00000000000000]
-specbitsmap_ln0          (specbitsmap         ) [ 00000000000000]
-specinterface_ln0        (specinterface       ) [ 00000000000000]
-specbitsmap_ln0          (specbitsmap         ) [ 00000000000000]
-specbitsmap_ln0          (specbitsmap         ) [ 00000000000000]
-specbitsmap_ln0          (specbitsmap         ) [ 00000000000000]
-specbitsmap_ln0          (specbitsmap         ) [ 00000000000000]
-specinterface_ln0        (specinterface       ) [ 00000000000000]
-specbitsmap_ln0          (specbitsmap         ) [ 00000000000000]
-specinterface_ln0        (specinterface       ) [ 00000000000000]
-specbitsmap_ln0          (specbitsmap         ) [ 00000000000000]
-specbitsmap_ln0          (specbitsmap         ) [ 00000000000000]
-specinterface_ln0        (specinterface       ) [ 00000000000000]
-specbitsmap_ln0          (specbitsmap         ) [ 00000000000000]
-specinterface_ln0        (specinterface       ) [ 00000000000000]
-specbitsmap_ln0          (specbitsmap         ) [ 00000000000000]
-specinterface_ln0        (specinterface       ) [ 00000000000000]
-specinterface_ln0        (specinterface       ) [ 00000000000000]
-specinterface_ln0        (specinterface       ) [ 00000000000000]
-specinterface_ln0        (specinterface       ) [ 00000000000000]
-ret_ln362                (ret                 ) [ 00000000000000]
+myMacAddress_c             (alloca              ) [ 00111111111111]
+call_ln344                 (call                ) [ 00000000000000]
+call_ln321                 (call                ) [ 00000000000000]
+call_ln352                 (call                ) [ 00000000000000]
+call_ln356                 (call                ) [ 00000000000000]
+empty                      (specchannel         ) [ 00000000000000]
+specinterface_ln321        (specinterface       ) [ 00000000000000]
+specdataflowpipeline_ln321 (specdataflowpipeline) [ 00000000000000]
+empty_27                   (specchannel         ) [ 00000000000000]
+empty_28                   (specchannel         ) [ 00000000000000]
+empty_29                   (specchannel         ) [ 00000000000000]
+spectopmodule_ln308        (spectopmodule       ) [ 00000000000000]
+specinterface_ln308        (specinterface       ) [ 00000000000000]
+specinterface_ln0          (specinterface       ) [ 00000000000000]
+specbitsmap_ln0            (specbitsmap         ) [ 00000000000000]
+specbitsmap_ln0            (specbitsmap         ) [ 00000000000000]
+specbitsmap_ln0            (specbitsmap         ) [ 00000000000000]
+specbitsmap_ln0            (specbitsmap         ) [ 00000000000000]
+specinterface_ln0          (specinterface       ) [ 00000000000000]
+specbitsmap_ln0            (specbitsmap         ) [ 00000000000000]
+specbitsmap_ln0            (specbitsmap         ) [ 00000000000000]
+specbitsmap_ln0            (specbitsmap         ) [ 00000000000000]
+specbitsmap_ln0            (specbitsmap         ) [ 00000000000000]
+specinterface_ln0          (specinterface       ) [ 00000000000000]
+specbitsmap_ln0            (specbitsmap         ) [ 00000000000000]
+specinterface_ln0          (specinterface       ) [ 00000000000000]
+specbitsmap_ln0            (specbitsmap         ) [ 00000000000000]
+specbitsmap_ln0            (specbitsmap         ) [ 00000000000000]
+specinterface_ln0          (specinterface       ) [ 00000000000000]
+specbitsmap_ln0            (specbitsmap         ) [ 00000000000000]
+specinterface_ln0          (specinterface       ) [ 00000000000000]
+specbitsmap_ln0            (specbitsmap         ) [ 00000000000000]
+specinterface_ln0          (specinterface       ) [ 00000000000000]
+specinterface_ln0          (specinterface       ) [ 00000000000000]
+specinterface_ln0          (specinterface       ) [ 00000000000000]
+specinterface_ln0          (specinterface       ) [ 00000000000000]
+specaxissidechannel_ln362  (specaxissidechannel ) [ 00000000000000]
+specaxissidechannel_ln362  (specaxissidechannel ) [ 00000000000000]
+ret_ln362                  (ret                 ) [ 00000000000000]
 </LifeTime>
 
 <model>
@@ -512,21 +514,21 @@ ret_ln362                (ret                 ) [ 00000000000000]
 </bind>
 </comp>
 
-<comp id="36" class="1000" name="previous_word_data_V">
+<comp id="36" class="1000" name="previous_word_data">
 <pin_list>
 <pin id="37" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="previous_word_data_V"/></StgValue>
+<StgValue><ssdm name="previous_word_data"/></StgValue>
 </bind>
 </comp>
 
-<comp id="38" class="1000" name="previous_word_keep_V">
+<comp id="38" class="1000" name="previous_word_keep">
 <pin_list>
 <pin id="39" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="previous_word_keep_V"/></StgValue>
+<StgValue><ssdm name="previous_word_keep"/></StgValue>
 </bind>
 </comp>
 
@@ -670,7 +672,7 @@ ret_ln362                (ret                 ) [ 00000000000000]
 <pin id="71" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_SpecDataflowPipeline"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
@@ -679,7 +681,7 @@ ret_ln362                (ret                 ) [ 00000000000000]
 <pin id="73" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="_ssdm_op_SpecDataflowPipeline"/></StgValue>
 </bind>
 </comp>
 
@@ -688,7 +690,7 @@ ret_ln362                (ret                 ) [ 00000000000000]
 <pin id="75" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_0"/></StgValue>
+<StgValue><ssdm name="empty_2"/></StgValue>
 </bind>
 </comp>
 
@@ -733,7 +735,7 @@ ret_ln362                (ret                 ) [ 00000000000000]
 <pin id="85" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_4"/></StgValue>
+<StgValue><ssdm name="empty_6"/></StgValue>
 </bind>
 </comp>
 
@@ -742,7 +744,7 @@ ret_ln362                (ret                 ) [ 00000000000000]
 <pin id="87" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_5"/></StgValue>
+<StgValue><ssdm name="empty_7"/></StgValue>
 </bind>
 </comp>
 
@@ -751,7 +753,7 @@ ret_ln362                (ret                 ) [ 00000000000000]
 <pin id="89" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_2"/></StgValue>
+<StgValue><ssdm name="empty_4"/></StgValue>
 </bind>
 </comp>
 
@@ -760,7 +762,7 @@ ret_ln362                (ret                 ) [ 00000000000000]
 <pin id="91" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_1"/></StgValue>
+<StgValue><ssdm name="empty_3"/></StgValue>
 </bind>
 </comp>
 
@@ -778,7 +780,7 @@ ret_ln362                (ret                 ) [ 00000000000000]
 <pin id="95" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty"/></StgValue>
+<StgValue><ssdm name="empty_1"/></StgValue>
 </bind>
 </comp>
 
@@ -787,14 +789,50 @@ ret_ln362                (ret                 ) [ 00000000000000]
 <pin id="97" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_3"/></StgValue>
+<StgValue><ssdm name="empty_0"/></StgValue>
 </bind>
 </comp>
 
-<comp id="98" class="1004" name="myMacAddress_c_fu_98">
+<comp id="98" class="1001" name="const_98">
 <pin_list>
-<pin id="99" dir="0" index="0" bw="1" slack="0"/>
-<pin id="100" dir="1" index="1" bw="48" slack="8"/>
+<pin id="99" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecAXISSideChannel"/></StgValue>
+</bind>
+</comp>
+
+<comp id="100" class="1001" name="const_100">
+<pin_list>
+<pin id="101" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="102" class="1001" name="const_102">
+<pin_list>
+<pin id="103" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty"/></StgValue>
+</bind>
+</comp>
+
+<comp id="104" class="1001" name="const_104">
+<pin_list>
+<pin id="105" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_5"/></StgValue>
+</bind>
+</comp>
+
+<comp id="106" class="1004" name="myMacAddress_c_fu_106">
+<pin_list>
+<pin id="107" dir="0" index="0" bw="1" slack="0"/>
+<pin id="108" dir="1" index="1" bw="48" slack="8"/>
 </pin_list>
 <bind>
 <opcode="alloca(26) " fcode="alloca"/>
@@ -802,20 +840,20 @@ ret_ln362                (ret                 ) [ 00000000000000]
 </bind>
 </comp>
 
-<comp id="102" class="1004" name="grp_broadcaster_and_mac_request_fu_102">
+<comp id="110" class="1004" name="grp_broadcaster_and_mac_request_fu_110">
 <pin_list>
-<pin id="103" dir="0" index="0" bw="0" slack="0"/>
-<pin id="104" dir="0" index="1" bw="512" slack="0"/>
-<pin id="105" dir="0" index="2" bw="64" slack="0"/>
-<pin id="106" dir="0" index="3" bw="64" slack="0"/>
-<pin id="107" dir="0" index="4" bw="1" slack="0"/>
-<pin id="108" dir="0" index="5" bw="32" slack="0"/>
-<pin id="109" dir="0" index="6" bw="32" slack="0"/>
-<pin id="110" dir="0" index="7" bw="32" slack="0"/>
-<pin id="111" dir="0" index="8" bw="1" slack="0"/>
-<pin id="112" dir="0" index="9" bw="1024" slack="0"/>
-<pin id="113" dir="0" index="10" bw="1024" slack="0"/>
-<pin id="114" dir="1" index="11" bw="0" slack="2147483647"/>
+<pin id="111" dir="0" index="0" bw="0" slack="0"/>
+<pin id="112" dir="0" index="1" bw="512" slack="0"/>
+<pin id="113" dir="0" index="2" bw="64" slack="0"/>
+<pin id="114" dir="0" index="3" bw="64" slack="0"/>
+<pin id="115" dir="0" index="4" bw="1" slack="0"/>
+<pin id="116" dir="0" index="5" bw="32" slack="0"/>
+<pin id="117" dir="0" index="6" bw="32" slack="0"/>
+<pin id="118" dir="0" index="7" bw="32" slack="0"/>
+<pin id="119" dir="0" index="8" bw="1" slack="0"/>
+<pin id="120" dir="0" index="9" bw="1024" slack="0"/>
+<pin id="121" dir="0" index="10" bw="1024" slack="0"/>
+<pin id="122" dir="1" index="11" bw="0" slack="2147483647"/>
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
@@ -823,12 +861,12 @@ ret_ln362                (ret                 ) [ 00000000000000]
 </bind>
 </comp>
 
-<comp id="126" class="1004" name="grp_compute_and_insert_ip_checksum_fu_126">
+<comp id="134" class="1004" name="grp_compute_and_insert_ip_checksum_fu_134">
 <pin_list>
-<pin id="127" dir="0" index="0" bw="0" slack="0"/>
-<pin id="128" dir="0" index="1" bw="1024" slack="0"/>
-<pin id="129" dir="0" index="2" bw="1024" slack="0"/>
-<pin id="130" dir="1" index="3" bw="0" slack="2147483647"/>
+<pin id="135" dir="0" index="0" bw="0" slack="0"/>
+<pin id="136" dir="0" index="1" bw="1024" slack="0"/>
+<pin id="137" dir="0" index="2" bw="1024" slack="0"/>
+<pin id="138" dir="1" index="3" bw="0" slack="2147483647"/>
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
@@ -836,34 +874,34 @@ ret_ln362                (ret                 ) [ 00000000000000]
 </bind>
 </comp>
 
-<comp id="134" class="1004" name="call_ln0_entry_proc_fu_134">
+<comp id="142" class="1004" name="call_ln321_entry_proc_fu_142">
 <pin_list>
-<pin id="135" dir="0" index="0" bw="0" slack="0"/>
-<pin id="136" dir="0" index="1" bw="48" slack="0"/>
-<pin id="137" dir="0" index="2" bw="48" slack="8"/>
-<pin id="138" dir="1" index="3" bw="0" slack="2147483647"/>
+<pin id="143" dir="0" index="0" bw="0" slack="0"/>
+<pin id="144" dir="0" index="1" bw="48" slack="0"/>
+<pin id="145" dir="0" index="2" bw="48" slack="8"/>
+<pin id="146" dir="1" index="3" bw="0" slack="2147483647"/>
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
-<opset="call_ln0/9 "/>
+<opset="call_ln321/9 "/>
 </bind>
 </comp>
 
-<comp id="141" class="1004" name="grp_handle_output_fu_141">
+<comp id="149" class="1004" name="grp_handle_output_fu_149">
 <pin_list>
-<pin id="142" dir="0" index="0" bw="0" slack="0"/>
-<pin id="143" dir="0" index="1" bw="128" slack="0"/>
-<pin id="144" dir="0" index="2" bw="48" slack="9"/>
-<pin id="145" dir="0" index="3" bw="512" slack="0"/>
-<pin id="146" dir="0" index="4" bw="64" slack="0"/>
-<pin id="147" dir="0" index="5" bw="64" slack="0"/>
-<pin id="148" dir="0" index="6" bw="1" slack="0"/>
-<pin id="149" dir="0" index="7" bw="3" slack="0"/>
-<pin id="150" dir="0" index="8" bw="112" slack="0"/>
-<pin id="151" dir="0" index="9" bw="14" slack="0"/>
-<pin id="152" dir="0" index="10" bw="1024" slack="0"/>
-<pin id="153" dir="0" index="11" bw="1024" slack="0"/>
-<pin id="154" dir="1" index="12" bw="0" slack="2147483647"/>
+<pin id="150" dir="0" index="0" bw="0" slack="0"/>
+<pin id="151" dir="0" index="1" bw="128" slack="0"/>
+<pin id="152" dir="0" index="2" bw="48" slack="9"/>
+<pin id="153" dir="0" index="3" bw="512" slack="0"/>
+<pin id="154" dir="0" index="4" bw="64" slack="0"/>
+<pin id="155" dir="0" index="5" bw="64" slack="0"/>
+<pin id="156" dir="0" index="6" bw="1" slack="0"/>
+<pin id="157" dir="0" index="7" bw="3" slack="0"/>
+<pin id="158" dir="0" index="8" bw="112" slack="0"/>
+<pin id="159" dir="0" index="9" bw="14" slack="0"/>
+<pin id="160" dir="0" index="10" bw="1024" slack="0"/>
+<pin id="161" dir="0" index="11" bw="1024" slack="0"/>
+<pin id="162" dir="1" index="12" bw="0" slack="2147483647"/>
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
@@ -871,10 +909,10 @@ ret_ln362                (ret                 ) [ 00000000000000]
 </bind>
 </comp>
 
-<comp id="166" class="1005" name="myMacAddress_c_reg_166">
+<comp id="174" class="1005" name="myMacAddress_c_reg_174">
 <pin_list>
-<pin id="167" dir="0" index="0" bw="48" slack="8"/>
-<pin id="168" dir="1" index="1" bw="48" slack="8"/>
+<pin id="175" dir="0" index="0" bw="48" slack="8"/>
+<pin id="176" dir="1" index="1" bw="48" slack="8"/>
 </pin_list>
 <bind>
 <opset="myMacAddress_c "/>
@@ -884,67 +922,67 @@ ret_ln362                (ret                 ) [ 00000000000000]
 </comp_list>
 
 <net_list>
-<net id="101"><net_src comp="40" pin="0"/><net_sink comp="98" pin=0"/></net>
+<net id="109"><net_src comp="40" pin="0"/><net_sink comp="106" pin=0"/></net>
 
-<net id="115"><net_src comp="42" pin="0"/><net_sink comp="102" pin=0"/></net>
+<net id="123"><net_src comp="42" pin="0"/><net_sink comp="110" pin=0"/></net>
 
-<net id="116"><net_src comp="0" pin="0"/><net_sink comp="102" pin=1"/></net>
+<net id="124"><net_src comp="0" pin="0"/><net_sink comp="110" pin=1"/></net>
 
-<net id="117"><net_src comp="2" pin="0"/><net_sink comp="102" pin=2"/></net>
+<net id="125"><net_src comp="2" pin="0"/><net_sink comp="110" pin=2"/></net>
 
-<net id="118"><net_src comp="4" pin="0"/><net_sink comp="102" pin=3"/></net>
+<net id="126"><net_src comp="4" pin="0"/><net_sink comp="110" pin=3"/></net>
 
-<net id="119"><net_src comp="6" pin="0"/><net_sink comp="102" pin=4"/></net>
+<net id="127"><net_src comp="6" pin="0"/><net_sink comp="110" pin=4"/></net>
 
-<net id="120"><net_src comp="18" pin="0"/><net_sink comp="102" pin=5"/></net>
+<net id="128"><net_src comp="18" pin="0"/><net_sink comp="110" pin=5"/></net>
 
-<net id="121"><net_src comp="22" pin="0"/><net_sink comp="102" pin=6"/></net>
+<net id="129"><net_src comp="22" pin="0"/><net_sink comp="110" pin=6"/></net>
 
-<net id="122"><net_src comp="24" pin="0"/><net_sink comp="102" pin=7"/></net>
+<net id="130"><net_src comp="24" pin="0"/><net_sink comp="110" pin=7"/></net>
 
-<net id="123"><net_src comp="26" pin="0"/><net_sink comp="102" pin=8"/></net>
+<net id="131"><net_src comp="26" pin="0"/><net_sink comp="110" pin=8"/></net>
 
-<net id="124"><net_src comp="28" pin="0"/><net_sink comp="102" pin=9"/></net>
+<net id="132"><net_src comp="28" pin="0"/><net_sink comp="110" pin=9"/></net>
 
-<net id="125"><net_src comp="30" pin="0"/><net_sink comp="102" pin=10"/></net>
+<net id="133"><net_src comp="30" pin="0"/><net_sink comp="110" pin=10"/></net>
 
-<net id="131"><net_src comp="44" pin="0"/><net_sink comp="126" pin=0"/></net>
+<net id="139"><net_src comp="44" pin="0"/><net_sink comp="134" pin=0"/></net>
 
-<net id="132"><net_src comp="28" pin="0"/><net_sink comp="126" pin=1"/></net>
+<net id="140"><net_src comp="28" pin="0"/><net_sink comp="134" pin=1"/></net>
 
-<net id="133"><net_src comp="32" pin="0"/><net_sink comp="126" pin=2"/></net>
+<net id="141"><net_src comp="32" pin="0"/><net_sink comp="134" pin=2"/></net>
 
-<net id="139"><net_src comp="46" pin="0"/><net_sink comp="134" pin=0"/></net>
+<net id="147"><net_src comp="46" pin="0"/><net_sink comp="142" pin=0"/></net>
 
-<net id="140"><net_src comp="20" pin="0"/><net_sink comp="134" pin=1"/></net>
+<net id="148"><net_src comp="20" pin="0"/><net_sink comp="142" pin=1"/></net>
 
-<net id="155"><net_src comp="48" pin="0"/><net_sink comp="141" pin=0"/></net>
+<net id="163"><net_src comp="48" pin="0"/><net_sink comp="149" pin=0"/></net>
 
-<net id="156"><net_src comp="16" pin="0"/><net_sink comp="141" pin=1"/></net>
+<net id="164"><net_src comp="16" pin="0"/><net_sink comp="149" pin=1"/></net>
 
-<net id="157"><net_src comp="8" pin="0"/><net_sink comp="141" pin=3"/></net>
+<net id="165"><net_src comp="8" pin="0"/><net_sink comp="149" pin=3"/></net>
 
-<net id="158"><net_src comp="10" pin="0"/><net_sink comp="141" pin=4"/></net>
+<net id="166"><net_src comp="10" pin="0"/><net_sink comp="149" pin=4"/></net>
 
-<net id="159"><net_src comp="12" pin="0"/><net_sink comp="141" pin=5"/></net>
+<net id="167"><net_src comp="12" pin="0"/><net_sink comp="149" pin=5"/></net>
 
-<net id="160"><net_src comp="14" pin="0"/><net_sink comp="141" pin=6"/></net>
+<net id="168"><net_src comp="14" pin="0"/><net_sink comp="149" pin=6"/></net>
 
-<net id="161"><net_src comp="34" pin="0"/><net_sink comp="141" pin=7"/></net>
+<net id="169"><net_src comp="34" pin="0"/><net_sink comp="149" pin=7"/></net>
 
-<net id="162"><net_src comp="36" pin="0"/><net_sink comp="141" pin=8"/></net>
+<net id="170"><net_src comp="36" pin="0"/><net_sink comp="149" pin=8"/></net>
 
-<net id="163"><net_src comp="38" pin="0"/><net_sink comp="141" pin=9"/></net>
+<net id="171"><net_src comp="38" pin="0"/><net_sink comp="149" pin=9"/></net>
 
-<net id="164"><net_src comp="32" pin="0"/><net_sink comp="141" pin=10"/></net>
+<net id="172"><net_src comp="32" pin="0"/><net_sink comp="149" pin=10"/></net>
 
-<net id="165"><net_src comp="30" pin="0"/><net_sink comp="141" pin=11"/></net>
+<net id="173"><net_src comp="30" pin="0"/><net_sink comp="149" pin=11"/></net>
 
-<net id="169"><net_src comp="98" pin="1"/><net_sink comp="166" pin=0"/></net>
+<net id="177"><net_src comp="106" pin="1"/><net_sink comp="174" pin=0"/></net>
 
-<net id="170"><net_src comp="166" pin="1"/><net_sink comp="134" pin=2"/></net>
+<net id="178"><net_src comp="174" pin="1"/><net_sink comp="142" pin=2"/></net>
 
-<net id="171"><net_src comp="166" pin="1"/><net_sink comp="141" pin=2"/></net>
+<net id="179"><net_src comp="174" pin="1"/><net_sink comp="149" pin=2"/></net>
 
 </net_list>
 
@@ -963,8 +1001,8 @@ ret_ln362                (ret                 ) [ 00000000000000]
 	Port: no_ip_header_out | {3 }
 	Port: ip_header_checksum | {9 }
 	Port: mw_state | {10 }
-	Port: previous_word_data_V | {10 }
-	Port: previous_word_keep_V | {10 }
+	Port: previous_word_data | {10 }
+	Port: previous_word_keep | {10 }
  - Input state : 
 	Port: ethernet_header_inserter : dataIn_V_data_V | {2 }
 	Port: ethernet_header_inserter : dataIn_V_keep_V | {2 }
@@ -979,8 +1017,8 @@ ret_ln362                (ret                 ) [ 00000000000000]
 	Port: ethernet_header_inserter : no_ip_header_out | {10 }
 	Port: ethernet_header_inserter : ip_header_checksum | {10 }
 	Port: ethernet_header_inserter : mw_state | {10 }
-	Port: ethernet_header_inserter : previous_word_data_V | {10 }
-	Port: ethernet_header_inserter : previous_word_keep_V | {10 }
+	Port: ethernet_header_inserter : previous_word_data | {10 }
+	Port: ethernet_header_inserter : previous_word_keep | {10 }
   - Chain level:
 	State 1
 	State 2
@@ -1005,12 +1043,12 @@ ret_ln362                (ret                 ) [ 00000000000000]
 |----------|-------------------------------------------|---------|---------|---------|
 | Operation|              Functional Unit              |  Delay  |    FF   |   LUT   |
 |----------|-------------------------------------------|---------|---------|---------|
-|          |   grp_broadcaster_and_mac_request_fu_102  |  0.387  |   645   |    93   |
-|   call   | grp_compute_and_insert_ip_checksum_fu_126 |    0    |   2645  |   1909  |
-|          |         call_ln0_entry_proc_fu_134        |    0    |    0    |    0    |
-|          |          grp_handle_output_fu_141         | 2.36214 |   2763  |   109   |
+|          |   grp_broadcaster_and_mac_request_fu_110  |  0.387  |   645   |   112   |
+|   call   | grp_compute_and_insert_ip_checksum_fu_134 |    0    |   2645  |   1981  |
+|          |        call_ln321_entry_proc_fu_142       |    0    |    0    |    0    |
+|          |          grp_handle_output_fu_149         | 2.36214 |   2763  |   109   |
 |----------|-------------------------------------------|---------|---------|---------|
-|   Total  |                                           | 2.74914 |   6053  |   2111  |
+|   Total  |                                           | 2.74914 |   6053  |   2202  |
 |----------|-------------------------------------------|---------|---------|---------|
 
 Memories:
@@ -1020,7 +1058,7 @@ N/A
 +----------------------+--------+
 |                      |   FF   |
 +----------------------+--------+
-|myMacAddress_c_reg_166|   48   |
+|myMacAddress_c_reg_174|   48   |
 +----------------------+--------+
 |         Total        |   48   |
 +----------------------+--------+
@@ -1038,10 +1076,10 @@ N/A
 +-----------+--------+--------+--------+
 |           |  Delay |   FF   |   LUT  |
 +-----------+--------+--------+--------+
-|  Function |    2   |  6053  |  2111  |
+|  Function |    2   |  6053  |  2202  |
 |   Memory  |    -   |    -   |    -   |
 |Multiplexer|    -   |    -   |    -   |
 |  Register |    -   |   48   |    -   |
 +-----------+--------+--------+--------+
-|   Total   |    2   |  6101  |  2111  |
+|   Total   |    2   |  6101  |  2202  |
 +-----------+--------+--------+--------+

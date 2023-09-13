@@ -1,0 +1,65 @@
+{
+  "0": {
+    "basicblocks": 3,
+    "calls": "3 2",
+    "file": "packet_handler.cpp",
+    "fileloc": 275,
+    "instructions": 19,
+    "loads": {
+      "G": 1
+    },
+    "name": "packet_handler",
+    "stores": {
+      "G": 1
+    },
+    "total_instructions": 483
+  },
+  "1": {
+    "basicblocks": 7,
+    "calls": "",
+    "file": "packet_handler.cpp",
+    "fileloc": 39,
+    "instructions": 19,
+    "loads": {
+      "L": 2
+    },
+    "name": "byteSwap16",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 19
+  },
+  "2": {
+    "basicblocks": 30,
+    "calls": "",
+    "file": "packet_handler.cpp",
+    "fileloc": 51,
+    "instructions": 265,
+    "loads": {
+      "G": 8
+    },
+    "name": "ethernet_remover",
+    "stores": {
+      "G": 16,
+      "L": 35
+    },
+    "total_instructions": 265
+  },
+  "3": {
+    "basicblocks": 39,
+    "calls": "1",
+    "file": "packet_handler.cpp",
+    "fileloc": 168,
+    "instructions": 180,
+    "loads": {
+      "G": 3,
+      "L": 8
+    },
+    "name": "packet_identification",
+    "stores": {
+      "G": 7,
+      "L": 1
+    },
+    "total_instructions": 199
+  }
+}

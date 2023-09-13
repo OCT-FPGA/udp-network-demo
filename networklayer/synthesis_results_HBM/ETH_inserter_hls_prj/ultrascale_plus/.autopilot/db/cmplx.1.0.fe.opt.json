@@ -1,0 +1,94 @@
+{
+  "0": {
+    "basicblocks": 7,
+    "calls": "5 4 1",
+    "file": "ethernet_header_inserter.cpp",
+    "fileloc": 308,
+    "instructions": 49,
+    "loads": {
+      "G": 3
+    },
+    "name": "ethernet_header_inserter",
+    "stores": {
+      "G": 3
+    },
+    "total_instructions": 4873
+  },
+  "1": {
+    "basicblocks": 40,
+    "calls": "3 6 6 2",
+    "file": "ethernet_header_inserter.cpp",
+    "fileloc": 85,
+    "instructions": 334,
+    "loads": {
+      "G": 2,
+      "L": 10
+    },
+    "name": "handle_output",
+    "stores": {
+      "G": 17,
+      "L": 5
+    },
+    "total_instructions": 2043
+  },
+  "2": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "ethernet_header_inserter.hpp",
+    "fileloc": 64,
+    "instructions": 3,
+    "name": "arpTableReply",
+    "total_instructions": 10
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "ethernet_header_inserter.hpp",
+    "fileloc": 52,
+    "instructions": 7,
+    "name": "my_axis",
+    "total_instructions": 28
+  },
+  "4": {
+    "basicblocks": 60,
+    "calls": "6",
+    "file": "ethernet_header_inserter.cpp",
+    "fileloc": 226,
+    "instructions": 393,
+    "loads": {
+      "G": 9,
+      "L": 14
+    },
+    "name": "compute_and_insert_ip_checksum",
+    "stores": {
+      "G": 23
+    },
+    "total_instructions": 2150
+  },
+  "5": {
+    "basicblocks": 15,
+    "calls": "6",
+    "file": "ethernet_header_inserter.cpp",
+    "fileloc": 33,
+    "instructions": 106,
+    "loads": {
+      "G": 1,
+      "L": 7
+    },
+    "name": "broadcaster_and_mac_request",
+    "stores": {
+      "G": 2,
+      "L": 7
+    },
+    "total_instructions": 622
+  },
+  "6": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "ethernet_header_inserter.hpp",
+    "fileloc": 52,
+    "instructions": 7,
+    "name": "my_axis",
+    "total_instructions": 28
+  }
+}

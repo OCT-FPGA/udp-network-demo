@@ -33,7 +33,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_myIpAddress_c \
     op interface \
-    ports { myIpAddress_c_din { O 32 vector } myIpAddress_c_full_n { I 1 bit } myIpAddress_c_write { O 1 bit } } \
+    ports { myIpAddress_c_din { O 32 vector } myIpAddress_c_num_data_valid { I 3 vector } myIpAddress_c_fifo_cap { I 3 vector } myIpAddress_c_full_n { I 1 bit } myIpAddress_c_write { O 1 bit } } \
 } "
 }
 
@@ -63,7 +63,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirIP_0_c \
     op interface \
-    ports { SocketTable_theirIP_0_c_din { O 32 vector } SocketTable_theirIP_0_c_full_n { I 1 bit } SocketTable_theirIP_0_c_write { O 1 bit } } \
+    ports { SocketTable_theirIP_0_c_din { O 32 vector } SocketTable_theirIP_0_c_num_data_valid { I 3 vector } SocketTable_theirIP_0_c_fifo_cap { I 3 vector } SocketTable_theirIP_0_c_full_n { I 1 bit } SocketTable_theirIP_0_c_write { O 1 bit } } \
 } "
 }
 
@@ -93,7 +93,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirIP_1_c \
     op interface \
-    ports { SocketTable_theirIP_1_c_din { O 32 vector } SocketTable_theirIP_1_c_full_n { I 1 bit } SocketTable_theirIP_1_c_write { O 1 bit } } \
+    ports { SocketTable_theirIP_1_c_din { O 32 vector } SocketTable_theirIP_1_c_num_data_valid { I 3 vector } SocketTable_theirIP_1_c_fifo_cap { I 3 vector } SocketTable_theirIP_1_c_full_n { I 1 bit } SocketTable_theirIP_1_c_write { O 1 bit } } \
 } "
 }
 
@@ -123,7 +123,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirIP_2_c \
     op interface \
-    ports { SocketTable_theirIP_2_c_din { O 32 vector } SocketTable_theirIP_2_c_full_n { I 1 bit } SocketTable_theirIP_2_c_write { O 1 bit } } \
+    ports { SocketTable_theirIP_2_c_din { O 32 vector } SocketTable_theirIP_2_c_num_data_valid { I 3 vector } SocketTable_theirIP_2_c_fifo_cap { I 3 vector } SocketTable_theirIP_2_c_full_n { I 1 bit } SocketTable_theirIP_2_c_write { O 1 bit } } \
 } "
 }
 
@@ -153,7 +153,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirIP_3_c \
     op interface \
-    ports { SocketTable_theirIP_3_c_din { O 32 vector } SocketTable_theirIP_3_c_full_n { I 1 bit } SocketTable_theirIP_3_c_write { O 1 bit } } \
+    ports { SocketTable_theirIP_3_c_din { O 32 vector } SocketTable_theirIP_3_c_num_data_valid { I 3 vector } SocketTable_theirIP_3_c_fifo_cap { I 3 vector } SocketTable_theirIP_3_c_full_n { I 1 bit } SocketTable_theirIP_3_c_write { O 1 bit } } \
 } "
 }
 
@@ -183,7 +183,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirIP_4_c \
     op interface \
-    ports { SocketTable_theirIP_4_c_din { O 32 vector } SocketTable_theirIP_4_c_full_n { I 1 bit } SocketTable_theirIP_4_c_write { O 1 bit } } \
+    ports { SocketTable_theirIP_4_c_din { O 32 vector } SocketTable_theirIP_4_c_num_data_valid { I 3 vector } SocketTable_theirIP_4_c_fifo_cap { I 3 vector } SocketTable_theirIP_4_c_full_n { I 1 bit } SocketTable_theirIP_4_c_write { O 1 bit } } \
 } "
 }
 
@@ -213,7 +213,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirIP_5_c \
     op interface \
-    ports { SocketTable_theirIP_5_c_din { O 32 vector } SocketTable_theirIP_5_c_full_n { I 1 bit } SocketTable_theirIP_5_c_write { O 1 bit } } \
+    ports { SocketTable_theirIP_5_c_din { O 32 vector } SocketTable_theirIP_5_c_num_data_valid { I 3 vector } SocketTable_theirIP_5_c_fifo_cap { I 3 vector } SocketTable_theirIP_5_c_full_n { I 1 bit } SocketTable_theirIP_5_c_write { O 1 bit } } \
 } "
 }
 
@@ -243,7 +243,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirIP_6_c \
     op interface \
-    ports { SocketTable_theirIP_6_c_din { O 32 vector } SocketTable_theirIP_6_c_full_n { I 1 bit } SocketTable_theirIP_6_c_write { O 1 bit } } \
+    ports { SocketTable_theirIP_6_c_din { O 32 vector } SocketTable_theirIP_6_c_num_data_valid { I 3 vector } SocketTable_theirIP_6_c_fifo_cap { I 3 vector } SocketTable_theirIP_6_c_full_n { I 1 bit } SocketTable_theirIP_6_c_write { O 1 bit } } \
 } "
 }
 
@@ -273,7 +273,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirIP_7_c \
     op interface \
-    ports { SocketTable_theirIP_7_c_din { O 32 vector } SocketTable_theirIP_7_c_full_n { I 1 bit } SocketTable_theirIP_7_c_write { O 1 bit } } \
+    ports { SocketTable_theirIP_7_c_din { O 32 vector } SocketTable_theirIP_7_c_num_data_valid { I 3 vector } SocketTable_theirIP_7_c_fifo_cap { I 3 vector } SocketTable_theirIP_7_c_full_n { I 1 bit } SocketTable_theirIP_7_c_write { O 1 bit } } \
 } "
 }
 
@@ -303,7 +303,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirIP_8_c \
     op interface \
-    ports { SocketTable_theirIP_8_c_din { O 32 vector } SocketTable_theirIP_8_c_full_n { I 1 bit } SocketTable_theirIP_8_c_write { O 1 bit } } \
+    ports { SocketTable_theirIP_8_c_din { O 32 vector } SocketTable_theirIP_8_c_num_data_valid { I 3 vector } SocketTable_theirIP_8_c_fifo_cap { I 3 vector } SocketTable_theirIP_8_c_full_n { I 1 bit } SocketTable_theirIP_8_c_write { O 1 bit } } \
 } "
 }
 
@@ -333,7 +333,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirIP_9_c \
     op interface \
-    ports { SocketTable_theirIP_9_c_din { O 32 vector } SocketTable_theirIP_9_c_full_n { I 1 bit } SocketTable_theirIP_9_c_write { O 1 bit } } \
+    ports { SocketTable_theirIP_9_c_din { O 32 vector } SocketTable_theirIP_9_c_num_data_valid { I 3 vector } SocketTable_theirIP_9_c_fifo_cap { I 3 vector } SocketTable_theirIP_9_c_full_n { I 1 bit } SocketTable_theirIP_9_c_write { O 1 bit } } \
 } "
 }
 
@@ -363,7 +363,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirIP_10_c \
     op interface \
-    ports { SocketTable_theirIP_10_c_din { O 32 vector } SocketTable_theirIP_10_c_full_n { I 1 bit } SocketTable_theirIP_10_c_write { O 1 bit } } \
+    ports { SocketTable_theirIP_10_c_din { O 32 vector } SocketTable_theirIP_10_c_num_data_valid { I 3 vector } SocketTable_theirIP_10_c_fifo_cap { I 3 vector } SocketTable_theirIP_10_c_full_n { I 1 bit } SocketTable_theirIP_10_c_write { O 1 bit } } \
 } "
 }
 
@@ -393,7 +393,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirIP_11_c \
     op interface \
-    ports { SocketTable_theirIP_11_c_din { O 32 vector } SocketTable_theirIP_11_c_full_n { I 1 bit } SocketTable_theirIP_11_c_write { O 1 bit } } \
+    ports { SocketTable_theirIP_11_c_din { O 32 vector } SocketTable_theirIP_11_c_num_data_valid { I 3 vector } SocketTable_theirIP_11_c_fifo_cap { I 3 vector } SocketTable_theirIP_11_c_full_n { I 1 bit } SocketTable_theirIP_11_c_write { O 1 bit } } \
 } "
 }
 
@@ -423,7 +423,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirIP_12_c \
     op interface \
-    ports { SocketTable_theirIP_12_c_din { O 32 vector } SocketTable_theirIP_12_c_full_n { I 1 bit } SocketTable_theirIP_12_c_write { O 1 bit } } \
+    ports { SocketTable_theirIP_12_c_din { O 32 vector } SocketTable_theirIP_12_c_num_data_valid { I 3 vector } SocketTable_theirIP_12_c_fifo_cap { I 3 vector } SocketTable_theirIP_12_c_full_n { I 1 bit } SocketTable_theirIP_12_c_write { O 1 bit } } \
 } "
 }
 
@@ -453,7 +453,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirIP_13_c \
     op interface \
-    ports { SocketTable_theirIP_13_c_din { O 32 vector } SocketTable_theirIP_13_c_full_n { I 1 bit } SocketTable_theirIP_13_c_write { O 1 bit } } \
+    ports { SocketTable_theirIP_13_c_din { O 32 vector } SocketTable_theirIP_13_c_num_data_valid { I 3 vector } SocketTable_theirIP_13_c_fifo_cap { I 3 vector } SocketTable_theirIP_13_c_full_n { I 1 bit } SocketTable_theirIP_13_c_write { O 1 bit } } \
 } "
 }
 
@@ -483,7 +483,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirIP_14_c \
     op interface \
-    ports { SocketTable_theirIP_14_c_din { O 32 vector } SocketTable_theirIP_14_c_full_n { I 1 bit } SocketTable_theirIP_14_c_write { O 1 bit } } \
+    ports { SocketTable_theirIP_14_c_din { O 32 vector } SocketTable_theirIP_14_c_num_data_valid { I 3 vector } SocketTable_theirIP_14_c_fifo_cap { I 3 vector } SocketTable_theirIP_14_c_full_n { I 1 bit } SocketTable_theirIP_14_c_write { O 1 bit } } \
 } "
 }
 
@@ -513,7 +513,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirIP_15_c \
     op interface \
-    ports { SocketTable_theirIP_15_c_din { O 32 vector } SocketTable_theirIP_15_c_full_n { I 1 bit } SocketTable_theirIP_15_c_write { O 1 bit } } \
+    ports { SocketTable_theirIP_15_c_din { O 32 vector } SocketTable_theirIP_15_c_num_data_valid { I 3 vector } SocketTable_theirIP_15_c_fifo_cap { I 3 vector } SocketTable_theirIP_15_c_full_n { I 1 bit } SocketTable_theirIP_15_c_write { O 1 bit } } \
 } "
 }
 
@@ -543,7 +543,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirPort_0_c \
     op interface \
-    ports { SocketTable_theirPort_0_c_din { O 16 vector } SocketTable_theirPort_0_c_full_n { I 1 bit } SocketTable_theirPort_0_c_write { O 1 bit } } \
+    ports { SocketTable_theirPort_0_c_din { O 16 vector } SocketTable_theirPort_0_c_num_data_valid { I 3 vector } SocketTable_theirPort_0_c_fifo_cap { I 3 vector } SocketTable_theirPort_0_c_full_n { I 1 bit } SocketTable_theirPort_0_c_write { O 1 bit } } \
 } "
 }
 
@@ -573,7 +573,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirPort_1_c \
     op interface \
-    ports { SocketTable_theirPort_1_c_din { O 16 vector } SocketTable_theirPort_1_c_full_n { I 1 bit } SocketTable_theirPort_1_c_write { O 1 bit } } \
+    ports { SocketTable_theirPort_1_c_din { O 16 vector } SocketTable_theirPort_1_c_num_data_valid { I 3 vector } SocketTable_theirPort_1_c_fifo_cap { I 3 vector } SocketTable_theirPort_1_c_full_n { I 1 bit } SocketTable_theirPort_1_c_write { O 1 bit } } \
 } "
 }
 
@@ -603,7 +603,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirPort_2_c \
     op interface \
-    ports { SocketTable_theirPort_2_c_din { O 16 vector } SocketTable_theirPort_2_c_full_n { I 1 bit } SocketTable_theirPort_2_c_write { O 1 bit } } \
+    ports { SocketTable_theirPort_2_c_din { O 16 vector } SocketTable_theirPort_2_c_num_data_valid { I 3 vector } SocketTable_theirPort_2_c_fifo_cap { I 3 vector } SocketTable_theirPort_2_c_full_n { I 1 bit } SocketTable_theirPort_2_c_write { O 1 bit } } \
 } "
 }
 
@@ -633,7 +633,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirPort_3_c \
     op interface \
-    ports { SocketTable_theirPort_3_c_din { O 16 vector } SocketTable_theirPort_3_c_full_n { I 1 bit } SocketTable_theirPort_3_c_write { O 1 bit } } \
+    ports { SocketTable_theirPort_3_c_din { O 16 vector } SocketTable_theirPort_3_c_num_data_valid { I 3 vector } SocketTable_theirPort_3_c_fifo_cap { I 3 vector } SocketTable_theirPort_3_c_full_n { I 1 bit } SocketTable_theirPort_3_c_write { O 1 bit } } \
 } "
 }
 
@@ -663,7 +663,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirPort_4_c \
     op interface \
-    ports { SocketTable_theirPort_4_c_din { O 16 vector } SocketTable_theirPort_4_c_full_n { I 1 bit } SocketTable_theirPort_4_c_write { O 1 bit } } \
+    ports { SocketTable_theirPort_4_c_din { O 16 vector } SocketTable_theirPort_4_c_num_data_valid { I 3 vector } SocketTable_theirPort_4_c_fifo_cap { I 3 vector } SocketTable_theirPort_4_c_full_n { I 1 bit } SocketTable_theirPort_4_c_write { O 1 bit } } \
 } "
 }
 
@@ -693,7 +693,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirPort_5_c \
     op interface \
-    ports { SocketTable_theirPort_5_c_din { O 16 vector } SocketTable_theirPort_5_c_full_n { I 1 bit } SocketTable_theirPort_5_c_write { O 1 bit } } \
+    ports { SocketTable_theirPort_5_c_din { O 16 vector } SocketTable_theirPort_5_c_num_data_valid { I 3 vector } SocketTable_theirPort_5_c_fifo_cap { I 3 vector } SocketTable_theirPort_5_c_full_n { I 1 bit } SocketTable_theirPort_5_c_write { O 1 bit } } \
 } "
 }
 
@@ -723,7 +723,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirPort_6_c \
     op interface \
-    ports { SocketTable_theirPort_6_c_din { O 16 vector } SocketTable_theirPort_6_c_full_n { I 1 bit } SocketTable_theirPort_6_c_write { O 1 bit } } \
+    ports { SocketTable_theirPort_6_c_din { O 16 vector } SocketTable_theirPort_6_c_num_data_valid { I 3 vector } SocketTable_theirPort_6_c_fifo_cap { I 3 vector } SocketTable_theirPort_6_c_full_n { I 1 bit } SocketTable_theirPort_6_c_write { O 1 bit } } \
 } "
 }
 
@@ -753,7 +753,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirPort_7_c \
     op interface \
-    ports { SocketTable_theirPort_7_c_din { O 16 vector } SocketTable_theirPort_7_c_full_n { I 1 bit } SocketTable_theirPort_7_c_write { O 1 bit } } \
+    ports { SocketTable_theirPort_7_c_din { O 16 vector } SocketTable_theirPort_7_c_num_data_valid { I 3 vector } SocketTable_theirPort_7_c_fifo_cap { I 3 vector } SocketTable_theirPort_7_c_full_n { I 1 bit } SocketTable_theirPort_7_c_write { O 1 bit } } \
 } "
 }
 
@@ -783,7 +783,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirPort_8_c \
     op interface \
-    ports { SocketTable_theirPort_8_c_din { O 16 vector } SocketTable_theirPort_8_c_full_n { I 1 bit } SocketTable_theirPort_8_c_write { O 1 bit } } \
+    ports { SocketTable_theirPort_8_c_din { O 16 vector } SocketTable_theirPort_8_c_num_data_valid { I 3 vector } SocketTable_theirPort_8_c_fifo_cap { I 3 vector } SocketTable_theirPort_8_c_full_n { I 1 bit } SocketTable_theirPort_8_c_write { O 1 bit } } \
 } "
 }
 
@@ -813,7 +813,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirPort_9_c \
     op interface \
-    ports { SocketTable_theirPort_9_c_din { O 16 vector } SocketTable_theirPort_9_c_full_n { I 1 bit } SocketTable_theirPort_9_c_write { O 1 bit } } \
+    ports { SocketTable_theirPort_9_c_din { O 16 vector } SocketTable_theirPort_9_c_num_data_valid { I 3 vector } SocketTable_theirPort_9_c_fifo_cap { I 3 vector } SocketTable_theirPort_9_c_full_n { I 1 bit } SocketTable_theirPort_9_c_write { O 1 bit } } \
 } "
 }
 
@@ -843,7 +843,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirPort_10_c \
     op interface \
-    ports { SocketTable_theirPort_10_c_din { O 16 vector } SocketTable_theirPort_10_c_full_n { I 1 bit } SocketTable_theirPort_10_c_write { O 1 bit } } \
+    ports { SocketTable_theirPort_10_c_din { O 16 vector } SocketTable_theirPort_10_c_num_data_valid { I 3 vector } SocketTable_theirPort_10_c_fifo_cap { I 3 vector } SocketTable_theirPort_10_c_full_n { I 1 bit } SocketTable_theirPort_10_c_write { O 1 bit } } \
 } "
 }
 
@@ -873,7 +873,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirPort_11_c \
     op interface \
-    ports { SocketTable_theirPort_11_c_din { O 16 vector } SocketTable_theirPort_11_c_full_n { I 1 bit } SocketTable_theirPort_11_c_write { O 1 bit } } \
+    ports { SocketTable_theirPort_11_c_din { O 16 vector } SocketTable_theirPort_11_c_num_data_valid { I 3 vector } SocketTable_theirPort_11_c_fifo_cap { I 3 vector } SocketTable_theirPort_11_c_full_n { I 1 bit } SocketTable_theirPort_11_c_write { O 1 bit } } \
 } "
 }
 
@@ -903,7 +903,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirPort_12_c \
     op interface \
-    ports { SocketTable_theirPort_12_c_din { O 16 vector } SocketTable_theirPort_12_c_full_n { I 1 bit } SocketTable_theirPort_12_c_write { O 1 bit } } \
+    ports { SocketTable_theirPort_12_c_din { O 16 vector } SocketTable_theirPort_12_c_num_data_valid { I 3 vector } SocketTable_theirPort_12_c_fifo_cap { I 3 vector } SocketTable_theirPort_12_c_full_n { I 1 bit } SocketTable_theirPort_12_c_write { O 1 bit } } \
 } "
 }
 
@@ -933,7 +933,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirPort_13_c \
     op interface \
-    ports { SocketTable_theirPort_13_c_din { O 16 vector } SocketTable_theirPort_13_c_full_n { I 1 bit } SocketTable_theirPort_13_c_write { O 1 bit } } \
+    ports { SocketTable_theirPort_13_c_din { O 16 vector } SocketTable_theirPort_13_c_num_data_valid { I 3 vector } SocketTable_theirPort_13_c_fifo_cap { I 3 vector } SocketTable_theirPort_13_c_full_n { I 1 bit } SocketTable_theirPort_13_c_write { O 1 bit } } \
 } "
 }
 
@@ -963,7 +963,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirPort_14_c \
     op interface \
-    ports { SocketTable_theirPort_14_c_din { O 16 vector } SocketTable_theirPort_14_c_full_n { I 1 bit } SocketTable_theirPort_14_c_write { O 1 bit } } \
+    ports { SocketTable_theirPort_14_c_din { O 16 vector } SocketTable_theirPort_14_c_num_data_valid { I 3 vector } SocketTable_theirPort_14_c_fifo_cap { I 3 vector } SocketTable_theirPort_14_c_full_n { I 1 bit } SocketTable_theirPort_14_c_write { O 1 bit } } \
 } "
 }
 
@@ -993,7 +993,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_theirPort_15_c \
     op interface \
-    ports { SocketTable_theirPort_15_c_din { O 16 vector } SocketTable_theirPort_15_c_full_n { I 1 bit } SocketTable_theirPort_15_c_write { O 1 bit } } \
+    ports { SocketTable_theirPort_15_c_din { O 16 vector } SocketTable_theirPort_15_c_num_data_valid { I 3 vector } SocketTable_theirPort_15_c_fifo_cap { I 3 vector } SocketTable_theirPort_15_c_full_n { I 1 bit } SocketTable_theirPort_15_c_write { O 1 bit } } \
 } "
 }
 
@@ -1023,7 +1023,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_myPort_0_c \
     op interface \
-    ports { SocketTable_myPort_0_c_din { O 16 vector } SocketTable_myPort_0_c_full_n { I 1 bit } SocketTable_myPort_0_c_write { O 1 bit } } \
+    ports { SocketTable_myPort_0_c_din { O 16 vector } SocketTable_myPort_0_c_num_data_valid { I 3 vector } SocketTable_myPort_0_c_fifo_cap { I 3 vector } SocketTable_myPort_0_c_full_n { I 1 bit } SocketTable_myPort_0_c_write { O 1 bit } } \
 } "
 }
 
@@ -1053,7 +1053,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_myPort_1_c \
     op interface \
-    ports { SocketTable_myPort_1_c_din { O 16 vector } SocketTable_myPort_1_c_full_n { I 1 bit } SocketTable_myPort_1_c_write { O 1 bit } } \
+    ports { SocketTable_myPort_1_c_din { O 16 vector } SocketTable_myPort_1_c_num_data_valid { I 3 vector } SocketTable_myPort_1_c_fifo_cap { I 3 vector } SocketTable_myPort_1_c_full_n { I 1 bit } SocketTable_myPort_1_c_write { O 1 bit } } \
 } "
 }
 
@@ -1083,7 +1083,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_myPort_2_c \
     op interface \
-    ports { SocketTable_myPort_2_c_din { O 16 vector } SocketTable_myPort_2_c_full_n { I 1 bit } SocketTable_myPort_2_c_write { O 1 bit } } \
+    ports { SocketTable_myPort_2_c_din { O 16 vector } SocketTable_myPort_2_c_num_data_valid { I 3 vector } SocketTable_myPort_2_c_fifo_cap { I 3 vector } SocketTable_myPort_2_c_full_n { I 1 bit } SocketTable_myPort_2_c_write { O 1 bit } } \
 } "
 }
 
@@ -1113,7 +1113,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_myPort_3_c \
     op interface \
-    ports { SocketTable_myPort_3_c_din { O 16 vector } SocketTable_myPort_3_c_full_n { I 1 bit } SocketTable_myPort_3_c_write { O 1 bit } } \
+    ports { SocketTable_myPort_3_c_din { O 16 vector } SocketTable_myPort_3_c_num_data_valid { I 3 vector } SocketTable_myPort_3_c_fifo_cap { I 3 vector } SocketTable_myPort_3_c_full_n { I 1 bit } SocketTable_myPort_3_c_write { O 1 bit } } \
 } "
 }
 
@@ -1143,7 +1143,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_myPort_4_c \
     op interface \
-    ports { SocketTable_myPort_4_c_din { O 16 vector } SocketTable_myPort_4_c_full_n { I 1 bit } SocketTable_myPort_4_c_write { O 1 bit } } \
+    ports { SocketTable_myPort_4_c_din { O 16 vector } SocketTable_myPort_4_c_num_data_valid { I 3 vector } SocketTable_myPort_4_c_fifo_cap { I 3 vector } SocketTable_myPort_4_c_full_n { I 1 bit } SocketTable_myPort_4_c_write { O 1 bit } } \
 } "
 }
 
@@ -1173,7 +1173,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_myPort_5_c \
     op interface \
-    ports { SocketTable_myPort_5_c_din { O 16 vector } SocketTable_myPort_5_c_full_n { I 1 bit } SocketTable_myPort_5_c_write { O 1 bit } } \
+    ports { SocketTable_myPort_5_c_din { O 16 vector } SocketTable_myPort_5_c_num_data_valid { I 3 vector } SocketTable_myPort_5_c_fifo_cap { I 3 vector } SocketTable_myPort_5_c_full_n { I 1 bit } SocketTable_myPort_5_c_write { O 1 bit } } \
 } "
 }
 
@@ -1203,7 +1203,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_myPort_6_c \
     op interface \
-    ports { SocketTable_myPort_6_c_din { O 16 vector } SocketTable_myPort_6_c_full_n { I 1 bit } SocketTable_myPort_6_c_write { O 1 bit } } \
+    ports { SocketTable_myPort_6_c_din { O 16 vector } SocketTable_myPort_6_c_num_data_valid { I 3 vector } SocketTable_myPort_6_c_fifo_cap { I 3 vector } SocketTable_myPort_6_c_full_n { I 1 bit } SocketTable_myPort_6_c_write { O 1 bit } } \
 } "
 }
 
@@ -1233,7 +1233,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_myPort_7_c \
     op interface \
-    ports { SocketTable_myPort_7_c_din { O 16 vector } SocketTable_myPort_7_c_full_n { I 1 bit } SocketTable_myPort_7_c_write { O 1 bit } } \
+    ports { SocketTable_myPort_7_c_din { O 16 vector } SocketTable_myPort_7_c_num_data_valid { I 3 vector } SocketTable_myPort_7_c_fifo_cap { I 3 vector } SocketTable_myPort_7_c_full_n { I 1 bit } SocketTable_myPort_7_c_write { O 1 bit } } \
 } "
 }
 
@@ -1263,7 +1263,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_myPort_8_c \
     op interface \
-    ports { SocketTable_myPort_8_c_din { O 16 vector } SocketTable_myPort_8_c_full_n { I 1 bit } SocketTable_myPort_8_c_write { O 1 bit } } \
+    ports { SocketTable_myPort_8_c_din { O 16 vector } SocketTable_myPort_8_c_num_data_valid { I 3 vector } SocketTable_myPort_8_c_fifo_cap { I 3 vector } SocketTable_myPort_8_c_full_n { I 1 bit } SocketTable_myPort_8_c_write { O 1 bit } } \
 } "
 }
 
@@ -1293,7 +1293,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_myPort_9_c \
     op interface \
-    ports { SocketTable_myPort_9_c_din { O 16 vector } SocketTable_myPort_9_c_full_n { I 1 bit } SocketTable_myPort_9_c_write { O 1 bit } } \
+    ports { SocketTable_myPort_9_c_din { O 16 vector } SocketTable_myPort_9_c_num_data_valid { I 3 vector } SocketTable_myPort_9_c_fifo_cap { I 3 vector } SocketTable_myPort_9_c_full_n { I 1 bit } SocketTable_myPort_9_c_write { O 1 bit } } \
 } "
 }
 
@@ -1323,7 +1323,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_myPort_10_c \
     op interface \
-    ports { SocketTable_myPort_10_c_din { O 16 vector } SocketTable_myPort_10_c_full_n { I 1 bit } SocketTable_myPort_10_c_write { O 1 bit } } \
+    ports { SocketTable_myPort_10_c_din { O 16 vector } SocketTable_myPort_10_c_num_data_valid { I 3 vector } SocketTable_myPort_10_c_fifo_cap { I 3 vector } SocketTable_myPort_10_c_full_n { I 1 bit } SocketTable_myPort_10_c_write { O 1 bit } } \
 } "
 }
 
@@ -1353,7 +1353,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_myPort_11_c \
     op interface \
-    ports { SocketTable_myPort_11_c_din { O 16 vector } SocketTable_myPort_11_c_full_n { I 1 bit } SocketTable_myPort_11_c_write { O 1 bit } } \
+    ports { SocketTable_myPort_11_c_din { O 16 vector } SocketTable_myPort_11_c_num_data_valid { I 3 vector } SocketTable_myPort_11_c_fifo_cap { I 3 vector } SocketTable_myPort_11_c_full_n { I 1 bit } SocketTable_myPort_11_c_write { O 1 bit } } \
 } "
 }
 
@@ -1383,7 +1383,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_myPort_12_c \
     op interface \
-    ports { SocketTable_myPort_12_c_din { O 16 vector } SocketTable_myPort_12_c_full_n { I 1 bit } SocketTable_myPort_12_c_write { O 1 bit } } \
+    ports { SocketTable_myPort_12_c_din { O 16 vector } SocketTable_myPort_12_c_num_data_valid { I 3 vector } SocketTable_myPort_12_c_fifo_cap { I 3 vector } SocketTable_myPort_12_c_full_n { I 1 bit } SocketTable_myPort_12_c_write { O 1 bit } } \
 } "
 }
 
@@ -1413,7 +1413,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_myPort_13_c \
     op interface \
-    ports { SocketTable_myPort_13_c_din { O 16 vector } SocketTable_myPort_13_c_full_n { I 1 bit } SocketTable_myPort_13_c_write { O 1 bit } } \
+    ports { SocketTable_myPort_13_c_din { O 16 vector } SocketTable_myPort_13_c_num_data_valid { I 3 vector } SocketTable_myPort_13_c_fifo_cap { I 3 vector } SocketTable_myPort_13_c_full_n { I 1 bit } SocketTable_myPort_13_c_write { O 1 bit } } \
 } "
 }
 
@@ -1443,7 +1443,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_myPort_14_c \
     op interface \
-    ports { SocketTable_myPort_14_c_din { O 16 vector } SocketTable_myPort_14_c_full_n { I 1 bit } SocketTable_myPort_14_c_write { O 1 bit } } \
+    ports { SocketTable_myPort_14_c_din { O 16 vector } SocketTable_myPort_14_c_num_data_valid { I 3 vector } SocketTable_myPort_14_c_fifo_cap { I 3 vector } SocketTable_myPort_14_c_full_n { I 1 bit } SocketTable_myPort_14_c_write { O 1 bit } } \
 } "
 }
 
@@ -1473,7 +1473,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_myPort_15_c \
     op interface \
-    ports { SocketTable_myPort_15_c_din { O 16 vector } SocketTable_myPort_15_c_full_n { I 1 bit } SocketTable_myPort_15_c_write { O 1 bit } } \
+    ports { SocketTable_myPort_15_c_din { O 16 vector } SocketTable_myPort_15_c_num_data_valid { I 3 vector } SocketTable_myPort_15_c_fifo_cap { I 3 vector } SocketTable_myPort_15_c_full_n { I 1 bit } SocketTable_myPort_15_c_write { O 1 bit } } \
 } "
 }
 
@@ -1503,7 +1503,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_valid_0_c \
     op interface \
-    ports { SocketTable_valid_0_c_din { O 1 vector } SocketTable_valid_0_c_full_n { I 1 bit } SocketTable_valid_0_c_write { O 1 bit } } \
+    ports { SocketTable_valid_0_c_din { O 1 vector } SocketTable_valid_0_c_num_data_valid { I 3 vector } SocketTable_valid_0_c_fifo_cap { I 3 vector } SocketTable_valid_0_c_full_n { I 1 bit } SocketTable_valid_0_c_write { O 1 bit } } \
 } "
 }
 
@@ -1533,7 +1533,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_valid_1_c \
     op interface \
-    ports { SocketTable_valid_1_c_din { O 1 vector } SocketTable_valid_1_c_full_n { I 1 bit } SocketTable_valid_1_c_write { O 1 bit } } \
+    ports { SocketTable_valid_1_c_din { O 1 vector } SocketTable_valid_1_c_num_data_valid { I 3 vector } SocketTable_valid_1_c_fifo_cap { I 3 vector } SocketTable_valid_1_c_full_n { I 1 bit } SocketTable_valid_1_c_write { O 1 bit } } \
 } "
 }
 
@@ -1563,7 +1563,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_valid_2_c \
     op interface \
-    ports { SocketTable_valid_2_c_din { O 1 vector } SocketTable_valid_2_c_full_n { I 1 bit } SocketTable_valid_2_c_write { O 1 bit } } \
+    ports { SocketTable_valid_2_c_din { O 1 vector } SocketTable_valid_2_c_num_data_valid { I 3 vector } SocketTable_valid_2_c_fifo_cap { I 3 vector } SocketTable_valid_2_c_full_n { I 1 bit } SocketTable_valid_2_c_write { O 1 bit } } \
 } "
 }
 
@@ -1593,7 +1593,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_valid_3_c \
     op interface \
-    ports { SocketTable_valid_3_c_din { O 1 vector } SocketTable_valid_3_c_full_n { I 1 bit } SocketTable_valid_3_c_write { O 1 bit } } \
+    ports { SocketTable_valid_3_c_din { O 1 vector } SocketTable_valid_3_c_num_data_valid { I 3 vector } SocketTable_valid_3_c_fifo_cap { I 3 vector } SocketTable_valid_3_c_full_n { I 1 bit } SocketTable_valid_3_c_write { O 1 bit } } \
 } "
 }
 
@@ -1623,7 +1623,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_valid_4_c \
     op interface \
-    ports { SocketTable_valid_4_c_din { O 1 vector } SocketTable_valid_4_c_full_n { I 1 bit } SocketTable_valid_4_c_write { O 1 bit } } \
+    ports { SocketTable_valid_4_c_din { O 1 vector } SocketTable_valid_4_c_num_data_valid { I 3 vector } SocketTable_valid_4_c_fifo_cap { I 3 vector } SocketTable_valid_4_c_full_n { I 1 bit } SocketTable_valid_4_c_write { O 1 bit } } \
 } "
 }
 
@@ -1653,7 +1653,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_valid_5_c \
     op interface \
-    ports { SocketTable_valid_5_c_din { O 1 vector } SocketTable_valid_5_c_full_n { I 1 bit } SocketTable_valid_5_c_write { O 1 bit } } \
+    ports { SocketTable_valid_5_c_din { O 1 vector } SocketTable_valid_5_c_num_data_valid { I 3 vector } SocketTable_valid_5_c_fifo_cap { I 3 vector } SocketTable_valid_5_c_full_n { I 1 bit } SocketTable_valid_5_c_write { O 1 bit } } \
 } "
 }
 
@@ -1683,7 +1683,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_valid_6_c \
     op interface \
-    ports { SocketTable_valid_6_c_din { O 1 vector } SocketTable_valid_6_c_full_n { I 1 bit } SocketTable_valid_6_c_write { O 1 bit } } \
+    ports { SocketTable_valid_6_c_din { O 1 vector } SocketTable_valid_6_c_num_data_valid { I 3 vector } SocketTable_valid_6_c_fifo_cap { I 3 vector } SocketTable_valid_6_c_full_n { I 1 bit } SocketTable_valid_6_c_write { O 1 bit } } \
 } "
 }
 
@@ -1713,7 +1713,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_valid_7_c \
     op interface \
-    ports { SocketTable_valid_7_c_din { O 1 vector } SocketTable_valid_7_c_full_n { I 1 bit } SocketTable_valid_7_c_write { O 1 bit } } \
+    ports { SocketTable_valid_7_c_din { O 1 vector } SocketTable_valid_7_c_num_data_valid { I 3 vector } SocketTable_valid_7_c_fifo_cap { I 3 vector } SocketTable_valid_7_c_full_n { I 1 bit } SocketTable_valid_7_c_write { O 1 bit } } \
 } "
 }
 
@@ -1743,7 +1743,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_valid_8_c \
     op interface \
-    ports { SocketTable_valid_8_c_din { O 1 vector } SocketTable_valid_8_c_full_n { I 1 bit } SocketTable_valid_8_c_write { O 1 bit } } \
+    ports { SocketTable_valid_8_c_din { O 1 vector } SocketTable_valid_8_c_num_data_valid { I 3 vector } SocketTable_valid_8_c_fifo_cap { I 3 vector } SocketTable_valid_8_c_full_n { I 1 bit } SocketTable_valid_8_c_write { O 1 bit } } \
 } "
 }
 
@@ -1773,7 +1773,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_valid_9_c \
     op interface \
-    ports { SocketTable_valid_9_c_din { O 1 vector } SocketTable_valid_9_c_full_n { I 1 bit } SocketTable_valid_9_c_write { O 1 bit } } \
+    ports { SocketTable_valid_9_c_din { O 1 vector } SocketTable_valid_9_c_num_data_valid { I 3 vector } SocketTable_valid_9_c_fifo_cap { I 3 vector } SocketTable_valid_9_c_full_n { I 1 bit } SocketTable_valid_9_c_write { O 1 bit } } \
 } "
 }
 
@@ -1803,7 +1803,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_valid_10_c \
     op interface \
-    ports { SocketTable_valid_10_c_din { O 1 vector } SocketTable_valid_10_c_full_n { I 1 bit } SocketTable_valid_10_c_write { O 1 bit } } \
+    ports { SocketTable_valid_10_c_din { O 1 vector } SocketTable_valid_10_c_num_data_valid { I 3 vector } SocketTable_valid_10_c_fifo_cap { I 3 vector } SocketTable_valid_10_c_full_n { I 1 bit } SocketTable_valid_10_c_write { O 1 bit } } \
 } "
 }
 
@@ -1833,7 +1833,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_valid_11_c \
     op interface \
-    ports { SocketTable_valid_11_c_din { O 1 vector } SocketTable_valid_11_c_full_n { I 1 bit } SocketTable_valid_11_c_write { O 1 bit } } \
+    ports { SocketTable_valid_11_c_din { O 1 vector } SocketTable_valid_11_c_num_data_valid { I 3 vector } SocketTable_valid_11_c_fifo_cap { I 3 vector } SocketTable_valid_11_c_full_n { I 1 bit } SocketTable_valid_11_c_write { O 1 bit } } \
 } "
 }
 
@@ -1863,7 +1863,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_valid_12_c \
     op interface \
-    ports { SocketTable_valid_12_c_din { O 1 vector } SocketTable_valid_12_c_full_n { I 1 bit } SocketTable_valid_12_c_write { O 1 bit } } \
+    ports { SocketTable_valid_12_c_din { O 1 vector } SocketTable_valid_12_c_num_data_valid { I 3 vector } SocketTable_valid_12_c_fifo_cap { I 3 vector } SocketTable_valid_12_c_full_n { I 1 bit } SocketTable_valid_12_c_write { O 1 bit } } \
 } "
 }
 
@@ -1893,7 +1893,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_valid_13_c \
     op interface \
-    ports { SocketTable_valid_13_c_din { O 1 vector } SocketTable_valid_13_c_full_n { I 1 bit } SocketTable_valid_13_c_write { O 1 bit } } \
+    ports { SocketTable_valid_13_c_din { O 1 vector } SocketTable_valid_13_c_num_data_valid { I 3 vector } SocketTable_valid_13_c_fifo_cap { I 3 vector } SocketTable_valid_13_c_full_n { I 1 bit } SocketTable_valid_13_c_write { O 1 bit } } \
 } "
 }
 
@@ -1923,7 +1923,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_valid_14_c \
     op interface \
-    ports { SocketTable_valid_14_c_din { O 1 vector } SocketTable_valid_14_c_full_n { I 1 bit } SocketTable_valid_14_c_write { O 1 bit } } \
+    ports { SocketTable_valid_14_c_din { O 1 vector } SocketTable_valid_14_c_num_data_valid { I 3 vector } SocketTable_valid_14_c_fifo_cap { I 3 vector } SocketTable_valid_14_c_full_n { I 1 bit } SocketTable_valid_14_c_write { O 1 bit } } \
 } "
 }
 
@@ -1953,7 +1953,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_SocketTable_valid_15_c \
     op interface \
-    ports { SocketTable_valid_15_c_din { O 1 vector } SocketTable_valid_15_c_full_n { I 1 bit } SocketTable_valid_15_c_write { O 1 bit } } \
+    ports { SocketTable_valid_15_c_din { O 1 vector } SocketTable_valid_15_c_num_data_valid { I 3 vector } SocketTable_valid_15_c_fifo_cap { I 3 vector } SocketTable_valid_15_c_full_n { I 1 bit } SocketTable_valid_15_c_write { O 1 bit } } \
 } "
 }
 

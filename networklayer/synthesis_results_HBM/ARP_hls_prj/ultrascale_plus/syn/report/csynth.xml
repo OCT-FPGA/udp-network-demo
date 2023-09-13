@@ -1,10 +1,10 @@
 <profile>
     <ReportVersion>
-        <Version>2021.2</Version>
+        <Version>2023.1</Version>
     </ReportVersion>
     <UserAssignments>
         <unit>ns</unit>
-        <ProductFamily>virtexuplus</ProductFamily>
+        <ProductFamily>virtexuplusHBM</ProductFamily>
         <Part>xcu280-fsvh2892-2L-e</Part>
         <TopModelName>arp_server</TopModelName>
         <TargetClockPeriod>3.10</TargetClockPeriod>
@@ -15,7 +15,7 @@
         <PipelineType>dataflow</PipelineType>
         <SummaryOfTimingAnalysis>
             <unit>ns</unit>
-            <EstimatedClockPeriod>2.612</EstimatedClockPeriod>
+            <EstimatedClockPeriod>2.633</EstimatedClockPeriod>
         </SummaryOfTimingAnalysis>
         <SummaryOfOverallLatency>
             <unit>clock cycles</unit>
@@ -33,8 +33,8 @@
     <AreaEstimates>
         <Resources>
             <BRAM_18K>3</BRAM_18K>
-            <FF>1186</FF>
-            <LUT>1765</LUT>
+            <FF>1213</FF>
+            <LUT>1911</LUT>
             <URAM>0</URAM>
             <DSP>0</DSP>
         </Resources>
@@ -50,7 +50,7 @@
         <RtlPorts>
             <name>s_axi_s_axilite_AWVALID</name>
             <Object>s_axilite</Object>
-            <Type>scalar</Type>
+            <Type>array</Type>
             <IOProtocol>s_axi</IOProtocol>
             <Dir>in</Dir>
             <Bits>1</Bits>
@@ -61,7 +61,7 @@
         <RtlPorts>
             <name>s_axi_s_axilite_AWREADY</name>
             <Object>s_axilite</Object>
-            <Type>scalar</Type>
+            <Type>array</Type>
             <IOProtocol>s_axi</IOProtocol>
             <Dir>out</Dir>
             <Bits>1</Bits>
@@ -72,7 +72,7 @@
         <RtlPorts>
             <name>s_axi_s_axilite_AWADDR</name>
             <Object>s_axilite</Object>
-            <Type>scalar</Type>
+            <Type>array</Type>
             <IOProtocol>s_axi</IOProtocol>
             <Dir>in</Dir>
             <Bits>12</Bits>
@@ -83,7 +83,7 @@
         <RtlPorts>
             <name>s_axi_s_axilite_WVALID</name>
             <Object>s_axilite</Object>
-            <Type>scalar</Type>
+            <Type>array</Type>
             <IOProtocol>s_axi</IOProtocol>
             <Dir>in</Dir>
             <Bits>1</Bits>
@@ -94,7 +94,7 @@
         <RtlPorts>
             <name>s_axi_s_axilite_WREADY</name>
             <Object>s_axilite</Object>
-            <Type>scalar</Type>
+            <Type>array</Type>
             <IOProtocol>s_axi</IOProtocol>
             <Dir>out</Dir>
             <Bits>1</Bits>
@@ -105,7 +105,7 @@
         <RtlPorts>
             <name>s_axi_s_axilite_WDATA</name>
             <Object>s_axilite</Object>
-            <Type>scalar</Type>
+            <Type>array</Type>
             <IOProtocol>s_axi</IOProtocol>
             <Dir>in</Dir>
             <Bits>32</Bits>
@@ -116,7 +116,7 @@
         <RtlPorts>
             <name>s_axi_s_axilite_WSTRB</name>
             <Object>s_axilite</Object>
-            <Type>scalar</Type>
+            <Type>array</Type>
             <IOProtocol>s_axi</IOProtocol>
             <Dir>in</Dir>
             <Bits>4</Bits>
@@ -127,7 +127,7 @@
         <RtlPorts>
             <name>s_axi_s_axilite_ARVALID</name>
             <Object>s_axilite</Object>
-            <Type>scalar</Type>
+            <Type>array</Type>
             <IOProtocol>s_axi</IOProtocol>
             <Dir>in</Dir>
             <Bits>1</Bits>
@@ -138,7 +138,7 @@
         <RtlPorts>
             <name>s_axi_s_axilite_ARREADY</name>
             <Object>s_axilite</Object>
-            <Type>scalar</Type>
+            <Type>array</Type>
             <IOProtocol>s_axi</IOProtocol>
             <Dir>out</Dir>
             <Bits>1</Bits>
@@ -149,7 +149,7 @@
         <RtlPorts>
             <name>s_axi_s_axilite_ARADDR</name>
             <Object>s_axilite</Object>
-            <Type>scalar</Type>
+            <Type>array</Type>
             <IOProtocol>s_axi</IOProtocol>
             <Dir>in</Dir>
             <Bits>12</Bits>
@@ -160,7 +160,7 @@
         <RtlPorts>
             <name>s_axi_s_axilite_RVALID</name>
             <Object>s_axilite</Object>
-            <Type>scalar</Type>
+            <Type>array</Type>
             <IOProtocol>s_axi</IOProtocol>
             <Dir>out</Dir>
             <Bits>1</Bits>
@@ -171,7 +171,7 @@
         <RtlPorts>
             <name>s_axi_s_axilite_RREADY</name>
             <Object>s_axilite</Object>
-            <Type>scalar</Type>
+            <Type>array</Type>
             <IOProtocol>s_axi</IOProtocol>
             <Dir>in</Dir>
             <Bits>1</Bits>
@@ -182,7 +182,7 @@
         <RtlPorts>
             <name>s_axi_s_axilite_RDATA</name>
             <Object>s_axilite</Object>
-            <Type>scalar</Type>
+            <Type>array</Type>
             <IOProtocol>s_axi</IOProtocol>
             <Dir>out</Dir>
             <Bits>32</Bits>
@@ -193,7 +193,7 @@
         <RtlPorts>
             <name>s_axi_s_axilite_RRESP</name>
             <Object>s_axilite</Object>
-            <Type>scalar</Type>
+            <Type>array</Type>
             <IOProtocol>s_axi</IOProtocol>
             <Dir>out</Dir>
             <Bits>2</Bits>
@@ -204,7 +204,7 @@
         <RtlPorts>
             <name>s_axi_s_axilite_BVALID</name>
             <Object>s_axilite</Object>
-            <Type>scalar</Type>
+            <Type>array</Type>
             <IOProtocol>s_axi</IOProtocol>
             <Dir>out</Dir>
             <Bits>1</Bits>
@@ -215,7 +215,7 @@
         <RtlPorts>
             <name>s_axi_s_axilite_BREADY</name>
             <Object>s_axilite</Object>
-            <Type>scalar</Type>
+            <Type>array</Type>
             <IOProtocol>s_axi</IOProtocol>
             <Dir>in</Dir>
             <Bits>1</Bits>
@@ -226,24 +226,13 @@
         <RtlPorts>
             <name>s_axi_s_axilite_BRESP</name>
             <Object>s_axilite</Object>
-            <Type>scalar</Type>
+            <Type>array</Type>
             <IOProtocol>s_axi</IOProtocol>
             <Dir>out</Dir>
             <Bits>2</Bits>
             <Attribute>unknown</Attribute>
             <CType>int</CType>
             <HasCtrl>0</HasCtrl>
-        </RtlPorts>
-        <RtlPorts>
-            <name>ap_local_block</name>
-            <Object>arp_server</Object>
-            <Type>return value</Type>
-            <Scope/>
-            <IOProtocol>ap_ctrl_none</IOProtocol>
-            <IOConfig/>
-            <Dir>out</Dir>
-            <Bits>1</Bits>
-            <Attribute>unknown</Attribute>
         </RtlPorts>
         <RtlPorts>
             <name>ap_clk</name>
@@ -489,7 +478,7 @@
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>ap_none</IOProtocol>
-            <IOConfig>register, both mode</IOConfig>
+            <IOConfig>register</IOConfig>
             <Dir>in</Dir>
             <Bits>48</Bits>
             <Attribute>data</Attribute>
@@ -501,7 +490,7 @@
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>ap_none</IOProtocol>
-            <IOConfig>register, both mode</IOConfig>
+            <IOConfig>register</IOConfig>
             <Dir>in</Dir>
             <Bits>32</Bits>
             <Attribute>data</Attribute>
@@ -513,7 +502,7 @@
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>ap_none</IOProtocol>
-            <IOConfig>register, both mode</IOConfig>
+            <IOConfig>register</IOConfig>
             <Dir>in</Dir>
             <Bits>32</Bits>
             <Attribute>data</Attribute>
@@ -525,7 +514,7 @@
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>ap_none</IOProtocol>
-            <IOConfig>register, both mode</IOConfig>
+            <IOConfig>register</IOConfig>
             <Dir>in</Dir>
             <Bits>32</Bits>
             <Attribute>data</Attribute>
@@ -540,33 +529,33 @@
                     <InstName>arp_pkg_receiver_U0</InstName>
                     <ModuleName>arp_pkg_receiver</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>202</ID>
-                    <BindInstances>add_ln885_fu_256_p2</BindInstances>
+                    <ID>210</ID>
+                    <BindInstances>add_ln83_fu_298_p2</BindInstances>
                 </Instance>
                 <Instance>
                     <InstName>entry_proc_U0</InstName>
                     <ModuleName>entry_proc</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>224</ID>
+                    <ID>232</ID>
                 </Instance>
                 <Instance>
                     <InstName>genARPDiscovery_U0</InstName>
                     <ModuleName>genARPDiscovery</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>239</ID>
-                    <BindInstances>add_ln885_fu_268_p2 add_ln885_1_fu_302_p2</BindInstances>
+                    <ID>247</ID>
+                    <BindInstances>add_ln296_fu_288_p2 add_ln290_fu_322_p2</BindInstances>
                 </Instance>
                 <Instance>
                     <InstName>arp_pkg_sender_U0</InstName>
                     <ModuleName>arp_pkg_sender</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>263</ID>
+                    <ID>271</ID>
                 </Instance>
                 <Instance>
                     <InstName>arp_table_U0</InstName>
                     <ModuleName>arp_table</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>303</ID>
+                    <ID>311</ID>
                 </Instance>
             </InstancesList>
             <BindInstances>networkMask_c13_U networkMask_c_U gatewayIP_c12_U gatewayIP_c_U myIpAddress_c11_U myIpAddress_c_U myMacAddress_c_U</BindInstances>
@@ -638,7 +627,7 @@
                     <FF>170</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>251</LUT>
+                    <LUT>280</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -653,8 +642,8 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln885_fu_268_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:885" URAM="0" VARIABLE="add_ln885"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln885_1_fu_302_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:885" URAM="0" VARIABLE="add_ln885_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln296_fu_288_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:296" URAM="0" VARIABLE="add_ln296"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln290_fu_322_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:290" URAM="0" VARIABLE="add_ln290"/>
             </BindNodes>
         </Module>
         <Module>
@@ -680,10 +669,10 @@
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>219</FF>
+                    <FF>251</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>113</LUT>
+                    <LUT>185</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -698,7 +687,7 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln885_fu_256_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_int_base.h:885" URAM="0" VARIABLE="add_ln885"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln83_fu_298_p2" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:83" URAM="0" VARIABLE="add_ln83"/>
             </BindNodes>
         </Module>
         <Module>
@@ -708,7 +697,7 @@
                     <TargetClockPeriod>3.10</TargetClockPeriod>
                     <ClockUncertainty>0.20</ClockUncertainty>
                     <TargetInitiationInterval>1</TargetInitiationInterval>
-                    <EstimatedClockPeriod>2.536</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>2.557</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>2</Best-caseLatency>
@@ -727,7 +716,7 @@
                     <FF>234</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>242</LUT>
+                    <LUT>261</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -749,7 +738,7 @@
                     <TargetClockPeriod>3.10</TargetClockPeriod>
                     <ClockUncertainty>0.20</ClockUncertainty>
                     <TargetInitiationInterval>1</TargetInitiationInterval>
-                    <EstimatedClockPeriod>2.612</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>2.633</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>4</Best-caseLatency>
@@ -768,7 +757,7 @@
                     <FF>83</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>268</LUT>
+                    <LUT>287</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -789,7 +778,7 @@
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>3.10</TargetClockPeriod>
                     <ClockUncertainty>0.20</ClockUncertainty>
-                    <EstimatedClockPeriod>2.612</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>2.633</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>6</Best-caseLatency>
@@ -808,10 +797,10 @@
                     <BRAM_18K>3</BRAM_18K>
                     <AVAIL_BRAM>4032</AVAIL_BRAM>
                     <UTIL_BRAM>~0</UTIL_BRAM>
-                    <FF>1186</FF>
+                    <FF>1213</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>1765</LUT>
+                    <LUT>1911</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <URAM>0</URAM>
@@ -823,13 +812,13 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="networkMask_c13_U" SOURCE="" URAM="0" VARIABLE="networkMask_c13"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="networkMask_c_U" SOURCE="" URAM="0" VARIABLE="networkMask_c"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="gatewayIP_c12_U" SOURCE="" URAM="0" VARIABLE="gatewayIP_c12"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="gatewayIP_c_U" SOURCE="" URAM="0" VARIABLE="gatewayIP_c"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="myIpAddress_c11_U" SOURCE="" URAM="0" VARIABLE="myIpAddress_c11"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="myIpAddress_c_U" SOURCE="" URAM="0" VARIABLE="myIpAddress_c"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="myMacAddress_c_U" SOURCE="" URAM="0" VARIABLE="myMacAddress_c"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="networkMask_c13_U" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:369" URAM="0" VARIABLE="networkMask_c13"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="networkMask_c_U" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:369" URAM="0" VARIABLE="networkMask_c"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="gatewayIP_c12_U" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:369" URAM="0" VARIABLE="gatewayIP_c12"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="gatewayIP_c_U" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:369" URAM="0" VARIABLE="gatewayIP_c"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="myIpAddress_c11_U" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:369" URAM="0" VARIABLE="myIpAddress_c11"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="myIpAddress_c_U" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:369" URAM="0" VARIABLE="myIpAddress_c"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="myMacAddress_c_U" SOURCE="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:369" URAM="0" VARIABLE="myMacAddress_c"/>
             </BindNodes>
         </Module>
     </ModuleInformation>
@@ -1137,13 +1126,13 @@
     <ReportHWInterface>
         <section name="HW Interfaces" level="0">
             <item name="S_AXILITE Interfaces">
-                <table isCollapsed="0">
+                <table>
                     <keys size="6">Interface, Data Width, Address Width, Offset, Register, Resource Estimate</keys>
                     <column name="s_axi_s_axilite">32, 12, 2048, 0, BRAM=3</column>
                 </table>
             </item>
             <item name="S_AXILITE Registers">
-                <table isCollapsed="0">
+                <table>
                     <keys size="7">Interface, Register, Offset, Width, Access, Description, Bit Fields</keys>
                     <column name="s_axi_s_axilite">arp_scan_i, 0x10, 32, W, Data signal of arp_scan_i, </column>
                     <column name="s_axi_s_axilite">arp_scan_o, 0x18, 32, R, Data signal of arp_scan_o, </column>
@@ -1151,29 +1140,29 @@
                 </table>
             </item>
             <item name="AXIS">
-                <table isCollapsed="0">
-                    <keys size="8">Interface, Register Mode, TDATA, TKEEP, TLAST, TREADY, TSTRB, TVALID</keys>
-                    <column name="arpDataIn">both, 512, 64, 1, 1, 64, 1</column>
-                    <column name="arpDataOut">both, 512, 64, 1, 1, 64, 1</column>
-                    <column name="macIpEncode_req">both, 32, , , 1, , 1</column>
-                    <column name="macIpEncode_rsp">both, 128, , , 1, , 1</column>
+                <table>
+                    <keys size="9">Interface, Direction, Register Mode, TDATA, TKEEP, TLAST, TREADY, TSTRB, TVALID</keys>
+                    <column name="arpDataIn">in, both, 512, 64, 1, 1, 64, 1</column>
+                    <column name="arpDataOut">out, both, 512, 64, 1, 1, 64, 1</column>
+                    <column name="macIpEncode_req">in, both, 32, , , 1, , 1</column>
+                    <column name="macIpEncode_rsp">out, both, 128, , , 1, , 1</column>
                 </table>
             </item>
-            <item name="REGISTER">
-                <table isCollapsed="0">
-                    <keys size="3">Interface, Mode, Bitwidth</keys>
-                    <column name="gatewayIP">ap_none, 32</column>
-                    <column name="myIpAddress">ap_none, 32</column>
-                    <column name="myMacAddress">ap_none, 48</column>
-                    <column name="networkMask">ap_none, 32</column>
+            <item name="Other Ports">
+                <table>
+                    <keys size="4">Port, Mode, Direction, Bitwidth</keys>
+                    <column name="gatewayIP">ap_none, in, 32</column>
+                    <column name="myIpAddress">ap_none, in, 32</column>
+                    <column name="myMacAddress">ap_none, in, 48</column>
+                    <column name="networkMask">ap_none, in, 32</column>
                 </table>
             </item>
             <item name="TOP LEVEL CONTROL">
-                <table isCollapsed="0">
+                <table>
                     <keys size="3">Interface, Type, Ports</keys>
                     <column name="ap_clk">clock, ap_clk</column>
                     <column name="ap_rst_n">reset, ap_rst_n</column>
-                    <column name="ap_ctrl">ap_ctrl_none</column>
+                    <column name="ap_ctrl">ap_ctrl_none, </column>
                 </table>
             </item>
         </section>
@@ -1181,7 +1170,7 @@
     <ReportSWInterface>
         <section name="SW I/O Information" level="0">
             <item name="Top Function Arguments">
-                <table isCollapsed="1">
+                <table>
                     <keys size="3">Argument, Direction, Datatype</keys>
                     <column name="arpDataIn">in, stream&lt;hls::axis&lt;ap_uint&lt;512&gt; 0 0 0&gt; 0&gt;&amp;</column>
                     <column name="macIpEncode_req">in, stream&lt;ap_uint&lt;32&gt; 0&gt;&amp;</column>
@@ -1196,7 +1185,7 @@
                 </table>
             </item>
             <item name="SW-to-HW Mapping">
-                <table isCollapsed="1">
+                <table>
                     <keys size="4">Argument, HW Interface, HW Type, HW Info</keys>
                     <column name="arpDataIn">arpDataIn, interface, </column>
                     <column name="macIpEncode_req">macIpEncode_req, interface, </column>
@@ -1216,40 +1205,38 @@
             </item>
         </section>
     </ReportSWInterface>
-    <ReportBurst>
-        <section name="M_AXI Burst Information" level="0" HEADER_NOTE="Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings."/>
-    </ReportBurst>
+    <ResolutionUrl key="ZZZ">www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=ZZZ.html</ResolutionUrl>
     <PragmaReport>
-        <Pragma type="pipeline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:50" status="valid" parentFunction="arp_pkg_receiver" variable="" isDirective="0" options="II=1"/>
-        <Pragma type="inline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:51" status="valid" parentFunction="arp_pkg_receiver" variable="" isDirective="0" options="off"/>
-        <Pragma type="pipeline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:108" status="valid" parentFunction="arp_pkg_sender" variable="" isDirective="0" options="II=1"/>
-        <Pragma type="inline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:109" status="valid" parentFunction="arp_pkg_sender" variable="" isDirective="0" options="off"/>
-        <Pragma type="pipeline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:214" status="valid" parentFunction="arp_table" variable="" isDirective="0" options="II=1"/>
-        <Pragma type="inline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:215" status="valid" parentFunction="arp_table" variable="" isDirective="0" options="off"/>
-        <Pragma type="dependence" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:217" status="valid" parentFunction="arp_table" variable="arpTable" isDirective="0" options="variable=arpTable inter false"/>
-        <Pragma type="pipeline" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:265" status="valid" parentFunction="genarpdiscovery" variable="" isDirective="0" options="II=1"/>
-        <Pragma type="reset" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:275" status="valid" parentFunction="genarpdiscovery" variable="gia_fsm_state" isDirective="0" options="variable=gia_fsm_state"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:368" status="valid" parentFunction="arp_server" variable="return" isDirective="0" options="ap_ctrl_none port=return"/>
-        <Pragma type="dataflow" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:369" status="valid" parentFunction="arp_server" variable="" isDirective="0" options=""/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:371" status="valid" parentFunction="arp_server" variable="myMacAddress" isDirective="0" options="ap_none register port=myMacAddress"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:372" status="valid" parentFunction="arp_server" variable="myIpAddress" isDirective="0" options="ap_none register port=myIpAddress"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:373" status="valid" parentFunction="arp_server" variable="gatewayIP" isDirective="0" options="ap_none register port=gatewayIP"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:374" status="valid" parentFunction="arp_server" variable="networkMask" isDirective="0" options="ap_none register port=networkMask"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:377" status="valid" parentFunction="arp_server" variable="arpDataIn" isDirective="0" options="axis register both port=arpDataIn"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:378" status="valid" parentFunction="arp_server" variable="arpDataOut" isDirective="0" options="axis register both port=arpDataOut"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:379" status="valid" parentFunction="arp_server" variable="macIpEncode_req" isDirective="0" options="axis register both port=macIpEncode_req"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:380" status="valid" parentFunction="arp_server" variable="macIpEncode_rsp" isDirective="0" options="axis register both port=macIpEncode_rsp"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:381" status="valid" parentFunction="arp_server" variable="arp_scan" isDirective="0" options="s_axilite port=arp_scan bundle=s_axilite"/>
-        <Pragma type="interface" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:382" status="warning" parentFunction="arp_server" variable="arpTable" isDirective="0" options="s_axilite port=arpTable bundle=s_axilite">
-            <Msg msg_id="214-185" msg_severity="WARNING" msg_body="The resource pragma (storage) on function argument, in 'call' is unsupported"/>
+        <Pragma type="pipeline" location="../hls/arp_server/arp_server.cpp:50" status="valid" parentFunction="arp_pkg_receiver" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="inline" location="../hls/arp_server/arp_server.cpp:51" status="valid" parentFunction="arp_pkg_receiver" variable="" isDirective="0" options="off"/>
+        <Pragma type="pipeline" location="../hls/arp_server/arp_server.cpp:108" status="valid" parentFunction="arp_pkg_sender" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="inline" location="../hls/arp_server/arp_server.cpp:109" status="valid" parentFunction="arp_pkg_sender" variable="" isDirective="0" options="off"/>
+        <Pragma type="pipeline" location="../hls/arp_server/arp_server.cpp:214" status="valid" parentFunction="arp_table" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="inline" location="../hls/arp_server/arp_server.cpp:215" status="valid" parentFunction="arp_table" variable="" isDirective="0" options="off"/>
+        <Pragma type="dependence" location="../hls/arp_server/arp_server.cpp:217" status="valid" parentFunction="arp_table" variable="arpTable" isDirective="0" options="variable=arpTable inter false"/>
+        <Pragma type="pipeline" location="../hls/arp_server/arp_server.cpp:265" status="valid" parentFunction="genarpdiscovery" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="reset" location="../hls/arp_server/arp_server.cpp:275" status="valid" parentFunction="genarpdiscovery" variable="gia_fsm_state" isDirective="0" options="variable=gia_fsm_state"/>
+        <Pragma type="interface" location="../hls/arp_server/arp_server.cpp:368" status="valid" parentFunction="arp_server" variable="return" isDirective="0" options="ap_ctrl_none port=return"/>
+        <Pragma type="dataflow" location="../hls/arp_server/arp_server.cpp:369" status="valid" parentFunction="arp_server" variable="" isDirective="0" options=""/>
+        <Pragma type="interface" location="../hls/arp_server/arp_server.cpp:371" status="valid" parentFunction="arp_server" variable="myMacAddress" isDirective="0" options="ap_none register port=myMacAddress"/>
+        <Pragma type="interface" location="../hls/arp_server/arp_server.cpp:372" status="valid" parentFunction="arp_server" variable="myIpAddress" isDirective="0" options="ap_none register port=myIpAddress"/>
+        <Pragma type="interface" location="../hls/arp_server/arp_server.cpp:373" status="valid" parentFunction="arp_server" variable="gatewayIP" isDirective="0" options="ap_none register port=gatewayIP"/>
+        <Pragma type="interface" location="../hls/arp_server/arp_server.cpp:374" status="valid" parentFunction="arp_server" variable="networkMask" isDirective="0" options="ap_none register port=networkMask"/>
+        <Pragma type="interface" location="../hls/arp_server/arp_server.cpp:377" status="valid" parentFunction="arp_server" variable="arpDataIn" isDirective="0" options="axis register both port=arpDataIn"/>
+        <Pragma type="interface" location="../hls/arp_server/arp_server.cpp:378" status="valid" parentFunction="arp_server" variable="arpDataOut" isDirective="0" options="axis register both port=arpDataOut"/>
+        <Pragma type="interface" location="../hls/arp_server/arp_server.cpp:379" status="valid" parentFunction="arp_server" variable="macIpEncode_req" isDirective="0" options="axis register both port=macIpEncode_req"/>
+        <Pragma type="interface" location="../hls/arp_server/arp_server.cpp:380" status="valid" parentFunction="arp_server" variable="macIpEncode_rsp" isDirective="0" options="axis register both port=macIpEncode_rsp"/>
+        <Pragma type="interface" location="../hls/arp_server/arp_server.cpp:381" status="valid" parentFunction="arp_server" variable="arp_scan" isDirective="0" options="s_axilite port=arp_scan bundle=s_axilite"/>
+        <Pragma type="interface" location="../hls/arp_server/arp_server.cpp:382" status="valid" parentFunction="arp_server" variable="arpTable" isDirective="0" options="s_axilite port=arpTable bundle=s_axilite"/>
+        <Pragma type="bind_storage" location="../hls/arp_server/arp_server.cpp:383" status="warning" parentFunction="arp_server" variable="arpTable" isDirective="0" options="variable=arpTable type=ram_t2p">
+            <Msg msg_id="214-340" msg_severity="WARNING" msg_body="The resource pragma (bind_storage) on top-level function argument, in 'call' is unsupported, please use INTERFACE pragma instead"/>
         </Pragma>
-        <Pragma type="bind_storage" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:383" status="valid" parentFunction="arp_server" variable="arpTable" isDirective="0" options="variable=arpTable type=ram_t2p"/>
-        <Pragma type="disaggregate" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:384" status="valid" parentFunction="arp_server" variable="arpTable" isDirective="0" options="variable=arpTable"/>
-        <Pragma type="stream" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:387" status="valid" parentFunction="arp_server" variable="arpReplyFifo" isDirective="0" options="variable=arpReplyFifo depth=4"/>
-        <Pragma type="stream" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:390" status="valid" parentFunction="arp_server" variable="arpRequestFifo" isDirective="0" options="variable=arpRequestFifo depth=4"/>
-        <Pragma type="stream" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:393" status="valid" parentFunction="arp_server" variable="arpTableInsertFifo" isDirective="0" options="variable=arpTableInsertFifo depth=4"/>
-        <Pragma type="stream" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:396" status="valid" parentFunction="arp_server" variable="macIpEncode_i" isDirective="0" options="variable=macIpEncode_i depth=4"/>
-        <Pragma type="stream" location="/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:399" status="valid" parentFunction="arp_server" variable="macIpEncode_rsp_i" isDirective="0" options="variable=macIpEncode_rsp_i depth=4"/>
+        <Pragma type="disaggregate" location="../hls/arp_server/arp_server.cpp:384" status="valid" parentFunction="arp_server" variable="arpTable" isDirective="0" options="variable=arpTable"/>
+        <Pragma type="stream" location="../hls/arp_server/arp_server.cpp:387" status="valid" parentFunction="arp_server" variable="arpReplyFifo" isDirective="0" options="variable=arpReplyFifo depth=4"/>
+        <Pragma type="stream" location="../hls/arp_server/arp_server.cpp:390" status="valid" parentFunction="arp_server" variable="arpRequestFifo" isDirective="0" options="variable=arpRequestFifo depth=4"/>
+        <Pragma type="stream" location="../hls/arp_server/arp_server.cpp:393" status="valid" parentFunction="arp_server" variable="arpTableInsertFifo" isDirective="0" options="variable=arpTableInsertFifo depth=4"/>
+        <Pragma type="stream" location="../hls/arp_server/arp_server.cpp:396" status="valid" parentFunction="arp_server" variable="macIpEncode_i" isDirective="0" options="variable=macIpEncode_i depth=4"/>
+        <Pragma type="stream" location="../hls/arp_server/arp_server.cpp:399" status="valid" parentFunction="arp_server" variable="macIpEncode_rsp_i" isDirective="0" options="variable=macIpEncode_rsp_i depth=4"/>
     </PragmaReport>
 </profile>
 

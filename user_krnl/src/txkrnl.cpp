@@ -86,7 +86,7 @@ data_mover:
   	// Auto-pipeline is going to apply pipeline to this loop
   	for (unsigned int i = 0; i < (size / bytes_per_beat); i++) {
 		#pragma HLS LATENCY min=1 max=1000
-		#pragma HLS PIPELINE II=1
+		//#pragma HLS PIPELINE II=1
     		ap_uint<512> tmp = in[i];
     		ap_uint<512> out;
 

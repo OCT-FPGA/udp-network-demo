@@ -1,7 +1,5 @@
 #include "hls_design_meta.h"
 const Port_Property HLS_Design_Meta::port_props[]={
-	Port_Property("ap_local_block", 1, hls_out, -1, "", "", 1),
-	Port_Property("ap_local_deadlock", 1, hls_out, -1, "", "", 1),
 	Port_Property("s_axis_TDATA", 512, hls_in, 0, "axis", "in_data", 1),
 	Port_Property("s_axis_TKEEP", 64, hls_in, 1, "axis", "in_data", 1),
 	Port_Property("s_axis_TSTRB", 64, hls_in, 2, "axis", "in_data", 1),

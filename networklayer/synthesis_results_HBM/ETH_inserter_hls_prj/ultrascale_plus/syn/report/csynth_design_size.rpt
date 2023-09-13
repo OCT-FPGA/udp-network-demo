@@ -1,0 +1,36 @@
+================================================================
+== Design Size Report
+================================================================
+
+* Instructions per Function for each Compilation Phase
++------------------------------------+----------------------------------+-----------------+---------------+----------------------+---------------+
+| Function                           | Location                         | Compile/Link    | Unroll/Inline | Performance/Pipeline | Optimizations |
++------------------------------------+----------------------------------+-----------------+---------------+----------------------+---------------+
+| + ethernet_header_inserter         | ethernet_header_inserter.cpp:308 | 4,873           | 1,224         | 823                  | 874           |
+|  + broadcaster_and_mac_request     | ethernet_header_inserter.cpp:33  |   622           |    92         |  74                  |  94           |
+|     my_axis                        | ethernet_header_inserter.hpp:52  |    28           |               |                      |               |
+|  + compute_and_insert_ip_checks... | ethernet_header_inserter.cpp:226 | 2,150           |   847         | 541                  | 552           |
+|     my_axis                        | ethernet_header_inserter.hpp:52  |    28           |               |                      |               |
+|  + handle_output                   | ethernet_header_inserter.cpp:85  | 2,043           |   240         | 190                  | 189           |
+|     my_axis                        | ethernet_header_inserter.hpp:52  |    84 (3 calls) |               |                      |               |
+|     arpTableReply                  | ethernet_header_inserter.hpp:64  |    10           |               |                      |               |
++------------------------------------+----------------------------------+-----------------+---------------+----------------------+---------------+
+
+* Description of Compilation Phases
++----------------------+------------------------------------------------------------+
+| Compilation Phase    | Description                                                |
++----------------------+------------------------------------------------------------+
+| Compile/Link         | All functions are compiled and linked into a single design |
+| Unroll/Inline        | After user unroll and inline pragmas are applied           |
+| Performance/Pipeline | After performance and pipeline pragmas are applied         |
+| Optimizations        | After high level synthesis optimizations                   |
++----------------------+------------------------------------------------------------+
+
+* Design Size Message Settings
++---------------------------------------------+--------+------------------------------------------------------------------+
+| Message Setting                             | Value  | Description                                                      |
++---------------------------------------------+--------+------------------------------------------------------------------+
+| config_compile -design_size_maximum_warning | 100000 | Show a warning when total design instructions exceeds this value |
++---------------------------------------------+--------+------------------------------------------------------------------+
+
+

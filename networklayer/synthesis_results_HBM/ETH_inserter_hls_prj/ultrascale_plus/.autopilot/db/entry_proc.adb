@@ -110,7 +110,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>0</coreId>
+              <coreId>1109286536</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>48</bitwidth>
@@ -197,7 +197,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>0</coreId>
+              <coreId>1936028255</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -245,7 +245,7 @@
             <coreName/>
             <isStorage>0</isStorage>
             <storageDepth>0</storageDepth>
-            <coreId>0</coreId>
+            <coreId>4294967295</coreId>
             <rtlModuleName/>
           </Obj>
           <node_objs>
@@ -586,7 +586,7 @@
       <count>2</count>
       <item_version>0</item_version>
       <item class_id="39" tracking_level="0" version="0">
-        <first>22</first>
+        <first>24</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -594,7 +594,7 @@
         </second>
       </item>
       <item>
-        <first>28</first>
+        <first>30</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -614,7 +614,7 @@
       <count>2</count>
       <item_version>0</item_version>
       <item class_id="42" tracking_level="0" version="0">
-        <first>myMacAddress_read_read_fu_22</first>
+        <first>myMacAddress_read_read_fu_24</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -622,7 +622,7 @@
         </second>
       </item>
       <item>
-        <first>write_ln0_write_fu_28</first>
+        <first>write_ln0_write_fu_30</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -694,7 +694,7 @@
       <item>
         <first>2</first>
         <second>
-          <first>1151</first>
+          <first>666</first>
           <second>10</second>
         </second>
       </item>
@@ -705,7 +705,7 @@
       <item>
         <first>5</first>
         <second>
-          <first>1151</first>
+          <first>666</first>
           <second>10</second>
         </second>
       </item>

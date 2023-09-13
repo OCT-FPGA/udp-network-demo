@@ -1,12 +1,12 @@
 <profile>
 
 <ReportVersion>
-<Version>2021.2</Version>
+<Version>2023.1</Version>
 </ReportVersion>
 
 <UserAssignments>
 <unit>ns</unit>
-<ProductFamily>virtexuplus</ProductFamily>
+<ProductFamily>virtexuplusHBM</ProductFamily>
 <Part>xcu280-fsvh2892-2L-e</Part>
 <TopModelName>entry_proc</TopModelName>
 <TargetClockPeriod>3.10</TargetClockPeriod>
@@ -182,6 +182,28 @@
 <Dir>out</Dir>
 <Bits>48</Bits>
 <Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>myMacAddress_c_num_data_valid</name>
+<Object>myMacAddress_c</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>ap_fifo</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>3</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>myMacAddress_c_fifo_cap</name>
+<Object>myMacAddress_c</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>ap_fifo</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>3</Bits>
+<Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>
 <name>myMacAddress_c_full_n</name>

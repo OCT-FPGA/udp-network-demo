@@ -1,0 +1,17 @@
+{
+    "0": {
+        "name": "icmp_server",
+        "file": "icmp_server.cpp",
+        "fileloc": "119",
+        "instructions": "178",
+        "total_instructions": "178",
+        "calls": "",
+        "basicblocks": "17",
+        "loads": {
+            "G": "10"
+        },
+        "stores": {
+            "G": "14"
+        }
+    }
+}

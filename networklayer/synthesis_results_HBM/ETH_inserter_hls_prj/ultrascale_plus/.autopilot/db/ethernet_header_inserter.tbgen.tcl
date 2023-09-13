@@ -9,6 +9,9 @@ set isOneStateSeq 0
 set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
+set hasInterrupt 0
+set DLRegFirstOffset 0
+set DLRegItemOffset 0
 set C_modelName {ethernet_header_inserter}
 set C_modelType { void 0 }
 set C_modelArgList {
@@ -26,6 +29,7 @@ set C_modelArgList {
 	{ regSubNetMask int 32 regular {pointer 0}  }
 	{ regDefaultGateway int 32 regular {pointer 0}  }
 }
+set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "dataIn_V_data_V", "interface" : "axis", "bitwidth" : 512, "direction" : "READONLY"} , 
  	{ "Name" : "dataIn_V_keep_V", "interface" : "axis", "bitwidth" : 64, "direction" : "READONLY"} , 
@@ -41,10 +45,8 @@ set C_modelArgMapList {[
  	{ "Name" : "regSubNetMask", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
  	{ "Name" : "regDefaultGateway", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} ]}
 # RTL Port declarations: 
-set portNum 25
+set portNum 23
 set portList { 
-	{ ap_local_block sc_out sc_logic 1 signal -1 } 
-	{ ap_local_deadlock sc_out sc_logic 1 signal -1 } 
 	{ dataIn_TDATA sc_in sc_lv 512 signal 0 } 
 	{ dataIn_TKEEP sc_in sc_lv 64 signal 1 } 
 	{ dataIn_TSTRB sc_in sc_lv 64 signal 2 } 
@@ -70,9 +72,7 @@ set portList {
 	{ dataOut_TREADY sc_in sc_logic 1 outacc 7 } 
 }
 set NewPortList {[ 
-	{ "name": "ap_local_block", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ap_local_block", "role": "default" }} , 
- 	{ "name": "ap_local_deadlock", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ap_local_deadlock", "role": "default" }} , 
- 	{ "name": "dataIn_TDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":512, "type": "signal", "bundle":{"name": "dataIn_V_data_V", "role": "default" }} , 
+	{ "name": "dataIn_TDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":512, "type": "signal", "bundle":{"name": "dataIn_V_data_V", "role": "default" }} , 
  	{ "name": "dataIn_TKEEP", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "dataIn_V_keep_V", "role": "default" }} , 
  	{ "name": "dataIn_TSTRB", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "dataIn_V_strb_V", "role": "default" }} , 
  	{ "name": "dataIn_TLAST", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "dataIn_V_last_V", "role": "default" }} , 
@@ -117,28 +117,28 @@ set RtlHierarchyInfo {[
 		"OutputProcess" : [
 			{"ID" : "9", "Name" : "handle_output_U0"}],
 		"Port" : [
-			{"Name" : "dataIn_V_data_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "dataIn_V_data_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "dataIn",
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "broadcaster_and_mac_request_U0", "Port" : "dataIn_V_data_V"}]},
-			{"Name" : "dataIn_V_keep_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "dataIn_V_keep_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "dataIn",
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "broadcaster_and_mac_request_U0", "Port" : "dataIn_V_keep_V"}]},
-			{"Name" : "dataIn_V_strb_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "dataIn_V_strb_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "dataIn",
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "broadcaster_and_mac_request_U0", "Port" : "dataIn_V_strb_V"}]},
-			{"Name" : "dataIn_V_last_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "dataIn_V_last_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "dataIn",
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "broadcaster_and_mac_request_U0", "Port" : "dataIn_V_last_V"}]},
-			{"Name" : "dataOut_V_data_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "dataOut_V_data_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "dataOut",
 				"SubConnect" : [
 					{"ID" : "9", "SubInstance" : "handle_output_U0", "Port" : "dataOut_V_data_V"}]},
-			{"Name" : "dataOut_V_keep_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "dataOut_V_keep_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "dataOut",
 				"SubConnect" : [
 					{"ID" : "9", "SubInstance" : "handle_output_U0", "Port" : "dataOut_V_keep_V"}]},
-			{"Name" : "dataOut_V_strb_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "dataOut_V_strb_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "dataOut",
 				"SubConnect" : [
 					{"ID" : "9", "SubInstance" : "handle_output_U0", "Port" : "dataOut_V_strb_V"}]},
-			{"Name" : "dataOut_V_last_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "dataOut_V_last_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "dataOut",
 				"SubConnect" : [
 					{"ID" : "9", "SubInstance" : "handle_output_U0", "Port" : "dataOut_V_last_V"}]},
 			{"Name" : "arpTableReplay", "Type" : "Axis", "Direction" : "I",
@@ -165,21 +165,21 @@ set RtlHierarchyInfo {[
 					{"ID" : "2", "SubInstance" : "broadcaster_and_mac_request_U0", "Port" : "ip_header_out"}]},
 			{"Name" : "no_ip_header_out", "Type" : "Fifo", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "2", "SubInstance" : "broadcaster_and_mac_request_U0", "Port" : "no_ip_header_out"},
-					{"ID" : "9", "SubInstance" : "handle_output_U0", "Port" : "no_ip_header_out"}]},
+					{"ID" : "9", "SubInstance" : "handle_output_U0", "Port" : "no_ip_header_out"},
+					{"ID" : "2", "SubInstance" : "broadcaster_and_mac_request_U0", "Port" : "no_ip_header_out"}]},
 			{"Name" : "ip_header_checksum", "Type" : "Fifo", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "8", "SubInstance" : "compute_and_insert_ip_checksum_U0", "Port" : "ip_header_checksum"},
-					{"ID" : "9", "SubInstance" : "handle_output_U0", "Port" : "ip_header_checksum"}]},
+					{"ID" : "9", "SubInstance" : "handle_output_U0", "Port" : "ip_header_checksum"},
+					{"ID" : "8", "SubInstance" : "compute_and_insert_ip_checksum_U0", "Port" : "ip_header_checksum"}]},
 			{"Name" : "mw_state", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "9", "SubInstance" : "handle_output_U0", "Port" : "mw_state"}]},
-			{"Name" : "previous_word_data_V", "Type" : "OVld", "Direction" : "IO",
+			{"Name" : "previous_word_data", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "9", "SubInstance" : "handle_output_U0", "Port" : "previous_word_data_V"}]},
-			{"Name" : "previous_word_keep_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "9", "SubInstance" : "handle_output_U0", "Port" : "previous_word_data"}]},
+			{"Name" : "previous_word_keep", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "9", "SubInstance" : "handle_output_U0", "Port" : "previous_word_keep_V"}]}]},
+					{"ID" : "9", "SubInstance" : "handle_output_U0", "Port" : "previous_word_keep"}]}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.entry_proc_U0", "Parent" : "0",
 		"CDFG" : "entry_proc",
 		"Protocol" : "ap_ctrl_hs",
@@ -214,12 +214,12 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "1",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "dataIn_V_data_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "dataIn_V_data_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "dataIn",
 				"BlockSignal" : [
 					{"Name" : "dataIn_TDATA_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "dataIn_V_keep_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "dataIn_V_strb_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "dataIn_V_last_V", "Type" : "Axis", "Direction" : "I"},
+			{"Name" : "dataIn_V_keep_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "dataIn"},
+			{"Name" : "dataIn_V_strb_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "dataIn"},
+			{"Name" : "dataIn_V_last_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "dataIn"},
 			{"Name" : "arpTableRequest", "Type" : "Axis", "Direction" : "O",
 				"BlockSignal" : [
 					{"Name" : "arpTableRequest_TDATA_blk_n", "Type" : "RtlSignal"}]},
@@ -283,15 +283,15 @@ set RtlHierarchyInfo {[
 			{"Name" : "myMacAddress", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "15", "DependentChanDepth" : "4", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "myMacAddress_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "dataOut_V_data_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "dataOut_V_data_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "dataOut",
 				"BlockSignal" : [
 					{"Name" : "dataOut_TDATA_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "dataOut_V_keep_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "dataOut_V_strb_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "dataOut_V_last_V", "Type" : "Axis", "Direction" : "O"},
+			{"Name" : "dataOut_V_keep_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "dataOut"},
+			{"Name" : "dataOut_V_strb_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "dataOut"},
+			{"Name" : "dataOut_V_last_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "dataOut"},
 			{"Name" : "mw_state", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "previous_word_data_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "previous_word_keep_V", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "previous_word_data", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "previous_word_keep", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "ip_header_checksum", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["8"], "DependentChan" : "18", "DependentChanDepth" : "16", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "ip_header_checksum_blk_n", "Type" : "RtlSignal"}]},
@@ -331,8 +331,8 @@ set ArgLastReadFirstWriteLatency {
 		no_ip_header_out {Type IO LastRead -1 FirstWrite -1}
 		ip_header_checksum {Type IO LastRead -1 FirstWrite -1}
 		mw_state {Type IO LastRead -1 FirstWrite -1}
-		previous_word_data_V {Type IO LastRead -1 FirstWrite -1}
-		previous_word_keep_V {Type IO LastRead -1 FirstWrite -1}}
+		previous_word_data {Type IO LastRead -1 FirstWrite -1}
+		previous_word_keep {Type IO LastRead -1 FirstWrite -1}}
 	entry_proc {
 		myMacAddress {Type I LastRead 0 FirstWrite -1}
 		myMacAddress_c {Type O LastRead -1 FirstWrite 0}}
@@ -358,8 +358,8 @@ set ArgLastReadFirstWriteLatency {
 		dataOut_V_strb_V {Type O LastRead -1 FirstWrite 1}
 		dataOut_V_last_V {Type O LastRead -1 FirstWrite 1}
 		mw_state {Type IO LastRead -1 FirstWrite -1}
-		previous_word_data_V {Type IO LastRead -1 FirstWrite -1}
-		previous_word_keep_V {Type IO LastRead -1 FirstWrite -1}
+		previous_word_data {Type IO LastRead -1 FirstWrite -1}
+		previous_word_keep {Type IO LastRead -1 FirstWrite -1}
 		ip_header_checksum {Type I LastRead 0 FirstWrite -1}
 		no_ip_header_out {Type I LastRead 0 FirstWrite -1}}}
 
@@ -389,8 +389,7 @@ set Spec2ImplPortList {
 	regDefaultGateway { ap_none {  { regDefaultGateway in_data 0 32 } } }
 }
 
-set busDeadlockParameterList { 
-}
+set maxi_interface_dict [dict create]
 
 # RTL port scheduling information:
 set fifoSchedulingInfoList { 

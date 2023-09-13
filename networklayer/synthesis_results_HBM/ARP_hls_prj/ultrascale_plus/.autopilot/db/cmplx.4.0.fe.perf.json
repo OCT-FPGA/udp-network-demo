@@ -1,0 +1,77 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "4 2 3 1",
+    "file": "arp_server.cpp",
+    "fileloc": 355,
+    "instructions": 63,
+    "name": "arp_server",
+    "total_instructions": 445
+  },
+  "1": {
+    "basicblocks": 8,
+    "calls": "",
+    "file": "arp_server.cpp",
+    "fileloc": 204,
+    "instructions": 78,
+    "loads": {
+      "L": 8
+    },
+    "name": "arp_table",
+    "stores": {
+      "L": 5
+    },
+    "total_instructions": 78
+  },
+  "2": {
+    "basicblocks": 13,
+    "calls": "",
+    "file": "arp_server.cpp",
+    "fileloc": 44,
+    "instructions": 93,
+    "loads": {
+      "G": 1,
+      "L": 5
+    },
+    "name": "arp_pkg_receiver",
+    "stores": {
+      "G": 2,
+      "L": 6
+    },
+    "total_instructions": 93
+  },
+  "3": {
+    "basicblocks": 10,
+    "calls": "",
+    "file": "arp_server.cpp",
+    "fileloc": 99,
+    "instructions": 123,
+    "loads": {
+      "G": 10,
+      "L": 8
+    },
+    "name": "arp_pkg_sender",
+    "stores": {
+      "G": 13,
+      "L": 22
+    },
+    "total_instructions": 123
+  },
+  "4": {
+    "basicblocks": 21,
+    "calls": "",
+    "file": "arp_server.cpp",
+    "fileloc": 257,
+    "instructions": 88,
+    "loads": {
+      "G": 6,
+      "L": 5
+    },
+    "name": "genARPDiscovery",
+    "stores": {
+      "G": 10,
+      "L": 4
+    },
+    "total_instructions": 88
+  }
+}

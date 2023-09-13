@@ -33,7 +33,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_myMacAddress_c \
     op interface \
-    ports { myMacAddress_c_din { O 48 vector } myMacAddress_c_full_n { I 1 bit } myMacAddress_c_write { O 1 bit } } \
+    ports { myMacAddress_c_din { O 48 vector } myMacAddress_c_num_data_valid { I 3 vector } myMacAddress_c_fifo_cap { I 3 vector } myMacAddress_c_full_n { I 1 bit } myMacAddress_c_write { O 1 bit } } \
 } "
 }
 
@@ -63,7 +63,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_gatewayIP_c \
     op interface \
-    ports { gatewayIP_c_din { O 32 vector } gatewayIP_c_full_n { I 1 bit } gatewayIP_c_write { O 1 bit } } \
+    ports { gatewayIP_c_din { O 32 vector } gatewayIP_c_num_data_valid { I 3 vector } gatewayIP_c_fifo_cap { I 3 vector } gatewayIP_c_full_n { I 1 bit } gatewayIP_c_write { O 1 bit } } \
 } "
 }
 
@@ -78,7 +78,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_gatewayIP_c12 \
     op interface \
-    ports { gatewayIP_c12_din { O 32 vector } gatewayIP_c12_full_n { I 1 bit } gatewayIP_c12_write { O 1 bit } } \
+    ports { gatewayIP_c12_din { O 32 vector } gatewayIP_c12_num_data_valid { I 3 vector } gatewayIP_c12_fifo_cap { I 3 vector } gatewayIP_c12_full_n { I 1 bit } gatewayIP_c12_write { O 1 bit } } \
 } "
 }
 
@@ -108,7 +108,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_networkMask_c \
     op interface \
-    ports { networkMask_c_din { O 32 vector } networkMask_c_full_n { I 1 bit } networkMask_c_write { O 1 bit } } \
+    ports { networkMask_c_din { O 32 vector } networkMask_c_num_data_valid { I 3 vector } networkMask_c_fifo_cap { I 3 vector } networkMask_c_full_n { I 1 bit } networkMask_c_write { O 1 bit } } \
 } "
 }
 
@@ -123,7 +123,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_networkMask_c13 \
     op interface \
-    ports { networkMask_c13_din { O 32 vector } networkMask_c13_full_n { I 1 bit } networkMask_c13_write { O 1 bit } } \
+    ports { networkMask_c13_din { O 32 vector } networkMask_c13_num_data_valid { I 3 vector } networkMask_c13_fifo_cap { I 3 vector } networkMask_c13_full_n { I 1 bit } networkMask_c13_write { O 1 bit } } \
 } "
 }
 

@@ -18,8 +18,5 @@
     <config>
         <config_export format="ip_catalog" rtl="verilog"/>
     </config>
-    <ExportDesign askAgain="true" evaluate="false" rtl="verilog" formatName="ip_catalog">
-        <Format formatName="ip_catalog" description="" vendor="" library="" ipname="udp" version="" display_name="" taxonomy=""/>
-    </ExportDesign>
 </AutoPilot:solution>
 

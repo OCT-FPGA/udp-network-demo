@@ -1,0 +1,43 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "2 1",
+    "file": "packet_handler.cpp",
+    "fileloc": 275,
+    "instructions": 8,
+    "name": "packet_handler",
+    "total_instructions": 359
+  },
+  "1": {
+    "basicblocks": 26,
+    "calls": "",
+    "file": "packet_handler.cpp",
+    "fileloc": 51,
+    "instructions": 233,
+    "loads": {
+      "G": 7
+    },
+    "name": "ethernet_remover",
+    "stores": {
+      "G": 13,
+      "L": 35
+    },
+    "total_instructions": 233
+  },
+  "2": {
+    "basicblocks": 23,
+    "calls": "",
+    "file": "packet_handler.cpp",
+    "fileloc": 168,
+    "instructions": 118,
+    "loads": {
+      "G": 2,
+      "L": 7
+    },
+    "name": "packet_identification",
+    "stores": {
+      "G": 6
+    },
+    "total_instructions": 118
+  }
+}

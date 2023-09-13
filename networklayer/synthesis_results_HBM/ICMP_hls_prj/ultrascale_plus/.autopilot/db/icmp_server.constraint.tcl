@@ -15,7 +15,7 @@ set one_path { \
     type single_source \
     source { \
             module icmp_server \
-            instance myIpAddress \
+            instance myIpAddress_0 \
             bitWidth 32 \
             type port \
            } \

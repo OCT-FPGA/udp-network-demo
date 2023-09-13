@@ -1,0 +1,62 @@
+<design_size title="Design Size Report">
+    <item name="Instructions per Function for each Compilation Phase">
+        <hiertable>
+            <header size="6" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Performance/Pipeline" col5="Optimizations"/>
+            <rows>
+                <row id="0" col0="udp" col1="udp.cpp:407" col2="15347" col3="2696" col4="1285" col5="1534">
+                    <row id="16" col0="udpRxEngine" col1="udp.cpp:94" col2="3295" col3="519" col4="130" col5="151">
+                        <row id="4" col0="axis_udp" col1="udp.hpp:56" col2="28" col3="" col4="" col5=""/>
+                        <row id="9" col0="axis_udp" col1="udp.hpp:57" col2="20" col2_disp="    20 (2 calls)" col3="14" col3_disp="   14 (2 calls)" col4="" col5=""/>
+                        <row id="13" col0="byteSwap&lt;16&gt;" col1="udp.hpp:101" col2="665" col2_disp="   665 (5 calls)" col3="85" col3_disp="   85 (5 calls)" col4="" col5=""/>
+                        <row id="12" col0="byteSwap&lt;32&gt;" col1="udp.hpp:101" col2="262" col2_disp="   262 (2 calls)" col3="54" col3_disp="   54 (2 calls)" col4="" col5=""/>
+                        <row id="14" col0="udpMetadata" col1="udp.hpp:84" col2="16" col3="11" col4="" col5=""/>
+                    </row>
+                    <row id="8" col0="TableHandler" col1="udp.cpp:39" col2="977" col3="437" col4="265" col5="296">
+                        <row id="5" col0="udpMetadata" col1="udp.hpp:83" col2="46" col3="" col4="" col5=""/>
+                        <row id="15" col0="socket_table" col1="udp.hpp:71" col2="37" col3="" col4="" col5=""/>
+                        <row id="11" col0="tableResponse" col1="udp.hpp:94" col2="58" col3="" col4="" col5="">
+                            <row id="6" col0="userMetadata" col1="udp.hpp:45" col2="37" col3="" col4="" col5=""/>
+                        </row>
+                        <row id="12" col0="byteSwap&lt;32&gt;" col1="udp.hpp:101" col2="393" col2_disp="   393 (3 calls)" col3="81" col3_disp="   81 (3 calls)" col4="" col5=""/>
+                        <row id="7" col0="userMetadata" col1="udp.hpp:46" col2="13" col3="9" col4="" col5=""/>
+                        <row id="14" col0="udpMetadata" col1="udp.hpp:84" col2="16" col3="11" col4="" col5=""/>
+                    </row>
+                    <row id="10" col0="rxEngPacketDropper" col1="udp.cpp:190" col2="577" col3="84" col4="78" col5="80">
+                        <row id="11" col0="tableResponse" col1="udp.hpp:94" col2="58" col3="" col4="" col5="">
+                            <row id="6" col0="userMetadata" col1="udp.hpp:45" col2="37" col3="" col4="" col5=""/>
+                        </row>
+                        <row id="4" col0="axis_udp" col1="udp.hpp:56" col2="28" col3="" col4="" col5=""/>
+                    </row>
+                    <row id="1" col0="appGetMetaData" col1="udp.cpp:231" col2="6289" col3="1107" col4="484" col5="514">
+                        <row id="4" col0="axis_udp" col1="udp.hpp:56" col2="28" col3="" col4="" col5=""/>
+                        <row id="9" col0="axis_udp" col1="udp.hpp:57" col2="20" col2_disp="    20 (2 calls)" col3="14" col3_disp="   14 (2 calls)" col4="" col5=""/>
+                        <row id="2" col0="keep2len" col1="common_utilities.cpp:40" col2="5544" col2_disp=" 5,544 (2 calls)" col3="904" col3_disp="  904 (2 calls)" col4="" col5=""/>
+                    </row>
+                    <row id="3" col0="udpTxEngine" col1="udp.cpp:280" col2="4097" col3="459" col4="237" col5="237">
+                        <row id="5" col0="udpMetadata" col1="udp.hpp:83" col2="46" col3="" col4="" col5=""/>
+                        <row id="4" col0="axis_udp" col1="udp.hpp:56" col2="28" col3="" col4="" col5=""/>
+                        <row id="13" col0="byteSwap&lt;16&gt;" col1="udp.hpp:101" col2="532" col2_disp="   532 (4 calls)" col3="68" col3_disp="   68 (4 calls)" col4="" col5=""/>
+                        <row id="12" col0="byteSwap&lt;32&gt;" col1="udp.hpp:101" col2="262" col2_disp="   262 (2 calls)" col3="54" col3_disp="   54 (2 calls)" col4="" col5=""/>
+                    </row>
+                </row>
+            </rows>
+            <notes/>
+        </hiertable>
+    </item>
+    <item name="Description of Compilation Phases">
+        <table>
+            <keys size="2">Compilation Phase, Description</keys>
+            <column name="Compile/Link">All functions are compiled and linked into a single design</column>
+            <column name="Unroll/Inline">After user unroll and inline pragmas are applied</column>
+            <column name="Performance/Pipeline">After performance and pipeline pragmas are applied</column>
+            <column name="Optimizations">After high level synthesis optimizations</column>
+        </table>
+    </item>
+    <item name="Design Size Message Settings">
+        <table>
+            <keys size="3">Message Setting, Value, Description</keys>
+            <column name="config_compile -design_size_maximum_warning">100000, Show a warning when total design instructions exceeds this value</column>
+        </table>
+    </item>
+</design_size>
+

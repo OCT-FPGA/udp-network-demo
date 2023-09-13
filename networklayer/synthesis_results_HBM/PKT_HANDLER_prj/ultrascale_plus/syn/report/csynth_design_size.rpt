@@ -1,0 +1,34 @@
+================================================================
+== Design Size Report
+================================================================
+
+* Instructions per Function for each Compilation Phase
++--------------------------+------------------------+-----------------+---------------+----------------------+---------------+
+| Function                 | Location               | Compile/Link    | Unroll/Inline | Performance/Pipeline | Optimizations |
++--------------------------+------------------------+-----------------+---------------+----------------------+---------------+
+| + packet_handler         | packet_handler.cpp:275 | 3,081           | 483           | 359                  | 386           |
+|  + packet_identification | packet_handler.cpp:168 | 1,323           | 199           | 118                  | 142           |
+|     axiWordi             | packet_handler.hpp:64  |    37           |               |                      |               |
+|     byteSwap16           | packet_handler.cpp:39  |   235           |  19           |                      |               |
+|  + ethernet_remover      | packet_handler.cpp:51  | 1,734           | 265           | 233                  | 220           |
+|     axiWordi             | packet_handler.hpp:64  |    74 (2 calls) |               |                      |               |
++--------------------------+------------------------+-----------------+---------------+----------------------+---------------+
+
+* Description of Compilation Phases
++----------------------+------------------------------------------------------------+
+| Compilation Phase    | Description                                                |
++----------------------+------------------------------------------------------------+
+| Compile/Link         | All functions are compiled and linked into a single design |
+| Unroll/Inline        | After user unroll and inline pragmas are applied           |
+| Performance/Pipeline | After performance and pipeline pragmas are applied         |
+| Optimizations        | After high level synthesis optimizations                   |
++----------------------+------------------------------------------------------------+
+
+* Design Size Message Settings
++---------------------------------------------+--------+------------------------------------------------------------------+
+| Message Setting                             | Value  | Description                                                      |
++---------------------------------------------+--------+------------------------------------------------------------------+
+| config_compile -design_size_maximum_warning | 100000 | Show a warning when total design instructions exceeds this value |
++---------------------------------------------+--------+------------------------------------------------------------------+
+
+

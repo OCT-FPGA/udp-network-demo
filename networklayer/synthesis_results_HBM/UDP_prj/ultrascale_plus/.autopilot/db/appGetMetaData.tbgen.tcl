@@ -9,6 +9,9 @@ set isOneStateSeq 0
 set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
+set hasInterrupt 0
+set DLRegFirstOffset 0
+set DLRegItemOffset 0
 set C_modelName {appGetMetaData}
 set C_modelType { void 0 }
 set C_modelArgList {
@@ -22,6 +25,7 @@ set C_modelArgList {
 	{ agmdIdOut int 16 regular {fifo 1 volatile } {global 1}  }
 	{ agmdpayloadLenOut int 16 regular {fifo 1 volatile } {global 1}  }
 }
+set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "DataInApp_V_data_V", "interface" : "axis", "bitwidth" : 512, "direction" : "READONLY"} , 
  	{ "Name" : "DataInApp_V_keep_V", "interface" : "axis", "bitwidth" : 64, "direction" : "READONLY"} , 
@@ -33,7 +37,7 @@ set C_modelArgMapList {[
  	{ "Name" : "agmdIdOut", "interface" : "fifo", "bitwidth" : 16, "direction" : "WRITEONLY", "extern" : 0} , 
  	{ "Name" : "agmdpayloadLenOut", "interface" : "fifo", "bitwidth" : 16, "direction" : "WRITEONLY", "extern" : 0} ]}
 # RTL Port declarations: 
-set portNum 27
+set portNum 33
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -45,12 +49,18 @@ set portList {
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
 	{ DataInApp_TVALID sc_in sc_logic 1 invld 5 } 
 	{ agmdDataOut_din sc_out sc_lv 1024 signal 6 } 
+	{ agmdDataOut_num_data_valid sc_in sc_lv 9 signal 6 } 
+	{ agmdDataOut_fifo_cap sc_in sc_lv 9 signal 6 } 
 	{ agmdDataOut_full_n sc_in sc_logic 1 signal 6 } 
 	{ agmdDataOut_write sc_out sc_logic 1 signal 6 } 
 	{ agmdIdOut_din sc_out sc_lv 16 signal 7 } 
+	{ agmdIdOut_num_data_valid sc_in sc_lv 9 signal 7 } 
+	{ agmdIdOut_fifo_cap sc_in sc_lv 9 signal 7 } 
 	{ agmdIdOut_full_n sc_in sc_logic 1 signal 7 } 
 	{ agmdIdOut_write sc_out sc_logic 1 signal 7 } 
 	{ agmdpayloadLenOut_din sc_out sc_lv 16 signal 8 } 
+	{ agmdpayloadLenOut_num_data_valid sc_in sc_lv 9 signal 8 } 
+	{ agmdpayloadLenOut_fifo_cap sc_in sc_lv 9 signal 8 } 
 	{ agmdpayloadLenOut_full_n sc_in sc_logic 1 signal 8 } 
 	{ agmdpayloadLenOut_write sc_out sc_logic 1 signal 8 } 
 	{ start_out sc_out sc_logic 1 signal -1 } 
@@ -74,12 +84,18 @@ set NewPortList {[
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
  	{ "name": "DataInApp_TVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "DataInApp_V_dest_V", "role": "default" }} , 
  	{ "name": "agmdDataOut_din", "direction": "out", "datatype": "sc_lv", "bitwidth":1024, "type": "signal", "bundle":{"name": "agmdDataOut", "role": "din" }} , 
+ 	{ "name": "agmdDataOut_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "agmdDataOut", "role": "num_data_valid" }} , 
+ 	{ "name": "agmdDataOut_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "agmdDataOut", "role": "fifo_cap" }} , 
  	{ "name": "agmdDataOut_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "agmdDataOut", "role": "full_n" }} , 
  	{ "name": "agmdDataOut_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "agmdDataOut", "role": "write" }} , 
  	{ "name": "agmdIdOut_din", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "agmdIdOut", "role": "din" }} , 
+ 	{ "name": "agmdIdOut_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "agmdIdOut", "role": "num_data_valid" }} , 
+ 	{ "name": "agmdIdOut_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "agmdIdOut", "role": "fifo_cap" }} , 
  	{ "name": "agmdIdOut_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "agmdIdOut", "role": "full_n" }} , 
  	{ "name": "agmdIdOut_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "agmdIdOut", "role": "write" }} , 
  	{ "name": "agmdpayloadLenOut_din", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "agmdpayloadLenOut", "role": "din" }} , 
+ 	{ "name": "agmdpayloadLenOut_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "agmdpayloadLenOut", "role": "num_data_valid" }} , 
+ 	{ "name": "agmdpayloadLenOut_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "agmdpayloadLenOut", "role": "fifo_cap" }} , 
  	{ "name": "agmdpayloadLenOut_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "agmdpayloadLenOut", "role": "full_n" }} , 
  	{ "name": "agmdpayloadLenOut_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "agmdpayloadLenOut", "role": "write" }} , 
  	{ "name": "start_out", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "start_out", "role": "default" }} , 
@@ -93,7 +109,7 @@ set NewPortList {[
  	{ "name": "DataInApp_TDEST", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "DataInApp_V_dest_V", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6"],
 		"CDFG" : "appGetMetaData",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "1",
@@ -108,16 +124,16 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "1",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "DataInApp_V_data_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "DataInApp_V_data_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "DataInApp",
 				"BlockSignal" : [
 					{"Name" : "DataInApp_TDATA_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "DataInApp_V_keep_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "DataInApp_V_strb_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "DataInApp_V_user_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "DataInApp_V_last_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "DataInApp_V_dest_V", "Type" : "Axis", "Direction" : "I"},
+			{"Name" : "DataInApp_V_keep_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "DataInApp"},
+			{"Name" : "DataInApp_V_strb_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "DataInApp"},
+			{"Name" : "DataInApp_V_user_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "DataInApp"},
+			{"Name" : "DataInApp_V_last_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "DataInApp"},
+			{"Name" : "DataInApp_V_dest_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "DataInApp"},
 			{"Name" : "agmd_state", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "lenCount_V", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "lenCount", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "agmdDataOut", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "256", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "agmdDataOut_blk_n", "Type" : "RtlSignal"}]},
@@ -127,28 +143,12 @@ set RtlHierarchyInfo {[
 			{"Name" : "agmdpayloadLenOut", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "256", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "agmdpayloadLenOut_blk_n", "Type" : "RtlSignal"}]}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_keep2len_fu_121", "Parent" : "0",
-		"CDFG" : "keep2len",
-		"Protocol" : "ap_ctrl_hs",
-		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "1", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0", "real_start" : "0",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "1",
-		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
-		"Combinational" : "1",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"HasSubDataflow" : "0",
-		"InDataflowNetwork" : "0",
-		"HasNonBlockingOperation" : "0",
-		"IsBlackBox" : "0",
-		"Port" : [
-			{"Name" : "keepValue", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_DataInApp_V_data_V_U", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_DataInApp_V_keep_V_U", "Parent" : "0"},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_DataInApp_V_strb_V_U", "Parent" : "0"},
-	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_DataInApp_V_user_V_U", "Parent" : "0"},
-	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_DataInApp_V_last_V_U", "Parent" : "0"},
-	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_DataInApp_V_dest_V_U", "Parent" : "0"}]}
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_DataInApp_V_data_V_U", "Parent" : "0"},
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_DataInApp_V_keep_V_U", "Parent" : "0"},
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_DataInApp_V_strb_V_U", "Parent" : "0"},
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_DataInApp_V_user_V_U", "Parent" : "0"},
+	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_DataInApp_V_last_V_U", "Parent" : "0"},
+	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.regslice_both_DataInApp_V_dest_V_U", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -160,12 +160,10 @@ set ArgLastReadFirstWriteLatency {
 		DataInApp_V_last_V {Type I LastRead 0 FirstWrite -1}
 		DataInApp_V_dest_V {Type I LastRead 0 FirstWrite -1}
 		agmd_state {Type IO LastRead -1 FirstWrite -1}
-		lenCount_V {Type IO LastRead -1 FirstWrite -1}
+		lenCount {Type IO LastRead -1 FirstWrite -1}
 		agmdDataOut {Type O LastRead 0 FirstWrite 0}
 		agmdIdOut {Type O LastRead -1 FirstWrite 1}
-		agmdpayloadLenOut {Type O LastRead -1 FirstWrite 1}}
-	keep2len {
-		keepValue {Type I LastRead 0 FirstWrite -1}}}
+		agmdpayloadLenOut {Type O LastRead -1 FirstWrite 1}}}
 
 set hasDtUnsupportedChannel 0
 
@@ -185,7 +183,7 @@ set Spec2ImplPortList {
 	DataInApp_V_user_V { axis {  { DataInApp_TUSER in_data 0 96 } } }
 	DataInApp_V_last_V { axis {  { DataInApp_TLAST in_data 0 1 } } }
 	DataInApp_V_dest_V { axis {  { DataInApp_TVALID in_vld 0 1 }  { DataInApp_TREADY in_acc 1 1 }  { DataInApp_TDEST in_data 0 16 } } }
-	agmdDataOut { ap_fifo {  { agmdDataOut_din fifo_data 1 1024 }  { agmdDataOut_full_n fifo_status 0 1 }  { agmdDataOut_write fifo_update 1 1 } } }
-	agmdIdOut { ap_fifo {  { agmdIdOut_din fifo_data 1 16 }  { agmdIdOut_full_n fifo_status 0 1 }  { agmdIdOut_write fifo_update 1 1 } } }
-	agmdpayloadLenOut { ap_fifo {  { agmdpayloadLenOut_din fifo_data 1 16 }  { agmdpayloadLenOut_full_n fifo_status 0 1 }  { agmdpayloadLenOut_write fifo_update 1 1 } } }
+	agmdDataOut { ap_fifo {  { agmdDataOut_din fifo_port_we 1 1024 }  { agmdDataOut_num_data_valid fifo_status_num_data_valid 0 9 }  { agmdDataOut_fifo_cap fifo_update 0 9 }  { agmdDataOut_full_n fifo_status 0 1 }  { agmdDataOut_write fifo_data 1 1 } } }
+	agmdIdOut { ap_fifo {  { agmdIdOut_din fifo_port_we 1 16 }  { agmdIdOut_num_data_valid fifo_status_num_data_valid 0 9 }  { agmdIdOut_fifo_cap fifo_update 0 9 }  { agmdIdOut_full_n fifo_status 0 1 }  { agmdIdOut_write fifo_data 1 1 } } }
+	agmdpayloadLenOut { ap_fifo {  { agmdpayloadLenOut_din fifo_port_we 1 16 }  { agmdpayloadLenOut_num_data_valid fifo_status_num_data_valid 0 9 }  { agmdpayloadLenOut_fifo_cap fifo_update 0 9 }  { agmdpayloadLenOut_full_n fifo_status 0 1 }  { agmdpayloadLenOut_write fifo_data 1 1 } } }
 }

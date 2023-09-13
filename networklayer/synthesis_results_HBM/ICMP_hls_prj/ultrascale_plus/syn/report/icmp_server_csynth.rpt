@@ -3,12 +3,12 @@
 ================================================================
 == Vitis HLS Report for 'icmp_server'
 ================================================================
-* Date:           Wed Mar  8 19:14:17 2023
+* Date:           Fri Sep  8 14:08:16 2023
 
-* Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+* Version:        2023.1 (Build 3854077 on May  4 2023)
 * Project:        ICMP_hls_prj
 * Solution:       ultrascale_plus (Vivado IP Flow Target)
-* Product family: virtexuplus
+* Product family: virtexuplusHBM
 * Target device:  xcu280-fsvh2892-2L-e
 
 
@@ -20,7 +20,7 @@
     +--------+---------+----------+------------+
     |  Clock |  Target | Estimated| Uncertainty|
     +--------+---------+----------+------------+
-    |ap_clk  |  3.10 ns|  2.373 ns|     0.20 ns|
+    |ap_clk  |  3.10 ns|  2.678 ns|     0.20 ns|
     +--------+---------+----------+------------+
 
 + Latency: 
@@ -49,14 +49,14 @@
 |         Name        | BRAM_18K|  DSP |    FF   |   LUT   | URAM|
 +---------------------+---------+------+---------+---------+-----+
 |DSP                  |        -|     -|        -|        -|    -|
-|Expression           |        -|     -|        0|      459|    -|
+|Expression           |        -|     -|        0|      496|    -|
 |FIFO                 |        -|     -|        -|        -|    -|
 |Instance             |        -|     -|        -|        -|    -|
 |Memory               |        -|     -|        -|        -|    -|
 |Multiplexer          |        -|     -|        -|      109|    -|
-|Register             |        -|     -|     1481|        -|    -|
+|Register             |        -|     -|     1498|        -|    -|
 +---------------------+---------+------+---------+---------+-----+
-|Total                |        0|     0|     1481|      568|    0|
+|Total                |        0|     0|     1498|      605|    0|
 +---------------------+---------+------+---------+---------+-----+
 |Available SLR        |     1344|  3008|   869120|   434560|  320|
 +---------------------+---------+------+---------+---------+-----+
@@ -84,50 +84,50 @@
     +----------------------------------+----------+----+---+----+------------+------------+
     |           Variable Name          | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
     +----------------------------------+----------+----+---+----+------------+------------+
-    |add_ln326_fu_680_p2               |         +|   0|  0|  24|          17|          12|
-    |add_ln45_fu_1098_p2               |         +|   0|  0|  16|          16|          16|
-    |checksumL4_o_V_fu_1104_p2         |         +|   0|  0|  16|          16|           1|
-    |checksumL4_r_V_fu_1092_p2         |         +|   0|  0|  24|          17|          17|
-    |icmpChecksumTmp_V_fu_960_p2       |         +|   0|  0|  23|          16|          16|
-    |ret_10_fu_708_p2                  |         +|   0|  0|  24|          17|          17|
-    |ret_11_fu_722_p2                  |         +|   0|  0|  24|          17|          17|
-    |ret_12_fu_736_p2                  |         +|   0|  0|  24|          17|          17|
-    |ret_13_fu_750_p2                  |         +|   0|  0|  24|          17|          17|
-    |ret_14_fu_764_p2                  |         +|   0|  0|  24|          17|          17|
-    |ret_15_fu_778_p2                  |         +|   0|  0|  25|          18|          18|
-    |ret_16_fu_792_p2                  |         +|   0|  0|  25|          18|          18|
-    |ret_17_fu_806_p2                  |         +|   0|  0|  26|          19|          19|
-    |ret_18_fu_1060_p2                 |         +|   0|  0|  27|          20|          20|
-    |and_ln170_1_fu_1029_p2            |       and|   0|  0|   2|           1|           1|
-    |and_ln170_2_fu_1034_p2            |       and|   0|  0|   2|           1|           1|
-    |and_ln170_fu_1024_p2              |       and|   0|  0|   2|           1|           1|
+    |add_ln160_fu_616_p2               |         +|   0|  0|  24|          17|          12|
+    |add_ln45_fu_1105_p2               |         +|   0|  0|  16|          16|          16|
+    |add_ln61_fu_1054_p2               |         +|   0|  0|  26|          19|          19|
+    |checksumL1_1_fu_730_p2            |         +|   0|  0|  24|          17|          17|
+    |checksumL1_2_fu_744_p2            |         +|   0|  0|  24|          17|          17|
+    |checksumL1_3_fu_758_p2            |         +|   0|  0|  24|          17|          17|
+    |checksumL1_4_fu_772_p2            |         +|   0|  0|  24|          17|          17|
+    |checksumL1_fu_716_p2              |         +|   0|  0|  24|          17|          17|
+    |checksumL2_1_fu_800_p2            |         +|   0|  0|  25|          18|          18|
+    |checksumL2_fu_786_p2              |         +|   0|  0|  25|          18|          18|
+    |checksumL3_fu_1067_p2             |         +|   0|  0|  27|          20|          20|
+    |checksumL4_o_fu_1111_p2           |         +|   0|  0|  16|          16|           1|
+    |checksumL4_r_fu_1099_p2           |         +|   0|  0|  24|          17|          17|
+    |icmpChecksumTmp_fu_954_p2         |         +|   0|  0|  23|          16|          16|
+    |and_ln170_1_fu_1023_p2            |       and|   0|  0|   2|           1|           1|
+    |and_ln170_2_fu_1028_p2            |       and|   0|  0|   2|           1|           1|
+    |and_ln170_fu_1018_p2              |       and|   0|  0|   2|           1|           1|
     |ap_condition_292                  |       and|   0|  0|   2|           1|           1|
-    |ap_condition_901                  |       and|   0|  0|   2|           1|           1|
-    |ap_condition_906                  |       and|   0|  0|   2|           1|           1|
-    |ap_condition_911                  |       and|   0|  0|   2|           1|           1|
+    |ap_condition_900                  |       and|   0|  0|   2|           1|           1|
+    |ap_condition_905                  |       and|   0|  0|   2|           1|           1|
+    |ap_condition_910                  |       and|   0|  0|   2|           1|           1|
     |ap_predicate_op12_read_state1     |       and|   0|  0|   2|           1|           1|
-    |ap_predicate_op161_write_state2   |       and|   0|  0|   2|           1|           1|
-    |ap_predicate_op181_write_state3   |       and|   0|  0|   2|           1|           1|
+    |ap_predicate_op160_write_state2   |       and|   0|  0|   2|           1|           1|
+    |ap_predicate_op183_write_state3   |       and|   0|  0|   2|           1|           1|
     |ap_predicate_op26_read_state1     |       and|   0|  0|   2|           1|           1|
     |ap_predicate_op38_read_state1     |       and|   0|  0|   2|           1|           1|
-    |grp_nbreadreq_fu_212_p6           |       and|   0|  0|   2|           1|           0|
-    |icmp_ln1064_1_fu_316_p2           |      icmp|   0|  0|  11|           8|           4|
-    |icmp_ln1064_2_fu_322_p2           |      icmp|   0|  0|  11|           8|           1|
-    |icmp_ln1064_3_fu_1018_p2          |      icmp|   0|  0|  13|          16|           1|
-    |icmp_ln1064_fu_1013_p2            |      icmp|   0|  0|  20|          32|          32|
+    |grp_nbreadreq_fu_220_p6           |       and|   0|  0|   2|           1|           0|
+    |icmp_ln170_1_fu_324_p2            |      icmp|   0|  0|  15|           8|           4|
+    |icmp_ln170_2_fu_330_p2            |      icmp|   0|  0|  15|           8|           1|
+    |icmp_ln170_3_fu_1012_p2           |      icmp|   0|  0|  23|          16|           1|
+    |icmp_ln170_fu_1007_p2             |      icmp|   0|  0|  39|          32|          32|
     |ap_block_pp0_stage0_01001         |        or|   0|  0|   2|           1|           1|
     |ap_block_pp0_stage0_11001         |        or|   0|  0|   2|           1|           1|
     |ap_block_state1_pp0_stage0_iter0  |        or|   0|  0|   2|           1|           1|
     |ap_block_state2_io                |        or|   0|  0|   2|           1|           1|
     |ap_block_state3_io                |        or|   0|  0|   2|           1|           1|
     |ap_block_state3_pp0_stage0_iter2  |        or|   0|  0|   2|           1|           1|
-    |select_ln170_fu_1040_p3           |    select|   0|  0|   4|           1|           2|
-    |select_ln202_fu_302_p3            |    select|   0|  0|   2|           1|           1|
-    |select_ln819_fu_1122_p3           |    select|   0|  0|  16|           1|          16|
+    |select_ln170_fu_1034_p3           |    select|   0|  0|   4|           1|           2|
+    |select_ln202_fu_310_p3            |    select|   0|  0|   2|           1|           1|
+    |select_ln66_fu_1129_p3            |    select|   0|  0|  16|           1|          16|
     |ap_enable_pp0                     |       xor|   0|  0|   2|           1|           2|
-    |checksum_fu_1130_p2               |       xor|   0|  0|  16|          16|           2|
+    |checksum_fu_1137_p2               |       xor|   0|  0|  16|          16|           2|
     +----------------------------------+----------+----+---+----+------------+------------+
-    |Total                             |          |   0|  0| 459|         345|         301|
+    |Total                             |          |   0|  0| 496|         345|         301|
     +----------------------------------+----------+----+---+----+------------+------------+
 
     * Multiplexer: 
@@ -151,37 +151,38 @@
     |                  Name                  |  FF | LUT| Bits| Const Bits|
     +----------------------------------------+-----+----+-----+-----------+
     |aiFSMState                              |    3|   0|    3|          0|
-    |aiFSMState_load_reg_1142                |    3|   0|    3|          0|
-    |aiFSMState_load_reg_1142_pp0_iter1_reg  |    3|   0|    3|          0|
+    |aiFSMState_load_reg_1149                |    3|   0|    3|          0|
+    |aiFSMState_load_reg_1149_pp0_iter1_reg  |    3|   0|    3|          0|
     |ap_CS_fsm                               |    1|   0|    1|          0|
     |ap_enable_reg_pp0_iter1                 |    1|   0|    1|          0|
     |ap_enable_reg_pp0_iter2                 |    1|   0|    1|          0|
-    |auxInchecksum_r_V                       |   16|   0|   16|          0|
-    |currWord_last_V_reg_1151                |    1|   0|    1|          0|
-    |icmpChecksum_V                          |   17|   0|   17|          0|
-    |icmpCode_V                              |    8|   0|    8|          0|
-    |icmpType_V                              |    8|   0|    8|          0|
-    |icmp_ln1064_1_reg_1162                  |    1|   0|    1|          0|
-    |icmp_ln1064_2_reg_1167                  |    1|   0|    1|          0|
-    |ipDestination_V                         |   32|   0|   32|          0|
-    |ipDestination_V_load_reg_1146           |   32|   0|   32|          0|
-    |myIpAddress_0_data_reg                  |   32|   0|   32|          0|
-    |myIpAddress_0_vld_reg                   |    0|   0|    1|          1|
-    |prevWord_data_V                         |  512|   0|  512|          0|
-    |prevWord_keep_V                         |   64|   0|   64|          0|
-    |prevWord_last_V                         |    1|   0|    1|          0|
-    |prevWord_strb_V                         |   64|   0|   64|          0|
-    |ret_14_reg_1200                         |   17|   0|   17|          0|
-    |ret_17_reg_1205                         |   19|   0|   19|          0|
-    |tmp_1_reg_1172                          |    1|   0|    1|          0|
-    |tmp_1_reg_1172_pp0_iter1_reg            |    1|   0|    1|          0|
-    |tmp_data_V_3_reg_1176                   |  512|   0|  512|          0|
-    |tmp_keep_V_3_reg_1181                   |   64|   0|   64|          0|
-    |tmp_last_V_3_reg_1191                   |    1|   0|    1|          0|
-    |tmp_reg_1196                            |    1|   0|    1|          0|
-    |tmp_strb_V_3_reg_1186                   |   64|   0|   64|          0|
+    |auxInchecksum_r                         |   16|   0|   16|          0|
+    |checksumL1_4_reg_1207                   |   17|   0|   17|          0|
+    |checksumL2_1_reg_1217                   |   18|   0|   18|          0|
+    |checksumL2_reg_1212                     |   18|   0|   18|          0|
+    |currWord_data_9_reg_1183                |  512|   0|  512|          0|
+    |currWord_keep_2_reg_1188                |   64|   0|   64|          0|
+    |currWord_last_2_reg_1198                |    1|   0|    1|          0|
+    |currWord_last_reg_1158                  |    1|   0|    1|          0|
+    |currWord_strb_2_reg_1193                |   64|   0|   64|          0|
+    |icmpChecksum                            |   17|   0|   17|          0|
+    |icmpCode                                |    8|   0|    8|          0|
+    |icmpType                                |    8|   0|    8|          0|
+    |icmp_ln170_1_reg_1169                   |    1|   0|    1|          0|
+    |icmp_ln170_2_reg_1174                   |    1|   0|    1|          0|
+    |ipDestination                           |   32|   0|   32|          0|
+    |ipDestination_load_reg_1153             |   32|   0|   32|          0|
+    |myIpAddress_0_0_data_reg                |   32|   0|   32|          0|
+    |myIpAddress_0_0_vld_reg                 |    0|   0|    1|          1|
+    |prevWord_data                           |  512|   0|  512|          0|
+    |prevWord_keep                           |   64|   0|   64|          0|
+    |prevWord_last                           |    1|   0|    1|          0|
+    |prevWord_strb                           |   64|   0|   64|          0|
+    |tmp_7_reg_1179                          |    1|   0|    1|          0|
+    |tmp_7_reg_1179_pp0_iter1_reg            |    1|   0|    1|          0|
+    |tmp_reg_1203                            |    1|   0|    1|          0|
     +----------------------------------------+-----+----+-----+-----------+
-    |Total                                   | 1481|   0| 1482|          1|
+    |Total                                   | 1498|   0| 1499|          1|
     +----------------------------------------+-----+----+-----+-----------+
 
 
@@ -193,8 +194,6 @@
 +--------------------+-----+-----+--------------+----------------------+--------------+
 |      RTL Ports     | Dir | Bits|   Protocol   |     Source Object    |    C Type    |
 +--------------------+-----+-----+--------------+----------------------+--------------+
-|ap_local_block      |  out|    1|  ap_ctrl_none|           icmp_server|  return value|
-|ap_local_deadlock   |  out|    1|  ap_ctrl_none|           icmp_server|  return value|
 |ap_clk              |   in|    1|  ap_ctrl_none|           icmp_server|  return value|
 |ap_rst_n            |   in|    1|  ap_ctrl_none|           icmp_server|  return value|
 |s_axis_icmp_TDATA   |   in|  512|          axis|  s_axis_icmp_V_data_V|       pointer|
@@ -203,7 +202,7 @@
 |s_axis_icmp_TLAST   |   in|    1|          axis|  s_axis_icmp_V_last_V|       pointer|
 |s_axis_icmp_TKEEP   |   in|   64|          axis|  s_axis_icmp_V_keep_V|       pointer|
 |s_axis_icmp_TSTRB   |   in|   64|          axis|  s_axis_icmp_V_strb_V|       pointer|
-|myIpAddress         |   in|   32|     ap_stable|           myIpAddress|       pointer|
+|myIpAddress_0       |   in|   32|     ap_stable|         myIpAddress_0|       pointer|
 |m_axis_icmp_TDATA   |  out|  512|          axis|  m_axis_icmp_V_data_V|       pointer|
 |m_axis_icmp_TVALID  |  out|    1|          axis|  m_axis_icmp_V_last_V|       pointer|
 |m_axis_icmp_TREADY  |   in|    1|          axis|  m_axis_icmp_V_last_V|       pointer|

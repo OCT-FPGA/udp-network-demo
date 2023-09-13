@@ -1,0 +1,123 @@
+{
+  "0": {
+    "basicblocks": 3,
+    "calls": "6 1",
+    "file": "packet_handler.cpp",
+    "fileloc": 275,
+    "instructions": 21,
+    "loads": {
+      "G": 1
+    },
+    "name": "packet_handler",
+    "stores": {
+      "G": 1
+    },
+    "total_instructions": 3081
+  },
+  "1": {
+    "basicblocks": 30,
+    "calls": "3 3",
+    "file": "packet_handler.cpp",
+    "fileloc": 51,
+    "instructions": 295,
+    "loads": {
+      "G": 4,
+      "L": 16
+    },
+    "name": "ethernet_remover",
+    "stores": {
+      "G": 10,
+      "L": 16
+    },
+    "total_instructions": 1734
+  },
+  "10": {
+    "basicblocks": 1,
+    "calls": "9 7 5 4 2",
+    "file": "packet_handler.pp.0.cpp",
+    "fileloc": 0,
+    "instructions": 6,
+    "name": "",
+    "total_instructions": 101
+  },
+  "2": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "packet_handler.hpp",
+    "fileloc": 57,
+    "instructions": 2,
+    "name": "__cxx_global_var_init.5",
+    "total_instructions": 19
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "packet_handler.hpp",
+    "fileloc": 64,
+    "instructions": 9,
+    "name": "axiWordi",
+    "total_instructions": 37
+  },
+  "4": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "packet_handler.hpp",
+    "fileloc": 56,
+    "instructions": 2,
+    "name": "__cxx_global_var_init.4",
+    "total_instructions": 19
+  },
+  "5": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "packet_handler.hpp",
+    "fileloc": 55,
+    "instructions": 2,
+    "name": "__cxx_global_var_init.3",
+    "total_instructions": 19
+  },
+  "6": {
+    "basicblocks": 39,
+    "calls": "3 8",
+    "file": "packet_handler.cpp",
+    "fileloc": 168,
+    "instructions": 246,
+    "loads": {
+      "G": 3,
+      "L": 16
+    },
+    "name": "packet_identification",
+    "stores": {
+      "G": 7,
+      "L": 16
+    },
+    "total_instructions": 1323
+  },
+  "7": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "packet_handler.hpp",
+    "fileloc": 53,
+    "instructions": 2,
+    "name": "__cxx_global_var_init.2",
+    "total_instructions": 19
+  },
+  "8": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "packet_handler.cpp",
+    "fileloc": 39,
+    "instructions": 18,
+    "name": "byteSwap16",
+    "total_instructions": 235
+  },
+  "9": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "packet_handler.hpp",
+    "fileloc": 52,
+    "instructions": 2,
+    "name": "__cxx_global_var_init.1",
+    "total_instructions": 19
+  }
+}

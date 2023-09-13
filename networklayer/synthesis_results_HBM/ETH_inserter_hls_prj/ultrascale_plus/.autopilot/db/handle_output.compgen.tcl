@@ -113,7 +113,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_myMacAddress \
     op interface \
-    ports { myMacAddress_dout { I 48 vector } myMacAddress_empty_n { I 1 bit } myMacAddress_read { O 1 bit } } \
+    ports { myMacAddress_dout { I 48 vector } myMacAddress_num_data_valid { I 3 vector } myMacAddress_fifo_cap { I 3 vector } myMacAddress_empty_n { I 1 bit } myMacAddress_read { O 1 bit } } \
 } "
 }
 
@@ -128,7 +128,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_ip_header_checksum \
     op interface \
-    ports { ip_header_checksum_dout { I 1024 vector } ip_header_checksum_empty_n { I 1 bit } ip_header_checksum_read { O 1 bit } } \
+    ports { ip_header_checksum_dout { I 1024 vector } ip_header_checksum_num_data_valid { I 5 vector } ip_header_checksum_fifo_cap { I 5 vector } ip_header_checksum_empty_n { I 1 bit } ip_header_checksum_read { O 1 bit } } \
 } "
 }
 
@@ -143,7 +143,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_no_ip_header_out \
     op interface \
-    ports { no_ip_header_out_dout { I 1024 vector } no_ip_header_out_empty_n { I 1 bit } no_ip_header_out_read { O 1 bit } } \
+    ports { no_ip_header_out_dout { I 1024 vector } no_ip_header_out_num_data_valid { I 5 vector } no_ip_header_out_fifo_cap { I 5 vector } no_ip_header_out_empty_n { I 1 bit } no_ip_header_out_read { O 1 bit } } \
 } "
 }
 

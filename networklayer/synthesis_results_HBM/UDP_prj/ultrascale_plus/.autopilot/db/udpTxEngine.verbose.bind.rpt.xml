@@ -1,12 +1,12 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'udpTxEngine'" level="0">
-<item name = "Date">Wed Mar  8 19:15:04 2023
+<item name = "Date">Fri Sep  8 14:09:01 2023
 </item>
-<item name = "Version">2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)</item>
+<item name = "Version">2023.1 (Build 3854077 on May  4 2023)</item>
 <item name = "Project">UDP_prj</item>
 <item name = "Solution">ultrascale_plus (Vivado IP Flow Target)</item>
-<item name = "Product family">virtexuplus</item>
+<item name = "Product family">virtexuplusHBM</item>
 <item name = "Target device">xcu280-fsvh2892-2L-e</item>
 </section>
 
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">2.50 ns, 1.935 ns, 0.20 ns</column>
+<column name="ap_clk">2.50 ns, 1.881 ns, 0.20 ns</column>
 </table>
 </item>
 </section>

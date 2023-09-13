@@ -54,14 +54,6 @@ arpTable_macAddress {
 	core_latency 1
 	byte_write 0
 }
-ap_local_deadlock { 
-	dir O
-	width 1
-	depth 1
-	mode ap_none
-	offset -1
-	offset_end -1
-}
 }
 dict set axilite_register_dict s_axilite $port_s_axilite
 

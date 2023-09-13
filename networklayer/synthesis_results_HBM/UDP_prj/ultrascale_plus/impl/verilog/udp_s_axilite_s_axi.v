@@ -1,6 +1,9 @@
 // ==============================================================
-// Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2021.2 (64-bit)
-// Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+// Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.1 (64-bit)
+// Tool Version Limit: 2023.05
+// Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+// Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+// 
 // ==============================================================
 `timescale 1ns/1ps
 module udp_s_axilite_s_axi
@@ -93,8 +96,7 @@ module udp_s_axilite_s_axi
     output wire [0:0]                    SocketTable_valid_14,
     output wire [0:0]                    SocketTable_valid_15,
     input  wire [15:0]                   numberSockets,
-    input  wire                          numberSockets_ap_vld,
-    input  wire [0:0]                    ap_local_deadlock
+    input  wire                          numberSockets_ap_vld
 );
 //------------------------Address Info-------------------
 // 0x000 : reserved

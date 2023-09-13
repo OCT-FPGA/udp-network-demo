@@ -1,12 +1,12 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'packet_handler'" level="0">
-<item name = "Date">Wed Mar  8 19:14:18 2023
+<item name = "Date">Fri Sep  8 14:08:16 2023
 </item>
-<item name = "Version">2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)</item>
+<item name = "Version">2023.1 (Build 3854077 on May  4 2023)</item>
 <item name = "Project">PKT_HANDLER_prj</item>
 <item name = "Solution">ultrascale_plus (Vivado IP Flow Target)</item>
-<item name = "Product family">virtexuplus</item>
+<item name = "Product family">virtexuplusHBM</item>
 <item name = "Target device">xcu280-fsvh2892-2L-e</item>
 </section>
 
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">3.10 ns, 3.067 ns, 0.20 ns</column>
+<column name="ap_clk">3.10 ns, 3.140 ns, 0.20 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">4, 4, 12.400 ns, 12.400 ns, 1, 1, dataflow</column>
+<column name="">4, 4, 12.559 ns, 12.559 ns, 1, 1, dataflow</column>
 </table>
 </item>
 <item name = "Detail">

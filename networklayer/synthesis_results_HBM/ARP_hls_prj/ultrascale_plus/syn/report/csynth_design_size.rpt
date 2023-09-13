@@ -1,0 +1,40 @@
+================================================================
+== Design Size Report
+================================================================
+
+* Instructions per Function for each Compilation Phase
++---------------------+--------------------+--------------+---------------+----------------------+---------------+
+| Function            | Location           | Compile/Link | Unroll/Inline | Performance/Pipeline | Optimizations |
++---------------------+--------------------+--------------+---------------+----------------------+---------------+
+| + arp_server        | arp_server.cpp:355 | 4,537        | 578           | 351                  | 445           |
+|  + genARPDiscovery  | arp_server.cpp:257 |   793        | 121           |  73                  |  88           |
+|     arpTableEntry   | arp_server.hpp:68  |    28        |               |                      |               |
+|     arpTableReply   | arp_server.hpp:84  |    16        |   5           |                      |               |
+|  + arp_pkg_receiver | arp_server.cpp:44  | 1,245        | 134           |  68                  |  93           |
+|     arpReplyMeta    | arp_server.hpp:98  |    73        |               |                      |               |
+|     arpTableEntry   | arp_server.hpp:69  |    10        |   7           |                      |               |
+|  + arp_pkg_sender   | arp_server.cpp:99  | 2,062        | 175           | 125                  | 123           |
+|     arpReplyMeta    | arp_server.hpp:98  |    73        |               |                      |               |
+|  + arp_table        | arp_server.cpp:204 |   347        |  77           |  54                  |  78           |
+|     arpTableEntry   | arp_server.hpp:68  |    28        |               |                      |               |
+|     get_id          | arp_server.hpp:72  |    59        |   5           |                      |               |
++---------------------+--------------------+--------------+---------------+----------------------+---------------+
+
+* Description of Compilation Phases
++----------------------+------------------------------------------------------------+
+| Compilation Phase    | Description                                                |
++----------------------+------------------------------------------------------------+
+| Compile/Link         | All functions are compiled and linked into a single design |
+| Unroll/Inline        | After user unroll and inline pragmas are applied           |
+| Performance/Pipeline | After performance and pipeline pragmas are applied         |
+| Optimizations        | After high level synthesis optimizations                   |
++----------------------+------------------------------------------------------------+
+
+* Design Size Message Settings
++---------------------------------------------+--------+------------------------------------------------------------------+
+| Message Setting                             | Value  | Description                                                      |
++---------------------------------------------+--------+------------------------------------------------------------------+
+| config_compile -design_size_maximum_warning | 100000 | Show a warning when total design instructions exceeds this value |
++---------------------------------------------+--------+------------------------------------------------------------------+
+
+

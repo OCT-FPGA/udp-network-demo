@@ -1,6 +1,9 @@
 ==============================================================
-Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2021.2 (64-bit)
-Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.1 (64-bit)
+Tool Version Limit: 2023.05
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
 ==============================================================
 INFO: [HLS 200-1505] Using default flow_target 'vivado'
 INFO: [HLS 200-1510] Running: set_part xcu280-fsvh2892-2L-e 
@@ -10,36 +13,85 @@ INFO: [SYN 201-201] Setting up clock 'default' with a period of 3.1ns.
 INFO: [HLS 200-1510] Running: set_clock_uncertainty 0.2 
 INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.2ns.
 INFO: [HLS 200-1510] Running: csynth_design 
-INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 1.115 GB.
+WARNING: [HLS 200-1998] cannot find relative file path '../../hls/TOE/testbench' in directory(s): /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/ICMP_hls_prj/solution /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM
+WARNING: [HLS 200-1998] cannot find relative file path '../../hls/TOE/testbench' in directory(s): /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/ICMP_hls_prj/solution /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM
+WARNING: [HLS 200-1998] cannot find relative file path '../../hls/TOE/testbench' in directory(s): /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/ICMP_hls_prj/solution /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.06 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.07 seconds; current allocated memory: 1.189 GB.
 INFO: [HLS 200-10] Analyzing design file '/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp' ... 
-WARNING: [HLS 207-5524] 'Ap_stable' in '#pragma HLS INTERFACE' is deprecated, use 'Stable Pragma' instead (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:129:23)
-INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 7.33 seconds. CPU system time: 1.09 seconds. Elapsed time: 11.92 seconds; current allocated memory: 206.441 MB.
+WARNING: [HLS 207-5532] 'Ap_stable' in '#pragma HLS INTERFACE' is deprecated, use 'Stable Pragma' instead (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:129:23)
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 5.13 seconds. CPU system time: 1 seconds. Elapsed time: 6.19 seconds; current allocated memory: 1.191 GB.
 INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
-INFO: [HLS 214-284] Auto array partition mode is set into default.
+INFO: [HLS 200-1995] There were 4,264 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/ICMP_hls_prj/ultrascale_plus/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 615 instructions in the design after the 'Unroll/Inline' phase of compilation. See the Design Size Report for more details: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/ICMP_hls_prj/ultrascale_plus/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 412 instructions in the design after the 'Performance/Pipeline' phase of compilation. See the Design Size Report for more details: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/ICMP_hls_prj/ultrascale_plus/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 396 instructions in the design after the 'Optimizations' phase of compilation. See the Design Size Report for more details: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/ICMP_hls_prj/ultrascale_plus/syn/report/csynth_design_size.rpt
 INFO: [HLS 214-131] Inlining function 'computeCheckSum20B(ap_uint<160>)' into 'icmp_server(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, ap_uint<32>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:161:35)
 INFO: [HLS 214-291] Loop 'sumElementsL1' is marked as complete unroll implied by the pipeline pragma (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:54:21)
 INFO: [HLS 214-291] Loop 'assign2array' is marked as complete unroll implied by the pipeline pragma (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:49:19)
 INFO: [HLS 214-291] Loop 'VITIS_LOOP_152_1' is marked as complete unroll implied by the pipeline pragma (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:152:35)
-INFO: [HLS 214-291] Loop 'VITIS_LOOP_193_2' is marked as complete unroll implied by the pipeline pragma (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:193:31)
 INFO: [HLS 214-186] Unrolling loop 'sumElementsL1' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:54:21) in function 'icmp_server' completely with a factor of 5 (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:122:0)
 INFO: [HLS 214-186] Unrolling loop 'assign2array' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:49:19) in function 'icmp_server' completely with a factor of 10 (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:122:0)
 INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_152_1' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:152:35) in function 'icmp_server' completely with a factor of 20 (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:122:0)
-INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_193_2' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:193:31) in function 'icmp_server' completely with a factor of 20 (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:122:0)
-INFO: [HLS 214-241] Aggregating scalar variable 'myIpAddress' with compact=bit mode in 32-bits (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:122:0)
-INFO: [HLS 214-270] Starting automatic array partition analysis...
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint<512>s.i512' into 'icmp_server(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, ap_uint<32>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i1.s_struct.ap_uint<1>s' into 'icmp_server(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, ap_uint<32>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i64.s_struct.ap_uint<64>s' into 'icmp_server(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, ap_uint<32>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i512.s_struct.ap_uint<512>s' into 'icmp_server(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, ap_uint<32>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint<1>s.i1' into 'icmp_server(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, ap_uint<32>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint<64>s.i64' into 'icmp_server(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, ap_uint<32>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i16.s_struct.ap_uint<16>s' into 'icmp_server(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&, ap_uint<32>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 0ul>, 0>&)'
-INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 5.08 seconds. CPU system time: 0.61 seconds. Elapsed time: 8.15 seconds; current allocated memory: 207.688 MB.
-INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 207.688 MB.
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 3.43 seconds. CPU system time: 0.7 seconds. Elapsed time: 8.79 seconds; current allocated memory: 1.192 GB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 1.192 GB.
 INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.66 seconds; current allocated memory: 221.320 MB.
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.02 seconds; current allocated memory: 1.193 GB.
 INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.15 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.2 seconds; current allocated memory: 239.008 MB.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:166:13) in function 'icmp_server'... converting 4 basic blocks.
-INFO: [XFORM 203-11] Balancing expressions in function 'icmp_server' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:148:13)...3 expression(s) balanced.
-INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.24 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.26 seconds; current allocated memory: 277.477 MB.
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 1.195 GB.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:151:24) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:166:13) in function 'icmp_server'... converting 4 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'icmp_server' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/icmp_server/icmp_server.cpp:51:13)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.1 seconds; current allocated memory: 1.217 GB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 1.217 GB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'icmp_server' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'icmp_server' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'icmp_server'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, function 'icmp_server'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.2 seconds. CPU system time: 0.04 seconds. Elapsed time: 0.27 seconds; current allocated memory: 1.217 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.06 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 1.217 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'icmp_server' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'icmp_server/s_axis_icmp_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'icmp_server/s_axis_icmp_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'icmp_server/s_axis_icmp_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'icmp_server/s_axis_icmp_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'icmp_server/myIpAddress_0' to 'ap_stable' (register).
+INFO: [RTGEN 206-500] Setting interface mode on port 'icmp_server/m_axis_icmp_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'icmp_server/m_axis_icmp_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'icmp_server/m_axis_icmp_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'icmp_server/m_axis_icmp_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on function 'icmp_server' to 'ap_ctrl_none'.
+WARNING: [RTGEN 206-101] Register 'aiFSMState' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'ipDestination' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'icmpType' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'icmpCode' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'auxInchecksum_r' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'prevWord_last' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'icmpChecksum' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'prevWord_data' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'prevWord_keep' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'prevWord_strb' is power-on initialization.
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'icmp_server' pipeline 'icmp_server' pipeline type 'function pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'icmp_server'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 1.217 GB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.71 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.77 seconds; current allocated memory: 1.219 GB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.17 seconds. CPU system time: 0 seconds. Elapsed time: 0.17 seconds; current allocated memory: 1.220 GB.
+INFO: [VHDL 208-304] Generating VHDL RTL for icmp_server.
+INFO: [VLOG 209-307] Generating Verilog RTL for icmp_server.
+INFO: [HLS 200-789] **** Estimated Fmax: 373.46 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 10.01 seconds. CPU system time: 1.8 seconds. Elapsed time: 16.62 seconds; current allocated memory: 32.016 MB.
+INFO: [HLS 200-1510] Running: export_design -rtl verilog -format ip_catalog 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+INFO: [HLS 200-802] Generated output file ICMP_hls_prj/ultrascale_plus/impl/export.zip
+INFO: [HLS 200-111] Finished Command export_design CPU user time: 13.65 seconds. CPU system time: 1.42 seconds. Elapsed time: 14.21 seconds; current allocated memory: 6.156 MB.

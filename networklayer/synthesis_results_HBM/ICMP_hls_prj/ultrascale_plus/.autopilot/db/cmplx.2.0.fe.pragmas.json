@@ -1,0 +1,20 @@
+{
+  "0": {
+    "basicblocks": 64,
+    "calls": "",
+    "file": "icmp_server.cpp",
+    "fileloc": 119,
+    "instructions": 615,
+    "loads": {
+      "G": 23,
+      "L": 22,
+      "T": 1
+    },
+    "name": "icmp_server",
+    "stores": {
+      "G": 26,
+      "L": 35
+    },
+    "total_instructions": 615
+  }
+}

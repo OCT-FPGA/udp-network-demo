@@ -8,13 +8,13 @@
 <InstName>packet_identification_U0</InstName>
 <ModuleName>packet_identification</ModuleName>
 <IsCompInst>true</IsCompInst>
-<ID>72</ID>
+<ID>80</ID>
 </Instance>
 <Instance>
 <InstName>ethernet_remover_U0</InstName>
 <ModuleName>ethernet_remover</ModuleName>
 <IsCompInst>true</IsCompInst>
-<ID>92</ID>
+<ID>100</ID>
 </Instance>
 </InstancesList>
 </TopModule>
@@ -28,7 +28,7 @@
 <TargetClockPeriod>3.10</TargetClockPeriod>
 <ClockUncertainty>0.20</ClockUncertainty>
 <TargetInitiationInterval>1</TargetInitiationInterval>
-<EstimatedClockPeriod>1.837</EstimatedClockPeriod>
+<EstimatedClockPeriod>1.450</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <Best-caseLatency>1</Best-caseLatency>
@@ -39,7 +39,7 @@
 <Worst-caseRealTimeLatency>3.100 ns</Worst-caseRealTimeLatency>
 <PipelineInitiationInterval>1</PipelineInitiationInterval>
 <PipelineDepth>2</PipelineDepth>
-<PipelineType>yes</PipelineType>
+<PipelineType>yes(flp)</PipelineType>
 </SummaryOfOverallLatency>
 </PerformanceEstimates>
 <AreaEstimates>
@@ -47,7 +47,7 @@
 <FF>620</FF>
 <AVAIL_FF>2607360</AVAIL_FF>
 <UTIL_FF>~0</UTIL_FF>
-<LUT>178</LUT>
+<LUT>230</LUT>
 <AVAIL_LUT>1303680</AVAIL_LUT>
 <UTIL_LUT>~0</UTIL_LUT>
 <BRAM_18K>0</BRAM_18K>
@@ -217,6 +217,28 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
+<name>eth_level_pkt_num_data_valid</name>
+<Object>eth_level_pkt</Object>
+<Type>pointer</Type>
+<Scope>global</Scope>
+<IOProtocol>ap_fifo</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>5</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>eth_level_pkt_fifo_cap</name>
+<Object>eth_level_pkt</Object>
+<Type>pointer</Type>
+<Scope>global</Scope>
+<IOProtocol>ap_fifo</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>5</Bits>
+<Attribute>unknown</Attribute>
+</RtlPorts>
+<RtlPorts>
 <name>eth_level_pkt_full_n</name>
 <Object>eth_level_pkt</Object>
 <Type>pointer</Type>
@@ -291,26 +313,26 @@
 <TargetClockPeriod>3.10</TargetClockPeriod>
 <ClockUncertainty>0.20</ClockUncertainty>
 <TargetInitiationInterval>1</TargetInitiationInterval>
-<EstimatedClockPeriod>3.067</EstimatedClockPeriod>
+<EstimatedClockPeriod>3.140</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <Best-caseLatency>2</Best-caseLatency>
 <Average-caseLatency>2</Average-caseLatency>
 <Worst-caseLatency>2</Worst-caseLatency>
-<Best-caseRealTimeLatency>6.200 ns</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>6.200 ns</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>6.200 ns</Worst-caseRealTimeLatency>
+<Best-caseRealTimeLatency>6.279 ns</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>6.279 ns</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>6.279 ns</Worst-caseRealTimeLatency>
 <PipelineInitiationInterval>1</PipelineInitiationInterval>
 <PipelineDepth>3</PipelineDepth>
-<PipelineType>yes</PipelineType>
+<PipelineType>yes(flp)</PipelineType>
 </SummaryOfOverallLatency>
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<FF>2462</FF>
+<FF>2464</FF>
 <AVAIL_FF>2607360</AVAIL_FF>
 <UTIL_FF>~0</UTIL_FF>
-<LUT>740</LUT>
+<LUT>764</LUT>
 <AVAIL_LUT>1303680</AVAIL_LUT>
 <UTIL_LUT>~0</UTIL_LUT>
 <BRAM_18K>0</BRAM_18K>
@@ -412,6 +434,28 @@
 <Dir>in</Dir>
 <Bits>1024</Bits>
 <Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>eth_level_pkt_num_data_valid</name>
+<Object>eth_level_pkt</Object>
+<Type>pointer</Type>
+<Scope>global</Scope>
+<IOProtocol>ap_fifo</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>5</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>eth_level_pkt_fifo_cap</name>
+<Object>eth_level_pkt</Object>
+<Type>pointer</Type>
+<Scope>global</Scope>
+<IOProtocol>ap_fifo</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>5</Bits>
+<Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>
 <name>eth_level_pkt_empty_n</name>
@@ -520,15 +564,15 @@
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>3.10</TargetClockPeriod>
 <ClockUncertainty>0.20</ClockUncertainty>
-<EstimatedClockPeriod>3.067</EstimatedClockPeriod>
+<EstimatedClockPeriod>3.140</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <Best-caseLatency>4</Best-caseLatency>
 <Average-caseLatency>4</Average-caseLatency>
 <Worst-caseLatency>4</Worst-caseLatency>
-<Best-caseRealTimeLatency>12.400 ns</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>12.400 ns</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>12.400 ns</Worst-caseRealTimeLatency>
+<Best-caseRealTimeLatency>12.559 ns</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>12.559 ns</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>12.559 ns</Worst-caseRealTimeLatency>
 <DataflowPipelineThroughput>1</DataflowPipelineThroughput>
 <PipelineInitiationInterval>1</PipelineInitiationInterval>
 <PipelineType>dataflow</PipelineType>
@@ -539,10 +583,10 @@
 <BRAM_18K>0</BRAM_18K>
 <AVAIL_BRAM>4032</AVAIL_BRAM>
 <UTIL_BRAM>0</UTIL_BRAM>
-<FF>6174</FF>
+<FF>6176</FF>
 <AVAIL_FF>2607360</AVAIL_FF>
 <UTIL_FF>~0</UTIL_FF>
-<LUT>2575</LUT>
+<LUT>2651</LUT>
 <AVAIL_LUT>1303680</AVAIL_LUT>
 <UTIL_LUT>~0</UTIL_LUT>
 <DSP>0</DSP>
@@ -554,50 +598,6 @@
 </Resources>
 </AreaEstimates>
 <InterfaceSummary>
-<RtlPorts>
-<name>ap_local_block</name>
-<Object>packet_handler</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_none</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>unknown</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>ap_local_deadlock</name>
-<Object>packet_handler</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_none</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>unknown</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>ap_clk</name>
-<Object>packet_handler</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_none</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>ap_rst_n</name>
-<Object>packet_handler</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_none</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
 <RtlPorts>
 <name>s_axis_TDATA</name>
 <Object>s_axis_V_data_V</Object>
@@ -765,6 +765,28 @@
 <Bits>1</Bits>
 <Attribute>control</Attribute>
 <CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>ap_clk</name>
+<Object>packet_handler</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_none</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_rst_n</name>
+<Object>packet_handler</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_none</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
 </RtlPorts>
 </InterfaceSummary>
 </Module>

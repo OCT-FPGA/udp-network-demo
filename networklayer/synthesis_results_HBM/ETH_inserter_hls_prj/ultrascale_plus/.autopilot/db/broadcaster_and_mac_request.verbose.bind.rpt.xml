@@ -1,12 +1,12 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'broadcaster_and_mac_request'" level="0">
-<item name = "Date">Wed Mar  8 19:14:17 2023
+<item name = "Date">Fri Sep  8 14:08:16 2023
 </item>
-<item name = "Version">2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)</item>
+<item name = "Version">2023.1 (Build 3854077 on May  4 2023)</item>
 <item name = "Project">ETH_inserter_hls_prj</item>
 <item name = "Solution">ultrascale_plus (Vivado IP Flow Target)</item>
-<item name = "Product family">virtexuplus</item>
+<item name = "Product family">virtexuplusHBM</item>
 <item name = "Target device">xcu280-fsvh2892-2L-e</item>
 </section>
 

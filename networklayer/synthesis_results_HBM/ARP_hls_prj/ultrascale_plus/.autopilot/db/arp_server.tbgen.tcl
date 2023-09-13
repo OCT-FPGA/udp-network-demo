@@ -9,6 +9,9 @@ set isOneStateSeq 0
 set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
+set hasInterrupt 0
+set DLRegFirstOffset 0
+set DLRegItemOffset 0
 set C_modelName {arp_server}
 set C_modelType { void 0 }
 set C_modelArgList {
@@ -30,8 +33,8 @@ set C_modelArgList {
 	{ myIpAddress int 32 regular {pointer 0}  }
 	{ gatewayIP int 32 regular {pointer 0}  }
 	{ networkMask int 32 regular {pointer 0}  }
-	{ ap_local_deadlock int 1 unused {axi_slave 1}  }
 }
+set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "arpDataIn_V_data_V", "interface" : "axis", "bitwidth" : 512, "direction" : "READONLY"} , 
  	{ "Name" : "arpDataIn_V_keep_V", "interface" : "axis", "bitwidth" : 64, "direction" : "READONLY"} , 
@@ -50,12 +53,10 @@ set C_modelArgMapList {[
  	{ "Name" : "myMacAddress", "interface" : "wire", "bitwidth" : 48, "direction" : "READONLY"} , 
  	{ "Name" : "myIpAddress", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
  	{ "Name" : "gatewayIP", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
- 	{ "Name" : "networkMask", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
- 	{ "Name" : "ap_local_deadlock", "interface" : "axi_slave", "bundle":"s_axilite","type":"ap_none","bitwidth" : 1, "direction" : "WRITEONLY", "offset" : {"out":0}, "offset_end" : {"out":4294967295}} ]}
+ 	{ "Name" : "networkMask", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} ]}
 # RTL Port declarations: 
-set portNum 42
+set portNum 41
 set portList { 
-	{ ap_local_block sc_out sc_logic 1 signal -1 } 
 	{ s_axi_s_axilite_AWVALID sc_in sc_logic 1 signal -1 } 
 	{ s_axi_s_axilite_AWREADY sc_out sc_logic 1 signal -1 } 
 	{ s_axi_s_axilite_AWADDR sc_in sc_lv 12 signal -1 } 
@@ -106,7 +107,7 @@ set NewPortList {[
 	{ "name": "s_axi_s_axilite_WREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_axilite", "role": "WREADY" } },
 	{ "name": "s_axi_s_axilite_WDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "s_axilite", "role": "WDATA" } },
 	{ "name": "s_axi_s_axilite_WSTRB", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "s_axilite", "role": "WSTRB" } },
-	{ "name": "s_axi_s_axilite_ARADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":12, "type": "signal", "bundle":{"name": "s_axilite", "role": "ARADDR" },"address":[{"name":"arp_scan","role":"data","value":"24"}, {"name":"arp_scan","role":"valid","value":"28","valid_bit":"0"},{"name":"arpTable_valid","role":"data","value":"256"},{"name":"arpTable_ipAddress","role":"data","value":"1024"},{"name":"arpTable_macAddress","role":"data","value":"2048"},{"name":"ap_local_deadlock","role":"data","value":"0"}] },
+	{ "name": "s_axi_s_axilite_ARADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":12, "type": "signal", "bundle":{"name": "s_axilite", "role": "ARADDR" },"address":[{"name":"arp_scan","role":"data","value":"24"}, {"name":"arp_scan","role":"valid","value":"28","valid_bit":"0"},{"name":"arpTable_valid","role":"data","value":"256"},{"name":"arpTable_ipAddress","role":"data","value":"1024"},{"name":"arpTable_macAddress","role":"data","value":"2048"}] },
 	{ "name": "s_axi_s_axilite_ARVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_axilite", "role": "ARVALID" } },
 	{ "name": "s_axi_s_axilite_ARREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_axilite", "role": "ARREADY" } },
 	{ "name": "s_axi_s_axilite_RVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_axilite", "role": "RVALID" } },
@@ -116,7 +117,6 @@ set NewPortList {[
 	{ "name": "s_axi_s_axilite_BVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_axilite", "role": "BVALID" } },
 	{ "name": "s_axi_s_axilite_BREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "s_axilite", "role": "BREADY" } },
 	{ "name": "s_axi_s_axilite_BRESP", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "s_axilite", "role": "BRESP" } }, 
- 	{ "name": "ap_local_block", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ap_local_block", "role": "default" }} , 
  	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
  	{ "name": "ap_rst_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "reset", "bundle":{"name": "ap_rst_n", "role": "default" }} , 
  	{ "name": "arpDataIn_TDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":512, "type": "signal", "bundle":{"name": "arpDataIn_V_data_V", "role": "default" }} , 
@@ -167,31 +167,31 @@ set RtlHierarchyInfo {[
 			{"ID" : "11", "Name" : "arp_pkg_sender_U0"},
 			{"ID" : "16", "Name" : "arp_table_U0"}],
 		"Port" : [
-			{"Name" : "arpDataIn_V_data_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "arpDataIn_V_data_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "arpDataIn",
 				"SubConnect" : [
 					{"ID" : "6", "SubInstance" : "arp_pkg_receiver_U0", "Port" : "arpDataIn_V_data_V"}]},
-			{"Name" : "arpDataIn_V_keep_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "arpDataIn_V_keep_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "arpDataIn",
 				"SubConnect" : [
 					{"ID" : "6", "SubInstance" : "arp_pkg_receiver_U0", "Port" : "arpDataIn_V_keep_V"}]},
-			{"Name" : "arpDataIn_V_strb_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "arpDataIn_V_strb_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "arpDataIn",
 				"SubConnect" : [
 					{"ID" : "6", "SubInstance" : "arp_pkg_receiver_U0", "Port" : "arpDataIn_V_strb_V"}]},
-			{"Name" : "arpDataIn_V_last_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "arpDataIn_V_last_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "arpDataIn",
 				"SubConnect" : [
 					{"ID" : "6", "SubInstance" : "arp_pkg_receiver_U0", "Port" : "arpDataIn_V_last_V"}]},
 			{"Name" : "macIpEncode_req", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "3", "SubInstance" : "genARPDiscovery_U0", "Port" : "macIpEncode_req"}]},
-			{"Name" : "arpDataOut_V_data_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "arpDataOut_V_data_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "arpDataOut",
 				"SubConnect" : [
 					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "arpDataOut_V_data_V"}]},
-			{"Name" : "arpDataOut_V_keep_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "arpDataOut_V_keep_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "arpDataOut",
 				"SubConnect" : [
 					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "arpDataOut_V_keep_V"}]},
-			{"Name" : "arpDataOut_V_strb_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "arpDataOut_V_strb_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "arpDataOut",
 				"SubConnect" : [
 					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "arpDataOut_V_strb_V"}]},
-			{"Name" : "arpDataOut_V_last_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "arpDataOut_V_last_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "arpDataOut",
 				"SubConnect" : [
 					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "arpDataOut_V_last_V"}]},
 			{"Name" : "macIpEncode_rsp", "Type" : "Axis", "Direction" : "O",
@@ -214,8 +214,8 @@ set RtlHierarchyInfo {[
 					{"ID" : "2", "SubInstance" : "entry_proc_U0", "Port" : "myMacAddress"}]},
 			{"Name" : "myIpAddress", "Type" : "None", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "genARPDiscovery_U0", "Port" : "myIpAddress"},
-					{"ID" : "6", "SubInstance" : "arp_pkg_receiver_U0", "Port" : "myIpAddress"}]},
+					{"ID" : "6", "SubInstance" : "arp_pkg_receiver_U0", "Port" : "myIpAddress"},
+					{"ID" : "3", "SubInstance" : "genARPDiscovery_U0", "Port" : "myIpAddress"}]},
 			{"Name" : "gatewayIP", "Type" : "None", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "entry_proc_U0", "Port" : "gatewayIP"}]},
@@ -225,9 +225,12 @@ set RtlHierarchyInfo {[
 			{"Name" : "gia_fsm_state", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "3", "SubInstance" : "genARPDiscovery_U0", "Port" : "gia_fsm_state"}]},
-			{"Name" : "ip_lsb_V", "Type" : "OVld", "Direction" : "IO",
+			{"Name" : "ip_lsb", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "genARPDiscovery_U0", "Port" : "ip_lsb_V"}]},
+					{"ID" : "3", "SubInstance" : "genARPDiscovery_U0", "Port" : "ip_lsb"}]},
+			{"Name" : "arp_scan_1d", "Type" : "OVld", "Direction" : "IO",
+				"SubConnect" : [
+					{"ID" : "3", "SubInstance" : "genARPDiscovery_U0", "Port" : "arp_scan_1d"}]},
 			{"Name" : "time_counter", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "3", "SubInstance" : "genARPDiscovery_U0", "Port" : "time_counter"}]},
@@ -239,12 +242,9 @@ set RtlHierarchyInfo {[
 				"SubConnect" : [
 					{"ID" : "16", "SubInstance" : "arp_table_U0", "Port" : "macIpEncode_rsp_i"},
 					{"ID" : "3", "SubInstance" : "genARPDiscovery_U0", "Port" : "macIpEncode_rsp_i"}]},
-			{"Name" : "arp_scan_1d_V", "Type" : "OVld", "Direction" : "IO",
+			{"Name" : "wordCount", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "3", "SubInstance" : "genARPDiscovery_U0", "Port" : "arp_scan_1d_V"}]},
-			{"Name" : "wordCount_V", "Type" : "OVld", "Direction" : "IO",
-				"SubConnect" : [
-					{"ID" : "6", "SubInstance" : "arp_pkg_receiver_U0", "Port" : "wordCount_V"}]},
+					{"ID" : "6", "SubInstance" : "arp_pkg_receiver_U0", "Port" : "wordCount"}]},
 			{"Name" : "arpReplyFifo", "Type" : "Fifo", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "arpReplyFifo"},
@@ -256,38 +256,37 @@ set RtlHierarchyInfo {[
 			{"Name" : "aps_fsmState", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "aps_fsmState"}]},
-			{"Name" : "replyMeta_srcMac_V", "Type" : "OVld", "Direction" : "IO",
+			{"Name" : "replyMeta_srcMac", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "replyMeta_srcMac_V"}]},
-			{"Name" : "replyMeta_ethType_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "replyMeta_srcMac"}]},
+			{"Name" : "replyMeta_ethType", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "replyMeta_ethType_V"}]},
-			{"Name" : "replyMeta_hwType_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "replyMeta_ethType"}]},
+			{"Name" : "replyMeta_hwType", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "replyMeta_hwType_V"}]},
-			{"Name" : "replyMeta_protoType_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "replyMeta_hwType"}]},
+			{"Name" : "replyMeta_protoType", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "replyMeta_protoType_V"}]},
-			{"Name" : "replyMeta_hwLen_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "replyMeta_protoType"}]},
+			{"Name" : "replyMeta_hwLen", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "replyMeta_hwLen_V"}]},
-			{"Name" : "replyMeta_protoLen_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "replyMeta_hwLen"}]},
+			{"Name" : "replyMeta_protoLen", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "replyMeta_protoLen_V"}]},
-			{"Name" : "replyMeta_hwAddrSrc_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "replyMeta_protoLen"}]},
+			{"Name" : "replyMeta_hwAddrSrc", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "replyMeta_hwAddrSrc_V"}]},
-			{"Name" : "replyMeta_protoAddrSrc_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "replyMeta_hwAddrSrc"}]},
+			{"Name" : "replyMeta_protoAddrSrc", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "replyMeta_protoAddrSrc_V"}]},
+					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "replyMeta_protoAddrSrc"}]},
 			{"Name" : "arpRequestFifo", "Type" : "Fifo", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "16", "SubInstance" : "arp_table_U0", "Port" : "arpRequestFifo"},
-					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "arpRequestFifo"}]},
-			{"Name" : "inputIP_V", "Type" : "OVld", "Direction" : "IO",
+					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "arpRequestFifo"},
+					{"ID" : "16", "SubInstance" : "arp_table_U0", "Port" : "arpRequestFifo"}]},
+			{"Name" : "inputIP", "Type" : "OVld", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "inputIP_V"}]},
-			{"Name" : "ap_local_deadlock", "Type" : "None", "Direction" : "O"}]},
+					{"ID" : "11", "SubInstance" : "arp_pkg_sender_U0", "Port" : "inputIP"}]}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_axilite_s_axi_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.entry_proc_U0", "Parent" : "0",
 		"CDFG" : "entry_proc",
@@ -346,15 +345,15 @@ set RtlHierarchyInfo {[
 			{"Name" : "arp_scan", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "myIpAddress", "Type" : "None", "Direction" : "I"},
 			{"Name" : "gia_fsm_state", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "ip_lsb_V", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "ip_lsb", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "arp_scan_1d", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "time_counter", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "macIpEncode_i", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["16"], "DependentChan" : "22", "DependentChanDepth" : "4", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "macIpEncode_i_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "macIpEncode_rsp_i", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["16"], "DependentChan" : "23", "DependentChanDepth" : "4", "DependentChanType" : "0",
 				"BlockSignal" : [
-					{"Name" : "macIpEncode_rsp_i_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "arp_scan_1d_V", "Type" : "OVld", "Direction" : "IO"}]},
+					{"Name" : "macIpEncode_rsp_i_blk_n", "Type" : "RtlSignal"}]}]},
 	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.genARPDiscovery_U0.regslice_both_macIpEncode_req_U", "Parent" : "3"},
 	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.genARPDiscovery_U0.regslice_both_macIpEncode_rsp_U", "Parent" : "3"},
 	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.arp_pkg_receiver_U0", "Parent" : "0", "Child" : ["7", "8", "9", "10"],
@@ -372,12 +371,12 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "1",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "arpDataIn_V_data_V", "Type" : "Axis", "Direction" : "I",
+			{"Name" : "arpDataIn_V_data_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "arpDataIn",
 				"BlockSignal" : [
 					{"Name" : "arpDataIn_TDATA_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "arpDataIn_V_keep_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "arpDataIn_V_strb_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "arpDataIn_V_last_V", "Type" : "Axis", "Direction" : "I"},
+			{"Name" : "arpDataIn_V_keep_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "arpDataIn"},
+			{"Name" : "arpDataIn_V_strb_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "arpDataIn"},
+			{"Name" : "arpDataIn_V_last_V", "Type" : "Axis", "Direction" : "I", "BaseName" : "arpDataIn"},
 			{"Name" : "myIpAddress", "Type" : "None", "Direction" : "I"},
 			{"Name" : "myIpAddress_c", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["16"], "DependentChan" : "24", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
@@ -385,7 +384,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "myIpAddress_c11", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["11"], "DependentChan" : "25", "DependentChanDepth" : "2", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "myIpAddress_c11_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "wordCount_V", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "wordCount", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "arpReplyFifo", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["11"], "DependentChan" : "26", "DependentChanDepth" : "4", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "arpReplyFifo_blk_n", "Type" : "RtlSignal"}]},
@@ -413,12 +412,12 @@ set RtlHierarchyInfo {[
 		"StartSource" : "2",
 		"StartFifo" : "start_for_arp_pkg_sender_U0_U",
 		"Port" : [
-			{"Name" : "arpDataOut_V_data_V", "Type" : "Axis", "Direction" : "O",
+			{"Name" : "arpDataOut_V_data_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "arpDataOut",
 				"BlockSignal" : [
 					{"Name" : "arpDataOut_TDATA_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "arpDataOut_V_keep_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "arpDataOut_V_strb_V", "Type" : "Axis", "Direction" : "O"},
-			{"Name" : "arpDataOut_V_last_V", "Type" : "Axis", "Direction" : "O"},
+			{"Name" : "arpDataOut_V_keep_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "arpDataOut"},
+			{"Name" : "arpDataOut_V_strb_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "arpDataOut"},
+			{"Name" : "arpDataOut_V_last_V", "Type" : "Axis", "Direction" : "O", "BaseName" : "arpDataOut"},
 			{"Name" : "myMacAddress", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["2"], "DependentChan" : "17", "DependentChanDepth" : "3", "DependentChanType" : "2",
 				"BlockSignal" : [
 					{"Name" : "myMacAddress_blk_n", "Type" : "RtlSignal"}]},
@@ -435,18 +434,18 @@ set RtlHierarchyInfo {[
 			{"Name" : "arpReplyFifo", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["6"], "DependentChan" : "26", "DependentChanDepth" : "4", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "arpReplyFifo_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "replyMeta_srcMac_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "replyMeta_ethType_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "replyMeta_hwType_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "replyMeta_protoType_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "replyMeta_hwLen_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "replyMeta_protoLen_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "replyMeta_hwAddrSrc_V", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "replyMeta_protoAddrSrc_V", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "replyMeta_srcMac", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "replyMeta_ethType", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "replyMeta_hwType", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "replyMeta_protoType", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "replyMeta_hwLen", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "replyMeta_protoLen", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "replyMeta_hwAddrSrc", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "replyMeta_protoAddrSrc", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "arpRequestFifo", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["16"], "DependentChan" : "28", "DependentChanDepth" : "4", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "arpRequestFifo_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "inputIP_V", "Type" : "OVld", "Direction" : "IO"}]},
+			{"Name" : "inputIP", "Type" : "OVld", "Direction" : "IO"}]},
 	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.arp_pkg_sender_U0.regslice_both_arpDataOut_V_data_V_U", "Parent" : "11"},
 	{"ID" : "13", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.arp_pkg_sender_U0.regslice_both_arpDataOut_V_keep_V_U", "Parent" : "11"},
 	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.arp_pkg_sender_U0.regslice_both_arpDataOut_V_strb_V_U", "Parent" : "11"},
@@ -465,13 +464,6 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "1",
 		"HasNonBlockingOperation" : "1",
 		"IsBlackBox" : "0",
-		"DependenceCheck" : [
-			{"FromInitialState" : "ap_enable_state2_pp0_iter0_stage1", "FromInitialIteration" : "ap_enable_reg_pp0_iter0", "FromInitialOperation" : "ap_enable_operation_53", "FromInitialSV" : "1", "FromFinalState" : "ap_enable_state2_pp0_iter0_stage1", "FromFinalIteration" : "ap_enable_reg_pp0_iter0", "FromFinalOperation" : "ap_enable_operation_53", "FromFinalSV" : "1", "FromAddress" : "arpTable_macAddress_address0", "FromType" : "W", "ToInitialState" : "ap_enable_state3_pp0_iter1_stage0", "ToInitialIteration" : "ap_enable_reg_pp0_iter1", "ToInitialNextIteration" : "ap_enable_reg_pp0_iter2", "ToInitialOperation" : "ap_enable_operation_61", "ToInitialSV" : "2", "ToFinalState" : "ap_enable_state4_pp0_iter1_stage1", "ToFinalIteration" : "ap_enable_reg_pp0_iter1", "ToFinalOperation" : "ap_enable_operation_66", "ToFinalSV" : "3", "ToAddress" : "arpTable_macAddress_address0", "ToType" : "R", "PipelineBlock" : "ap_block_pp0", "AddressWidth" : "8", "II" : "2", "Pragma" : "(/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:212:34)", "Type" : "RAW"},
-			{"FromInitialState" : "ap_enable_state2_pp0_iter0_stage1", "FromInitialIteration" : "ap_enable_reg_pp0_iter0", "FromInitialOperation" : "ap_enable_operation_55", "FromInitialSV" : "1", "FromFinalState" : "ap_enable_state2_pp0_iter0_stage1", "FromFinalIteration" : "ap_enable_reg_pp0_iter0", "FromFinalOperation" : "ap_enable_operation_55", "FromFinalSV" : "1", "FromAddress" : "arpTable_ipAddress_address0", "FromType" : "W", "ToInitialState" : "ap_enable_state3_pp0_iter1_stage0", "ToInitialIteration" : "ap_enable_reg_pp0_iter1", "ToInitialNextIteration" : "ap_enable_reg_pp0_iter2", "ToInitialOperation" : "ap_enable_operation_63", "ToInitialSV" : "2", "ToFinalState" : "ap_enable_state4_pp0_iter1_stage1", "ToFinalIteration" : "ap_enable_reg_pp0_iter1", "ToFinalOperation" : "ap_enable_operation_67", "ToFinalSV" : "3", "ToAddress" : "arpTable_ipAddress_address0", "ToType" : "R", "PipelineBlock" : "ap_block_pp0", "AddressWidth" : "8", "II" : "2", "Pragma" : "(/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:212:34)", "Type" : "RAW"},
-			{"FromInitialState" : "ap_enable_state2_pp0_iter0_stage1", "FromInitialIteration" : "ap_enable_reg_pp0_iter0", "FromInitialOperation" : "ap_enable_operation_57", "FromInitialSV" : "1", "FromFinalState" : "ap_enable_state2_pp0_iter0_stage1", "FromFinalIteration" : "ap_enable_reg_pp0_iter0", "FromFinalOperation" : "ap_enable_operation_57", "FromFinalSV" : "1", "FromAddress" : "arpTable_valid_address0", "FromType" : "W", "ToInitialState" : "ap_enable_state3_pp0_iter1_stage0", "ToInitialIteration" : "ap_enable_reg_pp0_iter1", "ToInitialNextIteration" : "ap_enable_reg_pp0_iter2", "ToInitialOperation" : "ap_enable_operation_65", "ToInitialSV" : "2", "ToFinalState" : "ap_enable_state4_pp0_iter1_stage1", "ToFinalIteration" : "ap_enable_reg_pp0_iter1", "ToFinalOperation" : "ap_enable_operation_68", "ToFinalSV" : "3", "ToAddress" : "arpTable_valid_address0", "ToType" : "R", "PipelineBlock" : "ap_block_pp0", "AddressWidth" : "8", "II" : "2", "Pragma" : "(/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:212:34)", "Type" : "RAW"},
-			{"FromInitialState" : "ap_enable_state3_pp0_iter1_stage0", "FromInitialIteration" : "ap_enable_reg_pp0_iter1", "FromInitialOperation" : "ap_enable_operation_61", "FromInitialSV" : "2", "FromFinalState" : "ap_enable_state4_pp0_iter1_stage1", "FromFinalIteration" : "ap_enable_reg_pp0_iter1", "FromFinalOperation" : "ap_enable_operation_66", "FromFinalSV" : "3", "FromAddress" : "arpTable_macAddress_address0", "FromType" : "R", "ToInitialState" : "ap_enable_state2_pp0_iter0_stage1", "ToInitialIteration" : "ap_enable_reg_pp0_iter0", "ToInitialNextIteration" : "ap_enable_reg_pp0_iter1", "ToInitialOperation" : "ap_enable_operation_53", "ToInitialSV" : "1", "ToFinalState" : "ap_enable_state2_pp0_iter0_stage1", "ToFinalIteration" : "ap_enable_reg_pp0_iter0", "ToFinalOperation" : "ap_enable_operation_53", "ToFinalSV" : "1", "ToAddress" : "arpTable_macAddress_address0", "ToType" : "W", "PipelineBlock" : "ap_block_pp0", "AddressWidth" : "8", "II" : "2", "Pragma" : "(/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:212:34)", "Type" : "WAR", "StateEnableSignalListForFifoShift" : ["ap_enable_state2_pp0_iter0_stage1", "ap_enable_state4_pp0_iter1_stage1"]},
-			{"FromInitialState" : "ap_enable_state3_pp0_iter1_stage0", "FromInitialIteration" : "ap_enable_reg_pp0_iter1", "FromInitialOperation" : "ap_enable_operation_63", "FromInitialSV" : "2", "FromFinalState" : "ap_enable_state4_pp0_iter1_stage1", "FromFinalIteration" : "ap_enable_reg_pp0_iter1", "FromFinalOperation" : "ap_enable_operation_67", "FromFinalSV" : "3", "FromAddress" : "arpTable_ipAddress_address0", "FromType" : "R", "ToInitialState" : "ap_enable_state2_pp0_iter0_stage1", "ToInitialIteration" : "ap_enable_reg_pp0_iter0", "ToInitialNextIteration" : "ap_enable_reg_pp0_iter1", "ToInitialOperation" : "ap_enable_operation_55", "ToInitialSV" : "1", "ToFinalState" : "ap_enable_state2_pp0_iter0_stage1", "ToFinalIteration" : "ap_enable_reg_pp0_iter0", "ToFinalOperation" : "ap_enable_operation_55", "ToFinalSV" : "1", "ToAddress" : "arpTable_ipAddress_address0", "ToType" : "W", "PipelineBlock" : "ap_block_pp0", "AddressWidth" : "8", "II" : "2", "Pragma" : "(/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:212:34)", "Type" : "WAR", "StateEnableSignalListForFifoShift" : ["ap_enable_state2_pp0_iter0_stage1", "ap_enable_state4_pp0_iter1_stage1"]},
-			{"FromInitialState" : "ap_enable_state3_pp0_iter1_stage0", "FromInitialIteration" : "ap_enable_reg_pp0_iter1", "FromInitialOperation" : "ap_enable_operation_65", "FromInitialSV" : "2", "FromFinalState" : "ap_enable_state4_pp0_iter1_stage1", "FromFinalIteration" : "ap_enable_reg_pp0_iter1", "FromFinalOperation" : "ap_enable_operation_68", "FromFinalSV" : "3", "FromAddress" : "arpTable_valid_address0", "FromType" : "R", "ToInitialState" : "ap_enable_state2_pp0_iter0_stage1", "ToInitialIteration" : "ap_enable_reg_pp0_iter0", "ToInitialNextIteration" : "ap_enable_reg_pp0_iter1", "ToInitialOperation" : "ap_enable_operation_57", "ToInitialSV" : "1", "ToFinalState" : "ap_enable_state2_pp0_iter0_stage1", "ToFinalIteration" : "ap_enable_reg_pp0_iter0", "ToFinalOperation" : "ap_enable_operation_57", "ToFinalSV" : "1", "ToAddress" : "arpTable_valid_address0", "ToType" : "W", "PipelineBlock" : "ap_block_pp0", "AddressWidth" : "8", "II" : "2", "Pragma" : "(/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/arp_server/arp_server.cpp:212:34)", "Type" : "WAR", "StateEnableSignalListForFifoShift" : ["ap_enable_state2_pp0_iter0_stage1", "ap_enable_state4_pp0_iter1_stage1"]}],
 		"Port" : [
 			{"Name" : "arpTable_macAddress", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "arpTable_ipAddress", "Type" : "Memory", "Direction" : "IO"},
@@ -533,26 +525,25 @@ set ArgLastReadFirstWriteLatency {
 		gatewayIP {Type I LastRead 0 FirstWrite -1}
 		networkMask {Type I LastRead 0 FirstWrite -1}
 		gia_fsm_state {Type IO LastRead -1 FirstWrite -1}
-		ip_lsb_V {Type IO LastRead -1 FirstWrite -1}
+		ip_lsb {Type IO LastRead -1 FirstWrite -1}
+		arp_scan_1d {Type IO LastRead -1 FirstWrite -1}
 		time_counter {Type IO LastRead -1 FirstWrite -1}
 		macIpEncode_i {Type IO LastRead -1 FirstWrite -1}
 		macIpEncode_rsp_i {Type IO LastRead -1 FirstWrite -1}
-		arp_scan_1d_V {Type IO LastRead -1 FirstWrite -1}
-		wordCount_V {Type IO LastRead -1 FirstWrite -1}
+		wordCount {Type IO LastRead -1 FirstWrite -1}
 		arpReplyFifo {Type IO LastRead -1 FirstWrite -1}
 		arpTableInsertFifo {Type IO LastRead -1 FirstWrite -1}
 		aps_fsmState {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_srcMac_V {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_ethType_V {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_hwType_V {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_protoType_V {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_hwLen_V {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_protoLen_V {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_hwAddrSrc_V {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_protoAddrSrc_V {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_srcMac {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_ethType {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_hwType {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_protoType {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_hwLen {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_protoLen {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_hwAddrSrc {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_protoAddrSrc {Type IO LastRead -1 FirstWrite -1}
 		arpRequestFifo {Type IO LastRead -1 FirstWrite -1}
-		inputIP_V {Type IO LastRead -1 FirstWrite -1}
-		ap_local_deadlock {Type O LastRead -1 FirstWrite -1}}
+		inputIP {Type IO LastRead -1 FirstWrite -1}}
 	entry_proc {
 		myMacAddress {Type I LastRead 0 FirstWrite -1}
 		myMacAddress_c {Type O LastRead -1 FirstWrite 0}
@@ -568,11 +559,11 @@ set ArgLastReadFirstWriteLatency {
 		arp_scan {Type IO LastRead 0 FirstWrite 0}
 		myIpAddress {Type I LastRead 0 FirstWrite -1}
 		gia_fsm_state {Type IO LastRead -1 FirstWrite -1}
-		ip_lsb_V {Type IO LastRead -1 FirstWrite -1}
+		ip_lsb {Type IO LastRead -1 FirstWrite -1}
+		arp_scan_1d {Type IO LastRead -1 FirstWrite -1}
 		time_counter {Type IO LastRead -1 FirstWrite -1}
 		macIpEncode_i {Type O LastRead -1 FirstWrite 1}
-		macIpEncode_rsp_i {Type I LastRead 0 FirstWrite -1}
-		arp_scan_1d_V {Type IO LastRead -1 FirstWrite -1}}
+		macIpEncode_rsp_i {Type I LastRead 0 FirstWrite -1}}
 	arp_pkg_receiver {
 		arpDataIn_V_data_V {Type I LastRead 0 FirstWrite -1}
 		arpDataIn_V_keep_V {Type I LastRead 0 FirstWrite -1}
@@ -581,7 +572,7 @@ set ArgLastReadFirstWriteLatency {
 		myIpAddress {Type I LastRead 0 FirstWrite -1}
 		myIpAddress_c {Type O LastRead -1 FirstWrite 0}
 		myIpAddress_c11 {Type O LastRead -1 FirstWrite 0}
-		wordCount_V {Type IO LastRead -1 FirstWrite -1}
+		wordCount {Type IO LastRead -1 FirstWrite -1}
 		arpReplyFifo {Type O LastRead -1 FirstWrite 1}
 		arpTableInsertFifo {Type O LastRead -1 FirstWrite 1}}
 	arp_pkg_sender {
@@ -595,16 +586,16 @@ set ArgLastReadFirstWriteLatency {
 		networkMask {Type I LastRead 1 FirstWrite -1}
 		aps_fsmState {Type IO LastRead -1 FirstWrite -1}
 		arpReplyFifo {Type I LastRead 0 FirstWrite -1}
-		replyMeta_srcMac_V {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_ethType_V {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_hwType_V {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_protoType_V {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_hwLen_V {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_protoLen_V {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_hwAddrSrc_V {Type IO LastRead -1 FirstWrite -1}
-		replyMeta_protoAddrSrc_V {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_srcMac {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_ethType {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_hwType {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_protoType {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_hwLen {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_protoLen {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_hwAddrSrc {Type IO LastRead -1 FirstWrite -1}
+		replyMeta_protoAddrSrc {Type IO LastRead -1 FirstWrite -1}
 		arpRequestFifo {Type I LastRead 0 FirstWrite -1}
-		inputIP_V {Type IO LastRead -1 FirstWrite -1}}
+		inputIP {Type IO LastRead -1 FirstWrite -1}}
 	arp_table {
 		arpTable_macAddress {Type IO LastRead 2 FirstWrite 1}
 		arpTable_ipAddress {Type IO LastRead 2 FirstWrite 1}
@@ -644,8 +635,7 @@ set Spec2ImplPortList {
 	networkMask { ap_none {  { networkMask in_data 0 32 } } }
 }
 
-set busDeadlockParameterList { 
-}
+set maxi_interface_dict [dict create]
 
 # RTL port scheduling information:
 set fifoSchedulingInfoList { 

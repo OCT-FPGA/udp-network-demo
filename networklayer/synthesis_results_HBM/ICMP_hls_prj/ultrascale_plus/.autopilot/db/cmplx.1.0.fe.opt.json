@@ -1,0 +1,34 @@
+{
+  "0": {
+    "basicblocks": 53,
+    "calls": "1",
+    "file": "icmp_server.cpp",
+    "fileloc": 119,
+    "instructions": 359,
+    "loads": {
+      "G": 8,
+      "L": 8
+    },
+    "name": "icmp_server",
+    "stores": {
+      "G": 20,
+      "L": 3
+    },
+    "total_instructions": 4264
+  },
+  "1": {
+    "basicblocks": 16,
+    "calls": "",
+    "file": "icmp_server.cpp",
+    "fileloc": 39,
+    "instructions": 276,
+    "loads": {
+      "L": 9
+    },
+    "name": "computeCheckSum20B",
+    "stores": {
+      "L": 9
+    },
+    "total_instructions": 1734
+  }
+}

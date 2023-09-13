@@ -1,6 +1,9 @@
 ==============================================================
-Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2021.2 (64-bit)
-Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.1 (64-bit)
+Tool Version Limit: 2023.05
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
 ==============================================================
 INFO: [HLS 200-1505] Using default flow_target 'vivado'
 INFO: [HLS 200-1510] Running: set_part xcu280-fsvh2892-2L-e 
@@ -10,35 +13,28 @@ INFO: [SYN 201-201] Setting up clock 'default' with a period of 3.1ns.
 INFO: [HLS 200-1510] Running: set_clock_uncertainty 0.2 
 INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.2ns.
 INFO: [HLS 200-1510] Running: csynth_design 
-INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 0 seconds; current allocated memory: 1.115 GB.
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.07 seconds; current allocated memory: 1.189 GB.
 INFO: [HLS 200-10] Analyzing design file '/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp' ... 
-INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 6.42 seconds. CPU system time: 0.89 seconds. Elapsed time: 11.92 seconds; current allocated memory: 206.113 MB.
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 4.39 seconds. CPU system time: 0.93 seconds. Elapsed time: 5.36 seconds; current allocated memory: 1.191 GB.
 INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
-INFO: [HLS 214-284] Auto array partition mode is set into default.
+INFO: [HLS 200-1995] There were 3,081 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 483 instructions in the design after the 'Unroll/Inline' phase of compilation. See the Design Size Report for more details: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 359 instructions in the design after the 'Performance/Pipeline' phase of compilation. See the Design Size Report for more details: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 386 instructions in the design after the 'Optimizations' phase of compilation. See the Design Size Report for more details: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/csynth_design_size.rpt
 INFO: [HLS 214-178] Inlining function 'byteSwap16(ap_uint<16>)' into 'packet_identification(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&, hls::stream<axiWordi, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:170:0)
-INFO: [HLS 214-270] Starting automatic array partition analysis...
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint<512>s.i512' into 'packet_identification(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&, hls::stream<axiWordi, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint<3>s.i3' into 'packet_identification(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&, hls::stream<axiWordi, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint<1>s.i1' into 'packet_identification(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&, hls::stream<axiWordi, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint<64>s.i64' into 'packet_identification(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&, hls::stream<axiWordi, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i1024.s_struct.axiWordis' into 'packet_identification(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&, hls::stream<axiWordi, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i512.s_struct.ap_uint<512>s' into 'ethernet_remover(hls::stream<axiWordi, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i3.s_struct.ap_uint<3>s' into 'ethernet_remover(hls::stream<axiWordi, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i1.s_struct.ap_uint<1>s' into 'ethernet_remover(hls::stream<axiWordi, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i64.s_struct.ap_uint<64>s' into 'ethernet_remover(hls::stream<axiWordi, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5)
-INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 4.93 seconds. CPU system time: 0.57 seconds. Elapsed time: 8.19 seconds; current allocated memory: 207.840 MB.
-INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 207.840 MB.
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2.85 seconds. CPU system time: 0.75 seconds. Elapsed time: 8.2 seconds; current allocated memory: 1.192 GB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 1.192 GB.
 INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.09 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.62 seconds; current allocated memory: 219.129 MB.
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1.193 GB.
 INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.15 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.2 seconds; current allocated memory: 234.957 MB.
-INFO: [XFORM 203-712] Applying dataflow to function 'packet_handler' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:285:1), detected/extracted 2 process function(s): 
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1.194 GB.
+INFO: [XFORM 203-712] Applying dataflow to function 'packet_handler' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:275:1), detected/extracted 2 process function(s): 
 	 'packet_identification'
 	 'ethernet_remover'.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:144:9) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:86:9) in function 'ethernet_remover'... converting 3 basic blocks.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:144:9) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:136:4) in function 'ethernet_remover'... converting 3 basic blocks.
-INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.25 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.27 seconds; current allocated memory: 270.715 MB.
-INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.77 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.84 seconds; current allocated memory: 312.047 MB.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:67:12) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:86:9) in function 'ethernet_remover'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:112:12) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:136:4) in function 'ethernet_remover'... converting 3 basic blocks.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.11 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.12 seconds; current allocated memory: 1.217 GB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.62 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.66 seconds; current allocated memory: 1.267 GB.
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO: [HLS 200-10] Synthesizing 'packet_handler' ...
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -48,26 +44,100 @@ INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'packet_identification'.
 INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, function 'packet_identification'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.07 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.1 seconds; current allocated memory: 313.844 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.08 seconds. CPU system time: 0.05 seconds. Elapsed time: 0.15 seconds; current allocated memory: 1.267 GB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 329.648 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 1.267 GB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'ethernet_remover' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'ethernet_remover'.
 INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, function 'ethernet_remover'
-WARNING: [HLS 200-871] Estimated clock period (3.06721ns) exceeds the target (target clock period: 3.1ns, clock uncertainty: 0.2ns, effective delay budget: 2.9ns).
-WARNING: [HLS 200-1016] The critical path in module 'ethernet_remover' consists of the following:	fifo read operation ('eth_level_pkt_read', /tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:144) on port 'eth_level_pkt' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:144) [68]  (1.45 ns)
-	'icmp' operation ('icmp_ln1064') [73]  (0.5 ns)
-	'select' operation ('select_ln1064') [78]  (0.278 ns)
-	multiplexor before 'phi' operation ('er_fsm_state_new_0_i') with incoming values : ('select_ln1064') [95]  (0.387 ns)
-	'phi' operation ('er_fsm_state_new_0_i') with incoming values : ('select_ln1064') [95]  (0 ns)
-	multiplexor before 'phi' operation ('er_fsm_state_new_6_i') with incoming values : ('select_ln121', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:121) ('select_ln1064') [102]  (0.453 ns)
-	'phi' operation ('er_fsm_state_new_6_i') with incoming values : ('select_ln121', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:121) ('select_ln1064') [102]  (0 ns)
-	'store' operation ('er_fsm_state_write_ln74', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:74) of variable 'er_fsm_state_new_6_i' on static variable 'er_fsm_state' [105]  (0 ns)
+WARNING: [HLS 200-871] Estimated clock period (3.140 ns) exceeds the target (target clock period: 3.100 ns, clock uncertainty: 0.200 ns, effective delay budget: 2.900 ns).
+WARNING: [HLS 200-1016] The critical path in module 'ethernet_remover' consists of the following:
+	fifo read operation ('eth_level_pkt_read', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:67) on port 'eth_level_pkt' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:67) [69]  (1.450 ns)
+	'icmp' operation ('icmp_ln69', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69) [74]  (0.572 ns)
+	'select' operation ('select_ln69', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69) [79]  (0.278 ns)
+	multiplexor before 'phi' operation ('er_fsm_state_new_0_i', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69) with incoming values : ('select_ln69', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69) [96]  (0.387 ns)
+	'phi' operation ('er_fsm_state_new_0_i', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69) with incoming values : ('select_ln69', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69) [96]  (0.000 ns)
+	multiplexor before 'phi' operation ('er_fsm_state_new_6_i', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69) with incoming values : ('select_ln112', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:112) ('select_ln69', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69) [103]  (0.453 ns)
+	'phi' operation ('er_fsm_state_new_6_i', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69) with incoming values : ('select_ln112', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:112) ('select_ln69', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69) [103]  (0.000 ns)
+	'store' operation ('er_fsm_state_write_ln74', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:74) of variable 'er_fsm_state_new_6_i', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69 on static variable 'er_fsm_state' [106]  (0.000 ns)
 
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.1 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.11 seconds; current allocated memory: 1.267 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 1.267 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'packet_handler' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [HLS 200-1015] Estimated delay Estimated delay (3.140ns)  of 'call' operation ('_ln292', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:292) to 'ethernet_remover' exceeds the target cycle time (target cycle time: 3.100ns, clock uncertainty: 0.200ns, effective cycle time: 2.900ns).
+
+WARNING: [HLS 200-871] Estimated clock period (3.140 ns) exceeds the target (target clock period: 3.100 ns, clock uncertainty: 0.200 ns, effective delay budget: 2.900 ns).
+WARNING: [HLS 200-1016] The critical path in module 'packet_handler' consists of the following:
+	'call' operation ('_ln292', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:292) to 'ethernet_remover' [38]  (3.140 ns)
+
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 1.267 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 1.267 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'packet_identification' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'pi_fsm_state' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'tdest_r' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'packet_identification'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1.267 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ethernet_remover' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Register 'er_fsm_state' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'prevWord_data' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'prevWord_keep' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'prevWord_dest' is power-on initialization.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ethernet_remover'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.33 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.34 seconds; current allocated memory: 1.268 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'packet_handler' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'packet_handler/s_axis_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'packet_handler/s_axis_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'packet_handler/s_axis_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'packet_handler/s_axis_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'packet_handler/s_axis_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'packet_handler/m_axis_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'packet_handler/m_axis_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'packet_handler/m_axis_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'packet_handler/m_axis_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'packet_handler/m_axis_V_dest_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on function 'packet_handler' to 'ap_ctrl_none'.
+WARNING: [HLS 200-656] Deadlocks can occur since process packet_identification is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains an auto-rewind pipeline.
+INFO: [HLS 200-633] Setting ap_ctrl_none interface for packet_handler
+INFO: [RTGEN 206-100] Finished creating RTL model for 'packet_handler'.
+INFO: [RTMG 210-285] Implementing FIFO 'eth_level_pkt_U(packet_handler_fifo_w1024_d16_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_ethernet_remover_U0_U(packet_handler_start_for_ethernet_remover_U0)' using Shift Registers.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.33 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.36 seconds; current allocated memory: 1.270 GB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.37 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.41 seconds; current allocated memory: 1.273 GB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.17 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.19 seconds; current allocated memory: 1.275 GB.
+INFO: [VHDL 208-304] Generating VHDL RTL for packet_handler.
+INFO: [VLOG 209-307] Generating Verilog RTL for packet_handler.
+INFO: [HLS 200-789] **** Estimated Fmax: 318.50 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 9.78 seconds. CPU system time: 1.87 seconds. Elapsed time: 16.42 seconds; current allocated memory: 88.059 MB.
+INFO: [HLS 200-1510] Running: export_design -rtl verilog -format ip_catalog 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+INFO: [HLS 200-802] Generated output file PKT_HANDLER_prj/ultrascale_plus/impl/export.zip
+INFO: [HLS 200-111] Finished Command export_design CPU user time: 13.5 seconds. CPU system time: 1.38 seconds. Elapsed time: 13.95 seconds; current allocated memory: 6.445 MB.

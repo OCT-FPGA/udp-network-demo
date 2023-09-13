@@ -9,6 +9,9 @@ set isOneStateSeq 0
 set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
+set hasInterrupt 0
+set DLRegFirstOffset 0
+set DLRegItemOffset 0
 set C_modelName {TableHandler}
 set C_modelType { void 0 }
 set C_modelArgList {
@@ -83,6 +86,7 @@ set C_modelArgList {
 	{ agmdIdOut int 16 regular {fifo 0 volatile } {global 0}  }
 	{ txthMetaData int 128 regular {fifo 1 volatile } {global 1}  }
 }
+set hasAXIMCache 0
 set C_modelArgMapList {[ 
 	{ "Name" : "SocketTable_theirIP_0", "interface" : "fifo", "bitwidth" : 32, "direction" : "READONLY"} , 
  	{ "Name" : "SocketTable_theirIP_1", "interface" : "fifo", "bitwidth" : 32, "direction" : "READONLY"} , 
@@ -155,7 +159,7 @@ set C_modelArgMapList {[
  	{ "Name" : "agmdIdOut", "interface" : "fifo", "bitwidth" : 16, "direction" : "READONLY", "extern" : 0} , 
  	{ "Name" : "txthMetaData", "interface" : "fifo", "bitwidth" : 128, "direction" : "WRITEONLY", "extern" : 0} ]}
 # RTL Port declarations: 
-set portNum 216
+set portNum 354
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -165,210 +169,348 @@ set portList {
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
 	{ SocketTable_valid_15_dout sc_in sc_lv 1 signal 63 } 
+	{ SocketTable_valid_15_num_data_valid sc_in sc_lv 3 signal 63 } 
+	{ SocketTable_valid_15_fifo_cap sc_in sc_lv 3 signal 63 } 
 	{ SocketTable_valid_15_empty_n sc_in sc_logic 1 signal 63 } 
 	{ SocketTable_valid_15_read sc_out sc_logic 1 signal 63 } 
 	{ SocketTable_valid_14_dout sc_in sc_lv 1 signal 62 } 
+	{ SocketTable_valid_14_num_data_valid sc_in sc_lv 3 signal 62 } 
+	{ SocketTable_valid_14_fifo_cap sc_in sc_lv 3 signal 62 } 
 	{ SocketTable_valid_14_empty_n sc_in sc_logic 1 signal 62 } 
 	{ SocketTable_valid_14_read sc_out sc_logic 1 signal 62 } 
 	{ SocketTable_valid_13_dout sc_in sc_lv 1 signal 61 } 
+	{ SocketTable_valid_13_num_data_valid sc_in sc_lv 3 signal 61 } 
+	{ SocketTable_valid_13_fifo_cap sc_in sc_lv 3 signal 61 } 
 	{ SocketTable_valid_13_empty_n sc_in sc_logic 1 signal 61 } 
 	{ SocketTable_valid_13_read sc_out sc_logic 1 signal 61 } 
 	{ SocketTable_valid_12_dout sc_in sc_lv 1 signal 60 } 
+	{ SocketTable_valid_12_num_data_valid sc_in sc_lv 3 signal 60 } 
+	{ SocketTable_valid_12_fifo_cap sc_in sc_lv 3 signal 60 } 
 	{ SocketTable_valid_12_empty_n sc_in sc_logic 1 signal 60 } 
 	{ SocketTable_valid_12_read sc_out sc_logic 1 signal 60 } 
 	{ SocketTable_valid_11_dout sc_in sc_lv 1 signal 59 } 
+	{ SocketTable_valid_11_num_data_valid sc_in sc_lv 3 signal 59 } 
+	{ SocketTable_valid_11_fifo_cap sc_in sc_lv 3 signal 59 } 
 	{ SocketTable_valid_11_empty_n sc_in sc_logic 1 signal 59 } 
 	{ SocketTable_valid_11_read sc_out sc_logic 1 signal 59 } 
 	{ SocketTable_valid_10_dout sc_in sc_lv 1 signal 58 } 
+	{ SocketTable_valid_10_num_data_valid sc_in sc_lv 3 signal 58 } 
+	{ SocketTable_valid_10_fifo_cap sc_in sc_lv 3 signal 58 } 
 	{ SocketTable_valid_10_empty_n sc_in sc_logic 1 signal 58 } 
 	{ SocketTable_valid_10_read sc_out sc_logic 1 signal 58 } 
 	{ SocketTable_valid_9_dout sc_in sc_lv 1 signal 57 } 
+	{ SocketTable_valid_9_num_data_valid sc_in sc_lv 3 signal 57 } 
+	{ SocketTable_valid_9_fifo_cap sc_in sc_lv 3 signal 57 } 
 	{ SocketTable_valid_9_empty_n sc_in sc_logic 1 signal 57 } 
 	{ SocketTable_valid_9_read sc_out sc_logic 1 signal 57 } 
 	{ SocketTable_valid_8_dout sc_in sc_lv 1 signal 56 } 
+	{ SocketTable_valid_8_num_data_valid sc_in sc_lv 3 signal 56 } 
+	{ SocketTable_valid_8_fifo_cap sc_in sc_lv 3 signal 56 } 
 	{ SocketTable_valid_8_empty_n sc_in sc_logic 1 signal 56 } 
 	{ SocketTable_valid_8_read sc_out sc_logic 1 signal 56 } 
 	{ SocketTable_valid_7_dout sc_in sc_lv 1 signal 55 } 
+	{ SocketTable_valid_7_num_data_valid sc_in sc_lv 3 signal 55 } 
+	{ SocketTable_valid_7_fifo_cap sc_in sc_lv 3 signal 55 } 
 	{ SocketTable_valid_7_empty_n sc_in sc_logic 1 signal 55 } 
 	{ SocketTable_valid_7_read sc_out sc_logic 1 signal 55 } 
 	{ SocketTable_valid_6_dout sc_in sc_lv 1 signal 54 } 
+	{ SocketTable_valid_6_num_data_valid sc_in sc_lv 3 signal 54 } 
+	{ SocketTable_valid_6_fifo_cap sc_in sc_lv 3 signal 54 } 
 	{ SocketTable_valid_6_empty_n sc_in sc_logic 1 signal 54 } 
 	{ SocketTable_valid_6_read sc_out sc_logic 1 signal 54 } 
 	{ SocketTable_valid_5_dout sc_in sc_lv 1 signal 53 } 
+	{ SocketTable_valid_5_num_data_valid sc_in sc_lv 3 signal 53 } 
+	{ SocketTable_valid_5_fifo_cap sc_in sc_lv 3 signal 53 } 
 	{ SocketTable_valid_5_empty_n sc_in sc_logic 1 signal 53 } 
 	{ SocketTable_valid_5_read sc_out sc_logic 1 signal 53 } 
 	{ SocketTable_valid_4_dout sc_in sc_lv 1 signal 52 } 
+	{ SocketTable_valid_4_num_data_valid sc_in sc_lv 3 signal 52 } 
+	{ SocketTable_valid_4_fifo_cap sc_in sc_lv 3 signal 52 } 
 	{ SocketTable_valid_4_empty_n sc_in sc_logic 1 signal 52 } 
 	{ SocketTable_valid_4_read sc_out sc_logic 1 signal 52 } 
 	{ SocketTable_valid_3_dout sc_in sc_lv 1 signal 51 } 
+	{ SocketTable_valid_3_num_data_valid sc_in sc_lv 3 signal 51 } 
+	{ SocketTable_valid_3_fifo_cap sc_in sc_lv 3 signal 51 } 
 	{ SocketTable_valid_3_empty_n sc_in sc_logic 1 signal 51 } 
 	{ SocketTable_valid_3_read sc_out sc_logic 1 signal 51 } 
 	{ SocketTable_valid_2_dout sc_in sc_lv 1 signal 50 } 
+	{ SocketTable_valid_2_num_data_valid sc_in sc_lv 3 signal 50 } 
+	{ SocketTable_valid_2_fifo_cap sc_in sc_lv 3 signal 50 } 
 	{ SocketTable_valid_2_empty_n sc_in sc_logic 1 signal 50 } 
 	{ SocketTable_valid_2_read sc_out sc_logic 1 signal 50 } 
 	{ SocketTable_valid_1_dout sc_in sc_lv 1 signal 49 } 
+	{ SocketTable_valid_1_num_data_valid sc_in sc_lv 3 signal 49 } 
+	{ SocketTable_valid_1_fifo_cap sc_in sc_lv 3 signal 49 } 
 	{ SocketTable_valid_1_empty_n sc_in sc_logic 1 signal 49 } 
 	{ SocketTable_valid_1_read sc_out sc_logic 1 signal 49 } 
 	{ SocketTable_valid_0_dout sc_in sc_lv 1 signal 48 } 
+	{ SocketTable_valid_0_num_data_valid sc_in sc_lv 3 signal 48 } 
+	{ SocketTable_valid_0_fifo_cap sc_in sc_lv 3 signal 48 } 
 	{ SocketTable_valid_0_empty_n sc_in sc_logic 1 signal 48 } 
 	{ SocketTable_valid_0_read sc_out sc_logic 1 signal 48 } 
 	{ SocketTable_myPort_15_dout sc_in sc_lv 16 signal 47 } 
+	{ SocketTable_myPort_15_num_data_valid sc_in sc_lv 3 signal 47 } 
+	{ SocketTable_myPort_15_fifo_cap sc_in sc_lv 3 signal 47 } 
 	{ SocketTable_myPort_15_empty_n sc_in sc_logic 1 signal 47 } 
 	{ SocketTable_myPort_15_read sc_out sc_logic 1 signal 47 } 
 	{ SocketTable_myPort_14_dout sc_in sc_lv 16 signal 46 } 
+	{ SocketTable_myPort_14_num_data_valid sc_in sc_lv 3 signal 46 } 
+	{ SocketTable_myPort_14_fifo_cap sc_in sc_lv 3 signal 46 } 
 	{ SocketTable_myPort_14_empty_n sc_in sc_logic 1 signal 46 } 
 	{ SocketTable_myPort_14_read sc_out sc_logic 1 signal 46 } 
 	{ SocketTable_myPort_13_dout sc_in sc_lv 16 signal 45 } 
+	{ SocketTable_myPort_13_num_data_valid sc_in sc_lv 3 signal 45 } 
+	{ SocketTable_myPort_13_fifo_cap sc_in sc_lv 3 signal 45 } 
 	{ SocketTable_myPort_13_empty_n sc_in sc_logic 1 signal 45 } 
 	{ SocketTable_myPort_13_read sc_out sc_logic 1 signal 45 } 
 	{ SocketTable_myPort_12_dout sc_in sc_lv 16 signal 44 } 
+	{ SocketTable_myPort_12_num_data_valid sc_in sc_lv 3 signal 44 } 
+	{ SocketTable_myPort_12_fifo_cap sc_in sc_lv 3 signal 44 } 
 	{ SocketTable_myPort_12_empty_n sc_in sc_logic 1 signal 44 } 
 	{ SocketTable_myPort_12_read sc_out sc_logic 1 signal 44 } 
 	{ SocketTable_myPort_11_dout sc_in sc_lv 16 signal 43 } 
+	{ SocketTable_myPort_11_num_data_valid sc_in sc_lv 3 signal 43 } 
+	{ SocketTable_myPort_11_fifo_cap sc_in sc_lv 3 signal 43 } 
 	{ SocketTable_myPort_11_empty_n sc_in sc_logic 1 signal 43 } 
 	{ SocketTable_myPort_11_read sc_out sc_logic 1 signal 43 } 
 	{ SocketTable_myPort_10_dout sc_in sc_lv 16 signal 42 } 
+	{ SocketTable_myPort_10_num_data_valid sc_in sc_lv 3 signal 42 } 
+	{ SocketTable_myPort_10_fifo_cap sc_in sc_lv 3 signal 42 } 
 	{ SocketTable_myPort_10_empty_n sc_in sc_logic 1 signal 42 } 
 	{ SocketTable_myPort_10_read sc_out sc_logic 1 signal 42 } 
 	{ SocketTable_myPort_9_dout sc_in sc_lv 16 signal 41 } 
+	{ SocketTable_myPort_9_num_data_valid sc_in sc_lv 3 signal 41 } 
+	{ SocketTable_myPort_9_fifo_cap sc_in sc_lv 3 signal 41 } 
 	{ SocketTable_myPort_9_empty_n sc_in sc_logic 1 signal 41 } 
 	{ SocketTable_myPort_9_read sc_out sc_logic 1 signal 41 } 
 	{ SocketTable_myPort_8_dout sc_in sc_lv 16 signal 40 } 
+	{ SocketTable_myPort_8_num_data_valid sc_in sc_lv 3 signal 40 } 
+	{ SocketTable_myPort_8_fifo_cap sc_in sc_lv 3 signal 40 } 
 	{ SocketTable_myPort_8_empty_n sc_in sc_logic 1 signal 40 } 
 	{ SocketTable_myPort_8_read sc_out sc_logic 1 signal 40 } 
 	{ SocketTable_myPort_7_dout sc_in sc_lv 16 signal 39 } 
+	{ SocketTable_myPort_7_num_data_valid sc_in sc_lv 3 signal 39 } 
+	{ SocketTable_myPort_7_fifo_cap sc_in sc_lv 3 signal 39 } 
 	{ SocketTable_myPort_7_empty_n sc_in sc_logic 1 signal 39 } 
 	{ SocketTable_myPort_7_read sc_out sc_logic 1 signal 39 } 
 	{ SocketTable_myPort_6_dout sc_in sc_lv 16 signal 38 } 
+	{ SocketTable_myPort_6_num_data_valid sc_in sc_lv 3 signal 38 } 
+	{ SocketTable_myPort_6_fifo_cap sc_in sc_lv 3 signal 38 } 
 	{ SocketTable_myPort_6_empty_n sc_in sc_logic 1 signal 38 } 
 	{ SocketTable_myPort_6_read sc_out sc_logic 1 signal 38 } 
 	{ SocketTable_myPort_5_dout sc_in sc_lv 16 signal 37 } 
+	{ SocketTable_myPort_5_num_data_valid sc_in sc_lv 3 signal 37 } 
+	{ SocketTable_myPort_5_fifo_cap sc_in sc_lv 3 signal 37 } 
 	{ SocketTable_myPort_5_empty_n sc_in sc_logic 1 signal 37 } 
 	{ SocketTable_myPort_5_read sc_out sc_logic 1 signal 37 } 
 	{ SocketTable_myPort_4_dout sc_in sc_lv 16 signal 36 } 
+	{ SocketTable_myPort_4_num_data_valid sc_in sc_lv 3 signal 36 } 
+	{ SocketTable_myPort_4_fifo_cap sc_in sc_lv 3 signal 36 } 
 	{ SocketTable_myPort_4_empty_n sc_in sc_logic 1 signal 36 } 
 	{ SocketTable_myPort_4_read sc_out sc_logic 1 signal 36 } 
 	{ SocketTable_myPort_3_dout sc_in sc_lv 16 signal 35 } 
+	{ SocketTable_myPort_3_num_data_valid sc_in sc_lv 3 signal 35 } 
+	{ SocketTable_myPort_3_fifo_cap sc_in sc_lv 3 signal 35 } 
 	{ SocketTable_myPort_3_empty_n sc_in sc_logic 1 signal 35 } 
 	{ SocketTable_myPort_3_read sc_out sc_logic 1 signal 35 } 
 	{ SocketTable_myPort_2_dout sc_in sc_lv 16 signal 34 } 
+	{ SocketTable_myPort_2_num_data_valid sc_in sc_lv 3 signal 34 } 
+	{ SocketTable_myPort_2_fifo_cap sc_in sc_lv 3 signal 34 } 
 	{ SocketTable_myPort_2_empty_n sc_in sc_logic 1 signal 34 } 
 	{ SocketTable_myPort_2_read sc_out sc_logic 1 signal 34 } 
 	{ SocketTable_myPort_1_dout sc_in sc_lv 16 signal 33 } 
+	{ SocketTable_myPort_1_num_data_valid sc_in sc_lv 3 signal 33 } 
+	{ SocketTable_myPort_1_fifo_cap sc_in sc_lv 3 signal 33 } 
 	{ SocketTable_myPort_1_empty_n sc_in sc_logic 1 signal 33 } 
 	{ SocketTable_myPort_1_read sc_out sc_logic 1 signal 33 } 
 	{ SocketTable_myPort_0_dout sc_in sc_lv 16 signal 32 } 
+	{ SocketTable_myPort_0_num_data_valid sc_in sc_lv 3 signal 32 } 
+	{ SocketTable_myPort_0_fifo_cap sc_in sc_lv 3 signal 32 } 
 	{ SocketTable_myPort_0_empty_n sc_in sc_logic 1 signal 32 } 
 	{ SocketTable_myPort_0_read sc_out sc_logic 1 signal 32 } 
 	{ SocketTable_theirPort_15_dout sc_in sc_lv 16 signal 31 } 
+	{ SocketTable_theirPort_15_num_data_valid sc_in sc_lv 3 signal 31 } 
+	{ SocketTable_theirPort_15_fifo_cap sc_in sc_lv 3 signal 31 } 
 	{ SocketTable_theirPort_15_empty_n sc_in sc_logic 1 signal 31 } 
 	{ SocketTable_theirPort_15_read sc_out sc_logic 1 signal 31 } 
 	{ SocketTable_theirPort_14_dout sc_in sc_lv 16 signal 30 } 
+	{ SocketTable_theirPort_14_num_data_valid sc_in sc_lv 3 signal 30 } 
+	{ SocketTable_theirPort_14_fifo_cap sc_in sc_lv 3 signal 30 } 
 	{ SocketTable_theirPort_14_empty_n sc_in sc_logic 1 signal 30 } 
 	{ SocketTable_theirPort_14_read sc_out sc_logic 1 signal 30 } 
 	{ SocketTable_theirPort_13_dout sc_in sc_lv 16 signal 29 } 
+	{ SocketTable_theirPort_13_num_data_valid sc_in sc_lv 3 signal 29 } 
+	{ SocketTable_theirPort_13_fifo_cap sc_in sc_lv 3 signal 29 } 
 	{ SocketTable_theirPort_13_empty_n sc_in sc_logic 1 signal 29 } 
 	{ SocketTable_theirPort_13_read sc_out sc_logic 1 signal 29 } 
 	{ SocketTable_theirPort_12_dout sc_in sc_lv 16 signal 28 } 
+	{ SocketTable_theirPort_12_num_data_valid sc_in sc_lv 3 signal 28 } 
+	{ SocketTable_theirPort_12_fifo_cap sc_in sc_lv 3 signal 28 } 
 	{ SocketTable_theirPort_12_empty_n sc_in sc_logic 1 signal 28 } 
 	{ SocketTable_theirPort_12_read sc_out sc_logic 1 signal 28 } 
 	{ SocketTable_theirPort_11_dout sc_in sc_lv 16 signal 27 } 
+	{ SocketTable_theirPort_11_num_data_valid sc_in sc_lv 3 signal 27 } 
+	{ SocketTable_theirPort_11_fifo_cap sc_in sc_lv 3 signal 27 } 
 	{ SocketTable_theirPort_11_empty_n sc_in sc_logic 1 signal 27 } 
 	{ SocketTable_theirPort_11_read sc_out sc_logic 1 signal 27 } 
 	{ SocketTable_theirPort_10_dout sc_in sc_lv 16 signal 26 } 
+	{ SocketTable_theirPort_10_num_data_valid sc_in sc_lv 3 signal 26 } 
+	{ SocketTable_theirPort_10_fifo_cap sc_in sc_lv 3 signal 26 } 
 	{ SocketTable_theirPort_10_empty_n sc_in sc_logic 1 signal 26 } 
 	{ SocketTable_theirPort_10_read sc_out sc_logic 1 signal 26 } 
 	{ SocketTable_theirPort_9_dout sc_in sc_lv 16 signal 25 } 
+	{ SocketTable_theirPort_9_num_data_valid sc_in sc_lv 3 signal 25 } 
+	{ SocketTable_theirPort_9_fifo_cap sc_in sc_lv 3 signal 25 } 
 	{ SocketTable_theirPort_9_empty_n sc_in sc_logic 1 signal 25 } 
 	{ SocketTable_theirPort_9_read sc_out sc_logic 1 signal 25 } 
 	{ SocketTable_theirPort_8_dout sc_in sc_lv 16 signal 24 } 
+	{ SocketTable_theirPort_8_num_data_valid sc_in sc_lv 3 signal 24 } 
+	{ SocketTable_theirPort_8_fifo_cap sc_in sc_lv 3 signal 24 } 
 	{ SocketTable_theirPort_8_empty_n sc_in sc_logic 1 signal 24 } 
 	{ SocketTable_theirPort_8_read sc_out sc_logic 1 signal 24 } 
 	{ SocketTable_theirPort_7_dout sc_in sc_lv 16 signal 23 } 
+	{ SocketTable_theirPort_7_num_data_valid sc_in sc_lv 3 signal 23 } 
+	{ SocketTable_theirPort_7_fifo_cap sc_in sc_lv 3 signal 23 } 
 	{ SocketTable_theirPort_7_empty_n sc_in sc_logic 1 signal 23 } 
 	{ SocketTable_theirPort_7_read sc_out sc_logic 1 signal 23 } 
 	{ SocketTable_theirPort_6_dout sc_in sc_lv 16 signal 22 } 
+	{ SocketTable_theirPort_6_num_data_valid sc_in sc_lv 3 signal 22 } 
+	{ SocketTable_theirPort_6_fifo_cap sc_in sc_lv 3 signal 22 } 
 	{ SocketTable_theirPort_6_empty_n sc_in sc_logic 1 signal 22 } 
 	{ SocketTable_theirPort_6_read sc_out sc_logic 1 signal 22 } 
 	{ SocketTable_theirPort_5_dout sc_in sc_lv 16 signal 21 } 
+	{ SocketTable_theirPort_5_num_data_valid sc_in sc_lv 3 signal 21 } 
+	{ SocketTable_theirPort_5_fifo_cap sc_in sc_lv 3 signal 21 } 
 	{ SocketTable_theirPort_5_empty_n sc_in sc_logic 1 signal 21 } 
 	{ SocketTable_theirPort_5_read sc_out sc_logic 1 signal 21 } 
 	{ SocketTable_theirPort_4_dout sc_in sc_lv 16 signal 20 } 
+	{ SocketTable_theirPort_4_num_data_valid sc_in sc_lv 3 signal 20 } 
+	{ SocketTable_theirPort_4_fifo_cap sc_in sc_lv 3 signal 20 } 
 	{ SocketTable_theirPort_4_empty_n sc_in sc_logic 1 signal 20 } 
 	{ SocketTable_theirPort_4_read sc_out sc_logic 1 signal 20 } 
 	{ SocketTable_theirPort_3_dout sc_in sc_lv 16 signal 19 } 
+	{ SocketTable_theirPort_3_num_data_valid sc_in sc_lv 3 signal 19 } 
+	{ SocketTable_theirPort_3_fifo_cap sc_in sc_lv 3 signal 19 } 
 	{ SocketTable_theirPort_3_empty_n sc_in sc_logic 1 signal 19 } 
 	{ SocketTable_theirPort_3_read sc_out sc_logic 1 signal 19 } 
 	{ SocketTable_theirPort_2_dout sc_in sc_lv 16 signal 18 } 
+	{ SocketTable_theirPort_2_num_data_valid sc_in sc_lv 3 signal 18 } 
+	{ SocketTable_theirPort_2_fifo_cap sc_in sc_lv 3 signal 18 } 
 	{ SocketTable_theirPort_2_empty_n sc_in sc_logic 1 signal 18 } 
 	{ SocketTable_theirPort_2_read sc_out sc_logic 1 signal 18 } 
 	{ SocketTable_theirPort_1_dout sc_in sc_lv 16 signal 17 } 
+	{ SocketTable_theirPort_1_num_data_valid sc_in sc_lv 3 signal 17 } 
+	{ SocketTable_theirPort_1_fifo_cap sc_in sc_lv 3 signal 17 } 
 	{ SocketTable_theirPort_1_empty_n sc_in sc_logic 1 signal 17 } 
 	{ SocketTable_theirPort_1_read sc_out sc_logic 1 signal 17 } 
 	{ SocketTable_theirPort_0_dout sc_in sc_lv 16 signal 16 } 
+	{ SocketTable_theirPort_0_num_data_valid sc_in sc_lv 3 signal 16 } 
+	{ SocketTable_theirPort_0_fifo_cap sc_in sc_lv 3 signal 16 } 
 	{ SocketTable_theirPort_0_empty_n sc_in sc_logic 1 signal 16 } 
 	{ SocketTable_theirPort_0_read sc_out sc_logic 1 signal 16 } 
 	{ SocketTable_theirIP_15_dout sc_in sc_lv 32 signal 15 } 
+	{ SocketTable_theirIP_15_num_data_valid sc_in sc_lv 3 signal 15 } 
+	{ SocketTable_theirIP_15_fifo_cap sc_in sc_lv 3 signal 15 } 
 	{ SocketTable_theirIP_15_empty_n sc_in sc_logic 1 signal 15 } 
 	{ SocketTable_theirIP_15_read sc_out sc_logic 1 signal 15 } 
 	{ SocketTable_theirIP_14_dout sc_in sc_lv 32 signal 14 } 
+	{ SocketTable_theirIP_14_num_data_valid sc_in sc_lv 3 signal 14 } 
+	{ SocketTable_theirIP_14_fifo_cap sc_in sc_lv 3 signal 14 } 
 	{ SocketTable_theirIP_14_empty_n sc_in sc_logic 1 signal 14 } 
 	{ SocketTable_theirIP_14_read sc_out sc_logic 1 signal 14 } 
 	{ SocketTable_theirIP_13_dout sc_in sc_lv 32 signal 13 } 
+	{ SocketTable_theirIP_13_num_data_valid sc_in sc_lv 3 signal 13 } 
+	{ SocketTable_theirIP_13_fifo_cap sc_in sc_lv 3 signal 13 } 
 	{ SocketTable_theirIP_13_empty_n sc_in sc_logic 1 signal 13 } 
 	{ SocketTable_theirIP_13_read sc_out sc_logic 1 signal 13 } 
 	{ SocketTable_theirIP_12_dout sc_in sc_lv 32 signal 12 } 
+	{ SocketTable_theirIP_12_num_data_valid sc_in sc_lv 3 signal 12 } 
+	{ SocketTable_theirIP_12_fifo_cap sc_in sc_lv 3 signal 12 } 
 	{ SocketTable_theirIP_12_empty_n sc_in sc_logic 1 signal 12 } 
 	{ SocketTable_theirIP_12_read sc_out sc_logic 1 signal 12 } 
 	{ SocketTable_theirIP_11_dout sc_in sc_lv 32 signal 11 } 
+	{ SocketTable_theirIP_11_num_data_valid sc_in sc_lv 3 signal 11 } 
+	{ SocketTable_theirIP_11_fifo_cap sc_in sc_lv 3 signal 11 } 
 	{ SocketTable_theirIP_11_empty_n sc_in sc_logic 1 signal 11 } 
 	{ SocketTable_theirIP_11_read sc_out sc_logic 1 signal 11 } 
 	{ SocketTable_theirIP_10_dout sc_in sc_lv 32 signal 10 } 
+	{ SocketTable_theirIP_10_num_data_valid sc_in sc_lv 3 signal 10 } 
+	{ SocketTable_theirIP_10_fifo_cap sc_in sc_lv 3 signal 10 } 
 	{ SocketTable_theirIP_10_empty_n sc_in sc_logic 1 signal 10 } 
 	{ SocketTable_theirIP_10_read sc_out sc_logic 1 signal 10 } 
 	{ SocketTable_theirIP_9_dout sc_in sc_lv 32 signal 9 } 
+	{ SocketTable_theirIP_9_num_data_valid sc_in sc_lv 3 signal 9 } 
+	{ SocketTable_theirIP_9_fifo_cap sc_in sc_lv 3 signal 9 } 
 	{ SocketTable_theirIP_9_empty_n sc_in sc_logic 1 signal 9 } 
 	{ SocketTable_theirIP_9_read sc_out sc_logic 1 signal 9 } 
 	{ SocketTable_theirIP_8_dout sc_in sc_lv 32 signal 8 } 
+	{ SocketTable_theirIP_8_num_data_valid sc_in sc_lv 3 signal 8 } 
+	{ SocketTable_theirIP_8_fifo_cap sc_in sc_lv 3 signal 8 } 
 	{ SocketTable_theirIP_8_empty_n sc_in sc_logic 1 signal 8 } 
 	{ SocketTable_theirIP_8_read sc_out sc_logic 1 signal 8 } 
 	{ SocketTable_theirIP_7_dout sc_in sc_lv 32 signal 7 } 
+	{ SocketTable_theirIP_7_num_data_valid sc_in sc_lv 3 signal 7 } 
+	{ SocketTable_theirIP_7_fifo_cap sc_in sc_lv 3 signal 7 } 
 	{ SocketTable_theirIP_7_empty_n sc_in sc_logic 1 signal 7 } 
 	{ SocketTable_theirIP_7_read sc_out sc_logic 1 signal 7 } 
 	{ SocketTable_theirIP_6_dout sc_in sc_lv 32 signal 6 } 
+	{ SocketTable_theirIP_6_num_data_valid sc_in sc_lv 3 signal 6 } 
+	{ SocketTable_theirIP_6_fifo_cap sc_in sc_lv 3 signal 6 } 
 	{ SocketTable_theirIP_6_empty_n sc_in sc_logic 1 signal 6 } 
 	{ SocketTable_theirIP_6_read sc_out sc_logic 1 signal 6 } 
 	{ SocketTable_theirIP_5_dout sc_in sc_lv 32 signal 5 } 
+	{ SocketTable_theirIP_5_num_data_valid sc_in sc_lv 3 signal 5 } 
+	{ SocketTable_theirIP_5_fifo_cap sc_in sc_lv 3 signal 5 } 
 	{ SocketTable_theirIP_5_empty_n sc_in sc_logic 1 signal 5 } 
 	{ SocketTable_theirIP_5_read sc_out sc_logic 1 signal 5 } 
 	{ SocketTable_theirIP_4_dout sc_in sc_lv 32 signal 4 } 
+	{ SocketTable_theirIP_4_num_data_valid sc_in sc_lv 3 signal 4 } 
+	{ SocketTable_theirIP_4_fifo_cap sc_in sc_lv 3 signal 4 } 
 	{ SocketTable_theirIP_4_empty_n sc_in sc_logic 1 signal 4 } 
 	{ SocketTable_theirIP_4_read sc_out sc_logic 1 signal 4 } 
 	{ SocketTable_theirIP_3_dout sc_in sc_lv 32 signal 3 } 
+	{ SocketTable_theirIP_3_num_data_valid sc_in sc_lv 3 signal 3 } 
+	{ SocketTable_theirIP_3_fifo_cap sc_in sc_lv 3 signal 3 } 
 	{ SocketTable_theirIP_3_empty_n sc_in sc_logic 1 signal 3 } 
 	{ SocketTable_theirIP_3_read sc_out sc_logic 1 signal 3 } 
 	{ SocketTable_theirIP_2_dout sc_in sc_lv 32 signal 2 } 
+	{ SocketTable_theirIP_2_num_data_valid sc_in sc_lv 3 signal 2 } 
+	{ SocketTable_theirIP_2_fifo_cap sc_in sc_lv 3 signal 2 } 
 	{ SocketTable_theirIP_2_empty_n sc_in sc_logic 1 signal 2 } 
 	{ SocketTable_theirIP_2_read sc_out sc_logic 1 signal 2 } 
 	{ SocketTable_theirIP_1_dout sc_in sc_lv 32 signal 1 } 
+	{ SocketTable_theirIP_1_num_data_valid sc_in sc_lv 3 signal 1 } 
+	{ SocketTable_theirIP_1_fifo_cap sc_in sc_lv 3 signal 1 } 
 	{ SocketTable_theirIP_1_empty_n sc_in sc_logic 1 signal 1 } 
 	{ SocketTable_theirIP_1_read sc_out sc_logic 1 signal 1 } 
 	{ SocketTable_theirIP_0_dout sc_in sc_lv 32 signal 0 } 
+	{ SocketTable_theirIP_0_num_data_valid sc_in sc_lv 3 signal 0 } 
+	{ SocketTable_theirIP_0_fifo_cap sc_in sc_lv 3 signal 0 } 
 	{ SocketTable_theirIP_0_empty_n sc_in sc_logic 1 signal 0 } 
 	{ SocketTable_theirIP_0_read sc_out sc_logic 1 signal 0 } 
 	{ myIpAddress_dout sc_in sc_lv 32 signal 65 } 
+	{ myIpAddress_num_data_valid sc_in sc_lv 3 signal 65 } 
+	{ myIpAddress_fifo_cap sc_in sc_lv 3 signal 65 } 
 	{ myIpAddress_empty_n sc_in sc_logic 1 signal 65 } 
 	{ myIpAddress_read sc_out sc_logic 1 signal 65 } 
 	{ ureMetaData_dout sc_in sc_lv 128 signal 66 } 
+	{ ureMetaData_num_data_valid sc_in sc_lv 6 signal 66 } 
+	{ ureMetaData_fifo_cap sc_in sc_lv 6 signal 66 } 
 	{ ureMetaData_empty_n sc_in sc_logic 1 signal 66 } 
 	{ ureMetaData_read sc_out sc_logic 1 signal 66 } 
 	{ agmdIdOut_dout sc_in sc_lv 16 signal 68 } 
+	{ agmdIdOut_num_data_valid sc_in sc_lv 9 signal 68 } 
+	{ agmdIdOut_fifo_cap sc_in sc_lv 9 signal 68 } 
 	{ agmdIdOut_empty_n sc_in sc_logic 1 signal 68 } 
 	{ agmdIdOut_read sc_out sc_logic 1 signal 68 } 
 	{ txthMetaData_din sc_out sc_lv 128 signal 69 } 
+	{ txthMetaData_num_data_valid sc_in sc_lv 6 signal 69 } 
+	{ txthMetaData_fifo_cap sc_in sc_lv 6 signal 69 } 
 	{ txthMetaData_full_n sc_in sc_logic 1 signal 69 } 
 	{ txthMetaData_write sc_out sc_logic 1 signal 69 } 
 	{ rthDropFifo_din sc_out sc_lv 160 signal 67 } 
+	{ rthDropFifo_num_data_valid sc_in sc_lv 6 signal 67 } 
+	{ rthDropFifo_fifo_cap sc_in sc_lv 6 signal 67 } 
 	{ rthDropFifo_full_n sc_in sc_logic 1 signal 67 } 
 	{ rthDropFifo_write sc_out sc_logic 1 signal 67 } 
 	{ numberSockets sc_out sc_lv 16 signal 64 } 
@@ -383,210 +525,348 @@ set NewPortList {[
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
  	{ "name": "SocketTable_valid_15_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_15", "role": "dout" }} , 
+ 	{ "name": "SocketTable_valid_15_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_15", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_valid_15_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_15", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_valid_15_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_15", "role": "empty_n" }} , 
  	{ "name": "SocketTable_valid_15_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_15", "role": "read" }} , 
  	{ "name": "SocketTable_valid_14_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_14", "role": "dout" }} , 
+ 	{ "name": "SocketTable_valid_14_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_14", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_valid_14_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_14", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_valid_14_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_14", "role": "empty_n" }} , 
  	{ "name": "SocketTable_valid_14_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_14", "role": "read" }} , 
  	{ "name": "SocketTable_valid_13_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_13", "role": "dout" }} , 
+ 	{ "name": "SocketTable_valid_13_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_13", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_valid_13_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_13", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_valid_13_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_13", "role": "empty_n" }} , 
  	{ "name": "SocketTable_valid_13_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_13", "role": "read" }} , 
  	{ "name": "SocketTable_valid_12_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_12", "role": "dout" }} , 
+ 	{ "name": "SocketTable_valid_12_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_12", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_valid_12_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_12", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_valid_12_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_12", "role": "empty_n" }} , 
  	{ "name": "SocketTable_valid_12_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_12", "role": "read" }} , 
  	{ "name": "SocketTable_valid_11_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_11", "role": "dout" }} , 
+ 	{ "name": "SocketTable_valid_11_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_11", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_valid_11_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_11", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_valid_11_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_11", "role": "empty_n" }} , 
  	{ "name": "SocketTable_valid_11_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_11", "role": "read" }} , 
  	{ "name": "SocketTable_valid_10_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_10", "role": "dout" }} , 
+ 	{ "name": "SocketTable_valid_10_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_10", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_valid_10_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_10", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_valid_10_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_10", "role": "empty_n" }} , 
  	{ "name": "SocketTable_valid_10_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_10", "role": "read" }} , 
  	{ "name": "SocketTable_valid_9_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_9", "role": "dout" }} , 
+ 	{ "name": "SocketTable_valid_9_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_9", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_valid_9_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_9", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_valid_9_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_9", "role": "empty_n" }} , 
  	{ "name": "SocketTable_valid_9_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_9", "role": "read" }} , 
  	{ "name": "SocketTable_valid_8_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_8", "role": "dout" }} , 
+ 	{ "name": "SocketTable_valid_8_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_8", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_valid_8_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_8", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_valid_8_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_8", "role": "empty_n" }} , 
  	{ "name": "SocketTable_valid_8_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_8", "role": "read" }} , 
  	{ "name": "SocketTable_valid_7_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_7", "role": "dout" }} , 
+ 	{ "name": "SocketTable_valid_7_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_7", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_valid_7_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_7", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_valid_7_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_7", "role": "empty_n" }} , 
  	{ "name": "SocketTable_valid_7_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_7", "role": "read" }} , 
  	{ "name": "SocketTable_valid_6_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_6", "role": "dout" }} , 
+ 	{ "name": "SocketTable_valid_6_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_6", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_valid_6_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_6", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_valid_6_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_6", "role": "empty_n" }} , 
  	{ "name": "SocketTable_valid_6_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_6", "role": "read" }} , 
  	{ "name": "SocketTable_valid_5_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_5", "role": "dout" }} , 
+ 	{ "name": "SocketTable_valid_5_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_5", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_valid_5_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_5", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_valid_5_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_5", "role": "empty_n" }} , 
  	{ "name": "SocketTable_valid_5_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_5", "role": "read" }} , 
  	{ "name": "SocketTable_valid_4_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_4", "role": "dout" }} , 
+ 	{ "name": "SocketTable_valid_4_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_4", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_valid_4_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_4", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_valid_4_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_4", "role": "empty_n" }} , 
  	{ "name": "SocketTable_valid_4_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_4", "role": "read" }} , 
  	{ "name": "SocketTable_valid_3_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_3", "role": "dout" }} , 
+ 	{ "name": "SocketTable_valid_3_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_3", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_valid_3_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_3", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_valid_3_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_3", "role": "empty_n" }} , 
  	{ "name": "SocketTable_valid_3_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_3", "role": "read" }} , 
  	{ "name": "SocketTable_valid_2_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_2", "role": "dout" }} , 
+ 	{ "name": "SocketTable_valid_2_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_2", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_valid_2_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_2", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_valid_2_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_2", "role": "empty_n" }} , 
  	{ "name": "SocketTable_valid_2_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_2", "role": "read" }} , 
  	{ "name": "SocketTable_valid_1_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_1", "role": "dout" }} , 
+ 	{ "name": "SocketTable_valid_1_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_1", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_valid_1_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_1", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_valid_1_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_1", "role": "empty_n" }} , 
  	{ "name": "SocketTable_valid_1_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_1", "role": "read" }} , 
  	{ "name": "SocketTable_valid_0_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_0", "role": "dout" }} , 
+ 	{ "name": "SocketTable_valid_0_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_0", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_valid_0_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_valid_0", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_valid_0_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_0", "role": "empty_n" }} , 
  	{ "name": "SocketTable_valid_0_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_valid_0", "role": "read" }} , 
  	{ "name": "SocketTable_myPort_15_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_myPort_15", "role": "dout" }} , 
+ 	{ "name": "SocketTable_myPort_15_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_15", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_myPort_15_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_15", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_myPort_15_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_15", "role": "empty_n" }} , 
  	{ "name": "SocketTable_myPort_15_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_15", "role": "read" }} , 
  	{ "name": "SocketTable_myPort_14_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_myPort_14", "role": "dout" }} , 
+ 	{ "name": "SocketTable_myPort_14_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_14", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_myPort_14_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_14", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_myPort_14_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_14", "role": "empty_n" }} , 
  	{ "name": "SocketTable_myPort_14_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_14", "role": "read" }} , 
  	{ "name": "SocketTable_myPort_13_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_myPort_13", "role": "dout" }} , 
+ 	{ "name": "SocketTable_myPort_13_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_13", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_myPort_13_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_13", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_myPort_13_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_13", "role": "empty_n" }} , 
  	{ "name": "SocketTable_myPort_13_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_13", "role": "read" }} , 
  	{ "name": "SocketTable_myPort_12_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_myPort_12", "role": "dout" }} , 
+ 	{ "name": "SocketTable_myPort_12_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_12", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_myPort_12_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_12", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_myPort_12_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_12", "role": "empty_n" }} , 
  	{ "name": "SocketTable_myPort_12_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_12", "role": "read" }} , 
  	{ "name": "SocketTable_myPort_11_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_myPort_11", "role": "dout" }} , 
+ 	{ "name": "SocketTable_myPort_11_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_11", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_myPort_11_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_11", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_myPort_11_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_11", "role": "empty_n" }} , 
  	{ "name": "SocketTable_myPort_11_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_11", "role": "read" }} , 
  	{ "name": "SocketTable_myPort_10_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_myPort_10", "role": "dout" }} , 
+ 	{ "name": "SocketTable_myPort_10_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_10", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_myPort_10_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_10", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_myPort_10_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_10", "role": "empty_n" }} , 
  	{ "name": "SocketTable_myPort_10_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_10", "role": "read" }} , 
  	{ "name": "SocketTable_myPort_9_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_myPort_9", "role": "dout" }} , 
+ 	{ "name": "SocketTable_myPort_9_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_9", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_myPort_9_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_9", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_myPort_9_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_9", "role": "empty_n" }} , 
  	{ "name": "SocketTable_myPort_9_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_9", "role": "read" }} , 
  	{ "name": "SocketTable_myPort_8_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_myPort_8", "role": "dout" }} , 
+ 	{ "name": "SocketTable_myPort_8_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_8", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_myPort_8_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_8", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_myPort_8_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_8", "role": "empty_n" }} , 
  	{ "name": "SocketTable_myPort_8_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_8", "role": "read" }} , 
  	{ "name": "SocketTable_myPort_7_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_myPort_7", "role": "dout" }} , 
+ 	{ "name": "SocketTable_myPort_7_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_7", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_myPort_7_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_7", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_myPort_7_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_7", "role": "empty_n" }} , 
  	{ "name": "SocketTable_myPort_7_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_7", "role": "read" }} , 
  	{ "name": "SocketTable_myPort_6_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_myPort_6", "role": "dout" }} , 
+ 	{ "name": "SocketTable_myPort_6_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_6", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_myPort_6_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_6", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_myPort_6_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_6", "role": "empty_n" }} , 
  	{ "name": "SocketTable_myPort_6_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_6", "role": "read" }} , 
  	{ "name": "SocketTable_myPort_5_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_myPort_5", "role": "dout" }} , 
+ 	{ "name": "SocketTable_myPort_5_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_5", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_myPort_5_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_5", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_myPort_5_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_5", "role": "empty_n" }} , 
  	{ "name": "SocketTable_myPort_5_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_5", "role": "read" }} , 
  	{ "name": "SocketTable_myPort_4_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_myPort_4", "role": "dout" }} , 
+ 	{ "name": "SocketTable_myPort_4_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_4", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_myPort_4_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_4", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_myPort_4_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_4", "role": "empty_n" }} , 
  	{ "name": "SocketTable_myPort_4_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_4", "role": "read" }} , 
  	{ "name": "SocketTable_myPort_3_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_myPort_3", "role": "dout" }} , 
+ 	{ "name": "SocketTable_myPort_3_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_3", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_myPort_3_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_3", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_myPort_3_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_3", "role": "empty_n" }} , 
  	{ "name": "SocketTable_myPort_3_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_3", "role": "read" }} , 
  	{ "name": "SocketTable_myPort_2_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_myPort_2", "role": "dout" }} , 
+ 	{ "name": "SocketTable_myPort_2_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_2", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_myPort_2_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_2", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_myPort_2_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_2", "role": "empty_n" }} , 
  	{ "name": "SocketTable_myPort_2_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_2", "role": "read" }} , 
  	{ "name": "SocketTable_myPort_1_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_myPort_1", "role": "dout" }} , 
+ 	{ "name": "SocketTable_myPort_1_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_1", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_myPort_1_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_1", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_myPort_1_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_1", "role": "empty_n" }} , 
  	{ "name": "SocketTable_myPort_1_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_1", "role": "read" }} , 
  	{ "name": "SocketTable_myPort_0_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_myPort_0", "role": "dout" }} , 
+ 	{ "name": "SocketTable_myPort_0_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_0", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_myPort_0_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_myPort_0", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_myPort_0_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_0", "role": "empty_n" }} , 
  	{ "name": "SocketTable_myPort_0_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_myPort_0", "role": "read" }} , 
  	{ "name": "SocketTable_theirPort_15_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_theirPort_15", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirPort_15_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_15", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirPort_15_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_15", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirPort_15_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_15", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirPort_15_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_15", "role": "read" }} , 
  	{ "name": "SocketTable_theirPort_14_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_theirPort_14", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirPort_14_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_14", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirPort_14_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_14", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirPort_14_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_14", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirPort_14_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_14", "role": "read" }} , 
  	{ "name": "SocketTable_theirPort_13_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_theirPort_13", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirPort_13_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_13", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirPort_13_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_13", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirPort_13_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_13", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirPort_13_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_13", "role": "read" }} , 
  	{ "name": "SocketTable_theirPort_12_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_theirPort_12", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirPort_12_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_12", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirPort_12_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_12", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirPort_12_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_12", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirPort_12_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_12", "role": "read" }} , 
  	{ "name": "SocketTable_theirPort_11_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_theirPort_11", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirPort_11_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_11", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirPort_11_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_11", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirPort_11_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_11", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirPort_11_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_11", "role": "read" }} , 
  	{ "name": "SocketTable_theirPort_10_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_theirPort_10", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirPort_10_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_10", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirPort_10_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_10", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirPort_10_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_10", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirPort_10_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_10", "role": "read" }} , 
  	{ "name": "SocketTable_theirPort_9_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_theirPort_9", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirPort_9_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_9", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirPort_9_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_9", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirPort_9_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_9", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirPort_9_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_9", "role": "read" }} , 
  	{ "name": "SocketTable_theirPort_8_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_theirPort_8", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirPort_8_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_8", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirPort_8_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_8", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirPort_8_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_8", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirPort_8_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_8", "role": "read" }} , 
  	{ "name": "SocketTable_theirPort_7_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_theirPort_7", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirPort_7_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_7", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirPort_7_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_7", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirPort_7_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_7", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirPort_7_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_7", "role": "read" }} , 
  	{ "name": "SocketTable_theirPort_6_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_theirPort_6", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirPort_6_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_6", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirPort_6_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_6", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirPort_6_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_6", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirPort_6_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_6", "role": "read" }} , 
  	{ "name": "SocketTable_theirPort_5_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_theirPort_5", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirPort_5_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_5", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirPort_5_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_5", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirPort_5_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_5", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirPort_5_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_5", "role": "read" }} , 
  	{ "name": "SocketTable_theirPort_4_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_theirPort_4", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirPort_4_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_4", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirPort_4_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_4", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirPort_4_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_4", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirPort_4_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_4", "role": "read" }} , 
  	{ "name": "SocketTable_theirPort_3_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_theirPort_3", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirPort_3_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_3", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirPort_3_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_3", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirPort_3_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_3", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirPort_3_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_3", "role": "read" }} , 
  	{ "name": "SocketTable_theirPort_2_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_theirPort_2", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirPort_2_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_2", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirPort_2_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_2", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirPort_2_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_2", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirPort_2_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_2", "role": "read" }} , 
  	{ "name": "SocketTable_theirPort_1_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_theirPort_1", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirPort_1_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_1", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirPort_1_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_1", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirPort_1_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_1", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirPort_1_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_1", "role": "read" }} , 
  	{ "name": "SocketTable_theirPort_0_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "SocketTable_theirPort_0", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirPort_0_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_0", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirPort_0_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirPort_0", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirPort_0_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_0", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirPort_0_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirPort_0", "role": "read" }} , 
  	{ "name": "SocketTable_theirIP_15_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "SocketTable_theirIP_15", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirIP_15_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_15", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirIP_15_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_15", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirIP_15_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_15", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirIP_15_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_15", "role": "read" }} , 
  	{ "name": "SocketTable_theirIP_14_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "SocketTable_theirIP_14", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirIP_14_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_14", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirIP_14_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_14", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirIP_14_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_14", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirIP_14_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_14", "role": "read" }} , 
  	{ "name": "SocketTable_theirIP_13_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "SocketTable_theirIP_13", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirIP_13_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_13", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirIP_13_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_13", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirIP_13_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_13", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirIP_13_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_13", "role": "read" }} , 
  	{ "name": "SocketTable_theirIP_12_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "SocketTable_theirIP_12", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirIP_12_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_12", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirIP_12_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_12", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirIP_12_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_12", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirIP_12_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_12", "role": "read" }} , 
  	{ "name": "SocketTable_theirIP_11_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "SocketTable_theirIP_11", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirIP_11_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_11", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirIP_11_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_11", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirIP_11_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_11", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirIP_11_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_11", "role": "read" }} , 
  	{ "name": "SocketTable_theirIP_10_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "SocketTable_theirIP_10", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirIP_10_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_10", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirIP_10_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_10", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirIP_10_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_10", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirIP_10_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_10", "role": "read" }} , 
  	{ "name": "SocketTable_theirIP_9_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "SocketTable_theirIP_9", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirIP_9_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_9", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirIP_9_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_9", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirIP_9_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_9", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirIP_9_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_9", "role": "read" }} , 
  	{ "name": "SocketTable_theirIP_8_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "SocketTable_theirIP_8", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirIP_8_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_8", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirIP_8_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_8", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirIP_8_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_8", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirIP_8_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_8", "role": "read" }} , 
  	{ "name": "SocketTable_theirIP_7_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "SocketTable_theirIP_7", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirIP_7_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_7", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirIP_7_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_7", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirIP_7_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_7", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirIP_7_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_7", "role": "read" }} , 
  	{ "name": "SocketTable_theirIP_6_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "SocketTable_theirIP_6", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirIP_6_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_6", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirIP_6_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_6", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirIP_6_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_6", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirIP_6_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_6", "role": "read" }} , 
  	{ "name": "SocketTable_theirIP_5_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "SocketTable_theirIP_5", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirIP_5_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_5", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirIP_5_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_5", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirIP_5_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_5", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirIP_5_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_5", "role": "read" }} , 
  	{ "name": "SocketTable_theirIP_4_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "SocketTable_theirIP_4", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirIP_4_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_4", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirIP_4_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_4", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirIP_4_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_4", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirIP_4_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_4", "role": "read" }} , 
  	{ "name": "SocketTable_theirIP_3_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "SocketTable_theirIP_3", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirIP_3_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_3", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirIP_3_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_3", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirIP_3_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_3", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirIP_3_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_3", "role": "read" }} , 
  	{ "name": "SocketTable_theirIP_2_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "SocketTable_theirIP_2", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirIP_2_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_2", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirIP_2_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_2", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirIP_2_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_2", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirIP_2_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_2", "role": "read" }} , 
  	{ "name": "SocketTable_theirIP_1_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "SocketTable_theirIP_1", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirIP_1_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_1", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirIP_1_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_1", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirIP_1_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_1", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirIP_1_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_1", "role": "read" }} , 
  	{ "name": "SocketTable_theirIP_0_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "SocketTable_theirIP_0", "role": "dout" }} , 
+ 	{ "name": "SocketTable_theirIP_0_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_0", "role": "num_data_valid" }} , 
+ 	{ "name": "SocketTable_theirIP_0_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "SocketTable_theirIP_0", "role": "fifo_cap" }} , 
  	{ "name": "SocketTable_theirIP_0_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_0", "role": "empty_n" }} , 
  	{ "name": "SocketTable_theirIP_0_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "SocketTable_theirIP_0", "role": "read" }} , 
  	{ "name": "myIpAddress_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "myIpAddress", "role": "dout" }} , 
+ 	{ "name": "myIpAddress_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "myIpAddress", "role": "num_data_valid" }} , 
+ 	{ "name": "myIpAddress_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "myIpAddress", "role": "fifo_cap" }} , 
  	{ "name": "myIpAddress_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "myIpAddress", "role": "empty_n" }} , 
  	{ "name": "myIpAddress_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "myIpAddress", "role": "read" }} , 
  	{ "name": "ureMetaData_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":128, "type": "signal", "bundle":{"name": "ureMetaData", "role": "dout" }} , 
+ 	{ "name": "ureMetaData_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "ureMetaData", "role": "num_data_valid" }} , 
+ 	{ "name": "ureMetaData_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "ureMetaData", "role": "fifo_cap" }} , 
  	{ "name": "ureMetaData_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ureMetaData", "role": "empty_n" }} , 
  	{ "name": "ureMetaData_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "ureMetaData", "role": "read" }} , 
  	{ "name": "agmdIdOut_dout", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "agmdIdOut", "role": "dout" }} , 
+ 	{ "name": "agmdIdOut_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "agmdIdOut", "role": "num_data_valid" }} , 
+ 	{ "name": "agmdIdOut_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "agmdIdOut", "role": "fifo_cap" }} , 
  	{ "name": "agmdIdOut_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "agmdIdOut", "role": "empty_n" }} , 
  	{ "name": "agmdIdOut_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "agmdIdOut", "role": "read" }} , 
  	{ "name": "txthMetaData_din", "direction": "out", "datatype": "sc_lv", "bitwidth":128, "type": "signal", "bundle":{"name": "txthMetaData", "role": "din" }} , 
+ 	{ "name": "txthMetaData_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "txthMetaData", "role": "num_data_valid" }} , 
+ 	{ "name": "txthMetaData_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "txthMetaData", "role": "fifo_cap" }} , 
  	{ "name": "txthMetaData_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "txthMetaData", "role": "full_n" }} , 
  	{ "name": "txthMetaData_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "txthMetaData", "role": "write" }} , 
  	{ "name": "rthDropFifo_din", "direction": "out", "datatype": "sc_lv", "bitwidth":160, "type": "signal", "bundle":{"name": "rthDropFifo", "role": "din" }} , 
+ 	{ "name": "rthDropFifo_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "rthDropFifo", "role": "num_data_valid" }} , 
+ 	{ "name": "rthDropFifo_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "rthDropFifo", "role": "fifo_cap" }} , 
  	{ "name": "rthDropFifo_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "rthDropFifo", "role": "full_n" }} , 
  	{ "name": "rthDropFifo_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "rthDropFifo", "role": "write" }} , 
  	{ "name": "numberSockets", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "numberSockets", "role": "default" }} , 
@@ -816,10 +1096,10 @@ set RtlHierarchyInfo {[
 			{"Name" : "txthMetaData", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "32", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "txthMetaData_blk_n", "Type" : "RtlSignal"}]}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mux_1616_32_1_1_U141", "Parent" : "0"},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mux_1616_16_1_1_U142", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mux_1616_16_1_1_U143", "Parent" : "0"},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mux_1616_1_1_1_U144", "Parent" : "0"}]}
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mux_16_4_32_1_1_U141", "Parent" : "0"},
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mux_16_4_16_1_1_U142", "Parent" : "0"},
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mux_16_4_16_1_1_U143", "Parent" : "0"},
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mux_16_4_1_1_1_U144", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -907,74 +1187,74 @@ set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	SocketTable_theirIP_0 { ap_fifo {  { SocketTable_theirIP_0_dout fifo_data 0 32 }  { SocketTable_theirIP_0_empty_n fifo_status 0 1 }  { SocketTable_theirIP_0_read fifo_update 1 1 } } }
-	SocketTable_theirIP_1 { ap_fifo {  { SocketTable_theirIP_1_dout fifo_data 0 32 }  { SocketTable_theirIP_1_empty_n fifo_status 0 1 }  { SocketTable_theirIP_1_read fifo_update 1 1 } } }
-	SocketTable_theirIP_2 { ap_fifo {  { SocketTable_theirIP_2_dout fifo_data 0 32 }  { SocketTable_theirIP_2_empty_n fifo_status 0 1 }  { SocketTable_theirIP_2_read fifo_update 1 1 } } }
-	SocketTable_theirIP_3 { ap_fifo {  { SocketTable_theirIP_3_dout fifo_data 0 32 }  { SocketTable_theirIP_3_empty_n fifo_status 0 1 }  { SocketTable_theirIP_3_read fifo_update 1 1 } } }
-	SocketTable_theirIP_4 { ap_fifo {  { SocketTable_theirIP_4_dout fifo_data 0 32 }  { SocketTable_theirIP_4_empty_n fifo_status 0 1 }  { SocketTable_theirIP_4_read fifo_update 1 1 } } }
-	SocketTable_theirIP_5 { ap_fifo {  { SocketTable_theirIP_5_dout fifo_data 0 32 }  { SocketTable_theirIP_5_empty_n fifo_status 0 1 }  { SocketTable_theirIP_5_read fifo_update 1 1 } } }
-	SocketTable_theirIP_6 { ap_fifo {  { SocketTable_theirIP_6_dout fifo_data 0 32 }  { SocketTable_theirIP_6_empty_n fifo_status 0 1 }  { SocketTable_theirIP_6_read fifo_update 1 1 } } }
-	SocketTable_theirIP_7 { ap_fifo {  { SocketTable_theirIP_7_dout fifo_data 0 32 }  { SocketTable_theirIP_7_empty_n fifo_status 0 1 }  { SocketTable_theirIP_7_read fifo_update 1 1 } } }
-	SocketTable_theirIP_8 { ap_fifo {  { SocketTable_theirIP_8_dout fifo_data 0 32 }  { SocketTable_theirIP_8_empty_n fifo_status 0 1 }  { SocketTable_theirIP_8_read fifo_update 1 1 } } }
-	SocketTable_theirIP_9 { ap_fifo {  { SocketTable_theirIP_9_dout fifo_data 0 32 }  { SocketTable_theirIP_9_empty_n fifo_status 0 1 }  { SocketTable_theirIP_9_read fifo_update 1 1 } } }
-	SocketTable_theirIP_10 { ap_fifo {  { SocketTable_theirIP_10_dout fifo_data 0 32 }  { SocketTable_theirIP_10_empty_n fifo_status 0 1 }  { SocketTable_theirIP_10_read fifo_update 1 1 } } }
-	SocketTable_theirIP_11 { ap_fifo {  { SocketTable_theirIP_11_dout fifo_data 0 32 }  { SocketTable_theirIP_11_empty_n fifo_status 0 1 }  { SocketTable_theirIP_11_read fifo_update 1 1 } } }
-	SocketTable_theirIP_12 { ap_fifo {  { SocketTable_theirIP_12_dout fifo_data 0 32 }  { SocketTable_theirIP_12_empty_n fifo_status 0 1 }  { SocketTable_theirIP_12_read fifo_update 1 1 } } }
-	SocketTable_theirIP_13 { ap_fifo {  { SocketTable_theirIP_13_dout fifo_data 0 32 }  { SocketTable_theirIP_13_empty_n fifo_status 0 1 }  { SocketTable_theirIP_13_read fifo_update 1 1 } } }
-	SocketTable_theirIP_14 { ap_fifo {  { SocketTable_theirIP_14_dout fifo_data 0 32 }  { SocketTable_theirIP_14_empty_n fifo_status 0 1 }  { SocketTable_theirIP_14_read fifo_update 1 1 } } }
-	SocketTable_theirIP_15 { ap_fifo {  { SocketTable_theirIP_15_dout fifo_data 0 32 }  { SocketTable_theirIP_15_empty_n fifo_status 0 1 }  { SocketTable_theirIP_15_read fifo_update 1 1 } } }
-	SocketTable_theirPort_0 { ap_fifo {  { SocketTable_theirPort_0_dout fifo_data 0 16 }  { SocketTable_theirPort_0_empty_n fifo_status 0 1 }  { SocketTable_theirPort_0_read fifo_update 1 1 } } }
-	SocketTable_theirPort_1 { ap_fifo {  { SocketTable_theirPort_1_dout fifo_data 0 16 }  { SocketTable_theirPort_1_empty_n fifo_status 0 1 }  { SocketTable_theirPort_1_read fifo_update 1 1 } } }
-	SocketTable_theirPort_2 { ap_fifo {  { SocketTable_theirPort_2_dout fifo_data 0 16 }  { SocketTable_theirPort_2_empty_n fifo_status 0 1 }  { SocketTable_theirPort_2_read fifo_update 1 1 } } }
-	SocketTable_theirPort_3 { ap_fifo {  { SocketTable_theirPort_3_dout fifo_data 0 16 }  { SocketTable_theirPort_3_empty_n fifo_status 0 1 }  { SocketTable_theirPort_3_read fifo_update 1 1 } } }
-	SocketTable_theirPort_4 { ap_fifo {  { SocketTable_theirPort_4_dout fifo_data 0 16 }  { SocketTable_theirPort_4_empty_n fifo_status 0 1 }  { SocketTable_theirPort_4_read fifo_update 1 1 } } }
-	SocketTable_theirPort_5 { ap_fifo {  { SocketTable_theirPort_5_dout fifo_data 0 16 }  { SocketTable_theirPort_5_empty_n fifo_status 0 1 }  { SocketTable_theirPort_5_read fifo_update 1 1 } } }
-	SocketTable_theirPort_6 { ap_fifo {  { SocketTable_theirPort_6_dout fifo_data 0 16 }  { SocketTable_theirPort_6_empty_n fifo_status 0 1 }  { SocketTable_theirPort_6_read fifo_update 1 1 } } }
-	SocketTable_theirPort_7 { ap_fifo {  { SocketTable_theirPort_7_dout fifo_data 0 16 }  { SocketTable_theirPort_7_empty_n fifo_status 0 1 }  { SocketTable_theirPort_7_read fifo_update 1 1 } } }
-	SocketTable_theirPort_8 { ap_fifo {  { SocketTable_theirPort_8_dout fifo_data 0 16 }  { SocketTable_theirPort_8_empty_n fifo_status 0 1 }  { SocketTable_theirPort_8_read fifo_update 1 1 } } }
-	SocketTable_theirPort_9 { ap_fifo {  { SocketTable_theirPort_9_dout fifo_data 0 16 }  { SocketTable_theirPort_9_empty_n fifo_status 0 1 }  { SocketTable_theirPort_9_read fifo_update 1 1 } } }
-	SocketTable_theirPort_10 { ap_fifo {  { SocketTable_theirPort_10_dout fifo_data 0 16 }  { SocketTable_theirPort_10_empty_n fifo_status 0 1 }  { SocketTable_theirPort_10_read fifo_update 1 1 } } }
-	SocketTable_theirPort_11 { ap_fifo {  { SocketTable_theirPort_11_dout fifo_data 0 16 }  { SocketTable_theirPort_11_empty_n fifo_status 0 1 }  { SocketTable_theirPort_11_read fifo_update 1 1 } } }
-	SocketTable_theirPort_12 { ap_fifo {  { SocketTable_theirPort_12_dout fifo_data 0 16 }  { SocketTable_theirPort_12_empty_n fifo_status 0 1 }  { SocketTable_theirPort_12_read fifo_update 1 1 } } }
-	SocketTable_theirPort_13 { ap_fifo {  { SocketTable_theirPort_13_dout fifo_data 0 16 }  { SocketTable_theirPort_13_empty_n fifo_status 0 1 }  { SocketTable_theirPort_13_read fifo_update 1 1 } } }
-	SocketTable_theirPort_14 { ap_fifo {  { SocketTable_theirPort_14_dout fifo_data 0 16 }  { SocketTable_theirPort_14_empty_n fifo_status 0 1 }  { SocketTable_theirPort_14_read fifo_update 1 1 } } }
-	SocketTable_theirPort_15 { ap_fifo {  { SocketTable_theirPort_15_dout fifo_data 0 16 }  { SocketTable_theirPort_15_empty_n fifo_status 0 1 }  { SocketTable_theirPort_15_read fifo_update 1 1 } } }
-	SocketTable_myPort_0 { ap_fifo {  { SocketTable_myPort_0_dout fifo_data 0 16 }  { SocketTable_myPort_0_empty_n fifo_status 0 1 }  { SocketTable_myPort_0_read fifo_update 1 1 } } }
-	SocketTable_myPort_1 { ap_fifo {  { SocketTable_myPort_1_dout fifo_data 0 16 }  { SocketTable_myPort_1_empty_n fifo_status 0 1 }  { SocketTable_myPort_1_read fifo_update 1 1 } } }
-	SocketTable_myPort_2 { ap_fifo {  { SocketTable_myPort_2_dout fifo_data 0 16 }  { SocketTable_myPort_2_empty_n fifo_status 0 1 }  { SocketTable_myPort_2_read fifo_update 1 1 } } }
-	SocketTable_myPort_3 { ap_fifo {  { SocketTable_myPort_3_dout fifo_data 0 16 }  { SocketTable_myPort_3_empty_n fifo_status 0 1 }  { SocketTable_myPort_3_read fifo_update 1 1 } } }
-	SocketTable_myPort_4 { ap_fifo {  { SocketTable_myPort_4_dout fifo_data 0 16 }  { SocketTable_myPort_4_empty_n fifo_status 0 1 }  { SocketTable_myPort_4_read fifo_update 1 1 } } }
-	SocketTable_myPort_5 { ap_fifo {  { SocketTable_myPort_5_dout fifo_data 0 16 }  { SocketTable_myPort_5_empty_n fifo_status 0 1 }  { SocketTable_myPort_5_read fifo_update 1 1 } } }
-	SocketTable_myPort_6 { ap_fifo {  { SocketTable_myPort_6_dout fifo_data 0 16 }  { SocketTable_myPort_6_empty_n fifo_status 0 1 }  { SocketTable_myPort_6_read fifo_update 1 1 } } }
-	SocketTable_myPort_7 { ap_fifo {  { SocketTable_myPort_7_dout fifo_data 0 16 }  { SocketTable_myPort_7_empty_n fifo_status 0 1 }  { SocketTable_myPort_7_read fifo_update 1 1 } } }
-	SocketTable_myPort_8 { ap_fifo {  { SocketTable_myPort_8_dout fifo_data 0 16 }  { SocketTable_myPort_8_empty_n fifo_status 0 1 }  { SocketTable_myPort_8_read fifo_update 1 1 } } }
-	SocketTable_myPort_9 { ap_fifo {  { SocketTable_myPort_9_dout fifo_data 0 16 }  { SocketTable_myPort_9_empty_n fifo_status 0 1 }  { SocketTable_myPort_9_read fifo_update 1 1 } } }
-	SocketTable_myPort_10 { ap_fifo {  { SocketTable_myPort_10_dout fifo_data 0 16 }  { SocketTable_myPort_10_empty_n fifo_status 0 1 }  { SocketTable_myPort_10_read fifo_update 1 1 } } }
-	SocketTable_myPort_11 { ap_fifo {  { SocketTable_myPort_11_dout fifo_data 0 16 }  { SocketTable_myPort_11_empty_n fifo_status 0 1 }  { SocketTable_myPort_11_read fifo_update 1 1 } } }
-	SocketTable_myPort_12 { ap_fifo {  { SocketTable_myPort_12_dout fifo_data 0 16 }  { SocketTable_myPort_12_empty_n fifo_status 0 1 }  { SocketTable_myPort_12_read fifo_update 1 1 } } }
-	SocketTable_myPort_13 { ap_fifo {  { SocketTable_myPort_13_dout fifo_data 0 16 }  { SocketTable_myPort_13_empty_n fifo_status 0 1 }  { SocketTable_myPort_13_read fifo_update 1 1 } } }
-	SocketTable_myPort_14 { ap_fifo {  { SocketTable_myPort_14_dout fifo_data 0 16 }  { SocketTable_myPort_14_empty_n fifo_status 0 1 }  { SocketTable_myPort_14_read fifo_update 1 1 } } }
-	SocketTable_myPort_15 { ap_fifo {  { SocketTable_myPort_15_dout fifo_data 0 16 }  { SocketTable_myPort_15_empty_n fifo_status 0 1 }  { SocketTable_myPort_15_read fifo_update 1 1 } } }
-	SocketTable_valid_0 { ap_fifo {  { SocketTable_valid_0_dout fifo_data 0 1 }  { SocketTable_valid_0_empty_n fifo_status 0 1 }  { SocketTable_valid_0_read fifo_update 1 1 } } }
-	SocketTable_valid_1 { ap_fifo {  { SocketTable_valid_1_dout fifo_data 0 1 }  { SocketTable_valid_1_empty_n fifo_status 0 1 }  { SocketTable_valid_1_read fifo_update 1 1 } } }
-	SocketTable_valid_2 { ap_fifo {  { SocketTable_valid_2_dout fifo_data 0 1 }  { SocketTable_valid_2_empty_n fifo_status 0 1 }  { SocketTable_valid_2_read fifo_update 1 1 } } }
-	SocketTable_valid_3 { ap_fifo {  { SocketTable_valid_3_dout fifo_data 0 1 }  { SocketTable_valid_3_empty_n fifo_status 0 1 }  { SocketTable_valid_3_read fifo_update 1 1 } } }
-	SocketTable_valid_4 { ap_fifo {  { SocketTable_valid_4_dout fifo_data 0 1 }  { SocketTable_valid_4_empty_n fifo_status 0 1 }  { SocketTable_valid_4_read fifo_update 1 1 } } }
-	SocketTable_valid_5 { ap_fifo {  { SocketTable_valid_5_dout fifo_data 0 1 }  { SocketTable_valid_5_empty_n fifo_status 0 1 }  { SocketTable_valid_5_read fifo_update 1 1 } } }
-	SocketTable_valid_6 { ap_fifo {  { SocketTable_valid_6_dout fifo_data 0 1 }  { SocketTable_valid_6_empty_n fifo_status 0 1 }  { SocketTable_valid_6_read fifo_update 1 1 } } }
-	SocketTable_valid_7 { ap_fifo {  { SocketTable_valid_7_dout fifo_data 0 1 }  { SocketTable_valid_7_empty_n fifo_status 0 1 }  { SocketTable_valid_7_read fifo_update 1 1 } } }
-	SocketTable_valid_8 { ap_fifo {  { SocketTable_valid_8_dout fifo_data 0 1 }  { SocketTable_valid_8_empty_n fifo_status 0 1 }  { SocketTable_valid_8_read fifo_update 1 1 } } }
-	SocketTable_valid_9 { ap_fifo {  { SocketTable_valid_9_dout fifo_data 0 1 }  { SocketTable_valid_9_empty_n fifo_status 0 1 }  { SocketTable_valid_9_read fifo_update 1 1 } } }
-	SocketTable_valid_10 { ap_fifo {  { SocketTable_valid_10_dout fifo_data 0 1 }  { SocketTable_valid_10_empty_n fifo_status 0 1 }  { SocketTable_valid_10_read fifo_update 1 1 } } }
-	SocketTable_valid_11 { ap_fifo {  { SocketTable_valid_11_dout fifo_data 0 1 }  { SocketTable_valid_11_empty_n fifo_status 0 1 }  { SocketTable_valid_11_read fifo_update 1 1 } } }
-	SocketTable_valid_12 { ap_fifo {  { SocketTable_valid_12_dout fifo_data 0 1 }  { SocketTable_valid_12_empty_n fifo_status 0 1 }  { SocketTable_valid_12_read fifo_update 1 1 } } }
-	SocketTable_valid_13 { ap_fifo {  { SocketTable_valid_13_dout fifo_data 0 1 }  { SocketTable_valid_13_empty_n fifo_status 0 1 }  { SocketTable_valid_13_read fifo_update 1 1 } } }
-	SocketTable_valid_14 { ap_fifo {  { SocketTable_valid_14_dout fifo_data 0 1 }  { SocketTable_valid_14_empty_n fifo_status 0 1 }  { SocketTable_valid_14_read fifo_update 1 1 } } }
-	SocketTable_valid_15 { ap_fifo {  { SocketTable_valid_15_dout fifo_data 0 1 }  { SocketTable_valid_15_empty_n fifo_status 0 1 }  { SocketTable_valid_15_read fifo_update 1 1 } } }
+	SocketTable_theirIP_0 { ap_fifo {  { SocketTable_theirIP_0_dout fifo_port_we 0 32 }  { SocketTable_theirIP_0_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirIP_0_fifo_cap fifo_update 0 3 }  { SocketTable_theirIP_0_empty_n fifo_status 0 1 }  { SocketTable_theirIP_0_read fifo_data 1 1 } } }
+	SocketTable_theirIP_1 { ap_fifo {  { SocketTable_theirIP_1_dout fifo_port_we 0 32 }  { SocketTable_theirIP_1_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirIP_1_fifo_cap fifo_update 0 3 }  { SocketTable_theirIP_1_empty_n fifo_status 0 1 }  { SocketTable_theirIP_1_read fifo_data 1 1 } } }
+	SocketTable_theirIP_2 { ap_fifo {  { SocketTable_theirIP_2_dout fifo_port_we 0 32 }  { SocketTable_theirIP_2_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirIP_2_fifo_cap fifo_update 0 3 }  { SocketTable_theirIP_2_empty_n fifo_status 0 1 }  { SocketTable_theirIP_2_read fifo_data 1 1 } } }
+	SocketTable_theirIP_3 { ap_fifo {  { SocketTable_theirIP_3_dout fifo_port_we 0 32 }  { SocketTable_theirIP_3_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirIP_3_fifo_cap fifo_update 0 3 }  { SocketTable_theirIP_3_empty_n fifo_status 0 1 }  { SocketTable_theirIP_3_read fifo_data 1 1 } } }
+	SocketTable_theirIP_4 { ap_fifo {  { SocketTable_theirIP_4_dout fifo_port_we 0 32 }  { SocketTable_theirIP_4_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirIP_4_fifo_cap fifo_update 0 3 }  { SocketTable_theirIP_4_empty_n fifo_status 0 1 }  { SocketTable_theirIP_4_read fifo_data 1 1 } } }
+	SocketTable_theirIP_5 { ap_fifo {  { SocketTable_theirIP_5_dout fifo_port_we 0 32 }  { SocketTable_theirIP_5_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirIP_5_fifo_cap fifo_update 0 3 }  { SocketTable_theirIP_5_empty_n fifo_status 0 1 }  { SocketTable_theirIP_5_read fifo_data 1 1 } } }
+	SocketTable_theirIP_6 { ap_fifo {  { SocketTable_theirIP_6_dout fifo_port_we 0 32 }  { SocketTable_theirIP_6_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirIP_6_fifo_cap fifo_update 0 3 }  { SocketTable_theirIP_6_empty_n fifo_status 0 1 }  { SocketTable_theirIP_6_read fifo_data 1 1 } } }
+	SocketTable_theirIP_7 { ap_fifo {  { SocketTable_theirIP_7_dout fifo_port_we 0 32 }  { SocketTable_theirIP_7_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirIP_7_fifo_cap fifo_update 0 3 }  { SocketTable_theirIP_7_empty_n fifo_status 0 1 }  { SocketTable_theirIP_7_read fifo_data 1 1 } } }
+	SocketTable_theirIP_8 { ap_fifo {  { SocketTable_theirIP_8_dout fifo_port_we 0 32 }  { SocketTable_theirIP_8_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirIP_8_fifo_cap fifo_update 0 3 }  { SocketTable_theirIP_8_empty_n fifo_status 0 1 }  { SocketTable_theirIP_8_read fifo_data 1 1 } } }
+	SocketTable_theirIP_9 { ap_fifo {  { SocketTable_theirIP_9_dout fifo_port_we 0 32 }  { SocketTable_theirIP_9_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirIP_9_fifo_cap fifo_update 0 3 }  { SocketTable_theirIP_9_empty_n fifo_status 0 1 }  { SocketTable_theirIP_9_read fifo_data 1 1 } } }
+	SocketTable_theirIP_10 { ap_fifo {  { SocketTable_theirIP_10_dout fifo_port_we 0 32 }  { SocketTable_theirIP_10_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirIP_10_fifo_cap fifo_update 0 3 }  { SocketTable_theirIP_10_empty_n fifo_status 0 1 }  { SocketTable_theirIP_10_read fifo_data 1 1 } } }
+	SocketTable_theirIP_11 { ap_fifo {  { SocketTable_theirIP_11_dout fifo_port_we 0 32 }  { SocketTable_theirIP_11_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirIP_11_fifo_cap fifo_update 0 3 }  { SocketTable_theirIP_11_empty_n fifo_status 0 1 }  { SocketTable_theirIP_11_read fifo_data 1 1 } } }
+	SocketTable_theirIP_12 { ap_fifo {  { SocketTable_theirIP_12_dout fifo_port_we 0 32 }  { SocketTable_theirIP_12_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirIP_12_fifo_cap fifo_update 0 3 }  { SocketTable_theirIP_12_empty_n fifo_status 0 1 }  { SocketTable_theirIP_12_read fifo_data 1 1 } } }
+	SocketTable_theirIP_13 { ap_fifo {  { SocketTable_theirIP_13_dout fifo_port_we 0 32 }  { SocketTable_theirIP_13_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirIP_13_fifo_cap fifo_update 0 3 }  { SocketTable_theirIP_13_empty_n fifo_status 0 1 }  { SocketTable_theirIP_13_read fifo_data 1 1 } } }
+	SocketTable_theirIP_14 { ap_fifo {  { SocketTable_theirIP_14_dout fifo_port_we 0 32 }  { SocketTable_theirIP_14_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirIP_14_fifo_cap fifo_update 0 3 }  { SocketTable_theirIP_14_empty_n fifo_status 0 1 }  { SocketTable_theirIP_14_read fifo_data 1 1 } } }
+	SocketTable_theirIP_15 { ap_fifo {  { SocketTable_theirIP_15_dout fifo_port_we 0 32 }  { SocketTable_theirIP_15_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirIP_15_fifo_cap fifo_update 0 3 }  { SocketTable_theirIP_15_empty_n fifo_status 0 1 }  { SocketTable_theirIP_15_read fifo_data 1 1 } } }
+	SocketTable_theirPort_0 { ap_fifo {  { SocketTable_theirPort_0_dout fifo_port_we 0 16 }  { SocketTable_theirPort_0_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirPort_0_fifo_cap fifo_update 0 3 }  { SocketTable_theirPort_0_empty_n fifo_status 0 1 }  { SocketTable_theirPort_0_read fifo_data 1 1 } } }
+	SocketTable_theirPort_1 { ap_fifo {  { SocketTable_theirPort_1_dout fifo_port_we 0 16 }  { SocketTable_theirPort_1_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirPort_1_fifo_cap fifo_update 0 3 }  { SocketTable_theirPort_1_empty_n fifo_status 0 1 }  { SocketTable_theirPort_1_read fifo_data 1 1 } } }
+	SocketTable_theirPort_2 { ap_fifo {  { SocketTable_theirPort_2_dout fifo_port_we 0 16 }  { SocketTable_theirPort_2_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirPort_2_fifo_cap fifo_update 0 3 }  { SocketTable_theirPort_2_empty_n fifo_status 0 1 }  { SocketTable_theirPort_2_read fifo_data 1 1 } } }
+	SocketTable_theirPort_3 { ap_fifo {  { SocketTable_theirPort_3_dout fifo_port_we 0 16 }  { SocketTable_theirPort_3_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirPort_3_fifo_cap fifo_update 0 3 }  { SocketTable_theirPort_3_empty_n fifo_status 0 1 }  { SocketTable_theirPort_3_read fifo_data 1 1 } } }
+	SocketTable_theirPort_4 { ap_fifo {  { SocketTable_theirPort_4_dout fifo_port_we 0 16 }  { SocketTable_theirPort_4_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirPort_4_fifo_cap fifo_update 0 3 }  { SocketTable_theirPort_4_empty_n fifo_status 0 1 }  { SocketTable_theirPort_4_read fifo_data 1 1 } } }
+	SocketTable_theirPort_5 { ap_fifo {  { SocketTable_theirPort_5_dout fifo_port_we 0 16 }  { SocketTable_theirPort_5_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirPort_5_fifo_cap fifo_update 0 3 }  { SocketTable_theirPort_5_empty_n fifo_status 0 1 }  { SocketTable_theirPort_5_read fifo_data 1 1 } } }
+	SocketTable_theirPort_6 { ap_fifo {  { SocketTable_theirPort_6_dout fifo_port_we 0 16 }  { SocketTable_theirPort_6_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirPort_6_fifo_cap fifo_update 0 3 }  { SocketTable_theirPort_6_empty_n fifo_status 0 1 }  { SocketTable_theirPort_6_read fifo_data 1 1 } } }
+	SocketTable_theirPort_7 { ap_fifo {  { SocketTable_theirPort_7_dout fifo_port_we 0 16 }  { SocketTable_theirPort_7_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirPort_7_fifo_cap fifo_update 0 3 }  { SocketTable_theirPort_7_empty_n fifo_status 0 1 }  { SocketTable_theirPort_7_read fifo_data 1 1 } } }
+	SocketTable_theirPort_8 { ap_fifo {  { SocketTable_theirPort_8_dout fifo_port_we 0 16 }  { SocketTable_theirPort_8_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirPort_8_fifo_cap fifo_update 0 3 }  { SocketTable_theirPort_8_empty_n fifo_status 0 1 }  { SocketTable_theirPort_8_read fifo_data 1 1 } } }
+	SocketTable_theirPort_9 { ap_fifo {  { SocketTable_theirPort_9_dout fifo_port_we 0 16 }  { SocketTable_theirPort_9_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirPort_9_fifo_cap fifo_update 0 3 }  { SocketTable_theirPort_9_empty_n fifo_status 0 1 }  { SocketTable_theirPort_9_read fifo_data 1 1 } } }
+	SocketTable_theirPort_10 { ap_fifo {  { SocketTable_theirPort_10_dout fifo_port_we 0 16 }  { SocketTable_theirPort_10_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirPort_10_fifo_cap fifo_update 0 3 }  { SocketTable_theirPort_10_empty_n fifo_status 0 1 }  { SocketTable_theirPort_10_read fifo_data 1 1 } } }
+	SocketTable_theirPort_11 { ap_fifo {  { SocketTable_theirPort_11_dout fifo_port_we 0 16 }  { SocketTable_theirPort_11_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirPort_11_fifo_cap fifo_update 0 3 }  { SocketTable_theirPort_11_empty_n fifo_status 0 1 }  { SocketTable_theirPort_11_read fifo_data 1 1 } } }
+	SocketTable_theirPort_12 { ap_fifo {  { SocketTable_theirPort_12_dout fifo_port_we 0 16 }  { SocketTable_theirPort_12_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirPort_12_fifo_cap fifo_update 0 3 }  { SocketTable_theirPort_12_empty_n fifo_status 0 1 }  { SocketTable_theirPort_12_read fifo_data 1 1 } } }
+	SocketTable_theirPort_13 { ap_fifo {  { SocketTable_theirPort_13_dout fifo_port_we 0 16 }  { SocketTable_theirPort_13_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirPort_13_fifo_cap fifo_update 0 3 }  { SocketTable_theirPort_13_empty_n fifo_status 0 1 }  { SocketTable_theirPort_13_read fifo_data 1 1 } } }
+	SocketTable_theirPort_14 { ap_fifo {  { SocketTable_theirPort_14_dout fifo_port_we 0 16 }  { SocketTable_theirPort_14_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirPort_14_fifo_cap fifo_update 0 3 }  { SocketTable_theirPort_14_empty_n fifo_status 0 1 }  { SocketTable_theirPort_14_read fifo_data 1 1 } } }
+	SocketTable_theirPort_15 { ap_fifo {  { SocketTable_theirPort_15_dout fifo_port_we 0 16 }  { SocketTable_theirPort_15_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_theirPort_15_fifo_cap fifo_update 0 3 }  { SocketTable_theirPort_15_empty_n fifo_status 0 1 }  { SocketTable_theirPort_15_read fifo_data 1 1 } } }
+	SocketTable_myPort_0 { ap_fifo {  { SocketTable_myPort_0_dout fifo_port_we 0 16 }  { SocketTable_myPort_0_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_myPort_0_fifo_cap fifo_update 0 3 }  { SocketTable_myPort_0_empty_n fifo_status 0 1 }  { SocketTable_myPort_0_read fifo_data 1 1 } } }
+	SocketTable_myPort_1 { ap_fifo {  { SocketTable_myPort_1_dout fifo_port_we 0 16 }  { SocketTable_myPort_1_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_myPort_1_fifo_cap fifo_update 0 3 }  { SocketTable_myPort_1_empty_n fifo_status 0 1 }  { SocketTable_myPort_1_read fifo_data 1 1 } } }
+	SocketTable_myPort_2 { ap_fifo {  { SocketTable_myPort_2_dout fifo_port_we 0 16 }  { SocketTable_myPort_2_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_myPort_2_fifo_cap fifo_update 0 3 }  { SocketTable_myPort_2_empty_n fifo_status 0 1 }  { SocketTable_myPort_2_read fifo_data 1 1 } } }
+	SocketTable_myPort_3 { ap_fifo {  { SocketTable_myPort_3_dout fifo_port_we 0 16 }  { SocketTable_myPort_3_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_myPort_3_fifo_cap fifo_update 0 3 }  { SocketTable_myPort_3_empty_n fifo_status 0 1 }  { SocketTable_myPort_3_read fifo_data 1 1 } } }
+	SocketTable_myPort_4 { ap_fifo {  { SocketTable_myPort_4_dout fifo_port_we 0 16 }  { SocketTable_myPort_4_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_myPort_4_fifo_cap fifo_update 0 3 }  { SocketTable_myPort_4_empty_n fifo_status 0 1 }  { SocketTable_myPort_4_read fifo_data 1 1 } } }
+	SocketTable_myPort_5 { ap_fifo {  { SocketTable_myPort_5_dout fifo_port_we 0 16 }  { SocketTable_myPort_5_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_myPort_5_fifo_cap fifo_update 0 3 }  { SocketTable_myPort_5_empty_n fifo_status 0 1 }  { SocketTable_myPort_5_read fifo_data 1 1 } } }
+	SocketTable_myPort_6 { ap_fifo {  { SocketTable_myPort_6_dout fifo_port_we 0 16 }  { SocketTable_myPort_6_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_myPort_6_fifo_cap fifo_update 0 3 }  { SocketTable_myPort_6_empty_n fifo_status 0 1 }  { SocketTable_myPort_6_read fifo_data 1 1 } } }
+	SocketTable_myPort_7 { ap_fifo {  { SocketTable_myPort_7_dout fifo_port_we 0 16 }  { SocketTable_myPort_7_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_myPort_7_fifo_cap fifo_update 0 3 }  { SocketTable_myPort_7_empty_n fifo_status 0 1 }  { SocketTable_myPort_7_read fifo_data 1 1 } } }
+	SocketTable_myPort_8 { ap_fifo {  { SocketTable_myPort_8_dout fifo_port_we 0 16 }  { SocketTable_myPort_8_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_myPort_8_fifo_cap fifo_update 0 3 }  { SocketTable_myPort_8_empty_n fifo_status 0 1 }  { SocketTable_myPort_8_read fifo_data 1 1 } } }
+	SocketTable_myPort_9 { ap_fifo {  { SocketTable_myPort_9_dout fifo_port_we 0 16 }  { SocketTable_myPort_9_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_myPort_9_fifo_cap fifo_update 0 3 }  { SocketTable_myPort_9_empty_n fifo_status 0 1 }  { SocketTable_myPort_9_read fifo_data 1 1 } } }
+	SocketTable_myPort_10 { ap_fifo {  { SocketTable_myPort_10_dout fifo_port_we 0 16 }  { SocketTable_myPort_10_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_myPort_10_fifo_cap fifo_update 0 3 }  { SocketTable_myPort_10_empty_n fifo_status 0 1 }  { SocketTable_myPort_10_read fifo_data 1 1 } } }
+	SocketTable_myPort_11 { ap_fifo {  { SocketTable_myPort_11_dout fifo_port_we 0 16 }  { SocketTable_myPort_11_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_myPort_11_fifo_cap fifo_update 0 3 }  { SocketTable_myPort_11_empty_n fifo_status 0 1 }  { SocketTable_myPort_11_read fifo_data 1 1 } } }
+	SocketTable_myPort_12 { ap_fifo {  { SocketTable_myPort_12_dout fifo_port_we 0 16 }  { SocketTable_myPort_12_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_myPort_12_fifo_cap fifo_update 0 3 }  { SocketTable_myPort_12_empty_n fifo_status 0 1 }  { SocketTable_myPort_12_read fifo_data 1 1 } } }
+	SocketTable_myPort_13 { ap_fifo {  { SocketTable_myPort_13_dout fifo_port_we 0 16 }  { SocketTable_myPort_13_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_myPort_13_fifo_cap fifo_update 0 3 }  { SocketTable_myPort_13_empty_n fifo_status 0 1 }  { SocketTable_myPort_13_read fifo_data 1 1 } } }
+	SocketTable_myPort_14 { ap_fifo {  { SocketTable_myPort_14_dout fifo_port_we 0 16 }  { SocketTable_myPort_14_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_myPort_14_fifo_cap fifo_update 0 3 }  { SocketTable_myPort_14_empty_n fifo_status 0 1 }  { SocketTable_myPort_14_read fifo_data 1 1 } } }
+	SocketTable_myPort_15 { ap_fifo {  { SocketTable_myPort_15_dout fifo_port_we 0 16 }  { SocketTable_myPort_15_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_myPort_15_fifo_cap fifo_update 0 3 }  { SocketTable_myPort_15_empty_n fifo_status 0 1 }  { SocketTable_myPort_15_read fifo_data 1 1 } } }
+	SocketTable_valid_0 { ap_fifo {  { SocketTable_valid_0_dout fifo_port_we 0 1 }  { SocketTable_valid_0_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_valid_0_fifo_cap fifo_update 0 3 }  { SocketTable_valid_0_empty_n fifo_status 0 1 }  { SocketTable_valid_0_read fifo_data 1 1 } } }
+	SocketTable_valid_1 { ap_fifo {  { SocketTable_valid_1_dout fifo_port_we 0 1 }  { SocketTable_valid_1_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_valid_1_fifo_cap fifo_update 0 3 }  { SocketTable_valid_1_empty_n fifo_status 0 1 }  { SocketTable_valid_1_read fifo_data 1 1 } } }
+	SocketTable_valid_2 { ap_fifo {  { SocketTable_valid_2_dout fifo_port_we 0 1 }  { SocketTable_valid_2_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_valid_2_fifo_cap fifo_update 0 3 }  { SocketTable_valid_2_empty_n fifo_status 0 1 }  { SocketTable_valid_2_read fifo_data 1 1 } } }
+	SocketTable_valid_3 { ap_fifo {  { SocketTable_valid_3_dout fifo_port_we 0 1 }  { SocketTable_valid_3_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_valid_3_fifo_cap fifo_update 0 3 }  { SocketTable_valid_3_empty_n fifo_status 0 1 }  { SocketTable_valid_3_read fifo_data 1 1 } } }
+	SocketTable_valid_4 { ap_fifo {  { SocketTable_valid_4_dout fifo_port_we 0 1 }  { SocketTable_valid_4_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_valid_4_fifo_cap fifo_update 0 3 }  { SocketTable_valid_4_empty_n fifo_status 0 1 }  { SocketTable_valid_4_read fifo_data 1 1 } } }
+	SocketTable_valid_5 { ap_fifo {  { SocketTable_valid_5_dout fifo_port_we 0 1 }  { SocketTable_valid_5_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_valid_5_fifo_cap fifo_update 0 3 }  { SocketTable_valid_5_empty_n fifo_status 0 1 }  { SocketTable_valid_5_read fifo_data 1 1 } } }
+	SocketTable_valid_6 { ap_fifo {  { SocketTable_valid_6_dout fifo_port_we 0 1 }  { SocketTable_valid_6_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_valid_6_fifo_cap fifo_update 0 3 }  { SocketTable_valid_6_empty_n fifo_status 0 1 }  { SocketTable_valid_6_read fifo_data 1 1 } } }
+	SocketTable_valid_7 { ap_fifo {  { SocketTable_valid_7_dout fifo_port_we 0 1 }  { SocketTable_valid_7_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_valid_7_fifo_cap fifo_update 0 3 }  { SocketTable_valid_7_empty_n fifo_status 0 1 }  { SocketTable_valid_7_read fifo_data 1 1 } } }
+	SocketTable_valid_8 { ap_fifo {  { SocketTable_valid_8_dout fifo_port_we 0 1 }  { SocketTable_valid_8_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_valid_8_fifo_cap fifo_update 0 3 }  { SocketTable_valid_8_empty_n fifo_status 0 1 }  { SocketTable_valid_8_read fifo_data 1 1 } } }
+	SocketTable_valid_9 { ap_fifo {  { SocketTable_valid_9_dout fifo_port_we 0 1 }  { SocketTable_valid_9_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_valid_9_fifo_cap fifo_update 0 3 }  { SocketTable_valid_9_empty_n fifo_status 0 1 }  { SocketTable_valid_9_read fifo_data 1 1 } } }
+	SocketTable_valid_10 { ap_fifo {  { SocketTable_valid_10_dout fifo_port_we 0 1 }  { SocketTable_valid_10_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_valid_10_fifo_cap fifo_update 0 3 }  { SocketTable_valid_10_empty_n fifo_status 0 1 }  { SocketTable_valid_10_read fifo_data 1 1 } } }
+	SocketTable_valid_11 { ap_fifo {  { SocketTable_valid_11_dout fifo_port_we 0 1 }  { SocketTable_valid_11_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_valid_11_fifo_cap fifo_update 0 3 }  { SocketTable_valid_11_empty_n fifo_status 0 1 }  { SocketTable_valid_11_read fifo_data 1 1 } } }
+	SocketTable_valid_12 { ap_fifo {  { SocketTable_valid_12_dout fifo_port_we 0 1 }  { SocketTable_valid_12_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_valid_12_fifo_cap fifo_update 0 3 }  { SocketTable_valid_12_empty_n fifo_status 0 1 }  { SocketTable_valid_12_read fifo_data 1 1 } } }
+	SocketTable_valid_13 { ap_fifo {  { SocketTable_valid_13_dout fifo_port_we 0 1 }  { SocketTable_valid_13_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_valid_13_fifo_cap fifo_update 0 3 }  { SocketTable_valid_13_empty_n fifo_status 0 1 }  { SocketTable_valid_13_read fifo_data 1 1 } } }
+	SocketTable_valid_14 { ap_fifo {  { SocketTable_valid_14_dout fifo_port_we 0 1 }  { SocketTable_valid_14_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_valid_14_fifo_cap fifo_update 0 3 }  { SocketTable_valid_14_empty_n fifo_status 0 1 }  { SocketTable_valid_14_read fifo_data 1 1 } } }
+	SocketTable_valid_15 { ap_fifo {  { SocketTable_valid_15_dout fifo_port_we 0 1 }  { SocketTable_valid_15_num_data_valid fifo_status_num_data_valid 0 3 }  { SocketTable_valid_15_fifo_cap fifo_update 0 3 }  { SocketTable_valid_15_empty_n fifo_status 0 1 }  { SocketTable_valid_15_read fifo_data 1 1 } } }
 	numberSockets { ap_vld {  { numberSockets out_data 1 16 }  { numberSockets_ap_vld out_vld 1 1 } } }
-	myIpAddress { ap_fifo {  { myIpAddress_dout fifo_data 0 32 }  { myIpAddress_empty_n fifo_status 0 1 }  { myIpAddress_read fifo_update 1 1 } } }
-	ureMetaData { ap_fifo {  { ureMetaData_dout fifo_data 0 128 }  { ureMetaData_empty_n fifo_status 0 1 }  { ureMetaData_read fifo_update 1 1 } } }
-	rthDropFifo { ap_fifo {  { rthDropFifo_din fifo_data 1 160 }  { rthDropFifo_full_n fifo_status 0 1 }  { rthDropFifo_write fifo_update 1 1 } } }
-	agmdIdOut { ap_fifo {  { agmdIdOut_dout fifo_data 0 16 }  { agmdIdOut_empty_n fifo_status 0 1 }  { agmdIdOut_read fifo_update 1 1 } } }
-	txthMetaData { ap_fifo {  { txthMetaData_din fifo_data 1 128 }  { txthMetaData_full_n fifo_status 0 1 }  { txthMetaData_write fifo_update 1 1 } } }
+	myIpAddress { ap_fifo {  { myIpAddress_dout fifo_port_we 0 32 }  { myIpAddress_num_data_valid fifo_status_num_data_valid 0 3 }  { myIpAddress_fifo_cap fifo_update 0 3 }  { myIpAddress_empty_n fifo_status 0 1 }  { myIpAddress_read fifo_data 1 1 } } }
+	ureMetaData { ap_fifo {  { ureMetaData_dout fifo_port_we 0 128 }  { ureMetaData_num_data_valid fifo_status_num_data_valid 0 6 }  { ureMetaData_fifo_cap fifo_update 0 6 }  { ureMetaData_empty_n fifo_status 0 1 }  { ureMetaData_read fifo_data 1 1 } } }
+	rthDropFifo { ap_fifo {  { rthDropFifo_din fifo_port_we 1 160 }  { rthDropFifo_num_data_valid fifo_status_num_data_valid 0 6 }  { rthDropFifo_fifo_cap fifo_update 0 6 }  { rthDropFifo_full_n fifo_status 0 1 }  { rthDropFifo_write fifo_data 1 1 } } }
+	agmdIdOut { ap_fifo {  { agmdIdOut_dout fifo_port_we 0 16 }  { agmdIdOut_num_data_valid fifo_status_num_data_valid 0 9 }  { agmdIdOut_fifo_cap fifo_update 0 9 }  { agmdIdOut_empty_n fifo_status 0 1 }  { agmdIdOut_read fifo_data 1 1 } } }
+	txthMetaData { ap_fifo {  { txthMetaData_din fifo_port_we 1 128 }  { txthMetaData_num_data_valid fifo_status_num_data_valid 0 6 }  { txthMetaData_fifo_cap fifo_update 0 6 }  { txthMetaData_full_n fifo_status 0 1 }  { txthMetaData_write fifo_data 1 1 } } }
 }

@@ -1,38 +1,29 @@
-INFO-FLOW: Workspace /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus opened at Wed Mar 08 19:13:53 EST 2023
+INFO-FLOW: Workspace /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus opened at Fri Sep 08 14:07:58 UTC 2023
 Execute       send_msg_by_id INFO @200-1505@%s%s default  vivado 
 INFO: [HLS 200-1505] Using default flow_target 'vivado'
-Execute       get_config_interface -m_axi_latency 
-Execute       get_config_interface -m_axi_alignment_byte_size 
-Execute       get_config_interface -m_axi_max_widen_bitwidth 
-Execute       get_config_interface -default_interface 
-Execute       get_config_rtl -register_reset_num 
 Execute     set_part xcu280-fsvh2892-2L-e 
 INFO: [HLS 200-1510] Running: set_part xcu280-fsvh2892-2L-e 
 Execute       create_platform xcu280-fsvh2892-2L-e -board  
-DBG:HLSDevice: Trying to load device library: /tools/Xilinx/Vitis_HLS/2021.2/lib/lnx64.o/librdi_hlsvwrap.so
-DBG:HLSDevice: first parts/arch.xml in RDI_DATADIR: /tools/Xilinx/Vivado/2021.2/data/parts/arch.xml
+DBG:HLSDevice: Trying to load device library: /tools/Xilinx/Vitis_HLS/2023.1/lib/lnx64.o/libxv_hlsvwrap.so
+DBG:HLSDevice: first parts/arch.xml in RDI_DATADIR: /tools/Xilinx/Vivado/2023.1/data/parts/arch.xml
 DBG:HLSDevice: init success
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/DSP48/dsp48.hlp 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/DSP48/virtexuplus_dsp48e2.hlp 
 INFO: [HLS 200-1611] Setting target device to 'xcu280-fsvh2892-2L-e'
-Command       create_platform done; 1.53 sec.
-Execute       source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/common/xilinx.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/plb46.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/axi4.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/nativeAXI4.gen 
-Execute           source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/saxilite.gen 
-Execute           source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/maxi.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/ip/dds_compiler.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/ip/util.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/ip/xfir.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/ip/xfft.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/DSP48/dsp48.gen 
-Command       ap_source done; 0.27 sec.
+Command       create_platform done; 2.94 sec.
+Execute       source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/common/xilinx.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/plb46.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/axi4.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute           source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/saxilite.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/ip/xfft.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/ip/dds_compiler.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/ip/xfir.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/ip/util.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/DSP48/dsp48.gen 
 Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info 
 Execute       config_compile -quiet -complex-mul-dsp=0 
-Command     set_part done; 1.82 sec.
+Command     set_part done; 3.05 sec.
 Execute     create_clock -period 3.1 -name default 
 INFO: [HLS 200-1510] Running: create_clock -period 3.1 -name default 
 Execute       ap_set_clock -name default -period 3.1 -default=false 
@@ -43,187 +34,121 @@ Execute       ap_set_clock -name default -uncertainty 0.2
 INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 0.2ns.
 Execute     csynth_design 
 INFO: [HLS 200-1510] Running: csynth_design 
-Execute       get_config_compile -effort 
-Execute       get_config_compile -enable_clang39 
-Execute       get_config_compile -g 
-Execute       get_config_compile -hw_syn 
-Execute       get_config_compile -ng 
-Execute       get_config_compile -opt_fp 
-Execute       get_config_compile -skip_cdt 
-Execute       get_config_compile -skip_syncheck 
-Execute       get_config_compile -skip_transform 
-Execute       get_config_compile -pre_tcl 
-Execute       get_config_compile -keep_printf 
+INFO-FLOW: Running SLX 'csynth' proc: ::SLX::run_csynth
 Execute       elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 -from_csynth_design=1 
-INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 0 seconds; current allocated memory: 1.115 GB.
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.07 seconds; current allocated memory: 1.189 GB.
+Execute         set_directive_top packet_handler -name=packet_handler 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/tps/tcl/tcllib1.11.1/yaml/huddle.tcl 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/tps/tcl/tcllib1.11.1/yaml/json2huddle.tcl 
+Execute           source /tools/Xilinx/Vitis_HLS/2023.1/tps/tcl/tcllib1.11.1/try/try.tcl 
 INFO: [HLS 200-10] Analyzing design file '/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp' ... 
 INFO-FLOW: Compiling one TU...
-Execute         get_config_compile -pragma_strict_mode 
 INFO-FLOW: Handling /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp as C++
 Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info 
 INFO-FLOW: Running: GCC PP 39
 INFO-FLOW: Source preprocessing
-Execute         ap_eval exec -ignorestderr /tools/Xilinx/Vitis_HLS/2021.2/lnx64/tools/clang-3.9-csynth/bin/clang /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp -foptimization-record-file=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.cpp.clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fno-limit-debug-info -gcc-toolchain /tools/Xilinx/Vitis_HLS/2021.2/tps/lnx64/gcc-6.2.0 -fhls -fno-exceptions -E -fno-math-errno -c -emit-llvm -mllvm -disable-llvm-optzns -Werror=implicit-function-declaration -Werror=implicit-hls-streams -Werror=return-type -Wpragmas -Wunused-parameter -Wdump-hls-pragmas -fno-threadsafe-statics -fno-use-cxa-atexit -std=gnu++14 -target fpga64-xilinx-linux-gnu -fno-threadsafe-statics -fno-use-cxa-atexit -D__VITIS_HLS__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot -I /tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -I /usr/include/x86_64-linux-gnu -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp -hls-platform-db-name=/tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/common/platform.db -hls-platform-name=virtexuplus_medium > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.cpp.clang.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.cpp.clang.err.log 
-Command         ap_eval done; 3.57 sec.
-INFO-FLOW: Done: GCC PP 39 time: 3.6 seconds per iteration
-Execute         set_directive_top packet_handler -name=packet_handler 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/tps/tcl/tcllib1.11.1/yaml/huddle.tcl 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/tps/tcl/tcllib1.11.1/yaml/json2huddle.tcl 
-Execute           source /tools/Xilinx/Vitis_HLS/2021.2/tps/tcl/tcllib1.11.1/try/try.tcl 
-Execute         list_core -type functional_unit 
+INFO-FLOW: run_clang exec: /tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/clang-3.9-csynth/bin/clang /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp -foptimization-record-file=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.cpp.clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fno-limit-debug-info -gcc-toolchain /tools/Xilinx/Vitis_HLS/2023.1/tps/lnx64/gcc-8.3.0 -fhls -fno-exceptions -insert-hls-directive=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/all.directive.json -E -fno-math-errno -c -emit-llvm -mllvm -disable-llvm-optzns -Werror=implicit-function-declaration -Werror=implicit-hls-streams -Werror=return-type -Wpragmas -Wunused-parameter -Wdump-hls-pragmas -Wno-error=dump-hls-pragmas -fno-threadsafe-statics -fno-use-cxa-atexit -std=gnu++14 -target fpga64-xilinx-linux-gnu -fno-threadsafe-statics -fno-use-cxa-atexit -D__VITIS_HLS__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /tools/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot -I /tools/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -I /usr/include/x86_64-linux-gnu -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp -hls-platform-db-name=/tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/common/platform.db -hls-platform-name=virtexuplus_medium -device-resource-info=BRAM_4032.000000_DSP_9024.000000_FF_2607360.000000_LUT_1303680.000000_SLICE_162960.000000_SLR_3.000000_URAM_960.000000 -device-name-info=xcu280-fsvh2892-2L-e > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.cpp.clang.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.cpp.clang.err.log
+INFO-FLOW: Done: GCC PP 39 time: 0.2 seconds per iteration
 INFO-FLOW: Source syntax check for synthesis
-Execute         ap_eval exec -ignorestderr /tools/Xilinx/Vitis_HLS/2021.2/lnx64/tools/clang-3.9-csynth/bin/clang -foptimization-record-file=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fsyntax-only -fhls -target fpga64-xilinx-linux-gnu /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp -hls-platform-db-name=/tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/common/platform.db -hls-platform-name=virtexuplus_medium > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/clang.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/clang.err.log 
-Command         ap_eval done; 1.34 sec.
+INFO-FLOW: run_clang exec: /tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/clang-3.9-csynth/bin/clang -foptimization-record-file=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fsyntax-only -fhls -target fpga64-xilinx-linux-gnu /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp -hls-platform-db-name=/tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/common/platform.db -hls-platform-name=virtexuplus_medium -device-resource-info=BRAM_4032.000000_DSP_9024.000000_FF_2607360.000000_LUT_1303680.000000_SLICE_162960.000000_SLR_3.000000_URAM_960.000000 -device-name-info=xcu280-fsvh2892-2L-e > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/clang.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/clang.err.log
 Execute         clang_tidy xilinx-systemc-detector -desc systemc-detector /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp std=gnu++14 -target fpga  -directive=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/.systemc_flag 
-INFO-FLOW: exec /tools/Xilinx/Vitis_HLS/2021.2/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-systemc-detector -import-directive=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/.systemc_flag -fix-errors /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0
-Command         clang_tidy done; 1.54 sec.
+INFO-FLOW: exec /tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-systemc-detector -import-directive=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/.systemc_flag -fix-errors /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0
+Command         clang_tidy done; 0.64 sec.
 INFO-FLOW: Running: clang-tidy CDT preprocess 39
 Execute         clang_tidy xilinx-directive2pragma -desc directive2pragma /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp std=gnu++14 -target fpga  -directive=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/all.directive.json 
-INFO-FLOW: exec /tools/Xilinx/Vitis_HLS/2021.2/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-directive2pragma -import-directive=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/all.directive.json -fix-errors /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0
-Command         clang_tidy done; 1.06 sec.
-Execute         clang_tidy xilinx-constantarray-param,xilinx-remove-assert -desc constantarray_remove-assert /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp std=gnu++14 -target fpga  
-INFO-FLOW: exec /tools/Xilinx/Vitis_HLS/2021.2/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-constantarray-param,xilinx-remove-assert -fix-errors /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0
-Command         clang_tidy done; 0.76 sec.
-INFO-FLOW: Done: clang-tidy CDT preprocess 39 time: 1.8 seconds per iteration
+INFO-FLOW: exec /tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-directive2pragma -import-directive=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/all.directive.json -fix-errors /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0
+Command         clang_tidy done; 1.01 sec.
+INFO-FLOW: Done: clang-tidy CDT preprocess 39 time: 1 seconds per iteration
 INFO-FLOW: Calling xilinx-label-all-loops ... 
 INFO-FLOW: Calling xilinx-aggregate-on-hls-vector ... 
 Execute         clang_tidy -errorcheck -desc loop-label xilinx-label-all-loops,xilinx-aggregate-on-hls-vector,,xilinx-warn-mayneed-no-ctor-attribute /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp std=gnu++14 -target fpga  
-Execute           ap_eval exec -ignorestderr /tools/Xilinx/Vitis_HLS/2021.2/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -export-fixes=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp.clang-tidy.loop-label.diag.yml -header-filter=.* --checks=-*,xilinx-label-all-loops,xilinx-aggregate-on-hls-vector,,xilinx-warn-mayneed-no-ctor-attribute -fix-errors /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0 > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp.clang-tidy.loop-label.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp.clang-tidy.loop-label.err.log 
-Command           ap_eval done; 1.21 sec.
-Execute           source /tools/Xilinx/Vitis_HLS/2021.2/tps/tcl/tcllib1.11.1/yaml/yaml.tcl 
-Command         clang_tidy done; 1.25 sec.
-Execute         get_config_dataflow -strict_mode 
-Execute         ap_eval exec -ignorestderr /tools/Xilinx/Vitis_HLS/2021.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp.xilinx-dataflow-lawyer.diag.yml /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0 -fstrict-dataflow > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp.xilinx-dataflow-lawyer.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp.xilinx-dataflow-lawyer.err.log 
-Command         ap_eval done; 1.14 sec.
+INFO-FLOW: run_clang exec: /tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -export-fixes=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp.clang-tidy.loop-label.diag.yml -header-filter=.* --checks=-*,xilinx-label-all-loops,xilinx-aggregate-on-hls-vector,,xilinx-warn-mayneed-no-ctor-attribute -fix-errors /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0 > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp.clang-tidy.loop-label.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp.clang-tidy.loop-label.err.log
+Execute           source /tools/Xilinx/Vitis_HLS/2023.1/tps/tcl/tcllib1.11.1/yaml/yaml.tcl 
+Command         clang_tidy done; 1.33 sec.
+INFO-FLOW: run_clang exec: /tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp.xilinx-dataflow-lawyer.diag.yml /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0 -fstrict-dataflow > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp.xilinx-dataflow-lawyer.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp.xilinx-dataflow-lawyer.err.log
 Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info 
 INFO-FLOW: compiling source code to llvm bc
-Execute         ap_eval exec -ignorestderr /tools/Xilinx/Vitis_HLS/2021.2/lnx64/tools/clang-3.9-csynth/bin/clang -foptimization-record-file=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp.clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fno-limit-debug-info -fhls -flto -fno-exceptions -Wno-error=c++11-narrowing /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp -fno-math-errno -c -emit-llvm -mllvm -disable-llvm-optzns -Werror=implicit-function-declaration -Werror=implicit-hls-streams -Werror=return-type -Wpragmas -Wunused-parameter -Wdump-hls-pragmas -fno-threadsafe-statics -fno-use-cxa-atexit -std=gnu++14 -target fpga64-xilinx-linux-gnu -D__VITIS_HLS__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot -I /tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.bc -hls-platform-db-name=/tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/common/platform.db -hls-platform-name=virtexuplus_medium > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp.clang.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp.clang.err.log 
-Command         ap_eval done; 1.16 sec.
-INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 6.42 seconds. CPU system time: 0.89 seconds. Elapsed time: 11.92 seconds; current allocated memory: 206.113 MB.
+INFO-FLOW: run_clang exec: /tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/clang-3.9-csynth/bin/clang -foptimization-record-file=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp.clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fno-limit-debug-info -fhls -flto -fno-exceptions -Wno-error=c++11-narrowing /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp -fno-math-errno -c -emit-llvm -mllvm -disable-llvm-optzns -Werror=implicit-function-declaration -Werror=implicit-hls-streams -Werror=return-type -Wpragmas -Wunused-parameter -Wdump-hls-pragmas -Wno-error=dump-hls-pragmas -fno-threadsafe-statics -fno-use-cxa-atexit -std=gnu++14 -target fpga64-xilinx-linux-gnu -D__VITIS_HLS__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /tools/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot -I /tools/Xilinx/Vitis_HLS/2023.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.bc -hls-platform-db-name=/tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/common/platform.db -hls-platform-name=virtexuplus_medium -device-resource-info=BRAM_4032.000000_DSP_9024.000000_FF_2607360.000000_LUT_1303680.000000_SLICE_162960.000000_SLR_3.000000_URAM_960.000000 -device-name-info=xcu280-fsvh2892-2L-e > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp.clang.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.pp.0.cpp.clang.err.log
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 4.39 seconds. CPU system time: 0.93 seconds. Elapsed time: 5.36 seconds; current allocated memory: 1.191 GB.
 INFO-FLOW: Linking Debug ...
 INFO-FLOW: Linking dut bc code.
 Execute         run_link_or_opt -out /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.0.bc -args  "/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.g.bc"  
-Execute           ap_eval exec -ignorestderr /tools/Xilinx/Vitis_HLS/2021.2/lnx64/tools/clang-3.9-csynth/bin/llvm-link /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.g.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.0.bc > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.0.bc.llvm-link.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.0.bc.llvm-link.err.log 
-Command           ap_eval done; 0.2 sec.
+INFO-FLOW: run_clang exec: /tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/clang-3.9-csynth/bin/llvm-link /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.g.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.0.bc > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.0.bc.llvm-link.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.0.bc.llvm-link.err.log
 INFO-FLOW: 
-Command         run_link_or_opt done; 0.2 sec.
 Execute         run_link_or_opt -opt -out /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.1.lower.bc -args /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.0.bc -reflow-lower-math-intrinsics 
-Execute           ap_eval exec -ignorestderr /tools/Xilinx/Vitis_HLS/2021.2/lnx64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=reflow|pasta|unroll -pass-remarks=reflow|pasta|unroll|inline -pass-remarks-output=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.1.lower.bc.opt.diag.yml /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.0.bc -reflow-lower-math-intrinsics -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.1.lower.bc > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.1.lower.bc.opt.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.1.lower.bc.opt.err.log 
-Command           ap_eval done; 1.33 sec.
+INFO-FLOW: run_clang exec: /tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=reflow|pasta|unroll -pass-remarks=reflow|pasta|unroll|inline -pass-remarks-output=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.1.lower.bc.opt.diag.yml /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.0.bc -reflow-lower-math-intrinsics -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.1.lower.bc > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.1.lower.bc.opt.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.1.lower.bc.opt.err.log
 INFO-FLOW: 
-Command         run_link_or_opt done; 1.34 sec.
+INFO-FLOW: Running: gen_design_size_report post-opt
+INFO-FLOW: Done: gen_design_size_report post-opt time: 0 seconds per iteration
 INFO-FLOW: Linking math bc lib
-Execute         run_link_or_opt -out /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.2.m1.bc -args /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.1.lower.bc -only-needed /tools/Xilinx/Vitis_HLS/2021.2/lnx64/lib/libhlsm_39.bc /tools/Xilinx/Vitis_HLS/2021.2/lnx64/lib/libhlsmc++_39.bc 
-Execute           ap_eval exec -ignorestderr /tools/Xilinx/Vitis_HLS/2021.2/lnx64/tools/clang-3.9-csynth/bin/llvm-link /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.1.lower.bc -only-needed /tools/Xilinx/Vitis_HLS/2021.2/lnx64/lib/libhlsm_39.bc /tools/Xilinx/Vitis_HLS/2021.2/lnx64/lib/libhlsmc++_39.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.2.m1.bc > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.2.m1.bc.llvm-link.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.2.m1.bc.llvm-link.err.log 
-Command           ap_eval done; 4.24 sec.
+Execute         run_link_or_opt -out /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.2.m1.bc -args /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.1.lower.bc -only-needed /tools/Xilinx/Vitis_HLS/2023.1/lnx64/lib/libhlsm_39.bc /tools/Xilinx/Vitis_HLS/2023.1/lnx64/lib/libhlsmc++_39.bc 
+INFO-FLOW: run_clang exec: /tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/clang-3.9-csynth/bin/llvm-link /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.1.lower.bc -only-needed /tools/Xilinx/Vitis_HLS/2023.1/lnx64/lib/libhlsm_39.bc /tools/Xilinx/Vitis_HLS/2023.1/lnx64/lib/libhlsmc++_39.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.2.m1.bc > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.2.m1.bc.llvm-link.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.2.m1.bc.llvm-link.err.log
 INFO-FLOW: 
-Command         run_link_or_opt done; 4.25 sec.
+Command         run_link_or_opt done; 1.92 sec.
 Execute         run_link_or_opt -opt -out /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.3.fpc.bc -args /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.2.m1.bc -reflow-globaldce -hls-top-function-name=packet_handler -reflow-float-conversion 
-Execute           ap_eval exec -ignorestderr /tools/Xilinx/Vitis_HLS/2021.2/lnx64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=reflow|pasta|unroll -pass-remarks=reflow|pasta|unroll|inline -pass-remarks-output=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.3.fpc.bc.opt.diag.yml /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.2.m1.bc -reflow-globaldce -hls-top-function-name=packet_handler -reflow-float-conversion -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.3.fpc.bc > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.3.fpc.bc.opt.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.3.fpc.bc.opt.err.log 
-Command           ap_eval done; 1.19 sec.
+INFO-FLOW: run_clang exec: /tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=reflow|pasta|unroll -pass-remarks=reflow|pasta|unroll|inline -pass-remarks-output=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.3.fpc.bc.opt.diag.yml /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.2.m1.bc -reflow-globaldce -hls-top-function-name=packet_handler -reflow-float-conversion -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.3.fpc.bc > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.3.fpc.bc.opt.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.3.fpc.bc.opt.err.log
 INFO-FLOW: 
-Command         run_link_or_opt done; 1.19 sec.
-Execute         run_link_or_opt -out /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.4.m2.bc -args /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.3.fpc.bc -only-needed /tools/Xilinx/Vitis_HLS/2021.2/lnx64/lib/libfloatconversion_39.bc 
-Execute           ap_eval exec -ignorestderr /tools/Xilinx/Vitis_HLS/2021.2/lnx64/tools/clang-3.9-csynth/bin/llvm-link /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.3.fpc.bc -only-needed /tools/Xilinx/Vitis_HLS/2021.2/lnx64/lib/libfloatconversion_39.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.4.m2.bc > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.4.m2.bc.llvm-link.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.4.m2.bc.llvm-link.err.log 
-Command           ap_eval done; 0.15 sec.
+INFO-FLOW: Running: gen_design_size_report post-opt
+INFO-FLOW: Done: gen_design_size_report post-opt time: 0 seconds per iteration
+Command         run_link_or_opt done; 0.85 sec.
+Execute         run_link_or_opt -out /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.4.m2.bc -args /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.3.fpc.bc -only-needed /tools/Xilinx/Vitis_HLS/2023.1/lnx64/lib/libfloatconversion_39.bc 
+INFO-FLOW: run_clang exec: /tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/clang-3.9-csynth/bin/llvm-link /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.3.fpc.bc -only-needed /tools/Xilinx/Vitis_HLS/2023.1/lnx64/lib/libfloatconversion_39.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.4.m2.bc > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.4.m2.bc.llvm-link.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.4.m2.bc.llvm-link.err.log
 INFO-FLOW: 
-Command         run_link_or_opt done; 0.15 sec.
+Command         run_link_or_opt done; 0.12 sec.
 Execute         run_link_or_opt -opt -out /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.5.gdce.bc -args /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.4.m2.bc -reflow-globaldce -hls-top-function-name=packet_handler 
-Execute           ap_eval exec -ignorestderr /tools/Xilinx/Vitis_HLS/2021.2/lnx64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=reflow|pasta|unroll -pass-remarks=reflow|pasta|unroll|inline -pass-remarks-output=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.5.gdce.bc.opt.diag.yml /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.4.m2.bc -reflow-globaldce -hls-top-function-name=packet_handler -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.5.gdce.bc > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.5.gdce.bc.opt.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.5.gdce.bc.opt.err.log 
+INFO-FLOW: run_clang exec: /tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=reflow|pasta|unroll -pass-remarks=reflow|pasta|unroll|inline -pass-remarks-output=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.5.gdce.bc.opt.diag.yml /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.4.m2.bc -reflow-globaldce -hls-top-function-name=packet_handler -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.5.gdce.bc > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.5.gdce.bc.opt.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.5.gdce.bc.opt.err.log
 INFO-FLOW: 
-Execute         get_solution -flow_target 
-Execute         get_config_export -xo 
-Execute         get_config_export -format 
-Execute         get_config_rtl -module_prefix 
-Execute         get_config_interface -default_slave_interface 
-Execute         get_solution -flow_target 
-Execute         get_config_export -xo 
-Execute         get_config_export -format 
-Execute         get_config_interface -m_axi_offset 
-Execute         get_config_interface -m_axi_latency 
-Execute         get_config_interface -m_axi_alignment_byte_size 
-Execute         get_config_interface -m_axi_min_bitwidth 
-Execute         get_config_interface -m_axi_max_bitwidth 
-Execute         get_config_interface -m_axi_max_widen_bitwidth 
-Execute         get_config_interface -m_axi_num_read_outstanding 
-Execute         get_config_interface -m_axi_num_write_outstanding 
-Execute         get_config_interface -m_axi_max_read_burst_length 
-Execute         get_config_interface -m_axi_max_write_burst_length 
-Execute         get_config_interface -m_axi_min_bitwidth 
-Execute         get_config_interface -m_axi_max_bitwidth 
-Execute         get_config_interface -m_axi_latency 
-Execute         get_config_interface -m_axi_min_bitwidth 
-Execute         get_config_interface -m_axi_max_bitwidth 
-Execute         get_config_interface -m_axi_max_widen_bitwidth 
-Execute         get_config_interface -m_axi_auto_max_ports 
-Execute         get_config_interface -m_axi_num_read_outstanding 
-Execute         get_config_interface -m_axi_num_write_outstanding 
-Execute         get_config_interface -m_axi_max_read_burst_length 
-Execute         get_config_interface -m_axi_max_write_burst_length 
-Execute         get_config_interface -s_axilite_data64 
-Execute         get_config_compile -instruction_warning_threshold 
-Execute         get_config_interface -m_axi_alignment_byte_size 
-Execute         get_config_compile -pragma_strict_mode 
-Execute         get_config_compile -pipeline_style 
-Execute         get_config_array_partition -throughput_driven 
+INFO-FLOW: Running: gen_design_size_report post-opt
+INFO-FLOW: Done: gen_design_size_report post-opt time: 0 seconds per iteration
 Execute         send_msg_by_id INFO @200-777@%s Vivado 
 INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
 Execute         is_m_axi_addr64 
 INFO-FLOW: Doing LTO.
-Execute         ap_eval exec -ignorestderr /tools/Xilinx/Vitis_HLS/2021.2/lnx64/tools/clang-3.9-csynth/bin/clang -foptimization-record-file=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.0.bc.clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fhls -mllvm -hls-top-function-name=packet_handler -mllvm -hls-db-dir -mllvm /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db -emit-llvm -c -target fpga64-xilinx-none -mllvm -xcl-xmlinfo=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/kernel.internal.xml -mllvm -top-io-mapping-info=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/top-io-fe.xml -mllvm -hls-bitcode-version=3.1 -mllvm -reflow-enable-slave-interface-default-setting=true -mllvm -gen-kernel-xml=false -mllvm -default-maxi-offset=slave -mllvm -maxi-latency=0 -mllvm -hls-maxi-data-size-in-bits=8 -mllvm -hls-maxi-max-data-size-in-bits=1024 -mllvm -hls-max-widen-size-in-bits=0 -mllvm -xcl-kernel-max-mem-ports=0 -mllvm -maxi-read-trans=16 -mllvm -maxi-write-trans=16 -mllvm -maxi-read-burst-len=16 -mllvm -maxi-write-burst-len=16 -mllvm -reflow-enable-saxi-64bits=0 -mllvm -reflow-basic-block-instr-threshhold=200000 -mllvm -assume-maxi-align=0 -mllvm -no-unaligned-maxi-accesses -mllvm -reflow-pipeline-style-llvm-setting=0 -mllvm -reflow-auto-array-partition-mode=default -mllvm -reflow-enable-auto-array-partition=true -mllvm -reflow-aggregate-bitwidth-threshold=4096 -mllvm -reflow-disaggregate-bitwidth-threshold=4096 -mllvm -hls -mllvm -disable-inlined-alloca-merging=true -x ir /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.5.gdce.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.lto.bc -hls-platform-db-name=/tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/common/platform.db -hls-platform-name=virtexuplus_medium > /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.0.bc.clang.out.log 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.0.bc.clang.err.log 
-Command         ap_eval done; 0.6 sec.
-INFO: [HLS 214-284] Auto array partition mode is set into default.
+INFO-FLOW: run_clang (background poll_ms 5000) exec: /tools/Xilinx/Vitis_HLS/2023.1/lnx64/tools/clang-3.9-csynth/bin/clang -foptimization-record-file=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.0.bc.clang.reflow.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fhls -mllvm -hls-top-function-name=packet_handler -mllvm -hls-db-dir -mllvm /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db -emit-llvm -c -target fpga64-xilinx-none -mllvm -xcl-xmlinfo=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/kernel.internal.xml -mllvm -top-io-mapping-info=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/top-io-fe.xml -mllvm -hls-bitcode-version=3.1 -mllvm -reflow-enable-slave-interface-default-setting=true -mllvm -gen-kernel-xml=false -mllvm -default-maxi-offset=slave -mllvm -maxi-latency=0 -mllvm -hls-maxi-data-size-in-bits=8 -mllvm -hls-maxi-max-data-size-in-bits=1024 -mllvm -hls-max-widen-size-in-bits=0 -mllvm -xcl-kernel-max-mem-ports=0 -mllvm -maxi-read-trans=16 -mllvm -maxi-write-trans=16 -mllvm -maxi-read-burst-len=16 -mllvm -maxi-write-burst-len=16 -mllvm -reflow-enable-saxi-64bits=0 -mllvm -reflow-basic-block-instr-threshold=200000 -mllvm -reflow-auto-pipeline-threshold=64 -mllvm -reflow-enable-maxi-auto-id-channel=0 -mllvm -enable-fp-thr=0 -mllvm -reflow-bdd-simplify-threshold=1024 -mllvm -reflow-fanout-threshold=16 -mllvm -assume-maxi-align=1 -mllvm -reflow-pipeline-style-llvm-setting=2 -mllvm -reflow-enable-dataflow-strict-mode-checking=1 -ftime-report -mllvm -time-passes -mllvm -reflow-auto-array-partition-mode=default -mllvm -reflow-enable-auto-array-partition=true -mllvm -reflow-enable-auto-parallel-performance-driven=true -mllvm -reflow-enable-partition-for-automation=true -mllvm -reflow-aggregate-bitwidth-threshold=4096 -mllvm -reflow-reserved-saxilite-registers=1024 -mllvm -reflow-assume-no-address-wrap=true -mllvm -reflow-enable-occurrence-inference=true -mllvm -hls -mllvm -disable-inlined-alloca-merging=true -mllvm -default-clock-period=3.1 -x ir /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.5.gdce.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.lto.bc -hls-platform-db-name=/tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/common/platform.db -hls-platform-name=virtexuplus_medium -device-resource-info=BRAM_4032.000000_DSP_9024.000000_FF_2607360.000000_LUT_1303680.000000_SLICE_162960.000000_SLR_3.000000_URAM_960.000000 -device-name-info=xcu280-fsvh2892-2L-e 2> /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.ld.0.bc.clang.reflow.err.log
+Execute         send_msg_by_id INFO @200-1995@%s%s%s 3,081 Compile/Link /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/csynth_design_size.rpt 
+INFO: [HLS 200-1995] There were 3,081 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/csynth_design_size.rpt
+Execute         send_msg_by_id INFO @200-1995@%s%s%s 483 Unroll/Inline /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/csynth_design_size.rpt 
+INFO: [HLS 200-1995] There were 483 instructions in the design after the 'Unroll/Inline' phase of compilation. See the Design Size Report for more details: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/csynth_design_size.rpt
+Execute         send_msg_by_id INFO @200-1995@%s%s%s 359 Performance/Pipeline /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/csynth_design_size.rpt 
+INFO: [HLS 200-1995] There were 359 instructions in the design after the 'Performance/Pipeline' phase of compilation. See the Design Size Report for more details: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/csynth_design_size.rpt
+Execute         send_msg_by_id INFO @200-1995@%s%s%s 386 Optimizations /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/csynth_design_size.rpt 
+INFO: [HLS 200-1995] There were 386 instructions in the design after the 'Optimizations' phase of compilation. See the Design Size Report for more details: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/csynth_design_size.rpt
 INFO: [HLS 214-178] Inlining function 'byteSwap16(ap_uint<16>)' into 'packet_identification(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&, hls::stream<axiWordi, 0>&)' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:170:0)
-INFO: [HLS 214-270] Starting automatic array partition analysis...
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint<512>s.i512' into 'packet_identification(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&, hls::stream<axiWordi, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint<3>s.i3' into 'packet_identification(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&, hls::stream<axiWordi, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint<1>s.i1' into 'packet_identification(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&, hls::stream<axiWordi, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint<64>s.i64' into 'packet_identification(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&, hls::stream<axiWordi, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:283:5)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i1024.s_struct.axiWordis' into 'packet_identification(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&, hls::stream<axiWordi, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i512.s_struct.ap_uint<512>s' into 'ethernet_remover(hls::stream<axiWordi, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i3.s_struct.ap_uint<3>s' into 'ethernet_remover(hls::stream<axiWordi, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i1.s_struct.ap_uint<1>s' into 'ethernet_remover(hls::stream<axiWordi, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i64.s_struct.ap_uint<64>s' into 'ethernet_remover(hls::stream<axiWordi, 0>&, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 3ul>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5)
 INFO-FLOW: DBG:PUTS: copy_raw_kernel_xml ap_link_39: kernel.xml not generated: /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/kernel.internal.xml
-INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 4.93 seconds. CPU system time: 0.57 seconds. Elapsed time: 8.19 seconds; current allocated memory: 207.840 MB.
-INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 207.840 MB.
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2.85 seconds. CPU system time: 0.75 seconds. Elapsed time: 8.2 seconds; current allocated memory: 1.192 GB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 1.192 GB.
 Execute         opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
 Execute           cleanup_all_models 
 INFO: [HLS 200-10] Starting code transformations ...
 INFO-FLOW: Running Standard Transforms...
-Execute           transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -mem2reg -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top packet_handler -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.0.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.1.bc -f -phase std-opt 
-Command           transform done; 0.62 sec.
-INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.09 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.62 seconds; current allocated memory: 219.129 MB.
+Execute           transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -mem2reg -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top packet_handler -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -auto-shift-reg-idiom -promote-dbg-pointer -norm-name /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.0.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.1.bc -f -phase std-opt 
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1.193 GB.
 INFO: [HLS 200-10] Checking synthesizability ...
 INFO-FLOW: Checking Synthesizability 1/2..
-Execute           transform -hls -syn-check -check-rec-only -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -pag -array-normalize -instcombine -dce -array-seg-normalize -instcombine -dce -data-pack -instcombine -dce -inst-simplify -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -resolve-double-ptr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce -check-dspbuiltin /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.1.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.2.prechk.bc -f 
+Execute           transform -hls -syn-check -check-rec-only -scalarrepl -norm-name -dce -mem2reg -instcombine -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -pag -array-normalize -instcombine -dce -array-seg-normalize -instcombine -dce -data-pack -instcombine -dce -inst-simplify -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -resolve-double-ptr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -directive-preproc -mem2reg -dse -dce -globaldce /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.1.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.2.prechk.bc -f 
 INFO-FLOW: Checking Synthesizability 2/2..
 Execute           transform -syn-check /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.2.prechk.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.2.bc -f -phase syn-check 
-Command           transform done; 0.11 sec.
-INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.15 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.2 seconds; current allocated memory: 234.957 MB.
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1.194 GB.
 INFO-FLOW: Compiler optimizing ...
 INFO-FLOW: Share syncheck's 1.bc for syn flow: copy /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.g.1.bc to /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.o.1.bc
 INFO-FLOW: Presyn 1...
-Execute           transform -hls -tmp /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db -interface-port-rename -function-uniquify -directive-preproc -mem2reg -dse -dce -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -simplifycfg -auto-rom-infer -dce -function-uniquify -resource-proc -clib-intrinsic-prepare -dce -func-buffer -dce -pag -array-normalize -func-legal -instcombine -gvn -constprop -dce -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -ptrArgReplace -mem2reg -dce -array-seg-normalize -deadargelim -instcombine -dce -function-uniquify -directive-preproc -mem2reg -dse -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -dce -global-constprop -deadargelim -mem2reg -simplifycfg -dce -merge-param -deadargelim -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -mem-intrinsic-preproc -dce -global-internalize -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -dce -norm-name -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -accesses-merge -function-inline -complex-op-raise -inst-simplify -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin2 -bitwidthmin2 -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -duplicate-dataflow-processes -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -duplicate-dataflow-processes -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -hls-dead-arg-elim -deadargelim -directive-preproc -annotate-dataflow-channels -scalar-preprocessing -scalar-propagation2 -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -hls-display -norm-name /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.o.1.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.o.1.tmp.bc -f 
-INFO: [XFORM 203-712] Applying dataflow to function 'packet_handler' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:285:1), detected/extracted 2 process function(s): 
+Execute           transform -hls -tmp /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db -interface-port-rename -directive-preproc -mem2reg -dse -dce -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -simplifycfg -auto-rom-infer -dce -resource-proc -clib-intrinsic-prepare -dce -func-buffer -dce -pag -array-normalize -func-legal -instcombine -gvn -constprop -dce -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -ptrArgReplace -mem2reg -dce -array-seg-normalize -deadargelim -instcombine -dce -directive-preproc -mem2reg -dse -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -scalar-auto-dep-elim -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -duplicate-dataflow-processes -globaldce -instcombine -array-partition -prepare-dynamic-array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -dce -global-constprop -deadargelim -mem2reg -simplifycfg -dce -merge-param -deadargelim -globalopt -constprop -dce -array-promote -scalar-auto-dep-elim -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -mem-intrinsic-preproc -dce -global-internalize -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -dce -norm-name -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -accesses-merge -function-inline -complex-op-raise -inst-simplify -globaldce -func-legal -dce -loop-bound -arraycheck -bitwidthmin2 -bitwidthmin2 -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -duplicate-dataflow-processes -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -duplicate-dataflow-processes -check-dataflow-syntax -legalize-stream-variable -globaldce -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -hls-dead-arg-elim -deadargelim -directive-preproc -canonicalize-dataflow -dce -globaldce -scalar-preprocessing -scalar-propagation2 -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -hls-display -norm-name /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.o.1.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.o.1.tmp.bc -f 
+INFO: [XFORM 203-712] Applying dataflow to function 'packet_handler' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:275:1), detected/extracted 2 process function(s): 
 	 'packet_identification'
 	 'ethernet_remover'.
-Command           transform done; 0.15 sec.
 INFO-FLOW: Presyn 2...
-Execute           transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin2 -bitwidthmin2 -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -barrier -norm-name /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.o.1.tmp.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.o.2.bc -f -phase presyn 
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:144:9) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:86:9) in function 'ethernet_remover'... converting 3 basic blocks.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:144:9) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:136:4) in function 'ethernet_remover'... converting 3 basic blocks.
-Command           transform done; 0.12 sec.
-INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.25 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.27 seconds; current allocated memory: 270.715 MB.
-Execute           get_config_compile -enable_auto_rewind 
-Execute           get_config_compile -enable_loop_extract 
+Execute           transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin2 -bitwidthmin2 -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -barrier -norm-name /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.o.1.tmp.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.o.2.bc -f -phase presyn 
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:67:12) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:86:9) in function 'ethernet_remover'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:112:12) to (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:136:4) in function 'ethernet_remover'... converting 3 basic blocks.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.11 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.12 seconds; current allocated memory: 1.217 GB.
 INFO-FLOW: Building ssdm...
-Execute           transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -dce -reset-lda -loop-simplify -indvars -aggr-aa -licm -loop-dep -loop-bound -licm -loop-simplify -loop-sink-hoist -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation2 -deadargelim -globaldce -mem2reg -load-elim -read-loop-dep -loop-simplify -loop-extract-inner -directive-preproc -bitwidthmin2 -bitwidthmin2 -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable -deadargelim -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -complex-op-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -float-op-raise -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -load-elim -bitop-lower -float-op-raise -fma-raise -loop-rewind -pointer-simplify -dce -cfgopt -dce -loop-bound -loop-dep -read-loop-dep -dce -dyn-mem-reuse -dce -recurrence-min -dce -share-scalar-alloca -deadargelim -dce -check-stream -norm-name -legalize -validate-dataflow -inst-clarity -bitwidth -dump-loop-dep-to-ir -check-all-ssdm -cdfg-build /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.o.2.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
-Command           transform done; 0.83 sec.
-INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.77 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.84 seconds; current allocated memory: 312.047 MB.
+Execute           transform -hls -auto-function-inline -globaldce -ptrArgReplace -mem2reg -dce -reset-lda -loop-simplify -indvars -aggr-aa -licm -loop-dep -loop-bound -licm -loop-simplify -loop-sink-hoist -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg-lite -loop-simplify -array-burst -promote-global-argument -dce -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg-lite -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -deadargelim -dce -canonicalize-dataflow -dce -deadargelim -globaldce -mem2reg -bram-byte-enable -load-elim -read-loop-dep -loop-simplify -loop-extract-inner -directive-preproc -bitwidthmin2 -bitwidthmin2 -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable-spec-prop -deadargelim -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg-lite -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -complex-op-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -float-op-raise -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg-lite -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg-lite -loop-simplify -mergereturn -inst-simplify -inst-rectify -globaldce -dce -load-elim -bitop-lower -float-op-raise -fma-raise -loop-rewind -pointer-simplify -dce -cfgopt -dce -loop-bound -loop-dep -read-loop-dep -dce -dyn-mem-reuse -dce -recurrence-min -dce -share-scalar-alloca -deadargelim -dce -check-stream -norm-name -legalize -validate-dataflow -inst-clarity -bitwidth -dce -dump-loop-dep-to-ir -check-all-ssdm -dump-complexity-metric -cdfg-build /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.o.2.bc -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
+Execute             auto_get_db
+Command           transform done; 0.66 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.62 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.66 seconds; current allocated memory: 1.267 GB.
 INFO-FLOW: Finish building internal data model.
-Command         opt_and_import_c done; 1.93 sec.
-Command       elaborate done; 22.05 sec.
+Command         opt_and_import_c done; 0.88 sec.
+Command       elaborate done; 14.44 sec.
 Execute       ap_eval exec zip -j /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/dut.hcp $dbDir/a.o.3.bc $dbDir/${topname}.rtl_wrap.cfg.tcl $dbDir/apatb_${topname}.cpp $dbDir/apatb_${topname}_util.cpp $dbDir/apatb_${topname}_ir.ll $dbDir/mapper_${topname}.cpp $dbDir/top-io-fe.xml $dbDir/kernel.internal.xml $workdir/../hls.app 
 Execute       autosyn -from_csynth_design=1 
 INFO: [HLS 200-10] Starting hardware synthesis ...
@@ -268,10 +193,11 @@ INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'packet_identification'.
 INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, function 'packet_identification'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.07 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.1 seconds; current allocated memory: 313.844 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.08 seconds. CPU system time: 0.05 seconds. Elapsed time: 0.15 seconds; current allocated memory: 1.267 GB.
 Execute         syn_report -verbosereport -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_identification.verbose.sched.rpt 
-Execute           AP::get_flow_target_display_name
-Execute             get_solution -flow_target 
+Execute           list_part -family xcu280-fsvh2892-2L-e 
+Execute             ap_family_info -name xcu280-fsvh2892-2L-e -data names 
+Execute             ap_part_info -quiet -name xcu280-fsvh2892-2L-e -data family 
 Execute         db_write -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_identification.sched.adb -f 
 INFO-FLOW: Finish scheduling packet_identification.
 Execute         set_default_model packet_identification 
@@ -281,10 +207,11 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 329.648 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 1.267 GB.
 Execute         syn_report -verbosereport -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_identification.verbose.bind.rpt 
-Execute           AP::get_flow_target_display_name
-Execute             get_solution -flow_target 
+Execute           list_part -family xcu280-fsvh2892-2L-e 
+Execute             ap_family_info -name xcu280-fsvh2892-2L-e -data names 
+Execute             ap_part_info -quiet -name xcu280-fsvh2892-2L-e -data family 
 Execute         db_write -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_identification.bind.adb -f 
 INFO-FLOW: Finish binding packet_identification.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -295,21 +222,23 @@ Execute         schedule -model ethernet_remover
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining function 'ethernet_remover'.
 INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, function 'ethernet_remover'
-WARNING: [HLS 200-871] Estimated clock period (3.06721ns) exceeds the target (target clock period: 3.1ns, clock uncertainty: 0.2ns, effective delay budget: 2.9ns).
-WARNING: [HLS 200-1016] The critical path in module 'ethernet_remover' consists of the following:	fifo read operation ('eth_level_pkt_read', /tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:144) on port 'eth_level_pkt' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:144) [68]  (1.45 ns)
-	'icmp' operation ('icmp_ln1064') [73]  (0.5 ns)
-	'select' operation ('select_ln1064') [78]  (0.278 ns)
-	multiplexor before 'phi' operation ('er_fsm_state_new_0_i') with incoming values : ('select_ln1064') [95]  (0.387 ns)
-	'phi' operation ('er_fsm_state_new_0_i') with incoming values : ('select_ln1064') [95]  (0 ns)
-	multiplexor before 'phi' operation ('er_fsm_state_new_6_i') with incoming values : ('select_ln121', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:121) ('select_ln1064') [102]  (0.453 ns)
-	'phi' operation ('er_fsm_state_new_6_i') with incoming values : ('select_ln121', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:121) ('select_ln1064') [102]  (0 ns)
-	'store' operation ('er_fsm_state_write_ln74', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:74) of variable 'er_fsm_state_new_6_i' on static variable 'er_fsm_state' [105]  (0 ns)
+WARNING: [HLS 200-871] Estimated clock period (3.140 ns) exceeds the target (target clock period: 3.100 ns, clock uncertainty: 0.200 ns, effective delay budget: 2.900 ns).
+WARNING: [HLS 200-1016] The critical path in module 'ethernet_remover' consists of the following:
+	fifo read operation ('eth_level_pkt_read', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:67) on port 'eth_level_pkt' (/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:67) [69]  (1.450 ns)
+	'icmp' operation ('icmp_ln69', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69) [74]  (0.572 ns)
+	'select' operation ('select_ln69', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69) [79]  (0.278 ns)
+	multiplexor before 'phi' operation ('er_fsm_state_new_0_i', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69) with incoming values : ('select_ln69', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69) [96]  (0.387 ns)
+	'phi' operation ('er_fsm_state_new_0_i', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69) with incoming values : ('select_ln69', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69) [96]  (0.000 ns)
+	multiplexor before 'phi' operation ('er_fsm_state_new_6_i', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69) with incoming values : ('select_ln112', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:112) ('select_ln69', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69) [103]  (0.453 ns)
+	'phi' operation ('er_fsm_state_new_6_i', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69) with incoming values : ('select_ln112', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:112) ('select_ln69', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69) [103]  (0.000 ns)
+	'store' operation ('er_fsm_state_write_ln74', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:74) of variable 'er_fsm_state_new_6_i', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:69 on static variable 'er_fsm_state' [106]  (0.000 ns)
 
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.06 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 329.648 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.1 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.11 seconds; current allocated memory: 1.267 GB.
 Execute         syn_report -verbosereport -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/ethernet_remover.verbose.sched.rpt 
-Execute           AP::get_flow_target_display_name
-Execute             get_solution -flow_target 
+Execute           list_part -family xcu280-fsvh2892-2L-e 
+Execute             ap_family_info -name xcu280-fsvh2892-2L-e -data names 
+Execute             ap_part_info -quiet -name xcu280-fsvh2892-2L-e -data family 
 Execute         db_write -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/ethernet_remover.sched.adb -f 
 INFO-FLOW: Finish scheduling ethernet_remover.
 Execute         set_default_model ethernet_remover 
@@ -319,10 +248,11 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 329.648 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 1.267 GB.
 Execute         syn_report -verbosereport -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/ethernet_remover.verbose.bind.rpt 
-Execute           AP::get_flow_target_display_name
-Execute             get_solution -flow_target 
+Execute           list_part -family xcu280-fsvh2892-2L-e 
+Execute             ap_family_info -name xcu280-fsvh2892-2L-e -data names 
+Execute             ap_part_info -quiet -name xcu280-fsvh2892-2L-e -data family 
 Execute         db_write -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/ethernet_remover.bind.adb -f 
 INFO-FLOW: Finish binding ethernet_remover.
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -331,11 +261,18 @@ INFO: [HLS 200-10] -------------------------------------------------------------
 Execute         set_default_model packet_handler 
 Execute         schedule -model packet_handler 
 INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [HLS 200-1015] Estimated delay Estimated delay (3.140ns)  of 'call' operation ('_ln292', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:292) to 'ethernet_remover' exceeds the target cycle time (target cycle time: 3.100ns, clock uncertainty: 0.200ns, effective cycle time: 2.900ns).
+
+WARNING: [HLS 200-871] Estimated clock period (3.140 ns) exceeds the target (target clock period: 3.100 ns, clock uncertainty: 0.200 ns, effective delay budget: 2.900 ns).
+WARNING: [HLS 200-1016] The critical path in module 'packet_handler' consists of the following:
+	'call' operation ('_ln292', /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/..//hls/packet_handler/packet_handler.cpp:292) to 'ethernet_remover' [38]  (3.140 ns)
+
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 329.648 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 1.267 GB.
 Execute         syn_report -verbosereport -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.verbose.sched.rpt 
-Execute           AP::get_flow_target_display_name
-Execute             get_solution -flow_target 
+Execute           list_part -family xcu280-fsvh2892-2L-e 
+Execute             ap_family_info -name xcu280-fsvh2892-2L-e -data names 
+Execute             ap_part_info -quiet -name xcu280-fsvh2892-2L-e -data family 
 Execute         db_write -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.sched.adb -f 
 INFO-FLOW: Finish scheduling packet_handler.
 Execute         set_default_model packet_handler 
@@ -345,10 +282,11 @@ INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 329.648 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 1.267 GB.
 Execute         syn_report -verbosereport -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.verbose.bind.rpt 
-Execute           AP::get_flow_target_display_name
-Execute             get_solution -flow_target 
+Execute           list_part -family xcu280-fsvh2892-2L-e 
+Execute             ap_family_info -name xcu280-fsvh2892-2L-e -data names 
+Execute             ap_part_info -quiet -name xcu280-fsvh2892-2L-e -data family 
 Execute         db_write -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.bind.adb -f 
 INFO-FLOW: Finish binding packet_handler.
 Execute         get_model_list packet_handler -filter all-wo-channel 
@@ -360,67 +298,62 @@ INFO-FLOW: Model list for RTL generation: packet_identification ethernet_remover
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'packet_identification' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-Execute         get_config_rtl -module_prefix 
-Execute         get_config_rtl -module_auto_prefix 
-Execute         get_config_rtl -module_prefix 
-Execute         get_config_rtl -module_auto_prefix 
 Execute         create_rtl_model packet_identification -top_prefix packet_handler_ -sub_prefix packet_handler_ -mg_file /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_identification.compgen.tcl 
 WARNING: [RTGEN 206-101] Register 'pi_fsm_state' is power-on initialization.
-WARNING: [RTGEN 206-101] Register 'tdest_r_V' is power-on initialization.
-INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'packet_identification' pipeline 'packet_identification' pipeline type 'function pipeline'
+WARNING: [RTGEN 206-101] Register 'tdest_r' is power-on initialization.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'packet_identification'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.07 seconds; current allocated memory: 329.648 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 1.267 GB.
 Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.rtl_wrap.cfg.tcl 
 Execute         gen_rtl packet_identification -style xilinx -f -lang vhdl -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/vhdl/packet_handler_packet_identification 
 Execute         gen_rtl packet_identification -style xilinx -f -lang vlog -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/verilog/packet_handler_packet_identification 
 Execute         syn_report -csynth -model packet_identification -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/packet_identification_csynth.rpt 
-Execute           AP::get_flow_target_display_name
-Execute             get_solution -flow_target 
+Execute           list_part -family xcu280-fsvh2892-2L-e 
+Execute             ap_family_info -name xcu280-fsvh2892-2L-e -data names 
+Execute             ap_part_info -quiet -name xcu280-fsvh2892-2L-e -data family 
+Command         syn_report done; 0.11 sec.
 Execute         syn_report -rtlxml -model packet_identification -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/packet_identification_csynth.xml 
-Execute           get_solution -flow_target
-Execute             get_solution -flow_target 
+Execute           list_part -family xcu280-fsvh2892-2L-e 
+Execute             ap_family_info -name xcu280-fsvh2892-2L-e -data names 
+Execute             ap_part_info -quiet -name xcu280-fsvh2892-2L-e -data family 
 Execute         syn_report -verbosereport -model packet_identification -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_identification.verbose.rpt 
-Execute           AP::get_flow_target_display_name
-Execute             get_solution -flow_target 
+Execute           list_part -family xcu280-fsvh2892-2L-e 
+Execute             ap_family_info -name xcu280-fsvh2892-2L-e -data names 
+Execute             ap_part_info -quiet -name xcu280-fsvh2892-2L-e -data family 
 Execute         db_write -model packet_identification -f -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_identification.adb 
 Execute         db_write -model packet_identification -bindview -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/design.bindinfo.xml 
 Execute         gen_tb_info packet_identification -p /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_identification 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'ethernet_remover' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-Execute         get_config_rtl -module_prefix 
-Execute         get_config_rtl -module_auto_prefix 
-Execute         get_config_rtl -module_prefix 
-Execute         get_config_rtl -module_auto_prefix 
 Execute         create_rtl_model ethernet_remover -top_prefix packet_handler_ -sub_prefix packet_handler_ -mg_file /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/ethernet_remover.compgen.tcl 
 WARNING: [RTGEN 206-101] Register 'er_fsm_state' is power-on initialization.
-WARNING: [RTGEN 206-101] Register 'prevWord_data_V' is power-on initialization.
-WARNING: [RTGEN 206-101] Register 'prevWord_keep_V' is power-on initialization.
-WARNING: [RTGEN 206-101] Register 'prevWord_dest_V' is power-on initialization.
-INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ethernet_remover' pipeline 'ethernet_remover' pipeline type 'function pipeline'
+WARNING: [RTGEN 206-101] Register 'prevWord_data' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'prevWord_keep' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'prevWord_dest' is power-on initialization.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'ethernet_remover'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.16 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.19 seconds; current allocated memory: 329.648 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.33 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.34 seconds; current allocated memory: 1.268 GB.
 Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.rtl_wrap.cfg.tcl 
 Execute         gen_rtl ethernet_remover -style xilinx -f -lang vhdl -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/vhdl/packet_handler_ethernet_remover 
 Execute         gen_rtl ethernet_remover -style xilinx -f -lang vlog -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/verilog/packet_handler_ethernet_remover 
 Execute         syn_report -csynth -model ethernet_remover -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/ethernet_remover_csynth.rpt 
-Execute           AP::get_flow_target_display_name
-Execute             get_solution -flow_target 
+Execute           list_part -family xcu280-fsvh2892-2L-e 
+Execute             ap_family_info -name xcu280-fsvh2892-2L-e -data names 
+Execute             ap_part_info -quiet -name xcu280-fsvh2892-2L-e -data family 
+Command         syn_report done; 0.11 sec.
 Execute         syn_report -rtlxml -model ethernet_remover -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/ethernet_remover_csynth.xml 
-Execute           get_solution -flow_target
-Execute             get_solution -flow_target 
+Execute           list_part -family xcu280-fsvh2892-2L-e 
+Execute             ap_family_info -name xcu280-fsvh2892-2L-e -data names 
+Execute             ap_part_info -quiet -name xcu280-fsvh2892-2L-e -data family 
 Execute         syn_report -verbosereport -model ethernet_remover -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/ethernet_remover.verbose.rpt 
-Execute           AP::get_flow_target_display_name
-Execute             get_solution -flow_target 
+Execute           list_part -family xcu280-fsvh2892-2L-e 
+Execute             ap_family_info -name xcu280-fsvh2892-2L-e -data names 
+Execute             ap_part_info -quiet -name xcu280-fsvh2892-2L-e -data family 
 Execute         db_write -model ethernet_remover -f -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/ethernet_remover.adb 
 Execute         db_write -model ethernet_remover -bindview -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/design.bindinfo.xml 
 Execute         gen_tb_info ethernet_remover -p /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/ethernet_remover 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'packet_handler' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-Execute         get_config_rtl -module_prefix 
-Execute         get_config_rtl -module_prefix 
-Execute         get_config_rtl -module_auto_prefix 
 Execute         create_rtl_model packet_handler -top_prefix  -sub_prefix packet_handler_ -mg_file /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.compgen.tcl 
 WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
 INFO: [RTGEN 206-500] Setting interface mode on port 'packet_handler/s_axis_V_data_V' to 'axis' (register, both mode).
@@ -437,36 +370,37 @@ INFO: [RTGEN 206-500] Setting interface mode on function 'packet_handler' to 'ap
 WARNING: [HLS 200-656] Deadlocks can occur since process packet_identification is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains an auto-rewind pipeline.
 INFO: [HLS 200-633] Setting ap_ctrl_none interface for packet_handler
 INFO: [RTGEN 206-100] Finished creating RTL model for 'packet_handler'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.2 seconds. CPU system time: 0 seconds. Elapsed time: 0.21 seconds; current allocated memory: 329.648 MB.
+INFO: [RTMG 210-285] Implementing FIFO 'eth_level_pkt_U(packet_handler_fifo_w1024_d16_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_ethernet_remover_U0_U(packet_handler_start_for_ethernet_remover_U0)' using Shift Registers.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.33 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.36 seconds; current allocated memory: 1.270 GB.
 Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.rtl_wrap.cfg.tcl 
 Execute         gen_rtl packet_handler -istop -style xilinx -f -lang vhdl -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/vhdl/packet_handler 
 Execute         gen_rtl packet_handler -istop -style xilinx -f -lang vlog -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/verilog/packet_handler 
 Execute         syn_report -csynth -model packet_handler -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/packet_handler_csynth.rpt 
-Execute           AP::get_flow_target_display_name
-Execute             get_solution -flow_target 
+Execute           list_part -family xcu280-fsvh2892-2L-e 
+Execute             ap_family_info -name xcu280-fsvh2892-2L-e -data names 
+Execute             ap_part_info -quiet -name xcu280-fsvh2892-2L-e -data family 
 Execute         syn_report -rtlxml -model packet_handler -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/packet_handler_csynth.xml 
-Execute           get_solution -flow_target
-Execute             get_solution -flow_target 
+Execute           list_part -family xcu280-fsvh2892-2L-e 
+Execute             ap_family_info -name xcu280-fsvh2892-2L-e -data names 
+Execute             ap_part_info -quiet -name xcu280-fsvh2892-2L-e -data family 
 Execute         syn_report -verbosereport -model packet_handler -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.verbose.rpt 
-Execute           AP::get_flow_target_display_name
-Execute             get_solution -flow_target 
+Execute           list_part -family xcu280-fsvh2892-2L-e 
+Execute             ap_family_info -name xcu280-fsvh2892-2L-e -data names 
+Execute             ap_part_info -quiet -name xcu280-fsvh2892-2L-e -data family 
 Execute         db_write -model packet_handler -f -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.adb 
 Execute         db_write -model packet_handler -bindview -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/design.bindinfo.xml 
 Execute         gen_tb_info packet_handler -p /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler 
 Execute         export_constraint_db -f -tool general -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.constraint.tcl 
 Execute         syn_report -designview -model packet_handler -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.design.xml 
-Execute         syn_report -csynthDesign -model packet_handler -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/csynth.rpt 
-Execute           AP::get_flow_target_display_name
-Execute             get_solution -flow_target 
-Execute         get_config_rtl -disable_wave_debug 
+Command         syn_report done; 0.22 sec.
+Execute         syn_report -csynthDesign -model packet_handler -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/csynth.rpt -MHOut /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/kernel_module_hierarchy.tcl 
+Execute           list_part -family xcu280-fsvh2892-2L-e 
+Execute             ap_family_info -name xcu280-fsvh2892-2L-e -data names 
+Execute             ap_part_info -quiet -name xcu280-fsvh2892-2L-e -data family 
 Execute         syn_report -wcfg -model packet_handler -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler_dataflow_ana.wcfg 
 Execute         syn_report -protoinst -model packet_handler -o /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.protoinst 
-Execute         get_config_debug -directory 
 Execute         sc_get_clocks packet_handler 
-Execute         get_config_export -vivado_clock 
-Execute         get_config_rtl -module_prefix 
-Execute         get_config_rtl -module_prefix 
-Execute         get_config_rtl -module_auto_prefix 
 Execute         sc_get_portdomain packet_handler 
 INFO-FLOW: Model list for RTL component generation: packet_identification ethernet_remover packet_handler
 INFO-FLOW: Handling components in module [packet_identification] ... 
@@ -528,31 +462,25 @@ INFO-FLOW: RTL Generation done.
 INFO-FLOW: CAS Generation done.
 INFO-FLOW: CBC Generation done.
 INFO-FLOW: DBG:PROC: ::AESL_AUTOMG::auto_generate_csynth_design
-Execute         get_top 
-Execute         get_config_export -ipname 
-Execute         get_config_export -xo 
-Execute         get_config_export -format 
-Execute         get_config_rtl -module_auto_prefix 
 INFO-FLOW: DBG:PUTS: read_platform_lib /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/generic/autopilot/common.gen 
-Execute           source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/generic/autopilot/APCoreGen.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/generic/autopilot/op.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/generic/autopilot/op_simcore.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/generic/autopilot/interface.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/generic/autopilot/common.gen 
+Execute           source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/generic/autopilot/APCoreGen.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/generic/autopilot/op.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/generic/autopilot/op_simcore.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/generic/autopilot/interface.gen 
 Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/common/xilinx.gen 
-Execute           source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/plb46.gen 
-Execute           source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/axi4.gen 
-Execute           source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/nativeAXI4.gen 
-Execute             source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/saxilite.gen 
-Execute             source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/maxi.gen 
-Execute           source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
-Execute           source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
-Execute           source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/ip/dds_compiler.gen 
-Execute           source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/ip/util.gen 
-Execute           source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/ip/xfir.gen 
-Execute           source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/ip/xfft.gen 
-Execute           source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/DSP48/dsp48.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/common/xilinx.gen 
+Execute           source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/plb46.gen 
+Execute           source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/axi4.gen 
+Execute           source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/saxilite.gen 
+Execute           source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/ip/xfft.gen 
+Execute           source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/ip/xfir.gen 
+Execute           source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/ip/util.gen 
+Execute           source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/DSP48/dsp48.gen 
 INFO-FLOW: DBG:PUTS:   using AESL_AUTOCG::g_clock_period=3.100 (was NA)
 INFO-FLOW: DBG:PROC: ::AESL_AUTOMG::generate_ip_cores gen_sim_model='1' gen_fp_models='0' gen_for_export='0' dstSCDir='' dstVhdlDir='/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/vhdl' dstVlogDir='/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/vlog' tclDir='/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db' modelList='packet_handler_regslice_both
 packet_handler_regslice_both
@@ -578,14 +506,8 @@ Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpg
 Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_identification.compgen.tcl 
 Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/ethernet_remover.compgen.tcl 
 Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.compgen.tcl 
-Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
-Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
-INFO: [RTMG 210-285] Implementing FIFO 'eth_level_pkt_U(packet_handler_fifo_w1024_d16_A)' using Vivado Default RAMs.
-Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
-Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
-INFO: [RTMG 210-285] Implementing FIFO 'start_for_ethernet_remover_U0_U(packet_handler_start_for_ethernet_remover_U0)' using Shift Registers.
-INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.27 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.3 seconds; current allocated memory: 332.309 MB.
-INFO-FLOW: DBG:PROC: ::AP::create_csynth_xml bind_adapter_nodes_var='bind_adapter_nodes' bind_report_dict_var='bind_report_dict' outfile=''
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.37 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.41 seconds; current allocated memory: 1.273 GB.
+INFO-FLOW: DBG:PROC: ::HLSREPORTS::create_csynth_xml bind_info_var='bind_info' RtlSubPrefix='packet_handler_' outfile=''
 INFO-FLOW: Running: create_csynth_xml read xml data
 INFO-FLOW: Done: create_csynth_xml read xml data time: 0 seconds per iteration
 INFO-FLOW: Running: create_csynth_xml bind info
@@ -594,178 +516,10 @@ INFO-FLOW: No bind nodes found for module_name ethernet_remover
 INFO-FLOW: No bind nodes found for module_name packet_handler
 INFO-FLOW: Done: create_csynth_xml bind info time: 0 seconds per iteration
 INFO-FLOW: Running: create_csynth_xml config info
-Execute         get_config_op mul -impl 
-Execute         get_config_op mul -latency 
-Execute         get_config_op mul -precision 
-Execute         get_config_op add -impl 
-Execute         get_config_op add -latency 
-Execute         get_config_op add -precision 
-Execute         get_config_op sub -impl 
-Execute         get_config_op sub -latency 
-Execute         get_config_op sub -precision 
-Execute         get_config_op fadd -impl 
-Execute         get_config_op fadd -latency 
-Execute         get_config_op fadd -precision 
-Execute         get_config_op fsub -impl 
-Execute         get_config_op fsub -latency 
-Execute         get_config_op fsub -precision 
-Execute         get_config_op fdiv -impl 
-Execute         get_config_op fdiv -latency 
-Execute         get_config_op fdiv -precision 
-Execute         get_config_op fexp -impl 
-Execute         get_config_op fexp -latency 
-Execute         get_config_op fexp -precision 
-Execute         get_config_op flog -impl 
-Execute         get_config_op flog -latency 
-Execute         get_config_op flog -precision 
-Execute         get_config_op fmul -impl 
-Execute         get_config_op fmul -latency 
-Execute         get_config_op fmul -precision 
-Execute         get_config_op frsqrt -impl 
-Execute         get_config_op frsqrt -latency 
-Execute         get_config_op frsqrt -precision 
-Execute         get_config_op frecip -impl 
-Execute         get_config_op frecip -latency 
-Execute         get_config_op frecip -precision 
-Execute         get_config_op fsqrt -impl 
-Execute         get_config_op fsqrt -latency 
-Execute         get_config_op fsqrt -precision 
-Execute         get_config_op dadd -impl 
-Execute         get_config_op dadd -latency 
-Execute         get_config_op dadd -precision 
-Execute         get_config_op dsub -impl 
-Execute         get_config_op dsub -latency 
-Execute         get_config_op dsub -precision 
-Execute         get_config_op ddiv -impl 
-Execute         get_config_op ddiv -latency 
-Execute         get_config_op ddiv -precision 
-Execute         get_config_op dexp -impl 
-Execute         get_config_op dexp -latency 
-Execute         get_config_op dexp -precision 
-Execute         get_config_op dlog -impl 
-Execute         get_config_op dlog -latency 
-Execute         get_config_op dlog -precision 
-Execute         get_config_op dmul -impl 
-Execute         get_config_op dmul -latency 
-Execute         get_config_op dmul -precision 
-Execute         get_config_op drsqrt -impl 
-Execute         get_config_op drsqrt -latency 
-Execute         get_config_op drsqrt -precision 
-Execute         get_config_op drecip -impl 
-Execute         get_config_op drecip -latency 
-Execute         get_config_op drecip -precision 
-Execute         get_config_op dsqrt -impl 
-Execute         get_config_op dsqrt -latency 
-Execute         get_config_op dsqrt -precision 
-Execute         get_config_op hadd -impl 
-Execute         get_config_op hadd -latency 
-Execute         get_config_op hadd -precision 
-Execute         get_config_op hsub -impl 
-Execute         get_config_op hsub -latency 
-Execute         get_config_op hsub -precision 
-Execute         get_config_op hdiv -impl 
-Execute         get_config_op hdiv -latency 
-Execute         get_config_op hdiv -precision 
-Execute         get_config_op hmul -impl 
-Execute         get_config_op hmul -latency 
-Execute         get_config_op hmul -precision 
-Execute         get_config_op hsqrt -impl 
-Execute         get_config_op hsqrt -latency 
-Execute         get_config_op hsqrt -precision 
-Execute         get_config_op facc -impl 
-Execute         get_config_op facc -latency 
-Execute         get_config_op facc -precision 
-Execute         get_config_op fmacc -impl 
-Execute         get_config_op fmacc -latency 
-Execute         get_config_op fmacc -precision 
-Execute         get_config_op fmadd -impl 
-Execute         get_config_op fmadd -latency 
-Execute         get_config_op fmadd -precision 
-Execute         get_config_storage fifo -auto_srl_max_bits 
-Execute         get_config_storage fifo -auto_srl_max_depth 
-Execute         get_config_storage fifo -impl 
-Execute         get_solution -flow_target 
-Execute         get_config_array_partition -complete_threshold 
-Execute         get_config_array_partition -throughput_driven 
-Execute         get_config_compile -enable_auto_rewind 
-Execute         get_config_compile -name_max_length 
-Execute         get_config_compile -no_signed_zeros 
-Execute         get_config_compile -pipeline_loops 
-Execute         get_config_compile -pipeline_style 
-Execute         get_config_compile -pragma_strict_mode 
-Execute         get_config_compile -pre_tcl 
-Execute         get_config_compile -unsafe_math_optimizations 
-Execute         get_config_dataflow -default_channel 
-Execute         get_config_dataflow -disable_fifo_sizing_opt 
-Execute         get_config_dataflow -fifo_depth 
-Execute         get_config_dataflow -override_user_fifo_depth 
-Execute         get_config_dataflow -scalar_fifo_depth 
-Execute         get_config_dataflow -start_fifo_depth 
-Execute         get_config_dataflow -strict_mode 
-Execute         get_config_dataflow -strict_stable_sync 
-Execute         get_config_dataflow -task_level_fifo_depth 
-Execute         get_config_debug -directory 
-Execute         get_config_debug -enable 
-Execute         get_config_export -deadlock_detection 
-Execute         get_config_export -description 
-Execute         get_config_export -display_name 
-Execute         get_config_export -format 
-Execute         get_config_export -ip_xdc_file 
-Execute         get_config_export -ip_xdc_ooc_file 
-Execute         get_config_export -ipname 
-Execute         get_config_export -library 
-Execute         get_config_export -output 
-Execute         get_config_export -rtl 
-Execute         get_config_export -taxonomy 
-Execute         get_config_export -vendor 
-Execute         get_config_export -version 
-Execute         get_config_export -vivado_clock 
-Execute         get_config_export -vivado_impl_strategy 
-Execute         get_config_export -vivado_max_timing_paths 
-Execute         get_config_export -vivado_optimization_level 
-Execute         get_config_export -vivado_pblock 
-Execute         get_config_export -vivado_phys_opt 
-Execute         get_config_export -vivado_report_level 
-Execute         get_config_export -vivado_synth_design_args 
-Execute         get_config_export -vivado_synth_strategy 
-Execute         get_config_interface -clock_enable 
-Execute         get_config_interface -default_slave_interface 
-Execute         get_config_interface -m_axi_addr64 
-Execute         get_config_interface -m_axi_alignment_byte_size 
-Execute         get_config_interface -m_axi_auto_max_ports 
-Execute         get_config_interface -m_axi_buffer_impl 
-Execute         get_config_interface -m_axi_conservative_mode 
-Execute         get_config_interface -m_axi_flush_mode 
-Execute         get_config_interface -m_axi_latency 
-Execute         get_config_interface -m_axi_max_bitwidth 
-Execute         get_config_interface -m_axi_max_read_burst_length 
-Execute         get_config_interface -m_axi_max_widen_bitwidth 
-Execute         get_config_interface -m_axi_max_write_burst_length 
-Execute         get_config_interface -m_axi_min_bitwidth 
-Execute         get_config_interface -m_axi_num_read_outstanding 
-Execute         get_config_interface -m_axi_num_write_outstanding 
-Execute         get_config_interface -m_axi_offset 
-Execute         get_config_interface -register_io 
-Execute         get_config_interface -s_axilite_data64 
-Execute         get_config_interface -s_axilite_mailbox 
-Execute         get_config_interface -s_axilite_status_regs 
-Execute         get_config_interface -s_axilite_sw_reset 
-Execute         get_config_rtl -header 
-Execute         get_config_rtl -kernel_profile 
-Execute         get_config_rtl -module_auto_prefix 
-Execute         get_config_rtl -module_prefix 
-Execute         get_config_rtl -mult_keep_attribute 
-Execute         get_config_rtl -register_all_io 
-Execute         get_config_rtl -register_reset_num 
-Execute         get_config_rtl -reset 
-Execute         get_config_rtl -reset_async 
-Execute         get_config_rtl -reset_level 
-Execute         get_config_schedule -enable_dsp_full_reg 
-Execute         get_config_unroll -tripcount_threshold 
 INFO-FLOW: Done: create_csynth_xml config info time: 0 seconds per iteration
 INFO-FLOW: Running: create_csynth_xml write xml
 INFO-FLOW: Done: create_csynth_xml write xml time: 0 seconds per iteration
-INFO-FLOW: DBG:PUTS:       create_csynth_xml wrote csynth_xml=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/csynth.xml
+INFO-FLOW: DBG:PUTS:      create_csynth_xml wrote csynth_xml=/home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/syn/report/csynth.xml
 INFO-FLOW: DBG:PROC: ::AP::DESIGN_DATA::generate_json generate_bd_files='0' generate_xo_files='0' modelList='packet_handler_regslice_both
 packet_handler_regslice_both
 packet_handler_regslice_both
@@ -784,124 +538,74 @@ packet_handler
 ' rtl_lang='both' bootstrap_tcl='false' outdir='' outfilename=''
 Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
 Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
-Execute         get_solution -flow_target 
-Execute         get_config_export -xo 
-Execute         get_config_export -format 
 Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/top-io-be.tcl 
 Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.tbgen.tcl 
 Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.rtl_wrap.cfg.tcl 
 Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.compgen.dataonly.tcl 
-Execute         get_config_export -format 
-Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
-Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
 Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_identification.tbgen.tcl 
 Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/ethernet_remover.tbgen.tcl 
 Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.tbgen.tcl 
 Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
 Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
 Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
-Execute         get_solution -flow_target 
-Execute         get_config_rtl -kernel_profile 
-Execute         get_config_rtl -kernel_profile 
-Execute         get_config_rtl -stall_sig_gen 
-Execute         get_config_rtl -profile 
 Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.constraint.tcl 
 Execute         sc_get_clocks packet_handler 
 Execute         source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
-Execute         get_config_export -ip_xdc_file 
-Execute         get_config_export -ip_xdc_ooc_file 
-Execute         get_config_debug -directory 
-INFO-FLOW: DBG:PROC: ::AP::add_csynth_report_sections bind_adapter_nodes='' bind_report_dict='TOP packet_handler DATA {packet_handler {DEPTH 1 CHILDREN {packet_identification ethernet_remover} AREA {DSP 0 BRAM 0 URAM 0}} packet_identification {DEPTH 2 CHILDREN {} AREA {DSP 0 BRAM 0 URAM 0}} ethernet_remover {DEPTH 2 CHILDREN {} AREA {DSP 0 BRAM 0 URAM 0}}}'
-INFO-FLOW: DBG:PUTS:       update_csynth_reports json2reportxml
-INFO-FLOW: Running: gen_csynth_pragma_report_xml
-INFO-FLOW: Done: gen_csynth_pragma_report_xml time: 0 seconds per iteration
-INFO-FLOW: DBG:PUTS:       update_csynth_reports wrote xml
-INFO-FLOW: DBG:PUTS:       update_csynth_reports appended to csynth rpt file
-INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.18 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.18 seconds; current allocated memory: 332.309 MB.
+INFO-FLOW: DBG:PROC: ::HLSREPORTS::add_csynth_report_sections bind_info_dict='adapter_nodes {} report_dict {TOPINST packet_handler MODULE2INSTS {packet_handler packet_handler packet_identification packet_identification_U0 ethernet_remover ethernet_remover_U0} INST2MODULE {packet_handler packet_handler packet_identification_U0 packet_identification ethernet_remover_U0 ethernet_remover} INSTDATA {packet_handler {DEPTH 1 CHILDREN {packet_identification_U0 ethernet_remover_U0}} packet_identification_U0 {DEPTH 2 CHILDREN {}} ethernet_remover_U0 {DEPTH 2 CHILDREN {}}} MODULEDATA {packet_identification {AREA {DSP 0 BRAM 0 URAM 0}} ethernet_remover {AREA {DSP 0 BRAM 0 URAM 0}} packet_handler {AREA {DSP 0 BRAM 0 URAM 0}}}}'
+INFO-FLOW: DBG:PUTS:      update_csynth_reports json2rpt_hw_sw_interfaces
+INFO-FLOW: Running: gen_csynth_sec_pragma
+INFO-FLOW: Done: gen_csynth_sec_pragma time: 0 seconds per iteration
+INFO-FLOW: DBG:PUTS:      update_csynth_reports wrote xml
+INFO-FLOW: DBG:PUTS:      update_csynth_reports appended to csynth rpt file
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.17 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.19 seconds; current allocated memory: 1.275 GB.
 INFO: [VHDL 208-304] Generating VHDL RTL for packet_handler.
 INFO: [VLOG 209-307] Generating Verilog RTL for packet_handler.
 Execute         syn_report -model packet_handler -printsummary 
-INFO: [HLS 200-789] **** Estimated Fmax: 326.03 MHz
-Command       autosyn done; 1.26 sec.
-Command     csynth_design done; 23.36 sec.
-INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 13.78 seconds. CPU system time: 1.67 seconds. Elapsed time: 23.36 seconds; current allocated memory: -809.164 MB.
+INFO: [HLS 200-789] **** Estimated Fmax: 318.50 MHz
+Command       autosyn done; 1.85 sec.
+Command     csynth_design done; 16.42 sec.
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 9.78 seconds. CPU system time: 1.87 seconds. Elapsed time: 16.42 seconds; current allocated memory: 88.059 MB.
 Execute     export_design -rtl verilog -format ip_catalog 
 INFO: [HLS 200-1510] Running: export_design -rtl verilog -format ip_catalog 
-Execute       get_config_export -clock_margin 
-Execute       get_config_export -custom_script 
-Execute       get_config_export -description 
-Execute       get_config_export -display_name 
-Execute       get_config_export -driver_input_dir 
-Execute       get_config_export -ipname 
-Execute       get_config_export -library 
-Execute       get_config_export -output 
-Execute       get_config_export -qor_test 
-Execute       get_config_export -sim 
-Execute       get_config_export -taxonomy 
-Execute       get_config_export -use_ip 
-Execute       get_config_export -use_netlist 
-Execute       get_config_export -vendor 
-Execute       get_config_export -version 
-Execute       get_config_export -xo 
 Execute       config_export -format=ip_catalog -rtl=verilog 
 INFO-FLOW: DBG:PUTS: export_design_wrap: -format ip_catalog -rtl verilog
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
-Execute       get_config_export -vivado_clock 
-Execute       get_top 
-Execute       get_config_export -ipname 
-Execute       get_config_export -xo 
-Execute       get_config_export -format 
-Execute       get_config_rtl -module_auto_prefix 
-Execute       get_solution -flow_target 
-Execute       get_config_export -xo 
-Execute       get_config_export -format 
 INFO-FLOW: DBG:PUTS:   auto_impl: pack: -export -rtl verilog
 INFO-FLOW: DBG:PROC: ::AESL_AUTOIMPL::auto_impl args='-export -rtl verilog'
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
 INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
-Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
 INFO-FLOW: DBG:PUTS: automg_wrap -export -pcore_version 1.00.a -rtl vlog -tool Vivado -impltomg_flag
 INFO-FLOW: DBG:PROC: ::AESL_AUTOMG::auto_generate args='-export -pcore_version 1.00.a -rtl vlog -tool Vivado -impltomg_flag'
 INFO-FLOW: DBG:PUTS:     auto_generate -export -pcore_version 1.00.a -rtl vlog -tool Vivado -impltomg_flag
-Execute       get_config_export -xo 
-Execute       get_config_export -format 
-Execute       get_config_export -ip_xdc_file 
-Execute       get_config_export -ip_xdc_ooc_file 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
 INFO-FLOW: DBG:PUTS: read_platform_lib /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl
-Execute       source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/generic/autopilot/common.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/generic/autopilot/APCoreGen.gen 
-Execute       source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/generic/autopilot/op.gen 
-Execute       source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/generic/autopilot/op_simcore.gen 
-Execute       source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/generic/autopilot/interface.gen 
+Execute       source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/generic/autopilot/common.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/generic/autopilot/APCoreGen.gen 
+Execute       source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/generic/autopilot/op.gen 
+Execute       source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/generic/autopilot/op_simcore.gen 
+Execute       source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/generic/autopilot/interface.gen 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
-Execute       source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/common/xilinx.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/plb46.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/axi4.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/nativeAXI4.gen 
-Execute           source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/saxilite.gen 
-Execute           source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/maxi.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/ip/dds_compiler.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/ip/util.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/ip/xfir.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/ip/xfft.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/DSP48/dsp48.gen 
+Execute       source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/common/xilinx.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/plb46.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/axi4.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute           source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/saxilite.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/ip/xfft.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/ip/dds_compiler.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/ip/xfir.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/ip/util.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/DSP48/dsp48.gen 
 INFO-FLOW: DBG:PUTS:       initCTypeInfo top_module=packet_handler xml_exists=0
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.rtl_wrap.cfg.tcl 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.rtl_wrap.cfg.tcl 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.rtl_wrap.cfg.tcl 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.tbgen.tcl 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.tbgen.tcl 
-Execute       get_config_export -deadlock_detection 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.tbgen.tcl 
-Execute       get_config_export -deadlock_detection 
-Execute       get_config_export -deadlock_detection 
-Execute       get_config_rtl -module_prefix 
 INFO-FLOW: DBG:PUTS:       cosim_export_main adding deadlock detection to packet_handler
-Execute       get_config_export -deadlock_detection 
 INFO-FLOW: DBG:PUTS: Skipping loadAnalyze_DB, #g_database=10
 INFO-FLOW: DBG:PUTS:       generate_json generate_bd_files=0 generate_xo_files=false #modelList=15 #gSsdmPorts=0
 INFO-FLOW: DBG:PROC: ::AP::DESIGN_DATA::generate_json generate_bd_files='0' generate_xo_files='false' modelList='packet_handler_regslice_both
@@ -922,42 +626,22 @@ packet_handler
 ' rtl_lang='vlog' bootstrap_tcl='false' outdir='' outfilename=''
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
-Execute       get_solution -flow_target 
-Execute       get_config_export -xo 
-Execute       get_config_export -format 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/top-io-be.tcl 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.tbgen.tcl 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.rtl_wrap.cfg.tcl 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.compgen.dataonly.tcl 
-Execute       get_config_export -format 
-Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
-Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_identification.tbgen.tcl 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/ethernet_remover.tbgen.tcl 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.tbgen.tcl 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
 Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
 Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
-Execute       get_solution -flow_target 
-Execute       get_config_rtl -kernel_profile 
-Execute       get_config_rtl -kernel_profile 
-Execute       get_config_rtl -stall_sig_gen 
-Execute       get_config_rtl -profile 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.constraint.tcl 
 Execute       sc_get_clocks packet_handler 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
-Execute       get_config_export -ip_xdc_file 
-Execute       get_config_export -ip_xdc_ooc_file 
-Execute       get_config_debug -directory 
-Execute       get_config_export -deadlock_detection 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.tbgen.tcl 
-Execute       get_config_export -deadlock_detection 
-Execute       get_config_export -deadlock_detection 
-Execute       get_config_rtl -module_prefix 
 INFO-FLOW: DBG:PUTS:       cosim_export_main adding deadlock detection to packet_handler
-Execute       get_config_export -deadlock_detection 
-Execute       get_config_export -format 
 INFO-FLOW: DBG:PUTS:       generate_ip_script #gSsdmPorts=0 g_lang=vlog is_sdaccel=false is_sdsoc=true xo_file=
 Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
 Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
@@ -968,8 +652,8 @@ Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.tbgen.tcl 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.tbgen.tcl 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.tbgen.tcl 
+Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.tbgen.tcl 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
-Execute       get_config_debug -directory 
 INFO-FLOW: DBG:PUTS:       generate_top_info
 INFO-FLOW: DBG:PUTS:       prepArgInfo -> loadAnalyze_DB top_module=packet_handler
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.rtl_wrap.cfg.tcl 
@@ -983,14 +667,7 @@ Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet
 Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.tbgen.tcl 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
-Execute       get_config_export -ip_xdc_ooc_file 
-Execute       get_config_export -ip_xdc_file 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/packet_handler.constraint.tcl 
-INFO-FLOW: DBG:PUTS:       generate_ipi_example_script
-Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
-Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
-Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
-Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
 INFO-FLOW: DBG:PUTS:       generate_syn_sh
 Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
 Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
@@ -1004,31 +681,28 @@ INFO-FLOW: DBG:PUTS:       delete-temp-dirs (skipped for debug)
 Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
 Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
 INFO-FLOW: DBG:PUTS: read_platform_lib /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl
-Execute       source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/generic/autopilot/common.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/generic/autopilot/APCoreGen.gen 
-Execute       source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/generic/autopilot/op.gen 
-Execute       source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/generic/autopilot/op_simcore.gen 
-Execute       source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/generic/autopilot/interface.gen 
+Execute       source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/generic/autopilot/common.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/generic/autopilot/APCoreGen.gen 
+Execute       source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/generic/autopilot/op.gen 
+Execute       source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/generic/autopilot/op_simcore.gen 
+Execute       source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/generic/autopilot/interface.gen 
 Execute       source /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/.autopilot/db/global.setting.tcl 
-Execute       source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/common/xilinx.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/plb46.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/axi4.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/nativeAXI4.gen 
-Execute           source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/saxilite.gen 
-Execute           source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/maxi.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/ip/dds_compiler.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/ip/util.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/ip/xfir.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/ip/xfft.gen 
-Execute         source /tools/Xilinx/Vitis_HLS/2021.2/common/technology/xilinx/DSP48/dsp48.gen 
-Command       ap_source done; 0.11 sec.
+Execute       source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/common/xilinx.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/plb46.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/axi4.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute           source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/saxilite.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/ip/xfft.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/ip/dds_compiler.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/ip/xfir.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/ip/util.gen 
+Execute         source /tools/Xilinx/Vitis_HLS/2023.1/common/technology/xilinx/DSP48/dsp48.gen 
 INFO-FLOW: DBG:PUTS:     IP package: exec /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/impl/ip/pack.sh
 INFO-FLOW: DBG:PUTS:     IP package: success /home/ubuntu/xup_vitis_network_example/NetLayers/100G-fpga-network-stack-core/synthesis_results_HBM/PKT_HANDLER_prj/ultrascale_plus/impl/ip/pack.sh
-Execute       get_config_export -output 
 Execute       send_msg_by_id INFO @200-802@%s PKT_HANDLER_prj/ultrascale_plus/impl/export.zip 
 INFO: [HLS 200-802] Generated output file PKT_HANDLER_prj/ultrascale_plus/impl/export.zip
-Command     export_design done; 16.26 sec.
-INFO: [HLS 200-111] Finished Command export_design CPU user time: 15.24 seconds. CPU system time: 1.9 seconds. Elapsed time: 16.26 seconds; current allocated memory: 8.637 MB.
+Command     export_design done; 13.95 sec.
+INFO: [HLS 200-111] Finished Command export_design CPU user time: 13.5 seconds. CPU system time: 1.38 seconds. Elapsed time: 13.95 seconds; current allocated memory: 6.445 MB.
 Execute     cleanup_all 
