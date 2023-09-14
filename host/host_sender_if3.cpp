@@ -184,8 +184,8 @@ int main(int argc, char **argv) {
                 tx_run.set_arg(4, enc[idx]);
                 tx_run.start();
                 tx_run.wait();
-                printf("Message of size %d transmitted.\n", packet_size_total[idx]);
-                printf("Message at the transmitter:\n");
+                printf("Message of size %d sent.\n", packet_size_total[idx]);
+                printf("Message at the sender:\n");
 
                 for (unsigned int i = 0; i < packet_size_total[idx]; i++){
                         printf("%c",code[i]);
