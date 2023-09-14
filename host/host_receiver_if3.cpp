@@ -50,7 +50,7 @@ int main(int argc, char **argv) {
 	
 	socket_type sockets[2][16] = {0};
         unsigned int packet_size_total[2];
-        uint32_t rxPkt[2] = {3200, 3200};
+        uint32_t rxPkt[2] = {1, 1};
         unsigned int dec[2] = {0, 0};
 	unsigned int dest = 0;
 
