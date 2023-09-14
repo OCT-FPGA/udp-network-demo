@@ -48,7 +48,7 @@ int main(int argc, char **argv) {
         
 	socket_type sockets[16] = {0};
         unsigned int packet_size_total;
-        uint32_t txPkt = 3200;
+        uint32_t txPkt = 1;
 	unsigned int enc = 0;
 	unsigned int dest = 0;
 
