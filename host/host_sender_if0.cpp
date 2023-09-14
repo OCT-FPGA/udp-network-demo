@@ -163,8 +163,8 @@ int main(int argc, char **argv) {
 	tx0_run.set_arg(4, enc);
 	tx0_run.start();
 	tx0_run.wait();
-	printf("Message of size %d transmitted.\n", packet_size_total);
-        printf("Message at the transmitter:\n");
+	printf("Message of size %d sent.\n", packet_size_total);
+        printf("Message at the sender:\n");
 
         for (unsigned int i = 0; i < packet_size_total; i++){
                 printf("%c",code[i]);
