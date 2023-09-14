@@ -48,7 +48,7 @@ int main(int argc, char **argv) {
 
    	socket_type sockets[16] = {0};
     	unsigned int packet_size_total; 
-    	uint32_t rxPkt = 3200;
+    	uint32_t rxPkt = 1;
 	unsigned int dec = 0;
 
     	if(argc >= 3){
