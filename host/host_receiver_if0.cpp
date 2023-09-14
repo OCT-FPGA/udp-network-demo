@@ -158,7 +158,8 @@ int main(int argc, char **argv) {
     	rx0_run.wait();
     	buffer_packetdata.sync(XCL_BO_SYNC_BO_FROM_DEVICE);
     	buffer_packetdata.read(local_data);
-    
+	
+        printf("Message at the receiver:\n");
     	for (unsigned int i = 0; i < packet_size_total; i++){
             	printf("%c",local_data[i]);
     	}
