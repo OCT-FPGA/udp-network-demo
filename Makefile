@@ -17,7 +17,7 @@ HOST_ARCH := x86
 DEVICE ?= xilinx_u280_gen3x16_xdma_1_202211_1
 INTERFACE ?= 0
 JOBS ?= 8
-XCLBIN_NAME ?= demo_if$(INTERFACE)
+XCLBIN_NAME ?= udpdemo_if$(INTERFACE)
 
 XSA := $(strip $(patsubst %.xpfm, % , $(shell basename $(DEVICE))))
 TEMP_DIR := _x.$(XSA)
