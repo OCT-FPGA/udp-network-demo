@@ -45,7 +45,7 @@ int main(int argc, char **argv) {
 	}
 	else{
 		xclbinFilename = argv[1];
-		std::cout <<"Using FPGA binary file specfied through the command line: " << xclbinFilename << std::endl;
+		std::cout <<"Using FPGA binary file specified through the command line: " << xclbinFilename << std::endl;
     	}
 
     	socket_type sockets[2][16] = {0};
