@@ -146,6 +146,7 @@ int main(int argc, char **argv) {
                 	printf("ARP valid entry found at %d\n", i);
 	    	}	
 	}
+
     	//User Logic
     	char local_data[packet_size_total];
     	xrt::kernel rxkrnl_0 = xrt::kernel(device, xclbin_uuid, "rxkrnl:{rxkrnl_0}");
