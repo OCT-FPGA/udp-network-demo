@@ -17,7 +17,7 @@ HOST_ARCH := x86
 DEVICE ?= xilinx_u280_gen3x16_xdma_1_202211_1
 INTERFACE ?= 0
 JOBS ?= 8
-XCLBIN_NAME ?= udpdemo_if$(INTERFACE)
+XCLBIN_NAME ?= udp_demo_if$(INTERFACE)
 
 XSA := $(strip $(patsubst %.xpfm, % , $(shell basename $(DEVICE))))
 TEMP_DIR := _x.$(XSA)
@@ -35,8 +35,8 @@ SENDER_HOST_SRCS += host/fileops.cpp
 SENDER_HOST_SRCS += host/ip_to_hex.cpp
 RECEIVER_HOST_SRCS += host/fileops.cpp
 RECEIVER_HOST_SRCS += host/ip_to_hex.cpp
-SENDER_HOST_SRCS += host/host_sender_if$(INTERFACE).cpp
-RECEIVER_HOST_SRCS += host/host_receiver_if$(INTERFACE).cpp
+SENDER_HOST_SRCS += host/udp_host_sender_if$(INTERFACE).cpp
+RECEIVER_HOST_SRCS += host/udp_host_receiver_if$(INTERFACE).cpp
 
 # Host compiler global settings
 LDFLAGS = -L$(XILINX_XRT)/lib -lxrt_coreutil -pthread
@@ -45,8 +45,8 @@ ifneq ($(HOST_ARCH), x86)
   LDFLAGS += --sysroot=$(SYSROOT)
 endif
 
-SENDER_EXECUTABLE = $(HOST_BUILD_DIR)/host_sender_if$(INTERFACE)
-RECEIVER_EXECUTABLE = $(HOST_BUILD_DIR)/host_receiver_if$(INTERFACE)
+SENDER_EXECUTABLE = $(HOST_BUILD_DIR)/udp_host_sender_if$(INTERFACE)
+RECEIVER_EXECUTABLE = $(HOST_BUILD_DIR)/udp_host_receiver_if$(INTERFACE)
 CMD_ARGS = $(BUILD_DIR)/${XCLBIN_NAME}.xclbin
 
 NETLAYERDIR = ./networklayer/
