@@ -56,10 +56,11 @@ int main(int argc, char **argv) {
 
     	if(argc >= 4){
 		txPkt[0] = strtol(argv[2], NULL, 10);
-		packet_size_total[0] = BYTES_PER_PACKET*txPkt[0]; 
 		txPkt[1] = strtol(argv[3], NULL, 10);
-		packet_size_total[1] = BYTES_PER_PACKET*txPkt[1];
 	}
+
+	packet_size_total[0] = BYTES_PER_PACKET*txPkt[0];
+	packet_size_total[1] = BYTES_PER_PACKET*txPkt[1];
 
 	if (argc >=6){
         	if (strcmp(argv[4],"encrypt")==0)

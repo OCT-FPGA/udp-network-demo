@@ -56,10 +56,10 @@ int main(int argc, char **argv) {
 
 	if(argc >= 4){
 		rxPkt[0] = strtol(argv[2], NULL, 10);
-		packet_size_total[0] = BYTES_PER_PACKET*rxPkt[0];
 	       	rxPkt[1] = strtol(argv[3], NULL, 10);
-		packet_size_total[1] = BYTES_PER_PACKET*rxPkt[1];
 	}
+	packet_size_total[0] = BYTES_PER_PACKET*rxPkt[0];
+	packet_size_total[1] = BYTES_PER_PACKET*rxPkt[1];
 
 	if(argc >= 6)
         {

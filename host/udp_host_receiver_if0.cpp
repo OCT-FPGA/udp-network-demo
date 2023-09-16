@@ -53,8 +53,8 @@ int main(int argc, char **argv) {
 
     	if(argc >= 3){
 		rxPkt = strtol(argv[2], NULL, 10);
-		packet_size_total = BYTES_PER_PACKET*rxPkt; 
 	}
+	packet_size_total = BYTES_PER_PACKET*rxPkt;
 
 	if(argc >= 4)
         {

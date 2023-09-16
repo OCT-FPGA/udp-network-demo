@@ -52,10 +52,10 @@ int main(int argc, char **argv) {
 	unsigned int enc = 0;
 	unsigned int dest = 0;
 
-    	if(argc >= 3){
-		txPkt = strtol(argv[2], NULL, 10);
-		packet_size_total = BYTES_PER_PACKET*txPkt; 
-	}
+	if(argc >= 3){
+                txPkt = strtol(argv[2], NULL, 10);
+        }
+        packet_size_total = BYTES_PER_PACKET*txPkt;
 
 	if (argc >=4){
         	if (strcmp(argv[3],"encrypt")==0)
