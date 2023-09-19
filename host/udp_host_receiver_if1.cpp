@@ -5,25 +5,7 @@
 #include <xrt/xrt_bo.h>
 #include <xrt/xrt_kernel.h>
 #include <experimental/xrt_ip.h>
-
-#define BYTES_PER_PACKET 1408
-#define MY_IP_ADDR 0xC0A80102
-#define THEIR_IP_ADDR 0xC0A80101
-#define IP_GATEWAY 0xC0A801FE
-#define ARP_DISCOVERY 0x1010
-#define ARP_IP_ADDR_OFFSET 0x1400
-#define ARP_MAC_ADDR_OFFSET 0x1800
-#define ARP_VALID_OFFSET 0x1100
-#define IP_ADDR_OFFSET 0x0018
-#define IP_GATEWAY_OFFSET 0x001C
-#define MAC_ADDR_OFFSET 0x0010
-#define NUM_SOCKETS_HW 0x0A10
-#define UDP_TI_OFFSET 0x0810
-#define UDP_TP_OFFSET 0x0890
-#define UDP_MP_OFFSET 0x0910
-#define UDP_V_OFFSET 0x0990
-#define MY_PORT 60000
-#define THEIR_PORT 50000
+#include "config_macros.h"
 
 typedef struct {
 	uint32_t theirIP;
@@ -90,8 +72,8 @@ int main(int argc, char **argv) {
     	}
 	
 	auto nl = xrt::ip(device, xclbin_uuid, "networklayer:{networklayer_1}");
-	unsigned int my_ip_address = argc>=5 ? ip_to_hex(argv[4]) : (unsigned int)MY_IP_ADDR;
-        unsigned int their_ip_address = argc>=6 ? ip_to_hex(argv[5]) : (unsigned int)THEIR_IP_ADDR;
+	unsigned int my_ip_address = argc>=5 ? ip_to_hex(argv[4]) : (unsigned int)RECV_IP_ADDR1;
+        unsigned int their_ip_address = argc>=6 ? ip_to_hex(argv[5]) : (unsigned int)SEND_IP_ADDR1;
         unsigned int ip_gateway = argc>=7 ? ip_to_hex(argv[6]) : (unsigned int)IP_GATEWAY;
         long mac_address = (0xf0f1f2f3f4f5 & 0xFFFFFFFFFF0) + (my_ip_address & 0xF);
 	nl.write_register(MAC_ADDR_OFFSET,mac_address);
@@ -101,8 +83,8 @@ int main(int argc, char **argv) {
 	
 	unsigned num_sockets_hw = 0, num_sockets_sw = sizeof(sockets) / sizeof(sockets[0]);
     	sockets[0].theirIP = their_ip_address;
-    	sockets[0].theirPort = THEIR_PORT;
-    	sockets[0].myPort = MY_PORT;
+    	sockets[0].theirPort = SEND_PORT;
+    	sockets[0].myPort = RECV_PORT;
     	sockets[0].valid = true;
     	printf("My port: %d\n", sockets[0].myPort);
     	printf("Their port: %d\n", sockets[0].theirPort); 
