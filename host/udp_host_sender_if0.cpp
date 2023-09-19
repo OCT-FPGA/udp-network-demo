@@ -73,8 +73,8 @@ int main(int argc, char **argv) {
 	
 	//Network Layer
         auto nl = xrt::ip(device, xclbin_uuid, "networklayer:{networklayer_0}");
-        unsigned int my_ip_address = argc>=5 ? ip_to_hex(argv[4]) : (unsigned int)SEND_IP_ADDR;
-        unsigned int their_ip_address = argc>=6 ? ip_to_hex(argv[5]) : (unsigned int)RECV_IP_ADDR;
+        unsigned int my_ip_address = argc>=5 ? ip_to_hex(argv[4]) : (unsigned int)SEND_IP_ADDR0;
+        unsigned int their_ip_address = argc>=6 ? ip_to_hex(argv[5]) : (unsigned int)RECV_IP_ADDR0;
         unsigned int ip_gateway = argc>=7 ? ip_to_hex(argv[6]) : (unsigned int)IP_GATEWAY;
         long mac_address = (0xf0f1f2f3f4f5 & 0xFFFFFFFFFF0) + (my_ip_address & 0xF);
         nl.write_register(MAC_ADDR_OFFSET,mac_address);
