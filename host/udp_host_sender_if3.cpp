@@ -5,27 +5,7 @@
 #include <xrt/xrt_bo.h>
 #include <xrt/xrt_kernel.h>
 #include <experimental/xrt_ip.h>
-
-#define BYTES_PER_PACKET 1408
-#define MY_IP_ADDR0 0xC0A80101
-#define THEIR_IP_ADDR0 0xC0A80102
-#define MY_IP_ADDR1 0xC0A80103
-#define THEIR_IP_ADDR1 0xC0A80104
-#define IP_GATEWAY 0xC0A801FE
-#define ARP_DISCOVERY 0x1010
-#define ARP_IP_ADDR_OFFSET 0x1400
-#define ARP_MAC_ADDR_OFFSET 0x1800
-#define ARP_VALID_OFFSET 0x1100
-#define IP_ADDR_OFFSET 0x0018
-#define IP_GATEWAY_OFFSET 0x001C
-#define MAC_ADDR_OFFSET 0x0010
-#define NUM_SOCKETS_HW 0x0A10
-#define UDP_TI_OFFSET 0x0810
-#define UDP_TP_OFFSET 0x0890
-#define UDP_MP_OFFSET 0x0910
-#define UDP_V_OFFSET 0x0990
-#define MY_PORT 50000
-#define THEIR_PORT 60000
+#include "config_macros.h"
 
 typedef struct {
 	uint32_t theirIP;
@@ -113,8 +93,8 @@ int main(int argc, char **argv) {
 		//Network Layer
 		std::string nl_name = "networklayer_" + std::to_string(idx);
         	auto nl = xrt::ip(device, xclbin_uuid, "networklayer:{" + nl_name + "}");
-		unsigned int my_ip_address = argc>=7+idx ? ip_to_hex(argv[6+idx]) : (idx==0 ? MY_IP_ADDR0 : MY_IP_ADDR1);
-                unsigned int their_ip_address = argc>=9+idx ? ip_to_hex(argv[8+idx]) : (idx==0 ? THEIR_IP_ADDR0 : THEIR_IP_ADDR1);
+		unsigned int my_ip_address = argc>=7+idx ? ip_to_hex(argv[6+idx]) : (idx==0 ? SEND_IP_ADDR0 : SEND_IP_ADDR1);
+                unsigned int their_ip_address = argc>=9+idx ? ip_to_hex(argv[8+idx]) : (idx==0 ? RECV_IP_ADDR0 : RECV_IP_ADDR1);
         	long mac_address = (0xf0f1f2f3f4f5 & 0xFFFFFFFFFF0) + (my_ip_address & 0xF);
         	nl.write_register(MAC_ADDR_OFFSET,mac_address);
         	nl.write_register(MAC_ADDR_OFFSET + 4, mac_address >> 32);
@@ -122,8 +102,8 @@ int main(int argc, char **argv) {
         	nl.write_register(IP_GATEWAY_OFFSET, ip_gateway);
 
         	sockets[0][idx].theirIP = their_ip_address;
-        	sockets[0][idx].theirPort = THEIR_PORT;
-        	sockets[0][idx].myPort = MY_PORT;
+        	sockets[0][idx].theirPort = RECV_PORT;
+        	sockets[0][idx].myPort = SEND_PORT;
         	sockets[0][idx].valid = true;
         	printf("My port %d: %d\n", idx, sockets[0][idx].myPort);
         	printf("Their port %d: %d\n", idx, sockets[0][idx].theirPort);
