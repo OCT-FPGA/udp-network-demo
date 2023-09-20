@@ -31,8 +31,7 @@ int main(int argc, char **argv) {
 	socket_type sockets[16] = {0};
         unsigned int packet_size_total;
         uint32_t txPkt = 1;
-	unsigned int enc = 0;
-	unsigned int dest = 0;
+	bool enc = false;
 
 	if(argc >= 3){
                 txPkt = strtol(argv[2], NULL, 10);
@@ -43,12 +42,12 @@ int main(int argc, char **argv) {
         	if (strcmp(argv[3],"encrypt")==0)
 		{
 			printf("encryption enabled...\n");
-			enc = 1;
+			enc = true;
 		}
 		else if (strcmp(argv[3],"no-encrypt")==0)
 		{
 			printf("encryption not enabled...\n");
-			enc = 0;
+			enc = false;
 		}
 	}
         
@@ -128,7 +127,7 @@ int main(int argc, char **argv) {
 		}	
 	} 
 
-	//User Logic 
+	//User Logic
 	xrt::kernel txkrnl_1 = xrt::kernel(device, xclbin_uuid, "txkrnl:{txkrnl_1}");
 	char *code = readFile("./alice29.txt");
 	if (code == NULL) {
@@ -141,8 +140,7 @@ int main(int argc, char **argv) {
 	xrt::run tx1_run = xrt::run(txkrnl_1);
 	tx1_run.set_arg(0, buffer_packetdata) ;
     	tx1_run.set_arg(2, packet_size_total) ;
-	tx1_run.set_arg(3, dest);
-	tx1_run.set_arg(4, enc);
+	tx1_run.set_arg(3, enc);
 	tx1_run.start();
 	tx1_run.wait();
 	printf("Message of size %d sent.\n", packet_size_total);

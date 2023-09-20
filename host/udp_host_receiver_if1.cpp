@@ -31,7 +31,7 @@ int main(int argc, char **argv) {
    	socket_type sockets[16] = {0};
     	unsigned int packet_size_total; 
     	uint32_t rxPkt = 1;
-	unsigned int dec = 0;
+	bool dec = false;
 
     	if(argc >= 3){
 		rxPkt = strtol(argv[2], NULL, 10);
@@ -43,12 +43,12 @@ int main(int argc, char **argv) {
                 if (strcmp(argv[3],"decrypt")==0)
                 {
                         printf("decryption enabled...\n");
-                        dec = 1;
+                        dec = true;
                 }
 		else if (strcmp(argv[3], "no-decrypt")==0)
 		{
 			printf("decryption not enabled...\n");
-			dec = 0;
+			dec = false;
 		}
         }
 	

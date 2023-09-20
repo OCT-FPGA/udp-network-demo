@@ -53,7 +53,7 @@ extern "C" {
 void rxkrnl(ap_uint<DWIDTH> *out,     // Write only memory mapped
                hls::stream<pkt> &n2k,    // Internal Stream
                unsigned int     size,     // Size in bytes
-	       unsigned int	dec   // decrypt data
+	       bool		dec   // decrypt data
                ) {
 #pragma HLS INTERFACE m_axi port = out offset = slave bundle = gmem
 #pragma HLS INTERFACE axis port = n2k
@@ -89,7 +89,7 @@ data_mover:
 	  	//out[i] = v.data;
 		tmp = v.data;
 
-		if (dec==1){
+		if (dec){
 			for (int k = 0; k < (512/128); k++){
 #pragma HLS UNROLL
 				unsigned char ciphertext[stt_lng];

@@ -55,14 +55,12 @@ extern "C" {
 void txkrnl(ap_uint<DWIDTH>  *in,  // Read-Only Vector 1
                hls::stream<pkt> &k2n, // Internal Stream
                unsigned int     size, // Size in bytes
-               unsigned int     dest,  // destination ID
-	       unsigned int	enc   // encrypt
+	       bool		enc   // encrypt
                ) {
 #pragma HLS INTERFACE m_axi port = in offset = slave bundle = gmem
 #pragma HLS INTERFACE axis port = k2n
 #pragma HLS INTERFACE s_axilite port = in bundle = control
 #pragma HLS INTERFACE s_axilite port = size bundle = control
-#pragma HLS INTERFACE s_axilite port = dest bundle = control
 #pragma HLS INTERFACE s_axilite port = enc bundle = control
 #pragma HLS INTERFACE s_axilite port = return bundle = control
 
@@ -90,7 +88,7 @@ data_mover:
     		ap_uint<512> tmp = in[i];
     		ap_uint<512> out;
 
-		if (enc == 1){
+		if (enc){
                 	for (int k = 0; k < (512/128); k++){
 				#pragma HLS UNROLL
                         	unsigned char plaintext[stt_lng];
@@ -117,7 +115,6 @@ data_mover:
     		else 
       			v.last = 0;
 
-    		v.dest = dest;
     		k2n.write(v);
   	}
 }

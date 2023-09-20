@@ -31,8 +31,7 @@ int main(int argc, char **argv) {
     	socket_type sockets[2][16] = {0};
     	unsigned int packet_size_total[2];
 	uint32_t txPkt[2] = {1, 1};
-	unsigned int enc[2] = {0, 0};
-	unsigned int dest = 0;
+	bool enc[2] = {false, false};
 
     	if(argc >= 4){
 		txPkt[0] = strtol(argv[2], NULL, 10);
@@ -46,22 +45,22 @@ int main(int argc, char **argv) {
         	if (strcmp(argv[4],"encrypt")==0)
 		{
 			printf("encryption enabled on channel 0...\n");
-			enc[0] = 1;
+			enc[0] = true;
 		}
 		else if (strcmp(argv[4],"no-encrypt")==0)
 		{
 			printf("encryption not enabled on channel 0...\n");
-			enc[0] = 0;
+			enc[0] = false;
 		}
 		if (strcmp(argv[5],"encrypt")==0)
 		{
 			printf("encryption enabled on channel 1...\n");
-			enc[1] = 1;
+			enc[1] = true;
 		}
 		else if (strcmp(argv[5],"no-encrypt")==0)
 		{
 			printf("encryption not enabled on channel 1...\n");
-			enc[1] = 0;
+			enc[1] = false;
 		}
 	}
 
@@ -162,8 +161,7 @@ int main(int argc, char **argv) {
                 xrt::run tx_run = xrt::run(txkrnl);
                 tx_run.set_arg(0, buffer_packetdata) ;
                 tx_run.set_arg(2, packet_size_total[idx]) ;
-                tx_run.set_arg(3, dest);
-                tx_run.set_arg(4, enc[idx]);
+                tx_run.set_arg(3, enc[idx]);
                 tx_run.start();
                 tx_run.wait();
                 printf("Message of size %d sent.\n", packet_size_total[idx]);
