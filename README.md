@@ -8,7 +8,7 @@ In this example, we use Xilinx XUP UDP stack [[1]](#ref1) and CMAC kernels as pr
 
 ## Pre-requisites
 
-- A build machine with Vitis 2023.1 installation required. Setup instructions are available [here](https://github.com/OCT-FPGA/OCT-Tutorials/blob/master/cloudlab-setup/build-machines.md).
+- A build machine with Vitis 2023.1 installation required. Setup instructions are available [here](https://github.com/OCT-FPGA/OCT-Tutorials/blob/master/cloudlab-setup/build-machines.md). It is recommended to select least 4 CPU cores and 64 GB of RAM for the build machine.
 
 - A CloudLab experiment should be created with two nodes. Instructions can be found [here](https://github.com/OCT-FPGA/OCT-Tutorials/blob/master/cloudlab-setup/fpgas.md). Note that you don't need to set up the experiment until you finish bitstream generation. The CloudLab experiment is only needed for the targeting workflow. This workflow has been tested and verified using Xilinx RunTime (XRT) version 2023.1. Other versions may also support, but have not been tested. Use the CloudLab profile ```oct-u280``` with two compute nodes when creating the experiment.  
 
@@ -48,7 +48,7 @@ To use both port 0 and port 1:
 
 ```make all INTERFACE=3```
 
-This will create sender and receiver-side host executables and an FPGA bitstream with the logic shown in the figure. The bitstream build process can take up to 4~5 hours depending on the flavor of your MOC instance and the number of jobs that you specified.  
+This will create sender and receiver-side host executables and an FPGA bitstream with the logic shown in the figure. Expect the build process to take 4 to 5 hours, depending on the number of CPU cores and RAM allocated to the build machine.
 
 ## Copy files to CloudLab
 
