@@ -29,17 +29,12 @@ First, you should clone the repository using
 
 ## Build the bitstream and host executable
 
-To configure the environment to run Vitis commands, run the following shell commands.
+The build environment is typically pre-configured in this build machine. Run `which vitis` to confirm. 
 
-```bash
-source /tools/Xilinx/Vitis/2023.1/settings64.sh
-source /opt/xilinx/xrt/setup.sh
-```
-
-Alveo U280 has two 100 Gbps QSFP-28 ports (port 0 and port 1). It is possible to build a bitstream that uses either of these two to send/receive packets. First, you need to specify the [license path of the CMAC IP](https://github.com/OCT-FPGA/OCT-Tutorials/blob/master/network-attached-fpga/license_checkout.md). 
+The Alveo U280 includes two 100 Gbps QSFP-28 ports (port 0 and port 1) to send and receive packets via either or both ports. First, configure the [CMAC license] (https://github.com/OCT-FPGA/OCT-Tutorials/blob/master/network-attached-fpga/license_checkout.md). 
 
 
-Now you are ready to start building the bitstream. Use the ```make``` command as shown below. You may also pass ```JOBS=<number of jobs>``` as an argument to speed up the build process. The default is 8.
+Now you are ready to start building the bitstream. Use the ```make``` command as shown below. 
 
 To use port 0:
 
@@ -65,7 +60,7 @@ scp -i <CloudLab private key> <bitstream> <receiver host executable> <sender hos
 
 Imagine you have created an experiment with CloudLab nodes pc154 and pc157. Copy these files to both nodes.
 
-Example - Single-port:
+Example - Single-port sender/receiver:
 
 ```bash
 scp -i ~/.ssh/cloudlab_openssh ./build_hw_if0/demo_if0.xclbin ./host/build_sw_if0/host_receiver_if0 ./host/build_sw_if0/host_sender_if0 ./host/alice29.txt suranga@pc154.cloudlab.umass.edu:~
@@ -75,7 +70,7 @@ scp -i ~/.ssh/cloudlab_openssh ./build_hw_if0/demo_if0.xclbin ./host/build_sw_if
 scp -i ~/.ssh/cloudlab_openssh ./build_hw_if0/demo_if0.xclbin ./host/build_sw_if0/host_receiver_if0 ./host/build_sw_if0/host_sender_if0 ./host/alice29.txt suranga@pc157.cloudlab.umass.edu:~
 ```
 
-Example - Dual-port:
+Example - Dual-port sender/receiver:
 
 ```bash
 scp -i ~/.ssh/cloudlab_openssh ./build_hw_if3/demo_if3.xclbin ./host/build_sw_if3/host_receiver_if3 ./host/build_sw_if3/host_sender_if3 ./host/alice29.txt ./host/pg66489.txt suranga@pc154.cloudlab.umass.edu:~
@@ -95,7 +90,7 @@ source /opt/xilinx/xrt/setup.sh
 
 Run the receiver first.
 
-### Single-port examples
+### Single-port sender/receiver example
 
 Receiver side syntax:
 
@@ -103,7 +98,7 @@ Receiver side syntax:
 ./udp_host_receiver_<interface ID> <xclbin> <number of packets> <decrypt or no-decrypt (optional)> <receiver IP (optional)> <sender IP (optional)> <IP gateway (optional)>
 ```
 
-Example - Receive 1 UDP packet on interface 1 without decrypting
+Example - Receive one UDP packet on interface 1 without decrypting
 
 ```
 ./udp_host_receiver_if1 udp_demo_if1.xclbin 1
@@ -115,12 +110,12 @@ Sender side syntax:
 ./udp_host_sender_<interface ID> <xclbin> <number of packets> <encrypt or no-encrypt (optional)> <sender IP (optional)> <receiver IP (optional)> <IP gateway (optional)> 
 ```
 
-Example - Send 1 encrypted UDP packet on interface 0
+Example - Send one encrypted UDP packet on interface 0
 
 ```
 ./udp_host_sender_if0 udp_demo_if0.xclbin 1 encrypt
 ```
-### Dual-port examples
+### Dual-port sender/receiver example
 
 Receiver side syntax:
 
@@ -128,7 +123,7 @@ Receiver side syntax:
 ./udp_host_receiver_if3 <xclbin> <number of packets> <decrypt or no-decrypt (interface 0)(optional)> <decrypt or no-decrypt (interface 1)(optional)> <receiver IP (interface 0)(optional)> <receiver IP (interface 1)(optional)> <sender IP (interface 0)(optional)> <sender IP (interface 1)(optional)> <IP gateway (optional)>
 ```
 
-Example - Receive 1 UDP packet on each interface without decrypting 
+Example - Receive one UDP packet on each interface without decrypting 
 
 ```
 ./udp_host_receiver_if3 udp_demo_if3.xclbin 1 1
@@ -140,12 +135,12 @@ Sender side syntax:
 ./udp_host_sender_if3 <xclbin> <number of packets> <encrypt or no-encrypt (interface 0)(optional)> <encrypt or no-encrypt (interface 1)(optional)> <receiver IP (interface 0)(optional)> <receiver IP (interface 1)(optional)> <sender IP (interface 0)(optional)> <sender IP (interface 1)(optional)> <IP gateway (optional)>
 ```
 
-Example - Send 1 encrypted UDP packet on each interface 
+Example - Send one encrypted UDP packet on each interface 
 ```
 ./udp_host_sender_if3 udp_demo_if3.xclbin 1 1 encrypt encrypt
 ```
 
-Example - Send 1 UDP packet with encryption enabled on interface 1 only
+Example - Send one UDP packet with encryption enabled on interface 1 only
 ```
 ./udp_host_sender_if3 udp_demo_if3.xclbin 1 1 no-encrypt encrypt
 ```
