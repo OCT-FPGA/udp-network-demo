@@ -1,6 +1,6 @@
 # UDP Encryption and Decryption Example Using 2 Network Attached Alveo U280s
 
-UDP encrypt and decrypt example with pre-built network layer and cmac kernels. Note: You will use Vitis 2023.1 to build the bitstream in this tutorial. To use an older version, switch to the branch with the version number that you want to use. 
+This tutorial demonstrates a a UDP encrypt and decrypt example with pre-built network layer and cmac kernels.
 
 ## Introduction
 
@@ -8,9 +8,9 @@ In this example, we use Xilinx XUP UDP stack [[1]](#ref1) and CMAC kernels as pr
 
 ## Pre-requisites
 
-- A build machine with Vitis 2023.1. If you do not have such machine, we can provide you with access to one. [This document](https://github.com/OCT-FPGA/OCT-Tutorials/blob/master/nercsetup/nerc-vm-guide.md) will guide you on how to sign up and obtain access to our build machine.
+- A build machine with Vitis 2023.1 installation required. Setup instructions are available [here](https://github.com/OCT-FPGA/OCT-Tutorials/blob/master/cloudlab-setup/build-machines.md).
 
-- A Cloudlab experiment should be created with two nodes. Instructions are given [here](https://github.com/OCT-FPGA/oct-tutorials/tree/master/cloudlab-setup). Note that you don't need to set up the experiment until you finish bitstream generation. The Cloudlab experiment is only needed for the targeting workflow. This workflow has been tested and verified using Xilinx RunTime (XRT) version 2023.1. Other versions may also support, but not tested. Select the CloudLab profile ```oct-u280``` with two compute nodes when creating the experiment.  
+- A CloudLab experiment should be created with two nodes. Instructions can be found [here](https://github.com/OCT-FPGA/OCT-Tutorials/blob/master/cloudlab-setup/fpgas.md). Note that you don't need to set up the experiment until you finish bitstream generation. The CloudLab experiment is only needed for the targeting workflow. This workflow has been tested and verified using Xilinx RunTime (XRT) version 2023.1. Other versions may also support, but have not been tested. Use the CloudLab profile ```oct-u280``` with two compute nodes when creating the experiment.  
 
 ## Architecture
 
