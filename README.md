@@ -4,7 +4,7 @@ UDP encrypt and decrypt example with pre-built network layer and cmac kernels. N
 
 ## Introduction
 
-In this example, we use Xilinx XUP UDP stack [1] and CMAC kernels as pre-built binary object files (.xo files), and link custom user logic to demonstrate sending and receiving UDP packets between two U280 FPGA accelerator cards. The user logic part has both encryption and decryption kernels implemented using AES-128 block cipher. The AES code used in this example was taken from [2]. OpenCL host applications have also been provided for both sender and receiver. The host code is based on the InAccel runtime [3] and the TCP example in [4]. The sender side host executable is used to read a specific number of packets from a text file. The user can use an AXI-Lite control signal connected to the user logic to either encrypt or directly pass these packets over the network layer and cmac to the receiving host. On the receiver side, the user can read the incoming UDP packets as raw data, or decrypt them.   
+In this example, we use Xilinx XUP UDP stack [[1]](#ref1) and CMAC kernels as pre-built binary object files (.xo files), and link custom user logic to demonstrate sending and receiving UDP packets between two U280 FPGA accelerator cards. The user logic part has both encryption and decryption kernels implemented using AES-128 block cipher. The AES code used in this example was taken from [[2]](#ref2). OpenCL host applications have also been provided for both sender and receiver. The host code is based on the InAccel runtime [[3]](#ref3) and the TCP example in [[4]](#ref4). The sender side host executable is used to read a specific number of packets from a text file. The user can use an AXI-Lite control signal connected to the user logic to either encrypt or directly pass these packets over the network layer and cmac to the receiving host. On the receiver side, the user can read the incoming UDP packets as raw data, or decrypt them.   
 
 ## Pre-requisites
 
@@ -155,10 +155,10 @@ Example - Send 1 UDP packet with encryption enabled on interface 1 only
 ![plot](images/receiver.png)
 
 ## References
-[1] XUP Vitis Network Example (VNx) https://github.com/Xilinx/xup_vitis_network_example
+<a id="ref1"></a>[1] XUP Vitis Network Example (VNx) https://github.com/Xilinx/xup_vitis_network_example
 
-[2] AES Implementations https://github.com/hplp/AES_implementations
+<a id="ref2"></a>[2] AES Implementations https://github.com/hplp/AES_implementations
 
-[3] InAccel runtime https://github.com/inaccel/runtime/tree/Xilinx-MP/src/inaccel
+<a id="ref3"></a>[3] InAccel runtime https://github.com/inaccel/runtime/tree/Xilinx-MP/src/inaccel
 
-[4] Vitis with 100 Gbps TCP/IP Network Stack https://github.com/fpgasystems/Vitis_with_100Gbps_TCP-IP
+<a id="ref4"></a>[4] Vitis with 100 Gbps TCP/IP Network Stack https://github.com/fpgasystems/Vitis_with_100Gbps_TCP-IP
