@@ -31,7 +31,7 @@ First, you should clone the repository using
 
 The build environment is typically pre-configured in this build machine. Run `which vitis` to confirm. 
 
-The Alveo U280 includes two 100 Gbps QSFP-28 ports (port 0 and port 1) to send and receive packets via either or both ports. First, configure the [CMAC license] (https://github.com/OCT-FPGA/OCT-Tutorials/blob/master/network-attached-fpga/license_checkout.md). 
+The Alveo U280 includes two 100 Gbps QSFP-28 ports (port 0 and port 1) to send and receive packets via either or both ports. First, configure the [CMAC license](https://github.com/OCT-FPGA/OCT-Tutorials/blob/master/network-attached-fpga/license_checkout.md). 
 
 
 Now you are ready to start building the bitstream. Use the ```make``` command as shown below. 
