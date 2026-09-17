@@ -1,6 +1,6 @@
 # UDP Encryption and Decryption Example Using 2 Network Attached Alveo U280s
 
-This tutorial demonstrates a a UDP encrypt and decrypt example with pre-built network layer and cmac kernels.
+This tutorial demonstrates a UDP encrypt and decrypt example with pre-built network layer and cmac kernels.
 
 ## Introduction
 
