@@ -110,7 +110,7 @@ Receiver side syntax:
 ./udp_host_receiver_if3 <xclbin> <number of packets> <decrypt or no-decrypt (interface 0)(optional)> <decrypt or no-decrypt (interface 1)(optional)> <receiver IP (interface 0)(optional)> <receiver IP (interface 1)(optional)> <sender IP (interface 0)(optional)> <sender IP (interface 1)(optional)> <IP gateway (optional)>
 ```
 
-Example - Receive one UDP packet on each interface without decrypting 
+Example - Receive one UDP packet on each interface without decryption 
 
 `./udp_host_receiver_if3 udp_demo_if3.xclbin 1 1`
 
