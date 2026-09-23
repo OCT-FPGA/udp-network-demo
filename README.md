@@ -54,34 +54,28 @@ To use both port 0 and port 1:
 
 This will create sender and receiver-side host executables and an FPGA bitstream with the logic shown in the figure. Expect the build process to take 4 to 5 hours, depending on the number of CPU cores and RAM allocated to the build machine.
 
-## Copy files to CloudLab
+## Copy files to Shared Drive
 
-After completing the bitstream generation, You need to copy the bitstream, two host executables, and a text file containing the data to be sent to the two CloudLab nodes.
+After generating the bitstream, copy the bitstream, both host executables, and the data text file over to a shared network drive (`/proj/octfpga-PG0`) that the FPGA nodes can access.
 
+First, create a directory named your CloudLab user name in /proj/octfpga-PG0/
 ```bash
-scp -i <CloudLab private key> <bitstream> <receiver host executable> <sender host executable> <text file(s)> <user name>@<CloudLab node IP>:<destination directory>
-```
+mkdir /proj/octfpga-PG0/<user name>
 
-Imagine you have created an experiment with CloudLab nodes pc154 and pc157. Copy these files to both nodes.
+Then copy the files
+cp <receiver host executable> <sender host executable> <text file(s)> /proj/octfpga-PG0/<user name>
+```
 
 Example - Single-port sender/receiver:
 
 ```bash
-scp -i ~/.ssh/cloudlab_openssh ./build_hw_if0/demo_if0.xclbin ./host/build_sw_if0/host_receiver_if0 ./host/build_sw_if0/host_sender_if0 ./host/alice29.txt suranga@pc154.cloudlab.umass.edu:~
-```
-
-```bash
-scp -i ~/.ssh/cloudlab_openssh ./build_hw_if0/demo_if0.xclbin ./host/build_sw_if0/host_receiver_if0 ./host/build_sw_if0/host_sender_if0 ./host/alice29.txt suranga@pc157.cloudlab.umass.edu:~
+cp ./build_hw_if0/demo_if0.xclbin ./host/build_sw_if0/host_receiver_if0 ./host/build_sw_if0/host_sender_if0 ./host/alice29.txt /proj/octfpga-PG0/<user name>
 ```
 
 Example - Dual-port sender/receiver:
 
 ```bash
-scp -i ~/.ssh/cloudlab_openssh ./build_hw_if3/demo_if3.xclbin ./host/build_sw_if3/host_receiver_if3 ./host/build_sw_if3/host_sender_if3 ./host/alice29.txt ./host/pg66489.txt suranga@pc154.cloudlab.umass.edu:~
-```
-
-```bash
-scp -i ~/.ssh/cloudlab_openssh ./build_hw_if3/demo_if3.xclbin ./host/build_sw_if3/host_receiver_if3 ./host/build_sw_if3/host_sender_if3 ./host/alice29.txt ./host/pg66489.txt suranga@pc157.cloudlab.umass.edu:~
+cp ./build_hw_if3/demo_if3.xclbin ./host/build_sw_if3/host_receiver_if3 ./host/build_sw_if3/host_sender_if3 ./host/alice29.txt ./host/pg66489.txt /proj/octfpga-PG0/<user name>
 ```
 
 ## Run the program
