@@ -88,27 +88,20 @@ Run the receiver (pc155) first.
 
 Receiver side syntax:
 
-```bash
-./udp_host_receiver_<interface ID> <xclbin> <number of packets> <decrypt or no-decrypt (optional)> <receiver IP (optional)> <sender IP (optional)> <IP gateway (optional)>
-```
+`./udp_host_receiver_<interface ID> <xclbin> <number of packets> <decrypt or no-decrypt (optional)> <receiver IP (optional)> <sender IP (optional)> <IP gateway (optional)>`
 
 Example - Receive one UDP packet on interface 1 without decrypting
 
-```
-./udp_host_receiver_if1 udp_demo_if1.xclbin 1
-```
+`./udp_host_receiver_if1 udp_demo_if1.xclbin 1`
 
 Sender side syntax:
 
-```bash
-./udp_host_sender_<interface ID> <xclbin> <number of packets> <encrypt or no-encrypt (optional)> <sender IP (optional)> <receiver IP (optional)> <IP gateway (optional)> 
-```
+`./udp_host_sender_<interface ID> <xclbin> <number of packets> <encrypt or no-encrypt (optional)> <sender IP (optional)> <receiver IP (optional)> <IP gateway (optional)>`
 
 Example - Send one encrypted UDP packet on interface 0
 
-```
-./udp_host_sender_if0 udp_demo_if0.xclbin 1 encrypt
-```
+`./udp_host_sender_if0 udp_demo_if0.xclbin 1 encrypt`
+
 ### Dual-port sender/receiver example
 
 Receiver side syntax:
@@ -119,9 +112,7 @@ Receiver side syntax:
 
 Example - Receive one UDP packet on each interface without decrypting 
 
-```
-./udp_host_receiver_if3 udp_demo_if3.xclbin 1 1
-```
+`./udp_host_receiver_if3 udp_demo_if3.xclbin 1 1`
 
 Sender side syntax:
 
@@ -130,14 +121,14 @@ Sender side syntax:
 ```
 
 Example - Send one encrypted UDP packet on each interface 
-```
-./udp_host_sender_if3 udp_demo_if3.xclbin 1 1 encrypt encrypt
-```
+
+`./udp_host_sender_if3 udp_demo_if3.xclbin 1 1 encrypt encrypt`
+
 
 Example - Send one UDP packet with encryption enabled on interface 1 only
-```
-./udp_host_sender_if3 udp_demo_if3.xclbin 1 1 no-encrypt encrypt
-```
+
+`./udp_host_sender_if3 udp_demo_if3.xclbin 1 1 no-encrypt encrypt`
+
 
 ![plot](images/sender.png)
 
