@@ -27,6 +27,10 @@ First, you should clone the repository using
 
 ```git clone https://github.com/OCT-FPGA/udp-network-demo```
 
+Then, go to the udp-network-demo directory.
+
+`cd udp-network-demo`
+
 ## Build the bitstream and host executable
 
 The build environment is typically pre-configured in this build machine. Run `which vitis` to confirm. 
