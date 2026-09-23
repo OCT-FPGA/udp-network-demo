@@ -58,35 +58,31 @@ This will create sender and receiver-side host executables and an FPGA bitstream
 
 After generating the bitstream, copy the bitstream, both host executables, and the data text file over to a shared network drive (`/proj/octfpga-PG0`) that the FPGA nodes can access.
 
-First, create a directory named your CloudLab user name in /proj/octfpga-PG0/
-```bash
-mkdir /proj/octfpga-PG0/<user name>
+First, create a directory named with your CloudLab username in `/proj/octfpga-PG0/`
 
-Then copy the files
-cp <receiver host executable> <sender host executable> <text file(s)> /proj/octfpga-PG0/<user name>
-```
+`mkdir /proj/octfpga-PG0/<user name>`
+
+Then copy the files.
+
+`cp <receiver host executable> <sender host executable> <text file(s)> /proj/octfpga-PG0/<user name>`
 
 Example - Single-port sender/receiver:
 
 ```bash
-cp ./build_hw_if0/demo_if0.xclbin ./host/build_sw_if0/host_receiver_if0 ./host/build_sw_if0/host_sender_if0 ./host/alice29.txt /proj/octfpga-PG0/<user name>
+cp build_hw_if0/demo_if0.xclbin host/build_sw_if0/host_receiver_if0 host/build_sw_if0/host_sender_if0 host/alice29.txt /proj/octfpga-PG0/<user name>
 ```
 
 Example - Dual-port sender/receiver:
 
 ```bash
-cp ./build_hw_if3/demo_if3.xclbin ./host/build_sw_if3/host_receiver_if3 ./host/build_sw_if3/host_sender_if3 ./host/alice29.txt ./host/pg66489.txt /proj/octfpga-PG0/<user name>
+cp build_hw_if3/demo_if3.xclbin host/build_sw_if3/host_receiver_if3 host/build_sw_if3/host_sender_if3 host/alice29.txt host/pg66489.txt /proj/octfpga-PG0/<user name>
 ```
 
 ## Run the program
 
-You can now use pc154 as the sender and pc157 as the receiver or vice versa. Be sure to set ```XILINX_XRT``` environment variable on both nodes before you run the application.
+Use one FPGA as the sender and the other as the receiver. For example, use pc154 as the sender and pc155 as the receiver.
 
-```bash
-source /opt/xilinx/xrt/setup.sh
-```
-
-Run the receiver first.
+Run the receiver (pc155) first.
 
 ### Single-port sender/receiver example
 
