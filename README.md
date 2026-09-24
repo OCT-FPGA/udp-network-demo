@@ -69,13 +69,13 @@ Then copy the files.
 Example - Single-port sender/receiver:
 
 ```bash
-cp build_hw_if0/demo_if0.xclbin host/build_sw_if0/host_receiver_if0 host/build_sw_if0/host_sender_if0 host/alice29.txt /proj/octfpga-PG0/<user name>
+cp build_hw_if0/udp_demo_if0.xclbin host/build_sw_if0/udp* host/alice29.txt /proj/octfpga-PG0/<user name>
 ```
 
 Example - Dual-port sender/receiver:
 
 ```bash
-cp build_hw_if3/demo_if3.xclbin host/build_sw_if3/host_receiver_if3 host/build_sw_if3/host_sender_if3 host/alice29.txt host/pg66489.txt /proj/octfpga-PG0/<user name>
+cp build_hw_if3/udp_demo_if3.xclbin host/build_sw_if3/udp* host/alice29.txt host/pg66489.txt /proj/octfpga-PG0/<user name>
 ```
 
 ## Run the program
