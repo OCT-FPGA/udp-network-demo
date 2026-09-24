@@ -58,7 +58,7 @@ This will create sender and receiver-side host executables and an FPGA bitstream
 
 ## Copy files to shared drive
 
-After generating the bitstream, copy the bitstream, both host executables, and the data text file over to a shared network drive (`/proj/octfpga-PG0`) that the FPGA nodes can access.
+After generating the bitstream, copy the bitstream, both host executables, and the data text file over to a shared network drive (`/proj/octfpga-PG0`) that the FPGA nodes can access. Be sure to complete this before your build machine session expires.
 
 First, create a directory named with your CloudLab username in `/proj/octfpga-PG0/`
 
