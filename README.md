@@ -40,6 +40,8 @@ The Alveo U280 includes two 100 Gbps QSFP-28 ports (port 0 and port 1) to send a
 
 Now you are ready to start building the bitstream. Use the ```make``` command as shown below. 
 
+**Note:** Build only one of the following.
+
 To use port 0:
 
 ```make all INTERFACE=0```
