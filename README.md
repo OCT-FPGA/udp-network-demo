@@ -90,9 +90,9 @@ Receiver side syntax:
 
 `./udp_host_receiver_<interface ID> <xclbin> <number of packets> <decrypt or no-decrypt (optional)> <receiver IP (optional)> <sender IP (optional)> <IP gateway (optional)>`
 
-Example - Receive one UDP packet on interface 1 without decrypting
+Example - Receive one UDP packet on interface 1 and perform decryption
 
-`./udp_host_receiver_if1 udp_demo_if1.xclbin 1`
+`./udp_host_receiver_if1 udp_demo_if1.xclbin 1 decrypt`
 
 Sender side syntax:
 
