@@ -86,15 +86,19 @@ Run the receiver (pc155) first.
 
 ### Single-port sender/receiver example
 
-Receiver side syntax:
+First, navigate to the directory where the bitstream and host executables are located. Do this on both nodes. 
+
+`cd /proj/octfpga-PG0/<user name>`
+
+Receiver syntax (pc155 in this example):
 
 `./udp_host_receiver_<interface ID> <xclbin> <number of packets> <decrypt or no-decrypt (optional)> <receiver IP (optional)> <sender IP (optional)> <IP gateway (optional)>`
 
-Example - Receive one UDP packet on interface 1 and perform decryption
+Example - Receive one UDP packet on interface 0 and perform decryption
 
-`./udp_host_receiver_if1 udp_demo_if1.xclbin 1 decrypt`
+`./udp_host_receiver_if0 udp_demo_if0.xclbin 1 decrypt`
 
-Sender side syntax:
+Sender syntax (pc154 in this example):
 
 `./udp_host_sender_<interface ID> <xclbin> <number of packets> <encrypt or no-encrypt (optional)> <sender IP (optional)> <receiver IP (optional)> <IP gateway (optional)>`
 
