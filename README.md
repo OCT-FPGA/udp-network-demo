@@ -54,7 +54,7 @@ To use both port 0 and port 1:
 
 This will create sender and receiver-side host executables and an FPGA bitstream with the logic shown in the figure. Expect the build process to take 4 to 5 hours, depending on the number of CPU cores and RAM allocated to the build machine.
 
-## Copy files to Shared Drive
+## Copy files to shared drive
 
 After generating the bitstream, copy the bitstream, both host executables, and the data text file over to a shared network drive (`/proj/octfpga-PG0`) that the FPGA nodes can access.
 
